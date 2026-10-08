@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
                   <Layers className="w-5.5 h-5.5 text-brand-orange" />
                 </div>
               </div>
-              <span className="font-extrabold text-2xl text-espresso tracking-tight">FounderOS / ASTRAV</span>
+              <span className="font-extrabold text-2xl text-espresso tracking-tight">GetAstrav</span>
             </div>
             <p className="text-lg sm:text-xl text-terracotta leading-relaxed max-w-xl font-normal">
               The goal-driven organization operating system with automated mathematical progress rollups, AI goal decomposition, and enterprise RBAC.
@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="text-xs font-extrabold text-brand-orange uppercase tracking-wider">Company</h4>
             <ul className="space-y-2.5 text-sm sm:text-base text-terracotta font-medium">
-              <li><Link to="/about" className="hover:text-brand-orange transition-colors">About FounderOS</Link></li>
+              <li><Link to="/about" className="hover:text-brand-orange transition-colors">About GetAstrav</Link></li>
               <li><a href="#conversion-cta" className="hover:text-brand-orange transition-colors">Contact Engineering</a></li>
               <li><a href="#conversion-cta" className="hover:text-brand-orange transition-colors">Book a Demo</a></li>
             </ul>
@@ -94,7 +94,7 @@ export const Footer: React.FC = () => {
 
         {/* BOTTOM COPYRIGHT & COMPLIANCE BAR */}
         <div className="pt-8 border-t border-brand-peach/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-terracotta font-semibold">
-          <div>© 2026 FounderOS / ASTRAV Operating Engine. All rights reserved.</div>
+          <div>© 2026 GetAstrav Operating Engine. All rights reserved.</div>
           <div className="flex flex-wrap items-center gap-6">
             <span className="flex items-center gap-1 hover:text-brand-orange transition-colors">
               Audited Trust Anchor <ArrowUpRight className="w-3.5 h-3.5" />

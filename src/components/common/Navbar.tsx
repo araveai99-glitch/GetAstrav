@@ -28,7 +28,7 @@ export const Navbar: React.FC = () => {
       }`}
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 h-full flex items-center justify-between gap-6">
-        {/* LEFT: Brand Logo */}
+        {/* LEFT: Brand Logo - GetAstrav */}
         <Link to="/" className="flex items-center gap-3 group shrink-0">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-orange via-brand-yellow to-brand-green p-0.5 shadow-warm-sm group-hover:scale-105 transition-transform flex items-center justify-center">
             <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
@@ -37,10 +37,10 @@ export const Navbar: React.FC = () => {
           </div>
           <div className="flex flex-col">
             <span className="font-extrabold text-lg sm:text-xl tracking-tight text-espresso leading-none group-hover:text-brand-orange transition-colors">
-              FounderOS
+              GetAstrav
             </span>
             <span className="text-[10px] font-bold tracking-[0.2em] text-brand-orange uppercase mt-0.5">
-              ASTRAV ENGINE
+              COMMAND CENTER
             </span>
           </div>
         </Link>
@@ -172,7 +172,7 @@ export const Navbar: React.FC = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-brand-peach p-5 space-y-4 shadow-warm-xl max-h-[85vh] overflow-y-auto animate-fadeIn">
           <div className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
-            Navigation Menu
+            GetAstrav Navigation
           </div>
           <div className="grid grid-cols-1 gap-1.5">
             <Link to="/" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-bold text-espresso hover:bg-surface-tier1">Home Overview</Link>

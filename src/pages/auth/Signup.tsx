@@ -23,7 +23,7 @@ export const Signup: React.FC = () => {
             </div>
           </div>
           <h2 className="text-2xl font-extrabold text-espresso">Create Your Account</h2>
-          <p className="text-xs text-terracotta-muted">Scaffold your FounderOS Workspace</p>
+          <p className="text-xs text-terracotta-muted">Scaffold your GetAstrav Workspace</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">

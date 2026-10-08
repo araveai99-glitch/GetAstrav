@@ -22,7 +22,7 @@ export const HierarchyInfographic: React.FC = () => {
           Unified 8-Level Organization Infrastructure
         </span>
         <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-espresso tracking-tight">
-          How FounderOS Connects Everything
+          How GetAstrav Connects Everything
         </h3>
         <p className="text-sm sm:text-base text-terracotta leading-relaxed max-w-[800px] mx-auto">
           Top-down vision seamlessly linked with bottom-up operational execution in an immutable 8-layer connected hierarchy.
@@ -65,7 +65,7 @@ export const HierarchyInfographic: React.FC = () => {
         })}
       </div>
 
-      {/* Mobile Vertical Stacked Storytelling - Full Width Cards */}
+      {/* Mobile Vertical Stacked Storytelling */}
       <div className="lg:hidden flex flex-col space-y-3.5 relative w-full">
         {steps.map((item, idx) => {
           const Icon = item.icon;

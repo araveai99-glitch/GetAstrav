@@ -11,7 +11,7 @@ import { AnalyticsInfographic } from '../../components/infographics/AnalyticsInf
 import { GovernanceInfographic } from '../../components/infographics/GovernanceInfographic';
 import { OSMapInfographic } from '../../components/infographics/OSMapInfographic';
 import { CTASection } from '../../components/common/CTASection';
-import { Calendar, Layers, Sparkles, CheckCircle2, ShieldCheck, ArrowRight, Activity, TrendingUp } from 'lucide-react';
+import { Calendar, Layers, Sparkles, ShieldCheck, ArrowRight, Activity, TrendingUp } from 'lucide-react';
 
 export const Home: React.FC = () => {
   return (
@@ -29,12 +29,12 @@ export const Home: React.FC = () => {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-orange"></span>
               </span>
               <span className="text-xs font-mono font-extrabold tracking-wider text-espresso uppercase">
-                FounderOS Engine v4.8 • Section 01 • Command Center Intro
+                GetAstrav Engine v4.8 • Section 01 • Command Center Intro
               </span>
             </div>
           </MotionWrapper>
 
-          {/* Hero Headline (64-76px Desktop, 36-44px Mobile) */}
+          {/* Hero Headline */}
           <MotionWrapper delay={0.1} className="max-w-[1100px] mx-auto">
             <h1 className="font-extrabold text-[36px] sm:text-[54px] lg:text-[74px] leading-[1.08] tracking-tight text-espresso">
               From Founder Strategy to Execution on{' '}
@@ -44,7 +44,7 @@ export const Home: React.FC = () => {
             </h1>
           </MotionWrapper>
 
-          {/* Supporting Copy (19-22px Desktop, 15-16px Mobile) */}
+          {/* Supporting Copy */}
           <MotionWrapper delay={0.2} className="max-w-[820px] mx-auto">
             <p className="text-base sm:text-xl lg:text-2xl text-terracotta leading-relaxed font-normal">
               The goal-driven organization operating system with automated mathematical progress rollups, AI goal decomposition, and enterprise RBAC.
@@ -67,12 +67,12 @@ export const Home: React.FC = () => {
                 className="inline-flex items-center justify-center gap-2.5 text-base font-semibold text-espresso bg-white hover:bg-surface-tier1 px-7 py-4 rounded-xl shadow-warm-xs border border-brand-peach transition-all hover:border-brand-orange"
               >
                 <Layers className="w-5 h-5 text-brand-orange" />
-                <span>Explore FounderOS</span>
+                <span>Explore GetAstrav</span>
               </Link>
             </div>
           </MotionWrapper>
 
-          {/* LARGE FOUNDEROS COMMAND CENTER INTERFACE (Occupying major viewport) */}
+          {/* LARGE GETASTRAV COMMAND CENTER INTERFACE */}
           <MotionWrapper delay={0.4} direction="up" className="w-full pt-6">
             <div className="relative rounded-2xl bg-white p-5 sm:p-8 lg:p-10 shadow-warm-xl border border-brand-peach/80 space-y-6 w-full max-w-[1440px] mx-auto text-left">
               {/* Interface Header Bar */}
@@ -82,7 +82,7 @@ export const Home: React.FC = () => {
                   <div className="w-3.5 h-3.5 rounded-full bg-brand-yellow" />
                   <div className="w-3.5 h-3.5 rounded-full bg-brand-green" />
                   <span className="text-xs sm:text-sm font-mono text-terracotta ml-2 font-bold">
-                    founderos-kernel // command-center-console
+                    getastrav-kernel // command-center-console
                   </span>
                 </div>
                 <div className="flex items-center gap-3">

@@ -11,7 +11,7 @@ export const OSMapInfographic: React.FC = () => {
           Section 10 • Unified Product Map
         </span>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight">
-          FounderOS in One View
+          GetAstrav in One View
         </h2>
         <p className="text-base sm:text-lg text-terracotta leading-relaxed max-w-[800px] mx-auto">
           The complete goal-driven organization operating system connecting strategy, projects, tasks, AI intelligence, analytics, and governance.
@@ -26,7 +26,7 @@ export const OSMapInfographic: React.FC = () => {
               <Layers className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h3 className="text-base sm:text-lg font-extrabold text-espresso">ASTRAV Operating Engine Kernel</h3>
+              <h3 className="text-base sm:text-lg font-extrabold text-espresso">GetAstrav Operating Engine Kernel</h3>
               <span className="text-xs text-terracotta font-mono">Unified Org Graph v4.8</span>
             </div>
           </div>

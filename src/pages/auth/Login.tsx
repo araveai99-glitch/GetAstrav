@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Layers, ArrowRight, Lock } from 'lucide-react';
+import { Layers, ArrowRight } from 'lucide-react';
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState('arjun@founderos.app');
@@ -21,7 +21,7 @@ export const Login: React.FC = () => {
               <Layers className="w-6 h-6 text-brand-orange" />
             </div>
           </div>
-          <h2 className="text-2xl font-extrabold text-espresso">Sign In to FounderOS</h2>
+          <h2 className="text-2xl font-extrabold text-espresso">Sign In to GetAstrav</h2>
           <p className="text-xs text-terracotta-muted">Access your Executive Command Console</p>
         </div>
 

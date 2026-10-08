@@ -14,7 +14,7 @@ export const ProjectKnowledgeInfographic: React.FC = () => {
           Keep Knowledge and Execution in One Command Center
         </h3>
         <p className="text-sm sm:text-base text-terracotta leading-relaxed max-w-[800px] mx-auto">
-          No more context switching between task trackers and fragmented docs. FounderOS ties project documentation directly to live task execution and OKR targets.
+          No more context switching between task trackers and fragmented docs. GetAstrav ties project documentation directly to live task execution and OKR targets.
         </p>
       </div>
 
@@ -59,7 +59,7 @@ export const ProjectKnowledgeInfographic: React.FC = () => {
           </MotionWrapper>
         </div>
 
-        {/* CENTER CONNECTING LINE & BADGE (Brand Orange/Yellow Gradient) */}
+        {/* CENTER CONNECTING LINE & BADGE */}
         <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex-col items-center">
           <div className="px-4 py-2 rounded-full bg-gradient-to-r from-brand-orange to-brand-yellow text-white text-xs font-extrabold shadow-glow-orange border border-white flex items-center gap-1.5">
             <Link2 className="w-4 h-4 text-white" /> Bi-directional Link
