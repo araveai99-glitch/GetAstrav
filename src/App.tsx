@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
+import { BackgroundMotion } from './components/common/BackgroundMotion';
 
 // Marketing Layout Header/Footer
 import { Navbar } from './components/common/Navbar';
@@ -50,9 +51,10 @@ import { ActivityPage } from './pages/app/ActivityPage';
 
 const MarketingLayout: React.FC = () => {
   return (
-    <div className="min-h-screen bg-surface-ambient flex flex-col font-sans selection:bg-brand-orange selection:text-white">
+    <div className="min-h-screen bg-surface-ambient flex flex-col font-sans selection:bg-brand-orange selection:text-white relative">
+      <BackgroundMotion intensity="hero" />
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product" element={<Product />} />
