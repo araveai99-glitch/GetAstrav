@@ -91,7 +91,7 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState<Profile>(mockProfiles[0]); // Anupam Shrivastava
+  const [currentUser, setCurrentUser] = useState<Profile>(mockProfiles[0]); // Arjun Sharma
   const [currentOrg, setCurrentOrg] = useState<Organization>(mockOrganizations[0]);
   const [organizations] = useState<Organization[]>(mockOrganizations);
   const [profiles] = useState<Profile[]>(mockProfiles);

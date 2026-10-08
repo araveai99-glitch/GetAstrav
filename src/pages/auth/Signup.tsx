@@ -31,7 +31,7 @@ export const Signup: React.FC = () => {
             <label className="text-[10px] font-bold uppercase tracking-wider text-terracotta-muted block mb-1">Full Name</label>
             <input
               type="text"
-              placeholder="Anupam Shrivastava"
+              placeholder="Arjun Sharma"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               className="w-full px-4 py-2.5 rounded-xl border border-brand-peach text-xs font-semibold text-espresso focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"

@@ -20,8 +20,8 @@ import {
 export const mockProfiles: Profile[] = [
   {
     id: 'u-01',
-    full_name: 'Anupam Shrivastava',
-    email: 'anupam@founderos.app',
+    full_name: 'Arjun Sharma',
+    email: 'arjun@founderos.app',
     phone: '+1 (555) 019-2834',
     age: 34,
     gender: 'Male',
