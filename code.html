@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GETASTRAV FounderOS - The goal-driven organization operating system with automated mathematical progress rollups, AI goal decomposition, and enterprise RBAC.">
+  <title>GETASTRAV FounderOS - Executive Command Operating System</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Google Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            // Approved Color System
+            'brand-orange': '#f15e1c',
+            'brand-green': '#2e936f',
+            'brand-yellow-light': '#ffec69',
+            'brand-yellow': '#fab60a',
+            'brand-peach': '#f7d7b0',
+            
+            // Typographic & Surface Scale
+            'espresso': '#2a1a14',
+            'terracotta': '#3d261e',
+            'terracotta-muted': '#4a332a',
+            
+            'surface-base': '#ffffff',
+            'surface-ambient': '#fffaf5',
+            'surface-tier1': '#fef5ee',
+            'surface-tier2': '#fdf8f4',
+            'surface-container': '#ffe9e2',
+            'surface-container-high': '#fadcd2',
+            
+            // System Aliases
+            'primary': '#f15e1c',
+            'primary-hover': '#d94e10',
+            'secondary': '#2e936f',
+            'tertiary': '#795600',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          borderRadius: {
+            'xl': '1rem',
+            '2xl': '1.25rem',
+            '3xl': '1.5rem',
+          },
+          boxShadow: {
+            'warm-sm': '0 2px 8px rgba(42, 26, 20, 0.04)',
+            'warm-md': '0 8px 24px -4px rgba(42, 26, 20, 0.06), 0 2px 6px -1px rgba(74, 51, 42, 0.04)',
+            'warm-lg': '0 16px 36px -6px rgba(42, 26, 20, 0.08), 0 4px 12px -2px rgba(241, 94, 28, 0.06)',
+            'warm-xl': '0 24px 48px -8px rgba(42, 26, 20, 0.12), 0 0 1px 1px rgba(241, 94, 28, 0.1)',
+            'glow-orange': '0 8px 28px rgba(241, 94, 28, 0.25)',
+            'glow-green': '0 8px 28px rgba(46, 147, 111, 0.22)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #fffaf5;
+        color: #2a1a14;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        overflow-x: hidden;
+      }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #fffaf5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #f7d7b0;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #f15e1c;
+    }
+
+    /* Ambient Animations */
+    @keyframes floatGlow1 {
+      0%, 100% { transform: translate(0px, 0px) scale(1); opacity: 0.45; }
+      50% { transform: translate(30px, -25px) scale(1.1); opacity: 0.7; }
+    }
+    @keyframes floatGlow2 {
+      0%, 100% { transform: translate(0px, 0px) scale(1); opacity: 0.4; }
+      50% { transform: translate(-35px, 20px) scale(1.08); opacity: 0.65; }
+    }
+    @keyframes streamFlow {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    @keyframes nodePulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.25); opacity: 0.4; }
+    }
+    @keyframes progressShift {
+      0% { width: 45%; }
+      50% { width: 78.4%; }
+      100% { width: 45%; }
+    }
+
+    .animate-float-1 { animation: floatGlow1 14s ease-in-out infinite; }
+    .animate-float-2 { animation: floatGlow2 18s ease-in-out infinite; }
+    .animate-stream { animation: streamFlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    .animate-node-pulse { animation: nodePulse 2.5s ease-in-out infinite; }
+
+    /* Sophisticated Gradient Classes */
+    .bg-grad-orange-peach {
+      background: linear-gradient(135deg, #f15e1c 0%, #f7d7b0 100%);
+    }
+    .bg-grad-yellow-light {
+      background: linear-gradient(135deg, #fab60a 0%, #ffec69 100%);
+    }
+    .bg-grad-green-yellow {
+      background: linear-gradient(135deg, #2e936f 0%, #ffec69 100%);
+    }
+    .bg-grad-orange-yellow {
+      background: linear-gradient(135deg, #f15e1c 0%, #fab60a 100%);
+    }
+    .bg-grad-peach-white {
+      background: linear-gradient(180deg, #f7d7b0 0%, #ffffff 100%);
+    }
+
+    .text-grad-brand {
+      background: linear-gradient(135deg, #f15e1c 0%, #fab60a 50%, #2e936f 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-grad-orange-peach {
+      background: linear-gradient(135deg, #f15e1c 0%, #d94e10 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Custom Hairline Borders & Shadows */
+    .hairline-border {
+      border: 1px solid rgba(74, 51, 42, 0.12);
+    }
+    .hairline-border-peach {
+      border: 1px solid rgba(247, 215, 176, 0.8);
+    }
+    .hairline-border-orange {
+      border: 1px solid rgba(241, 94, 28, 0.3);
+    }
+    .hairline-border-green {
+      border: 1px solid rgba(46, 147, 111, 0.3);
+    }
+  </style>
+</head>
+
+<body class="bg-surface-ambient text-espresso antialiased relative selection:bg-brand-orange selection:text-white">
+
+  <!-- =================================================================== -->
+  <!-- HEADER & NAVIGATION -->
+  <!-- =================================================================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl hairline-border-peach shadow-warm-sm transition-all duration-300" id="main-header">
+    <div class="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" onclick="showView('home'); return false;" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-grad-orange-yellow p-0.5 shadow-warm-sm group-hover:scale-105 transition-transform flex items-center justify-center">
+          <div class="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
+            <span class="material-symbols-outlined text-brand-orange text-[24px]">dataset</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-lg tracking-tight text-espresso leading-none group-hover:text-brand-orange transition-colors">GETASTRAV</span>
+          <span class="text-[10px] font-bold tracking-[0.15em] text-terracotta-muted uppercase mt-0.5">FounderOS</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+        
+        <!-- Product Dropdown -->
+        <div class="relative group">
+          <button type="button" class="px-3 py-2 rounded-lg text-sm font-semibold text-terracotta hover:text-brand-orange hover:bg-surface-tier1 transition-colors flex items-center gap-1">
+            <span>Product</span>
+            <span class="material-symbols-outlined text-[16px] text-terracotta-muted group-hover:rotate-180 transition-transform">expand_more</span>
+          </button>
+          <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-64 z-50">
+            <div class="bg-white p-2 rounded-2xl shadow-warm-lg hairline-border-peach flex flex-col gap-1">
+              <a href="#" onclick="showView('product-command-center'); return false;" class="px-3.5 py-2.5 rounded-xl text-sm font-medium text-terracotta hover:bg-surface-tier1 hover:text-brand-orange transition-colors flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-brand-orange text-[18px]">dashboard</span>
+                <div>
+                  <div class="font-semibold leading-tight">Command Center</div>
+                  <div class="text-[11px] text-terracotta-muted font-normal">Executive operating console</div>
+                </div>
+              </a>
+              <a href="#" onclick="showView('goals-progress'); return false;" class="px-3.5 py-2.5 rounded-xl text-sm font-medium text-terracotta hover:bg-surface-tier1 hover:text-brand-orange transition-colors flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-brand-green text-[18px]">account_tree</span>
+                <div>
+                  <div class="font-semibold leading-tight">Goals & Progress</div>
+                  <div class="text-[11px] text-terracotta-muted font-normal">Automated 7-level rollups</div>
+                </div>
+              </a>
+              <a href="#" onclick="showView('ai-intelligence'); return false;" class="px-3.5 py-2.5 rounded-xl text-sm font-medium text-terracotta hover:bg-surface-tier1 hover:text-brand-orange transition-colors flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-brand-yellow text-[18px]">psychology</span>
+                <div>
+                  <div class="font-semibold leading-tight">AI Intelligence</div>
+                  <div class="text-[11px] text-terracotta-muted font-normal">Gemini goal decomposition</div>
+                </div>
+              </a>
+              <a href="#" onclick="showView('task-management'); return false;" class="px-3.5 py-2.5 rounded-xl text-sm font-medium text-terracotta hover:bg-surface-tier1 hover:text-brand-orange transition-colors flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-brand-orange text-[18px]">task_alt</span>
+                <div>
+                  <div class="font-semibold leading-tight">Task Management</div>
+                  <div class="text-[11px] text-terracotta-muted font-normal">Leaf task execution & SLAs</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Features Dropdown -->
+        <div class="relative group">
+          <button type="button" class="px-3 py-2 rounded-lg text-sm font-semibold text-terracotta hover:text-brand-orange hover:bg-surface-tier1 transition-colors flex items-center gap-1">
+            <span>Features</span>
+            <span class="material-symbols-outlined text-[16px] text-terracotta-muted group-hover:rotate-180 transition-transform">expand_more</span>
+          </button>
+          <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-64 z-50">
+            <div class="bg-white p-2 rounded-2xl shadow-warm-lg hairline-border-peach flex flex-col gap-1">
+              <a href="#" onclick="showView('teams-collaboration'); return false;" class="px-3 py-2 rounded-xl text-sm text-terracotta hover:bg-surface-tier1 hover:text-brand-orange transition-colors font-medium">Teams & Collaboration</a>
+              <a href="#" onclick="showView('project-management'); return false;" class="px-3 py-2 rounded-xl text-sm text-terracotta hover:bg-surface-tier1 hover:text-brand-orange transition-colors font-medium">Project Management</a>
+              <a href="#" onclick="showView('analytics-dashboard'); return false;" class="px-3 py-2 rounded-xl text-sm text-terracotta hover:bg-surface-tier1 hover:text-brand-orange transition-colors font-medium">Analytics & Dashboard</a>
+              <a href="#" onclick="showView('governance-rbac'); return false;" class="px-3 py-2 rounded-xl text-sm text-terracotta hover:bg-surface-tier1 hover:text-brand-orange transition-colors font-medium">Governance & RBAC</a>
+              <a href="#" onclick="showView('documentation'); return false;" class="px-3 py-2 rounded-xl text-sm text-terracotta hover:bg-surface-tier1 hover:text-brand-orange transition-colors font-medium">Project Documentation</a>
+              <a href="#" onclick="showView('automation-reminders'); return false;" class="px-3 py-2 rounded-xl text-sm text-terracotta hover:bg-surface-tier1 hover:text-brand-orange transition-colors font-medium">Automation & Reminders</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solutions Dropdown -->
+        <div class="relative group">
+          <button type="button" class="px-3 py-2 rounded-lg text-sm font-semibold text-terracotta hover:text-brand-orange hover:bg-surface-tier1 transition-colors flex items-center gap-1">
+            <span>Solutions</span>
+            <span class="material-symbols-outlined text-[16px] text-terracotta-muted group-hover:rotate-180 transition-transform">expand_more</span>
+          </button>
+          <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-60 z-50">
+            <div class="bg-white p-2 rounded-2xl shadow-warm-lg hairline-border-peach flex flex-col gap-1">
+              <a href="#" onclick="showView('for-founders'); return false;" class="px-3 py-2 rounded-xl text-sm text-terracotta hover:bg-surface-tier1 hover:text-brand-orange transition-colors font-medium">For Founders</a>
+              <a href="#" onclick="showView('for-managers-teams'); return false;" class="px-3 py-2 rounded-xl text-sm text-terracotta hover:bg-surface-tier1 hover:text-brand-orange transition-colors font-medium">For Managers & Teams</a>
+              <a href="#" onclick="showView('use-cases'); return false;" class="px-3 py-2 rounded-xl text-sm text-terracotta hover:bg-surface-tier1 hover:text-brand-orange transition-colors font-medium">Enterprise Use Cases</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" onclick="showView('resources-insights'); return false;" class="px-3 py-2 rounded-lg text-sm font-semibold text-terracotta hover:text-brand-orange hover:bg-surface-tier1 transition-colors">Resources</a>
+        <a href="#" onclick="showView('about-contact'); return false;" class="px-3 py-2 rounded-lg text-sm font-semibold text-terracotta hover:text-brand-orange hover:bg-surface-tier1 transition-colors">Company</a>
+      </nav>
+
+      <!-- Quick Jump Selector & CTAs -->
+      <div class="flex items-center gap-3">
+        <!-- Quick Selector Dropdown -->
+        <div class="relative hidden xl:block">
+          <select id="quick-page-selector" onchange="showView(this.value)" class="bg-surface-tier1 text-espresso font-semibold text-xs py-2 pl-3 pr-8 rounded-xl hairline-border-peach hover:bg-surface-container focus:outline-none focus:ring-2 focus:ring-brand-orange cursor-pointer transition-colors appearance-none">
+            <option value="home">01. Home (Platform Overview)</option>
+            <option value="product-command-center">02. Command Center</option>
+            <option value="goals-progress">03. Goals & Progress</option>
+            <option value="ai-intelligence">04. AI Intelligence</option>
+            <option value="task-management">05. Task Management</option>
+            <option value="teams-collaboration">06. Teams & Collaboration</option>
+            <option value="project-management">07. Project Management</option>
+            <option value="analytics-dashboard">08. Analytics & Dashboard</option>
+            <option value="governance-rbac">09. Governance & RBAC</option>
+            <option value="documentation">10. Documentation</option>
+            <option value="automation-reminders">11. Automation & Reminders</option>
+            <option value="use-cases">12. Enterprise Use Cases</option>
+            <option value="for-founders">13. For Founders</option>
+            <option value="for-managers-teams">14. For Managers & Teams</option>
+            <option value="resources-insights">15. Resources & Insights</option>
+            <option value="about-contact">16. About & Contact</option>
+          </select>
+          <span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-terracotta-muted pointer-events-none text-[16px]">unfold_more</span>
+        </div>
+
+        <a href="#interactive-showcase" onclick="showView('home'); setTimeout(()=> { document.getElementById('interactive-showcase')?.scrollIntoView({behavior:'smooth'}); }, 100);" class="hidden sm:inline-flex items-center justify-center text-xs font-semibold text-espresso bg-white hover:bg-surface-tier1 px-4 py-2.5 rounded-xl shadow-warm-sm hairline-border-peach transition-all">
+          Live Console
+        </a>
+
+        <a href="#conversion-cta" onclick="showView('home'); setTimeout(()=> { document.getElementById('conversion-cta')?.scrollIntoView({behavior:'smooth'}); }, 100);" class="inline-flex items-center justify-center text-xs font-bold text-white bg-brand-orange hover:bg-primary-hover px-5 py-2.5 rounded-xl shadow-glow-orange transition-all hover:-translate-y-0.5">
+          Book a Demo
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" onclick="toggleMobileMenu()" class="lg:hidden p-2 text-terracotta hover:text-brand-orange focus:outline-none" aria-label="Toggle menu">
+          <span class="material-symbols-outlined text-[26px]">menu</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white hairline-border-peach p-4 space-y-3 shadow-warm-lg max-h-[80vh] overflow-y-auto">
+      <div class="text-xs font-bold text-terracotta-muted uppercase tracking-wider px-2">Navigation Views</div>
+      <div class="grid grid-cols-1 gap-1">
+        <a href="#" onclick="showView('home'); toggleMobileMenu(); return false;" class="p-2.5 rounded-xl text-sm font-bold text-espresso hover:bg-surface-tier1 hover:text-brand-orange">01. Home Showcase</a>
+        <a href="#" onclick="showView('product-command-center'); toggleMobileMenu(); return false;" class="p-2.5 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1 hover:text-brand-orange">02. Command Center</a>
+        <a href="#" onclick="showView('goals-progress'); toggleMobileMenu(); return false;" class="p-2.5 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1 hover:text-brand-orange">03. Goals & Progress (OKRs)</a>
+        <a href="#" onclick="showView('ai-intelligence'); toggleMobileMenu(); return false;" class="p-2.5 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1 hover:text-brand-orange">04. AI Intelligence (Gemini)</a>
+        <a href="#" onclick="showView('task-management'); toggleMobileMenu(); return false;" class="p-2.5 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1 hover:text-brand-orange">05. Task Management</a>
+        <a href="#" onclick="showView('governance-rbac'); toggleMobileMenu(); return false;" class="p-2.5 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1 hover:text-brand-orange">06. Governance & RBAC</a>
+        <a href="#" onclick="showView('analytics-dashboard'); toggleMobileMenu(); return false;" class="p-2.5 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1 hover:text-brand-orange">07. Analytics & Radar</a>
+        <a href="#" onclick="showView('for-founders'); toggleMobileMenu(); return false;" class="p-2.5 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1 hover:text-brand-orange">08. For Founders</a>
+        <a href="#" onclick="showView('about-contact'); toggleMobileMenu(); return false;" class="p-2.5 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1 hover:text-brand-orange">09. Contact & Walkthrough</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =================================================================== -->
+  <!-- MAIN CONTENT CONTAINER -->
+  <!-- =================================================================== -->
+  <main class="w-full pt-20">
+
+    <!-- VIEW 1: HOMEPAGE SHOWCASE (Default View) -->
+    <div id="view-home" class="w-full flex flex-col">
+
+      <!-- ============================================================ -->
+      <!-- SECTION 1: HERO SECTION -->
+      <!-- ============================================================ -->
+      <section class="relative w-full overflow-hidden py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-surface-ambient">
+        <!-- Floating Ambient Background Lighting Flares -->
+        <div class="animate-float-1 absolute top-10 left-1/4 w-[500px] h-[350px] bg-gradient-to-tr from-brand-peach/40 via-brand-yellow-light/35 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+        <div class="animate-float-2 absolute top-40 right-10 w-[450px] h-[380px] bg-gradient-to-bl from-brand-orange/15 via-brand-yellow/20 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+
+        <div class="max-w-[1340px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Hero Left Column: Copy & Actions -->
+          <div class="lg:col-span-6 flex flex-col items-start text-left">
+            
+            <!-- Live Telemetry Pill -->
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 hairline-border-peach shadow-warm-sm mb-6">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-orange"></span>
+              </span>
+              <span class="text-[11px] font-bold tracking-[0.08em] text-espresso uppercase">FounderOS v4.8 • Real-Time Operating Layer</span>
+            </div>
+
+            <!-- Approved Headline -->
+            <h1 class="font-extrabold text-[40px] sm:text-[52px] lg:text-[64px] leading-[1.08] tracking-[-0.03em] text-espresso mb-6">
+              From Founder Strategy to Execution on <span class="text-grad-brand">Autopilot.</span>
+            </h1>
+
+            <!-- Approved Subhead -->
+            <p class="text-base sm:text-lg lg:text-xl text-terracotta leading-relaxed font-normal max-w-xl mb-8">
+              The goal-driven organization operating system with automated mathematical progress rollups, AI goal decomposition, and enterprise RBAC.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+              <a href="#conversion-cta" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 text-base font-bold text-white bg-brand-orange hover:bg-primary-hover px-7 py-3.5 rounded-2xl shadow-glow-orange hover:-translate-y-0.5 transition-all">
+                <span class="material-symbols-outlined text-[20px]">calendar_today</span>
+                Book a Demo
+              </a>
+              <a href="#interactive-showcase" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-base font-semibold text-espresso bg-white hover:bg-surface-tier1 px-6 py-3.5 rounded-2xl shadow-warm-sm hairline-border-peach transition-all">
+                <span class="material-symbols-outlined text-brand-orange text-[20px]">dashboard_customize</span>
+                Inspect Command Console
+              </a>
+            </div>
+
+            <!-- Key Trust Metrics Strip -->
+            <div class="grid grid-cols-3 gap-4 pt-10 mt-10 hairline-border-peach border-t w-full text-left">
+              <div>
+                <div class="font-extrabold text-xl sm:text-2xl text-brand-orange">Sub-50ms</div>
+                <div class="text-xs text-terracotta-muted font-medium">Rollup Propagation</div>
+              </div>
+              <div>
+                <div class="font-extrabold text-xl sm:text-2xl text-brand-green">100%</div>
+                <div class="text-xs text-terracotta-muted font-medium">Mathematical Certainty</div>
+              </div>
+              <div>
+                <div class="font-extrabold text-xl sm:text-2xl text-tertiary">SOC2 Type II</div>
+                <div class="text-xs text-terracotta-muted font-medium">Aligned Governance</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Right Column: Premium Interactive Dashboard Visual -->
+          <div class="lg:col-span-6 relative">
+            <div class="w-full rounded-3xl p-3 sm:p-4 bg-gradient-to-b from-brand-peach/80 via-white to-surface-tier1 shadow-warm-xl hairline-border-peach relative">
+              
+              <!-- Console Top System Bar -->
+              <div class="w-full bg-white/90 rounded-t-2xl px-4 py-2.5 flex items-center justify-between border-b hairline-border-peach text-xs">
+                <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-3 h-3 rounded-full bg-brand-orange"></span>
+                    <span class="w-3 h-3 rounded-full bg-brand-yellow"></span>
+                    <span class="w-3 h-3 rounded-full bg-brand-green"></span>
+                  </div>
+                  <span class="font-semibold text-terracotta-muted text-[11px] ml-2">cluster-us-east-1 // kernel-mesh-live</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-brand-green/15 text-brand-green font-bold text-[11px]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse"></span> 99.998% Synced
+                  </span>
+                </div>
+              </div>
+
+              <!-- Console Body Grid -->
+              <div class="bg-white rounded-b-2xl p-4 sm:p-6 space-y-4">
+                
+                <!-- Rollup Radar Header Card -->
+                <div class="p-4 rounded-xl bg-surface-tier1 border hairline-border-peach flex items-center justify-between">
+                  <div>
+                    <div class="text-[11px] font-bold uppercase tracking-wider text-terracotta-muted">Q2 Enterprise Expansion OKR</div>
+                    <div class="text-xl sm:text-2xl font-extrabold text-espresso mt-0.5">84.2% Completed</div>
+                  </div>
+                  <div class="text-right">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-brand-green/15 text-brand-green font-bold text-xs">
+                      +18.4% Net Shift
+                    </span>
+                    <div class="text-[10px] text-terracotta-muted mt-1 font-semibold">14 Child Deliverables</div>
+                  </div>
+                </div>
+
+                <!-- Animated Progress Rail -->
+                <div class="space-y-1">
+                  <div class="flex items-center justify-between text-xs font-semibold text-terracotta">
+                    <span>L1 Root to L7 Leaf Propagation</span>
+                    <span class="text-brand-orange font-bold">Automatic Rollup</span>
+                  </div>
+                  <div class="w-full bg-surface-container h-3.5 rounded-full overflow-hidden relative p-0.5">
+                    <div class="bg-grad-orange-yellow h-full rounded-full transition-all duration-1000" style="width: 84.2%;"></div>
+                    <div class="absolute inset-0 bg-white/40 animate-stream w-1/3"></div>
+                  </div>
+                </div>
+
+                <!-- Live Telemetry Mini Modules -->
+                <div class="grid grid-cols-2 gap-3 pt-2">
+                  <div class="p-3 rounded-xl bg-surface-tier2 border hairline-border-peach flex items-center justify-between">
+                    <div>
+                      <div class="text-[10px] font-bold uppercase text-terracotta-muted">AI Today Focus</div>
+                      <div class="text-sm font-bold text-espresso">12 Tasks Parsed</div>
+                    </div>
+                    <span class="material-symbols-outlined text-brand-yellow text-[22px]">neurology</span>
+                  </div>
+                  <div class="p-3 rounded-xl bg-surface-tier2 border hairline-border-peach flex items-center justify-between">
+                    <div>
+                      <div class="text-[10px] font-bold uppercase text-terracotta-muted">Security Isolation</div>
+                      <div class="text-sm font-bold text-brand-green">RLS Active</div>
+                    </div>
+                    <span class="material-symbols-outlined text-brand-green text-[22px]">shield</span>
+                  </div>
+                </div>
+
+                <!-- Interactive Override Toggle -->
+                <div class="p-3 rounded-xl bg-white border hairline-border-peach flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-brand-orange text-[18px]">tune</span>
+                    <span class="text-xs font-semibold text-terracotta">Executive Override Fallback</span>
+                  </div>
+                  <span class="text-[11px] font-bold text-brand-green bg-brand-green/15 px-2 py-0.5 rounded-full">ENABLED</span>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================ -->
+      <!-- SECTION 2: EVERYTHING CONNECTED -->
+      <!-- ============================================================ -->
+      <section class="w-full bg-surface-tier1 py-20 px-4 sm:px-6 lg:px-8 border-y hairline-border-peach relative">
+        <div class="max-w-[1340px] mx-auto flex flex-col gap-10">
+          
+          <!-- Section Header -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-peach text-brand-orange text-xs font-bold uppercase tracking-wider mb-3">
+                <span class="material-symbols-outlined text-[15px]">hub</span>
+                Bidirectional Architecture
+              </div>
+              <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-espresso tracking-tight">
+                Everything Connected.
+              </h2>
+            </div>
+            <p class="text-base sm:text-lg text-terracotta max-w-lg">
+              Top-down vision seamlessly linked with bottom-up operational execution in an immutable mathematical feedback loop.
+            </p>
+          </div>
+
+          <!-- Connected Node Network Diagram -->
+          <div class="bg-white rounded-3xl p-6 sm:p-10 border hairline-border-peach shadow-warm-md relative overflow-hidden">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-11 items-center gap-8 relative z-10">
+              
+              <!-- Top-Down Executive Strategy Node (4 Cols) -->
+              <div class="lg:col-span-4 p-6 rounded-2xl bg-surface-tier1 border hairline-border-orange flex flex-col gap-4 shadow-warm-sm">
+                <div class="flex items-center justify-between">
+                  <span class="px-3 py-1 rounded-full bg-brand-orange/15 text-brand-orange font-bold text-xs uppercase tracking-wider">Top-Down Steering</span>
+                  <span class="material-symbols-outlined text-brand-orange text-[26px]">visibility</span>
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl text-espresso">Executive Strategy & OKRs</h3>
+                  <p class="text-xs text-terracotta-muted mt-1">Board milestones, capital allocations, target vectors.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2">
+                  <div class="p-3 rounded-xl bg-white text-center border hairline-border-peach">
+                    <div class="text-xs font-bold text-espresso">North Star</div>
+                    <div class="text-[10px] text-terracotta-muted uppercase font-bold">L1 Anchor</div>
+                  </div>
+                  <div class="p-3 rounded-xl bg-white text-center border hairline-border-peach">
+                    <div class="text-xs font-bold text-brand-orange">Weighted Goals</div>
+                    <div class="text-[10px] text-terracotta-muted uppercase font-bold">L5 Rollup</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Center Sync Vector Bridge (3 Cols) -->
+              <div class="lg:col-span-3 flex flex-col items-center justify-center px-4 py-6 text-center">
+                <div class="text-xs font-bold text-espresso uppercase tracking-wider mb-1">Real-Time Sync Vector</div>
+                <div class="text-[11px] text-terracotta-muted">Bidirectional Propagation</div>
+                
+                <!-- Connector Line -->
+                <div class="w-full my-4 h-3 bg-surface-container rounded-full overflow-hidden relative border hairline-border-peach">
+                  <div class="w-full h-full bg-grad-orange-yellow"></div>
+                  <div class="absolute inset-0 bg-white/40 animate-stream w-1/2"></div>
+                </div>
+
+                <div class="flex items-center justify-between w-full text-[11px] font-bold text-terracotta">
+                  <span class="flex items-center gap-0.5 text-brand-orange"><span class="material-symbols-outlined text-[14px]">arrow_downward</span> Directives</span>
+                  <span class="flex items-center gap-0.5 text-brand-green">Rollup <span class="material-symbols-outlined text-[14px]">arrow_upward</span></span>
+                </div>
+              </div>
+
+              <!-- Bottom-Up Operational Execution Node (4 Cols) -->
+              <div class="lg:col-span-4 p-6 rounded-2xl bg-surface-tier1 border hairline-border-green flex flex-col gap-4 shadow-warm-sm">
+                <div class="flex items-center justify-between">
+                  <span class="px-3 py-1 rounded-full bg-brand-green/15 text-brand-green font-bold text-xs uppercase tracking-wider">Bottom-Up Fulfillment</span>
+                  <span class="material-symbols-outlined text-brand-green text-[26px]">terminal</span>
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl text-espresso">Operational Execution</h3>
+                  <p class="text-xs text-terracotta-muted mt-1">Daily commits, sprint tasks, automated milestone deliverables.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2">
+                  <div class="p-3 rounded-xl bg-white text-center border hairline-border-peach">
+                    <div class="text-xs font-bold text-brand-green">Sprint Tasks</div>
+                    <div class="text-[10px] text-terracotta-muted uppercase font-bold">L7 Leaf Nodes</div>
+                  </div>
+                  <div class="p-3 rounded-xl bg-white text-center border hairline-border-peach">
+                    <div class="text-xs font-bold text-espresso">Audit Logs</div>
+                    <div class="text-[10px] text-terracotta-muted uppercase font-bold">Zero Drift</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- 7-Level Tier Stepper -->
+            <div class="mt-10 pt-8 border-t hairline-border-peach">
+              <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+                <div class="p-3 rounded-xl bg-surface-tier1 text-center border-t-4 border-brand-orange shadow-warm-sm">
+                  <span class="text-[10px] font-extrabold text-brand-orange block">L1</span>
+                  <span class="text-xs font-bold text-espresso">Organization</span>
+                </div>
+                <div class="p-3 rounded-xl bg-surface-tier1 text-center border-t-4 border-brand-orange/80 shadow-warm-sm">
+                  <span class="text-[10px] font-extrabold text-brand-orange block">L2</span>
+                  <span class="text-xs font-bold text-espresso">Departments</span>
+                </div>
+                <div class="p-3 rounded-xl bg-surface-tier1 text-center border-t-4 border-brand-yellow shadow-warm-sm">
+                  <span class="text-[10px] font-extrabold text-brand-yellow block">L3</span>
+                  <span class="text-xs font-bold text-espresso">Teams & Pods</span>
+                </div>
+                <div class="p-3 rounded-xl bg-surface-tier1 text-center border-t-4 border-brand-yellow shadow-warm-sm">
+                  <span class="text-[10px] font-extrabold text-brand-yellow block">L4</span>
+                  <span class="text-xs font-bold text-espresso">Projects</span>
+                </div>
+                <div class="p-3 rounded-xl bg-surface-tier1 text-center border-t-4 border-brand-green shadow-warm-sm">
+                  <span class="text-[10px] font-extrabold text-brand-green block">L5</span>
+                  <span class="text-xs font-bold text-espresso">Goals (OKRs)</span>
+                </div>
+                <div class="p-3 rounded-xl bg-surface-tier1 text-center border-t-4 border-brand-green shadow-warm-sm">
+                  <span class="text-[10px] font-extrabold text-brand-green block">L6</span>
+                  <span class="text-xs font-bold text-espresso">Milestones</span>
+                </div>
+                <div class="p-3 rounded-xl bg-surface-tier1 text-center border-t-4 border-brand-orange shadow-warm-sm">
+                  <span class="text-[10px] font-extrabold text-brand-orange block">L7</span>
+                  <span class="text-xs font-bold text-espresso">Leaf Tasks</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================ -->
+      <!-- SECTION 3: AUTOMATED PROGRESS -->
+      <!-- ============================================================ -->
+      <section class="w-full bg-white py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-[1340px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left Column: Copy -->
+          <div class="lg:col-span-5 flex flex-col items-start">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-green/15 text-brand-green text-xs font-bold uppercase tracking-wider mb-3">
+              <span class="material-symbols-outlined text-[15px]">calculate</span>
+              Automated Rollup Engine
+            </div>
+            <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-espresso tracking-tight mb-6">
+              Never Ask <br class="hidden sm:inline">"What's the Status?" Again.
+            </h2>
+            <p class="text-base sm:text-lg text-terracotta leading-relaxed mb-6">
+              Leaf-level sprint task completions roll up mathematically into parent OKRs in real time. Eliminate manual status meetings with deterministic, zero-drift progress tracking.
+            </p>
+
+            <div class="space-y-3 w-full">
+              <div class="p-3.5 rounded-2xl bg-surface-tier1 border hairline-border-peach flex items-center gap-3">
+                <span class="w-8 h-8 rounded-xl bg-brand-green/20 text-brand-green flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[18px]">check_circle</span>
+                </span>
+                <div>
+                  <div class="text-sm font-bold text-espresso">Automatic Mathematical Aggregation</div>
+                  <div class="text-xs text-terracotta-muted">Child leaf task percentages automatically recalculate parent OKR progress.</div>
+                </div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-surface-tier1 border hairline-border-peach flex items-center gap-3">
+                <span class="w-8 h-8 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[18px]">tune</span>
+                </span>
+                <div>
+                  <div class="text-sm font-bold text-espresso">Executive Override Protection</div>
+                  <div class="text-xs text-terracotta-muted">Founders can adjust weights or manually lock milestones with full audit trail logging.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Rollup Simulator -->
+          <div class="lg:col-span-7">
+            <div class="p-6 sm:p-8 rounded-3xl bg-surface-tier1 border hairline-border-peach shadow-warm-md space-y-6">
+              
+              <div class="flex items-center justify-between pb-4 border-b hairline-border-peach">
+                <div>
+                  <div class="text-xs font-bold text-terracotta-muted uppercase tracking-wider">Live Simulation</div>
+                  <div class="text-lg font-extrabold text-espresso">Sprint Leaf Tasks → Strategic OKR Rollup</div>
+                </div>
+                <button type="button" onclick="triggerRollupSimulation()" class="px-3.5 py-2 rounded-xl bg-brand-orange text-white text-xs font-bold shadow-glow-orange hover:bg-primary-hover transition-all">
+                  Simulate Leaf Completion
+                </button>
+              </div>
+
+              <!-- Flow Visual Cards -->
+              <div class="space-y-3">
+                <!-- Parent Goal -->
+                <div class="p-4 rounded-2xl bg-white border hairline-border-green shadow-warm-sm flex items-center justify-between">
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <span class="px-2 py-0.5 rounded-full bg-brand-green/15 text-brand-green text-[10px] font-bold uppercase">L5 Goal Node</span>
+                      <span class="text-xs font-bold text-espresso">SOC2 Security & Enterprise Readiness</span>
+                    </div>
+                    <div class="text-xs text-terracotta-muted mt-1">Weighted Contribution: 1.4x Target Vector</div>
+                  </div>
+                  <div class="text-right">
+                    <div id="sim-parent-val" class="text-xl font-extrabold text-brand-green">78.4%</div>
+                    <div class="text-[10px] font-bold text-brand-green">+18.4% Net Shift</div>
+                  </div>
+                </div>
+
+                <!-- Child Subtask 1 -->
+                <div class="p-3.5 rounded-xl bg-white border hairline-border-peach flex items-center justify-between ml-4 sm:ml-8">
+                  <div class="flex items-center gap-2.5">
+                    <span class="material-symbols-outlined text-brand-green text-[18px]">check_box</span>
+                    <span class="text-xs font-semibold text-espresso">AWS KMS Envelope Encryption Implemented</span>
+                  </div>
+                  <span class="text-xs font-bold text-brand-green">100% Locked</span>
+                </div>
+
+                <!-- Child Subtask 2 -->
+                <div class="p-3.5 rounded-xl bg-white border hairline-border-peach flex items-center justify-between ml-4 sm:ml-8">
+                  <div class="flex items-center gap-2.5">
+                    <span id="sim-task-icon" class="material-symbols-outlined text-brand-orange text-[18px]">check_box_outline_blank</span>
+                    <span class="text-xs font-semibold text-espresso">Row-Level Security Policies Applied</span>
+                  </div>
+                  <span id="sim-task-status" class="text-xs font-bold text-brand-orange">In Progress (60%)</span>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-white border hairline-border-peach flex items-center justify-between text-xs text-terracotta-muted">
+                <span>Deterministic Cascade Latency: <strong>0.18ms</strong></span>
+                <span class="text-brand-green font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">verified</span> Zero Drift Verified</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================ -->
+      <!-- SECTION 4: AI EXECUTION -->
+      <!-- ============================================================ -->
+      <section class="w-full bg-surface-tier1 py-20 px-4 sm:px-6 lg:px-8 border-y hairline-border-peach relative">
+        <div class="max-w-[1340px] mx-auto flex flex-col gap-10">
+          
+          <div class="text-center max-w-3xl mx-auto space-y-4">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-yellow-light text-tertiary text-xs font-bold uppercase tracking-wider">
+              <span class="material-symbols-outlined text-[15px]">psychology</span>
+              AI Goal Decomposition Engine
+            </div>
+            <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-espresso tracking-tight">
+              Turn Goals Into Action.
+            </h2>
+            <p class="text-base sm:text-lg text-terracotta leading-relaxed">
+              Gemini Flash Lite analyzes quarterly objectives, breaks down complex initiatives, and auto-generates structured, ready-to-assign sprint deliverables.
+            </p>
+          </div>
+
+          <!-- AI Visual Process Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Step 1 -->
+            <div class="p-6 rounded-3xl bg-white border hairline-border-peach shadow-warm-sm flex flex-col justify-between space-y-4">
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-brand-orange/10 text-brand-orange flex items-center justify-center mb-4">
+                  <span class="material-symbols-outlined text-[26px]">edit_note</span>
+                </div>
+                <div class="text-xs font-bold text-brand-orange uppercase tracking-wider">STEP 01 • PROMPT</div>
+                <h3 class="font-bold text-lg text-espresso mt-1">High-Level Executive Goal</h3>
+                <p class="text-xs text-terracotta-muted mt-2">"Expand EMEA Enterprise Revenue by 40% in Q3 via localized SOC2 compliance and sales enablement."</p>
+              </div>
+              <div class="p-3 rounded-xl bg-surface-tier1 border hairline-border-peach text-[11px] font-semibold text-terracotta">
+                User Input: 1 Sentence
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="p-6 rounded-3xl bg-white border hairline-border-orange shadow-warm-md flex flex-col justify-between space-y-4 relative">
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-brand-orange text-white text-[10px] font-bold uppercase">
+                Gemini Heuristic
+              </div>
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-brand-yellow-light text-tertiary flex items-center justify-center mb-4">
+                  <span class="material-symbols-outlined text-[26px]">neurology</span>
+                </div>
+                <div class="text-xs font-bold text-tertiary uppercase tracking-wider">STEP 02 • REASONING</div>
+                <h3 class="font-bold text-lg text-espresso mt-1">AI Contextual Breakdown</h3>
+                <p class="text-xs text-terracotta-muted mt-2">Decomposes goal into legal, technical, and sales dependencies with automated effort estimation.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-surface-tier1 border hairline-border-peach text-[11px] font-semibold text-terracotta flex items-center justify-between">
+                <span>Latency: 0.18s</span>
+                <span class="text-brand-orange font-bold">3 Deliverables Auto-Mapped</span>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="p-6 rounded-3xl bg-white border hairline-border-green shadow-warm-sm flex flex-col justify-between space-y-4">
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-brand-green/15 text-brand-green flex items-center justify-center mb-4">
+                  <span class="material-symbols-outlined text-[26px]">playlist_add_check</span>
+                </div>
+                <div class="text-xs font-bold text-brand-green uppercase tracking-wider">STEP 03 • EXECUTION</div>
+                <h3 class="font-bold text-lg text-espresso mt-1">Decomposed Leaf Tasks</h3>
+                <p class="text-xs text-terracotta-muted mt-2">Instant assignment to team pods with pre-filled acceptance criteria and target SLAs.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-surface-tier1 border hairline-border-peach text-[11px] font-semibold text-espresso flex items-center justify-between">
+                <span>Ready for Sprint</span>
+                <span class="text-brand-green font-bold">1-Click Auto-Assign</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================ -->
+      <!-- SECTION 5: ACCOUNTABILITY -->
+      <!-- ============================================================ -->
+      <section class="w-full bg-white py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-[1340px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left Column: Visual UI Mockup -->
+          <div class="lg:col-span-7">
+            <div class="p-6 sm:p-8 rounded-3xl bg-surface-tier1 border hairline-border-peach shadow-warm-md space-y-4">
+              
+              <div class="flex items-center justify-between pb-3 border-b hairline-border-peach">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-brand-orange"></span>
+                  <span class="text-sm font-bold text-espresso">Task Ownership & Manager Review Hub</span>
+                </div>
+                <span class="text-xs font-bold text-brand-orange bg-brand-orange/15 px-2.5 py-0.5 rounded-full">Zero-Owner Safeguard Active</span>
+              </div>
+
+              <!-- Task Item Card 1 -->
+              <div class="p-4 rounded-2xl bg-white border hairline-border-peach shadow-warm-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-brand-orange text-white flex items-center justify-center font-bold text-xs">
+                    JD
+                  </div>
+                  <div>
+                    <div class="text-sm font-bold text-espresso">Deploy Edge API Proxy for EMEA Region</div>
+                    <div class="text-xs text-terracotta-muted flex items-center gap-2 mt-0.5">
+                      <span>Assignee: <strong>Jane Doe (Staff Engineer)</strong></span>
+                      <span>•</span>
+                      <span>SLA: <strong>Due in 2 Days</strong></span>
+                    </div>
+                  </div>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-brand-green/15 text-brand-green font-bold text-xs shrink-0 self-start sm:self-center">
+                  Approved & Synced
+                </span>
+              </div>
+
+              <!-- Task Item Card 2 -->
+              <div class="p-4 rounded-2xl bg-white border hairline-border-peach shadow-warm-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-brand-yellow text-espresso flex items-center justify-center font-bold text-xs">
+                    AS
+                  </div>
+                  <div>
+                    <div class="text-sm font-bold text-espresso">Publish GDPR Vendor Isolation Audit Spec</div>
+                    <div class="text-xs text-terracotta-muted flex items-center gap-2 mt-0.5">
+                      <span>Assignee: <strong>Alex Smith (Legal Lead)</strong></span>
+                      <span>•</span>
+                      <span>Manager Review Pending</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-brand-yellow-light text-tertiary font-bold text-xs shrink-0 self-start sm:self-center">
+                  Pending Approval
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right Column: Copy -->
+          <div class="lg:col-span-5 flex flex-col items-start">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/15 text-brand-orange text-xs font-bold uppercase tracking-wider mb-3">
+              <span class="material-symbols-outlined text-[15px]">badge</span>
+              Accountability Framework
+            </div>
+            <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-espresso tracking-tight mb-6">
+              Every Task Has an Owner.
+            </h2>
+            <p class="text-base sm:text-lg text-terracotta leading-relaxed mb-6">
+              Explicit ownership chains, dependency mapping, manager review cycles, and zero-owner safeguards ensure tasks never drift or sit unassigned.
+            </p>
+
+            <ul class="space-y-3 text-sm font-semibold text-espresso">
+              <li class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-brand-orange text-[20px]">check_circle</span>
+                Strict Assignee & Reviewer Assignment Required
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-brand-orange text-[20px]">check_circle</span>
+                Manager Sign-Off Workflow Before Rollup Propagation
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-brand-orange text-[20px]">check_circle</span>
+                Automated 15+ Day Overdue Alert Engine
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================ -->
+      <!-- SECTION 6: EXECUTIVE VISIBILITY -->
+      <!-- ============================================================ -->
+      <section class="w-full bg-surface-tier1 py-20 px-4 sm:px-6 lg:px-8 border-y hairline-border-peach relative">
+        <div class="max-w-[1340px] mx-auto flex flex-col gap-10">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-peach text-brand-orange text-xs font-bold uppercase tracking-wider mb-3">
+                <span class="material-symbols-outlined text-[15px]">insights</span>
+                Executive Command Radar
+              </div>
+              <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-espresso tracking-tight">
+                See What Matters.
+              </h2>
+            </div>
+            <p class="text-base sm:text-lg text-terracotta max-w-lg">
+              Real-time analytics for founders and executives. High-level metric aggregation, bottleneck detection, and team velocity side-by-side.
+            </p>
+          </div>
+
+          <!-- Executive Dashboard Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Card 1 -->
+            <div class="p-6 rounded-3xl bg-white border hairline-border-peach shadow-warm-sm flex flex-col justify-between space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-terracotta-muted uppercase">Goal Completion</span>
+                <span class="material-symbols-outlined text-brand-green text-[22px]">donut_large</span>
+              </div>
+              <div>
+                <div class="text-3xl font-extrabold text-espresso">78.4%</div>
+                <div class="text-xs font-bold text-brand-green mt-1">+4.2% Rollup Shift</div>
+              </div>
+              <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                <div class="bg-brand-green h-full rounded-full" style="width: 78.4%;"></div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="p-6 rounded-3xl bg-white border hairline-border-orange shadow-warm-sm flex flex-col justify-between space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-terracotta-muted uppercase">Overdue Alert Daemon</span>
+                <span class="material-symbols-outlined text-brand-orange text-[22px]">alarm_on</span>
+              </div>
+              <div>
+                <div class="text-3xl font-extrabold text-brand-orange">3 Escalated</div>
+                <div class="text-xs font-bold text-brand-orange mt-1">15+ Day Slip Threshold</div>
+              </div>
+              <div class="p-2 rounded-xl bg-brand-orange/10 text-[11px] text-brand-orange font-semibold text-center">
+                CEO Webhook Dispatched
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="p-6 rounded-3xl bg-white border hairline-border-peach shadow-warm-sm flex flex-col justify-between space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-terracotta-muted uppercase">Dept Velocity</span>
+                <span class="material-symbols-outlined text-brand-yellow text-[22px]">speed</span>
+              </div>
+              <div>
+                <div class="text-3xl font-extrabold text-espresso">96.4%</div>
+                <div class="text-xs font-bold text-terracotta mt-1">On Schedule Overall</div>
+              </div>
+              <div class="text-[11px] text-terracotta-muted space-y-1">
+                <div class="flex justify-between"><span>Eng</span><strong class="text-espresso">94%</strong></div>
+                <div class="flex justify-between"><span>Sales</span><strong class="text-espresso">98%</strong></div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="p-6 rounded-3xl bg-white border hairline-border-peach shadow-warm-sm flex flex-col justify-between space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-terracotta-muted uppercase">Security Isolation</span>
+                <span class="material-symbols-outlined text-brand-green text-[22px]">verified_user</span>
+              </div>
+              <div>
+                <div class="text-3xl font-extrabold text-espresso">RLS Active</div>
+                <div class="text-xs font-bold text-brand-green mt-1">Zero Data Leakage</div>
+              </div>
+              <div class="p-2 rounded-xl bg-brand-green/15 text-[11px] text-brand-green font-bold text-center">
+                SOC2 Type II Passed
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================ -->
+      <!-- SECTION 7: GOVERNANCE -->
+      <!-- ============================================================ -->
+      <section class="w-full bg-white py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-[1340px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left Column: Copy -->
+          <div class="lg:col-span-5 flex flex-col items-start">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-peach text-brand-orange text-xs font-bold uppercase tracking-wider mb-3">
+              <span class="material-symbols-outlined text-[15px]">security</span>
+              Enterprise RBAC & Governance
+            </div>
+            <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-espresso tracking-tight mb-6">
+              Built for Scaled Governance.
+            </h2>
+            <p class="text-base sm:text-lg text-terracotta leading-relaxed mb-6">
+              Granular composable role-based access control, project-scoped permissions, row-level security (RLS), and zero-owner safeguards.
+            </p>
+
+            <div class="space-y-3 w-full">
+              <div class="p-4 rounded-2xl bg-surface-tier1 border hairline-border-peach flex items-center justify-between">
+                <span class="text-xs font-bold text-espresso">Owner Role</span>
+                <span class="text-xs font-bold text-brand-orange bg-brand-orange/15 px-2.5 py-0.5 rounded-full">Global Rollup & Override</span>
+              </div>
+              <div class="p-4 rounded-2xl bg-surface-tier1 border hairline-border-peach flex items-center justify-between">
+                <span class="text-xs font-bold text-espresso">Orchestrator Role</span>
+                <span class="text-xs font-bold text-brand-green bg-brand-green/15 px-2.5 py-0.5 rounded-full">Scoped Pod Governance</span>
+              </div>
+              <div class="p-4 rounded-2xl bg-surface-tier1 border hairline-border-peach flex items-center justify-between">
+                <span class="text-xs font-bold text-espresso">Contributor Role</span>
+                <span class="text-xs font-bold text-tertiary bg-brand-yellow-light px-2.5 py-0.5 rounded-full">Leaf Task Execution</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Governance Matrix Mockup -->
+          <div class="lg:col-span-7">
+            <div class="p-6 sm:p-8 rounded-3xl bg-surface-tier1 border hairline-border-peach shadow-warm-md space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b hairline-border-peach">
+                <span class="text-sm font-bold text-espresso">Permissions & Scoped Access Matrix</span>
+                <span class="text-xs font-bold text-brand-green flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[15px]">lock</span> Row-Level Security
+                </span>
+              </div>
+
+              <!-- Matrix Table -->
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                  <thead>
+                    <tr class="border-b hairline-border-peach text-terracotta-muted uppercase font-bold">
+                      <th class="py-2.5">Scope</th>
+                      <th class="py-2.5">Read</th>
+                      <th class="py-2.5">Write</th>
+                      <th class="py-2.5">Override</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-surface-container font-semibold text-espresso">
+                    <tr>
+                      <td class="py-3">L1 Organization Strategy</td>
+                      <td class="text-brand-green">Global</td>
+                      <td class="text-brand-orange">Owner Only</td>
+                      <td class="text-brand-orange">Executive Lock</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">L5 OKR Rollups</td>
+                      <td class="text-brand-green">Global</td>
+                      <td class="text-brand-green">Orchestrator</td>
+                      <td class="text-brand-orange">Audit Logged</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">L7 Leaf Task Submissions</td>
+                      <td class="text-brand-green">Team Scoped</td>
+                      <td class="text-brand-green">Contributor</td>
+                      <td class="text-terracotta-muted">Disabled</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================ -->
+      <!-- SECTION 8: FINAL CTA -->
+      <!-- ============================================================ -->
+      <section class="w-full bg-surface-ambient py-24 px-4 sm:px-6 lg:px-8 relative" id="conversion-cta">
+        <div class="max-w-[1340px] mx-auto">
+          <div class="relative bg-gradient-to-br from-brand-peach/80 via-white to-surface-tier1 rounded-3xl p-8 sm:p-14 border hairline-border-peach shadow-warm-xl overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10">
+            
+            <div class="flex flex-col gap-4 relative z-10 max-w-2xl text-center lg:text-left">
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border hairline-border-peach text-brand-orange text-xs font-bold uppercase tracking-wider self-center lg:self-start shadow-warm-sm">
+                <span class="material-symbols-outlined text-[16px]">verified_user</span>
+                Architectural Certainty Guarantee
+              </div>
+              <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight text-espresso tracking-tight">
+                One Operating System for Your Organization.
+              </h2>
+              <p class="text-base sm:text-lg text-terracotta leading-relaxed">
+                Experience FounderOS in action. Schedule a live architectural walkthrough with our engineering systems team to inspect 7-level cascade mechanics, row-level isolation, and real-time rollups.
+              </p>
+              
+              <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-semibold text-terracotta-muted pt-2">
+                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-brand-green text-[16px]">check_circle</span> SOC2 Type II Aligned</span>
+                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-brand-green text-[16px]">check_circle</span> Deterministic Zero-Drift Rollup</span>
+                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-brand-green text-[16px]">check_circle</span> Sub-15 Min Deployment</span>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-4 relative z-10 shrink-0 w-full sm:w-auto">
+              <a href="#" onclick="showView('about-contact'); return false;" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 text-base font-bold text-white bg-brand-orange hover:bg-primary-hover px-8 py-4 rounded-2xl shadow-glow-orange hover:-translate-y-0.5 transition-all">
+                <span class="material-symbols-outlined text-[20px]">calendar_today</span>
+                Book Enterprise Walkthrough
+              </a>
+              <a href="#interactive-showcase" onclick="showView('home'); setTimeout(()=> { document.getElementById('interactive-showcase')?.scrollIntoView({behavior:'smooth'}); }, 100);" class="w-full sm:w-auto inline-flex items-center justify-center text-base font-semibold text-espresso bg-white hover:bg-surface-tier1 border hairline-border-peach px-6 py-4 rounded-2xl shadow-warm-sm transition-all">
+                Explore Command Console
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- VIEW 2: DYNAMIC INTERNAL PAGES (Command Center, OKRs, AI, RBAC, etc.) -->
+    <div id="view-internal" class="hidden w-full min-h-[70vh] py-16 px-4 sm:px-6 lg:px-8 bg-surface-ambient">
+      <div class="max-w-[1200px] mx-auto space-y-10">
+        
+        <!-- Internal Page Header Banner -->
+        <div class="p-8 sm:p-12 rounded-3xl bg-white border hairline-border-peach shadow-warm-md flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-peach text-brand-orange text-xs font-bold uppercase tracking-wider" id="internal-badge">
+              MODULE VIEW
+            </div>
+            <h1 class="font-extrabold text-3xl sm:text-4xl text-espresso tracking-tight" id="internal-title">
+              Internal View Title
+            </h1>
+            <p class="text-base text-terracotta max-w-xl" id="internal-subtitle">
+              Detailed breakdown of FounderOS architecture and capabilities.
+            </p>
+          </div>
+          <button type="button" onclick="showView('home')" class="inline-flex items-center gap-2 text-xs font-bold text-brand-orange bg-surface-tier1 hover:bg-surface-container px-4 py-2.5 rounded-xl border hairline-border-peach transition-all">
+            ← Return to Homepage Showcase
+          </button>
+        </div>
+
+        <!-- Internal View Content Panel -->
+        <div class="p-8 sm:p-12 rounded-3xl bg-white border hairline-border-peach shadow-warm-sm space-y-8" id="internal-content-panel">
+          <!-- Dynamically populated via JavaScript -->
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- =================================================================== -->
+  <!-- FOOTER -->
+  <!-- =================================================================== -->
+  <footer class="w-full bg-surface-tier1 text-terracotta py-16 border-t hairline-border-peach">
+    <div class="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+        
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-grad-orange-yellow p-0.5 flex items-center justify-center">
+              <div class="w-full h-full bg-white rounded-[6px] flex items-center justify-center">
+                <span class="material-symbols-outlined text-brand-orange text-[18px]">dataset</span>
+              </div>
+            </div>
+            <span class="font-bold text-lg text-espresso">GETASTRAV FounderOS</span>
+          </div>
+          <p class="text-xs text-terracotta-muted max-w-sm leading-relaxed">
+            The definitive executive goal orchestration system and strategic execution tree for high-growth enterprises.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-2.5 py-1 rounded-full bg-brand-green/15 text-brand-green text-[10px] font-bold">Composable RBAC</span>
+            <span class="px-2.5 py-1 rounded-full bg-brand-green/15 text-brand-green text-[10px] font-bold">Row Level Security</span>
+            <span class="px-2.5 py-1 rounded-full bg-brand-green/15 text-brand-green text-[10px] font-bold">Zero-Owner Safeguard</span>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-xs">
+          <div class="font-bold text-espresso uppercase tracking-wider mb-3">Product</div>
+          <div><a href="#" onclick="showView('product-command-center'); return false;" class="hover:text-brand-orange transition-colors">Command Center</a></div>
+          <div><a href="#" onclick="showView('goals-progress'); return false;" class="hover:text-brand-orange transition-colors">Goals & Progress</a></div>
+          <div><a href="#" onclick="showView('ai-intelligence'); return false;" class="hover:text-brand-orange transition-colors">AI Intelligence</a></div>
+          <div><a href="#" onclick="showView('task-management'); return false;" class="hover:text-brand-orange transition-colors">Task Management</a></div>
+        </div>
+
+        <div class="space-y-2 text-xs">
+          <div class="font-bold text-espresso uppercase tracking-wider mb-3">Features</div>
+          <div><a href="#" onclick="showView('teams-collaboration'); return false;" class="hover:text-brand-orange transition-colors">Teams & Collaboration</a></div>
+          <div><a href="#" onclick="showView('project-management'); return false;" class="hover:text-brand-orange transition-colors">Project Management</a></div>
+          <div><a href="#" onclick="showView('analytics-dashboard'); return false;" class="hover:text-brand-orange transition-colors">Analytics & Dashboard</a></div>
+          <div><a href="#" onclick="showView('governance-rbac'); return false;" class="hover:text-brand-orange transition-colors">Governance & RBAC</a></div>
+        </div>
+
+        <div class="space-y-2 text-xs">
+          <div class="font-bold text-espresso uppercase tracking-wider mb-3">Solutions</div>
+          <div><a href="#" onclick="showView('for-founders'); return false;" class="hover:text-brand-orange transition-colors">For Founders</a></div>
+          <div><a href="#" onclick="showView('for-managers-teams'); return false;" class="hover:text-brand-orange transition-colors">For Managers & Teams</a></div>
+          <div><a href="#" onclick="showView('use-cases'); return false;" class="hover:text-brand-orange transition-colors">Enterprise Use Cases</a></div>
+        </div>
+
+        <div class="space-y-2 text-xs">
+          <div class="font-bold text-espresso uppercase tracking-wider mb-3">Company</div>
+          <div><a href="#" onclick="showView('resources-insights'); return false;" class="hover:text-brand-orange transition-colors">Resources & Insights</a></div>
+          <div><a href="#" onclick="showView('about-contact'); return false;" class="hover:text-brand-orange transition-colors">About & Leadership</a></div>
+          <div><a href="#" onclick="showView('about-contact'); return false;" class="hover:text-brand-orange transition-colors">Contact & Walkthrough</a></div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t hairline-border-peach flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-terracotta-muted">
+        <p>© 2025 GETASTRAV FounderOS. Enterprise Architecture Protocol. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <span class="text-brand-green font-bold">Audited Trust Anchor</span>
+          <span>SOC2 Type II Aligned</span>
+          <span>99.99% Availability SLA</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =================================================================== -->
+  <!-- JAVASCRIPT CONTROLLERS -->
+  <!-- =================================================================== -->
+  <script>
+    // View Switcher & Routing Logic
+    function showView(viewKey) {
+      const homeView = document.getElementById('view-home');
+      const internalView = document.getElementById('view-internal');
+      const pageSelector = document.getElementById('quick-page-selector');
+
+      if (pageSelector) {
+        pageSelector.value = viewKey;
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (viewKey === 'home') {
+        homeView.classList.remove('hidden');
+        internalView.classList.add('hidden');
+        return;
+      }
+
+      // Show Internal View
+      homeView.classList.add('hidden');
+      internalView.classList.remove('hidden');
+
+      const badge = document.getElementById('internal-badge');
+      const title = document.getElementById('internal-title');
+      const subtitle = document.getElementById('internal-subtitle');
+      const panel = document.getElementById('internal-content-panel');
+
+      const viewDetails = {
+        'product-command-center': {
+          badge: 'MODULE 01 • COMMAND CENTER',
+          title: 'Executive Command Center',
+          subtitle: 'Real-time telemetry, 7-level structural cascades, and executive operational oversight.',
+          content: `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="p-6 rounded-2xl bg-surface-tier1 border hairline-border-peach">
+                <span class="material-symbols-outlined text-brand-orange text-[32px] mb-2">dashboard</span>
+                <h3 class="font-bold text-lg text-espresso mb-2">Live Executive Telemetry</h3>
+                <p class="text-xs text-terracotta mb-4">Continuous algorithmic progress rollups calculated deterministicly across every active team and department.</p>
+                <div class="text-xs font-bold text-brand-green">Latency: Sub-0.18ms</div>
+              </div>
+              <div class="p-6 rounded-2xl bg-surface-tier1 border hairline-border-peach">
+                <span class="material-symbols-outlined text-brand-green text-[32px] mb-2">account_tree</span>
+                <h3 class="font-bold text-lg text-espresso mb-2">7-Level Structural Cascade</h3>
+                <p class="text-xs text-terracotta mb-4">Navigable hierarchy from L1 Organization Vision down to L7 Leaf Tasks with zero state fragmentation.</p>
+                <div class="text-xs font-bold text-espresso">Hierarchy Depth: L1 → L7</div>
+              </div>
+            </div>
+          `
+        },
+        'goals-progress': {
+          badge: 'MODULE 02 • OKRs & ROLLUPS',
+          title: 'Goals & Progress Rollups',
+          subtitle: 'Automated mathematical progress calculation from sprint deliverables to executive OKRs.',
+          content: `
+            <div class="p-6 rounded-2xl bg-surface-tier1 border hairline-border-green space-y-4">
+              <h3 class="font-bold text-xl text-espresso">Automated Mathematical Aggregation</h3>
+              <p class="text-sm text-terracotta">Leaf task completion percentages automatically adjust parent milestone and goal values using custom weighting vectors.</p>
+              <div class="p-4 rounded-xl bg-white border hairline-border-peach flex items-center justify-between">
+                <span class="text-xs font-bold text-espresso">Q2 Enterprise Expansion Goal</span>
+                <span class="text-sm font-extrabold text-brand-green">84.2% Completed (+18.4% Shift)</span>
+              </div>
+            </div>
+          `
+        },
+        'ai-intelligence': {
+          badge: 'MODULE 03 • GEMINI AI',
+          title: 'AI Goal Decomposition',
+          subtitle: 'Gemini Flash Lite heuristic engine translating natural language goals into tactical sprint tasks.',
+          content: `
+            <div class="p-6 rounded-2xl bg-surface-tier1 border hairline-border-orange space-y-4">
+              <h3 class="font-bold text-xl text-espresso">Natural Language Goal Parsing</h3>
+              <p class="text-sm text-terracotta">Input high-level strategic ambitions and let FounderOS auto-generate structured tasks with estimated hours and suggested assignees.</p>
+              <div class="p-4 rounded-xl bg-white border hairline-border-peach text-xs font-semibold text-espresso">
+                Input: "Launch SOC2 Type II evidence lockbox by Q3" → Output: 4 Decomposed Sprint Deliverables
+              </div>
+            </div>
+          `
+        },
+        'governance-rbac': {
+          badge: 'MODULE 04 • SECURITY & RBAC',
+          title: 'Governance & Row-Level Security',
+          subtitle: 'Composable role-based access control with zero-owner safeguards and RLS isolation.',
+          content: `
+            <div class="p-6 rounded-2xl bg-surface-tier1 border hairline-border-peach space-y-4">
+              <h3 class="font-bold text-xl text-espresso">Scoped Role Hierarchy</h3>
+              <p class="text-sm text-terracotta">Maintain complete organizational isolation across departments while permitting global executive visibility.</p>
+              <div class="grid grid-cols-2 gap-4 text-xs font-bold">
+                <div class="p-3 bg-white rounded-xl border hairline-border-peach text-brand-orange">Owner: Global Read/Write/Override</div>
+                <div class="p-3 bg-white rounded-xl border hairline-border-peach text-brand-green">Contributor: Scoped Leaf Execution</div>
+              </div>
+            </div>
+          `
+        }
+      };
+
+      const fallback = {
+        badge: 'FOUNDEROS ARCHITECTURE',
+        title: viewKey.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+        subtitle: 'Enterprise-grade goal orchestration and organizational operating layer.',
+        content: `
+          <div class="p-6 rounded-2xl bg-surface-tier1 border hairline-border-peach space-y-4 text-left">
+            <h3 class="font-bold text-xl text-espresso">Module Capabilities & Specifications</h3>
+            <p class="text-sm text-terracotta">This operational view provides founders, managers, and system administrators with structured governance and mathematical execution clarity.</p>
+            <div class="flex items-center gap-3 pt-2">
+              <button onclick="showView('home')" class="px-5 py-2.5 rounded-xl bg-brand-orange text-white text-xs font-bold shadow-glow-orange hover:bg-primary-hover transition-all">
+                Explore Full Homepage Radar
+              </button>
+            </div>
+          </div>
+        `
+      };
+
+      const current = viewDetails[viewKey] || fallback;
+      badge.innerText = current.badge;
+      title.innerText = current.title;
+      subtitle.innerText = current.subtitle;
+      panel.innerHTML = current.content;
+    }
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Interactive Rollup Simulator Trigger
+    let isSimulated = false;
+    function triggerRollupSimulation() {
+      const parentVal = document.getElementById('sim-parent-val');
+      const icon = document.getElementById('sim-task-icon');
+      const status = document.getElementById('sim-task-status');
+
+      if (!isSimulated) {
+        if (parentVal) parentVal.innerText = '94.8%';
+        if (icon) {
+          icon.innerText = 'check_box';
+          icon.classList.remove('text-brand-orange');
+          icon.classList.add('text-brand-green');
+        }
+        if (status) {
+          status.innerText = '100% Completed';
+          status.classList.remove('text-brand-orange');
+          status.classList.add('text-brand-green');
+        }
+        isSimulated = true;
+      } else {
+        if (parentVal) parentVal.innerText = '78.4%';
+        if (icon) {
+          icon.innerText = 'check_box_outline_blank';
+          icon.classList.remove('text-brand-green');
+          icon.classList.add('text-brand-orange');
+        }
+        if (status) {
+          status.innerText = 'In Progress (60%)';
+          status.classList.remove('text-brand-green');
+          status.classList.add('text-brand-orange');
+        }
+        isSimulated = false;
+      }
+    }
+  </script>
+</body>
+</html>
