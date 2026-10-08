@@ -12,6 +12,9 @@ import {
   Lock,
   Activity,
   ListCheck,
+  ArrowRight,
+  ShieldCheck,
+  TrendingUp,
 } from 'lucide-react';
 
 export const Home: React.FC = () => {
@@ -171,10 +174,10 @@ export const Home: React.FC = () => {
         <InteractiveCanvas />
       </section>
 
-      {/* SECTION 3 — MATHEMATICAL PROGRESS */}
+      {/* SECTION 3 — MATHEMATICAL PROGRESS + ENTERPRISE SHOWCASE IMAGE */}
       <section className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8">
         <MotionWrapper direction="up">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white p-6 sm:p-10 rounded-2xl border border-brand-peach/80 shadow-warm-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white p-6 sm:p-10 rounded-2xl border border-brand-peach/80 shadow-warm-xl overflow-hidden">
             <div className="lg:col-span-6 space-y-3">
               <span className="px-3 py-1 rounded-full bg-surface-tier1 border border-brand-peach text-xs font-bold text-brand-green uppercase">
                 Mathematical Precision
@@ -199,28 +202,16 @@ export const Home: React.FC = () => {
               </ul>
             </div>
 
-            <div className="lg:col-span-6 p-5 rounded-xl bg-surface-ambient border border-brand-peach/60 space-y-3">
-              <div className="text-xs font-bold uppercase tracking-wider text-espresso">
-                Automated Rollup Cascade
-              </div>
-              <div className="space-y-3">
-                <div>
-                  <div className="flex justify-between text-xs font-bold mb-1">
-                    <span>Sub-50ms Global Query Latency</span>
-                    <span className="font-mono text-brand-green font-extrabold">92.0%</span>
-                  </div>
-                  <div className="w-full h-2 rounded-full bg-brand-peach/30 overflow-hidden">
-                    <div className="h-full bg-brand-green rounded-full w-[92%]" />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between text-xs font-bold mb-1">
-                    <span>SOC2 Evidence Lockbox Prep</span>
-                    <span className="font-mono text-brand-yellow font-extrabold">54.0%</span>
-                  </div>
-                  <div className="w-full h-2 rounded-full bg-brand-peach/30 overflow-hidden">
-                    <div className="h-full bg-brand-yellow rounded-full w-[54%]" />
-                  </div>
+            <div className="lg:col-span-6 relative rounded-xl overflow-hidden shadow-warm-md border border-brand-peach/60 group">
+              <img
+                src="/assets/command_center.jpg"
+                alt="FounderOS Executive Command Center"
+                className="w-full h-64 sm:h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-espresso/80 via-transparent to-transparent flex items-end p-4">
+                <div className="text-white text-xs font-bold flex items-center justify-between w-full">
+                  <span>Executive Command Console</span>
+                  <span className="px-2 py-0.5 rounded-full bg-brand-orange text-[10px]">Real-Time Sync</span>
                 </div>
               </div>
             </div>
@@ -228,7 +219,7 @@ export const Home: React.FC = () => {
         </MotionWrapper>
       </section>
 
-      {/* SECTION 4 — AI EXECUTION */}
+      {/* SECTION 4 — AI EXECUTION + NEURAL MESH IMAGE */}
       <section className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <MotionWrapper className="text-center max-w-2xl mx-auto space-y-2">
           <span className="px-3 py-1 rounded-full bg-surface-tier1 border border-brand-peach text-xs font-bold text-brand-yellow uppercase">
@@ -242,23 +233,31 @@ export const Home: React.FC = () => {
           </p>
         </MotionWrapper>
 
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-center">
-          {[
-            { step: '1', title: 'Strategic Goal', desc: 'Enter objective title & weight' },
-            { step: '2', title: 'AI Decomposition', desc: 'Gemini analyzes goal context' },
-            { step: '3', title: 'Task Proposals', desc: 'Review titles & deadlines' },
-            { step: '4', title: 'Assignee & SLA', desc: 'Accept & dispatch tasks' },
-          ].map((item, idx) => (
-            <MotionWrapper key={idx} delay={idx * 0.08} direction="up">
-              <div className="p-4 rounded-xl bg-white border border-brand-peach/60 shadow-warm-sm space-y-1.5 hover:border-brand-orange transition-all">
-                <div className="w-7 h-7 rounded-full bg-brand-orange/10 text-brand-orange font-bold text-xs mx-auto flex items-center justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-surface-ambient p-6 sm:p-8 rounded-2xl border border-brand-peach/60">
+          <div className="lg:col-span-5 relative rounded-xl overflow-hidden shadow-warm-md border border-brand-peach/60 group">
+            <img
+              src="/assets/ai_mesh.jpg"
+              alt="AI Goal Decomposition Neural Mesh"
+              className="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              { step: '1', title: 'Strategic Goal', desc: 'Enter objective title & weight' },
+              { step: '2', title: 'AI Decomposition', desc: 'Gemini analyzes goal context' },
+              { step: '3', title: 'Task Proposals', desc: 'Review titles & deadlines' },
+              { step: '4', title: 'Assignee & SLA', desc: 'Accept & dispatch tasks' },
+            ].map((item, idx) => (
+              <div key={idx} className="p-4 rounded-xl bg-white border border-brand-peach/60 shadow-warm-sm space-y-1.5 hover:border-brand-orange transition-all">
+                <div className="w-7 h-7 rounded-full bg-brand-orange/10 text-brand-orange font-bold text-xs flex items-center justify-center">
                   {item.step}
                 </div>
                 <h4 className="text-xs font-bold text-espresso">{item.title}</h4>
                 <p className="text-[11px] text-terracotta">{item.desc}</p>
               </div>
-            </MotionWrapper>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 

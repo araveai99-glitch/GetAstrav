@@ -14,7 +14,7 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
   const [reducedMotion, setReducedMotion] = useState(false);
 
   // Controlled opacity depending on section intensity
-  const opacity = intensity === 'hero' ? 0.22 : intensity === 'standard' ? 0.14 : 0.08;
+  const opacity = intensity === 'hero' ? 0.20 : intensity === 'standard' ? 0.12 : 0.08;
 
   useEffect(() => {
     // Check prefers-reduced-motion
@@ -62,7 +62,7 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
 
     // 4. Create 3D Nodes Mesh
     const isMobile = width < 768;
-    const nodeCount = isMobile ? 18 : 38;
+    const nodeCount = isMobile ? 18 : 36;
     const nodesGroup = new THREE.Group();
     scene.add(nodesGroup);
 
@@ -101,7 +101,6 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
     scene.add(linesGroup);
 
     const updateLines = () => {
-      // Clear previous line meshes
       while (linesGroup.children.length > 0) {
         const obj = linesGroup.children[0];
         linesGroup.remove(obj);
@@ -138,7 +137,7 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
     updateLines();
 
     // 6. Ambient Particle Cloud
-    const particleCount = isMobile ? 60 : 160;
+    const particleCount = isMobile ? 50 : 140;
     const particleGeo = new THREE.BufferGeometry();
     const particlePos = new Float32Array(particleCount * 3);
 
@@ -156,16 +155,23 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
     const pointsCloud = new THREE.Points(particleGeo, particleMat);
     scene.add(pointsCloud);
 
-    // 7. Mouse Parallax & Smooth Animation Loop
+    // 7. Mouse Parallax & Scroll Lerp Damping
     let mouseX = 0;
     let mouseY = 0;
+    let scrollYTarget = 0;
+    let currentScrollY = 0;
 
     const handleMouseMove = (e: MouseEvent) => {
       mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
       mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
     };
 
+    const handleScroll = () => {
+      scrollYTarget = window.scrollY || document.documentElement.scrollTop;
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     const handleResize = () => {
       if (!container) return;
@@ -184,18 +190,24 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
     const animate = () => {
       const elapsedTime = clock.getElapsedTime();
 
-      // Slow orbital 3D movement
-      nodesGroup.rotation.y = elapsedTime * 0.05 + mouseX * 0.1;
-      nodesGroup.rotation.x = elapsedTime * 0.03 + mouseY * 0.1;
+      // Smooth scroll lerp damping (5-15% subtle position offset)
+      currentScrollY += (scrollYTarget - currentScrollY) * 0.05;
+      const scrollOffset = (currentScrollY / (document.documentElement.scrollHeight || 1)) * 10;
+
+      // Slow orbital 3D movement + smooth scroll offset
+      nodesGroup.rotation.y = elapsedTime * 0.04 + mouseX * 0.08;
+      nodesGroup.rotation.x = elapsedTime * 0.02 + mouseY * 0.08 + scrollOffset * 0.02;
       linesGroup.rotation.y = nodesGroup.rotation.y;
       linesGroup.rotation.x = nodesGroup.rotation.x;
-      pointsCloud.rotation.y = elapsedTime * 0.02;
+      pointsCloud.rotation.y = elapsedTime * 0.015;
+
+      camera.position.y = -scrollOffset * 0.5;
 
       // Animate floating node positions
       nodesGroup.children.forEach((child, index) => {
-        child.rotation.x += 0.005;
-        child.rotation.y += 0.008;
-        child.position.y += Math.sin(elapsedTime * 0.8 + index) * 0.01;
+        child.rotation.x += 0.004;
+        child.rotation.y += 0.006;
+        child.position.y += Math.sin(elapsedTime * 0.7 + index) * 0.008;
       });
 
       renderer.render(scene, camera);
@@ -208,6 +220,7 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
       if (container && renderer.domElement) {
         container.removeChild(renderer.domElement);
