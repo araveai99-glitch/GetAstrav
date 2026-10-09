@@ -14,10 +14,10 @@ export default {
         'brand-yellow': '#fab60a',
         'brand-peach': '#f7d7b0',
         
-        // High-contrast clean slate typography (Replaces brown/black)
-        'espresso': '#0f172a',        // Slate-900 (crisp deep navy text)
-        'terracotta': '#334155',      // Slate-700 (slate body text)
-        'terracotta-muted': '#64748b',// Slate-500 (slate label text)
+        // High-contrast warm espresso typography (Strict Brand Palette)
+        'espresso': '#2a1a14',        // Deep roasted espresso text
+        'terracotta': '#3d261e',      // Dark terracotta body text
+        'terracotta-muted': '#4a332a',// Earthen espresso muted text
         
         // Light warm surfaces
         'surface-base': '#ffffff',
@@ -30,7 +30,7 @@ export default {
         'primary': '#f15e1c',
         'primary-hover': '#d94e10',
         'secondary': '#2e936f',
-        'tertiary': '#d97706',
+        'tertiary': '#fab60a',
       },
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'sans-serif'],

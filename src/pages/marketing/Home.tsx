@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MotionWrapper } from '../../components/common/MotionWrapper';
 import { HierarchyInfographic } from '../../components/infographics/HierarchyInfographic';
+import { GoalToExecutionWorkflow } from '../../components/infographics/GoalToExecutionWorkflow';
 import { RollupInfographic } from '../../components/infographics/RollupInfographic';
 import { ProductInMotion } from '../../components/infographics/ProductInMotion';
 import { AIDecompositionInfographic } from '../../components/infographics/AIDecompositionInfographic';
@@ -17,7 +18,7 @@ export const Home: React.FC = () => {
   return (
     <div className="w-full flex flex-col space-y-16 lg:space-y-24 pt-2">
       {/* ==================================================
-          SECTION 01 — COMMAND CENTER INTRO
+          SECTION 01 — COMMAND CENTER HERO
          ================================================== */}
       <section className="relative w-full overflow-hidden pt-16 pb-12 lg:pt-24 lg:pb-20 px-4 sm:px-6 lg:px-10 bg-surface-ambient border-b border-brand-peach/40">
         <div className="max-w-[1600px] mx-auto relative z-10 flex flex-col items-center text-center space-y-8 w-full">
@@ -29,7 +30,7 @@ export const Home: React.FC = () => {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-orange"></span>
               </span>
               <span className="text-xs font-mono font-extrabold tracking-wider text-espresso uppercase">
-                GetAstrav Engine v4.8 • Section 01 • Command Center Intro
+                FounderOS Command Center Engine v4.8 • Real-Time Synced
               </span>
             </div>
           </MotionWrapper>
@@ -45,9 +46,9 @@ export const Home: React.FC = () => {
           </MotionWrapper>
 
           {/* Supporting Copy */}
-          <MotionWrapper delay={0.2} className="max-w-[820px] mx-auto">
+          <MotionWrapper delay={0.2} className="max-w-[850px] mx-auto">
             <p className="text-base sm:text-xl lg:text-2xl text-terracotta leading-relaxed font-normal">
-              The goal-driven organization operating system with automated mathematical progress rollups, AI goal decomposition, and enterprise RBAC.
+              The goal-driven organization operating system connecting strategic objectives, departments, projects, and daily tasks with automated mathematical rollups and AI co-pilot intelligence.
             </p>
           </MotionWrapper>
 
@@ -67,12 +68,12 @@ export const Home: React.FC = () => {
                 className="inline-flex items-center justify-center gap-2.5 text-base font-semibold text-espresso bg-white hover:bg-surface-tier1 px-7 py-4 rounded-xl shadow-warm-xs border border-brand-peach transition-all hover:border-brand-orange"
               >
                 <Layers className="w-5 h-5 text-brand-orange" />
-                <span>Explore GetAstrav</span>
+                <span>Explore Console</span>
               </Link>
             </div>
           </MotionWrapper>
 
-          {/* LARGE GETASTRAV COMMAND CENTER INTERFACE */}
+          {/* LARGE FOUNDEROS COMMAND CENTER INTERFACE DEMO */}
           <MotionWrapper delay={0.4} direction="up" className="w-full pt-6">
             <div className="relative rounded-2xl bg-white p-5 sm:p-8 lg:p-10 shadow-warm-xl border border-brand-peach/80 space-y-6 w-full max-w-[1440px] mx-auto text-left">
               {/* Interface Header Bar */}
@@ -82,15 +83,15 @@ export const Home: React.FC = () => {
                   <div className="w-3.5 h-3.5 rounded-full bg-brand-yellow" />
                   <div className="w-3.5 h-3.5 rounded-full bg-brand-green" />
                   <span className="text-xs sm:text-sm font-mono text-terracotta ml-2 font-bold">
-                    getastrav-kernel // command-center-console
+                    founderos-kernel // executive-command-console
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
+                  <span className="px-3 py-1 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold">
                     99.998% Real-Time Synced
                   </span>
                   <span className="px-3 py-1 rounded-full bg-surface-tier1 border border-brand-peach text-xs font-mono font-extrabold text-espresso">
-                    SOC2 Type II Aligned
+                    PostgreSQL RLS Protected
                   </span>
                 </div>
               </div>
@@ -135,70 +136,77 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ==================================================
-          SECTION 02 — "ONE SYSTEM. EVERY LEVEL."
+          SECTION 02 — THE ORGANIZATIONAL PICTURE (Visual A)
          ================================================== */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <HierarchyInfographic />
       </section>
 
       {/* ==================================================
-          SECTION 03 — THE STATUS PROBLEM
+          SECTION 03 — FROM GOALS TO EXECUTION (Visual B)
+         ================================================== */}
+      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
+        <GoalToExecutionWorkflow />
+      </section>
+
+      {/* ==================================================
+          SECTION 04 — PROGRESS THAT REFLECTS ACTUAL WORK (Visual C)
          ================================================== */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <RollupInfographic />
       </section>
 
       {/* ==================================================
-          SECTION 04 — PRODUCT IN MOTION
+          INTERACTIVE PRODUCT IN MOTION SHOWCASE
          ================================================== */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <ProductInMotion />
       </section>
 
       {/* ==================================================
-          SECTION 05 — AI THAT ACTUALLY EXPLAINS ITSELF
+          SECTION 05 — AI-ASSISTED PLANNING (Visual D)
          ================================================== */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <AIDecompositionInfographic />
       </section>
 
       {/* ==================================================
-          SECTION 06 — EXECUTION WORKFLOW
+          SECTION 06 — WORK EXECUTION & ACCOUNTABILITY (Visual E)
          ================================================== */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <AccountabilityWorkflowInfographic />
       </section>
 
       {/* ==================================================
-          SECTION 07 — KNOWLEDGE + EXECUTION
+          SECTION 07 — KNOWLEDGE & DOCUMENTATION (Visual G)
          ================================================== */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <ProjectKnowledgeInfographic />
       </section>
 
       {/* ==================================================
-          SECTION 08 — EXECUTIVE VISIBILITY
+          SECTION 08 — EXECUTIVE VISIBILITY (Visual F)
          ================================================== */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <AnalyticsInfographic />
       </section>
 
       {/* ==================================================
-          SECTION 09 — GOVERNANCE
+          GOVERNANCE & RBAC INFOGRAPHIC
          ================================================== */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <GovernanceInfographic />
       </section>
 
       {/* ==================================================
-          SECTION 10 — FOUNDEROS IN ONE VIEW
+          SECTION 09 — A UNIFIED OPERATING SYSTEM (OS Map)
          ================================================== */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <OSMapInfographic />
       </section>
 
       {/* ==================================================
-          SECTION 11 — FINAL CTA
+          SECTION 10 — FINAL CONVERSION CTA
          ================================================== */}
       <section id="conversion-cta" className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 pb-12">
         <CTASection />
