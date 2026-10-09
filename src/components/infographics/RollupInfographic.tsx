@@ -4,7 +4,7 @@ import { CheckCircle2, TrendingUp, Cpu, ArrowRight } from 'lucide-react';
 
 export const RollupInfographic: React.FC = () => {
   return (
-    <div className="w-full bg-white p-4 sm:p-8 lg:p-10 rounded-2xl border border-brand-peach/80 shadow-warm-xl space-y-8">
+    <div className="w-full bg-white p-4 sm:p-6 lg:p-7 rounded-2xl border border-brand-peach/80 shadow-warm-xl space-y-5">
       {/* Header */}
       <div className="text-center max-w-[1000px] mx-auto space-y-3">
         <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-brand-green uppercase tracking-wider">
