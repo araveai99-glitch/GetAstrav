@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArchitectureOfExecutionCanvas } from './ArchitectureOfExecutionCanvas';
 import { MotionWrapper } from '../common/MotionWrapper';
-import { Calendar, Layers, ShieldCheck, ArrowRight, Activity, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Layers, Activity, ShieldCheck, Sparkles } from 'lucide-react';
 
 export const ArchitectureOfExecutionHero: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         
-        {/* LEFT COLUMN: Editorial Headline & Value Proposition */}
+        {/* LEFT COLUMN: Clean Editorial Copy & CTAs */}
         <div className="lg:col-span-5 space-y-7 text-left">
           
           {/* Brand Kicker Badge */}
@@ -24,52 +24,51 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-orange"></span>
               </span>
               <span className="text-[11px] font-mono font-extrabold tracking-widest text-espresso uppercase">
-                FOUNDEROS OPERATING SYSTEM V4.8
+                FOUNDEROS WORKSPACE V4.8
               </span>
             </div>
           </MotionWrapper>
 
-          {/* Editorial Headline */}
+          {/* Hero Headline & Supporting Text */}
           <MotionWrapper delay={0.1}>
-            <div className="space-y-3">
-              <h1 className="font-extrabold text-[38px] sm:text-[54px] xl:text-[66px] leading-[1.04] tracking-tight text-espresso">
-                The Architecture <br />
-                of Execution.
+            <div className="space-y-4">
+              <h1 className="font-extrabold text-[38px] sm:text-[54px] xl:text-[64px] leading-[1.06] tracking-tight text-espresso">
+                From Founder Strategy <br />
+                to Execution on <span className="text-brand-orange">Autopilot.</span>
               </h1>
               <p className="text-base sm:text-lg lg:text-xl text-terracotta leading-relaxed font-normal pt-1 max-w-xl">
-                The enterprise operating system connecting organizational strategy, OKRs, project containers, and leaf execution into one real-time mathematical rollup graph.
+                Bring your company's goals, projects, and team tasks together in one place. See how work is progressing and what needs attention.
               </p>
             </div>
           </MotionWrapper>
 
-          {/* Primary Action Buttons */}
+          {/* Action Buttons */}
           <MotionWrapper delay={0.2}>
             <div className="flex flex-wrap items-center gap-3.5 pt-1">
-              <a
-                href="#conversion-cta"
+              <Link
+                to="/product"
                 className="inline-flex items-center justify-center gap-2.5 text-sm sm:text-base font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-7 py-3.5 rounded-2xl shadow-glow-orange hover:-translate-y-0.5 transition-all group cursor-pointer"
               >
-                <Calendar className="w-4.5 h-4.5" />
-                <span>Book an Executive Demo</span>
+                <Layers className="w-4.5 h-4.5" />
+                <span>Explore FounderOS</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
 
-              <Link
-                to="/app/dashboard"
+              <a
+                href="#everything-connected"
                 className="inline-flex items-center justify-center gap-2 text-sm sm:text-base font-bold text-espresso bg-white hover:bg-surface-tier1 px-6 py-3.5 rounded-2xl border border-brand-peach/80 transition-all hover:border-brand-orange shadow-warm-sm"
               >
-                <Layers className="w-4.5 h-4.5 text-brand-orange" />
-                <span>Explore Console</span>
-              </Link>
+                <span>See How It Works</span>
+              </a>
             </div>
           </MotionWrapper>
 
-          {/* Trust Indicators */}
+          {/* Key Trust & Feature Indicators */}
           <MotionWrapper delay={0.3}>
-            <div className="pt-3 border-t border-brand-peach/40 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-mono text-terracotta">
+            <div className="pt-4 border-t border-brand-peach/40 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-mono text-terracotta">
               <div className="flex items-center gap-2 font-bold text-espresso">
                 <Activity className="w-4 h-4 text-brand-green" />
-                <span>99.998% Sync</span>
+                <span>Real-Time Sync</span>
               </div>
               <div className="flex items-center gap-2 font-bold text-espresso">
                 <ShieldCheck className="w-4 h-4 text-brand-orange" />
@@ -95,3 +94,4 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
     </section>
   );
 };
+

@@ -1,73 +1,57 @@
 import React, { useState } from 'react';
 import { MotionWrapper } from '../common/MotionWrapper';
-import { Target, Flag, FolderGit2, CheckSquare, ShieldCheck, CheckCircle2, ArrowRight, UserCheck, Clock, Sparkles } from 'lucide-react';
+import { Target, FolderGit2, Flag, CheckSquare, CheckCircle2, ArrowRight, User } from 'lucide-react';
 
 const WORKFLOW_STEPS = [
   {
     step: '01',
-    level: 'Company Objective',
-    title: 'Expand Enterprise Market Share to 35%',
-    detail: 'Target ARR: $24M • Strategic Priority 1',
-    owner: 'Chief Executive Officer',
+    level: 'Company Goal',
+    title: 'Scale Customer Operations to $20M ARR',
+    detail: 'Top strategic objective for Q3',
+    owner: 'Sarah M. (CEO)',
     icon: Target,
-    badge: 'bg-brand-orange-light text-brand-orange border-brand-orange/30',
-    status: '84.5% Cascade Progress',
-    impact: 'Base Root Node',
+    badge: 'bg-brand-orange/10 text-brand-orange border-brand-orange/30',
+    status: 'High Priority',
   },
   {
     step: '02',
-    level: 'Milestone Gate',
-    title: 'Pass SOC2 Audit & Launch SAML SSO',
-    detail: 'Due Q4 • Weight Multiplier: 1.5x',
-    owner: 'Head of Security & Governance',
-    icon: Flag,
+    level: 'Project',
+    title: 'Customer Onboarding Redesign',
+    detail: 'Streamline team setup and onboarding flow',
+    owner: 'Product Team',
+    icon: FolderGit2,
     badge: 'bg-champagne text-espresso border-champagne-gold',
-    status: '90.0% Rollup Progress',
-    impact: 'Weighted Gate',
+    status: 'In Progress',
   },
   {
     step: '03',
-    level: 'Project Container',
-    title: 'SSO & Enterprise Security Hardening',
-    detail: 'Container ID: prj_sec_99 • Spec v3.4',
-    owner: 'DevOps & Infrastructure Pod',
-    icon: FolderGit2,
+    level: 'Milestones',
+    title: 'Security & SLA Compliance Audit',
+    detail: 'Complete security review and SLA sign-offs',
+    owner: 'Governance Pod',
+    icon: Flag,
     badge: 'bg-sage-light text-brand-green border-sage',
-    status: '78% Sprint Execution',
-    impact: 'Container Bound',
+    status: 'Target Q3',
   },
   {
     step: '04',
-    level: 'Assigned Leaf Task',
-    title: 'Implement OAuth PKCE Session Tokens',
-    detail: 'SLA: 48 Hrs • 4 Checklist Items Passed',
-    owner: 'Alex M. (Lead Staff Engineer)',
+    level: 'Tasks',
+    title: 'Deploy Automated Verification Flow',
+    detail: 'Assigned task with clear SLA deadline',
+    owner: 'Alex R. (Lead Dev)',
     icon: CheckSquare,
-    badge: 'bg-brand-orange-light text-brand-orange border-brand-orange/30',
-    status: 'Work Code Submitted',
-    impact: 'Leaf Execution',
+    badge: 'bg-brand-orange/10 text-brand-orange border-brand-orange/30',
+    status: 'Active Task',
   },
   {
     step: '05',
-    level: 'Manager Review Gate',
-    title: 'Code & Security Sign-off Gate',
-    detail: 'Immutable Audit Logged • Zero Bypass',
-    owner: 'Priya K. (Engineering Director)',
-    icon: ShieldCheck,
-    badge: 'bg-mint-soft text-brand-green border-brand-green/30',
-    status: 'Manager Sign-off Granted',
-    impact: 'Verification Passed',
-  },
-  {
-    step: '06',
-    level: 'Automated Rollup',
-    title: 'Cascade Formula Execution',
-    detail: '+18.4% Instant Weight Impact on Core Goal',
-    owner: 'FounderOS Real-Time Kernel',
+    level: 'Completion',
+    title: 'Task Verified & Goal Progress Updated',
+    detail: 'Work completed, progress updates automatically',
+    owner: 'System Auto-Rollup',
     icon: CheckCircle2,
     badge: 'bg-brand-green/10 text-brand-green border-brand-green/30',
-    status: '100% Synced (12ms)',
-    impact: 'Cascade Propagated',
+    status: '100% Completed',
   },
 ];
 
@@ -77,23 +61,20 @@ export const GoalToExecutionWorkflow: React.FC = () => {
   return (
     <div className="w-full bg-white p-6 sm:p-8 lg:p-10 rounded-3xl border border-brand-peach/80 shadow-architectural space-y-8">
       {/* Header */}
-      <div className="text-center max-w-[1000px] mx-auto space-y-3">
-        <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-sage-light border border-sage text-xs font-bold text-brand-green uppercase tracking-wider">
-          Visual B • Goal-to-Execution Workflow Pipeline
-        </span>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-espresso tracking-tight">
-          From Strategic Vision to Verified Task Completion
+      <div className="text-center max-w-[800px] mx-auto space-y-3">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight">
+          From Big Goals to Everyday Tasks.
         </h2>
-        <p className="text-sm sm:text-base text-terracotta leading-relaxed max-w-[800px] mx-auto">
-          Trace how a founder objective flows into milestones, project containers, assigned tasks, manager review gates, and real-time mathematical rollups.
+        <p className="text-base sm:text-lg text-terracotta leading-relaxed max-w-[700px] mx-auto font-normal">
+          Everyone knows what needs to be done, who owns it, and how the work contributes to the bigger goal.
         </p>
       </div>
 
-      {/* Connected 6-Step Interactive Workflow Pipeline */}
-      <div className="relative p-5 sm:p-8 rounded-2xl bg-gradient-to-b from-ivory via-surface-ambient to-white border border-brand-peach/70 shadow-warm-sm space-y-8 w-full">
+      {/* 5-Step Visual Connected Flow */}
+      <div className="relative p-5 sm:p-8 rounded-2xl bg-gradient-to-b from-ivory via-surface-ambient to-white border border-brand-peach/70 shadow-warm-sm space-y-6 w-full">
         
-        {/* Workflow Pipeline Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 relative w-full">
+        {/* Flow Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 relative w-full">
           {WORKFLOW_STEPS.map((item, idx) => {
             const Icon = item.icon;
             const isActive = activeStep === idx;
@@ -103,14 +84,14 @@ export const GoalToExecutionWorkflow: React.FC = () => {
                   onClick={() => setActiveStep(idx)}
                   className={`p-5 rounded-2xl border transition-all duration-300 space-y-4 relative w-full group cursor-pointer h-full flex flex-col justify-between ${
                     isActive
-                      ? 'bg-white border-brand-orange shadow-warm-lg scale-102 ring-2 ring-brand-orange/20'
-                      : 'bg-white/80 border-brand-peach/70 hover:border-brand-orange/40 hover:bg-white shadow-warm-2xs'
+                      ? 'bg-white border-brand-orange shadow-warm-lg ring-2 ring-brand-orange/20'
+                      : 'bg-white/90 border-brand-peach/70 hover:border-brand-orange/40 hover:bg-white shadow-warm-2xs'
                   }`}
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono font-extrabold text-terracotta-muted">STEP {item.step}</span>
-                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold border ${item.badge}`}>
+                      <span className="text-[10px] font-mono font-extrabold text-terracotta-muted">STEP 0{idx + 1}</span>
+                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${item.badge}`}>
                         {item.level}
                       </span>
                     </div>
@@ -121,25 +102,21 @@ export const GoalToExecutionWorkflow: React.FC = () => {
                       <Icon className="w-5 h-5" />
                     </div>
 
-                    <h3 className="text-xs sm:text-sm font-extrabold text-espresso leading-snug">{item.title}</h3>
-                    <p className="text-[11px] text-terracotta leading-relaxed font-normal">{item.detail}</p>
+                    <h3 className="text-sm font-extrabold text-espresso leading-snug">{item.title}</h3>
+                    <p className="text-xs text-terracotta leading-relaxed font-normal">{item.detail}</p>
                   </div>
 
-                  <div className="pt-3 border-t border-brand-peach/40 space-y-1.5">
-                    <div className="flex items-center gap-1.5 text-[10px] text-terracotta font-semibold truncate">
-                      <UserCheck className="w-3 h-3 text-brand-orange shrink-0" />
+                  <div className="pt-3 border-t border-brand-peach/40 space-y-1">
+                    <div className="flex items-center gap-1.5 text-xs text-terracotta font-semibold truncate">
+                      <User className="w-3.5 h-3.5 text-brand-orange shrink-0" />
                       <span className="truncate">{item.owner}</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-brand-green">
-                      <Clock className="w-3 h-3 shrink-0" />
-                      <span>{item.status}</span>
-                    </div>
                   </div>
 
-                  {/* Connecting Desktop Arrow */}
-                  {idx < 5 && (
+                  {/* Connecting Arrow */}
+                  {idx < 4 && (
                     <div className="hidden lg:block absolute -right-3.5 top-1/2 -translate-y-1/2 z-20">
-                      <div className="w-6.5 h-6.5 rounded-full bg-white border border-brand-peach/80 shadow-warm-2xs flex items-center justify-center text-brand-orange">
+                      <div className="w-6 h-6 rounded-full bg-white border border-brand-peach shadow-warm-2xs flex items-center justify-center text-brand-orange">
                         <ArrowRight className="w-3.5 h-3.5" />
                       </div>
                     </div>
@@ -150,32 +127,19 @@ export const GoalToExecutionWorkflow: React.FC = () => {
           })}
         </div>
 
-        {/* Selected Step Inspector Panel */}
-        <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-brand-orange-light border border-brand-orange/30 text-brand-orange flex items-center justify-center font-mono font-bold text-sm shrink-0">
-              {WORKFLOW_STEPS[activeStep].step}
-            </div>
-            <div>
-              <span className="text-[10px] font-mono font-extrabold text-brand-orange uppercase tracking-wider">
-                CURRENT PIPELINE STAGE: {WORKFLOW_STEPS[activeStep].level}
-              </span>
-              <h4 className="text-sm sm:text-base font-extrabold text-espresso">{WORKFLOW_STEPS[activeStep].title}</h4>
-            </div>
+        {/* Selected Step Summary Bar */}
+        <div className="p-4 rounded-xl bg-white border border-brand-peach/80 shadow-warm-xs flex items-center justify-between gap-4 text-xs">
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-brand-orange">Workflow Path:</span>
+            <span className="font-semibold text-espresso">Company Goal → Project → Milestones → Tasks → Completion</span>
           </div>
-
-          <div className="flex items-center gap-3 self-end sm:self-center">
-            <span className="px-3.5 py-1 rounded-full bg-brand-green/10 text-brand-green text-xs font-mono font-bold border border-brand-green/30 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" />
-              {WORKFLOW_STEPS[activeStep].impact}
-            </span>
-            <span className="px-3.5 py-1 rounded-full bg-ivory text-espresso text-xs font-mono font-bold border border-brand-peach">
-              {WORKFLOW_STEPS[activeStep].status}
-            </span>
-          </div>
+          <span className="px-3 py-1 rounded-full bg-brand-green/10 text-brand-green font-bold shrink-0">
+            Clear Ownership & Alignment
+          </span>
         </div>
 
       </div>
     </div>
   );
 };
+

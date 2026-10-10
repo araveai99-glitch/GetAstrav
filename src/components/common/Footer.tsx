@@ -105,6 +105,30 @@ export const Footer: React.FC = () => {
             <span>99.99% Availability SLA</span>
           </div>
         </div>
+
+        {/* ARAV INNOVATIONS FOOTER BRAND ATTRIBUTION */}
+        <div className="pt-6 border-t border-brand-peach/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a
+            href="https://aravinnovations.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex flex-wrap items-center justify-center sm:justify-start gap-4 hover:opacity-90 transition-opacity"
+          >
+            <img
+              src="/assets/arav-logo.png"
+              alt="Arav Innovations Ribbon Logo"
+              className="h-10 sm:h-12 w-auto object-contain drop-shadow-sm"
+            />
+            <img
+              src="/assets/powered-by-arav.png"
+              alt="Powered by Arav Innovations - Elevating Brands, One Click at a Time"
+              className="h-9 sm:h-11 w-auto object-contain drop-shadow-sm"
+            />
+          </a>
+          <span className="text-xs text-terracotta-muted font-medium text-center sm:text-right">
+            Powered by Arav Innovations • Elevating Brands, One Click at a Time.
+          </span>
+        </div>
       </div>
     </footer>
   );

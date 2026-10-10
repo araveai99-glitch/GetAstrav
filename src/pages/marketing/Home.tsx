@@ -1,98 +1,44 @@
 import React from 'react';
 import { ArchitectureOfExecutionHero } from '../../components/marketing/ArchitectureOfExecutionHero';
 import { HierarchyInfographic } from '../../components/infographics/HierarchyInfographic';
-import { GoalToExecutionWorkflow } from '../../components/infographics/GoalToExecutionWorkflow';
 import { RollupInfographic } from '../../components/infographics/RollupInfographic';
-import { ProductInMotion } from '../../components/infographics/ProductInMotion';
 import { AIDecompositionInfographic } from '../../components/infographics/AIDecompositionInfographic';
 import { AccountabilityWorkflowInfographic } from '../../components/infographics/AccountabilityWorkflowInfographic';
-import { ProjectKnowledgeInfographic } from '../../components/infographics/ProjectKnowledgeInfographic';
 import { AnalyticsInfographic } from '../../components/infographics/AnalyticsInfographic';
-import { GovernanceInfographic } from '../../components/infographics/GovernanceInfographic';
-import { OSMapInfographic } from '../../components/infographics/OSMapInfographic';
 import { CTASection } from '../../components/common/CTASection';
 
 export const Home: React.FC = () => {
   return (
-    <div className="w-full flex flex-col space-y-10 lg:space-y-14 pt-2">
-      {/* ==================================================
-          SECTION 01 — ARCHITECTURE OF EXECUTION 3D HERO
-         ================================================== */}
+    <div className="w-full flex flex-col space-y-12 lg:space-y-16 pt-2">
+      {/* 1. HERO: From Founder Strategy to Execution on Autopilot */}
       <ArchitectureOfExecutionHero />
 
-      {/* ==================================================
-          SECTION 02 — THE ORGANIZATIONAL PICTURE (Visual A)
-         ================================================== */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
+      {/* 2. CORE CONCEPT: Connect Company Goals to Everyday Work */}
+      <section id="everything-connected" className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <HierarchyInfographic />
       </section>
 
-      {/* ==================================================
-          SECTION 03 — FROM GOALS TO EXECUTION (Visual B)
-         ================================================== */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
-        <GoalToExecutionWorkflow />
-      </section>
-
-      {/* ==================================================
-          SECTION 04 — PROGRESS THAT REFLECTS ACTUAL WORK (Visual C)
-         ================================================== */}
+      {/* 3. AUTOMATED PROGRESS: Never Ask “What's the Status?” Again */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <RollupInfographic />
       </section>
 
-      {/* ==================================================
-          INTERACTIVE PRODUCT IN MOTION SHOWCASE
-         ================================================== */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
-        <ProductInMotion />
-      </section>
-
-      {/* ==================================================
-          SECTION 05 — AI-ASSISTED PLANNING (Visual D)
-         ================================================== */}
+      {/* 4. AI INTELLIGENCE: Turn Goals into Actionable Tasks */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <AIDecompositionInfographic />
       </section>
 
-      {/* ==================================================
-          SECTION 06 — WORK EXECUTION & ACCOUNTABILITY (Visual E)
-         ================================================== */}
+      {/* 5. EXECUTION & ACCOUNTABILITY: Everyone Knows What Comes Next */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <AccountabilityWorkflowInfographic />
       </section>
 
-      {/* ==================================================
-          SECTION 07 — KNOWLEDGE & DOCUMENTATION (Visual G)
-         ================================================== */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
-        <ProjectKnowledgeInfographic />
-      </section>
-
-      {/* ==================================================
-          SECTION 08 — EXECUTIVE VISIBILITY (Visual F)
-         ================================================== */}
+      {/* 6. EXECUTIVE VISIBILITY: See What's Moving and What Needs Attention */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
         <AnalyticsInfographic />
       </section>
 
-      {/* ==================================================
-          SECTION 09 — GOVERNANCE & RBAC INFOGRAPHIC
-         ================================================== */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
-        <GovernanceInfographic />
-      </section>
-
-      {/* ==================================================
-          SECTION 10 — A UNIFIED OPERATING SYSTEM (OS Map)
-         ================================================== */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
-        <OSMapInfographic />
-      </section>
-
-      {/* ==================================================
-          SECTION 11 — FINAL CONVERSION CTA
-         ================================================== */}
+      {/* 7. FINAL CTA: Your Organization. One Operating System */}
       <section id="conversion-cta" className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 pb-12">
         <CTASection />
       </section>

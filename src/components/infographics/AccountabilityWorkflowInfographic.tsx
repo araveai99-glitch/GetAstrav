@@ -6,15 +6,12 @@ export const AccountabilityWorkflowInfographic: React.FC = () => {
   return (
     <div className="w-full bg-white p-6 sm:p-8 lg:p-10 rounded-3xl border border-brand-peach/80 shadow-architectural space-y-8">
       {/* Header */}
-      <div className="text-center max-w-[1000px] mx-auto space-y-3">
-        <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-sage-light border border-sage text-xs font-bold text-brand-green uppercase tracking-wider">
-          Visual F • Execution & Accountability Architecture
-        </span>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-espresso tracking-tight">
-          Clear Accountability & Zero-Bypass Sign-Off Gates
+      <div className="text-center max-w-[800px] mx-auto space-y-3">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight">
+          Everyone Knows What Comes Next.
         </h2>
-        <p className="text-sm sm:text-base text-terracotta leading-relaxed max-w-[800px] mx-auto">
-          Every task moves through a transparent, audited approval lifecycle with explicit single-owner assignment, dependency resolution, and manager sign-off gates.
+        <p className="text-base sm:text-lg text-terracotta leading-relaxed max-w-[700px] mx-auto font-normal">
+          Assign work, set deadlines, track completion, and let managers review tasks when approval is required.
         </p>
       </div>
 

@@ -126,15 +126,12 @@ export const HierarchyInfographic: React.FC = () => {
   return (
     <div className="w-full bg-white p-6 sm:p-8 lg:p-10 rounded-3xl border border-brand-peach/80 shadow-architectural space-y-8">
       {/* Header */}
-      <div className="text-center max-w-[1000px] mx-auto space-y-3">
-        <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-orange-light border border-brand-orange/30 text-xs font-bold text-brand-orange uppercase tracking-wider">
-          Visual A • Connected Organization Hierarchy
-        </span>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-espresso tracking-tight">
-          Organization → Divisions → Squads → Projects → OKRs → Milestones → Tasks
+      <div className="text-center max-w-[800px] mx-auto space-y-3">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight">
+          Connect Company Goals to Everyday Work.
         </h2>
-        <p className="text-sm sm:text-base text-terracotta leading-relaxed max-w-[800px] mx-auto">
-          FounderOS operates on a connected 7-level structural graph. Select any architectural node to inspect real-time governance, live metrics, and mathematical cascade propagation.
+        <p className="text-base sm:text-lg text-terracotta leading-relaxed max-w-[700px] mx-auto font-normal">
+          Organize departments, teams, projects, goals, milestones, and tasks so everyone understands how their work fits into the bigger picture.
         </p>
       </div>
 

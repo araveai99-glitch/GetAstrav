@@ -6,15 +6,12 @@ export const AnalyticsInfographic: React.FC = () => {
   return (
     <div className="w-full bg-white p-6 sm:p-8 lg:p-10 rounded-3xl border border-brand-peach/80 shadow-architectural space-y-8">
       {/* Header */}
-      <div className="text-center max-w-[1000px] mx-auto space-y-3">
-        <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-mint-soft border border-brand-green/30 text-xs font-bold text-brand-green uppercase tracking-wider">
-          Visual H • Real-Time Dual-Mode Analytics Radar
-        </span>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-espresso tracking-tight">
-          Executive Visibility Meets Individual Execution Focus
+      <div className="text-center max-w-[800px] mx-auto space-y-3">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight">
+          See What's Moving and What Needs Attention.
         </h2>
-        <p className="text-sm sm:text-base text-terracotta leading-relaxed max-w-[800px] mx-auto font-normal">
-          Dual-view dashboards engineered for both high-level executive decision making and focused daily individual execution without clutter.
+        <p className="text-base sm:text-lg text-terracotta leading-relaxed max-w-[700px] mx-auto font-normal">
+          Understand goal progress, overdue tasks, and potential risks without collecting updates from every team individually.
         </p>
       </div>
 
