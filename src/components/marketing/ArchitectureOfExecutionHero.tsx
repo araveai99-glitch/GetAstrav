@@ -32,12 +32,11 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* Hero Headline & Supporting Text */}
           <MotionWrapper delay={0.1}>
             <div className="space-y-4">
-              <h1 className="font-extrabold text-[38px] sm:text-[54px] xl:text-[64px] leading-[1.06] tracking-tight text-espresso">
-                From Founder Strategy <br />
-                to Execution on <span className="text-brand-orange">Autopilot.</span>
+              <h1 className="font-extrabold text-[36px] sm:text-[50px] xl:text-[60px] leading-[1.1] tracking-tight text-espresso">
+                Run Your Company on <span className="text-brand-orange">Real Progress</span>, Not Status Meetings.
               </h1>
               <p className="text-base sm:text-lg lg:text-xl text-terracotta leading-relaxed font-normal pt-1 max-w-xl">
-                Bring your company's goals, projects, and team tasks together in one place. See how work is progressing and what needs attention.
+                Connect company goals, team projects, and daily tasks in one unified workspace. Track execution automatically and see exactly what needs your attention.
               </p>
             </div>
           </MotionWrapper>
