@@ -16,32 +16,32 @@ const TIERS_DATA: ArchitectureTier[] = [
     label: 'TIER 1 • EXECUTIVE STRATEGY & OKRs',
     sub: 'Organization Root Target: $24M ARR',
     metric: '88.4% Mathematical Rollup',
-    colorHex: 0x2a1a14,
-    accentColor: '#2a1a14',
+    colorHex: 0x059669,
+    accentColor: '#059669',
   },
   {
     id: 2,
     label: 'TIER 2 • DEPARTMENTS & PODS',
     sub: 'Engineering & Product Ops Governance',
     metric: '6 Active Squad Containers',
-    colorHex: 0x2e936f,
-    accentColor: '#2e936f',
+    colorHex: 0x0d9488,
+    accentColor: '#0d9488',
   },
   {
     id: 3,
     label: 'TIER 3 • PROJECTS & ARCHITECTURE SPECS',
     sub: 'Project: Payment Gateway & SAML SSO',
     metric: 'Sprint SLA: 96.2% On-Time',
-    colorHex: 0xfab60a,
-    accentColor: '#fab60a',
+    colorHex: 0xd97706,
+    accentColor: '#d97706',
   },
   {
     id: 4,
     label: 'TIER 4 • ACTIONABLE LEAF TASKS',
     sub: 'OAuth PKCE Token Key Lock Implementation',
     metric: 'Manager Sign-off Verified',
-    colorHex: 0x2e936f,
-    accentColor: '#2e936f',
+    colorHex: 0x10b981,
+    accentColor: '#10b981',
   },
 ];
 
@@ -289,9 +289,9 @@ export const ArchitectureOfExecutionCanvas: React.FC = () => {
       <div ref={containerRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
 
       {/* Top Floating Badge */}
-      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-brand-peach/80 shadow-warm-2xs">
-        <span className="w-2.5 h-2.5 rounded-full bg-brand-green animate-pulse" />
-        <span className="text-[11px] font-mono font-extrabold tracking-wider text-espresso uppercase">
+      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50/90 backdrop-blur-md border border-emerald-200/90 shadow-warm-2xs">
+        <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+        <span className="text-[11px] font-mono font-extrabold tracking-wider text-emerald-900 uppercase">
           3D INTERACTIVE ARCHITECTURE • ORBIT & INSPECT
         </span>
       </div>
@@ -306,8 +306,8 @@ export const ArchitectureOfExecutionCanvas: React.FC = () => {
               onClick={() => setActiveTier(tier.id)}
               className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all text-left flex items-center gap-2 cursor-pointer ${
                 isSelected
-                  ? 'bg-espresso text-white shadow-warm-md scale-105 border border-espresso'
-                  : 'bg-white/90 text-espresso hover:bg-surface-tier1 border border-brand-peach/80 shadow-warm-2xs'
+                  ? 'bg-gradient-to-r from-emerald-600 to-teal-700 text-white shadow-md shadow-emerald-700/25 scale-105 border border-emerald-600'
+                  : 'bg-white/90 text-espresso hover:bg-emerald-50/70 border border-brand-peach/80 shadow-warm-2xs'
               }`}
             >
               <span className={`w-2 h-2 rounded-full`} style={{ backgroundColor: isSelected ? '#ffffff' : tier.accentColor }} />
@@ -327,7 +327,7 @@ export const ArchitectureOfExecutionCanvas: React.FC = () => {
             T{activeData.id}
           </div>
           <div>
-            <span className="text-[10px] font-mono font-extrabold text-terracotta-muted uppercase tracking-wider">
+            <span className="text-[10px] font-mono font-extrabold text-emerald-700 uppercase tracking-wider">
               {activeData.label}
             </span>
             <h4 className="text-sm sm:text-base font-extrabold text-espresso">{activeData.sub}</h4>
@@ -335,7 +335,7 @@ export const ArchitectureOfExecutionCanvas: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-3 self-end sm:self-center">
-          <div className="px-3 py-1 rounded-full bg-brand-green/10 text-brand-green border border-brand-green/30 text-xs font-bold font-mono">
+          <div className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold font-mono">
             {activeData.metric}
           </div>
           <span className="text-xs font-mono font-extrabold text-espresso bg-surface-tier1 px-3 py-1 rounded-full border border-brand-peach/80">

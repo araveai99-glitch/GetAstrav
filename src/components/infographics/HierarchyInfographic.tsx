@@ -149,11 +149,11 @@ export const HierarchyInfographic: React.FC = () => {
                   onClick={() => setSelectedNode(node.id)}
                   className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2.5 transition-all cursor-pointer ${
                     isSelected
-                      ? 'bg-espresso text-white shadow-warm-md scale-105 border border-espresso'
-                      : 'bg-white text-espresso hover:bg-surface-tier1 border border-brand-peach/80 shadow-warm-2xs'
+                      ? 'bg-gradient-to-r from-emerald-600 to-teal-700 text-white shadow-md shadow-emerald-700/25 scale-105 border border-emerald-600'
+                      : 'bg-white text-espresso hover:bg-emerald-50/70 border border-brand-peach/80 shadow-warm-2xs'
                   }`}
                 >
-                  <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-espresso'}`} />
+                  <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-emerald-700'}`} />
                   <span>{node.name.split(':')[0]}</span>
                 </button>
                 {idx < hierarchyNodes.length - 1 && (
@@ -173,13 +173,13 @@ export const HierarchyInfographic: React.FC = () => {
                   <currentNode.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-extrabold text-terracotta-muted uppercase tracking-wider">{currentNode.level}</span>
+                  <span className="text-[10px] font-mono font-extrabold text-emerald-700 uppercase tracking-wider">{currentNode.level}</span>
                   <h3 className="text-lg sm:text-xl font-extrabold text-espresso">{currentNode.name}</h3>
                   <p className="text-xs text-terracotta font-medium">{currentNode.subtitle}</p>
                 </div>
               </div>
-              <span className="px-3.5 py-1.5 rounded-full bg-brand-green/10 border border-brand-green/30 text-brand-green text-xs font-bold shrink-0 flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5" />
+              <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold shrink-0 flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                 {currentNode.status}
               </span>
             </div>
@@ -196,7 +196,7 @@ export const HierarchyInfographic: React.FC = () => {
 
               <div className="p-4 rounded-xl bg-ivory border border-brand-peach/60 space-y-1">
                 <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase flex items-center gap-1">
-                  <Lock className="w-3 h-3 text-espresso" /> RBAC PERMISSION SCOPE
+                  <Lock className="w-3 h-3 text-emerald-600" /> RBAC PERMISSION SCOPE
                 </span>
                 <p className="text-xs sm:text-sm font-bold text-espresso">{currentNode.permissionScope}</p>
               </div>

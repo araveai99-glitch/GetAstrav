@@ -28,12 +28,12 @@ export const RollupInfographic: React.FC = () => {
         <div className="p-5 rounded-2xl bg-white border border-brand-peach shadow-warm-xs space-y-3">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <div className="flex items-center gap-2">
-              <Sliders className="w-5 h-5 text-espresso" />
+              <Sliders className="w-5 h-5 text-emerald-700" />
               <span className="text-xs font-bold text-espresso uppercase tracking-wider">
                 Interactive Demo • Drag Slider to Complete Tasks
               </span>
             </div>
-            <span className="text-sm font-extrabold text-espresso bg-espresso/5 px-3 py-1 rounded-full border border-espresso/20">
+            <span className="text-sm font-extrabold text-emerald-800 bg-emerald-50/90 px-3 py-1 rounded-full border border-emerald-200/90">
               Tasks Completed: {taskCompletion}%
             </span>
           </div>
@@ -44,7 +44,7 @@ export const RollupInfographic: React.FC = () => {
             max="100"
             value={taskCompletion}
             onChange={(e) => setTaskCompletion(Number(e.target.value))}
-            className="w-full h-2.5 bg-brand-peach/40 rounded-lg appearance-none cursor-pointer accent-espresso"
+            className="w-full h-2.5 bg-brand-peach/40 rounded-lg appearance-none cursor-pointer accent-emerald-600"
           />
         </div>
 
@@ -55,7 +55,7 @@ export const RollupInfographic: React.FC = () => {
             <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-2xs space-y-3 relative">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-terracotta-muted">01. TEAM TASKS</span>
-                <span className="px-2.5 py-0.5 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold">
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold">
                   Work Output
                 </span>
               </div>
@@ -63,11 +63,11 @@ export const RollupInfographic: React.FC = () => {
               <div className="space-y-1.5 pt-1">
                 <div className="flex justify-between items-center text-xs font-bold">
                   <span>Task Progress</span>
-                  <span className="text-espresso">{taskCompletion}%</span>
+                  <span className="text-emerald-700">{taskCompletion}%</span>
                 </div>
                 <div className="w-full h-2.5 rounded-full bg-brand-peach/30 overflow-hidden">
                   <div
-                    className="h-full bg-espresso rounded-full transition-all duration-300"
+                    className="h-full bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full transition-all duration-300"
                     style={{ width: `${taskCompletion}%` }}
                   />
                 </div>
@@ -80,7 +80,7 @@ export const RollupInfographic: React.FC = () => {
             <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-2xs space-y-3 relative">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-terracotta-muted">02. MILESTONE</span>
-                <span className="px-2.5 py-0.5 rounded-full bg-brand-yellow/15 text-tertiary text-xs font-bold">
+                <span className="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold">
                   Auto-Updated
                 </span>
               </div>
@@ -88,11 +88,11 @@ export const RollupInfographic: React.FC = () => {
               <div className="space-y-1.5 pt-1">
                 <div className="flex justify-between items-center text-xs font-bold">
                   <span>Milestone Completion</span>
-                  <span className="text-tertiary">{milestoneVal}%</span>
+                  <span className="text-amber-700">{milestoneVal}%</span>
                 </div>
                 <div className="w-full h-2.5 rounded-full bg-brand-peach/30 overflow-hidden">
                   <div
-                    className="h-full bg-brand-yellow rounded-full transition-all duration-300"
+                    className="h-full bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full transition-all duration-300"
                     style={{ width: `${milestoneVal}%` }}
                   />
                 </div>
@@ -105,7 +105,7 @@ export const RollupInfographic: React.FC = () => {
             <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-2xs space-y-3 relative">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-terracotta-muted">03. COMPANY GOAL</span>
-                <span className="px-2.5 py-0.5 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold">
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold">
                   Strategy Target
                 </span>
               </div>
@@ -113,11 +113,11 @@ export const RollupInfographic: React.FC = () => {
               <div className="space-y-1.5 pt-1">
                 <div className="flex justify-between items-center text-xs font-bold">
                   <span>Goal Progress</span>
-                  <span className="text-brand-green">{goalVal}%</span>
+                  <span className="text-emerald-700">{goalVal}%</span>
                 </div>
                 <div className="w-full h-2.5 rounded-full bg-brand-peach/30 overflow-hidden">
                   <div
-                    className="h-full bg-brand-green rounded-full transition-all duration-300"
+                    className="h-full bg-gradient-to-r from-emerald-600 to-teal-700 rounded-full transition-all duration-300"
                     style={{ width: `${goalVal}%` }}
                   />
                 </div>
@@ -130,12 +130,12 @@ export const RollupInfographic: React.FC = () => {
         <MotionWrapper delay={0.4} direction="up">
           <div className="p-6 rounded-2xl bg-white border border-brand-peach/90 shadow-warm-md flex flex-col md:flex-row items-center justify-between gap-6 w-full">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-espresso text-white flex items-center justify-center shadow-warm-sm shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-700 text-white flex items-center justify-center shadow-md shadow-emerald-700/25 shrink-0">
                 <TrendingUp className="w-6 h-6" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase text-espresso tracking-wider">
+                  <span className="text-xs font-bold uppercase text-emerald-800 tracking-wider">
                     Automatic Progress & Risk Spotting
                   </span>
                   <span className="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold flex items-center gap-1">

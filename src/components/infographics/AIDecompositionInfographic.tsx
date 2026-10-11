@@ -31,8 +31,8 @@ export const AIDecompositionInfographic: React.FC = () => {
           <MotionWrapper direction="right">
             <div className="p-6 rounded-2xl bg-white border border-brand-peach shadow-satin-card space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-espresso uppercase tracking-wider">STEP 1 • ENTER A GOAL</span>
-                <span className="px-2.5 py-0.5 rounded-full bg-espresso/5 text-espresso text-xs font-bold">
+                <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider">STEP 1 • ENTER A GOAL</span>
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold">
                   User Goal Input
                 </span>
               </div>
@@ -54,8 +54,8 @@ export const AIDecompositionInfographic: React.FC = () => {
         <div className="lg:col-span-3 flex flex-col items-center justify-center text-center space-y-3 my-2 lg:my-0 w-full">
           <MotionWrapper direction="up" delay={0.15}>
             <div className="relative p-6 rounded-2xl bg-white border border-brand-peach/90 shadow-warm-md flex flex-col items-center space-y-3 w-full max-w-xs mx-auto">
-              <div className="w-12 h-12 rounded-2xl bg-espresso text-white flex items-center justify-center shadow-warm-sm animate-pulse">
-                <Sparkles className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-700 text-white flex items-center justify-center shadow-md shadow-emerald-700/25 animate-pulse">
+                <Sparkles className="w-6 h-6 text-amber-300" />
               </div>
               <span className="text-sm font-extrabold text-espresso">STEP 2 • AI SUGGESTIONS</span>
               <span className="text-xs text-terracotta font-normal">Analyzing goal & breaking into tasks...</span>
@@ -69,29 +69,29 @@ export const AIDecompositionInfographic: React.FC = () => {
             <div className="space-y-3">
               <div className="flex items-center justify-between text-xs font-bold text-espresso px-1">
                 <span>STEP 3 • REVIEW & ASSIGN TASKS</span>
-                <span className="text-xs text-brand-green font-semibold">Full User Control</span>
+                <span className="text-xs text-emerald-700 font-bold">Full User Control</span>
               </div>
 
               {tasks.map((task, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-white border border-brand-peach/80 shadow-warm-2xs flex items-center justify-between gap-3 hover:border-espresso transition-all">
+                <div key={idx} className="p-4 rounded-xl bg-white border border-brand-peach/80 shadow-warm-2xs flex items-center justify-between gap-3 hover:border-emerald-600 transition-all">
                   <div className="space-y-1 flex-1">
                     <div className="flex items-center gap-2">
                       <h4 className="text-xs sm:text-sm font-bold text-espresso">{task.title}</h4>
                       <button
                         onClick={() => setEditingIndex(editingIndex === idx ? null : idx)}
-                        className="text-terracotta-muted hover:text-espresso text-xs p-1"
+                        className="text-terracotta-muted hover:text-emerald-700 text-xs p-1"
                         title="Edit suggestion"
                       >
                         <Edit2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
                     <div className="flex flex-wrap items-center gap-3 text-xs text-terracotta">
-                      <span className="flex items-center gap-1 font-semibold"><UserCheck className="w-3.5 h-3.5 text-brand-green" /> {task.assignee}</span>
+                      <span className="flex items-center gap-1 font-semibold"><UserCheck className="w-3.5 h-3.5 text-emerald-600" /> {task.assignee}</span>
                       <span className="flex items-center gap-1 font-bold"><Calendar className="w-3.5 h-3.5 text-terracotta-muted" /> {task.deadline}</span>
                     </div>
                   </div>
-                  <div className="w-7 h-7 rounded-full bg-sage-light text-brand-green flex items-center justify-center shrink-0 border border-sage">
-                    <Check className="w-4 h-4" />
+                  <div className="w-7 h-7 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200">
+                    <Check className="w-4 h-4 text-emerald-600" />
                   </div>
                 </div>
               ))}
@@ -104,7 +104,7 @@ export const AIDecompositionInfographic: React.FC = () => {
       <MotionWrapper delay={0.4} direction="up">
         <div className="p-5 rounded-2xl bg-white border border-brand-peach shadow-warm-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 w-full">
           <div className="flex items-center gap-3 text-xs sm:text-sm font-semibold text-espresso">
-            <ShieldCheck className="w-5 h-5 text-brand-green shrink-0" />
+            <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
             <span>Review & Edit: You can modify AI suggested tasks and assignees anytime before confirming.</span>
           </div>
           <div className="flex items-center gap-3 shrink-0 self-end sm:self-center">
@@ -112,8 +112,8 @@ export const AIDecompositionInfographic: React.FC = () => {
               onClick={() => setAccepted(!accepted)}
               className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all cursor-pointer ${
                 accepted
-                  ? 'bg-brand-green text-white shadow-glow-green'
-                  : 'bg-espresso text-white hover:bg-espresso/90 shadow-warm-md'
+                  ? 'bg-emerald-700 text-white shadow-md shadow-emerald-700/25'
+                  : 'bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white shadow-md shadow-emerald-700/25'
               }`}
             >
               {accepted ? (
