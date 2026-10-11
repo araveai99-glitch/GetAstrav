@@ -20,8 +20,8 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <MotionWrapper direction="down">
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-brand-peach/80 shadow-warm-2xs">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-orange"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-green"></span>
               </span>
               <span className="text-[11px] font-mono font-extrabold tracking-widest text-espresso uppercase">
                 FOUNDEROS WORKSPACE V4.8
@@ -33,7 +33,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <MotionWrapper delay={0.1}>
             <div className="space-y-4">
               <h1 className="font-extrabold text-[36px] sm:text-[50px] xl:text-[60px] leading-[1.1] tracking-tight text-espresso">
-                Run Your Company on <span className="text-brand-orange">Real Progress</span>, Not Status Meetings.
+                Run Your Company on Real Progress, Not Status Meetings.
               </h1>
               <p className="text-base sm:text-lg lg:text-xl text-terracotta leading-relaxed font-normal pt-1 max-w-xl">
                 Connect company goals, team projects, and daily tasks in one unified workspace. Track execution automatically and see exactly what needs your attention.
@@ -46,7 +46,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             <div className="flex flex-wrap items-center gap-3.5 pt-1">
               <Link
                 to="/product"
-                className="inline-flex items-center justify-center gap-2.5 text-sm sm:text-base font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-7 py-3.5 rounded-2xl shadow-glow-orange hover:-translate-y-0.5 transition-all group cursor-pointer"
+                className="inline-flex items-center justify-center gap-2.5 text-sm sm:text-base font-bold text-white bg-espresso hover:bg-espresso/90 px-7 py-3.5 rounded-2xl shadow-warm-md hover:-translate-y-0.5 transition-all group cursor-pointer"
               >
                 <Layers className="w-4.5 h-4.5" />
                 <span>Explore FounderOS</span>
@@ -55,7 +55,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
               <a
                 href="#everything-connected"
-                className="inline-flex items-center justify-center gap-2 text-sm sm:text-base font-bold text-espresso bg-white hover:bg-surface-tier1 px-6 py-3.5 rounded-2xl border border-brand-peach/80 transition-all hover:border-brand-orange shadow-warm-sm"
+                className="inline-flex items-center justify-center gap-2 text-sm sm:text-base font-bold text-espresso bg-white hover:bg-surface-tier1 px-6 py-3.5 rounded-2xl border border-brand-peach/80 transition-all hover:border-espresso shadow-warm-sm"
               >
                 <span>See How It Works</span>
               </a>
@@ -70,12 +70,12 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 <span>Real-Time Sync</span>
               </div>
               <div className="flex items-center gap-2 font-bold text-espresso">
-                <ShieldCheck className="w-4 h-4 text-brand-orange" />
+                <ShieldCheck className="w-4 h-4 text-brand-green" />
                 <span>SOC2 Type II Aligned</span>
               </div>
               <div className="flex items-center gap-2 font-bold text-espresso">
-                <Sparkles className="w-4 h-4 text-brand-orange" />
-                <span>Gemini 2.5 AI</span>
+                <Sparkles className="w-4 h-4 text-brand-green" />
+                <span>AI Intelligence</span>
               </div>
             </div>
           </MotionWrapper>

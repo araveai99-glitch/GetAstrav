@@ -21,19 +21,19 @@ export const AccountabilityWorkflowInfographic: React.FC = () => {
         {/* Horizontal Workflow Stepper */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-3 sm:gap-4 w-full">
           {[
-            { step: '1', title: 'Task Created', desc: 'Assigned with SLA', status: 'Assigned', badge: 'bg-brand-orange-light text-brand-orange border-brand-orange/30' },
+            { step: '1', title: 'Task Created', desc: 'Assigned with SLA', status: 'Assigned', badge: 'bg-champagne text-espresso border-champagne-gold' },
             { step: '2', title: 'Subtasks', desc: '4 Checklist Items', status: 'In Progress', badge: 'bg-champagne text-espresso border-champagne-gold' },
             { step: '3', title: 'Dependency', desc: 'API Gate Cleared', status: 'Unlocked', badge: 'bg-sage-light text-brand-green border-sage' },
-            { step: '4', title: 'Execution', desc: 'Code / Work Done', status: 'Submitted', badge: 'bg-coral-soft text-brand-orange border-brand-orange/30' },
+            { step: '4', title: 'Execution', desc: 'Code / Work Done', status: 'Submitted', badge: 'bg-surface-tier1 text-espresso border-brand-peach' },
             { step: '5', title: 'Peer Review', desc: 'Review Passed', status: 'Reviewing', badge: 'bg-brand-yellow-light text-espresso border-brand-yellow/40' },
             { step: '6', title: 'Manager Gate', desc: 'Sign-off Verified', status: 'Approved', badge: 'bg-mint-soft text-brand-green border-brand-green/30' },
-            { step: '7', title: 'Completed', desc: 'Rollup Activated', status: '100% Synced', badge: 'bg-brand-orange text-white border-brand-orange' },
+            { step: '7', title: 'Completed', desc: 'Rollup Activated', status: '100% Synced', badge: 'bg-brand-green text-white border-brand-green' },
           ].map((item, idx) => (
             <MotionWrapper key={idx} delay={idx * 0.04} direction="up">
-              <div className="p-4 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-2xs hover:border-brand-orange transition-all space-y-3 relative w-full group h-full flex flex-col justify-between">
+              <div className="p-4 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-2xs hover:border-espresso transition-all space-y-3 relative w-full group h-full flex flex-col justify-between">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="w-5 h-5 rounded-full bg-brand-orange-light text-brand-orange font-mono font-bold text-xs flex items-center justify-center border border-brand-orange/30">
+                    <span className="w-5 h-5 rounded-full bg-champagne text-espresso font-mono font-bold text-xs flex items-center justify-center border border-champagne-gold">
                       {item.step}
                     </span>
                     <span className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-bold border ${item.badge}`}>
@@ -47,7 +47,7 @@ export const AccountabilityWorkflowInfographic: React.FC = () => {
                 {/* Arrow indicator for desktop */}
                 {idx < 6 && (
                   <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
-                    <div className="w-6 h-6 rounded-full bg-white border border-brand-peach/80 shadow-warm-2xs flex items-center justify-center text-brand-orange">
+                    <div className="w-6 h-6 rounded-full bg-white border border-brand-peach/80 shadow-warm-2xs flex items-center justify-center text-espresso">
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -61,7 +61,7 @@ export const AccountabilityWorkflowInfographic: React.FC = () => {
         <div className="p-6 rounded-2xl bg-white border border-brand-peach shadow-warm-md grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
           <div className="space-y-2.5">
             <div className="flex items-center gap-2.5 text-xs sm:text-sm font-extrabold text-espresso">
-              <div className="w-8 h-8 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl bg-champagne text-espresso flex items-center justify-center">
                 <UserCheck className="w-4.5 h-4.5" />
               </div>
               <span>Explicit Single Ownership</span>
@@ -86,7 +86,7 @@ export const AccountabilityWorkflowInfographic: React.FC = () => {
           <div className="space-y-2.5">
             <div className="flex items-center gap-2.5 text-xs sm:text-sm font-extrabold text-espresso">
               <div className="w-8 h-8 rounded-xl bg-champagne text-espresso flex items-center justify-center">
-                <FileCheck className="w-4.5 h-4.5 text-brand-orange" />
+                <FileCheck className="w-4.5 h-4.5 text-espresso" />
               </div>
               <span>Immutable Audit Logs</span>
             </div>

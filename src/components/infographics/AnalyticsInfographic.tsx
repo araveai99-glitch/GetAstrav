@@ -24,7 +24,7 @@ export const AnalyticsInfographic: React.FC = () => {
             <div className="p-6 rounded-2xl bg-gradient-to-b from-ivory via-surface-ambient to-white border border-brand-peach/80 shadow-satin-card space-y-5 w-full">
               <div className="flex items-center justify-between border-b border-brand-peach/50 pb-3.5">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center font-bold border border-brand-orange/30">
+                  <div className="w-10 h-10 rounded-xl bg-champagne text-espresso flex items-center justify-center font-bold border border-champagne-gold">
                     <BarChart3 className="w-5 h-5" />
                   </div>
                   <div>
@@ -49,7 +49,7 @@ export const AnalyticsInfographic: React.FC = () => {
 
                 <div className="p-4 rounded-xl bg-white border border-brand-peach/70 space-y-1">
                   <div className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">OVERDUE SLA TASKS</div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-brand-orange font-mono">2</div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-espresso font-mono">2</div>
                   <div className="text-xs text-terracotta font-medium">99.1% On-time delivery</div>
                 </div>
 
@@ -73,7 +73,7 @@ export const AnalyticsInfographic: React.FC = () => {
                 <div className="text-xs sm:text-sm font-extrabold text-espresso">Division Progress Rollup</div>
                 <div className="space-y-3">
                   {[
-                    { dept: 'Engineering & Infrastructure', val: '92.0%', width: '92%', color: 'bg-brand-orange' },
+                    { dept: 'Engineering & Infrastructure', val: '92.0%', width: '92%', color: 'bg-espresso' },
                     { dept: 'Product & Design Ops', val: '86.4%', width: '86%', color: 'bg-brand-yellow' },
                     { dept: 'Growth & Enterprise Ops', val: '78.2%', width: '78%', color: 'bg-brand-green' },
                   ].map((d, i) => (
@@ -100,14 +100,14 @@ export const AnalyticsInfographic: React.FC = () => {
               <div className="flex items-center justify-between border-b border-brand-peach/50 pb-3.5">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-champagne text-espresso flex items-center justify-center font-bold border border-champagne-gold">
-                    <Flame className="w-5 h-5 text-brand-orange" />
+                    <Flame className="w-5 h-5 text-brand-green" />
                   </div>
                   <div>
                     <h3 className="text-sm sm:text-base font-extrabold text-espresso">Individual Focus Radar</h3>
                     <span className="text-[10px] text-terracotta font-mono">DAILY TASK EXECUTION & STREAK</span>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-brand-orange-light text-brand-orange text-xs font-mono font-bold border border-brand-orange/30 flex items-center gap-1.5">
+                <span className="px-3 py-1 rounded-full bg-mint-soft text-brand-green text-xs font-mono font-bold border border-brand-green/30 flex items-center gap-1.5">
                   <Flame className="w-3.5 h-3.5" /> 12 Day Streak
                 </span>
               </div>
@@ -135,7 +135,7 @@ export const AnalyticsInfographic: React.FC = () => {
                 </div>
 
                 {[
-                  { title: 'Review API Gateway error logs', tag: 'URGENT', color: 'bg-coral-soft text-brand-orange border border-brand-orange/30' },
+                  { title: 'Review API Gateway error logs', tag: 'URGENT', color: 'bg-surface-tier1 text-espresso border border-brand-peach' },
                   { title: 'Submit unit test coverage report', tag: 'TODAY', color: 'bg-brand-yellow-light text-espresso border border-brand-yellow/40' },
                   { title: 'Update documentation for OAuth callback', tag: 'NORMAL', color: 'bg-ivory text-espresso border border-brand-peach' },
                 ].map((item, idx) => (

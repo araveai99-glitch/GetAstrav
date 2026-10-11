@@ -31,8 +31,8 @@ export const AIDecompositionInfographic: React.FC = () => {
           <MotionWrapper direction="right">
             <div className="p-6 rounded-2xl bg-white border border-brand-peach shadow-satin-card space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-brand-orange uppercase tracking-wider">STEP 1 • ENTER A GOAL</span>
-                <span className="px-2.5 py-0.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold">
+                <span className="text-xs font-bold text-espresso uppercase tracking-wider">STEP 1 • ENTER A GOAL</span>
+                <span className="px-2.5 py-0.5 rounded-full bg-espresso/5 text-espresso text-xs font-bold">
                   User Goal Input
                 </span>
               </div>
@@ -53,8 +53,8 @@ export const AIDecompositionInfographic: React.FC = () => {
         {/* STEP 2: Get Suggested Tasks */}
         <div className="lg:col-span-3 flex flex-col items-center justify-center text-center space-y-3 my-2 lg:my-0 w-full">
           <MotionWrapper direction="up" delay={0.15}>
-            <div className="relative p-6 rounded-2xl bg-white border border-brand-orange/40 shadow-glow-orange flex flex-col items-center space-y-3 w-full max-w-xs mx-auto">
-              <div className="w-12 h-12 rounded-2xl bg-brand-orange text-white flex items-center justify-center shadow-glow-orange animate-pulse">
+            <div className="relative p-6 rounded-2xl bg-white border border-brand-peach/90 shadow-warm-md flex flex-col items-center space-y-3 w-full max-w-xs mx-auto">
+              <div className="w-12 h-12 rounded-2xl bg-espresso text-white flex items-center justify-center shadow-warm-sm animate-pulse">
                 <Sparkles className="w-6 h-6" />
               </div>
               <span className="text-sm font-extrabold text-espresso">STEP 2 • AI SUGGESTIONS</span>
@@ -73,20 +73,20 @@ export const AIDecompositionInfographic: React.FC = () => {
               </div>
 
               {tasks.map((task, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-white border border-brand-peach/80 shadow-warm-2xs flex items-center justify-between gap-3 hover:border-brand-orange transition-all">
+                <div key={idx} className="p-4 rounded-xl bg-white border border-brand-peach/80 shadow-warm-2xs flex items-center justify-between gap-3 hover:border-espresso transition-all">
                   <div className="space-y-1 flex-1">
                     <div className="flex items-center gap-2">
                       <h4 className="text-xs sm:text-sm font-bold text-espresso">{task.title}</h4>
                       <button
                         onClick={() => setEditingIndex(editingIndex === idx ? null : idx)}
-                        className="text-terracotta-muted hover:text-brand-orange text-xs p-1"
+                        className="text-terracotta-muted hover:text-espresso text-xs p-1"
                         title="Edit suggestion"
                       >
                         <Edit2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
                     <div className="flex flex-wrap items-center gap-3 text-xs text-terracotta">
-                      <span className="flex items-center gap-1 font-semibold"><UserCheck className="w-3.5 h-3.5 text-brand-orange" /> {task.assignee}</span>
+                      <span className="flex items-center gap-1 font-semibold"><UserCheck className="w-3.5 h-3.5 text-brand-green" /> {task.assignee}</span>
                       <span className="flex items-center gap-1 font-bold"><Calendar className="w-3.5 h-3.5 text-terracotta-muted" /> {task.deadline}</span>
                     </div>
                   </div>
@@ -113,7 +113,7 @@ export const AIDecompositionInfographic: React.FC = () => {
               className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all cursor-pointer ${
                 accepted
                   ? 'bg-brand-green text-white shadow-glow-green'
-                  : 'bg-brand-orange text-white hover:bg-brand-orange-hover shadow-glow-orange'
+                  : 'bg-espresso text-white hover:bg-espresso/90 shadow-warm-md'
               }`}
             >
               {accepted ? (

@@ -28,12 +28,12 @@ export const RollupInfographic: React.FC = () => {
         <div className="p-5 rounded-2xl bg-white border border-brand-peach shadow-warm-xs space-y-3">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <div className="flex items-center gap-2">
-              <Sliders className="w-5 h-5 text-brand-orange" />
+              <Sliders className="w-5 h-5 text-espresso" />
               <span className="text-xs font-bold text-espresso uppercase tracking-wider">
                 Interactive Demo • Drag Slider to Complete Tasks
               </span>
             </div>
-            <span className="text-sm font-extrabold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full border border-brand-orange/20">
+            <span className="text-sm font-extrabold text-espresso bg-espresso/5 px-3 py-1 rounded-full border border-espresso/20">
               Tasks Completed: {taskCompletion}%
             </span>
           </div>
@@ -44,7 +44,7 @@ export const RollupInfographic: React.FC = () => {
             max="100"
             value={taskCompletion}
             onChange={(e) => setTaskCompletion(Number(e.target.value))}
-            className="w-full h-2.5 bg-brand-peach/40 rounded-lg appearance-none cursor-pointer accent-brand-orange"
+            className="w-full h-2.5 bg-brand-peach/40 rounded-lg appearance-none cursor-pointer accent-espresso"
           />
         </div>
 
@@ -63,11 +63,11 @@ export const RollupInfographic: React.FC = () => {
               <div className="space-y-1.5 pt-1">
                 <div className="flex justify-between items-center text-xs font-bold">
                   <span>Task Progress</span>
-                  <span className="text-brand-orange">{taskCompletion}%</span>
+                  <span className="text-espresso">{taskCompletion}%</span>
                 </div>
                 <div className="w-full h-2.5 rounded-full bg-brand-peach/30 overflow-hidden">
                   <div
-                    className="h-full bg-brand-orange rounded-full transition-all duration-300"
+                    className="h-full bg-espresso rounded-full transition-all duration-300"
                     style={{ width: `${taskCompletion}%` }}
                   />
                 </div>
@@ -130,12 +130,12 @@ export const RollupInfographic: React.FC = () => {
         <MotionWrapper delay={0.4} direction="up">
           <div className="p-6 rounded-2xl bg-white border border-brand-peach/90 shadow-warm-md flex flex-col md:flex-row items-center justify-between gap-6 w-full">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-orange text-white flex items-center justify-center shadow-glow-orange shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-espresso text-white flex items-center justify-center shadow-warm-sm shrink-0">
                 <TrendingUp className="w-6 h-6" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase text-brand-orange tracking-wider">
+                  <span className="text-xs font-bold uppercase text-espresso tracking-wider">
                     Automatic Progress & Risk Spotting
                   </span>
                   <span className="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold flex items-center gap-1">

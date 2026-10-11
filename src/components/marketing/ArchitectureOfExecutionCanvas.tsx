@@ -16,8 +16,8 @@ const TIERS_DATA: ArchitectureTier[] = [
     label: 'TIER 1 • EXECUTIVE STRATEGY & OKRs',
     sub: 'Organization Root Target: $24M ARR',
     metric: '88.4% Mathematical Rollup',
-    colorHex: 0xf15e1c,
-    accentColor: '#f15e1c',
+    colorHex: 0x2a1a14,
+    accentColor: '#2a1a14',
   },
   {
     id: 2,
@@ -290,7 +290,7 @@ export const ArchitectureOfExecutionCanvas: React.FC = () => {
 
       {/* Top Floating Badge */}
       <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-brand-peach/80 shadow-warm-2xs">
-        <span className="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse" />
+        <span className="w-2.5 h-2.5 rounded-full bg-brand-green animate-pulse" />
         <span className="text-[11px] font-mono font-extrabold tracking-wider text-espresso uppercase">
           3D INTERACTIVE ARCHITECTURE • ORBIT & INSPECT
         </span>
@@ -306,7 +306,7 @@ export const ArchitectureOfExecutionCanvas: React.FC = () => {
               onClick={() => setActiveTier(tier.id)}
               className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all text-left flex items-center gap-2 cursor-pointer ${
                 isSelected
-                  ? 'bg-brand-orange text-white shadow-glow-orange scale-105 border border-brand-orange'
+                  ? 'bg-espresso text-white shadow-warm-md scale-105 border border-espresso'
                   : 'bg-white/90 text-espresso hover:bg-surface-tier1 border border-brand-peach/80 shadow-warm-2xs'
               }`}
             >
@@ -327,7 +327,7 @@ export const ArchitectureOfExecutionCanvas: React.FC = () => {
             T{activeData.id}
           </div>
           <div>
-            <span className="text-[10px] font-mono font-extrabold text-brand-orange uppercase tracking-wider">
+            <span className="text-[10px] font-mono font-extrabold text-terracotta-muted uppercase tracking-wider">
               {activeData.label}
             </span>
             <h4 className="text-sm sm:text-base font-extrabold text-espresso">{activeData.sub}</h4>

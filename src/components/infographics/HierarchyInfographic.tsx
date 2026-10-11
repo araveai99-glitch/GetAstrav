@@ -26,9 +26,9 @@ const hierarchyNodes: HierarchyNode[] = [
     metrics: '4 Strategic Divisions • 18 Squads • $24M Target ARR',
     status: '100% Operational',
     icon: Building2,
-    accentBg: 'bg-brand-orange-light text-brand-orange',
-    accentText: 'text-brand-orange',
-    borderAccent: 'border-brand-orange/40 hover:border-brand-orange',
+    accentBg: 'bg-champagne text-espresso',
+    accentText: 'text-espresso',
+    borderAccent: 'border-brand-peach hover:border-espresso',
     detailText: 'Master tenant boundary with encrypted audit logs and global SSO policies.',
     permissionScope: 'Super Admin Access Gate',
   },
@@ -56,7 +56,7 @@ const hierarchyNodes: HierarchyNode[] = [
     icon: Users,
     accentBg: 'bg-champagne text-espresso',
     accentText: 'text-espresso',
-    borderAccent: 'border-brand-peach hover:border-brand-orange',
+    borderAccent: 'border-brand-peach hover:border-espresso',
     detailText: 'Assigned to high-availability authentication and real-time rollup engine.',
     permissionScope: 'Squad Manager Scope',
   },
@@ -82,9 +82,9 @@ const hierarchyNodes: HierarchyNode[] = [
     metrics: 'Target Impact: +18.4% ARR',
     status: '88% Computed Rollup',
     icon: Target,
-    accentBg: 'bg-brand-orange-light text-brand-orange',
-    accentText: 'text-brand-orange',
-    borderAccent: 'border-brand-orange/40 hover:border-brand-orange',
+    accentBg: 'bg-surface-tier1 text-espresso',
+    accentText: 'text-espresso',
+    borderAccent: 'border-brand-peach hover:border-espresso',
     detailText: 'Progress automatically rolled up from linked sub-tasks and milestones.',
     permissionScope: 'Executive Owner Gate',
   },
@@ -98,7 +98,7 @@ const hierarchyNodes: HierarchyNode[] = [
     icon: Flag,
     accentBg: 'bg-brand-yellow-light text-espresso',
     accentText: 'text-espresso',
-    borderAccent: 'border-brand-peach hover:border-brand-orange',
+    borderAccent: 'border-brand-peach hover:border-espresso',
     detailText: 'Blocks production deployment gate until all 4 checklist items pass.',
     permissionScope: 'Reviewer Sign-off Scope',
   },
@@ -149,11 +149,11 @@ export const HierarchyInfographic: React.FC = () => {
                   onClick={() => setSelectedNode(node.id)}
                   className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2.5 transition-all cursor-pointer ${
                     isSelected
-                      ? 'bg-brand-orange text-white shadow-glow-orange scale-105 border border-brand-orange'
+                      ? 'bg-espresso text-white shadow-warm-md scale-105 border border-espresso'
                       : 'bg-white text-espresso hover:bg-surface-tier1 border border-brand-peach/80 shadow-warm-2xs'
                   }`}
                 >
-                  <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-brand-orange'}`} />
+                  <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-espresso'}`} />
                   <span>{node.name.split(':')[0]}</span>
                 </button>
                 {idx < hierarchyNodes.length - 1 && (
@@ -173,7 +173,7 @@ export const HierarchyInfographic: React.FC = () => {
                   <currentNode.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-extrabold text-brand-orange uppercase tracking-wider">{currentNode.level}</span>
+                  <span className="text-[10px] font-mono font-extrabold text-terracotta-muted uppercase tracking-wider">{currentNode.level}</span>
                   <h3 className="text-lg sm:text-xl font-extrabold text-espresso">{currentNode.name}</h3>
                   <p className="text-xs text-terracotta font-medium">{currentNode.subtitle}</p>
                 </div>
@@ -196,7 +196,7 @@ export const HierarchyInfographic: React.FC = () => {
 
               <div className="p-4 rounded-xl bg-ivory border border-brand-peach/60 space-y-1">
                 <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase flex items-center gap-1">
-                  <Lock className="w-3 h-3 text-brand-orange" /> RBAC PERMISSION SCOPE
+                  <Lock className="w-3 h-3 text-espresso" /> RBAC PERMISSION SCOPE
                 </span>
                 <p className="text-xs sm:text-sm font-bold text-espresso">{currentNode.permissionScope}</p>
               </div>
