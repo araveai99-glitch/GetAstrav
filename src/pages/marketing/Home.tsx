@@ -9,7 +9,7 @@ import { CTASection } from '../../components/common/CTASection';
 
 export const Home: React.FC = () => {
   return (
-    <div className="w-full flex flex-col space-y-12 lg:space-y-16 pt-2">
+    <div className="w-full flex flex-col space-y-10 lg:space-y-12">
       {/* 1. HERO: From Founder Strategy to Execution on Autopilot */}
       <ArchitectureOfExecutionHero />
 
