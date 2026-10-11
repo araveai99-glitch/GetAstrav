@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle2, Layers, Activity, ShieldCheck, Sparkles } fro
 
 export const ArchitectureOfExecutionHero: React.FC = () => {
   return (
-    <section className="relative w-full overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-ivory via-surface-ambient to-white border-b border-brand-peach/50">
+    <section className="relative w-full overflow-hidden pt-28 pb-16 sm:pt-32 lg:pt-36 lg:pb-24 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-ivory via-surface-ambient to-white border-b border-brand-peach/50">
       {/* Background Subtle Gradient Blobs */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-champagne/40 via-sage-light/30 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute top-20 right-10 w-[500px] h-[500px] bg-gradient-to-bl from-coral-soft/30 via-brand-peach/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
