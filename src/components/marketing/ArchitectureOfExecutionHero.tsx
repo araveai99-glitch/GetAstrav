@@ -6,10 +6,17 @@ import { ArrowRight, CheckCircle2, Layers, Activity, ShieldCheck, Sparkles } fro
 
 export const ArchitectureOfExecutionHero: React.FC = () => {
   return (
-    <section className="relative w-full overflow-hidden pt-24 pb-12 sm:pt-28 lg:pb-16 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-ivory via-surface-ambient to-white border-b border-brand-peach/50">
-      {/* Background Subtle Warm Gradient Blobs */}
-      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-brand-peach/30 via-brand-yellow-light/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute top-20 right-10 w-[500px] h-[500px] bg-gradient-to-bl from-brand-orange-light/40 via-surface-ambient to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+    <section className="relative w-full overflow-hidden pt-24 pb-12 sm:pt-28 lg:pb-16 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-white via-surface-ambient to-ivory border-b border-brand-peach/50">
+      {/* Sophisticated Light-Theme Atmospheric Light Fields & Subtle Alignment Architecture */}
+      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+        {/* Subtle Architectural Dot Grid */}
+        <div className="absolute inset-0 bg-[radial-gradient(#f7d7b0_1px,transparent_1px)] [background-size:28px_28px] opacity-25" />
+        
+        {/* Large Low-Contrast Ambient Radial Light Fields */}
+        <div className="absolute top-0 right-1/4 w-[750px] h-[750px] bg-gradient-to-bl from-brand-peach/25 via-brand-yellow-light/15 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-24 -left-20 w-[600px] h-[600px] bg-gradient-to-br from-brand-orange-light/35 via-brand-peach/15 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-10 w-[550px] h-[550px] bg-gradient-to-tl from-brand-green-light/40 via-surface-ambient to-transparent rounded-full blur-3xl" />
+      </div>
 
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         
