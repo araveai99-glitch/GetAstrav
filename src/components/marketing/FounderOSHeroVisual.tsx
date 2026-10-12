@@ -5,445 +5,545 @@ import {
   CheckCircle2,
   Clock,
   AlertTriangle,
-  ArrowUp,
   FolderGit2,
   Sparkles,
   RotateCcw,
-  Zap,
   Check,
+  ArrowRight,
+  ShieldCheck,
+  Zap,
 } from 'lucide-react';
 
 export const FounderOSHeroVisual: React.FC = () => {
-  // Interactive state: Visitor can toggle Task 1 to see the Strategy-to-Execution rollup
+  // Interactive state
   const [isTaskCompleted, setIsTaskCompleted] = useState<boolean>(false);
+  const [selectedNode, setSelectedNode] = useState<'goal' | 'm1' | 'm2' | 't1' | 't2' | 't3'>('t1');
   const [pulseActive, setPulseActive] = useState<boolean>(false);
 
-  const handleToggleTask = () => {
-    const nextState = !isTaskCompleted;
-    setIsTaskCompleted(nextState);
-    if (nextState) {
+  const toggleTask1 = () => {
+    const next = !isTaskCompleted;
+    setIsTaskCompleted(next);
+    setSelectedNode('t1');
+    if (next) {
       setPulseActive(true);
-      setTimeout(() => setPulseActive(false), 1600);
+      setTimeout(() => setPulseActive(false), 1400);
     }
   };
 
-  // Dynamic progress values derived from execution state
-  const milestone1Progress = isTaskCompleted ? 100 : 80;
-  const companyGoalProgress = isTaskCompleted ? 80 : 72;
+  const goalProgress = isTaskCompleted ? 80 : 72;
+  const m1Progress = isTaskCompleted ? 100 : 80;
+
+  // Stagger animation timing variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.25, delayChildren: 0.1 },
+    },
+  };
+
+  const nodeVariants = {
+    hidden: { opacity: 0, scale: 0.85, y: 12 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
 
   return (
-    <div className="relative w-full max-w-[680px] mx-auto select-none">
+    <div className="relative w-full max-w-[700px] mx-auto select-none py-2 sm:py-4">
       
-      {/* Restrained Warm Ambient Light Fields (Low-contrast background) */}
-      <div className="absolute -top-6 -right-6 w-72 h-72 bg-gradient-to-br from-brand-peach/30 via-brand-yellow-light/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute -bottom-6 -left-6 w-64 h-64 bg-gradient-to-tr from-brand-orange-light/40 via-brand-peach/20 to-transparent rounded-full blur-2xl pointer-events-none -z-10" />
+      {/* Background Soft Ambient Light Fields */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-80 h-80 bg-gradient-to-br from-brand-peach/30 via-brand-yellow-light/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-4 right-1/4 w-64 h-64 bg-gradient-to-tl from-brand-orange-light/35 via-brand-peach/15 to-transparent rounded-full blur-2xl pointer-events-none -z-10" />
 
-      {/* Main Strategy-to-Execution Canvas */}
-      <div className="relative rounded-3xl bg-white/95 border border-brand-peach shadow-warm-lg p-5 sm:p-7 backdrop-blur-sm">
+      {/* Main Interactive Stage */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative w-full"
+      >
         
-        {/* Subtle Visual Header: Context & Interactive Simulation Pill */}
-        <div className="flex flex-wrap items-center justify-between pb-4 border-b border-brand-peach/40 gap-2">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-brand-orange" />
-            <span className="text-[11px] font-heading font-extrabold uppercase tracking-wider text-terracotta-muted">
-              FounderOS • Strategy to Execution
-            </span>
+        {/* Story Breadcrumb & Interactive Controller Pill */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6 px-1 sm:px-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 border border-brand-peach shadow-warm-2xs text-xs font-heading font-semibold text-espresso">
+            <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+            <span>Interactive Workflow Story</span>
+            <span className="text-terracotta-muted">•</span>
+            <span className="text-brand-orange font-bold">Goal → Milestones → Tasks</span>
           </div>
 
+          {/* Interactive Trigger Button */}
           <button
-            onClick={handleToggleTask}
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-heading font-bold transition-all cursor-pointer ${
+            onClick={toggleTask1}
+            className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-heading font-bold transition-all shadow-warm-sm cursor-pointer ${
               isTaskCompleted
                 ? 'bg-brand-green-light text-brand-green border border-brand-green/40 hover:bg-brand-green/10'
-                : 'bg-brand-orange-light text-brand-orange border border-brand-orange/40 hover:bg-brand-orange hover:text-white shadow-warm-2xs'
+                : 'bg-brand-orange text-white hover:bg-brand-orange-hover shadow-glow-orange hover:-translate-y-0.5'
             }`}
           >
             {isTaskCompleted ? (
               <>
-                <RotateCcw className="w-3 h-3" />
-                <span>Reset Simulation</span>
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>Reset Workflow</span>
               </>
             ) : (
               <>
-                <Zap className="w-3 h-3 text-brand-orange hover:text-white" />
-                <span>Click to Complete Task</span>
+                <Zap className="w-3.5 h-3.5" />
+                <span>Simulate Task Completion</span>
               </>
             )}
           </button>
         </div>
 
-        {/* Real-time Rollup Notification Toast */}
-        <AnimatePresence>
-          {isTaskCompleted && (
-            <motion.div
-              initial={{ opacity: 0, height: 0, marginTop: 0 }}
-              animate={{ opacity: 1, height: 'auto', marginTop: 12 }}
-              exit={{ opacity: 0, height: 0, marginTop: 0 }}
-              className="bg-brand-green-light border border-brand-green/30 rounded-xl px-3.5 py-2 flex items-center justify-between text-xs text-brand-green font-heading font-bold"
-            >
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5 text-brand-green shrink-0 animate-spin" />
-                <span>
-                  Rollup: Task finished &rarr; Milestone reached 100% &rarr; Goal surged to 80%!
-                </span>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* ============================================================ */}
+        {/* DESKTOP & TABLET CONNECTED SVG WORKFLOW CANVAS (>= 640px)    */}
+        {/* ============================================================ */}
+        <div className="hidden sm:block relative w-full h-[470px]">
+          
+          {/* Animated SVG Connector Conduits */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
+            viewBox="0 0 680 470"
+            fill="none"
+          >
+            <defs>
+              <linearGradient id="pathGradientGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#2e936f" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#2e936f" stopOpacity="0.4" />
+              </linearGradient>
+              <linearGradient id="pathGradientPeach" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#f7d7b0" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#fab60a" stopOpacity="0.6" />
+              </linearGradient>
+            </defs>
 
-        {/* ============================================================ */}
-        {/* LEVEL 1 (TOP) — THE COMPANY GOAL                            */}
-        {/* ============================================================ */}
-        <div className="mt-5">
-          <div className="rounded-2xl bg-white border border-brand-peach/90 p-4 sm:p-5 shadow-satin-card transition-all">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3">
+            {/* Path: Goal (340, 75) -> Milestone 1 (180, 205) */}
+            <motion.path
+              d="M 340 75 C 340 140, 180 140, 180 205"
+              stroke={isTaskCompleted ? 'url(#pathGradientGreen)' : '#f7d7b0'}
+              strokeWidth={isTaskCompleted ? '3' : '2'}
+              strokeDasharray={isTaskCompleted ? 'none' : '4 4'}
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            />
+
+            {/* Path: Goal (340, 75) -> Milestone 2 (500, 205) */}
+            <motion.path
+              d="M 340 75 C 340 140, 500 140, 500 205"
+              stroke="url(#pathGradientPeach)"
+              strokeWidth="2"
+              strokeDasharray="4 4"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            />
+
+            {/* Path: Milestone 1 (180, 255) -> Task 1 (110, 375) */}
+            <motion.path
+              d="M 180 255 C 180 315, 110 315, 110 375"
+              stroke={isTaskCompleted ? '#2e936f' : '#f7d7b0'}
+              strokeWidth={isTaskCompleted ? '2.5' : '1.75'}
+              strokeDasharray={isTaskCompleted ? 'none' : '3 3'}
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            />
+
+            {/* Path: Milestone 1 (180, 255) -> Task 2 (250, 375) */}
+            <motion.path
+              d="M 180 255 C 180 315, 250 315, 250 375"
+              stroke="#2e936f"
+              strokeWidth="2"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            />
+
+            {/* Path: Milestone 2 (500, 255) -> Task 3 (500, 375) */}
+            <motion.path
+              d="M 500 255 C 500 315, 500 315, 500 375"
+              stroke="#f7d7b0"
+              strokeWidth="1.75"
+              strokeDasharray="3 3"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            />
+
+            {/* Animated Flowing Pulse Bead traveling up from Task 1 -> M1 -> Goal */}
+            {pulseActive && (
+              <>
+                <motion.circle
+                  r="5"
+                  fill="#2e936f"
+                  initial={{ cx: 110, cy: 375, opacity: 1 }}
+                  animate={{ cx: 180, cy: 205, opacity: 0.8 }}
+                  transition={{ duration: 0.6, ease: 'easeIn' }}
+                />
+                <motion.circle
+                  r="6"
+                  fill="#2e936f"
+                  initial={{ cx: 180, cy: 205, opacity: 0 }}
+                  animate={{ cx: 340, cy: 75, opacity: 1 }}
+                  transition={{ duration: 0.7, delay: 0.5, ease: 'easeOut' }}
+                />
+              </>
+            )}
+          </svg>
+
+          {/* ========================================================== */}
+          {/* STAGE A: THE COMPANY GOAL ANCHOR (TOP CENTER)              */}
+          {/* ========================================================== */}
+          <motion.div
+            variants={nodeVariants}
+            onClick={() => setSelectedNode('goal')}
+            className={`absolute top-0 left-1/2 -translate-x-1/2 w-[340px] rounded-2xl p-4 bg-white border cursor-pointer transition-all ${
+              selectedNode === 'goal'
+                ? 'border-brand-orange shadow-glow-orange ring-2 ring-brand-orange/20'
+                : 'border-brand-peach shadow-warm-md hover:border-brand-orange/50'
+            }`}
+          >
+            <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-brand-orange-light border border-brand-orange/30 flex items-center justify-center shrink-0">
+                <div className="relative w-11 h-11 rounded-xl bg-brand-orange-light border border-brand-orange/30 flex items-center justify-center shrink-0">
                   <Target className="w-5 h-5 text-brand-orange" />
+                  <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-brand-green border-2 border-white" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] sm:text-[11px] font-heading font-extrabold uppercase tracking-wider text-brand-orange">
-                      Company Goal
-                    </span>
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-brand-green-light text-brand-green border border-brand-green/30">
-                      On Track
-                    </span>
-                  </div>
-                  <h3 className="font-heading font-extrabold text-base sm:text-lg text-espresso leading-snug">
+                  <span className="text-[10px] font-heading font-extrabold uppercase tracking-wider text-brand-orange block">
+                    Strategic Goal
+                  </span>
+                  <h3 className="font-heading font-extrabold text-sm sm:text-base text-espresso leading-tight">
                     Launch Product V2
                   </h3>
                 </div>
               </div>
 
-              {/* Goal Progress Percentage */}
-              <div className="flex items-center sm:flex-col sm:items-end justify-between sm:justify-center border-t sm:border-t-0 pt-2 sm:pt-0 border-brand-peach/40">
-                <span className="text-[11px] font-body text-terracotta-muted">
-                  Overall Progress
+              {/* Progress metric */}
+              <div className="text-right shrink-0">
+                <span className="text-xl font-heading font-extrabold text-espresso">
+                  {goalProgress}%
                 </span>
-                <div className="flex items-baseline gap-1">
-                  <motion.span
-                    key={companyGoalProgress}
-                    initial={{ scale: 1.15, color: '#f15e1c' }}
-                    animate={{ scale: 1, color: '#2a1a14' }}
-                    className="text-xl sm:text-2xl font-heading font-extrabold"
-                  >
-                    {companyGoalProgress}%
-                  </motion.span>
-                  {isTaskCompleted && (
-                    <span className="text-xs font-heading font-bold text-brand-green">
-                      (+8%)
-                    </span>
-                  )}
-                </div>
+                <span className="block text-[10px] font-heading font-bold text-brand-green">
+                  {isTaskCompleted ? '(+8% Rollup)' : 'On Track'}
+                </span>
               </div>
             </div>
 
-            {/* Smooth Progress Bar */}
-            <div className="w-full bg-surface-tier1 rounded-full h-2.5 overflow-hidden border border-brand-peach/40 relative">
+            {/* Progress bar */}
+            <div className="w-full bg-surface-tier1 rounded-full h-2 overflow-hidden border border-brand-peach/40 mt-3">
               <motion.div
-                className="h-full bg-gradient-to-r from-brand-green via-brand-green to-brand-green-hover rounded-full"
-                initial={{ width: '72%' }}
-                animate={{ width: `${companyGoalProgress}%` }}
+                className="h-full bg-gradient-to-r from-brand-green to-brand-green-hover rounded-full"
+                animate={{ width: `${goalProgress}%` }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
               />
             </div>
+          </motion.div>
 
-            <div className="flex items-center justify-between pt-2 text-[11px] text-terracotta-muted font-body">
-              <span>Connected to 2 Active Milestones</span>
-              <span className="font-medium text-espresso">Target: Q3 Release</span>
-            </div>
-          </div>
-        </div>
-
-        {/* ============================================================ */}
-        {/* CONNECTOR PATHS: Level 1 (Goal) -> Level 2 (Milestones)      */}
-        {/* ============================================================ */}
-        <div className="relative w-full h-9 flex items-center justify-center overflow-visible">
-          <svg
-            className="w-full h-full stroke-brand-peach"
-            fill="none"
-            preserveAspectRatio="none"
-            viewBox="0 0 400 36"
-          >
-            {/* Left Conduit to Milestone 1 */}
-            <path
-              d="M 200 0 L 200 12 C 200 24, 100 16, 100 36"
-              strokeWidth="2"
-              className={pulseActive ? 'stroke-brand-green' : 'stroke-brand-peach'}
-            />
-            {/* Right Conduit to Milestone 2 */}
-            <path
-              d="M 200 0 L 200 12 C 200 24, 300 16, 300 36"
-              strokeWidth="2"
-              className="stroke-brand-peach"
-            />
-          </svg>
-
-          {/* Upward Pulse Particle when task completes */}
-          {pulseActive && (
-            <motion.div
-              initial={{ y: 16, opacity: 1 }}
-              animate={{ y: -16, opacity: 0 }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
-              className="absolute w-3 h-3 rounded-full bg-brand-green shadow-glow-green"
-            />
-          )}
-
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-2.5 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach text-[9px] font-heading font-extrabold uppercase text-terracotta-muted flex items-center gap-1 shadow-warm-2xs">
-            <ArrowUp className="w-2.5 h-2.5 text-brand-green" />
-            <span>Rolls Up to Goal</span>
-          </div>
-        </div>
-
-        {/* ============================================================ */}
-        {/* LEVEL 2 (MIDDLE) — PROJECTS & MILESTONES (2 Workstreams)     */}
-        {/* ============================================================ */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          {/* ========================================================== */}
+          {/* STAGE B: WORK BRANCHES OUT (MIDDLE LEVEL: 2 MILESTONES)    */}
+          {/* ========================================================== */}
           
-          {/* Milestone 1: Platform Architecture (On Track / Target of Task 1) */}
-          <div
-            className={`rounded-2xl p-4 border transition-all ${
-              isTaskCompleted
-                ? 'bg-brand-green-light/40 border-brand-green/40 shadow-glow-green/10'
-                : 'bg-white border-brand-peach/90 shadow-satin-card'
+          {/* Milestone 1: Platform Auth (Left) */}
+          <motion.div
+            variants={nodeVariants}
+            onClick={() => setSelectedNode('m1')}
+            className={`absolute top-[160px] left-[50px] w-[260px] rounded-2xl p-3.5 bg-white border cursor-pointer transition-all ${
+              selectedNode === 'm1'
+                ? 'border-brand-green shadow-glow-green/20 ring-2 ring-brand-green/20'
+                : isTaskCompleted
+                ? 'border-brand-green/50 bg-brand-green-light/20 shadow-warm-sm'
+                : 'border-brand-peach shadow-warm-sm hover:border-brand-green/40'
             }`}
           >
-            <div className="flex items-start justify-between gap-2">
-              <div className="flex items-center gap-2.5">
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-brand-green-light border border-brand-green/30 flex items-center justify-center shrink-0">
                   <FolderGit2 className="w-4 h-4 text-brand-green" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-heading font-extrabold text-brand-green uppercase tracking-wide">
-                    Milestone 01 • Eng Squad
+                  <span className="text-[10px] font-heading font-extrabold uppercase text-brand-green block">
+                    Milestone 01
                   </span>
-                  <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso leading-snug">
+                  <h4 className="font-heading font-bold text-xs text-espresso">
                     Core Platform & Auth
                   </h4>
                 </div>
               </div>
-              
-              <div className="text-right shrink-0">
-                <motion.span
-                  key={milestone1Progress}
-                  initial={{ scale: 1.15 }}
-                  animate={{ scale: 1 }}
-                  className="text-xs sm:text-sm font-heading font-extrabold text-espresso"
-                >
-                  {milestone1Progress}%
-                </motion.span>
-              </div>
+              <span className="text-xs font-heading font-extrabold text-espresso">
+                {m1Progress}%
+              </span>
             </div>
 
-            {/* Progress bar */}
-            <div className="w-full bg-surface-tier1 rounded-full h-1.5 overflow-hidden border border-brand-peach/30 my-2.5">
+            <div className="w-full bg-surface-tier1 rounded-full h-1.5 overflow-hidden border border-brand-peach/30 mt-2.5">
               <motion.div
                 className="h-full bg-brand-green rounded-full"
-                animate={{ width: `${milestone1Progress}%` }}
+                animate={{ width: `${m1Progress}%` }}
                 transition={{ duration: 0.5 }}
               />
             </div>
 
-            <div className="flex items-center justify-between text-[11px] font-body text-terracotta-muted">
-              <span className="flex items-center gap-1 text-brand-green font-semibold">
-                <CheckCircle2 className="w-3 h-3 text-brand-green" />
-                {isTaskCompleted ? 'All Tasks Done' : '1 Task In Progress'}
+            <div className="flex items-center justify-between text-[10px] font-body text-terracotta-muted mt-2">
+              <span className="text-brand-green font-semibold">
+                {isTaskCompleted ? 'All Tasks Done' : '1 Task Pending'}
               </span>
-              <span>Owner: Alex M.</span>
+              <span>Squad Lead: Alex M.</span>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Milestone 2: Governance & Security (Needs Attention / Identifies Risk) */}
-          <div className="rounded-2xl p-4 bg-white border border-brand-peach/90 shadow-satin-card">
-            <div className="flex items-start justify-between gap-2">
-              <div className="flex items-center gap-2.5">
+          {/* Milestone 2: SOC2 Readiness (Right) */}
+          <motion.div
+            variants={nodeVariants}
+            onClick={() => setSelectedNode('m2')}
+            className={`absolute top-[160px] right-[40px] w-[260px] rounded-2xl p-3.5 bg-white border cursor-pointer transition-all ${
+              selectedNode === 'm2'
+                ? 'border-brand-orange shadow-glow-orange ring-2 ring-brand-orange/20'
+                : 'border-brand-peach shadow-warm-sm hover:border-brand-orange/40'
+            }`}
+          >
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-brand-orange-light border border-brand-orange/30 flex items-center justify-center shrink-0">
-                  <AlertTriangle className="w-4 h-4 text-brand-orange" />
+                  <ShieldCheck className="w-4 h-4 text-brand-orange" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-heading font-extrabold text-brand-orange uppercase tracking-wide">
-                    Milestone 02 • SecOps
+                  <span className="text-[10px] font-heading font-extrabold uppercase text-brand-orange block">
+                    Milestone 02
                   </span>
-                  <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso leading-snug">
+                  <h4 className="font-heading font-bold text-xs text-espresso">
                     Security & SOC2 Gate
                   </h4>
                 </div>
               </div>
-              
-              <span className="text-xs sm:text-sm font-heading font-extrabold text-espresso shrink-0">
+              <span className="text-xs font-heading font-extrabold text-espresso">
                 50%
               </span>
             </div>
 
-            {/* Progress bar */}
-            <div className="w-full bg-surface-tier1 rounded-full h-1.5 overflow-hidden border border-brand-peach/30 my-2.5">
-              <div className="h-full bg-brand-yellow rounded-full w-[50%]" />
+            <div className="w-full bg-surface-tier1 rounded-full h-1.5 overflow-hidden border border-brand-peach/30 mt-2.5">
+              <div className="h-full bg-brand-yellow rounded-full w-1/2" />
             </div>
 
-            <div className="flex items-center justify-between text-[11px] font-body">
-              <span className="inline-flex items-center gap-1 font-heading font-semibold text-brand-orange bg-brand-orange-light px-2 py-0.5 rounded-full border border-brand-orange/30 text-[10px]">
-                <Clock className="w-2.5 h-2.5 text-brand-orange" />
-                1 Task Overdue
-              </span>
-              <span className="text-terracotta-muted">Owner: Marcus T.</span>
+            <div className="flex items-center justify-between text-[10px] font-body mt-2">
+              <span className="text-brand-orange font-semibold">1 Overdue Blocker</span>
+              <span className="text-terracotta-muted">Lead: Marcus T.</span>
             </div>
-          </div>
+          </motion.div>
 
-        </div>
-
-        {/* ============================================================ */}
-        {/* CONNECTOR PATHS: Level 2 (Milestones) -> Level 3 (Tasks)    */}
-        {/* ============================================================ */}
-        <div className="relative w-full h-8 flex items-center justify-center overflow-visible">
-          <svg
-            className="w-full h-full stroke-brand-peach"
-            fill="none"
-            preserveAspectRatio="none"
-            viewBox="0 0 400 32"
-          >
-            {/* Line from Milestone 1 to Task 1 & Task 2 */}
-            <path
-              d="M 100 0 L 100 16 C 100 24, 180 20, 200 32"
-              strokeWidth="1.5"
-              strokeDasharray="3 3"
-              className={pulseActive ? 'stroke-brand-green' : 'stroke-brand-peach'}
-            />
-            {/* Line from Milestone 2 to Task 3 */}
-            <path
-              d="M 300 0 L 300 16 C 300 24, 220 20, 200 32"
-              strokeWidth="1.5"
-              strokeDasharray="3 3"
-              className="stroke-brand-peach"
-            />
-          </svg>
-          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-2.5 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach text-[9px] font-heading font-bold uppercase text-terracotta-muted">
-            Individual Team Tasks
-          </span>
-        </div>
-
-        {/* ============================================================ */}
-        {/* LEVEL 3 (BOTTOM) — TEAM TASKS (Granular Execution)          */}
-        {/* ============================================================ */}
-        <div className="space-y-2.5">
+          {/* ========================================================== */}
+          {/* STAGE C: TASKS BRANCH OUT (BOTTOM ROW)                     */}
+          {/* ========================================================== */}
           
-          {/* Task 1: Interactive Focal Task (Clickable) */}
-          <div
-            onClick={handleToggleTask}
-            className={`group rounded-xl p-3 border transition-all cursor-pointer flex items-center justify-between gap-3 ${
-              isTaskCompleted
-                ? 'bg-brand-green-light/70 border-brand-green/40 shadow-warm-2xs'
-                : 'bg-white hover:bg-brand-orange-light/20 border-brand-peach/80 hover:border-brand-orange/60 shadow-warm-2xs'
+          {/* Task 1: API Token Revocation (Interactive Trigger) */}
+          <motion.div
+            variants={nodeVariants}
+            onClick={toggleTask1}
+            className={`absolute bottom-0 left-[10px] w-[200px] rounded-xl p-3 border cursor-pointer transition-all ${
+              selectedNode === 't1'
+                ? 'border-brand-green shadow-glow-green/20 ring-2 ring-brand-green/20'
+                : isTaskCompleted
+                ? 'bg-brand-green-light/40 border-brand-green/40 shadow-warm-2xs'
+                : 'bg-white border-brand-peach/90 shadow-warm-2xs hover:border-brand-orange'
             }`}
           >
-            <div className="flex items-center gap-3 min-w-0">
-              {/* Checkbox */}
+            <div className="flex items-center gap-2.5">
               <div
                 className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 border transition-all ${
                   isTaskCompleted
-                    ? 'bg-brand-green text-white border-brand-green shadow-glow-green/30'
-                    : 'border-brand-peach bg-white group-hover:border-brand-orange text-transparent'
+                    ? 'bg-brand-green text-white border-brand-green'
+                    : 'border-brand-peach bg-white text-transparent group-hover:border-brand-orange'
                 }`}
               >
                 <Check className="w-3.5 h-3.5 stroke-[3]" />
               </div>
-
               <div className="min-w-0">
-                <div className="flex items-center gap-1.5 flex-wrap">
-                  <span className="font-heading font-bold text-xs sm:text-sm text-espresso truncate">
-                    Implement API Token Revocation
-                  </span>
-                  <span className="text-[10px] font-heading font-semibold text-terracotta-muted bg-surface-tier1 px-1.5 py-0.2 rounded border border-brand-peach/40">
-                    High Priority
-                  </span>
-                </div>
-                <p className="text-[11px] font-body text-terracotta-muted truncate">
-                  {isTaskCompleted
-                    ? '✓ Completed by Alex M. • Rolls up to Milestone 01'
-                    : 'Assigned to Alex M. • Click checkbox to simulate completion'}
-                </p>
+                <span className="text-[11px] font-heading font-bold text-espresso block truncate">
+                  API Token Revocation
+                </span>
+                <span className="text-[10px] text-terracotta-muted">
+                  Alex M. • {isTaskCompleted ? 'Done' : 'Click to finish'}
+                </span>
               </div>
             </div>
+          </motion.div>
 
-            {/* Status Pill */}
-            <span
-              className={`text-[10px] font-heading font-bold px-2.5 py-1 rounded-full border transition-all shrink-0 ${
-                isTaskCompleted
-                  ? 'bg-brand-green text-white border-brand-green'
-                  : 'bg-surface-tier1 text-terracotta group-hover:text-brand-orange group-hover:border-brand-orange/40 border-brand-peach'
-              }`}
-            >
-              {isTaskCompleted ? 'Completed' : 'In Progress'}
-            </span>
-          </div>
-
-          {/* Task 2: Active In-Progress Task */}
-          <div className="rounded-xl p-3 bg-white border border-brand-peach/80 shadow-warm-2xs flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3 min-w-0">
+          {/* Task 2: Data Encryption (Completed) */}
+          <motion.div
+            variants={nodeVariants}
+            onClick={() => setSelectedNode('t2')}
+            className={`absolute bottom-0 left-[225px] w-[190px] rounded-xl p-3 bg-white border cursor-pointer transition-all ${
+              selectedNode === 't2'
+                ? 'border-brand-green shadow-glow-green/20 ring-2 ring-brand-green/20'
+                : 'border-brand-peach/90 shadow-warm-2xs hover:border-brand-green/40'
+            }`}
+          >
+            <div className="flex items-center gap-2">
               <div className="w-5 h-5 rounded-md bg-brand-green-light border border-brand-green/30 flex items-center justify-center shrink-0 text-brand-green">
                 <Check className="w-3.5 h-3.5 stroke-[3]" />
               </div>
-
               <div className="min-w-0">
-                <span className="font-heading font-bold text-xs sm:text-sm text-espresso truncate block">
-                  Multi-Tenant Data Encryption
+                <span className="text-[11px] font-heading font-bold text-espresso block truncate">
+                  Data Encryption
                 </span>
-                <p className="text-[11px] font-body text-terracotta-muted truncate">
-                  Completed by Priya R. • Rolled up to Milestone 01
-                </p>
+                <span className="text-[10px] text-brand-green font-semibold">
+                  Priya R. • Completed
+                </span>
               </div>
             </div>
+          </motion.div>
 
-            <span className="text-[10px] font-heading font-bold px-2.5 py-1 rounded-full bg-brand-green-light text-brand-green border border-brand-green/30 shrink-0">
-              Completed
-            </span>
-          </div>
-
-          {/* Task 3: Overdue Task (Highlights FounderOS Risk Visibility) */}
-          <div className="rounded-xl p-3 bg-white border border-brand-peach/80 shadow-warm-2xs flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3 min-w-0">
+          {/* Task 3: Penetration Test Sign-off (Overdue / Risk) */}
+          <motion.div
+            variants={nodeVariants}
+            onClick={() => setSelectedNode('t3')}
+            className={`absolute bottom-0 right-[70px] w-[210px] rounded-xl p-3 bg-white border cursor-pointer transition-all ${
+              selectedNode === 't3'
+                ? 'border-brand-orange shadow-glow-orange ring-2 ring-brand-orange/20'
+                : 'border-brand-peach/90 shadow-warm-2xs hover:border-brand-orange/40'
+            }`}
+          >
+            <div className="flex items-center gap-2">
               <div className="w-5 h-5 rounded-md bg-brand-orange-light border border-brand-orange/40 flex items-center justify-center shrink-0 text-brand-orange">
                 <Clock className="w-3.5 h-3.5" />
               </div>
-
               <div className="min-w-0">
-                <span className="font-heading font-bold text-xs sm:text-sm text-espresso truncate block">
-                  Penetration Test Sign-off
+                <span className="text-[11px] font-heading font-bold text-espresso block truncate">
+                  Pen Test Sign-off
                 </span>
-                <p className="text-[11px] font-body text-terracotta-muted truncate">
-                  Assigned to Marcus T. • Needs attention for Milestone 02
-                </p>
+                <span className="text-[10px] text-brand-orange font-semibold">
+                  Marcus T. • Overdue (2d)
+                </span>
               </div>
             </div>
+          </motion.div>
 
-            <span className="text-[10px] font-heading font-bold px-2.5 py-1 rounded-full bg-brand-orange-light text-brand-orange border border-brand-orange/40 shrink-0">
-              Overdue (2d)
-            </span>
+        </div>
+
+        {/* ============================================================ */}
+        {/* MOBILE WORKFLOW CASCADE (< 640px)                            */}
+        {/* ============================================================ */}
+        <div className="sm:hidden space-y-3">
+          
+          {/* 1. Goal Node */}
+          <div className="rounded-2xl p-4 bg-white border border-brand-peach shadow-warm-sm">
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-brand-orange-light border border-brand-orange/30 flex items-center justify-center shrink-0">
+                  <Target className="w-4.5 h-4.5 text-brand-orange" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-heading font-extrabold uppercase text-brand-orange">
+                    Company Goal
+                  </span>
+                  <h3 className="font-heading font-bold text-sm text-espresso">
+                    Launch Product V2
+                  </h3>
+                </div>
+              </div>
+              <span className="text-lg font-heading font-extrabold text-espresso">
+                {goalProgress}%
+              </span>
+            </div>
+            <div className="w-full bg-surface-tier1 rounded-full h-2 overflow-hidden border border-brand-peach/40 mt-3">
+              <div
+                className="h-full bg-brand-green rounded-full transition-all duration-500"
+                style={{ width: `${goalProgress}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Vertical Connector Indicator */}
+          <div className="flex justify-center my-1">
+            <div className="w-0.5 h-5 bg-brand-peach relative">
+              <div className="absolute -bottom-1 -left-1 w-2.5 h-2.5 border-r-2 border-b-2 border-brand-peach transform rotate-45" />
+            </div>
+          </div>
+
+          {/* 2. Milestones Stack */}
+          <div className="grid grid-cols-2 gap-2.5">
+            <div className="rounded-xl p-3 bg-white border border-brand-peach shadow-warm-2xs">
+              <span className="text-[9px] font-heading font-bold text-brand-green uppercase">Milestone 01</span>
+              <h4 className="font-heading font-bold text-xs text-espresso leading-snug">Platform Auth</h4>
+              <span className="text-xs font-heading font-extrabold text-espresso mt-1 block">{m1Progress}%</span>
+            </div>
+
+            <div className="rounded-xl p-3 bg-white border border-brand-peach shadow-warm-2xs">
+              <span className="text-[9px] font-heading font-bold text-brand-orange uppercase">Milestone 02</span>
+              <h4 className="font-heading font-bold text-xs text-espresso leading-snug">SOC2 Gate</h4>
+              <span className="text-xs font-heading font-extrabold text-brand-orange mt-1 block">50% (At Risk)</span>
+            </div>
+          </div>
+
+          {/* Vertical Connector Indicator */}
+          <div className="flex justify-center my-1">
+            <div className="w-0.5 h-5 bg-brand-peach relative">
+              <div className="absolute -bottom-1 -left-1 w-2.5 h-2.5 border-r-2 border-b-2 border-brand-peach transform rotate-45" />
+            </div>
+          </div>
+
+          {/* 3. Tasks Stack */}
+          <div className="space-y-2">
+            <div
+              onClick={toggleTask1}
+              className={`rounded-xl p-2.5 border flex items-center justify-between cursor-pointer ${
+                isTaskCompleted ? 'bg-brand-green-light/40 border-brand-green/40' : 'bg-white border-brand-peach'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <div className={`w-4.5 h-4.5 rounded flex items-center justify-center border ${
+                  isTaskCompleted ? 'bg-brand-green text-white border-brand-green' : 'border-brand-peach bg-white'
+                }`}>
+                  <Check className="w-3 h-3" />
+                </div>
+                <span className="text-xs font-heading font-bold text-espresso">API Token Revocation</span>
+              </div>
+              <span className="text-[10px] font-heading font-bold text-brand-green">
+                {isTaskCompleted ? 'Done' : 'Tap to Complete'}
+              </span>
+            </div>
+
+            <div className="rounded-xl p-2.5 bg-white border border-brand-peach flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-brand-green" />
+                <span className="text-xs font-heading font-bold text-espresso">Data Encryption</span>
+              </div>
+              <span className="text-[10px] text-brand-green font-semibold">Done</span>
+            </div>
+
+            <div className="rounded-xl p-2.5 bg-white border border-brand-peach flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-brand-orange" />
+                <span className="text-xs font-heading font-bold text-espresso">Pen Test Sign-off</span>
+              </div>
+              <span className="text-[10px] font-heading font-bold text-brand-orange">Overdue (2d)</span>
+            </div>
           </div>
 
         </div>
 
         {/* ============================================================ */}
-        {/* SUMMARY STRIP: Reassurance & Understanding                   */}
+        {/* INTERACTION CONTEXT CARD: Explains the exact relationship    */}
         {/* ============================================================ */}
-        <div className="mt-4 pt-3.5 border-t border-brand-peach/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-body text-terracotta-muted">
+        <div className="mt-5 p-3 sm:p-4 rounded-2xl bg-surface-tier1 border border-brand-peach/70 flex items-center justify-between gap-3 text-xs">
           <div className="flex items-center gap-2">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-green"></span>
-            </span>
+            <Sparkles className="w-4 h-4 text-brand-orange shrink-0" />
             <span className="font-heading font-semibold text-espresso">
-              Automated Progress Rollup:
+              {isTaskCompleted
+                ? '✓ Execution Impact: "API Token Revocation" completed → Milestone 01 hit 100% → Company Goal updated to 80%!'
+                : 'Click "API Token Revocation" or the button above to see how daily completion rolls up into strategy in real time.'}
             </span>
-            <span className="hidden sm:inline">Individual work directly drives company goals</span>
           </div>
-
-          <span className="text-brand-orange font-heading font-bold text-[11px]">
-            Zero status meetings required
+          <span className="hidden sm:inline-block text-[11px] font-heading font-bold text-brand-orange shrink-0">
+            Real-Time Rollup
           </span>
         </div>
 
-      </div>
+      </motion.div>
     </div>
   );
 };
