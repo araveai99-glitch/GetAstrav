@@ -2,12 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FounderOSHeroVisual } from './FounderOSHeroVisual';
 import { MotionWrapper } from '../common/MotionWrapper';
-import { ArrowRight, CheckCircle2, Layers, Activity, ShieldCheck, Sparkles } from 'lucide-react';
+import {
+  ArrowRight,
+  Layers,
+  Play,
+  Target,
+  Sparkles,
+  BarChart3,
+  Users,
+  ArrowDown,
+} from 'lucide-react';
 
 export const ArchitectureOfExecutionHero: React.FC = () => {
   return (
-    <section className="relative w-full overflow-hidden pt-24 pb-12 sm:pt-28 lg:pb-16 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-white via-surface-ambient to-ivory border-b border-brand-peach/50">
-      {/* Sophisticated Light-Theme Atmospheric Light Fields & Subtle Alignment Architecture */}
+    <section className="relative w-full overflow-hidden pt-24 pb-14 sm:pt-28 lg:pb-18 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-white via-surface-ambient to-ivory border-b border-brand-peach/50">
+      {/* Sophisticated Light-Theme Atmospheric Light Fields */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
         {/* Subtle Architectural Dot Grid */}
         <div className="absolute inset-0 bg-[radial-gradient(#f7d7b0_1px,transparent_1px)] [background-size:28px_28px] opacity-25" />
@@ -20,7 +29,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         
-        {/* LEFT COLUMN: Clean Editorial Copy & CTAs */}
+        {/* LEFT COLUMN: Clean Editorial Copy, CTAs, & Value Props */}
         <div className="lg:col-span-5 space-y-7 text-left">
           
           {/* Brand Kicker Badge */}
@@ -40,10 +49,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <MotionWrapper delay={0.1}>
             <div className="space-y-4">
               <h1 className="brand-h1 text-espresso">
-                Run Your Company on <span className="text-brand-orange">Real Progress</span>, Not Status Meetings.
+                From Founder Strategy to <span className="text-brand-orange">Execution</span> on Autopilot.
               </h1>
               <p className="brand-subtitle text-terracotta pt-1 max-w-2xl">
-                Connect company goals, team projects, and daily tasks in one unified workspace. Track execution automatically and see exactly what needs your attention.
+                Connect your company goals, team projects, and daily tasks in one intelligent platform. Track execution automatically and see exactly what needs your attention.
               </p>
             </div>
           </MotionWrapper>
@@ -64,32 +73,50 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 href="#everything-connected"
                 className="inline-flex items-center justify-center gap-2 text-sm sm:text-base font-heading font-bold text-espresso bg-white hover:bg-brand-orange-light px-6 py-3.5 rounded-full border border-brand-peach transition-all hover:border-brand-orange hover:text-brand-orange shadow-warm-sm"
               >
+                <Play className="w-4 h-4 text-espresso fill-espresso/20" />
                 <span>See How It Works</span>
               </a>
             </div>
           </MotionWrapper>
 
-          {/* Key Trust & Feature Indicators */}
+          {/* Four Concise Value Propositions (Matching Reference Image) */}
           <MotionWrapper delay={0.3}>
-            <div className="pt-4 border-t border-brand-peach/40 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-mono text-terracotta">
+            <div className="pt-4 border-t border-brand-peach/40 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-xs font-heading">
               <div className="flex items-center gap-2 font-bold text-espresso">
-                <Activity className="w-4 h-4 text-brand-green" />
-                <span>Real-Time Sync</span>
+                <Target className="w-4 h-4 text-brand-orange shrink-0" />
+                <span>Goal-Driven Execution</span>
               </div>
               <div className="flex items-center gap-2 font-bold text-espresso">
-                <ShieldCheck className="w-4 h-4 text-brand-green" />
-                <span>SOC2 Type II Aligned</span>
+                <Sparkles className="w-4 h-4 text-brand-yellow shrink-0" />
+                <span>AI-Powered Planning</span>
               </div>
               <div className="flex items-center gap-2 font-bold text-espresso">
-                <Sparkles className="w-4 h-4 text-brand-yellow" />
-                <span>AI Intelligence</span>
+                <BarChart3 className="w-4 h-4 text-brand-green shrink-0" />
+                <span>Real Progress Visibility</span>
               </div>
+              <div className="flex items-center gap-2 font-bold text-espresso">
+                <Users className="w-4 h-4 text-terracotta shrink-0" />
+                <span>Built for Founders</span>
+              </div>
+            </div>
+          </MotionWrapper>
+
+          {/* Scroll to Explore Indicator */}
+          <MotionWrapper delay={0.4}>
+            <div className="pt-2">
+              <a
+                href="#everything-connected"
+                className="inline-flex items-center gap-2 text-xs font-mono text-terracotta-muted hover:text-brand-orange transition-colors group"
+              >
+                <ArrowDown className="w-3.5 h-3.5 animate-bounce text-brand-orange group-hover:translate-y-1 transition-transform" />
+                <span>Scroll to explore</span>
+              </a>
             </div>
           </MotionWrapper>
 
         </div>
 
-        {/* RIGHT COLUMN: Responsive FounderOS Organizational Execution Visual */}
+        {/* RIGHT COLUMN: Responsive FounderOS Reference-Accurate Visual */}
         <div className="lg:col-span-7 w-full flex items-center justify-center">
           <MotionWrapper delay={0.2} direction="up" className="w-full">
             <FounderOSHeroVisual />
@@ -100,4 +127,3 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
     </section>
   );
 };
-
