@@ -7,49 +7,45 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Trademark & Signature Brand Accents
-        'brand-orange': '#f15e1c',
-        'brand-orange-light': '#fff3ec',
-        'brand-orange-hover': '#d94e10',
-        'brand-green': '#2e936f',
-        'brand-green-light': '#edf7f3',
-        'brand-yellow-light': '#fff9d6',
-        'brand-yellow': '#fab60a',
-        'brand-peach': '#f7d7b0',
+        // Standard Colours (Colour palette strictly defined)
+        'brand-orange': '#f15e1c',        // Primary Orange (CTAs, Highlights)
+        'brand-orange-hover': '#d94e10',  // Primary Orange hover
+        'brand-orange-light': '#fef2eb',  // Soft orange tint
+        'brand-green': '#2e936f',         // Green (Secondary, Badges, Success)
+        'brand-green-hover': '#25795b',   // Secondary hover
+        'brand-green-light': '#edf7f3',   // Soft green tint
+        'brand-white': '#ffffff',         // White (Background, Text)
+        'brand-yellow-light': '#ffec69',  // Light Yellow (Accent, Highlights)
+        'brand-yellow': '#fab60a',        // Golden Yellow (Warm accent, ratings)
+        'brand-peach': '#f7d7b0',         // Peach (Soft warm background, borders)
+        'brand-peach-light': '#fdf8f2',   // Subtle peach background
 
-        // Refined Light Foundation & Architectural Palette
-        'ivory': '#faf8f5',
-        'ivory-warm': '#f6f2ec',
-        'cream': '#fcf9f4',
-        'champagne': '#f4ebe1',
-        'champagne-gold': '#ebdccb',
-        'sage-light': '#edf3ee',
-        'sage': '#d7e5db',
-        'sage-dark': '#2e936f',
-        'linen': '#f5efea',
-        'coral-soft': '#fcedea',
-        'mint-soft': '#e8f6f1',
-
-        // High-contrast Warm Typography
-        'espresso': '#2a1a14',        // Primary text
-        'terracotta': '#3d261e',      // Body text
-        'terracotta-muted': '#5c4339',// Muted text
-
-        // Light Warm Surfaces
-        'surface-base': '#ffffff',
-        'surface-ambient': '#fffaf5',
-        'surface-tier1': '#fef7f2',
-        'surface-tier2': '#fbf3ec',
-        'surface-container': '#ffe9e2',
-        'surface-container-high': '#fadcd2',
-
+        // Semantic bindings
         'primary': '#f15e1c',
         'primary-hover': '#d94e10',
         'secondary': '#2e936f',
+        'secondary-hover': '#25795b',
         'tertiary': '#fab60a',
+
+        // High-contrast Warm Editorial Foundation
+        'espresso': '#2a1a14',        // High-contrast primary text
+        'terracotta': '#3d261e',      // Body text
+        'terracotta-muted': '#6b544b',// Muted text
+
+        // Light Warm Surfaces
+        'ivory': '#fdfbf7',
+        'champagne': '#f7eee3',
+        'surface-base': '#ffffff',
+        'surface-ambient': '#fffaf6',
+        'surface-tier1': '#fef7f2',
+        'surface-tier2': '#fbf3ec',
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+        sans: ['"Roboto"', 'sans-serif'],
+        body: ['"Roboto"', 'sans-serif'],
+        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+        roboto: ['"Roboto"', 'sans-serif'],
       },
       borderRadius: {
         'xl': '1rem',

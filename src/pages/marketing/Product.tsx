@@ -7,13 +7,13 @@ export const Product: React.FC = () => {
   return (
     <div className="w-full flex flex-col space-y-16 md:space-y-24 pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-[1340px] mx-auto">
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <span className="px-3 py-1 rounded-full bg-surface-tier1 border border-brand-peach text-xs font-bold text-brand-orange uppercase">
+        <span className="px-3.5 py-1.5 rounded-full bg-brand-orange-light border border-brand-orange/30 text-xs font-heading font-bold text-brand-orange uppercase">
           Product Command Center
         </span>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso">
+        <h1 className="brand-h1 text-espresso">
           The Executive Command Operating System
         </h1>
-        <p className="text-base text-terracotta leading-relaxed">
+        <p className="brand-subtitle text-terracotta">
           FounderOS bridges executive strategy with operational execution across a strict 7-level hierarchy. Explore our core pillars below.
         </p>
       </div>

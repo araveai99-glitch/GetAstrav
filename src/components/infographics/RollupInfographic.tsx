@@ -13,10 +13,10 @@ export const RollupInfographic: React.FC = () => {
     <div className="w-full bg-white p-6 sm:p-8 lg:p-10 rounded-3xl border border-brand-peach/80 shadow-architectural space-y-8">
       {/* Header */}
       <div className="text-center max-w-[800px] mx-auto space-y-3">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight">
+        <h2 className="brand-h2 text-espresso">
           Never Ask “What's the Status?” Again.
         </h2>
-        <p className="text-base sm:text-lg text-terracotta leading-relaxed max-w-[700px] mx-auto font-normal">
+        <p className="brand-body text-terracotta max-w-[700px] mx-auto">
           As tasks are completed, progress updates across connected milestones, goals, and projects. Spot delays and see what needs attention.
         </p>
       </div>
@@ -28,12 +28,12 @@ export const RollupInfographic: React.FC = () => {
         <div className="p-5 rounded-2xl bg-white border border-brand-peach shadow-warm-xs space-y-3">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <div className="flex items-center gap-2">
-              <Sliders className="w-5 h-5 text-emerald-700" />
-              <span className="text-xs font-bold text-espresso uppercase tracking-wider">
+              <Sliders className="w-5 h-5 text-brand-orange" />
+              <span className="text-xs font-heading font-bold text-espresso uppercase tracking-wider">
                 Interactive Demo • Drag Slider to Complete Tasks
               </span>
             </div>
-            <span className="text-sm font-extrabold text-emerald-800 bg-emerald-50/90 px-3 py-1 rounded-full border border-emerald-200/90">
+            <span className="text-sm font-heading font-extrabold text-brand-orange bg-brand-orange-light px-3.5 py-1 rounded-full border border-brand-orange/30">
               Tasks Completed: {taskCompletion}%
             </span>
           </div>
@@ -44,7 +44,7 @@ export const RollupInfographic: React.FC = () => {
             max="100"
             value={taskCompletion}
             onChange={(e) => setTaskCompletion(Number(e.target.value))}
-            className="w-full h-2.5 bg-brand-peach/40 rounded-lg appearance-none cursor-pointer accent-emerald-600"
+            className="w-full h-2.5 bg-brand-peach/40 rounded-lg appearance-none cursor-pointer accent-brand-orange"
           />
         </div>
 
@@ -54,20 +54,20 @@ export const RollupInfographic: React.FC = () => {
           <MotionWrapper delay={0.1} direction="up">
             <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-2xs space-y-3 relative">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-terracotta-muted">01. TEAM TASKS</span>
-                <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold">
+                <span className="text-xs font-heading font-bold text-terracotta-muted">01. TEAM TASKS</span>
+                <span className="px-2.5 py-0.5 rounded-full bg-brand-orange-light text-brand-orange border border-brand-orange/30 text-xs font-heading font-bold">
                   Work Output
                 </span>
               </div>
-              <h3 className="text-base font-extrabold text-espresso">Daily Team Execution</h3>
+              <h3 className="text-base font-heading font-extrabold text-espresso">Daily Team Execution</h3>
               <div className="space-y-1.5 pt-1">
-                <div className="flex justify-between items-center text-xs font-bold">
+                <div className="flex justify-between items-center text-xs font-heading font-bold">
                   <span>Task Progress</span>
-                  <span className="text-emerald-700">{taskCompletion}%</span>
+                  <span className="text-brand-orange">{taskCompletion}%</span>
                 </div>
                 <div className="w-full h-2.5 rounded-full bg-brand-peach/30 overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full transition-all duration-300"
+                    className="h-full bg-brand-orange rounded-full transition-all duration-300"
                     style={{ width: `${taskCompletion}%` }}
                   />
                 </div>
@@ -79,20 +79,20 @@ export const RollupInfographic: React.FC = () => {
           <MotionWrapper delay={0.2} direction="up">
             <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-2xs space-y-3 relative">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-terracotta-muted">02. MILESTONE</span>
-                <span className="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold">
+                <span className="text-xs font-heading font-bold text-terracotta-muted">02. MILESTONE</span>
+                <span className="px-2.5 py-0.5 rounded-full bg-brand-yellow-light text-espresso border border-brand-yellow/50 text-xs font-heading font-bold">
                   Auto-Updated
                 </span>
               </div>
-              <h3 className="text-base font-extrabold text-espresso">Project Deliverable Gate</h3>
+              <h3 className="text-base font-heading font-extrabold text-espresso">Project Deliverable Gate</h3>
               <div className="space-y-1.5 pt-1">
-                <div className="flex justify-between items-center text-xs font-bold">
+                <div className="flex justify-between items-center text-xs font-heading font-bold">
                   <span>Milestone Completion</span>
-                  <span className="text-amber-700">{milestoneVal}%</span>
+                  <span className="text-espresso font-bold">{milestoneVal}%</span>
                 </div>
                 <div className="w-full h-2.5 rounded-full bg-brand-peach/30 overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full transition-all duration-300"
+                    className="h-full bg-brand-yellow rounded-full transition-all duration-300"
                     style={{ width: `${milestoneVal}%` }}
                   />
                 </div>
@@ -104,20 +104,20 @@ export const RollupInfographic: React.FC = () => {
           <MotionWrapper delay={0.3} direction="up">
             <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-2xs space-y-3 relative">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-terracotta-muted">03. COMPANY GOAL</span>
-                <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold">
+                <span className="text-xs font-heading font-bold text-terracotta-muted">03. COMPANY GOAL</span>
+                <span className="px-2.5 py-0.5 rounded-full bg-brand-green-light text-brand-green border border-brand-green/30 text-xs font-heading font-bold">
                   Strategy Target
                 </span>
               </div>
-              <h3 className="text-base font-extrabold text-espresso">Overall Strategic Goal</h3>
+              <h3 className="text-base font-heading font-extrabold text-espresso">Overall Strategic Goal</h3>
               <div className="space-y-1.5 pt-1">
-                <div className="flex justify-between items-center text-xs font-bold">
+                <div className="flex justify-between items-center text-xs font-heading font-bold">
                   <span>Goal Progress</span>
-                  <span className="text-emerald-700">{goalVal}%</span>
+                  <span className="text-brand-green">{goalVal}%</span>
                 </div>
                 <div className="w-full h-2.5 rounded-full bg-brand-peach/30 overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-emerald-600 to-teal-700 rounded-full transition-all duration-300"
+                    className="h-full bg-brand-green rounded-full transition-all duration-300"
                     style={{ width: `${goalVal}%` }}
                   />
                 </div>
@@ -130,27 +130,27 @@ export const RollupInfographic: React.FC = () => {
         <MotionWrapper delay={0.4} direction="up">
           <div className="p-6 rounded-2xl bg-white border border-brand-peach/90 shadow-warm-md flex flex-col md:flex-row items-center justify-between gap-6 w-full">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-700 text-white flex items-center justify-center shadow-md shadow-emerald-700/25 shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-brand-orange text-white flex items-center justify-center shadow-md shadow-brand-orange/25 shrink-0">
                 <TrendingUp className="w-6 h-6" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase text-emerald-800 tracking-wider">
+                  <span className="text-xs font-heading font-bold uppercase text-brand-orange tracking-wider">
                     Automatic Progress & Risk Spotting
                   </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold flex items-center gap-1">
-                    <AlertTriangle className="w-3 h-3 text-amber-500" /> Spot Delays Early
+                  <span className="px-2.5 py-0.5 rounded-full bg-brand-yellow-light text-espresso border border-brand-yellow/50 text-xs font-heading font-bold flex items-center gap-1">
+                    <AlertTriangle className="w-3 h-3 text-brand-yellow" /> Spot Delays Early
                   </span>
                 </div>
-                <h3 className="text-lg font-extrabold text-espresso mt-1">Clear Visibility Without Chasing Status Updates</h3>
-                <p className="text-sm text-terracotta font-normal mt-0.5">
+                <h3 className="text-lg font-heading font-extrabold text-espresso mt-1">Clear Visibility Without Chasing Status Updates</h3>
+                <p className="brand-body text-terracotta mt-0.5">
                   As team members complete tasks, progress updates automatically. If a task slips behind schedule, FounderOS highlights the delay immediately.
                 </p>
               </div>
             </div>
 
             <div className="shrink-0">
-              <span className="px-4 py-2 rounded-xl bg-brand-green/10 text-brand-green font-bold text-xs flex items-center gap-2">
+              <span className="px-4 py-2 rounded-full bg-brand-green-light border border-brand-green/30 text-brand-green font-heading font-bold text-xs flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4" /> Zero Status Meetings Needed
               </span>
             </div>

@@ -127,10 +127,10 @@ export const HierarchyInfographic: React.FC = () => {
     <div className="w-full bg-white p-6 sm:p-8 lg:p-10 rounded-3xl border border-brand-peach/80 shadow-architectural space-y-8">
       {/* Header */}
       <div className="text-center max-w-[800px] mx-auto space-y-3">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight">
+        <h2 className="brand-h2 text-espresso">
           Connect Company Goals to Everyday Work.
         </h2>
-        <p className="text-base sm:text-lg text-terracotta leading-relaxed max-w-[700px] mx-auto font-normal">
+        <p className="brand-body text-terracotta max-w-[700px] mx-auto">
           Organize departments, teams, projects, goals, milestones, and tasks so everyone understands how their work fits into the bigger picture.
         </p>
       </div>
@@ -147,13 +147,13 @@ export const HierarchyInfographic: React.FC = () => {
               <React.Fragment key={node.id}>
                 <button
                   onClick={() => setSelectedNode(node.id)}
-                  className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2.5 transition-all cursor-pointer ${
+                  className={`px-4 py-2.5 rounded-full text-xs sm:text-sm font-heading font-bold flex items-center gap-2.5 transition-all cursor-pointer ${
                     isSelected
-                      ? 'bg-gradient-to-r from-emerald-600 to-teal-700 text-white shadow-md shadow-emerald-700/25 scale-105 border border-emerald-600'
-                      : 'bg-white text-espresso hover:bg-emerald-50/70 border border-brand-peach/80 shadow-warm-2xs'
+                      ? 'bg-brand-orange text-white shadow-glow-orange scale-105 border border-brand-orange'
+                      : 'bg-white text-espresso hover:bg-brand-orange-light hover:text-brand-orange border border-brand-peach shadow-warm-2xs'
                   }`}
                 >
-                  <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-emerald-700'}`} />
+                  <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-brand-orange'}`} />
                   <span>{node.name.split(':')[0]}</span>
                 </button>
                 {idx < hierarchyNodes.length - 1 && (
@@ -173,39 +173,39 @@ export const HierarchyInfographic: React.FC = () => {
                   <currentNode.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-extrabold text-emerald-700 uppercase tracking-wider">{currentNode.level}</span>
-                  <h3 className="text-lg sm:text-xl font-extrabold text-espresso">{currentNode.name}</h3>
-                  <p className="text-xs text-terracotta font-medium">{currentNode.subtitle}</p>
+                  <span className="text-[10px] font-mono font-extrabold text-brand-orange uppercase tracking-wider">{currentNode.level}</span>
+                  <h3 className="text-lg sm:text-xl font-heading font-extrabold text-espresso">{currentNode.name}</h3>
+                  <p className="brand-body text-xs text-terracotta">{currentNode.subtitle}</p>
                 </div>
               </div>
-              <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold shrink-0 flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+              <span className="px-3.5 py-1.5 rounded-full bg-brand-green-light border border-brand-green/30 text-brand-green text-xs font-heading font-bold shrink-0 flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-brand-green" />
                 {currentNode.status}
               </span>
             </div>
 
-            <p className="text-sm text-terracotta leading-relaxed font-normal bg-surface-tier1 p-4 rounded-xl border border-brand-peach/60">
+            <p className="brand-body text-terracotta bg-surface-tier1 p-4 rounded-xl border border-brand-peach/60">
               {currentNode.detailText}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-4 rounded-xl bg-ivory border border-brand-peach/60 space-y-1">
                 <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">LIVE NODE METRICS</span>
-                <p className="text-xs sm:text-sm font-bold text-espresso">{currentNode.metrics}</p>
+                <p className="text-xs sm:text-sm font-heading font-bold text-espresso">{currentNode.metrics}</p>
               </div>
 
               <div className="p-4 rounded-xl bg-ivory border border-brand-peach/60 space-y-1">
                 <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase flex items-center gap-1">
-                  <Lock className="w-3 h-3 text-emerald-600" /> RBAC PERMISSION SCOPE
+                  <Lock className="w-3 h-3 text-brand-orange" /> RBAC PERMISSION SCOPE
                 </span>
-                <p className="text-xs sm:text-sm font-bold text-espresso">{currentNode.permissionScope}</p>
+                <p className="text-xs sm:text-sm font-heading font-bold text-espresso">{currentNode.permissionScope}</p>
               </div>
 
               <div className="p-4 rounded-xl bg-ivory border border-brand-peach/60 space-y-1">
                 <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase flex items-center gap-1">
                   <Sparkles className="w-3 h-3 text-brand-green" /> ROLLUP ENGINE
                 </span>
-                <p className="text-xs sm:text-sm font-bold text-brand-green">Sub-50ms Cascade Synced</p>
+                <p className="text-xs sm:text-sm font-heading font-bold text-brand-green">Sub-50ms Cascade Synced</p>
               </div>
             </div>
           </div>

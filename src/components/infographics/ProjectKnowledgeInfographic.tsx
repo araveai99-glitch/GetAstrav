@@ -9,13 +9,13 @@ export const ProjectKnowledgeInfographic: React.FC = () => {
     <div className="w-full bg-white p-6 sm:p-8 lg:p-10 rounded-3xl border border-brand-peach/80 shadow-architectural space-y-8">
       {/* Header */}
       <div className="text-center max-w-[1000px] mx-auto space-y-3">
-        <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-orange-light border border-brand-orange/30 text-xs font-bold text-brand-orange uppercase tracking-wider">
+        <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-orange-light border border-brand-orange/30 text-xs font-heading font-bold text-brand-orange uppercase tracking-wider">
           Visual G • Integrated Project Specs & Knowledge Center
         </span>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-espresso tracking-tight">
+        <h2 className="brand-h2 text-espresso">
           Keep Knowledge and Live Execution in One Command Center
         </h2>
-        <p className="text-sm sm:text-base text-terracotta leading-relaxed max-w-[800px] mx-auto font-normal">
+        <p className="brand-body text-terracotta max-w-[800px] mx-auto">
           No more context switching between task trackers and stale documentation. FounderOS ties architecture markdown specs directly to live tasks and immutable version history.
         </p>
       </div>

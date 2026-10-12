@@ -7,10 +7,10 @@ export const AccountabilityWorkflowInfographic: React.FC = () => {
     <div className="w-full bg-white p-6 sm:p-8 lg:p-10 rounded-3xl border border-brand-peach/80 shadow-architectural space-y-8">
       {/* Header */}
       <div className="text-center max-w-[800px] mx-auto space-y-3">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight">
+        <h2 className="brand-h2 text-espresso">
           Everyone Knows What Comes Next.
         </h2>
-        <p className="text-base sm:text-lg text-terracotta leading-relaxed max-w-[700px] mx-auto font-normal">
+        <p className="brand-body text-terracotta max-w-[700px] mx-auto">
           Assign work, set deadlines, track completion, and let managers review tasks when approval is required.
         </p>
       </div>

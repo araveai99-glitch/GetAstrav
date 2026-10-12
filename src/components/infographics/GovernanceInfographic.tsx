@@ -7,13 +7,13 @@ export const GovernanceInfographic: React.FC = () => {
     <div className="w-full bg-white p-6 sm:p-8 lg:p-10 rounded-3xl border border-brand-peach/80 shadow-architectural space-y-8">
       {/* Header */}
       <div className="text-center max-w-[1000px] mx-auto space-y-3">
-        <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-orange-light border border-brand-orange/30 text-xs font-bold text-brand-orange uppercase tracking-wider">
+        <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-orange-light border border-brand-orange/30 text-xs font-heading font-bold text-brand-orange uppercase tracking-wider">
           Visual H • Enterprise Security & Composable Governance
         </span>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-espresso tracking-tight">
+        <h2 className="brand-h2 text-espresso">
           Built for Enterprise Security & Multi-Tenant Isolation
         </h2>
-        <p className="text-sm sm:text-base text-terracotta leading-relaxed max-w-[800px] mx-auto font-normal">
+        <p className="brand-body text-terracotta max-w-[800px] mx-auto">
           Multi-tenant permissions architecture enforced at the database level by PostgreSQL Row-Level Security (RLS) policies and automated zero-owner safeguards.
         </p>
       </div>
