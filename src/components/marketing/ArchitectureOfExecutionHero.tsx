@@ -55,9 +55,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconColor: 'text-[#f15e1c]',
     barColor: 'bg-[#2e936f]',
     left: '37.5%',
-    top: '9.0%',
+    top: '11.9%',
     width: '11.13%',
-    height: '9.0%',
+    height: '11.9%',
     head: 'Elena Vance (VP Product)',
     activeTasks: 14,
     milestones: '3/4 Milestones Completed',
@@ -79,9 +79,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconColor: 'text-[#fab60a]',
     barColor: 'bg-[#fab60a]',
     left: '50.98%',
-    top: '8.8%',
+    top: '11.64%',
     width: '10.64%',
-    height: '9.2%',
+    height: '12.17%',
     head: 'Marcus Thorne (CTO)',
     activeTasks: 22,
     milestones: '4/6 Milestones Completed',
@@ -103,9 +103,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconColor: 'text-[#f15e1c]',
     barColor: 'bg-[#fab60a]',
     left: '63.67%',
-    top: '9.0%',
+    top: '11.9%',
     width: '11.33%',
-    height: '9.0%',
+    height: '11.9%',
     head: 'Sarah Jenkins (Growth Lead)',
     activeTasks: 9,
     milestones: '2/4 Milestones Completed',
@@ -128,9 +128,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconColor: 'text-[#2e936f]',
     barColor: 'bg-[#2e936f]',
     left: '37.99%',
-    top: '34.0%',
+    top: '44.97%',
     width: '10.74%',
-    height: '11.8%',
+    height: '15.61%',
     head: 'Priya Roy (Head of Revenue)',
     activeTasks: 18,
     milestones: '3/5 Milestones Completed',
@@ -152,9 +152,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconColor: 'text-[#2e936f]',
     barColor: 'bg-[#2e936f]',
     left: '51.76%',
-    top: '34.0%',
+    top: '44.97%',
     width: '10.94%',
-    height: '11.2%',
+    height: '14.81%',
     head: 'Devon Lee (People Operations)',
     activeTasks: 6,
     milestones: '4/4 Milestones Completed',
@@ -176,9 +176,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconColor: 'text-[#fab60a]',
     barColor: 'bg-[#fab60a]',
     left: '64.75%',
-    top: '34.0%',
+    top: '44.97%',
     width: '10.74%',
-    height: '10.2%',
+    height: '13.49%',
     head: 'Arthur Pendelton (Finance VP)',
     activeTasks: 8,
     milestones: '2/4 Milestones Completed',
@@ -214,9 +214,9 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     action: 'Campaign launched',
     time: '2 min ago',
     left: '79.3%',
-    top: '8.8%',
+    top: '11.64%',
     width: '16.5%',
-    height: '7.2%',
+    height: '9.52%',
     icon: Megaphone,
     iconBg: 'bg-[#fceade]',
     iconColor: 'text-[#f15e1c]',
@@ -229,9 +229,9 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     action: '2 tasks overdue',
     time: '12 min ago',
     left: '79.3%',
-    top: '17.4%',
+    top: '23.02%',
     width: '16.5%',
-    height: '8.6%',
+    height: '11.38%',
     icon: Code,
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
@@ -244,9 +244,9 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     action: 'Deal stage updated',
     time: '25 min ago',
     left: '79.3%',
-    top: '26.0%',
+    top: '34.39%',
     width: '16.5%',
-    height: '7.0%',
+    height: '9.26%',
     icon: BarChart3,
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
@@ -262,36 +262,253 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
   const [companyGoalModalOpen, setCompanyGoalModalOpen] = useState(false);
   const [mobileSyncOpen, setMobileSyncOpen] = useState(false);
 
+  // Active status for connection highlight illumination
+  const isGoalActive = companyGoalModalOpen;
+  const isSalesActive = hoveredDeptId === 'sales' || selectedDept?.id === 'sales';
+  const isHRActive = hoveredDeptId === 'hr' || selectedDept?.id === 'hr';
+  const isFinanceActive = hoveredDeptId === 'finance' || selectedDept?.id === 'finance';
+  const isProductActive = hoveredDeptId === 'product' || selectedDept?.id === 'product';
+  const isEngActive = hoveredDeptId === 'engineering' || selectedDept?.id === 'engineering';
+  const isMktActive = hoveredDeptId === 'marketing' || selectedDept?.id === 'marketing';
+
   return (
-    <section className="relative w-full overflow-hidden bg-white lg:bg-[#180d07] border-b border-[#341a0d] pt-20 select-none">
+    <section className="relative w-full overflow-hidden bg-[#faf6f0] border-b border-brand-peach/60 pt-20 sm:pt-22 select-none">
+      <style>{`
+        @keyframes dashFlow {
+          from {
+            stroke-dashoffset: 28;
+          }
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+        .animate-dash-flow {
+          animation: dashFlow 1.4s linear infinite;
+        }
+      `}</style>
+
       {/* ============================================================ */}
-      {/* DESKTOP / WIDE SCREEN: UNIFIED FULL-PAGE PANORAMIC HERO      */}
+      {/* DESKTOP / WIDE SCREEN: 4K HIGH-DEF PANORAMIC HERO BACKDROP   */}
       {/* ============================================================ */}
       <div className="hidden lg:block relative w-full">
-        <div className="relative w-full aspect-[2048/1000] overflow-hidden">
-          {/* Panoramic Full-Page Edge-to-Edge Backdrop (2048x1000 Full Bleed) */}
+        <div className="relative w-full aspect-[2048/756] overflow-hidden">
+          {/* Panoramic 4K Clean Backdrop (Razor Sharp with Zero Artifacts) */}
           <img
-            src="/assets/hero_panoramic_fullpage.png"
-            alt="GetAstrav FounderOS Command Center Full Page Panoramic View"
+            src="/assets/hero_panoramic_4k.png"
+            alt="GetAstrav FounderOS Command Center 4K Ultra Quality Panoramic View"
             className="w-full h-full object-cover block select-none pointer-events-none"
             loading="eager"
             decoding="async"
           />
 
           {/* ============================================================ */}
-          {/* 1. LEFT COLUMN: EDITORIAL COPY, CTAs, VALUE PROPS OVERLAY    */}
+          {/* DARK VIVID CONNECTING ARROWS & STRATEGIC FLOW PIPELINES      */}
+          {/* ============================================================ */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none z-15"
+            viewBox="0 0 2048 756"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              {/* Dark Emerald Green Arrowhead */}
+              <marker
+                id="arrow-dark-green"
+                viewBox="0 0 10 10"
+                refX="8"
+                refY="5"
+                markerWidth="7"
+                markerHeight="7"
+                orient="auto"
+              >
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#0b5d36" stroke="#15803d" strokeWidth="1" />
+              </marker>
+
+              {/* Intense Glowing Green Arrowhead */}
+              <marker
+                id="arrow-active-green"
+                viewBox="0 0 10 10"
+                refX="8"
+                refY="5"
+                markerWidth="8"
+                markerHeight="8"
+                orient="auto"
+              >
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#22c55e" stroke="#16a34a" strokeWidth="1" />
+              </marker>
+
+              {/* Terracotta / Amber Activity Arrowhead */}
+              <marker
+                id="arrow-amber"
+                viewBox="0 0 10 10"
+                refX="8"
+                refY="5"
+                markerWidth="7"
+                markerHeight="7"
+                orient="auto"
+              >
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#c2410c" stroke="#ea580c" strokeWidth="1" />
+              </marker>
+
+              {/* Glow Filter */}
+              <filter id="emerald-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+
+            {/* 1. Flow: Company Goal -> Sales */}
+            <path
+              d="M 960 510 C 960 480, 890 485, 888 462"
+              fill="none"
+              stroke={isSalesActive || isProductActive || isGoalActive ? '#15803d' : '#0d5c34'}
+              strokeWidth={isSalesActive || isProductActive || isGoalActive ? '4.5' : '3.5'}
+              filter="url(#emerald-glow)"
+              markerEnd={isSalesActive || isProductActive || isGoalActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
+            />
+            <path
+              d="M 960 510 C 960 480, 890 485, 888 462"
+              fill="none"
+              stroke={isSalesActive || isProductActive || isGoalActive ? '#4ade80' : '#22c55e'}
+              strokeWidth="2"
+              strokeDasharray="6 8"
+              className="animate-dash-flow opacity-90"
+            />
+
+            {/* 2. Flow: Company Goal -> HR */}
+            <path
+              d="M 1080 510 C 1080 480, 1170 480, 1172 454"
+              fill="none"
+              stroke={isHRActive || isEngActive || isGoalActive ? '#15803d' : '#0d5c34'}
+              strokeWidth={isHRActive || isEngActive || isGoalActive ? '4.5' : '3.5'}
+              filter="url(#emerald-glow)"
+              markerEnd={isHRActive || isEngActive || isGoalActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
+            />
+            <path
+              d="M 1080 510 C 1080 480, 1170 480, 1172 454"
+              fill="none"
+              stroke={isHRActive || isEngActive || isGoalActive ? '#4ade80' : '#22c55e'}
+              strokeWidth="2"
+              strokeDasharray="6 8"
+              className="animate-dash-flow opacity-90"
+            />
+
+            {/* 3. Flow: Company Goal -> Finance */}
+            <path
+              d="M 1180 510 C 1240 480, 1430 475, 1436 446"
+              fill="none"
+              stroke={isFinanceActive || isMktActive || isGoalActive ? '#15803d' : '#0d5c34'}
+              strokeWidth={isFinanceActive || isMktActive || isGoalActive ? '4.5' : '3.5'}
+              filter="url(#emerald-glow)"
+              markerEnd={isFinanceActive || isMktActive || isGoalActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
+            />
+            <path
+              d="M 1180 510 C 1240 480, 1430 475, 1436 446"
+              fill="none"
+              stroke={isFinanceActive || isMktActive || isGoalActive ? '#4ade80' : '#22c55e'}
+              strokeWidth="2"
+              strokeDasharray="6 8"
+              className="animate-dash-flow opacity-90"
+            />
+
+            {/* 4. Flow: Sales -> Product */}
+            <path
+              d="M 888 340 C 888 260, 882 250, 882 184"
+              fill="none"
+              stroke={isSalesActive || isProductActive ? '#15803d' : '#0d5c34'}
+              strokeWidth={isSalesActive || isProductActive ? '4.5' : '3.5'}
+              filter="url(#emerald-glow)"
+              markerEnd={isSalesActive || isProductActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
+            />
+            <path
+              d="M 888 340 C 888 260, 882 250, 882 184"
+              fill="none"
+              stroke={isSalesActive || isProductActive ? '#4ade80' : '#22c55e'}
+              strokeWidth="2"
+              strokeDasharray="6 8"
+              className="animate-dash-flow opacity-90"
+            />
+
+            {/* 5. Flow: HR -> Engineering */}
+            <path
+              d="M 1172 340 C 1172 260, 1153 250, 1153 184"
+              fill="none"
+              stroke={isHRActive || isEngActive ? '#15803d' : '#0d5c34'}
+              strokeWidth={isHRActive || isEngActive ? '4.5' : '3.5'}
+              filter="url(#emerald-glow)"
+              markerEnd={isHRActive || isEngActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
+            />
+            <path
+              d="M 1172 340 C 1172 260, 1153 250, 1153 184"
+              fill="none"
+              stroke={isHRActive || isEngActive ? '#4ade80' : '#22c55e'}
+              strokeWidth="2"
+              strokeDasharray="6 8"
+              className="animate-dash-flow opacity-90"
+            />
+
+            {/* 6. Flow: Finance -> Marketing */}
+            <path
+              d="M 1436 340 C 1436 260, 1420 250, 1420 184"
+              fill="none"
+              stroke={isFinanceActive || isMktActive ? '#15803d' : '#0d5c34'}
+              strokeWidth={isFinanceActive || isMktActive ? '4.5' : '3.5'}
+              filter="url(#emerald-glow)"
+              markerEnd={isFinanceActive || isMktActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
+            />
+            <path
+              d="M 1436 340 C 1436 260, 1420 250, 1420 184"
+              fill="none"
+              stroke={isFinanceActive || isMktActive ? '#4ade80' : '#22c55e'}
+              strokeWidth="2"
+              strokeDasharray="6 8"
+              className="animate-dash-flow opacity-90"
+            />
+
+            {/* 7. Stream: Marketing -> Marketing Activity Notification */}
+            <path
+              d="M 1536 135 C 1570 135, 1590 124, 1622 124"
+              fill="none"
+              stroke="#b45309"
+              strokeWidth="2.5"
+              strokeDasharray="4 6"
+              markerEnd="url(#arrow-amber)"
+            />
+
+            {/* 8. Stream: Engineering -> Engineering Activity Notification */}
+            <path
+              d="M 1262 135 C 1380 135, 1530 217, 1622 217"
+              fill="none"
+              stroke="#b45309"
+              strokeWidth="2.5"
+              strokeDasharray="4 6"
+              markerEnd="url(#arrow-amber)"
+            />
+
+            {/* 9. Stream: Sales -> Sales Activity Notification */}
+            <path
+              d="M 998 400 C 1200 400, 1450 295, 1622 295"
+              fill="none"
+              stroke="#0d5c34"
+              strokeWidth="2.5"
+              strokeDasharray="4 6"
+              markerEnd="url(#arrow-dark-green)"
+            />
+          </svg>
+
+          {/* ============================================================ */}
+          {/* 1. LEFT COLUMN: EDITORIAL COPY & CTAs OVERLAY                */}
           {/* ============================================================ */}
           <div
             className="absolute z-20 flex flex-col justify-between"
             style={{
               left: '5.5%',
-              top: '5.5%',
-              bottom: '24.0%',
+              top: '8%',
+              bottom: '8%',
               width: '28.5%',
             }}
           >
             {/* Top: Green Badge & Headline */}
-            <div className="space-y-3 xl:space-y-4">
+            <div className="space-y-3.5 xl:space-y-5">
               <MotionWrapper direction="down">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
                   <span className="relative flex h-2 w-2">
@@ -305,7 +522,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               </MotionWrapper>
 
               <MotionWrapper delay={0.08}>
-                <h1 className="text-[32px] xl:text-[42px] 2xl:text-[48px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.03em] font-heading">
+                <h1 className="text-[34px] xl:text-[44px] 2xl:text-[50px] font-extrabold text-[#271812] leading-[1.07] tracking-[-0.03em] font-heading">
                   Your Entire<br />
                   Company<br />
                   In <span className="text-[#f15e1c]">One View.</span>
@@ -314,7 +531,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             </div>
 
             {/* Middle: Subtitle & CTA Buttons */}
-            <div className="space-y-3 xl:space-y-4">
+            <div className="space-y-4 xl:space-y-5">
               <p className="text-xs xl:text-sm text-[#5a4138] font-body leading-relaxed max-w-sm">
                 Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
               </p>
@@ -338,26 +555,6 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 </a>
               </div>
             </div>
-
-            {/* Bottom: 4 Supporting Value Propositions in a Clean Row */}
-            <div className="pt-2.5 border-t border-brand-peach/40 grid grid-cols-4 gap-1.5 xl:gap-2 text-[9.5px] xl:text-[10.5px] font-heading">
-              <div className="flex items-center gap-1.5 font-bold text-[#271812]">
-                <Target className="w-3.5 h-3.5 text-[#f15e1c] shrink-0" />
-                <span className="leading-tight">Goal-Driven Execution</span>
-              </div>
-              <div className="flex items-center gap-1.5 font-bold text-[#271812]">
-                <Sparkles className="w-3.5 h-3.5 text-[#fab60a] shrink-0" />
-                <span className="leading-tight">AI-Powered Planning</span>
-              </div>
-              <div className="flex items-center gap-1.5 font-bold text-[#271812]">
-                <BarChart3 className="w-3.5 h-3.5 text-[#2e936f] shrink-0" />
-                <span className="leading-tight">Real Progress Visibility</span>
-              </div>
-              <div className="flex items-center gap-1.5 font-bold text-[#271812]">
-                <Users className="w-3.5 h-3.5 text-[#f15e1c] shrink-0" />
-                <span className="leading-tight">Built for Founders</span>
-              </div>
-            </div>
           </div>
 
           {/* ============================================================ */}
@@ -365,7 +562,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* ============================================================ */}
           <div
             className="absolute z-20 flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 rounded-full bg-brand-orange text-white shadow-lg shadow-brand-orange/40 animate-pulse cursor-pointer group"
-            style={{ left: '31.8%', top: '19.2%' }}
+            style={{ left: '31.8%', top: '25.5%' }}
             title="Strategic Alignment Flow"
           >
             <ArrowRight className="w-3 h-3 xl:w-3.5 xl:h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -441,9 +638,9 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             className="absolute z-20 rounded-2xl cursor-pointer group transition-all duration-200 active:scale-[0.98]"
             style={{
               left: '43.16%',
-              top: '51.0%',
+              top: '67.46%',
               width: '17.38%',
-              height: '8.6%',
+              height: '11.38%',
             }}
             title="Company Goal: Launch Product V2 (72%) - Click to inspect"
           >
@@ -501,9 +698,9 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             className="absolute z-20 rounded-2xl cursor-pointer group transition-all duration-200 active:scale-[0.98]"
             style={{
               left: '77.6%',
-              top: '50.0%',
+              top: '66.0%',
               width: '10.25%',
-              height: '24.0%',
+              height: '32.0%',
             }}
             title="Founder Executive Mobile Command Stream - Click to view real-time feed"
           >
@@ -542,6 +739,87 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               </span>
             </motion.div>
           )}
+        </div>
+      </div>
+
+      {/* ============================================================ */}
+      {/* STRATEGIC EXECUTION PILLARS DOCK (PAGE BOTTOM FOLD)          */}
+      {/* ============================================================ */}
+      <div className="w-full bg-[#fdfbf7] border-t border-brand-peach/60 py-6 sm:py-8 px-4 sm:px-6 lg:px-12 select-none shadow-[0_-4px_24px_rgba(39,24,18,0.03)]">
+        <div className="max-w-[1600px] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6">
+            {/* 1. Goal-Driven Execution */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-xs hover:border-brand-orange/60 hover:shadow-warm-md hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer">
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 rounded-xl bg-[#fceade] text-[#f15e1c] flex items-center justify-center shadow-warm-2xs group-hover:scale-105 transition-transform">
+                  <Target className="w-5 h-5 text-[#f15e1c]" />
+                </div>
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-heading font-extrabold text-[#2e936f] bg-[#edf7f3] border border-[#2e936f]/30">
+                  100% Rollup
+                </span>
+              </div>
+              <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
+                Goal-Driven Execution
+              </h4>
+              <p className="text-xs text-terracotta leading-relaxed mt-1">
+                Every project, task, and daily milestone rolls up directly into company North Star goals.
+              </p>
+            </div>
+
+            {/* 2. AI-Powered Planning */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-xs hover:border-brand-orange/60 hover:shadow-warm-md hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer">
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 rounded-xl bg-[#fef3dc] text-[#fab60a] flex items-center justify-center shadow-warm-2xs group-hover:scale-105 transition-transform">
+                  <Sparkles className="w-5 h-5 text-[#fab60a]" />
+                </div>
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-heading font-extrabold text-[#fab60a] bg-[#fef3dc] border border-[#fab60a]/30">
+                  Predictive Mesh
+                </span>
+              </div>
+              <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
+                AI-Powered Planning
+              </h4>
+              <p className="text-xs text-terracotta leading-relaxed mt-1">
+                Proactively detects project blockers, overdue tasks, and resource clashes before they cause delays.
+              </p>
+            </div>
+
+            {/* 3. Real Progress Visibility */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-xs hover:border-brand-orange/60 hover:shadow-warm-md hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer">
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 rounded-xl bg-[#edf7f3] text-[#2e936f] flex items-center justify-center shadow-warm-2xs group-hover:scale-105 transition-transform">
+                  <BarChart3 className="w-5 h-5 text-[#2e936f]" />
+                </div>
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-heading font-extrabold text-[#2e936f] bg-[#edf7f3] border border-[#2e936f]/30">
+                  Real-Time Sync
+                </span>
+              </div>
+              <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
+                Real Progress Visibility
+              </h4>
+              <p className="text-xs text-terracotta leading-relaxed mt-1">
+                Unfiltered live velocity across Product, Engineering, Marketing, Sales, HR & Finance.
+              </p>
+            </div>
+
+            {/* 4. Built for Founders */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-xs hover:border-brand-orange/60 hover:shadow-warm-md hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer">
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 rounded-xl bg-[#fceade] text-[#f15e1c] flex items-center justify-center shadow-warm-2xs group-hover:scale-105 transition-transform">
+                  <Users className="w-5 h-5 text-[#f15e1c]" />
+                </div>
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-heading font-extrabold text-[#f15e1c] bg-[#fceade] border border-[#f15e1c]/30">
+                  FounderOS V4.8
+                </span>
+              </div>
+              <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
+                Built for Founders
+              </h4>
+              <p className="text-xs text-terracotta leading-relaxed mt-1">
+                Stay fully in control of cross-team execution with zero micromanagement or status meetings.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
