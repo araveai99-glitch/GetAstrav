@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FounderOSHeroVisual } from './FounderOSHeroVisual';
+import { HeroOfficeVisual } from './HeroOfficeVisual';
 import { MotionWrapper } from '../common/MotionWrapper';
 import {
   ArrowRight,
@@ -10,17 +10,16 @@ import {
   Sparkles,
   BarChart3,
   Users,
-  ArrowDown,
 } from 'lucide-react';
 
 export const ArchitectureOfExecutionHero: React.FC = () => {
   return (
-    <section className="relative w-full overflow-hidden pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-white via-surface-ambient to-ivory border-b border-brand-peach/50">
+    <section className="relative w-full overflow-hidden pt-28 sm:pt-32 lg:pt-36 pb-14 sm:pb-18 lg:pb-20 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-white via-surface-ambient to-ivory border-b border-brand-peach/50">
       {/* Sophisticated Atmospheric Light Fields & Subtle Alignment Architecture */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
         {/* Subtle Architectural Dot Grid */}
         <div className="absolute inset-0 bg-[radial-gradient(#f7d7b0_1px,transparent_1px)] [background-size:28px_28px] opacity-25" />
-        
+
         {/* Large Low-Contrast Ambient Radial Light Fields */}
         <div className="absolute top-0 right-1/4 w-[750px] h-[750px] bg-gradient-to-bl from-brand-peach/25 via-brand-yellow-light/15 to-transparent rounded-full blur-3xl" />
         <div className="absolute top-24 -left-20 w-[600px] h-[600px] bg-gradient-to-br from-brand-orange-light/35 via-brand-peach/15 to-transparent rounded-full blur-3xl" />
@@ -28,10 +27,8 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       </div>
 
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        
         {/* LEFT COLUMN: Clean Editorial Copy, CTAs, & Value Props */}
         <div className="lg:col-span-5 space-y-7 text-left z-10">
-          
           {/* Brand Kicker Badge (Green Beacon Pill matching Reference Image) */}
           <MotionWrapper direction="down">
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
@@ -49,12 +46,11 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <MotionWrapper delay={0.1}>
             <div className="space-y-4">
               <h1 className="text-[40px] sm:text-[52px] xl:text-[62px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.03em] font-heading">
-                From Founder<br />Strategy to<br />
-                <span className="text-[#f15e1c]">Execution</span><br />
-                on Autopilot.
+                Your Entire Company<br />
+                In <span className="text-[#f15e1c]">One View.</span>
               </h1>
               <p className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-xl">
-                Connect your company goals, team projects, and daily tasks in one intelligent platform. Track execution automatically and see exactly what needs your attention.
+                Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
               </p>
             </div>
           </MotionWrapper>
@@ -72,7 +68,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               </Link>
 
               <a
-                href="#everything-connected"
+                href="#how-it-works"
                 className="inline-flex items-center justify-center gap-2.5 text-sm sm:text-base font-heading font-bold text-[#271812] bg-white hover:bg-brand-orange-light px-6 py-3.5 rounded-full border border-brand-peach transition-all hover:border-[#f15e1c] hover:text-[#f15e1c] shadow-warm-sm cursor-pointer"
               >
                 <Play className="w-4 h-4 text-[#271812] fill-[#271812]/15" />
@@ -102,29 +98,14 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               </div>
             </div>
           </MotionWrapper>
-
-          {/* Scroll to Explore Indicator */}
-          <MotionWrapper delay={0.4}>
-            <div className="pt-2">
-              <a
-                href="#everything-connected"
-                className="inline-flex items-center gap-2 text-xs font-mono text-[#6b544b] hover:text-[#f15e1c] transition-colors group"
-              >
-                <ArrowDown className="w-3.5 h-3.5 animate-bounce text-[#f15e1c] group-hover:translate-y-1 transition-transform" />
-                <span>Scroll to explore</span>
-              </a>
-            </div>
-          </MotionWrapper>
-
         </div>
 
-        {/* RIGHT COLUMN: 3D Layered FounderOS Visual */}
+        {/* RIGHT COLUMN: Isometric Office Visual */}
         <div className="lg:col-span-7 w-full flex items-center justify-center overflow-visible">
           <MotionWrapper delay={0.2} direction="up" className="w-full">
-            <FounderOSHeroVisual />
+            <HeroOfficeVisual />
           </MotionWrapper>
         </div>
-
       </div>
     </section>
   );

@@ -1,66 +1,96 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layers, Calendar, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Layers, ArrowRight, Sparkles, Megaphone, CheckCircle2 } from 'lucide-react';
+import { MotionWrapper } from './MotionWrapper';
 
 export const CTASection: React.FC = () => {
   return (
-    <section id="conversion-cta" className="w-full py-10 md:py-16 px-4 sm:px-6 lg:px-8 bg-transparent">
-      <div className="max-w-[1400px] mx-auto rounded-3xl bg-gradient-to-br from-white via-ivory to-champagne/50 p-8 sm:p-12 md:p-16 border border-brand-peach/80 shadow-architectural relative overflow-hidden">
-        {/* Soft background glow */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-brand-peach/30 via-brand-yellow-light/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+    <section id="conversion-cta" className="w-full py-12 md:py-20 px-4 sm:px-6 lg:px-10 bg-transparent">
+      <div className="max-w-[1600px] mx-auto rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-8 sm:p-12 md:p-16 border border-brand-peach/80 shadow-architectural relative overflow-hidden">
+        {/* Soft atmospheric background glow */}
+        <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-brand-orange-light via-brand-peach/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-gradient-to-tr from-brand-yellow-light/20 via-surface-ambient to-transparent rounded-full blur-2xl pointer-events-none -z-10" />
 
-        <div className="relative z-10 max-w-4xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-green-light border border-brand-green/30 shadow-warm-2xs">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-green"></span>
-            </span>
-            <span className="text-[11px] font-heading font-extrabold text-brand-green uppercase tracking-wider">
-              FOUNDEROS TEAM WORKSPACE
-            </span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          {/* LEFT: Copy & Action Buttons */}
+          <div className="lg:col-span-8 space-y-6 text-left">
+            <h2 className="text-[32px] sm:text-[46px] font-extrabold text-[#271812] leading-[1.12] tracking-[-0.02em] font-heading">
+              Ready to See Your Company<br />
+              <span className="text-[#f15e1c]">in One View?</span>
+            </h2>
+
+            <p className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-xl">
+              Join modern founders who use FounderOS to turn strategy into execution.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="#conversion-cta"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="inline-flex items-center justify-center gap-2.5 text-base font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-8 py-3.5 rounded-full shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 active:translate-y-0 transition-all group cursor-pointer"
+              >
+                <span>Book a Demo</span>
+                <ArrowRight className="w-4.5 h-4.5 group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              <Link
+                to="/product"
+                className="inline-flex items-center justify-center gap-2 text-base font-heading font-bold text-espresso bg-white hover:bg-brand-orange-light px-7 py-3.5 rounded-full shadow-warm-sm border border-brand-peach transition-all hover:border-brand-orange hover:text-brand-orange hover:-translate-y-0.5 active:translate-y-0"
+              >
+                <span>Explore FounderOS</span>
+              </Link>
+            </div>
           </div>
 
-          <h2 className="brand-h2 text-espresso">
-            Your Organization. <span className="text-brand-orange">One Operating System.</span>
-          </h2>
+          {/* RIGHT: Compact Brand Visual with 3D Logo & Handwritten Note */}
+          <div className="lg:col-span-4 flex items-center justify-center relative">
+            <div className="relative w-full max-w-[280px] aspect-square flex items-center justify-center">
+              {/* Handwritten note & curly arrow */}
+              <div className="absolute top-2 left-0 z-20 text-left pointer-events-none">
+                <span className="font-heading italic font-bold text-sm text-[#f15e1c] block -rotate-6">
+                  From vision<br />to real progress.
+                </span>
+                <svg className="w-10 h-8 text-[#f15e1c] mt-1 ml-4" viewBox="0 0 40 30" fill="none">
+                  <path
+                    d="M 5 5 Q 20 20 35 15"
+                    stroke="#f15e1c"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                    fill="none"
+                  />
+                  <path
+                    d="M 30 11 L 35 15 L 28 18"
+                    stroke="#f15e1c"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
 
-          <p className="brand-subtitle text-terracotta max-w-2xl">
-            Bring goals, projects, and everyday work together with FounderOS.
-          </p>
+              {/* 3D Stacked Logo Icon in Hexagonal Pedestal */}
+              <div className="relative w-36 h-36 rounded-3xl bg-gradient-to-tr from-[#f15e1c] via-[#fab60a] to-[#ffec69] p-1 shadow-warm-xl flex items-center justify-center group hover:scale-105 transition-transform duration-300">
+                <div className="w-full h-full rounded-[22px] bg-gradient-to-tr from-[#f15e1c] to-[#fab60a] flex items-center justify-center shadow-inner">
+                  <Layers className="w-16 h-16 text-white drop-shadow-md" />
+                </div>
 
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <Link
-              to="/product"
-              className="inline-flex items-center justify-center gap-2.5 text-base font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-8 py-4 rounded-full shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 transition-all group"
-            >
-              <Layers className="w-5 h-5" />
-              <span>Explore FounderOS</span>
-              <ArrowRight className="w-4.5 h-4.5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+                {/* Floating Megaphone Badge (Bottom-Left) */}
+                <div className="absolute -bottom-3 -left-3 w-10 h-10 rounded-full bg-white shadow-warm-md border border-brand-peach flex items-center justify-center">
+                  <Megaphone className="w-5 h-5 text-brand-orange" />
+                </div>
 
-            <Link
-              to="/signup"
-              className="inline-flex items-center justify-center gap-2 text-base font-heading font-bold text-espresso bg-white hover:bg-brand-orange-light px-7 py-4 rounded-full shadow-warm-sm border border-brand-peach transition-all hover:border-brand-orange hover:text-brand-orange"
-            >
-              <Calendar className="w-5 h-5 text-brand-orange" />
-              <span>Book a Demo</span>
-            </Link>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-brand-peach/60 text-xs font-semibold text-terracotta">
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-brand-green" /> Instant Team Alignment
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-brand-green" /> Automatic Progress Updates
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-brand-green" /> Sub-15 Min Setup
-            </span>
+                {/* Floating Green Progress Badge (Bottom-Right) */}
+                <div className="absolute -bottom-2 -right-3 w-9 h-9 rounded-full bg-white shadow-warm-md border border-brand-peach flex items-center justify-center">
+                  <CheckCircle2 className="w-5 h-5 text-brand-green" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 };
-

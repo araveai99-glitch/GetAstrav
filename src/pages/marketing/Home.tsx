@@ -1,47 +1,27 @@
 import React from 'react';
 import { ArchitectureOfExecutionHero } from '../../components/marketing/ArchitectureOfExecutionHero';
-import { HierarchyInfographic } from '../../components/infographics/HierarchyInfographic';
-import { RollupInfographic } from '../../components/infographics/RollupInfographic';
-import { AIDecompositionInfographic } from '../../components/infographics/AIDecompositionInfographic';
-import { AccountabilityWorkflowInfographic } from '../../components/infographics/AccountabilityWorkflowInfographic';
-import { AnalyticsInfographic } from '../../components/infographics/AnalyticsInfographic';
+import { HowItWorksSection } from '../../components/marketing/HowItWorksSection';
+import { KeyCapabilitiesSection } from '../../components/marketing/KeyCapabilitiesSection';
+import { FounderInsightsSection } from '../../components/marketing/FounderInsightsSection';
 import { CTASection } from '../../components/common/CTASection';
 
 export const Home: React.FC = () => {
   return (
-    <div className="w-full flex flex-col space-y-10 lg:space-y-12">
-      {/* 1. HERO: From Founder Strategy to Execution on Autopilot */}
+    <div className="w-full flex flex-col overflow-x-hidden">
+      {/* 1. HERO SECTION: Your Entire Company In One View */}
       <ArchitectureOfExecutionHero />
 
-      {/* 2. CORE CONCEPT: Connect Company Goals to Everyday Work */}
-      <section id="everything-connected" className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
-        <HierarchyInfographic />
-      </section>
+      {/* 2. HOW IT WORKS: From Goals to Execution in 4 Simple Steps */}
+      <HowItWorksSection />
 
-      {/* 3. AUTOMATED PROGRESS: Never Ask “What's the Status?” Again */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
-        <RollupInfographic />
-      </section>
+      {/* 3. KEY CAPABILITIES: Everything You Need to Run Your Organization */}
+      <KeyCapabilitiesSection />
 
-      {/* 4. AI INTELLIGENCE: Turn Goals into Actionable Tasks */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
-        <AIDecompositionInfographic />
-      </section>
+      {/* 4. BUILT FOR FOUNDERS: Make Faster Decisions with Real Insights */}
+      <FounderInsightsSection />
 
-      {/* 5. EXECUTION & ACCOUNTABILITY: Everyone Knows What Comes Next */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
-        <AccountabilityWorkflowInfographic />
-      </section>
-
-      {/* 6. EXECUTIVE VISIBILITY: See What's Moving and What Needs Attention */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10">
-        <AnalyticsInfographic />
-      </section>
-
-      {/* 7. FINAL CTA: Your Organization. One Operating System */}
-      <section id="conversion-cta" className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 pb-12">
-        <CTASection />
-      </section>
+      {/* 5. CLOSING CTA: Ready to See Your Company in One View? */}
+      <CTASection />
     </div>
   );
 };
