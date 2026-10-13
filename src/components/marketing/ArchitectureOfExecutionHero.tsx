@@ -59,9 +59,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     sparklineColor: '#2e936f',
     sparklinePath: 'M 2 12 Q 10 14, 18 8 T 34 3',
     left: '37.45%',
-    top: '11.77%',
+    top: '8.9%',
     width: '11.23%',
-    height: '12.04%',
+    height: '9.1%',
     head: 'Elena Vance (VP Product)',
     activeTasks: 14,
     milestones: '3/4 Milestones Completed',
@@ -85,9 +85,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     sparklineColor: '#fab60a',
     sparklinePath: 'M 2 13 Q 10 15, 20 8 T 34 3',
     left: '50.93%',
-    top: '11.77%',
+    top: '8.9%',
     width: '10.79%',
-    height: '12.04%',
+    height: '9.1%',
     head: 'Marcus Thorne (CTO)',
     activeTasks: 22,
     milestones: '4/6 Milestones Completed',
@@ -111,9 +111,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     sparklineColor: '#fab60a',
     sparklinePath: 'M 2 14 Q 10 11, 20 9 T 34 4',
     left: '63.62%',
-    top: '11.77%',
+    top: '8.9%',
     width: '11.38%',
-    height: '12.04%',
+    height: '9.1%',
     head: 'Sarah Jenkins (Growth Lead)',
     activeTasks: 9,
     milestones: '2/4 Milestones Completed',
@@ -138,9 +138,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     sparklineColor: '#2e936f',
     sparklinePath: 'M 2 14 Q 10 14, 18 7 T 34 2',
     left: '37.99%',
-    top: '43.92%',
+    top: '33.2%',
     width: '10.84%',
-    height: '12.04%',
+    height: '9.1%',
     head: 'Priya Roy (Head of Revenue)',
     activeTasks: 18,
     milestones: '3/5 Milestones Completed',
@@ -164,9 +164,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     sparklineColor: '#2e936f',
     sparklinePath: 'M 2 13 Q 12 14, 20 6 T 34 2',
     left: '51.76%',
-    top: '43.92%',
+    top: '33.2%',
     width: '10.99%',
-    height: '12.04%',
+    height: '9.1%',
     head: 'Devon Lee (People Operations)',
     activeTasks: 6,
     milestones: '4/4 Milestones Completed',
@@ -190,9 +190,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     sparklineColor: '#fab60a',
     sparklinePath: 'M 2 12 Q 12 15, 20 10 T 34 4',
     left: '64.7%',
-    top: '43.92%',
+    top: '33.2%',
     width: '10.79%',
-    height: '12.04%',
+    height: '9.1%',
     head: 'Arthur Pendelton (Finance VP)',
     activeTasks: 8,
     milestones: '2/4 Milestones Completed',
@@ -228,9 +228,9 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     action: 'Campaign launched',
     time: '2 min ago',
     left: '79.25%',
-    top: '11.77%',
+    top: '8.9%',
     width: '16.55%',
-    height: '9.52%',
+    height: '7.2%',
     icon: Megaphone,
     iconBg: 'bg-[#fceade]',
     iconColor: 'text-[#f15e1c]',
@@ -243,9 +243,9 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     action: '2 tasks overdue',
     time: '12 min ago',
     left: '79.25%',
-    top: '23.02%',
+    top: '17.4%',
     width: '16.55%',
-    height: '9.52%',
+    height: '7.2%',
     icon: Code,
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
@@ -258,9 +258,9 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     action: 'Deal stage updated',
     time: '25 min ago',
     left: '79.25%',
-    top: '34.39%',
+    top: '26.0%',
     width: '16.55%',
-    height: '9.52%',
+    height: '7.2%',
     icon: BarChart3,
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
@@ -305,7 +305,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       {/* DESKTOP / WIDE SCREEN: 4K HIGH-DEF PANORAMIC HERO BACKDROP   */}
       {/* ============================================================ */}
       <div className="hidden lg:block relative w-full">
-        <div className="relative w-full aspect-[2048/756] overflow-hidden">
+        <div className="relative w-full aspect-[2048/1000] overflow-hidden">
           {/* Panoramic 4K Clean Backdrop (Razor Sharp with Zero Artifacts) */}
           <img
             src="/assets/hero_panoramic_4k.png"
@@ -320,7 +320,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* ============================================================ */}
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none z-10"
-            viewBox="0 0 2048 756"
+            viewBox="0 0 2048 1000"
             preserveAspectRatio="none"
           >
             <defs>
@@ -516,8 +516,8 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             className="absolute z-20 flex flex-col justify-between"
             style={{
               left: '5.5%',
-              top: '8%',
-              bottom: '8%',
+              top: '6%',
+              bottom: '22%',
               width: '28.5%',
             }}
           >
@@ -576,7 +576,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* ============================================================ */}
           <div
             className="absolute z-20 flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 rounded-full bg-brand-orange text-white shadow-lg shadow-brand-orange/40 animate-pulse cursor-pointer group"
-            style={{ left: '31.8%', top: '25.5%' }}
+            style={{ left: '31.8%', top: '19.28%' }}
             title="Strategic Alignment Flow"
           >
             <ArrowRight className="w-3 h-3 xl:w-3.5 xl:h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -668,9 +668,9 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             className="absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_8px_24px_rgba(0,0,0,0.14),0_2px_6px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_28px_rgba(46,147,111,0.3)] hover:border-[#2e936f] hover:scale-[1.02] p-2 xl:p-2.5 2xl:p-3 flex flex-col justify-between group overflow-hidden"
             style={{
               left: '43.16%',
-              top: '67.46%',
+              top: '51.0%',
               width: '17.38%',
-              height: '11.38%',
+              height: '8.6%',
             }}
             title="Company Goal: Launch Product V2 (72%) - Click to inspect"
           >
@@ -764,9 +764,9 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             className="absolute z-20 rounded-2xl cursor-pointer group transition-all duration-200 active:scale-[0.98]"
             style={{
               left: '77.6%',
-              top: '66.0%',
+              top: '49.9%',
               width: '10.25%',
-              height: '32.0%',
+              height: '24.2%',
             }}
             title="Founder Executive Mobile Command Stream - Click to view real-time feed"
           >

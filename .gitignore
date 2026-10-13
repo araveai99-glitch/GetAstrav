@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Dependencies
 node_modules/
 
@@ -30,15 +29,9 @@ Thumbs.db
 # Temporary / Scratch files
 scratch/
 tmp/
-=======
-node_modules
-dist
-.env
-.env.local
 DESIGN.md
 code.html
 founder_os_product_audit.md
 screen.png
 TEST_CREDENTIALS.md
 credentials.txt
->>>>>>> 1142ab55a38b1a4f15248dc131218e12feb595f6
