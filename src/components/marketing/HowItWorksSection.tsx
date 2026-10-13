@@ -26,6 +26,13 @@ import { MotionWrapper } from '../common/MotionWrapper';
 export const HowItWorksSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('home');
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [completedTasks, setCompletedTasks] = useState<string[]>(['roadmap', 'marketing']);
+
+  const toggleTask = (id: string) => {
+    setCompletedTasks((prev) =>
+      prev.includes(id) ? prev.filter((t) => t !== id) : [...prev, id]
+    );
+  };
 
   return (
     <section
@@ -282,23 +289,49 @@ export const HowItWorksSection: React.FC = () => {
 
                     {/* 2. Today's Focus */}
                     <div className="p-3 rounded-xl bg-white border border-brand-peach/50 shadow-warm-2xs">
-                      <span className="font-heading font-bold text-espresso text-[11px] block pb-2 border-b border-brand-peach/30">
-                        Today's Focus
-                      </span>
+                      <div className="flex items-center justify-between pb-2 border-b border-brand-peach/30">
+                        <span className="font-heading font-bold text-espresso text-[11px]">
+                          Today's Focus
+                        </span>
+                        <span className="text-[9px] font-mono font-bold text-brand-green">
+                          {completedTasks.length}/4 Done
+                        </span>
+                      </div>
                       <div className="space-y-1.5 pt-2 text-[10px]">
                         {[
-                          'Review product roadmap',
-                          'Approve marketing plan',
-                          'Check overdue tasks',
-                          'Prepare Q3 review',
-                        ].map((item, idx) => (
-                          <div key={idx} className="flex items-center gap-1.5">
-                            <Check className="w-3 h-3 text-brand-green shrink-0" />
-                            <span className="text-espresso font-medium truncate">
-                              {item}
-                            </span>
-                          </div>
-                        ))}
+                          { id: 'roadmap', label: 'Review product roadmap' },
+                          { id: 'marketing', label: 'Approve marketing plan' },
+                          { id: 'overdue', label: 'Check overdue tasks' },
+                          { id: 'review', label: 'Prepare Q3 review' },
+                        ].map((item) => {
+                          const isDone = completedTasks.includes(item.id);
+                          return (
+                            <button
+                              key={item.id}
+                              onClick={() => toggleTask(item.id)}
+                              className="w-full flex items-center gap-1.5 text-left p-1 rounded-lg hover:bg-surface-tier1 transition-colors cursor-pointer group"
+                            >
+                              <div
+                                className={`w-3.5 h-3.5 rounded flex items-center justify-center transition-all ${
+                                  isDone
+                                    ? 'bg-brand-green text-white'
+                                    : 'border border-brand-peach/80 bg-white group-hover:border-brand-orange'
+                                }`}
+                              >
+                                {isDone && <Check className="w-2.5 h-2.5 stroke-[3]" />}
+                              </div>
+                              <span
+                                className={`truncate font-medium transition-all ${
+                                  isDone
+                                    ? 'line-through text-terracotta-muted'
+                                    : 'text-espresso font-semibold'
+                                }`}
+                              >
+                                {item.label}
+                              </span>
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
 

@@ -1,10 +1,76 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Check, TrendingUp, AlertTriangle, Sparkles, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Check,
+  TrendingUp,
+  AlertTriangle,
+  Sparkles,
+  ArrowRight,
+  Megaphone,
+  Code,
+  BarChart3,
+  X,
+  CheckCircle2,
+} from 'lucide-react';
 import { MotionWrapper } from '../common/MotionWrapper';
 
+interface FloatingInsightCard {
+  id: string;
+  title: string;
+  status: string;
+  delta: string;
+  icon: React.ElementType;
+  iconBg: string;
+  iconColor: string;
+  top: string;
+  left?: string;
+  right?: string;
+  isAlert?: boolean;
+  deepDive: string;
+}
+
+const INSIGHT_CARDS: FloatingInsightCard[] = [
+  {
+    id: 'marketing',
+    title: 'Marketing',
+    status: 'On Track',
+    delta: '+12% this week',
+    icon: TrendingUp,
+    iconBg: 'bg-[#edf7f3]',
+    iconColor: 'text-[#2e936f]',
+    top: '12%',
+    left: '26%',
+    deepDive: 'Campaign acquisition costs reduced by 14% with automated content rollups.',
+  },
+  {
+    id: 'engineering',
+    title: 'Engineering',
+    status: '2 tasks overdue',
+    delta: 'Attention needed',
+    icon: AlertTriangle,
+    iconBg: 'bg-[#fef3dc]',
+    iconColor: 'text-[#fab60a]',
+    top: '32%',
+    left: '52%',
+    isAlert: true,
+    deepDive: 'Blocking issues detected in API gateway. 2 team leads reallocated to unblock.',
+  },
+  {
+    id: 'sales',
+    title: 'Sales',
+    status: 'Deal stage updated',
+    delta: '+5% this week',
+    icon: BarChart3,
+    iconBg: 'bg-[#edf7f3]',
+    iconColor: 'text-[#2e936f]',
+    top: '52%',
+    right: '3%',
+    deepDive: '3 enterprise contract approvals pushed to final signature stage.',
+  },
+];
+
 export const FounderInsightsSection: React.FC = () => {
-  const [activeCard, setActiveCard] = useState<string | null>(null);
+  const [selectedInsight, setSelectedInsight] = useState<FloatingInsightCard | null>(null);
 
   return (
     <section
@@ -13,7 +79,7 @@ export const FounderInsightsSection: React.FC = () => {
     >
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         {/* ============================================================ */}
-        {/* LEFT COLUMN: Founder at Desk Scene with Floating Badges      */}
+        {/* LEFT COLUMN: Founder at Desk Scene with REAL HTML CARDS      */}
         {/* ============================================================ */}
         <div className="lg:col-span-7 w-full">
           <MotionWrapper direction="right" delay={0.1}>
@@ -22,56 +88,60 @@ export const FounderInsightsSection: React.FC = () => {
               <img
                 src="/assets/founder_desk_scene.png"
                 alt="Founder reviewing real-time company performance insights on dual displays"
-                className="w-full h-auto object-cover block select-none transition-transform duration-500 group-hover:scale-[1.01]"
+                className="w-full h-auto object-cover block select-none pointer-events-none"
                 loading="lazy"
                 decoding="async"
               />
 
-              {/* Interactive Hotspot 1: Marketing Badge (Top-Left) */}
-              <div
-                onMouseEnter={() => setActiveCard('marketing')}
-                onMouseLeave={() => setActiveCard(null)}
-                className="absolute top-[8%] left-[28%] w-[26%] h-[28%] rounded-2xl cursor-pointer z-20 group/mkt"
-                title="Marketing execution velocity"
-              >
-                <div className="absolute inset-0 rounded-2xl border border-transparent group-hover/mkt:border-brand-green/40 group-hover/mkt:bg-brand-green/5 transition-all" />
-              </div>
+              {/* REAL CRISP HTML FLOATING CARDS */}
+              {INSIGHT_CARDS.map((card) => {
+                const Icon = card.icon;
 
-              {/* Interactive Hotspot 2: Engineering Badge (Top-Center) */}
-              <div
-                onMouseEnter={() => setActiveCard('engineering')}
-                onMouseLeave={() => setActiveCard(null)}
-                className="absolute top-[28%] left-[53%] w-[28%] h-[28%] rounded-2xl cursor-pointer z-20 group/eng"
-                title="Engineering risk detection"
-              >
-                <div className="absolute inset-0 rounded-2xl border border-transparent group-hover/eng:border-brand-orange/40 group-hover/eng:bg-brand-orange/5 transition-all" />
-              </div>
+                return (
+                  <motion.div
+                    key={card.id}
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    whileTap={{ scale: 0.96 }}
+                    onClick={() => setSelectedInsight(card)}
+                    className="absolute bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl p-2.5 sm:p-3 border border-white/90 shadow-[0_8px_20px_rgba(42,26,20,0.16)] cursor-pointer z-20 transition-all hover:border-brand-orange/60 flex items-center gap-2.5 sm:gap-3"
+                    style={{
+                      top: card.top,
+                      left: card.left,
+                      right: card.right,
+                    }}
+                    title={`Click to inspect ${card.title} performance details`}
+                  >
+                    <div
+                      className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl ${card.iconBg} flex items-center justify-center shrink-0`}
+                    >
+                      <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${card.iconColor}`} />
+                    </div>
 
-              {/* Interactive Hotspot 3: Sales Badge (Center-Right) */}
-              <div
-                onMouseEnter={() => setActiveCard('sales')}
-                onMouseLeave={() => setActiveCard(null)}
-                className="absolute top-[48%] right-[2%] w-[28%] h-[28%] rounded-2xl cursor-pointer z-20 group/sales"
-                title="Sales revenue momentum"
-              >
-                <div className="absolute inset-0 rounded-2xl border border-transparent group-hover/sales:border-brand-green/40 group-hover/sales:bg-brand-green/5 transition-all" />
-              </div>
-
-              {/* Detail Popover when hovered */}
-              {activeCard && (
-                <motion.div
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="absolute bottom-4 left-4 z-30 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-xl shadow-warm-lg border border-brand-peach text-xs font-heading font-semibold text-espresso flex items-center gap-2"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-                  <span>
-                    {activeCard === 'marketing' && 'Marketing: +12% growth pace this week'}
-                    {activeCard === 'engineering' && 'Engineering: Attention needed on 2 blocking items'}
-                    {activeCard === 'sales' && 'Sales: Deal pipeline velocity +5% this week'}
-                  </span>
-                </motion.div>
-              )}
+                    <div className="leading-tight">
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-heading font-extrabold text-xs sm:text-sm text-espresso">
+                          {card.title}
+                        </span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-ping" />
+                      </div>
+                      <span
+                        className={`text-[10px] sm:text-xs block font-heading ${
+                          card.isAlert ? 'text-amber-700 font-bold' : 'text-terracotta-muted'
+                        }`}
+                      >
+                        {card.status}
+                      </span>
+                      <span
+                        className={`text-[9px] sm:text-[10px] block font-mono font-bold ${
+                          card.isAlert ? 'text-amber-600' : 'text-brand-green'
+                        }`}
+                      >
+                        {card.delta}
+                      </span>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </MotionWrapper>
         </div>
@@ -126,6 +196,48 @@ export const FounderInsightsSection: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Detail Modal when Insight card clicked */}
+      <AnimatePresence>
+        {selectedInsight && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fadeIn">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="relative w-full max-w-md bg-white rounded-3xl p-6 shadow-2xl border border-brand-peach space-y-4"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div className={`w-8 h-8 rounded-xl ${selectedInsight.iconBg} flex items-center justify-center`}>
+                    <selectedInsight.icon className={`w-4 h-4 ${selectedInsight.iconColor}`} />
+                  </div>
+                  <h3 className="font-heading font-extrabold text-lg text-espresso">
+                    {selectedInsight.title} Intelligence
+                  </h3>
+                </div>
+                <button
+                  onClick={() => setSelectedInsight(null)}
+                  className="p-1.5 rounded-full hover:bg-surface-tier1 text-terracotta cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-surface-ambient border border-brand-peach/50 text-xs text-espresso leading-relaxed">
+                {selectedInsight.deepDive}
+              </div>
+
+              <button
+                onClick={() => setSelectedInsight(null)}
+                className="w-full py-2.5 rounded-full bg-brand-orange text-white font-heading font-bold text-xs shadow-md shadow-brand-orange/20 cursor-pointer"
+              >
+                Dismiss
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
