@@ -31,6 +31,8 @@ interface DepartmentHotspot {
   iconBg: string;
   iconColor: string;
   barColor: string;
+  sparklineColor: string;
+  sparklinePath: string;
   // Percentage coordinates on the 2048x756 panoramic canvas
   left: string;
   top: string;
@@ -54,10 +56,12 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconBg: 'bg-[#fceade]',
     iconColor: 'text-[#f15e1c]',
     barColor: 'bg-[#2e936f]',
-    left: '37.5%',
-    top: '11.9%',
-    width: '11.13%',
-    height: '11.9%',
+    sparklineColor: '#2e936f',
+    sparklinePath: 'M 2 12 Q 10 14, 18 8 T 34 3',
+    left: '37.45%',
+    top: '11.77%',
+    width: '11.23%',
+    height: '12.04%',
     head: 'Elena Vance (VP Product)',
     activeTasks: 14,
     milestones: '3/4 Milestones Completed',
@@ -78,10 +82,12 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
     barColor: 'bg-[#fab60a]',
-    left: '50.98%',
-    top: '11.64%',
-    width: '10.64%',
-    height: '12.17%',
+    sparklineColor: '#fab60a',
+    sparklinePath: 'M 2 13 Q 10 15, 20 8 T 34 3',
+    left: '50.93%',
+    top: '11.77%',
+    width: '10.79%',
+    height: '12.04%',
     head: 'Marcus Thorne (CTO)',
     activeTasks: 22,
     milestones: '4/6 Milestones Completed',
@@ -102,10 +108,12 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconBg: 'bg-[#fceade]',
     iconColor: 'text-[#f15e1c]',
     barColor: 'bg-[#fab60a]',
-    left: '63.67%',
-    top: '11.9%',
-    width: '11.33%',
-    height: '11.9%',
+    sparklineColor: '#fab60a',
+    sparklinePath: 'M 2 14 Q 10 11, 20 9 T 34 4',
+    left: '63.62%',
+    top: '11.77%',
+    width: '11.38%',
+    height: '12.04%',
     head: 'Sarah Jenkins (Growth Lead)',
     activeTasks: 9,
     milestones: '2/4 Milestones Completed',
@@ -127,10 +135,12 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
     barColor: 'bg-[#2e936f]',
+    sparklineColor: '#2e936f',
+    sparklinePath: 'M 2 14 Q 10 14, 18 7 T 34 2',
     left: '37.99%',
-    top: '44.97%',
-    width: '10.74%',
-    height: '15.61%',
+    top: '43.92%',
+    width: '10.84%',
+    height: '12.04%',
     head: 'Priya Roy (Head of Revenue)',
     activeTasks: 18,
     milestones: '3/5 Milestones Completed',
@@ -151,10 +161,12 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
     barColor: 'bg-[#2e936f]',
+    sparklineColor: '#2e936f',
+    sparklinePath: 'M 2 13 Q 12 14, 20 6 T 34 2',
     left: '51.76%',
-    top: '44.97%',
-    width: '10.94%',
-    height: '14.81%',
+    top: '43.92%',
+    width: '10.99%',
+    height: '12.04%',
     head: 'Devon Lee (People Operations)',
     activeTasks: 6,
     milestones: '4/4 Milestones Completed',
@@ -175,10 +187,12 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
     barColor: 'bg-[#fab60a]',
-    left: '64.75%',
-    top: '44.97%',
-    width: '10.74%',
-    height: '13.49%',
+    sparklineColor: '#fab60a',
+    sparklinePath: 'M 2 12 Q 12 15, 20 10 T 34 4',
+    left: '64.7%',
+    top: '43.92%',
+    width: '10.79%',
+    height: '12.04%',
     head: 'Arthur Pendelton (Finance VP)',
     activeTasks: 8,
     milestones: '2/4 Milestones Completed',
@@ -213,9 +227,9 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Marketing',
     action: 'Campaign launched',
     time: '2 min ago',
-    left: '79.3%',
-    top: '11.64%',
-    width: '16.5%',
+    left: '79.25%',
+    top: '11.77%',
+    width: '16.55%',
     height: '9.52%',
     icon: Megaphone,
     iconBg: 'bg-[#fceade]',
@@ -228,10 +242,10 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Engineering',
     action: '2 tasks overdue',
     time: '12 min ago',
-    left: '79.3%',
+    left: '79.25%',
     top: '23.02%',
-    width: '16.5%',
-    height: '11.38%',
+    width: '16.55%',
+    height: '9.52%',
     icon: Code,
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
@@ -243,10 +257,10 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Sales',
     action: 'Deal stage updated',
     time: '25 min ago',
-    left: '79.3%',
+    left: '79.25%',
     top: '34.39%',
-    width: '16.5%',
-    height: '9.26%',
+    width: '16.55%',
+    height: '9.52%',
     icon: BarChart3,
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
@@ -305,7 +319,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* DARK VIVID CONNECTING ARROWS & STRATEGIC FLOW PIPELINES      */}
           {/* ============================================================ */}
           <svg
-            className="absolute inset-0 w-full h-full pointer-events-none z-15"
+            className="absolute inset-0 w-full h-full pointer-events-none z-10"
             viewBox="0 0 2048 756"
             preserveAspectRatio="none"
           >
@@ -358,7 +372,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
             {/* 1. Flow: Company Goal -> Sales */}
             <path
-              d="M 960 510 C 960 480, 890 485, 888 462"
+              d="M 940 510 C 940 470, 888 470, 888 433"
               fill="none"
               stroke={isSalesActive || isProductActive || isGoalActive ? '#15803d' : '#0d5c34'}
               strokeWidth={isSalesActive || isProductActive || isGoalActive ? '4.5' : '3.5'}
@@ -366,7 +380,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               markerEnd={isSalesActive || isProductActive || isGoalActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
             />
             <path
-              d="M 960 510 C 960 480, 890 485, 888 462"
+              d="M 940 510 C 940 470, 888 470, 888 433"
               fill="none"
               stroke={isSalesActive || isProductActive || isGoalActive ? '#4ade80' : '#22c55e'}
               strokeWidth="2"
@@ -376,7 +390,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
             {/* 2. Flow: Company Goal -> HR */}
             <path
-              d="M 1080 510 C 1080 480, 1170 480, 1172 454"
+              d="M 1060 510 C 1060 470, 1172 470, 1172 433"
               fill="none"
               stroke={isHRActive || isEngActive || isGoalActive ? '#15803d' : '#0d5c34'}
               strokeWidth={isHRActive || isEngActive || isGoalActive ? '4.5' : '3.5'}
@@ -384,7 +398,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               markerEnd={isHRActive || isEngActive || isGoalActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
             />
             <path
-              d="M 1080 510 C 1080 480, 1170 480, 1172 454"
+              d="M 1060 510 C 1060 470, 1172 470, 1172 433"
               fill="none"
               stroke={isHRActive || isEngActive || isGoalActive ? '#4ade80' : '#22c55e'}
               strokeWidth="2"
@@ -394,7 +408,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
             {/* 3. Flow: Company Goal -> Finance */}
             <path
-              d="M 1180 510 C 1240 480, 1430 475, 1436 446"
+              d="M 1200 510 C 1220 470, 1436 470, 1436 433"
               fill="none"
               stroke={isFinanceActive || isMktActive || isGoalActive ? '#15803d' : '#0d5c34'}
               strokeWidth={isFinanceActive || isMktActive || isGoalActive ? '4.5' : '3.5'}
@@ -402,7 +416,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               markerEnd={isFinanceActive || isMktActive || isGoalActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
             />
             <path
-              d="M 1180 510 C 1240 480, 1430 475, 1436 446"
+              d="M 1200 510 C 1220 470, 1436 470, 1436 433"
               fill="none"
               stroke={isFinanceActive || isMktActive || isGoalActive ? '#4ade80' : '#22c55e'}
               strokeWidth="2"
@@ -412,7 +426,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
             {/* 4. Flow: Sales -> Product */}
             <path
-              d="M 888 340 C 888 260, 882 250, 882 184"
+              d="M 888 332 C 888 260, 882 250, 882 182"
               fill="none"
               stroke={isSalesActive || isProductActive ? '#15803d' : '#0d5c34'}
               strokeWidth={isSalesActive || isProductActive ? '4.5' : '3.5'}
@@ -420,7 +434,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               markerEnd={isSalesActive || isProductActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
             />
             <path
-              d="M 888 340 C 888 260, 882 250, 882 184"
+              d="M 888 332 C 888 260, 882 250, 882 182"
               fill="none"
               stroke={isSalesActive || isProductActive ? '#4ade80' : '#22c55e'}
               strokeWidth="2"
@@ -430,7 +444,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
             {/* 5. Flow: HR -> Engineering */}
             <path
-              d="M 1172 340 C 1172 260, 1153 250, 1153 184"
+              d="M 1172 332 C 1172 260, 1153 250, 1153 182"
               fill="none"
               stroke={isHRActive || isEngActive ? '#15803d' : '#0d5c34'}
               strokeWidth={isHRActive || isEngActive ? '4.5' : '3.5'}
@@ -438,7 +452,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               markerEnd={isHRActive || isEngActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
             />
             <path
-              d="M 1172 340 C 1172 260, 1153 250, 1153 184"
+              d="M 1172 332 C 1172 260, 1153 250, 1153 182"
               fill="none"
               stroke={isHRActive || isEngActive ? '#4ade80' : '#22c55e'}
               strokeWidth="2"
@@ -448,7 +462,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
             {/* 6. Flow: Finance -> Marketing */}
             <path
-              d="M 1436 340 C 1436 260, 1420 250, 1420 184"
+              d="M 1436 332 C 1436 260, 1420 250, 1420 182"
               fill="none"
               stroke={isFinanceActive || isMktActive ? '#15803d' : '#0d5c34'}
               strokeWidth={isFinanceActive || isMktActive ? '4.5' : '3.5'}
@@ -456,7 +470,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               markerEnd={isFinanceActive || isMktActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
             />
             <path
-              d="M 1436 340 C 1436 260, 1420 250, 1420 184"
+              d="M 1436 332 C 1436 260, 1420 250, 1420 182"
               fill="none"
               stroke={isFinanceActive || isMktActive ? '#4ade80' : '#22c55e'}
               strokeWidth="2"
@@ -466,7 +480,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
             {/* 7. Stream: Marketing -> Marketing Activity Notification */}
             <path
-              d="M 1536 135 C 1570 135, 1590 124, 1622 124"
+              d="M 1536 135 C 1565 135, 1590 135, 1618 135"
               fill="none"
               stroke="#b45309"
               strokeWidth="2.5"
@@ -474,23 +488,23 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               markerEnd="url(#arrow-amber)"
             />
 
-            {/* 8. Stream: Engineering -> Engineering Activity Notification */}
+            {/* 8. Notification Activity Spine: Notif 1 -> Notif 2 */}
             <path
-              d="M 1262 135 C 1380 135, 1530 217, 1622 217"
+              d="M 1660 162 L 1660 174"
               fill="none"
               stroke="#b45309"
-              strokeWidth="2.5"
-              strokeDasharray="4 6"
+              strokeWidth="2"
+              strokeDasharray="3 3"
               markerEnd="url(#arrow-amber)"
             />
 
-            {/* 9. Stream: Sales -> Sales Activity Notification */}
+            {/* 9. Notification Activity Spine: Notif 2 -> Notif 3 */}
             <path
-              d="M 998 400 C 1200 400, 1450 295, 1622 295"
+              d="M 1660 252 L 1660 260"
               fill="none"
               stroke="#0d5c34"
-              strokeWidth="2.5"
-              strokeDasharray="4 6"
+              strokeWidth="2"
+              strokeDasharray="3 3"
               markerEnd="url(#arrow-dark-green)"
             />
           </svg>
@@ -569,7 +583,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           </div>
 
           {/* ============================================================ */}
-          {/* 3. INTERACTIVE HOTSPOTS OVER 6 DEPARTMENT CARDS              */}
+          {/* 3. SHARP, HIGH-DEFINITION DEPARTMENT CARDS                   */}
           {/* ============================================================ */}
           {DEPARTMENTS.map((dept) => {
             const isHovered = hoveredDeptId === dept.id;
@@ -582,60 +596,76 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 onMouseEnter={() => setHoveredDeptId(dept.id)}
                 onMouseLeave={() => setHoveredDeptId(null)}
                 onClick={() => setSelectedDept(dept)}
-                className="absolute z-20 rounded-2xl cursor-pointer group transition-all duration-150 active:scale-[0.98]"
+                className={`absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border ${
+                  isActive
+                    ? 'border-[#f15e1c] shadow-[0_12px_28px_rgba(241,94,28,0.35),0_4px_10px_rgba(0,0,0,0.08)] ring-2 ring-[#f15e1c] scale-[1.03]'
+                    : 'border-black/[0.08] shadow-[0_6px_20px_rgba(0,0,0,0.12),0_2px_6px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_24px_rgba(0,0,0,0.16)] hover:border-[#f15e1c]/50 hover:scale-[1.02]'
+                } flex flex-col justify-between p-2 sm:p-2.5 xl:p-3 overflow-hidden group`}
                 style={{
                   left: dept.left,
                   top: dept.top,
                   width: dept.width,
                   height: dept.height,
                 }}
-                title={`Click ${dept.name} card or icon to inspect execution (${dept.progress} - ${dept.statusText})`}
+                title={`Click ${dept.name} to inspect (${dept.progress} - ${dept.statusText})`}
               >
-                {/* Active Orangish Halo Ring Framing Card Edge-to-Edge */}
-                <div
-                  className={`absolute inset-0 rounded-2xl transition-all duration-200 pointer-events-none ${
-                    isActive
-                      ? 'ring-2 ring-[#f15e1c] bg-[#f15e1c]/15 shadow-[0_0_24px_rgba(241,94,28,0.45)]'
-                      : 'hover:ring-1 hover:ring-[#f15e1c]/50'
-                  }`}
-                />
+                {/* Top Row: Icon + Name + Chevron */}
+                <div className="flex items-center justify-between gap-1 xl:gap-1.5 w-full">
+                  <div className="flex items-center gap-1.5 xl:gap-2 min-w-0">
+                    <div
+                      className={`w-5 h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7 rounded-md xl:rounded-lg ${dept.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
+                    >
+                      <dept.icon className={`w-3 h-3 xl:w-3.5 xl:h-3.5 2xl:w-4 2xl:h-4 ${dept.iconColor}`} />
+                    </div>
+                    <span className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-[13px] 2xl:text-[14px] tracking-tight leading-none truncate">
+                      {dept.name}
+                    </span>
+                  </div>
+                  <ChevronRight className="w-3 h-3 xl:w-3.5 xl:h-3.5 text-gray-400 group-hover:text-[#f15e1c] group-hover:translate-x-0.5 transition-all shrink-0" />
+                </div>
 
-                {/* Clickable Icon Target with Ambient Highlight */}
-                <div
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSelectedDept(dept);
-                  }}
-                  className={`absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? 'bg-[#f15e1c]/25 ring-1 ring-[#f15e1c]/70'
-                      : 'group-hover:bg-[#f15e1c]/10'
-                  }`}
-                  title={`Click ${dept.name} icon`}
-                />
+                {/* Bottom Row: Metric % + Progress Bar + Sparkline */}
+                <div className="flex items-end justify-between gap-1 xl:gap-2 w-full pt-0.5">
+                  <div className="flex flex-col justify-end gap-1 flex-1 min-w-0">
+                    <span className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-[13px] 2xl:text-[14px] leading-none">
+                      {dept.progress}
+                    </span>
+                    {/* Progress pill */}
+                    <div className="h-1.5 xl:h-2 w-full max-w-[55px] xl:max-w-[70px] 2xl:max-w-[85px] bg-gray-100 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full ${dept.barColor} rounded-full transition-all duration-300`}
+                        style={{ width: dept.progress }}
+                      />
+                    </div>
+                  </div>
 
-                {/* Inspect Micro Badge */}
-                <div
-                  className={`absolute -top-2.5 right-2 px-2 py-0.5 rounded-full text-[8px] xl:text-[9px] font-heading font-extrabold flex items-center gap-1 transition-all duration-200 shadow-md ${
-                    isActive
-                      ? 'opacity-100 scale-100 bg-brand-orange text-white'
-                      : 'opacity-0 scale-90 pointer-events-none'
-                  }`}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
-                  <span>Inspect</span>
-                  <ChevronRight className="w-2.5 h-2.5" />
+                  {/* Sparkline Vector */}
+                  <div className="shrink-0 flex items-center justify-end">
+                    <svg
+                      className="w-8 h-3.5 xl:w-10 xl:h-4.5 2xl:w-12 2xl:h-5 overflow-visible"
+                      viewBox="0 0 36 16"
+                      fill="none"
+                    >
+                      <path
+                        d={dept.sparklinePath}
+                        stroke={dept.sparklineColor}
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
             );
           })}
 
           {/* ============================================================ */}
-          {/* 4. INTERACTIVE COMPANY GOAL CARD HOTSPOT                     */}
+          {/* 4. SHARP, HIGH-DEFINITION COMPANY GOAL CARD                  */}
           {/* ============================================================ */}
           <div
             onClick={() => setCompanyGoalModalOpen(true)}
-            className="absolute z-20 rounded-2xl cursor-pointer group transition-all duration-200 active:scale-[0.98]"
+            className="absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_8px_24px_rgba(0,0,0,0.14),0_2px_6px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_28px_rgba(46,147,111,0.3)] hover:border-[#2e936f] hover:scale-[1.02] p-2 xl:p-2.5 2xl:p-3 flex flex-col justify-between group overflow-hidden"
             style={{
               left: '43.16%',
               top: '67.46%',
@@ -644,49 +674,85 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             }}
             title="Company Goal: Launch Product V2 (72%) - Click to inspect"
           >
-            <div className="absolute inset-0 rounded-2xl transition-all duration-200 group-hover:ring-2 group-hover:ring-brand-green group-hover:bg-brand-green/15 group-hover:shadow-[0_0_24px_rgba(46,147,111,0.45)] pointer-events-none" />
-            {/* Clickable Icon Target */}
-            <div
-              onClick={(e) => {
-                e.stopPropagation();
-                setCompanyGoalModalOpen(true);
-              }}
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl group-hover:bg-brand-green/20 group-hover:ring-1 group-hover:ring-brand-green/60 transition-all cursor-pointer"
-              title="Click Company Goal icon"
-            />
-            <div className="absolute -top-2.5 right-3 px-2 py-0.5 rounded-full text-[8.5px] font-heading font-extrabold opacity-0 group-hover:opacity-100 transition-opacity bg-brand-green text-white shadow-sm flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
-              <span>Core Goal</span>
-              <ChevronRight className="w-2.5 h-2.5" />
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center gap-1.5 xl:gap-2 min-w-0">
+                <div className="w-5 h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7 rounded-md xl:rounded-lg bg-[#fceade] flex items-center justify-center shrink-0">
+                  <Target className="w-3 h-3 xl:w-3.5 xl:h-3.5 2xl:w-4 2xl:h-4 text-[#f15e1c]" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-[8.5px] xl:text-[9.5px] font-heading font-bold text-[#2e936f] leading-none mb-0.5 uppercase tracking-wider">
+                    Company Goal
+                  </div>
+                  <div className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-[12px] 2xl:text-[13px] leading-tight truncate">
+                    Launch Product V2
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-1 xl:gap-1.5 shrink-0">
+                <span className="font-heading font-extrabold text-[#2e936f] text-xs xl:text-sm 2xl:text-base">
+                  72%
+                </span>
+                <ChevronRight className="w-3 h-3 xl:w-3.5 xl:h-3.5 text-gray-400 group-hover:text-[#2e936f] group-hover:translate-x-0.5 transition-all" />
+              </div>
+            </div>
+
+            {/* Full width Progress Bar */}
+            <div className="w-full h-1.5 xl:h-2 bg-gray-100 rounded-full overflow-hidden mt-1">
+              <div
+                className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full transition-all duration-500"
+                style={{ width: '72%' }}
+              />
             </div>
           </div>
 
           {/* ============================================================ */}
-          {/* 5. INTERACTIVE NOTIFICATION STACK HOTSPOTS                   */}
+          {/* 5. SHARP, HIGH-DEFINITION NOTIFICATION STACK                 */}
           {/* ============================================================ */}
           {NOTIFICATIONS.map((notif) => (
             <div
               key={notif.id}
               onClick={() => setActiveNotif(notif)}
-              className="absolute z-20 rounded-xl cursor-pointer group transition-all duration-200 active:scale-[0.98]"
+              className="absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_6px_20px_rgba(0,0,0,0.1),0_2px_4px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)] hover:border-brand-orange/60 hover:scale-[1.02] p-2 xl:p-2.5 2xl:p-3 flex items-center justify-between group overflow-hidden"
               style={{
                 left: notif.left,
                 top: notif.top,
                 width: notif.width,
                 height: notif.height,
               }}
-              title={`Click to view ${notif.dept} activity update (${notif.action})`}
+              title={`Click to view ${notif.dept} update (${notif.action})`}
             >
-              <div className="absolute inset-0 rounded-xl transition-all duration-200 group-hover:ring-2 group-hover:ring-brand-green group-hover:bg-brand-green/15 group-hover:shadow-[0_0_16px_rgba(46,147,111,0.35)] pointer-events-none" />
-              {/* Notification icon click target */}
-              <div
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setActiveNotif(notif);
-                }}
-                className="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg group-hover:bg-brand-green/20 group-hover:ring-1 group-hover:ring-brand-green/50 transition-all cursor-pointer"
-                title={`Click ${notif.dept} notification icon`}
-              />
+              {/* Left: Icon + Text */}
+              <div className="flex items-center gap-2 xl:gap-2.5 min-w-0">
+                <div
+                  className={`w-6 h-6 xl:w-7 xl:h-7 2xl:w-8 2xl:h-8 rounded-lg xl:rounded-xl ${notif.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
+                >
+                  <notif.icon className={`w-3.5 h-3.5 xl:w-4 xl:h-4 ${notif.iconColor}`} />
+                </div>
+                <div className="min-w-0">
+                  <h5 className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-[12px] 2xl:text-[13px] leading-tight truncate">
+                    {notif.dept}
+                  </h5>
+                  <p className="text-[9.5px] xl:text-[10.5px] 2xl:text-[11px] text-gray-500 font-medium leading-none mt-0.5 truncate">
+                    {notif.action}
+                  </p>
+                </div>
+              </div>
+
+              {/* Right: Badge & Timestamp */}
+              <div className="flex flex-col items-end shrink-0 gap-0.5">
+                {notif.isCheck ? (
+                  <CheckCircle2 className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#2e936f] fill-[#2e936f]/15" />
+                ) : (
+                  <AlertTriangle className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#ea580c] fill-[#ea580c]/15" />
+                )}
+                <span
+                  className={`text-[8.5px] xl:text-[9.5px] font-heading font-bold ${
+                    notif.isCheck ? 'text-[#2e936f]' : 'text-[#ea580c]'
+                  }`}
+                >
+                  {notif.time}
+                </span>
+              </div>
             </div>
           ))}
 
