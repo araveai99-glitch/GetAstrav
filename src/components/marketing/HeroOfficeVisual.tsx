@@ -1,129 +1,135 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import {
-  Layers,
   ArrowUpRight,
-  TrendingUp,
-  AlertTriangle,
-  CheckCircle2,
-  Users,
+  Package,
   Code,
   Megaphone,
   BarChart3,
+  Users,
   Coins,
-  Package,
+  CheckCircle2,
+  AlertTriangle,
   X,
-  Sparkles,
   Smartphone,
-  Check,
+  Sparkles,
+  TrendingUp,
 } from 'lucide-react';
 
-interface DepartmentHotspot {
+interface DepartmentCardData {
   id: string;
   name: string;
   progress: string;
+  progressValue: number;
   status: 'on_track' | 'attention' | 'optimal';
   statusText: string;
   icon: React.ElementType;
   iconBg: string;
   iconColor: string;
+  barColor: string;
+  // Responsive layout percentage positions on the 16:9 office model
   left: string;
   top: string;
   width: string;
-  height: string;
-  milestones: string;
   head: string;
   activeTasks: number;
-  keyObjectives: string[];
+  milestones: string;
+  deliverables: string[];
 }
 
-const DEPARTMENTS: DepartmentHotspot[] = [
+const DEPARTMENTS: DepartmentCardData[] = [
+  // Top Mezzanine Level
   {
     id: 'product',
     name: 'Product',
     progress: '78%',
+    progressValue: 78,
     status: 'on_track',
     statusText: 'On Track',
     icon: Package,
     iconBg: 'bg-[#fceade]',
     iconColor: 'text-[#f15e1c]',
-    left: '0%',
-    top: '12.37%',
-    width: '21.63%',
-    height: '16.96%',
-    milestones: '3/4 Milestones Completed',
+    barColor: 'bg-[#2e936f]',
+    left: '3.5%',
+    top: '7%',
+    width: '21.5%',
     head: 'Elena Vance (VP Product)',
     activeTasks: 14,
-    keyObjectives: [
-      'Launch Product V2 Core Architecture (Done)',
+    milestones: '3/4 Milestones Completed',
+    deliverables: [
+      'Product V2 Core Architecture (Done)',
       'Design System Glassmorphism v4.8 (Done)',
-      'Mobile Responsive Viewport Rollout (85% In Progress)',
-      'Quarterly Enterprise UX Accessibility Audit (Planned)',
+      'Cross-departmental Rollup Engine (85% In Progress)',
+      'Enterprise UX Accessibility Audit (Planned)',
     ],
   },
   {
     id: 'engineering',
     name: 'Engineering',
     progress: '62%',
+    progressValue: 62,
     status: 'attention',
     statusText: '2 Overdue Tasks',
     icon: Code,
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
-    left: '26.92%',
-    top: '14.49%',
-    width: '18.51%',
-    height: '13.78%',
-    milestones: '4/6 Milestones Completed',
+    barColor: 'bg-[#fab60a]',
+    left: '26.5%',
+    top: '7%',
+    width: '21.5%',
     head: 'Marcus Thorne (CTO)',
     activeTasks: 22,
-    keyObjectives: [
-      'Distributed Task Rollup Engine v2 (Done)',
+    milestones: '4/6 Milestones Completed',
+    deliverables: [
+      'Distributed Task Engine v2 (Done)',
       'Real-time WebSocket Push Synchronization (Done)',
-      'Fix 2 Blocking API Latency Bottlenecks (Overdue - Reviewing)',
-      'SOC2 Type II Automated Compliance Controls (In Progress)',
+      'Fix 2 API Latency Bottlenecks (Overdue - Reviewing)',
+      'SOC2 Automated Compliance Controls (In Progress)',
     ],
   },
   {
     id: 'marketing',
     name: 'Marketing',
     progress: '54%',
+    progressValue: 54,
     status: 'attention',
     statusText: 'Campaign Live',
     icon: Megaphone,
     iconBg: 'bg-[#fceade]',
     iconColor: 'text-[#f15e1c]',
-    left: '49.52%',
-    top: '13.07%',
-    width: '22.84%',
-    height: '18.02%',
-    milestones: '2/4 Milestones Completed',
+    barColor: 'bg-[#fab60a]',
+    left: '49.5%',
+    top: '7%',
+    width: '21.5%',
     head: 'Sarah Jenkins (Growth Lead)',
     activeTasks: 9,
-    keyObjectives: [
-      'Q3 Product Launch Press & PR Distribution (Launched)',
+    milestones: '2/4 Milestones Completed',
+    deliverables: [
+      'Q3 Product Launch Distribution (Launched)',
       'Interactive Product Tour & SEO Landing Pages (Done)',
       'Founder Retargeting Funnel Optimizations (In Progress)',
       'Customer Video Case Studies & Trust Badges (Pending)',
     ],
   },
+  // Middle Floor Level
   {
     id: 'sales',
     name: 'Sales',
     progress: '71%',
+    progressValue: 71,
     status: 'on_track',
     statusText: 'On Track',
     icon: BarChart3,
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
-    left: '2.16%',
-    top: '45.58%',
-    width: '19.23%',
-    height: '16.25%',
-    milestones: '3/5 Milestones Completed',
+    barColor: 'bg-[#2e936f]',
+    left: '3.5%',
+    top: '38%',
+    width: '21.5%',
     head: 'Priya Roy (Head of Revenue)',
     activeTasks: 18,
-    keyObjectives: [
+    milestones: '3/5 Milestones Completed',
+    deliverables: [
       'Close 15 Enterprise Pilot Agreements (87% Achieved)',
       'Sales Demo Environment Self-Service Sandbox (Done)',
       'Contract Lifecycle & Renewal Automation (In Progress)',
@@ -134,72 +140,76 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     id: 'hr',
     name: 'HR',
     progress: '88%',
+    progressValue: 88,
     status: 'optimal',
     statusText: 'All Onboarded',
     icon: Users,
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
-    left: '27.4%',
-    top: '48.41%',
-    width: '18.75%',
-    height: '13.43%',
-    milestones: '4/4 Milestones Completed',
+    barColor: 'bg-[#2e936f]',
+    left: '26.5%',
+    top: '38%',
+    width: '21.5%',
     head: 'Devon Lee (People Operations)',
     activeTasks: 6,
-    keyObjectives: [
+    milestones: '4/4 Milestones Completed',
+    deliverables: [
       'Senior Infrastructure Engineer Onboarding (Completed)',
-      'Annual Performance & Leveling Calibration (Completed)',
-      'Quarterly Founder 360 Feedback Rollout (Completed)',
-      'Culture & Remote Pod Offsite Planning (In Progress)',
+      'Annual Performance Calibration (Completed)',
+      'Founder 360 Feedback Rollout (Completed)',
+      'Remote Pod Offsite Planning (In Progress)',
     ],
   },
   {
     id: 'finance',
     name: 'Finance',
     progress: '66%',
-    status: 'on_track',
+    progressValue: 66,
+    status: 'attention',
     statusText: 'Runway Clear',
     icon: Coins,
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
-    left: '50%',
-    top: '47.35%',
-    width: '22.36%',
-    height: '18.37%',
-    milestones: '2/4 Milestones Completed',
+    barColor: 'bg-[#fab60a]',
+    left: '49.5%',
+    top: '38%',
+    width: '21.5%',
     head: 'Arthur Pendelton (Finance VP)',
     activeTasks: 8,
-    keyObjectives: [
+    milestones: '2/4 Milestones Completed',
+    deliverables: [
       '24-Month Operating Runway & Cash Flow Model (Done)',
       'Multi-currency Subscription Billing Gateway (Done)',
-      'Departmental SaaS Spend Audit & Cost Reductions (In Progress)',
+      'Departmental SaaS Spend Audit (In Progress)',
       'Board of Directors Q3 Financial Packet (In Progress)',
     ],
   },
 ];
 
-interface NotificationHotspot {
+interface NotificationCardData {
   id: string;
   dept: string;
   action: string;
   time: string;
-  left: string;
   top: string;
-  width: string;
-  height: string;
+  icon: React.ElementType;
+  iconBg: string;
+  iconColor: string;
+  isCheck: boolean;
   detail: string;
 }
 
-const NOTIFICATIONS: NotificationHotspot[] = [
+const NOTIFICATIONS: NotificationCardData[] = [
   {
     id: 'notif-1',
     dept: 'Marketing',
     action: 'Campaign launched',
     time: '2 min ago',
-    left: '72.12%',
-    top: '21.55%',
-    width: '22.12%',
-    height: '14.13%',
+    top: '7%',
+    icon: Megaphone,
+    iconBg: 'bg-[#fceade]',
+    iconColor: 'text-[#f15e1c]',
+    isCheck: true,
     detail: 'Q3 Enterprise Product launch campaign went live across 4 channels.',
   },
   {
@@ -207,10 +217,11 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Engineering',
     action: '2 tasks overdue',
     time: '12 min ago',
-    left: '72.36%',
-    top: '31.8%',
-    width: '22.36%',
-    height: '14.49%',
+    top: '19.5%',
+    icon: Code,
+    iconBg: 'bg-[#fef3dc]',
+    iconColor: 'text-[#fab60a]',
+    isCheck: false,
     detail: 'API gateway throughput and DB index optimization need founder attention.',
   },
   {
@@ -218,21 +229,22 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Sales',
     action: 'Deal stage updated',
     time: '25 min ago',
-    left: '72.6%',
-    top: '42.4%',
-    width: '22.12%',
-    height: '13.07%',
+    top: '32%',
+    icon: BarChart3,
+    iconBg: 'bg-[#edf7f3]',
+    iconColor: 'text-[#2e936f]',
+    isCheck: true,
     detail: 'Tier-1 enterprise contract moved to legal review and executive signoff.',
   },
 ];
 
 export const HeroOfficeVisual: React.FC = () => {
-  const [selectedDept, setSelectedDept] = useState<DepartmentHotspot | null>(null);
+  const [selectedDept, setSelectedDept] = useState<DepartmentCardData | null>(null);
   const [hoveredDeptId, setHoveredDeptId] = useState<string | null>(null);
-  const [activeNotif, setActiveNotif] = useState<NotificationHotspot | null>(null);
-  const [phoneHovered, setPhoneHovered] = useState<boolean>(false);
+  const [activeNotif, setActiveNotif] = useState<NotificationCardData | null>(null);
+  const [mobileSyncOpen, setMobileSyncOpen] = useState<boolean>(false);
 
-  // Smooth mouse 3D parallax tilt
+  // Smooth 3D mouse parallax tilt
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -240,8 +252,8 @@ export const HeroOfficeVisual: React.FC = () => {
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
-  const rotateX = useTransform(smoothY, [-0.5, 0.5], [3, -3]);
-  const rotateY = useTransform(smoothX, [-0.5, 0.5], [-3.5, 3.5]);
+  const rotateX = useTransform(smoothY, [-0.5, 0.5], [2.5, -2.5]);
+  const rotateY = useTransform(smoothX, [-0.5, 0.5], [-3, 3]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -255,24 +267,23 @@ export const HeroOfficeVisual: React.FC = () => {
     mouseX.set(0);
     mouseY.set(0);
     setHoveredDeptId(null);
-    setPhoneHovered(false);
   };
 
   return (
     <div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full max-w-[880px] mx-auto select-none py-2"
+      className="relative w-full max-w-[960px] mx-auto select-none py-2"
       style={{ perspective: 1200 }}
     >
-      {/* Dynamic Ambient Radiant Glows behind visual */}
+      {/* Dynamic Ambient Warm Radiant Glows behind visual */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-visible">
-        <div className="absolute -top-8 -right-6 w-96 h-96 rounded-full bg-gradient-to-tr from-[#fab60a]/25 via-[#ffec69]/20 to-transparent blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-8 -left-8 w-96 h-96 rounded-full bg-gradient-to-br from-[#f15e1c]/15 via-[#f7d7b0]/25 to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute -top-10 -right-8 w-96 h-96 rounded-full bg-gradient-to-tr from-[#fab60a]/20 via-[#ffec69]/15 to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-10 -left-10 w-96 h-96 rounded-full bg-gradient-to-br from-[#f15e1c]/15 via-[#f7d7b0]/20 to-transparent blur-3xl pointer-events-none" />
       </div>
 
       {/* ============================================================ */}
-      {/* 3D PARALLAX WRAPPER (FREE ENDS, NO RIGID BOX BORDER)         */}
+      {/* 3D PARALLAX CONTAINER (FREE-FLOWING EDGES, NO RIGID BOX)    */}
       {/* ============================================================ */}
       <motion.div
         style={{
@@ -284,128 +295,245 @@ export const HeroOfficeVisual: React.FC = () => {
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         className="relative w-full transition-shadow duration-300"
       >
-        {/* Soft edge feathering so it flows freely into the page */}
-        <div className="relative w-full rounded-2xl overflow-hidden [mask-image:radial-gradient(ellipse_99%_95%_at_50%_50%,black_85%,transparent_100%)]">
-          {/* Photorealistic 3D Office Command Center Artwork */}
+        {/* Rounded Container with soft edge feathering */}
+        <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-brand-peach/60 bg-stone-900 aspect-[16/9]">
+          {/* ============================================================ */}
+          {/* 1. ULTRA-SHARP 4K 3D ARCHITECTURAL BACKDROP (UNBLURRED)     */}
+          {/* ============================================================ */}
           <img
-            src="/assets/hero_office_photorealistic.png"
-            alt="GetAstrav Photorealistic Isometric Office Command Center with Real-Time Department Execution"
-            className="w-full h-auto object-contain block drop-shadow-2xl select-none pointer-events-none"
+            src="/assets/hero_office_scene_hq.jpg"
+            alt="GetAstrav 3D Architectural Mezzanine Office Command Center with Real-Time Department Execution"
+            className="w-full h-full object-cover block select-none pointer-events-none drop-shadow-md"
             loading="eager"
             decoding="async"
           />
 
           {/* ============================================================ */}
-          {/* INTERACTIVE CLICKABLE HOTSPOTS (PERFECTLY CALIBRATED)        */}
+          {/* 2. GLOWING NEON FIBER OPTIC DATA CONDUITS (SVG MESH)        */}
           {/* ============================================================ */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none z-10"
+            viewBox="0 0 1000 562.5"
+            fill="none"
+          >
+            <defs>
+              <linearGradient id="neonOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#f15e1c" stopOpacity="0.85" />
+                <stop offset="100%" stopColor="#fab60a" stopOpacity="0.7" />
+              </linearGradient>
+              <linearGradient id="neonGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#2e936f" stopOpacity="0.85" />
+                <stop offset="100%" stopColor="#fab60a" stopOpacity="0.6" />
+              </linearGradient>
+              <filter id="glowBlur" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
 
-          {/* 6 Department Hotspots */}
+            {/* Glowing lines connecting Founder Desk (x: 650, y: 440) to floors */}
+            <path
+              d="M 640 435 C 560 380, 480 320, 380 270 C 280 230, 160 230, 140 230"
+              stroke="url(#neonOrangeGrad)"
+              strokeWidth="2.5"
+              strokeDasharray="6 4"
+              filter="url(#glowBlur)"
+              className="animate-pulse"
+              opacity="0.85"
+            />
+            <path
+              d="M 640 440 C 580 400, 500 370, 390 370 C 280 370, 180 370, 140 370"
+              stroke="url(#neonGreenGrad)"
+              strokeWidth="2"
+              strokeDasharray="8 5"
+              filter="url(#glowBlur)"
+              opacity="0.8"
+            />
+            <path
+              d="M 640 430 C 590 320, 520 180, 390 120 C 290 80, 180 80, 140 80"
+              stroke="url(#neonOrangeGrad)"
+              strokeWidth="2"
+              strokeDasharray="5 5"
+              filter="url(#glowBlur)"
+              opacity="0.75"
+            />
+          </svg>
+
+          {/* ============================================================ */}
+          {/* 3. DESIGNED DEPARTMENT CARDS (CRISP, VECTOR, INTERACTIVE)    */}
+          {/* ============================================================ */}
           {DEPARTMENTS.map((dept) => {
             const isHovered = hoveredDeptId === dept.id;
+            const Icon = dept.icon;
 
             return (
-              <div
+              <motion.div
                 key={dept.id}
                 onMouseEnter={() => setHoveredDeptId(dept.id)}
                 onMouseLeave={() => setHoveredDeptId(null)}
                 onClick={() => setSelectedDept(dept)}
-                className="absolute rounded-xl sm:rounded-2xl cursor-pointer z-20 group transition-all duration-200"
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: 'spring', stiffness: 350, damping: 22 }}
+                className={`absolute z-20 cursor-pointer
+                  bg-white/95 backdrop-blur-md rounded-lg sm:rounded-xl md:rounded-2xl
+                  p-1.5 sm:p-2 md:p-2.5
+                  border shadow-[0_8px_20px_rgba(42,26,20,0.14)]
+                  transition-all duration-200
+                  ${
+                    isHovered
+                      ? 'border-brand-orange ring-2 ring-brand-orange/40 shadow-[0_12px_28px_rgba(241,94,28,0.3)] bg-white'
+                      : 'border-white/90 hover:border-brand-orange/50'
+                  }
+                `}
                 style={{
                   left: dept.left,
                   top: dept.top,
                   width: dept.width,
-                  height: dept.height,
                 }}
                 title={`Click to inspect ${dept.name} (${dept.progress} - ${dept.statusText})`}
               >
-                {/* Active Hover Halo */}
-                <div
-                  className={`absolute inset-0 rounded-xl sm:rounded-2xl transition-all duration-300 ${
-                    isHovered
-                      ? 'ring-2 ring-brand-orange shadow-[0_0_24px_rgba(241,94,28,0.4)] bg-brand-orange/15 backdrop-blur-2xs'
-                      : 'border border-transparent hover:border-brand-orange/40'
-                  }`}
-                />
+                {/* Card Top: Icon, Department Name, Percentage, Sparkline */}
+                <div className="flex items-center justify-between gap-1 sm:gap-1.5">
+                  <div className="flex items-center gap-1 sm:gap-1.5 min-w-0">
+                    <div
+                      className={`w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-md sm:rounded-lg ${dept.iconBg} flex items-center justify-center shrink-0 shadow-warm-2xs`}
+                    >
+                      <Icon
+                        className={`w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 ${dept.iconColor}`}
+                      />
+                    </div>
+                    <div className="min-w-0 leading-tight">
+                      <span className="font-heading font-extrabold text-[10px] sm:text-xs md:text-sm text-espresso truncate block">
+                        {dept.name}
+                      </span>
+                      <span className="font-mono font-bold text-[9px] sm:text-[10px] md:text-xs text-terracotta-muted">
+                        {dept.progress}
+                      </span>
+                    </div>
+                  </div>
 
-                {/* Micro-Badge Pin on Hover */}
-                <div
-                  className={`absolute -top-2.5 right-2 px-2 py-0.5 rounded-full text-[9px] font-heading font-extrabold flex items-center gap-1 transition-all duration-200 shadow-warm-sm ${
-                    isHovered
-                      ? 'opacity-100 scale-100 bg-brand-orange text-white'
-                      : 'opacity-0 scale-90'
-                  }`}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
-                  <span>Inspect</span>
-                  <ArrowUpRight className="w-2.5 h-2.5" />
+                  {/* Micro Sparkline Wave */}
+                  <div className="shrink-0 hidden xs:block">
+                    {dept.status === 'attention' ? (
+                      <svg
+                        className="w-4 h-2.5 sm:w-6 sm:h-3.5 text-amber-500"
+                        viewBox="0 0 32 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M2 12 L10 14 L18 6 L24 10 L30 3"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        className="w-4 h-2.5 sm:w-6 sm:h-3.5 text-brand-green"
+                        viewBox="0 0 32 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M2 14 L10 10 L18 12 L24 4 L30 2"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    )}
+                  </div>
                 </div>
-              </div>
+
+                {/* Card Bottom: Animated Vector Progress Bar */}
+                <div className="mt-1 sm:mt-1.5 w-full h-1 sm:h-1.5 rounded-full bg-stone-100/90 overflow-hidden">
+                  <div
+                    className={`h-full rounded-full transition-all duration-500 ${dept.barColor}`}
+                    style={{ width: dept.progress }}
+                  />
+                </div>
+              </motion.div>
             );
           })}
 
-          {/* 3 Activity Notification Hotspots (Top-Right) */}
-          {NOTIFICATIONS.map((notif) => (
-            <div
-              key={notif.id}
-              onClick={() => setActiveNotif(notif)}
-              className="absolute rounded-xl cursor-pointer z-20 group transition-all duration-300"
-              style={{
-                left: notif.left,
-                top: notif.top,
-                width: notif.width,
-                height: notif.height,
-              }}
-              title={`Click to view ${notif.dept} activity update`}
-            >
-              <div className="absolute inset-0 rounded-xl transition-all duration-300 group-hover:ring-2 group-hover:ring-brand-green group-hover:bg-brand-green/15 group-hover:shadow-[0_0_16px_rgba(46,147,111,0.35)]" />
-            </div>
-          ))}
-
-          {/* Founder Smartphone Hotspot (Bottom-Right) */}
+          {/* ============================================================ */}
+          {/* 4. ACTIVITY NOTIFICATIONS STACK (TOP RIGHT SKYLINE)          */}
+          {/* ============================================================ */}
           <div
-            onMouseEnter={() => setPhoneHovered(true)}
-            onMouseLeave={() => setPhoneHovered(false)}
-            onClick={() =>
-              setSelectedDept({
-                id: 'sync',
-                name: 'Executive Mobile Command Mesh',
-                progress: '100% Live',
-                status: 'optimal',
-                statusText: 'Synchronized',
-                icon: Smartphone,
-                iconBg: 'bg-[#edf7f3]',
-                iconColor: 'text-[#2e936f]',
-                left: '64.9%',
-                top: '56.54%',
-                width: '17.31%',
-                height: '37.46%',
-                milestones: 'All 6 Departments Active',
-                head: 'Founder & Executive Leadership',
-                activeTasks: 73,
-                keyObjectives: [
-                  'Automated Bi-directional Progress Rollups across all 6 departments',
-                  'Instant push alert routing for blocking risks and SLA breaches',
-                  'Executive 1-tap milestone signoffs and delegation',
-                  'Live sync latency < 80ms over WebSockets',
-                ],
-              })
-            }
-            className="absolute rounded-2xl cursor-pointer z-20 group transition-all duration-300"
+            className="absolute z-20 space-y-1 sm:space-y-1.5"
             style={{
-              left: '64.9%',
-              top: '56.54%',
-              width: '17.31%',
-              height: '37.46%',
+              right: '3%',
+              top: '7%',
+              width: '22.5%',
             }}
-            title="Founder Mobile Command Stream - Click to inspect live sync"
           >
-            <div
-              className={`absolute inset-0 rounded-2xl transition-all duration-300 ${
-                phoneHovered
-                  ? 'ring-2 ring-brand-orange shadow-[0_0_24px_rgba(241,94,28,0.45)] bg-brand-orange/15'
-                  : 'hover:border hover:border-brand-orange/40'
-              }`}
-            />
+            {NOTIFICATIONS.map((notif) => {
+              const Icon = notif.icon;
+
+              return (
+                <motion.div
+                  key={notif.id}
+                  onClick={() => setActiveNotif(notif)}
+                  whileHover={{ scale: 1.04, x: -2 }}
+                  whileTap={{ scale: 0.96 }}
+                  className="bg-white/95 backdrop-blur-md rounded-lg sm:rounded-xl p-1.5 sm:p-2 border border-white/90 shadow-[0_6px_16px_rgba(42,26,20,0.12)] hover:border-brand-green/60 hover:shadow-warm-md transition-all cursor-pointer flex items-center justify-between gap-1.5"
+                  title={`Click to view ${notif.dept} activity detail`}
+                >
+                  <div className="flex items-center gap-1 sm:gap-1.5 min-w-0">
+                    <div
+                      className={`w-5 h-5 sm:w-6 sm:h-6 rounded-md sm:rounded-lg ${notif.iconBg} flex items-center justify-center shrink-0`}
+                    >
+                      <Icon className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${notif.iconColor}`} />
+                    </div>
+                    <div className="min-w-0 leading-tight">
+                      <span className="font-heading font-extrabold text-[9px] sm:text-[11px] md:text-xs text-espresso truncate block">
+                        {notif.dept}
+                      </span>
+                      <span className="text-[8px] sm:text-[9.5px] text-terracotta-muted truncate block">
+                        {notif.action}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="shrink-0 flex items-center gap-1">
+                    <span className="text-[7.5px] sm:text-[8.5px] font-mono text-stone-600 hidden md:inline">
+                      {notif.time}
+                    </span>
+                    {notif.isCheck ? (
+                      <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-green" />
+                    ) : (
+                      <AlertTriangle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-500" />
+                    )}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* ============================================================ */}
+          {/* 5. FOUNDER SMARTPHONE HOTSPOT (BOTTOM-RIGHT)                 */}
+          {/* ============================================================ */}
+          <div
+            onClick={() => setMobileSyncOpen(true)}
+            className="absolute z-20 cursor-pointer group"
+            style={{
+              right: '18%',
+              bottom: '10%',
+              width: '16%',
+              height: '38%',
+            }}
+            title="Executive Mobile Sync Stream - Click to view real-time feed"
+          >
+            <div className="absolute inset-0 rounded-2xl transition-all duration-300 group-hover:ring-2 group-hover:ring-brand-orange group-hover:bg-brand-orange/15 group-hover:shadow-[0_0_24px_rgba(241,94,28,0.45)]" />
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-brand-orange text-white text-[8px] sm:text-[9px] font-heading font-bold opacity-0 group-hover:opacity-100 transition-opacity shadow-sm flex items-center gap-1 whitespace-nowrap">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
+              <span>Live Sync</span>
+            </div>
           </div>
         </div>
 
@@ -498,13 +626,13 @@ export const HeroOfficeVisual: React.FC = () => {
                 </div>
               </div>
 
-              {/* Key Objectives */}
+              {/* Key Deliverables */}
               <div className="space-y-2.5">
                 <span className="text-xs font-heading font-bold text-espresso uppercase tracking-wider block">
                   Active Deliverables & Rollup Items
                 </span>
                 <div className="space-y-2">
-                  {selectedDept.keyObjectives.map((obj, i) => (
+                  {selectedDept.deliverables.map((obj, i) => (
                     <div
                       key={i}
                       className="flex items-start gap-2.5 p-2.5 rounded-xl bg-white border border-brand-peach/40 text-xs text-espresso"
@@ -555,6 +683,7 @@ export const HeroOfficeVisual: React.FC = () => {
                 <button
                   onClick={() => setActiveNotif(null)}
                   className="p-1.5 rounded-full hover:bg-surface-tier1 text-terracotta cursor-pointer"
+                  aria-label="Close modal"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -566,9 +695,74 @@ export const HeroOfficeVisual: React.FC = () => {
 
               <button
                 onClick={() => setActiveNotif(null)}
-                className="w-full py-2.5 rounded-full bg-brand-orange text-white font-heading font-bold text-xs shadow-md shadow-brand-orange/20 cursor-pointer"
+                className="w-full py-2.5 rounded-full bg-brand-orange text-white font-heading font-bold text-xs shadow-md shadow-brand-orange/20 cursor-pointer hover:bg-brand-orange-hover transition-colors"
               >
                 Dismiss
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Executive Mobile Sync Modal */}
+      <AnimatePresence>
+        {mobileSyncOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fadeIn">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.93, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.93, y: 15 }}
+              className="relative w-full max-w-sm bg-white rounded-3xl p-6 shadow-2xl border border-brand-peach space-y-4"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange">
+                    <Smartphone className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-extrabold text-base text-espresso">
+                      Executive Mobile Mesh
+                    </h3>
+                    <span className="text-[11px] font-mono text-brand-green font-bold flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-ping" />
+                      100% Live Stream
+                    </span>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setMobileSyncOpen(false)}
+                  className="p-1.5 rounded-full hover:bg-surface-tier1 text-terracotta cursor-pointer"
+                  aria-label="Close modal"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="space-y-2">
+                {DEPARTMENTS.map((dept) => (
+                  <div
+                    key={dept.id}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-surface-ambient border border-brand-peach/40 text-xs"
+                  >
+                    <div className="flex items-center gap-2">
+                      <dept.icon className={`w-3.5 h-3.5 ${dept.iconColor}`} />
+                      <span className="font-heading font-bold text-espresso">{dept.name}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono font-bold text-espresso">{dept.progress}</span>
+                      <span className="text-[10px] font-heading font-semibold text-terracotta-muted">
+                        {dept.statusText}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                onClick={() => setMobileSyncOpen(false)}
+                className="w-full py-2.5 rounded-full bg-brand-orange text-white font-heading font-bold text-xs shadow-md shadow-brand-orange/20 cursor-pointer hover:bg-brand-orange-hover transition-colors"
+              >
+                Close Mobile Stream
               </button>
             </motion.div>
           </div>
