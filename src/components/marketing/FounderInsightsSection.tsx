@@ -90,9 +90,9 @@ export const FounderInsightsSection: React.FC = () => {
         {/* ============================================================ */}
         <div className="lg:col-span-7 w-full">
           <MotionWrapper direction="right" delay={0.1}>
-            <div className="relative w-full rounded-3xl overflow-hidden border border-brand-peach/60 shadow-architectural bg-surface-ambient group">
+            <div className="relative w-full rounded-3xl overflow-hidden border border-brand-peach/30 shadow-warm-lg bg-surface-ambient group">
               {/* Full 16:9 Unblurred Founder Desk Artwork (Zero baked UI text) */}
-              <div className="relative w-full aspect-[16/9] overflow-hidden bg-stone-900">
+              <div className="relative w-full aspect-[16/9] overflow-hidden bg-transparent">
                 <img
                   src="/assets/founder_desk_scene_hq.jpg"
                   alt="Founder reviewing real-time company performance insights on dual displays in modern executive suite"

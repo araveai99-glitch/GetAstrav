@@ -51,7 +51,7 @@ const DEPARTMENTS: DepartmentCardData[] = [
     iconColor: 'text-[#f15e1c]',
     barColor: 'bg-[#2e936f]',
     left: '3.5%',
-    top: '7%',
+    top: '9%',
     width: '21.5%',
     head: 'Elena Vance (VP Product)',
     activeTasks: 14,
@@ -75,7 +75,7 @@ const DEPARTMENTS: DepartmentCardData[] = [
     iconColor: 'text-[#fab60a]',
     barColor: 'bg-[#fab60a]',
     left: '26.5%',
-    top: '7%',
+    top: '9%',
     width: '21.5%',
     head: 'Marcus Thorne (CTO)',
     activeTasks: 22,
@@ -99,7 +99,7 @@ const DEPARTMENTS: DepartmentCardData[] = [
     iconColor: 'text-[#f15e1c]',
     barColor: 'bg-[#fab60a]',
     left: '49.5%',
-    top: '7%',
+    top: '9%',
     width: '21.5%',
     head: 'Sarah Jenkins (Growth Lead)',
     activeTasks: 9,
@@ -124,7 +124,7 @@ const DEPARTMENTS: DepartmentCardData[] = [
     iconColor: 'text-[#2e936f]',
     barColor: 'bg-[#2e936f]',
     left: '3.5%',
-    top: '38%',
+    top: '41%',
     width: '21.5%',
     head: 'Priya Roy (Head of Revenue)',
     activeTasks: 18,
@@ -148,7 +148,7 @@ const DEPARTMENTS: DepartmentCardData[] = [
     iconColor: 'text-[#2e936f]',
     barColor: 'bg-[#2e936f]',
     left: '26.5%',
-    top: '38%',
+    top: '41%',
     width: '21.5%',
     head: 'Devon Lee (People Operations)',
     activeTasks: 6,
@@ -172,7 +172,7 @@ const DEPARTMENTS: DepartmentCardData[] = [
     iconColor: 'text-[#fab60a]',
     barColor: 'bg-[#fab60a]',
     left: '49.5%',
-    top: '38%',
+    top: '41%',
     width: '21.5%',
     head: 'Arthur Pendelton (Finance VP)',
     activeTasks: 8,
@@ -283,7 +283,7 @@ export const HeroOfficeVisual: React.FC = () => {
       </div>
 
       {/* ============================================================ */}
-      {/* 3D PARALLAX CONTAINER (FREE-FLOWING EDGES, NO RIGID BOX)    */}
+      {/* 3D PARALLAX CONTAINER (SEAMLESSLY BLENDED INTO PAGE CANVAS) */}
       {/* ============================================================ */}
       <motion.div
         style={{
@@ -291,22 +291,34 @@ export const HeroOfficeVisual: React.FC = () => {
           rotateY,
           transformStyle: 'preserve-3d',
         }}
-        whileHover={{ scale: 1.012 }}
+        whileHover={{ scale: 1.01 }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className="relative w-full transition-shadow duration-300"
+        className="relative w-full overflow-visible transition-shadow duration-300"
       >
-        {/* Rounded Container with soft edge feathering */}
-        <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-brand-peach/60 bg-stone-900 aspect-[16/9]">
-          {/* ============================================================ */}
-          {/* 1. ULTRA-SHARP 4K 3D ARCHITECTURAL BACKDROP (UNBLURRED)     */}
-          {/* ============================================================ */}
-          <img
-            src="/assets/hero_office_scene_hq.jpg"
-            alt="GetAstrav 3D Architectural Mezzanine Office Command Center with Real-Time Department Execution"
-            className="w-full h-full object-cover block select-none pointer-events-none drop-shadow-md"
-            loading="eager"
-            decoding="async"
-          />
+        {/* Seamless Environmental Canvas (NO rigid box border, NO dark background) */}
+        <div className="relative w-full aspect-[16/9] overflow-visible">
+          {/* Feathered 3D Office Backdrop (Dissolves naturally into the hero page background) */}
+          <div className="relative w-full h-full rounded-3xl overflow-hidden [mask-image:radial-gradient(ellipse_97%_93%_at_50%_50%,black_72%,rgba(0,0,0,0.4)_88%,transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_97%_93%_at_50%_50%,black_72%,rgba(0,0,0,0.4)_88%,transparent_100%)]">
+            <img
+              src="/assets/hero_office_scene_hq.jpg"
+              alt="GetAstrav 3D Architectural Mezzanine Office Command Center with Real-Time Department Execution"
+              className="w-full h-full object-cover block select-none pointer-events-none"
+              loading="eager"
+              decoding="async"
+            />
+
+            {/* Ambient Environmental Light Gradients (Melts outer edges into page cream & ivory canvas) */}
+            <div className="absolute inset-0 pointer-events-none">
+              {/* Left soft fade towards headline and CTAs */}
+              <div className="absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-white/95 via-surface-ambient/50 to-transparent" />
+              {/* Top soft fade towards navbar */}
+              <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/85 via-white/30 to-transparent" />
+              {/* Bottom soft fade towards section base */}
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface-ambient/90 via-surface-ambient/40 to-transparent" />
+              {/* Right soft fade */}
+              <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-surface-ambient/75 via-transparent to-transparent" />
+            </div>
+          </div>
 
           {/* ============================================================ */}
           {/* 2. GLOWING NEON FIBER OPTIC DATA CONDUITS (SVG MESH)        */}
@@ -465,11 +477,11 @@ export const HeroOfficeVisual: React.FC = () => {
           {/* 4. ACTIVITY NOTIFICATIONS STACK (TOP RIGHT SKYLINE)          */}
           {/* ============================================================ */}
           <div
-            className="absolute z-20 space-y-1 sm:space-y-1.5"
+            className="absolute z-20 space-y-1.5 sm:space-y-2"
             style={{
-              right: '3%',
-              top: '7%',
-              width: '22.5%',
+              right: '2%',
+              top: '8%',
+              width: '24%',
             }}
           >
             {NOTIFICATIONS.map((notif) => {
@@ -491,7 +503,7 @@ export const HeroOfficeVisual: React.FC = () => {
                       <Icon className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${notif.iconColor}`} />
                     </div>
                     <div className="min-w-0 leading-tight">
-                      <span className="font-heading font-extrabold text-[9px] sm:text-[11px] md:text-xs text-espresso truncate block">
+                      <span className="font-heading font-extrabold text-[9px] sm:text-[11px] md:text-xs text-espresso whitespace-nowrap block">
                         {notif.dept}
                       </span>
                       <span className="text-[8px] sm:text-[9.5px] text-terracotta-muted truncate block">
