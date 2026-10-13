@@ -251,16 +251,16 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
   const [mobileSyncOpen, setMobileSyncOpen] = useState(false);
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white via-surface-ambient to-ivory border-b border-brand-peach/50 pt-20 sm:pt-22 lg:pt-24 pb-12 sm:pb-16 lg:pb-18 select-none">
+    <section className="relative w-full overflow-hidden bg-white border-b border-brand-peach/50 pt-20 sm:pt-22 select-none">
       {/* ============================================================ */}
-      {/* DESKTOP / WIDE SCREEN: UNIFIED SEAMLESS PANORAMIC HERO       */}
+      {/* DESKTOP / WIDE SCREEN: UNIFIED FULL-BLEED PANORAMIC HERO     */}
       {/* ============================================================ */}
-      <div className="hidden lg:block relative w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative w-full aspect-[2048/756] overflow-hidden rounded-3xl shadow-architectural">
-          {/* Panoramic High-Resolution Backdrop (2048x756 Retina) */}
+      <div className="hidden lg:block relative w-full">
+        <div className="relative w-full aspect-[2048/756] overflow-hidden">
+          {/* Panoramic High-Resolution Full-Bleed Backdrop (2048x756 Retina) */}
           <img
             src="/assets/hero_panoramic_clean_hq.png"
-            alt="GetAstrav FounderOS Command Center Panoramic Scene"
+            alt="GetAstrav FounderOS Command Center Full Page Panoramic View"
             className="w-full h-full object-cover block select-none pointer-events-none"
             loading="eager"
             decoding="async"
@@ -269,11 +269,19 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* ============================================================ */}
           {/* 1. LEFT COLUMN: EDITORIAL COPY, CTAs, VALUE PROPS OVERLAY    */}
           {/* ============================================================ */}
-          <div className="absolute inset-y-0 left-0 w-[36.5%] z-20 flex flex-col justify-between py-8 sm:py-9 pl-12 xl:pl-16 pr-3">
+          <div
+            className="absolute z-20 flex flex-col justify-between"
+            style={{
+              left: '5.8%',
+              top: '7%',
+              bottom: '7%',
+              width: '28.5%',
+            }}
+          >
             {/* Top: Green Badge & Headline */}
-            <div className="space-y-4">
+            <div className="space-y-3 xl:space-y-4">
               <MotionWrapper direction="down">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e936f]"></span>
@@ -285,7 +293,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               </MotionWrapper>
 
               <MotionWrapper delay={0.08}>
-                <h1 className="text-[34px] xl:text-[44px] 2xl:text-[50px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.03em] font-heading">
+                <h1 className="text-[32px] xl:text-[42px] 2xl:text-[48px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.03em] font-heading">
                   Your Entire<br />
                   Company<br />
                   In <span className="text-[#f15e1c]">One View.</span>
@@ -294,8 +302,8 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             </div>
 
             {/* Middle: Subtitle & CTA Buttons */}
-            <div className="space-y-4">
-              <p className="text-xs xl:text-sm 2xl:text-base text-[#5a4138] font-body leading-relaxed max-w-sm">
+            <div className="space-y-3 xl:space-y-4">
+              <p className="text-xs xl:text-sm text-[#5a4138] font-body leading-relaxed max-w-sm">
                 Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
               </p>
 
@@ -320,7 +328,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             </div>
 
             {/* Bottom: 4 Supporting Value Propositions in a Clean Row */}
-            <div className="pt-3 border-t border-brand-peach/40 grid grid-cols-4 gap-1.5 xl:gap-2 text-[10px] xl:text-[11px] font-heading">
+            <div className="pt-2.5 border-t border-brand-peach/40 grid grid-cols-4 gap-1.5 xl:gap-2 text-[9.5px] xl:text-[10.5px] font-heading">
               <div className="flex items-center gap-1.5 font-bold text-[#271812]">
                 <Target className="w-3.5 h-3.5 text-[#f15e1c] shrink-0" />
                 <span className="leading-tight">Goal-Driven Execution</span>
@@ -345,7 +353,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* ============================================================ */}
           <div
             className="absolute z-20 flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 rounded-full bg-brand-orange text-white shadow-lg shadow-brand-orange/40 animate-pulse cursor-pointer group"
-            style={{ left: '35.4%', top: '18.5%' }}
+            style={{ left: '31.8%', top: '25.5%' }}
             title="Strategic Alignment Flow"
           >
             <ArrowRight className="w-3 h-3 xl:w-3.5 xl:h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -459,30 +467,29 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               <span>Live Sync</span>
             </div>
           </div>
+          {/* Floating Ambient Hover Status HUD Bar inside the visual */}
+          {hoveredDeptId && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center justify-between gap-6 px-5 py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-brand-peach/80 shadow-warm-lg text-xs"
+            >
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-brand-green animate-ping" />
+                <span className="font-heading font-extrabold text-espresso">
+                  {DEPARTMENTS.find((d) => d.id === hoveredDeptId)?.name} Department
+                </span>
+                <span className="text-terracotta-muted font-medium">
+                  — {DEPARTMENTS.find((d) => d.id === hoveredDeptId)?.milestones}
+                </span>
+              </div>
+              <span className="font-heading font-bold text-brand-orange flex items-center gap-1 cursor-pointer">
+                <span>Click to inspect</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </span>
+            </motion.div>
+          )}
         </div>
-
-        {/* Ambient Hover Status HUD Bar beneath the free-flowing visual */}
-        {hoveredDeptId && (
-          <motion.div
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-3 flex items-center justify-between px-5 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md border border-brand-peach/80 shadow-warm-md text-xs"
-          >
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-brand-green animate-ping" />
-              <span className="font-heading font-extrabold text-espresso">
-                {DEPARTMENTS.find((d) => d.id === hoveredDeptId)?.name} Department
-              </span>
-              <span className="text-terracotta-muted font-medium">
-                — {DEPARTMENTS.find((d) => d.id === hoveredDeptId)?.milestones}
-              </span>
-            </div>
-            <span className="font-heading font-bold text-brand-orange flex items-center gap-1 cursor-pointer">
-              <span>Click to inspect deep dive</span>
-              <ChevronRight className="w-3.5 h-3.5" />
-            </span>
-          </motion.div>
-        )}
       </div>
 
       {/* ============================================================ */}
