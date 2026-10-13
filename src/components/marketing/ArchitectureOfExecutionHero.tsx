@@ -251,13 +251,20 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
   const [mobileSyncOpen, setMobileSyncOpen] = useState(false);
 
   return (
-    <section className="relative w-full overflow-hidden bg-white border-b border-brand-peach/50 pt-20 sm:pt-22 select-none">
+    <section className="relative w-full h-screen min-h-[640px] lg:h-screen lg:min-h-[680px] overflow-hidden bg-[#faede0] select-none">
       {/* ============================================================ */}
       {/* DESKTOP / WIDE SCREEN: UNIFIED FULL-BLEED PANORAMIC HERO     */}
       {/* ============================================================ */}
-      <div className="hidden lg:block relative w-full">
-        <div className="relative w-full aspect-[2048/756] overflow-hidden">
-          {/* Panoramic High-Resolution Full-Bleed Backdrop (2048x756 Retina) */}
+      <div className="hidden lg:block relative w-full h-full overflow-hidden">
+        {/* Aspect-Locked High-Resolution Panoramic Scene Canvas (2048x756) */}
+        <div
+          className="absolute right-0 top-0 h-full aspect-[2048/756] min-w-full overflow-hidden"
+          style={{
+            height: '100%',
+            width: 'max(100%, calc(100vh * (2048 / 756)))',
+          }}
+        >
+          {/* Panoramic High-Resolution Full-Bleed Backdrop */}
           <img
             src="/assets/hero_panoramic_clean_hq.png"
             alt="GetAstrav FounderOS Command Center Full Page Panoramic View"
@@ -272,16 +279,17 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <div
             className="absolute z-20 flex flex-col justify-between"
             style={{
-              left: '5.8%',
-              top: '7%',
-              bottom: '7%',
+              left: '4.8%',
+              top: '12%',
+              bottom: '5%',
               width: '28.5%',
+              maxWidth: '460px',
             }}
           >
             {/* Top: Green Badge & Headline */}
-            <div className="space-y-3 xl:space-y-4">
+            <div className="space-y-2.5 xl:space-y-3.5">
               <MotionWrapper direction="down">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf7f3]/90 backdrop-blur-sm border border-[#2e936f]/30 shadow-warm-2xs">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e936f]"></span>
@@ -293,7 +301,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               </MotionWrapper>
 
               <MotionWrapper delay={0.08}>
-                <h1 className="text-[32px] xl:text-[42px] 2xl:text-[48px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.03em] font-heading">
+                <h1 className="text-[30px] xl:text-[40px] 2xl:text-[46px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.03em] font-heading">
                   Your Entire<br />
                   Company<br />
                   In <span className="text-[#f15e1c]">One View.</span>
@@ -302,7 +310,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             </div>
 
             {/* Middle: Subtitle & CTA Buttons */}
-            <div className="space-y-3 xl:space-y-4">
+            <div className="space-y-2.5 xl:space-y-3.5">
               <p className="text-xs xl:text-sm text-[#5a4138] font-body leading-relaxed max-w-sm">
                 Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
               </p>
@@ -319,7 +327,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
                 <a
                   href="#how-it-works"
-                  className="inline-flex items-center justify-center gap-2 text-xs xl:text-sm font-heading font-bold text-[#271812] bg-white hover:bg-brand-orange-light px-4 xl:px-5 py-2.5 xl:py-3 rounded-full border border-brand-peach transition-all hover:border-[#f15e1c] hover:text-[#f15e1c] shadow-warm-sm cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-xs xl:text-sm font-heading font-bold text-[#271812] bg-white/90 backdrop-blur-sm hover:bg-brand-orange-light px-4 xl:px-5 py-2.5 xl:py-3 rounded-full border border-brand-peach transition-all hover:border-[#f15e1c] hover:text-[#f15e1c] shadow-warm-sm cursor-pointer"
                 >
                   <Play className="w-3.5 h-3.5 text-[#271812] fill-[#271812]/15" />
                   <span>See How It Works</span>
@@ -328,20 +336,20 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             </div>
 
             {/* Bottom: 4 Supporting Value Propositions in a Clean Row */}
-            <div className="pt-2.5 border-t border-brand-peach/40 grid grid-cols-4 gap-1.5 xl:gap-2 text-[9.5px] xl:text-[10.5px] font-heading">
-              <div className="flex items-center gap-1.5 font-bold text-[#271812]">
+            <div className="pt-2 border-t border-brand-peach/40 grid grid-cols-4 gap-1.5 xl:gap-2 text-[9px] xl:text-[10px] font-heading">
+              <div className="flex items-center gap-1 font-bold text-[#271812]">
                 <Target className="w-3.5 h-3.5 text-[#f15e1c] shrink-0" />
                 <span className="leading-tight">Goal-Driven Execution</span>
               </div>
-              <div className="flex items-center gap-1.5 font-bold text-[#271812]">
+              <div className="flex items-center gap-1 font-bold text-[#271812]">
                 <Sparkles className="w-3.5 h-3.5 text-[#fab60a] shrink-0" />
                 <span className="leading-tight">AI-Powered Planning</span>
               </div>
-              <div className="flex items-center gap-1.5 font-bold text-[#271812]">
+              <div className="flex items-center gap-1 font-bold text-[#271812]">
                 <BarChart3 className="w-3.5 h-3.5 text-[#2e936f] shrink-0" />
                 <span className="leading-tight">Real Progress Visibility</span>
               </div>
-              <div className="flex items-center gap-1.5 font-bold text-[#271812]">
+              <div className="flex items-center gap-1 font-bold text-[#271812]">
                 <Users className="w-3.5 h-3.5 text-[#f15e1c] shrink-0" />
                 <span className="leading-tight">Built for Founders</span>
               </div>
@@ -467,6 +475,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               <span>Live Sync</span>
             </div>
           </div>
+
           {/* Floating Ambient Hover Status HUD Bar inside the visual */}
           {hoveredDeptId && (
             <motion.div
@@ -493,102 +502,130 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       </div>
 
       {/* ============================================================ */}
-      {/* MOBILE / TABLET VIEW (<1024px): RESPONSIVE STACKED LAYOUT    */}
+      {/* MOBILE / TABLET VIEW (<1024px): FULL-SCREEN IMMERSIVE HERO   */}
       {/* ============================================================ */}
-      <div className="lg:hidden max-w-xl mx-auto px-4 sm:px-6 space-y-8 text-left">
-        {/* Brand Kicker Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e936f]"></span>
-          </span>
-          <span className="text-[11px] font-heading font-extrabold tracking-widest text-[#2e936f] uppercase">
-            FOUNDEROS WORKSPACE V4.8
-          </span>
-        </div>
-
-        {/* Headline */}
-        <div className="space-y-4">
-          <h1 className="text-[36px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.1] tracking-[-0.03em] font-heading">
-            Your Entire Company<br />
-            In <span className="text-[#f15e1c]">One View.</span>
-          </h1>
-          <p className="text-sm sm:text-base text-[#5a4138] font-body leading-relaxed">
-            Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
-          </p>
-        </div>
-
-        {/* CTAs */}
-        <div className="flex flex-wrap items-center gap-3">
-          <Link
-            to="/product"
-            className="inline-flex items-center justify-center gap-2 text-sm font-heading font-bold text-white bg-[#f15e1c] hover:bg-[#d94e10] px-6 py-3 rounded-full shadow-lg shadow-[#f15e1c]/30 transition-all cursor-pointer"
-          >
-            <Layers className="w-4.5 h-4.5 text-white" />
-            <span>Explore FounderOS</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-
-          <a
-            href="#how-it-works"
-            className="inline-flex items-center justify-center gap-2 text-sm font-heading font-bold text-[#271812] bg-white px-5 py-3 rounded-full border border-brand-peach shadow-warm-sm cursor-pointer"
-          >
-            <Play className="w-4 h-4 text-[#271812] fill-[#271812]/15" />
-            <span>See How It Works</span>
-          </a>
-        </div>
-
-        {/* 4 Value Props */}
-        <div className="pt-4 border-t border-brand-peach/40 grid grid-cols-2 gap-3 text-xs font-heading">
-          <div className="flex items-center gap-2 font-bold text-[#271812]">
-            <Target className="w-4 h-4 text-[#f15e1c] shrink-0" />
-            <span>Goal-Driven Execution</span>
-          </div>
-          <div className="flex items-center gap-2 font-bold text-[#271812]">
-            <Sparkles className="w-4 h-4 text-[#fab60a] shrink-0" />
-            <span>AI-Powered Planning</span>
-          </div>
-          <div className="flex items-center gap-2 font-bold text-[#271812]">
-            <BarChart3 className="w-4 h-4 text-[#2e936f] shrink-0" />
-            <span>Real Progress Visibility</span>
-          </div>
-          <div className="flex items-center gap-2 font-bold text-[#271812]">
-            <Users className="w-4 h-4 text-[#f15e1c] shrink-0" />
-            <span>Built for Founders</span>
-          </div>
-        </div>
-
-        {/* Panoramic Mobile Visual Container */}
-        <div className="relative w-full rounded-2xl overflow-hidden shadow-warm-lg border border-brand-peach/60 aspect-[16/9]">
+      <div className="lg:hidden relative w-full h-[100dvh] min-h-[100dvh] overflow-hidden flex flex-col justify-between select-none">
+        {/* Full-Screen Ambient Command Center Backdrop */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           <img
             src="/assets/hero_panoramic_clean_hq.png"
             alt="FounderOS Command Center"
-            className="w-full h-full object-cover"
-            loading="lazy"
+            className="w-full h-full object-cover object-[78%_center]"
+            loading="eager"
           />
+          {/* Subtle warm glass scrim for optimal readability while keeping the 3D office vivid */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#fbf2e5]/92 via-[#fbf2e5]/60 to-[#fbf2e5]/95 backdrop-blur-[0.5px]" />
         </div>
 
-        {/* Mobile Quick Department Switcher */}
-        <div className="space-y-2">
-          <span className="text-[11px] font-heading font-extrabold uppercase tracking-wider text-terracotta-muted block">
-            Tap Department to Inspect
-          </span>
-          <div className="grid grid-cols-3 gap-2">
+        {/* Top Area: Badge & Editorial Copy */}
+        <div className="relative z-10 pt-20 sm:pt-24 px-5 space-y-2.5 text-left">
+          {/* Brand Kicker Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf7f3]/90 backdrop-blur-sm border border-[#2e936f]/30 shadow-warm-2xs">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e936f]"></span>
+            </span>
+            <span className="text-[10px] font-heading font-extrabold tracking-widest text-[#2e936f] uppercase">
+              FOUNDEROS WORKSPACE V4.8
+            </span>
+          </div>
+
+          {/* Headline */}
+          <h1 className="text-[32px] sm:text-[38px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.03em] font-heading">
+            Your Entire Company<br />
+            In <span className="text-[#f15e1c]">One View.</span>
+          </h1>
+
+          <p className="text-xs sm:text-sm text-[#5a4138] font-body leading-relaxed max-w-sm">
+            Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center gap-2.5 pt-1">
+            <Link
+              to="/product"
+              className="inline-flex items-center justify-center gap-2 text-xs font-heading font-bold text-white bg-[#f15e1c] hover:bg-[#d94e10] px-5 py-2.5 rounded-full shadow-lg shadow-[#f15e1c]/30 transition-all cursor-pointer"
+            >
+              <Layers className="w-4 h-4 text-white" />
+              <span>Explore FounderOS</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+
+            <a
+              href="#how-it-works"
+              className="inline-flex items-center justify-center gap-2 text-xs font-heading font-bold text-[#271812] bg-white/90 backdrop-blur-sm px-4 py-2.5 rounded-full border border-brand-peach shadow-warm-sm cursor-pointer"
+            >
+              <Play className="w-3.5 h-3.5 text-[#271812] fill-[#271812]/15" />
+              <span>See How It Works</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Middle Area: Interactive Quick Department Switcher & Core Goal */}
+        <div className="relative z-10 px-4 space-y-2">
+          {/* Quick Company Goal Chip */}
+          <div
+            onClick={() => setCompanyGoalModalOpen(true)}
+            className="p-2.5 rounded-xl bg-white/90 backdrop-blur-md border border-brand-green/40 shadow-warm-xs flex items-center justify-between gap-3 cursor-pointer active:scale-98 transition-transform"
+          >
+            <div className="flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-lg bg-[#edf7f3] flex items-center justify-center text-brand-green font-bold shrink-0">
+                <Target className="w-4 h-4 text-brand-green" />
+              </div>
+              <div className="text-left">
+                <span className="text-[9px] font-mono font-bold text-brand-green uppercase tracking-wider block">
+                  Active Company Goal
+                </span>
+                <span className="font-heading font-extrabold text-xs text-espresso">
+                  Launch Product V2
+                </span>
+              </div>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs font-mono font-extrabold text-brand-green">72%</span>
+              <ChevronRight className="w-3.5 h-3.5 text-terracotta-muted" />
+            </div>
+          </div>
+
+          {/* Department Chips 3-Col Grid */}
+          <div className="grid grid-cols-3 gap-1.5">
             {DEPARTMENTS.map((dept) => (
               <button
                 key={dept.id}
                 onClick={() => setSelectedDept(dept)}
-                className="p-2.5 rounded-xl bg-white border border-brand-peach/60 shadow-warm-xs flex flex-col items-center gap-1 text-center cursor-pointer hover:border-brand-orange"
+                className="p-2 rounded-xl bg-white/90 backdrop-blur-md border border-brand-peach/60 shadow-warm-2xs flex flex-col items-center gap-0.5 text-center cursor-pointer active:scale-95 transition-transform"
               >
-                <dept.icon className={`w-4 h-4 ${dept.iconColor}`} />
-                <span className="font-heading font-extrabold text-xs text-espresso">
-                  {dept.name}
-                </span>
-                <span className="text-[10px] font-mono font-bold text-terracotta-muted">
+                <div className="flex items-center gap-1">
+                  <dept.icon className={`w-3.5 h-3.5 ${dept.iconColor}`} />
+                  <span className="font-heading font-extrabold text-[11px] text-espresso">
+                    {dept.name}
+                  </span>
+                </div>
+                <span className="text-[9.5px] font-mono font-bold text-terracotta-muted">
                   {dept.progress}
                 </span>
               </button>
             ))}
+          </div>
+        </div>
+
+        {/* Bottom Area: 4 Value Props */}
+        <div className="relative z-10 pb-5 px-5 border-t border-brand-peach/40 grid grid-cols-2 gap-2 text-[10px] font-heading">
+          <div className="flex items-center gap-1.5 font-bold text-[#271812]">
+            <Target className="w-3.5 h-3.5 text-[#f15e1c] shrink-0" />
+            <span>Goal-Driven Execution</span>
+          </div>
+          <div className="flex items-center gap-1.5 font-bold text-[#271812]">
+            <Sparkles className="w-3.5 h-3.5 text-[#fab60a] shrink-0" />
+            <span>AI-Powered Planning</span>
+          </div>
+          <div className="flex items-center gap-1.5 font-bold text-[#271812]">
+            <BarChart3 className="w-3.5 h-3.5 text-[#2e936f] shrink-0" />
+            <span>Real Progress Visibility</span>
+          </div>
+          <div className="flex items-center gap-1.5 font-bold text-[#271812]">
+            <Users className="w-3.5 h-3.5 text-[#f15e1c] shrink-0" />
+            <span>Built for Founders</span>
           </div>
         </div>
       </div>
