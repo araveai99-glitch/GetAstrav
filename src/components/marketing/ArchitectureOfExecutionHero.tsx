@@ -54,10 +54,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconBg: 'bg-[#fceade]',
     iconColor: 'text-[#f15e1c]',
     barColor: 'bg-[#2e936f]',
-    left: '37.1%',
-    top: '11.8%',
-    width: '12.8%',
-    height: '14.5%',
+    left: '37.5%',
+    top: '9.0%',
+    width: '11.13%',
+    height: '9.0%',
     head: 'Elena Vance (VP Product)',
     activeTasks: 14,
     milestones: '3/4 Milestones Completed',
@@ -78,10 +78,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
     barColor: 'bg-[#fab60a]',
-    left: '50.3%',
-    top: '11.8%',
-    width: '12.4%',
-    height: '14.5%',
+    left: '50.98%',
+    top: '8.8%',
+    width: '10.64%',
+    height: '9.2%',
     head: 'Marcus Thorne (CTO)',
     activeTasks: 22,
     milestones: '4/6 Milestones Completed',
@@ -102,10 +102,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconBg: 'bg-[#fceade]',
     iconColor: 'text-[#f15e1c]',
     barColor: 'bg-[#fab60a]',
-    left: '63.3%',
-    top: '11.8%',
-    width: '12.4%',
-    height: '14.5%',
+    left: '63.67%',
+    top: '9.0%',
+    width: '11.33%',
+    height: '9.0%',
     head: 'Sarah Jenkins (Growth Lead)',
     activeTasks: 9,
     milestones: '2/4 Milestones Completed',
@@ -127,10 +127,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
     barColor: 'bg-[#2e936f]',
-    left: '37.1%',
-    top: '48.2%',
-    width: '12.8%',
-    height: '14.5%',
+    left: '37.99%',
+    top: '34.0%',
+    width: '10.74%',
+    height: '11.8%',
     head: 'Priya Roy (Head of Revenue)',
     activeTasks: 18,
     milestones: '3/5 Milestones Completed',
@@ -151,10 +151,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
     barColor: 'bg-[#2e936f]',
-    left: '50.3%',
-    top: '48.2%',
-    width: '12.4%',
-    height: '14.5%',
+    left: '51.76%',
+    top: '34.0%',
+    width: '10.94%',
+    height: '11.2%',
     head: 'Devon Lee (People Operations)',
     activeTasks: 6,
     milestones: '4/4 Milestones Completed',
@@ -175,10 +175,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
     barColor: 'bg-[#fab60a]',
-    left: '63.3%',
-    top: '48.2%',
-    width: '12.4%',
-    height: '14.5%',
+    left: '64.75%',
+    top: '34.0%',
+    width: '10.74%',
+    height: '10.2%',
     head: 'Arthur Pendelton (Finance VP)',
     activeTasks: 8,
     milestones: '2/4 Milestones Completed',
@@ -196,7 +196,10 @@ interface NotificationHotspot {
   dept: string;
   action: string;
   time: string;
+  left: string;
   top: string;
+  width: string;
+  height: string;
   icon: React.ElementType;
   iconBg: string;
   iconColor: string;
@@ -210,7 +213,10 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Marketing',
     action: 'Campaign launched',
     time: '2 min ago',
-    top: '11.5%',
+    left: '79.3%',
+    top: '8.8%',
+    width: '16.5%',
+    height: '7.2%',
     icon: Megaphone,
     iconBg: 'bg-[#fceade]',
     iconColor: 'text-[#f15e1c]',
@@ -222,7 +228,10 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Engineering',
     action: '2 tasks overdue',
     time: '12 min ago',
-    top: '25.5%',
+    left: '79.3%',
+    top: '17.4%',
+    width: '16.5%',
+    height: '8.6%',
     icon: Code,
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
@@ -234,7 +243,10 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Sales',
     action: 'Deal stage updated',
     time: '25 min ago',
-    top: '39.8%',
+    left: '79.3%',
+    top: '26.0%',
+    width: '16.5%',
+    height: '7.0%',
     icon: BarChart3,
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
@@ -251,22 +263,15 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
   const [mobileSyncOpen, setMobileSyncOpen] = useState(false);
 
   return (
-    <section className="relative w-full h-screen min-h-[640px] lg:h-screen lg:min-h-[680px] overflow-hidden bg-[#faede0] select-none">
+    <section className="relative w-full overflow-hidden bg-white lg:bg-[#180d07] border-b border-[#341a0d] pt-20 select-none">
       {/* ============================================================ */}
-      {/* DESKTOP / WIDE SCREEN: UNIFIED FULL-BLEED PANORAMIC HERO     */}
+      {/* DESKTOP / WIDE SCREEN: UNIFIED FULL-PAGE PANORAMIC HERO      */}
       {/* ============================================================ */}
-      <div className="hidden lg:block relative w-full h-full overflow-hidden">
-        {/* Aspect-Locked High-Resolution Panoramic Scene Canvas (2048x756) */}
-        <div
-          className="absolute right-0 top-0 h-full aspect-[2048/756] min-w-full overflow-hidden"
-          style={{
-            height: '100%',
-            width: 'max(100%, calc(100vh * (2048 / 756)))',
-          }}
-        >
-          {/* Panoramic High-Resolution Full-Bleed Backdrop */}
+      <div className="hidden lg:block relative w-full">
+        <div className="relative w-full aspect-[2048/1000] overflow-hidden">
+          {/* Panoramic Full-Page Edge-to-Edge Backdrop (2048x1000 Full Bleed) */}
           <img
-            src="/assets/hero_panoramic_clean_hq.png"
+            src="/assets/hero_panoramic_fullpage.png"
             alt="GetAstrav FounderOS Command Center Full Page Panoramic View"
             className="w-full h-full object-cover block select-none pointer-events-none"
             loading="eager"
@@ -279,17 +284,16 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <div
             className="absolute z-20 flex flex-col justify-between"
             style={{
-              left: '4.8%',
-              top: '12%',
-              bottom: '5%',
+              left: '5.5%',
+              top: '5.5%',
+              bottom: '24.0%',
               width: '28.5%',
-              maxWidth: '460px',
             }}
           >
             {/* Top: Green Badge & Headline */}
-            <div className="space-y-2.5 xl:space-y-3.5">
+            <div className="space-y-3 xl:space-y-4">
               <MotionWrapper direction="down">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf7f3]/90 backdrop-blur-sm border border-[#2e936f]/30 shadow-warm-2xs">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e936f]"></span>
@@ -301,7 +305,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               </MotionWrapper>
 
               <MotionWrapper delay={0.08}>
-                <h1 className="text-[30px] xl:text-[40px] 2xl:text-[46px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.03em] font-heading">
+                <h1 className="text-[32px] xl:text-[42px] 2xl:text-[48px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.03em] font-heading">
                   Your Entire<br />
                   Company<br />
                   In <span className="text-[#f15e1c]">One View.</span>
@@ -310,7 +314,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             </div>
 
             {/* Middle: Subtitle & CTA Buttons */}
-            <div className="space-y-2.5 xl:space-y-3.5">
+            <div className="space-y-3 xl:space-y-4">
               <p className="text-xs xl:text-sm text-[#5a4138] font-body leading-relaxed max-w-sm">
                 Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
               </p>
@@ -327,7 +331,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
                 <a
                   href="#how-it-works"
-                  className="inline-flex items-center justify-center gap-2 text-xs xl:text-sm font-heading font-bold text-[#271812] bg-white/90 backdrop-blur-sm hover:bg-brand-orange-light px-4 xl:px-5 py-2.5 xl:py-3 rounded-full border border-brand-peach transition-all hover:border-[#f15e1c] hover:text-[#f15e1c] shadow-warm-sm cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-xs xl:text-sm font-heading font-bold text-[#271812] bg-white hover:bg-brand-orange-light px-4 xl:px-5 py-2.5 xl:py-3 rounded-full border border-brand-peach transition-all hover:border-[#f15e1c] hover:text-[#f15e1c] shadow-warm-sm cursor-pointer"
                 >
                   <Play className="w-3.5 h-3.5 text-[#271812] fill-[#271812]/15" />
                   <span>See How It Works</span>
@@ -336,20 +340,20 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             </div>
 
             {/* Bottom: 4 Supporting Value Propositions in a Clean Row */}
-            <div className="pt-2 border-t border-brand-peach/40 grid grid-cols-4 gap-1.5 xl:gap-2 text-[9px] xl:text-[10px] font-heading">
-              <div className="flex items-center gap-1 font-bold text-[#271812]">
+            <div className="pt-2.5 border-t border-brand-peach/40 grid grid-cols-4 gap-1.5 xl:gap-2 text-[9.5px] xl:text-[10.5px] font-heading">
+              <div className="flex items-center gap-1.5 font-bold text-[#271812]">
                 <Target className="w-3.5 h-3.5 text-[#f15e1c] shrink-0" />
                 <span className="leading-tight">Goal-Driven Execution</span>
               </div>
-              <div className="flex items-center gap-1 font-bold text-[#271812]">
+              <div className="flex items-center gap-1.5 font-bold text-[#271812]">
                 <Sparkles className="w-3.5 h-3.5 text-[#fab60a] shrink-0" />
                 <span className="leading-tight">AI-Powered Planning</span>
               </div>
-              <div className="flex items-center gap-1 font-bold text-[#271812]">
+              <div className="flex items-center gap-1.5 font-bold text-[#271812]">
                 <BarChart3 className="w-3.5 h-3.5 text-[#2e936f] shrink-0" />
                 <span className="leading-tight">Real Progress Visibility</span>
               </div>
-              <div className="flex items-center gap-1 font-bold text-[#271812]">
+              <div className="flex items-center gap-1.5 font-bold text-[#271812]">
                 <Users className="w-3.5 h-3.5 text-[#f15e1c] shrink-0" />
                 <span className="leading-tight">Built for Founders</span>
               </div>
@@ -361,7 +365,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* ============================================================ */}
           <div
             className="absolute z-20 flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 rounded-full bg-brand-orange text-white shadow-lg shadow-brand-orange/40 animate-pulse cursor-pointer group"
-            style={{ left: '31.8%', top: '25.5%' }}
+            style={{ left: '31.8%', top: '19.2%' }}
             title="Strategic Alignment Flow"
           >
             <ArrowRight className="w-3 h-3 xl:w-3.5 xl:h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -372,6 +376,8 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* ============================================================ */}
           {DEPARTMENTS.map((dept) => {
             const isHovered = hoveredDeptId === dept.id;
+            const isSelected = selectedDept?.id === dept.id;
+            const isActive = isHovered || isSelected;
 
             return (
               <div
@@ -379,28 +385,42 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 onMouseEnter={() => setHoveredDeptId(dept.id)}
                 onMouseLeave={() => setHoveredDeptId(null)}
                 onClick={() => setSelectedDept(dept)}
-                className="absolute z-20 rounded-2xl cursor-pointer group transition-all duration-200"
+                className="absolute z-20 rounded-2xl cursor-pointer group transition-all duration-150 active:scale-[0.98]"
                 style={{
                   left: dept.left,
                   top: dept.top,
                   width: dept.width,
                   height: dept.height,
                 }}
-                title={`Click to inspect ${dept.name} execution (${dept.progress} - ${dept.statusText})`}
+                title={`Click ${dept.name} card or icon to inspect execution (${dept.progress} - ${dept.statusText})`}
               >
-                {/* Active Interactive Glowing Halo */}
+                {/* Active Orangish Halo Ring Framing Card Edge-to-Edge */}
                 <div
-                  className={`absolute inset-0 rounded-2xl transition-all duration-300 ${
-                    isHovered
-                      ? 'ring-2 ring-brand-orange bg-brand-orange/15 shadow-[0_0_24px_rgba(241,94,28,0.45)]'
-                      : 'hover:border hover:border-brand-orange/40'
+                  className={`absolute inset-0 rounded-2xl transition-all duration-200 pointer-events-none ${
+                    isActive
+                      ? 'ring-2 ring-[#f15e1c] bg-[#f15e1c]/15 shadow-[0_0_24px_rgba(241,94,28,0.45)]'
+                      : 'hover:ring-1 hover:ring-[#f15e1c]/50'
                   }`}
+                />
+
+                {/* Clickable Icon Target with Ambient Highlight */}
+                <div
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedDept(dept);
+                  }}
+                  className={`absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-200 cursor-pointer ${
+                    isActive
+                      ? 'bg-[#f15e1c]/25 ring-1 ring-[#f15e1c]/70'
+                      : 'group-hover:bg-[#f15e1c]/10'
+                  }`}
+                  title={`Click ${dept.name} icon`}
                 />
 
                 {/* Inspect Micro Badge */}
                 <div
-                  className={`absolute -top-2.5 right-2 px-2 py-0.5 rounded-full text-[8px] xl:text-[9px] font-heading font-extrabold flex items-center gap-1 transition-all duration-200 shadow-sm ${
-                    isHovered
+                  className={`absolute -top-2.5 right-2 px-2 py-0.5 rounded-full text-[8px] xl:text-[9px] font-heading font-extrabold flex items-center gap-1 transition-all duration-200 shadow-md ${
+                    isActive
                       ? 'opacity-100 scale-100 bg-brand-orange text-white'
                       : 'opacity-0 scale-90 pointer-events-none'
                   }`}
@@ -418,16 +438,25 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* ============================================================ */}
           <div
             onClick={() => setCompanyGoalModalOpen(true)}
-            className="absolute z-20 rounded-2xl cursor-pointer group transition-all duration-300"
+            className="absolute z-20 rounded-2xl cursor-pointer group transition-all duration-200 active:scale-[0.98]"
             style={{
-              left: '42.2%',
-              top: '69.5%',
-              width: '17.2%',
-              height: '14.5%',
+              left: '43.16%',
+              top: '51.0%',
+              width: '17.38%',
+              height: '8.6%',
             }}
             title="Company Goal: Launch Product V2 (72%) - Click to inspect"
           >
-            <div className="absolute inset-0 rounded-2xl transition-all duration-300 group-hover:ring-2 group-hover:ring-brand-green group-hover:bg-brand-green/15 group-hover:shadow-[0_0_24px_rgba(46,147,111,0.45)]" />
+            <div className="absolute inset-0 rounded-2xl transition-all duration-200 group-hover:ring-2 group-hover:ring-brand-green group-hover:bg-brand-green/15 group-hover:shadow-[0_0_24px_rgba(46,147,111,0.45)] pointer-events-none" />
+            {/* Clickable Icon Target */}
+            <div
+              onClick={(e) => {
+                e.stopPropagation();
+                setCompanyGoalModalOpen(true);
+              }}
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl group-hover:bg-brand-green/20 group-hover:ring-1 group-hover:ring-brand-green/60 transition-all cursor-pointer"
+              title="Click Company Goal icon"
+            />
             <div className="absolute -top-2.5 right-3 px-2 py-0.5 rounded-full text-[8.5px] font-heading font-extrabold opacity-0 group-hover:opacity-100 transition-opacity bg-brand-green text-white shadow-sm flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
               <span>Core Goal</span>
@@ -442,16 +471,25 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             <div
               key={notif.id}
               onClick={() => setActiveNotif(notif)}
-              className="absolute z-20 rounded-xl cursor-pointer group transition-all duration-300"
+              className="absolute z-20 rounded-xl cursor-pointer group transition-all duration-200 active:scale-[0.98]"
               style={{
-                right: '3.5%',
+                left: notif.left,
                 top: notif.top,
-                width: '17%',
-                height: '11.5%',
+                width: notif.width,
+                height: notif.height,
               }}
-              title={`Click to view ${notif.dept} activity update`}
+              title={`Click to view ${notif.dept} activity update (${notif.action})`}
             >
-              <div className="absolute inset-0 rounded-xl transition-all duration-300 group-hover:ring-2 group-hover:ring-brand-green group-hover:bg-brand-green/15 group-hover:shadow-[0_0_16px_rgba(46,147,111,0.35)]" />
+              <div className="absolute inset-0 rounded-xl transition-all duration-200 group-hover:ring-2 group-hover:ring-brand-green group-hover:bg-brand-green/15 group-hover:shadow-[0_0_16px_rgba(46,147,111,0.35)] pointer-events-none" />
+              {/* Notification icon click target */}
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveNotif(notif);
+                }}
+                className="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg group-hover:bg-brand-green/20 group-hover:ring-1 group-hover:ring-brand-green/50 transition-all cursor-pointer"
+                title={`Click ${notif.dept} notification icon`}
+              />
             </div>
           ))}
 
@@ -460,16 +498,16 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* ============================================================ */}
           <div
             onClick={() => setMobileSyncOpen(true)}
-            className="absolute z-20 rounded-2xl cursor-pointer group transition-all duration-300"
+            className="absolute z-20 rounded-2xl cursor-pointer group transition-all duration-200 active:scale-[0.98]"
             style={{
-              right: '12.5%',
-              bottom: '4%',
-              width: '10.5%',
-              height: '36%',
+              left: '77.6%',
+              top: '50.0%',
+              width: '10.25%',
+              height: '24.0%',
             }}
             title="Founder Executive Mobile Command Stream - Click to view real-time feed"
           >
-            <div className="absolute inset-0 rounded-2xl transition-all duration-300 group-hover:ring-2 group-hover:ring-brand-orange group-hover:bg-brand-orange/15 group-hover:shadow-[0_0_24px_rgba(241,94,28,0.45)]" />
+            <div className="absolute inset-0 rounded-2xl transition-all duration-200 group-hover:ring-2 group-hover:ring-brand-orange group-hover:bg-brand-orange/15 group-hover:shadow-[0_0_24px_rgba(241,94,28,0.45)] pointer-events-none" />
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-brand-orange text-white text-[8.5px] font-heading font-bold opacity-0 group-hover:opacity-100 transition-opacity shadow-sm flex items-center gap-1 whitespace-nowrap">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
               <span>Live Sync</span>
@@ -481,7 +519,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center justify-between gap-6 px-5 py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-brand-peach/80 shadow-warm-lg text-xs"
+              className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center justify-between gap-6 px-5 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md border border-brand-peach/80 shadow-warm-lg text-xs"
             >
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-brand-green animate-ping" />
@@ -492,7 +530,13 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   — {DEPARTMENTS.find((d) => d.id === hoveredDeptId)?.milestones}
                 </span>
               </div>
-              <span className="font-heading font-bold text-brand-orange flex items-center gap-1 cursor-pointer">
+              <span
+                onClick={() => {
+                  const d = DEPARTMENTS.find((dept) => dept.id === hoveredDeptId);
+                  if (d) setSelectedDept(d);
+                }}
+                className="font-heading font-bold text-brand-orange hover:text-brand-orange-hover flex items-center gap-1 cursor-pointer"
+              >
                 <span>Click to inspect</span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </span>
@@ -502,130 +546,102 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       </div>
 
       {/* ============================================================ */}
-      {/* MOBILE / TABLET VIEW (<1024px): FULL-SCREEN IMMERSIVE HERO   */}
+      {/* MOBILE / TABLET VIEW (<1024px): RESPONSIVE STACKED LAYOUT    */}
       {/* ============================================================ */}
-      <div className="lg:hidden relative w-full h-[100dvh] min-h-[100dvh] overflow-hidden flex flex-col justify-between select-none">
-        {/* Full-Screen Ambient Command Center Backdrop */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-          <img
-            src="/assets/hero_panoramic_clean_hq.png"
-            alt="FounderOS Command Center"
-            className="w-full h-full object-cover object-[78%_center]"
-            loading="eager"
-          />
-          {/* Subtle warm glass scrim for optimal readability while keeping the 3D office vivid */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#fbf2e5]/92 via-[#fbf2e5]/60 to-[#fbf2e5]/95 backdrop-blur-[0.5px]" />
+      <div className="lg:hidden max-w-xl mx-auto px-4 sm:px-6 space-y-8 text-left pb-12">
+        {/* Brand Kicker Badge */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e936f]"></span>
+          </span>
+          <span className="text-[11px] font-heading font-extrabold tracking-widest text-[#2e936f] uppercase">
+            FOUNDEROS WORKSPACE V4.8
+          </span>
         </div>
 
-        {/* Top Area: Badge & Editorial Copy */}
-        <div className="relative z-10 pt-20 sm:pt-24 px-5 space-y-2.5 text-left">
-          {/* Brand Kicker Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf7f3]/90 backdrop-blur-sm border border-[#2e936f]/30 shadow-warm-2xs">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e936f]"></span>
-            </span>
-            <span className="text-[10px] font-heading font-extrabold tracking-widest text-[#2e936f] uppercase">
-              FOUNDEROS WORKSPACE V4.8
-            </span>
-          </div>
-
-          {/* Headline */}
-          <h1 className="text-[32px] sm:text-[38px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.03em] font-heading">
+        {/* Headline */}
+        <div className="space-y-4">
+          <h1 className="text-[36px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.1] tracking-[-0.03em] font-heading">
             Your Entire Company<br />
             In <span className="text-[#f15e1c]">One View.</span>
           </h1>
-
-          <p className="text-xs sm:text-sm text-[#5a4138] font-body leading-relaxed max-w-sm">
+          <p className="text-sm sm:text-base text-[#5a4138] font-body leading-relaxed">
             Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
           </p>
+        </div>
 
-          {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-2.5 pt-1">
-            <Link
-              to="/product"
-              className="inline-flex items-center justify-center gap-2 text-xs font-heading font-bold text-white bg-[#f15e1c] hover:bg-[#d94e10] px-5 py-2.5 rounded-full shadow-lg shadow-[#f15e1c]/30 transition-all cursor-pointer"
-            >
-              <Layers className="w-4 h-4 text-white" />
-              <span>Explore FounderOS</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+        {/* CTAs */}
+        <div className="flex flex-wrap items-center gap-3">
+          <Link
+            to="/product"
+            className="inline-flex items-center justify-center gap-2 text-sm font-heading font-bold text-white bg-[#f15e1c] hover:bg-[#d94e10] px-6 py-3 rounded-full shadow-lg shadow-[#f15e1c]/30 transition-all cursor-pointer"
+          >
+            <Layers className="w-4.5 h-4.5 text-white" />
+            <span>Explore FounderOS</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
 
-            <a
-              href="#how-it-works"
-              className="inline-flex items-center justify-center gap-2 text-xs font-heading font-bold text-[#271812] bg-white/90 backdrop-blur-sm px-4 py-2.5 rounded-full border border-brand-peach shadow-warm-sm cursor-pointer"
-            >
-              <Play className="w-3.5 h-3.5 text-[#271812] fill-[#271812]/15" />
-              <span>See How It Works</span>
-            </a>
+          <a
+            href="#how-it-works"
+            className="inline-flex items-center justify-center gap-2 text-sm font-heading font-bold text-[#271812] bg-white px-5 py-3 rounded-full border border-brand-peach shadow-warm-sm cursor-pointer"
+          >
+            <Play className="w-4 h-4 text-[#271812] fill-[#271812]/15" />
+            <span>See How It Works</span>
+          </a>
+        </div>
+
+        {/* 4 Value Props */}
+        <div className="pt-4 border-t border-brand-peach/40 grid grid-cols-2 gap-3 text-xs font-heading">
+          <div className="flex items-center gap-2 font-bold text-[#271812]">
+            <Target className="w-4 h-4 text-[#f15e1c] shrink-0" />
+            <span>Goal-Driven Execution</span>
+          </div>
+          <div className="flex items-center gap-2 font-bold text-[#271812]">
+            <Sparkles className="w-4 h-4 text-[#fab60a] shrink-0" />
+            <span>AI-Powered Planning</span>
+          </div>
+          <div className="flex items-center gap-2 font-bold text-[#271812]">
+            <BarChart3 className="w-4 h-4 text-[#2e936f] shrink-0" />
+            <span>Real Progress Visibility</span>
+          </div>
+          <div className="flex items-center gap-2 font-bold text-[#271812]">
+            <Users className="w-4 h-4 text-[#f15e1c] shrink-0" />
+            <span>Built for Founders</span>
           </div>
         </div>
 
-        {/* Middle Area: Interactive Quick Department Switcher & Core Goal */}
-        <div className="relative z-10 px-4 space-y-2">
-          {/* Quick Company Goal Chip */}
-          <div
-            onClick={() => setCompanyGoalModalOpen(true)}
-            className="p-2.5 rounded-xl bg-white/90 backdrop-blur-md border border-brand-green/40 shadow-warm-xs flex items-center justify-between gap-3 cursor-pointer active:scale-98 transition-transform"
-          >
-            <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-[#edf7f3] flex items-center justify-center text-brand-green font-bold shrink-0">
-                <Target className="w-4 h-4 text-brand-green" />
-              </div>
-              <div className="text-left">
-                <span className="text-[9px] font-mono font-bold text-brand-green uppercase tracking-wider block">
-                  Active Company Goal
-                </span>
-                <span className="font-heading font-extrabold text-xs text-espresso">
-                  Launch Product V2
-                </span>
-              </div>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-xs font-mono font-extrabold text-brand-green">72%</span>
-              <ChevronRight className="w-3.5 h-3.5 text-terracotta-muted" />
-            </div>
-          </div>
+        {/* Panoramic Mobile Visual Container */}
+        <div className="relative w-full rounded-2xl overflow-hidden shadow-warm-lg border border-brand-peach/60 aspect-[16/9]">
+          <img
+            src="/assets/hero_panoramic_clean_hq.png"
+            alt="FounderOS Command Center"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
-          {/* Department Chips 3-Col Grid */}
-          <div className="grid grid-cols-3 gap-1.5">
+        {/* Mobile Quick Department Switcher */}
+        <div className="space-y-2">
+          <span className="text-[11px] font-heading font-extrabold uppercase tracking-wider text-terracotta-muted block">
+            Tap Department to Inspect
+          </span>
+          <div className="grid grid-cols-3 gap-2">
             {DEPARTMENTS.map((dept) => (
               <button
                 key={dept.id}
                 onClick={() => setSelectedDept(dept)}
-                className="p-2 rounded-xl bg-white/90 backdrop-blur-md border border-brand-peach/60 shadow-warm-2xs flex flex-col items-center gap-0.5 text-center cursor-pointer active:scale-95 transition-transform"
+                className="p-2.5 rounded-xl bg-white border border-brand-peach/60 shadow-warm-xs flex flex-col items-center gap-1 text-center cursor-pointer hover:border-brand-orange"
               >
-                <div className="flex items-center gap-1">
-                  <dept.icon className={`w-3.5 h-3.5 ${dept.iconColor}`} />
-                  <span className="font-heading font-extrabold text-[11px] text-espresso">
-                    {dept.name}
-                  </span>
-                </div>
-                <span className="text-[9.5px] font-mono font-bold text-terracotta-muted">
+                <dept.icon className={`w-4 h-4 ${dept.iconColor}`} />
+                <span className="font-heading font-extrabold text-xs text-espresso">
+                  {dept.name}
+                </span>
+                <span className="text-[10px] font-mono font-bold text-terracotta-muted">
                   {dept.progress}
                 </span>
               </button>
             ))}
-          </div>
-        </div>
-
-        {/* Bottom Area: 4 Value Props */}
-        <div className="relative z-10 pb-5 px-5 border-t border-brand-peach/40 grid grid-cols-2 gap-2 text-[10px] font-heading">
-          <div className="flex items-center gap-1.5 font-bold text-[#271812]">
-            <Target className="w-3.5 h-3.5 text-[#f15e1c] shrink-0" />
-            <span>Goal-Driven Execution</span>
-          </div>
-          <div className="flex items-center gap-1.5 font-bold text-[#271812]">
-            <Sparkles className="w-3.5 h-3.5 text-[#fab60a] shrink-0" />
-            <span>AI-Powered Planning</span>
-          </div>
-          <div className="flex items-center gap-1.5 font-bold text-[#271812]">
-            <BarChart3 className="w-3.5 h-3.5 text-[#2e936f] shrink-0" />
-            <span>Real Progress Visibility</span>
-          </div>
-          <div className="flex items-center gap-1.5 font-bold text-[#271812]">
-            <Users className="w-3.5 h-3.5 text-[#f15e1c] shrink-0" />
-            <span>Built for Founders</span>
           </div>
         </div>
       </div>

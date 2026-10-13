@@ -48,9 +48,9 @@ export const Navbar: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || mobileMenuOpen
+        scrolled
           ? 'bg-white/95 backdrop-blur-2xl border-b border-brand-peach/80 shadow-warm-md h-18 sm:h-20'
-          : 'bg-white/15 backdrop-blur-md border-b border-white/20 shadow-none h-18 sm:h-20'
+          : 'bg-white/85 backdrop-blur-lg border-b border-brand-peach/50 h-20 sm:h-22'
       }`}
     >
       <div
@@ -343,11 +343,7 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center gap-3 shrink-0">
           <Link
             to="/app/dashboard"
-            className={`hidden xl:inline-flex items-center justify-center text-xs sm:text-sm font-heading font-bold text-espresso px-5 py-2.5 rounded-full transition-all hover:border-brand-orange hover:text-brand-orange hover:-translate-y-0.5 active:translate-y-0 ${
-              scrolled
-                ? 'bg-white hover:bg-brand-orange-light shadow-warm-sm border border-brand-peach'
-                : 'bg-white/50 backdrop-blur-md hover:bg-white/80 shadow-none border border-white/50'
-            }`}
+            className="hidden xl:inline-flex items-center justify-center text-xs sm:text-sm font-heading font-bold text-espresso bg-white hover:bg-brand-orange-light px-5 py-2.5 rounded-full shadow-warm-sm border border-brand-peach transition-all hover:border-brand-orange hover:text-brand-orange hover:-translate-y-0.5 active:translate-y-0"
           >
             Launch Console
           </Link>
