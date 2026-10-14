@@ -108,12 +108,12 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* ARAV INNOVATIONS FOOTER BRAND ATTRIBUTION */}
-        <div className="pt-6 border-t border-brand-peach/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-6 border-t border-brand-peach/40 flex items-center justify-center sm:justify-start">
           <a
             href="https://aravinnovations.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex flex-wrap items-center justify-center sm:justify-start gap-4 hover:opacity-90 transition-opacity"
+            className="inline-flex items-center justify-center sm:justify-start gap-4 sm:gap-5 hover:opacity-90 transition-opacity"
           >
             <picture>
               <source type="image/webp" srcSet="/assets/arav-logo.webp" />
@@ -124,7 +124,7 @@ export const Footer: React.FC = () => {
                 height={208}
                 loading="lazy"
                 decoding="async"
-                className="h-10 sm:h-12 w-auto object-contain drop-shadow-sm"
+                className="h-14 sm:h-14 md:h-12 w-auto object-contain drop-shadow-sm"
               />
             </picture>
             <picture>
@@ -136,13 +136,10 @@ export const Footer: React.FC = () => {
                 height={127}
                 loading="lazy"
                 decoding="async"
-                className="h-9 sm:h-11 w-auto object-contain drop-shadow-sm"
+                className="h-12 sm:h-12 md:h-11 w-auto object-contain drop-shadow-sm"
               />
             </picture>
           </a>
-          <span className="text-xs text-terracotta-muted font-medium text-center sm:text-right">
-            Powered by Arav Innovations • Elevating Brands, One Click at a Time.
-          </span>
         </div>
       </div>
     </footer>
