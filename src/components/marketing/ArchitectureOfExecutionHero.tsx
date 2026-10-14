@@ -352,7 +352,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* ACCESSIBLE SEO LAYER (Screen Readers & Search Engines)       */}
           {/* ============================================================ */}
           <div className="sr-only">
-            <h1>FOUNDEROS WORKSPACE V4.8 — Your Entire Company In One View.</h1>
+            <h1>Your Entire Company In One View.</h1>
             <p>
               Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
             </p>
@@ -382,14 +382,6 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               width: '26.5%',
             }}
           >
-            {/* Small Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs w-fit mb-3 xl:mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#2e936f] animate-pulse" />
-              <span className="text-[10px] xl:text-[11px] font-heading font-extrabold tracking-widest text-[#2e936f] uppercase">
-                FOUNDEROS WORKSPACE V4.8
-              </span>
-            </div>
-
             {/* Main Headline */}
             <h1 className="text-[34px] xl:text-[44px] 2xl:text-[52px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading mb-3 xl:mb-4">
               Your Entire<br />
@@ -725,18 +717,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       {/* MOBILE / TABLET VIEW (<1024px): CLOSE TO REFERENCE IMAGE 1   */}
       {/* ============================================================ */}
       <div className="lg:hidden max-w-xl mx-auto px-4 sm:px-6 space-y-7 text-left pb-12">
-        {/* 1. Brand Kicker Badge: FOUNDEROS WORKSPACE V4.8 */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e936f]"></span>
-          </span>
-          <span className="text-[11px] font-heading font-extrabold tracking-widest text-[#2e936f] uppercase">
-            FOUNDEROS WORKSPACE V4.8
-          </span>
-        </div>
-
-        {/* 2. Headline & Supporting Text */}
+        {/* Headline & Supporting Text */}
         <div className="space-y-3.5">
           <h1 className="text-[34px] xs:text-[38px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading">
             Your Entire Company<br />
