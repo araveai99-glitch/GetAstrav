@@ -4,7 +4,7 @@ import { Target, CheckCircle2 } from 'lucide-react';
 
 export const GoalsProgress: React.FC = () => {
   return (
-    <div className="w-full flex flex-col space-y-16 pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-[1340px] mx-auto">
+    <div className="w-full flex flex-col space-y-6 sm:space-y-10 md:space-y-16 pt-20 sm:pt-24 pb-8 sm:pb-12 md:pb-16 px-4 sm:px-6 lg:px-8 max-w-[1340px] mx-auto">
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <span className="px-3 py-1 rounded-full bg-surface-tier1 border border-brand-peach text-xs font-bold text-brand-orange uppercase">
           Features • Goals & Progress
@@ -17,7 +17,7 @@ export const GoalsProgress: React.FC = () => {
         </p>
       </div>
 
-      <div className="p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-xl space-y-4">
+      <div className="p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-xl space-y-4">
         <h3 className="text-lg font-bold text-espresso flex items-center gap-2">
           <Target className="w-5 h-5 text-brand-orange" />
           The Rollup Formula Architecture
@@ -38,7 +38,7 @@ export const GoalsProgress: React.FC = () => {
         </ul>
       </div>
 
-      <CTASection />
+      <CTASection paddingY="pt-0 pb-2 sm:py-6 md:py-10" paddingX="px-0" />
     </div>
   );
 };

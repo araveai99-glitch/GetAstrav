@@ -4,9 +4,19 @@ import { Layers, ArrowRight, Sparkles, Megaphone, CheckCircle2 } from 'lucide-re
 import { MotionWrapper } from './MotionWrapper';
 import { openDemoModal } from './DemoModal';
 
-export const CTASection: React.FC = () => {
+interface CTASectionProps {
+  className?: string;
+  paddingY?: string;
+  paddingX?: string;
+}
+
+export const CTASection: React.FC<CTASectionProps> = ({
+  className = '',
+  paddingY = 'py-6 sm:py-10 md:py-20',
+  paddingX = 'px-4 sm:px-6 lg:px-10',
+}) => {
   return (
-    <section id="conversion-cta" className="w-full py-12 md:py-20 px-4 sm:px-6 lg:px-10 bg-transparent">
+    <section id="conversion-cta" className={`w-full ${paddingY} ${paddingX} bg-transparent ${className}`}>
       <div className="max-w-[1600px] mx-auto rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-8 sm:p-12 md:p-16 border border-brand-peach/80 shadow-architectural relative overflow-hidden">
         {/* Soft atmospheric background glow */}
         <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-brand-orange-light via-brand-peach/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
