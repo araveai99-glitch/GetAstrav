@@ -114,16 +114,30 @@ export const Footer: React.FC = () => {
             rel="noopener noreferrer"
             className="inline-flex flex-wrap items-center justify-center sm:justify-start gap-4 hover:opacity-90 transition-opacity"
           >
-            <img
-              src="/assets/arav-logo.png"
-              alt="Arav Innovations Ribbon Logo"
-              className="h-10 sm:h-12 w-auto object-contain drop-shadow-sm"
-            />
-            <img
-              src="/assets/powered-by-arav.png"
-              alt="Powered by Arav Innovations - Elevating Brands, One Click at a Time"
-              className="h-9 sm:h-11 w-auto object-contain drop-shadow-sm"
-            />
+            <picture>
+              <source type="image/webp" srcSet="/assets/arav-logo.webp" />
+              <img
+                src="/assets/arav-logo.webp"
+                alt="Arav Innovations Ribbon Logo"
+                width={200}
+                height={208}
+                loading="lazy"
+                decoding="async"
+                className="h-10 sm:h-12 w-auto object-contain drop-shadow-sm"
+              />
+            </picture>
+            <picture>
+              <source type="image/webp" srcSet="/assets/powered-by-arav.webp" />
+              <img
+                src="/assets/powered-by-arav.webp"
+                alt="Powered by Arav Innovations - Elevating Brands, One Click at a Time"
+                width={380}
+                height={127}
+                loading="lazy"
+                decoding="async"
+                className="h-9 sm:h-11 w-auto object-contain drop-shadow-sm"
+              />
+            </picture>
           </a>
           <span className="text-xs text-terracotta-muted font-medium text-center sm:text-right">
             Powered by Arav Innovations • Elevating Brands, One Click at a Time.

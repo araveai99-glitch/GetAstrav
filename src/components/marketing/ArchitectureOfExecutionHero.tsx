@@ -340,13 +340,19 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       <div className="hidden lg:block relative w-full">
         <div className="relative w-full aspect-[1806/871] overflow-hidden">
           {/* Panoramic Clean Reference Backdrop (Crisp with Zero Stretching) */}
-          <img
-            src="/assets/golden_hour_glass_tech_hub.png"
-            alt="FounderOS Executive Organization Command Center"
-            className="w-full h-full object-cover block select-none pointer-events-none"
-            loading="eager"
-            decoding="async"
-          />
+          <picture>
+            <source type="image/webp" srcSet="/assets/golden_hour_glass_tech_hub.webp" />
+            <img
+              src="/assets/golden_hour_glass_tech_hub.webp"
+              alt="FounderOS Executive Organization Command Center"
+              width={1806}
+              height={871}
+              className="w-full h-full object-cover block select-none pointer-events-none"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </picture>
 
           {/* ============================================================ */}
           {/* ACCESSIBLE SEO LAYER (Screen Readers & Search Engines)       */}
@@ -724,8 +730,19 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       {/* ============================================================ */}
       {/* MOBILE / TABLET VIEW (<1024px): CLOSE TO REFERENCE IMAGE 1   */}
       {/* ============================================================ */}
-      <div className="lg:hidden max-w-xl mx-auto px-4 sm:px-6 space-y-7 text-left pb-12 pt-3 sm:pt-4">
-        {/* Headline & Supporting Text */}
+      <div className="lg:hidden max-w-xl mx-auto px-4 sm:px-6 space-y-7 text-left pb-12">
+        {/* 1. Brand Kicker Badge: FOUNDEROS WORKSPACE V4.8 */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e936f]"></span>
+          </span>
+          <span className="text-[11px] font-heading font-extrabold tracking-widest text-[#2e936f] uppercase">
+            FOUNDEROS WORKSPACE V4.8
+          </span>
+        </div>
+
+        {/* 2. Headline & Supporting Text */}
         <div className="space-y-3.5">
           <h1 className="text-[34px] xs:text-[38px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading">
             Your Entire Company<br />
@@ -781,12 +798,27 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
         {/* ============================================================ */}
         <div className="relative w-full aspect-[1306/871] rounded-2xl sm:rounded-3xl overflow-hidden shadow-warm-lg border border-brand-peach/80 bg-[#1e130c] select-none">
           {/* Office Scene Image with Founder looking at mobile phone */}
-          <img
-            src="/assets/golden_hour_tech_hub_mobile.png"
-            alt="FounderOS Command Center Hub"
-            className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
-            loading="eager"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              media="(max-width: 640px)"
+              srcSet="/assets/golden_hour_tech_hub_mobile_sm.webp"
+            />
+            <source
+              type="image/webp"
+              srcSet="/assets/golden_hour_tech_hub_mobile.webp"
+            />
+            <img
+              src="/assets/golden_hour_tech_hub_mobile.webp"
+              alt="FounderOS Command Center Hub"
+              width={1306}
+              height={871}
+              className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </picture>
 
           {/* Glowing Animated Warm Orange SVG Connector Lines */}
           <svg

@@ -93,13 +93,18 @@ export const FounderInsightsSection: React.FC = () => {
             <div className="relative w-full rounded-3xl overflow-hidden border border-brand-peach/30 shadow-warm-lg bg-surface-ambient group">
               {/* Full 16:9 Unblurred Founder Desk Artwork (Zero baked UI text) */}
               <div className="relative w-full aspect-[16/9] overflow-hidden bg-transparent">
-                <img
-                  src="/assets/founder_desk_scene_hq.jpg"
-                  alt="Founder reviewing real-time company performance insights on dual displays in modern executive suite"
-                  className="w-full h-full object-cover block select-none pointer-events-none transition-transform duration-700 group-hover:scale-[1.015]"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <picture>
+                  <source type="image/webp" srcSet="/assets/founder_desk_scene_hq.webp" />
+                  <img
+                    src="/assets/founder_desk_scene_hq.webp"
+                    alt="Founder reviewing real-time company performance insights on dual displays in modern executive suite"
+                    width={1376}
+                    height={768}
+                    className="w-full h-full object-cover block select-none pointer-events-none transition-transform duration-700 group-hover:scale-[1.015]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
 
                 {/* Subtle ambient light gradient at top/edges for seamless contrast */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-black/10 pointer-events-none" />
