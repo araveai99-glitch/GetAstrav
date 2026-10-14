@@ -19,8 +19,8 @@ export const CTASection: React.FC = () => {
               <span className="text-[#f15e1c]">in One View?</span>
             </h2>
 
-            <p className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-xl">
-              Join modern founders who use FounderOS to turn strategy into execution.
+            <p className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-xl text-left sm:text-justify">
+              Join forward-thinking founders who run their organizations with clarity, velocity, and execution precision.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">

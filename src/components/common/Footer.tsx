@@ -17,8 +17,8 @@ export const Footer: React.FC = () => {
               </div>
               <span className="font-extrabold text-2xl text-espresso tracking-tight">GetAstrav</span>
             </div>
-            <p className="text-lg sm:text-xl text-terracotta leading-relaxed max-w-xl font-normal">
-              The goal-driven organization operating system with automated mathematical progress rollups, AI goal decomposition, and enterprise RBAC.
+            <p className="text-base sm:text-lg text-terracotta leading-relaxed max-w-xl font-normal text-left sm:text-justify">
+              The goal-driven operating system with automated progress rollups, AI planning, and enterprise governance.
             </p>
           </div>
 

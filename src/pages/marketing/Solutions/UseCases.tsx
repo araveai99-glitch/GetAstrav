@@ -11,8 +11,8 @@ export const UseCases: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso">
           Tailored for High-Growth Enterprise Organizations
         </h1>
-        <p className="text-base text-terracotta leading-relaxed">
-          From multi-department engineering alignment to automated executive reporting.
+        <p className="text-base text-terracotta leading-relaxed text-left sm:text-justify max-w-2xl mx-auto">
+          Multi-department engineering alignment, automated executive reporting, and cross-team velocity.
         </p>
       </div>
       <CTASection />

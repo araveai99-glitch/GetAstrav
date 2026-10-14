@@ -11,8 +11,8 @@ export const About: React.FC = () => {
         <h1 className="brand-h1 text-espresso">
           The Team Behind FounderOS
         </h1>
-        <p className="brand-subtitle text-terracotta">
-          We build enterprise command operating systems designed to align high-level strategy with daily sprint execution on autopilot.
+        <p className="brand-subtitle text-terracotta text-left sm:text-justify max-w-2xl mx-auto">
+          We build executive operating systems designed to align high-level strategy with daily execution.
         </p>
       </div>
       <CTASection />

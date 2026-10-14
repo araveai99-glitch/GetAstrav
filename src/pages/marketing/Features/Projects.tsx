@@ -12,8 +12,8 @@ export const Projects: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso">
           Project Execution Containers
         </h1>
-        <p className="text-base text-terracotta leading-relaxed">
-          Projects house strategic goals, documentation specs, and team assignments, tracking computed progress continuously.
+        <p className="text-base text-terracotta leading-relaxed text-left sm:text-justify max-w-2xl mx-auto">
+          Projects house strategic goals, documentation specs, and team assignments with continuous progress tracking.
         </p>
       </div>
       <CTASection />

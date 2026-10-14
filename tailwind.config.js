@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '380px',
+      },
       colors: {
         // Standard Colours (Colour palette strictly defined)
         'brand-orange': '#f15e1c',        // Primary Orange (CTAs, Highlights)

@@ -38,6 +38,11 @@ interface DepartmentHotspot {
   top: string;
   width: string;
   height: string;
+  // Mobile specific coordinates on the 1306x871 mobile visual container
+  mobileLeft: string;
+  mobileTop: string;
+  mobileWidth: string;
+  mobileHeight: string;
   head: string;
   activeTasks: number;
   milestones: string;
@@ -62,6 +67,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     top: '18.1%',
     width: '12.8%',
     height: '10.6%',
+    mobileLeft: '3.5%',
+    mobileTop: '7%',
+    mobileWidth: '20.5%',
+    mobileHeight: '19%',
     head: 'Elena Vance (VP Product)',
     activeTasks: 14,
     milestones: '3/4 Milestones Completed',
@@ -88,6 +97,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     top: '18.1%',
     width: '12.8%',
     height: '10.6%',
+    mobileLeft: '25.5%',
+    mobileTop: '7%',
+    mobileWidth: '20.5%',
+    mobileHeight: '19%',
     head: 'Marcus Thorne (CTO)',
     activeTasks: 22,
     milestones: '4/6 Milestones Completed',
@@ -114,6 +127,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     top: '18.1%',
     width: '12.8%',
     height: '10.6%',
+    mobileLeft: '47.5%',
+    mobileTop: '7%',
+    mobileWidth: '20.5%',
+    mobileHeight: '19%',
     head: 'Sarah Jenkins (Growth Lead)',
     activeTasks: 9,
     milestones: '2/4 Milestones Completed',
@@ -141,6 +158,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     top: '43.6%',
     width: '12.8%',
     height: '10.6%',
+    mobileLeft: '3.5%',
+    mobileTop: '35%',
+    mobileWidth: '20.5%',
+    mobileHeight: '19%',
     head: 'Priya Roy (Head of Revenue)',
     activeTasks: 18,
     milestones: '3/5 Milestones Completed',
@@ -167,6 +188,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     top: '43.6%',
     width: '12.8%',
     height: '10.6%',
+    mobileLeft: '25.5%',
+    mobileTop: '35%',
+    mobileWidth: '20.5%',
+    mobileHeight: '19%',
     head: 'Devon Lee (People Operations)',
     activeTasks: 6,
     milestones: '4/4 Milestones Completed',
@@ -193,6 +218,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     top: '43.6%',
     width: '12.8%',
     height: '10.6%',
+    mobileLeft: '47.5%',
+    mobileTop: '35%',
+    mobileWidth: '20.5%',
+    mobileHeight: '19%',
     head: 'Arthur Pendelton (Finance VP)',
     activeTasks: 8,
     milestones: '2/4 Milestones Completed',
@@ -214,6 +243,7 @@ interface NotificationHotspot {
   top: string;
   width: string;
   height: string;
+  mobileTop: string;
   icon: React.ElementType;
   iconBg: string;
   iconColor: string;
@@ -231,6 +261,7 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     top: '17.4%',
     width: '16.6%',
     height: '7.6%',
+    mobileTop: '7%',
     icon: Megaphone,
     iconBg: 'bg-[#fceade]',
     iconColor: 'text-[#f15e1c]',
@@ -246,6 +277,7 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     top: '27.0%',
     width: '16.6%',
     height: '7.6%',
+    mobileTop: '20.5%',
     icon: Code,
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
@@ -261,6 +293,7 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     top: '36.6%',
     width: '16.6%',
     height: '7.6%',
+    mobileTop: '34%',
     icon: BarChart3,
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
@@ -365,8 +398,8 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             </h1>
 
             {/* Supporting Paragraph */}
-            <p className="text-xs xl:text-sm 2xl:text-base text-[#5a4138] font-body leading-relaxed mb-5 xl:mb-6 max-w-[420px]">
-              Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
+            <p className="text-xs xl:text-sm 2xl:text-base text-[#5a4138] font-body leading-relaxed mb-5 xl:mb-6 max-w-[420px] text-justify">
+              Connect goals, teams, and daily execution across every department. Spot delays early and run your company with total clarity.
             </p>
 
             {/* CTA Buttons */}
@@ -626,8 +659,8 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
                 Goal-Driven Execution
               </h4>
-              <p className="text-xs text-terracotta leading-relaxed mt-1">
-                Every project, task, and daily milestone rolls up directly into company North Star goals.
+              <p className="text-xs text-terracotta leading-relaxed mt-1 text-justify">
+                Projects, milestones, and daily tasks roll up directly into company North Star goals.
               </p>
             </div>
 
@@ -644,8 +677,8 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
                 AI-Powered Planning
               </h4>
-              <p className="text-xs text-terracotta leading-relaxed mt-1">
-                Proactively detects project blockers, overdue tasks, and resource clashes before they cause delays.
+              <p className="text-xs text-terracotta leading-relaxed mt-1 text-justify">
+                Detects project blockers, overdue tasks, and resource clashes before delays happen.
               </p>
             </div>
 
@@ -662,8 +695,8 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
                 Real Progress Visibility
               </h4>
-              <p className="text-xs text-terracotta leading-relaxed mt-1">
-                Unfiltered live velocity across Product, Engineering, Marketing, Sales, HR & Finance.
+              <p className="text-xs text-terracotta leading-relaxed mt-1 text-justify">
+                Live, unfiltered execution velocity across Product, Engineering, Marketing, Sales, HR, and Finance.
               </p>
             </div>
 
@@ -680,8 +713,8 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
                 Built for Founders
               </h4>
-              <p className="text-xs text-terracotta leading-relaxed mt-1">
-                Stay fully in control of cross-team execution with zero micromanagement or status meetings.
+              <p className="text-xs text-terracotta leading-relaxed mt-1 text-justify">
+                Total control of cross-team execution with zero micromanagement or status meetings.
               </p>
             </div>
           </div>
@@ -689,10 +722,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       </div>
 
       {/* ============================================================ */}
-      {/* MOBILE / TABLET VIEW (<1024px): RESPONSIVE STACKED LAYOUT    */}
+      {/* MOBILE / TABLET VIEW (<1024px): CLOSE TO REFERENCE IMAGE 1   */}
       {/* ============================================================ */}
-      <div className="lg:hidden max-w-xl mx-auto px-4 sm:px-6 space-y-8 text-left pb-12">
-        {/* Brand Kicker Badge */}
+      <div className="lg:hidden max-w-xl mx-auto px-4 sm:px-6 space-y-7 text-left pb-12">
+        {/* 1. Brand Kicker Badge: FOUNDEROS WORKSPACE V4.8 */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
@@ -703,22 +736,22 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           </span>
         </div>
 
-        {/* Headline */}
-        <div className="space-y-4">
-          <h1 className="text-[36px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.1] tracking-[-0.03em] font-heading">
+        {/* 2. Headline & Supporting Text */}
+        <div className="space-y-3.5">
+          <h1 className="text-[34px] xs:text-[38px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading">
             Your Entire Company<br />
             In <span className="text-[#f15e1c]">One View.</span>
           </h1>
-          <p className="text-sm sm:text-base text-[#5a4138] font-body leading-relaxed">
+          <p className="text-sm sm:text-base text-[#5a4138] font-body leading-relaxed text-justify">
             Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
           </p>
         </div>
 
-        {/* CTAs */}
-        <div className="flex flex-wrap items-center gap-3">
+        {/* 3. CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
           <Link
             to="/product"
-            className="inline-flex items-center justify-center gap-2 text-sm font-heading font-bold text-white bg-[#f15e1c] hover:bg-[#d94e10] px-6 py-3 rounded-full shadow-lg shadow-[#f15e1c]/30 transition-all cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 text-sm sm:text-base font-heading font-bold text-white bg-[#f15e1c] hover:bg-[#d94e10] px-6 py-3.5 rounded-full shadow-lg shadow-[#f15e1c]/30 active:scale-[0.98] transition-all cursor-pointer"
           >
             <Layers className="w-4.5 h-4.5 text-white" />
             <span>Explore FounderOS</span>
@@ -727,15 +760,15 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
           <a
             href="#how-it-works"
-            className="inline-flex items-center justify-center gap-2 text-sm font-heading font-bold text-[#271812] bg-white px-5 py-3 rounded-full border border-brand-peach shadow-warm-sm cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 text-sm sm:text-base font-heading font-bold text-[#271812] bg-white hover:bg-gray-50 px-6 py-3.5 rounded-full border border-brand-peach shadow-warm-sm active:scale-[0.98] transition-all cursor-pointer"
           >
             <Play className="w-4 h-4 text-[#271812] fill-[#271812]/15" />
             <span>See How It Works</span>
           </a>
         </div>
 
-        {/* 4 Value Props */}
-        <div className="pt-4 border-t border-brand-peach/40 grid grid-cols-2 gap-3 text-xs font-heading">
+        {/* 4. Four Value Prop Highlights (2x2 Grid) */}
+        <div className="pt-2 border-t border-brand-peach/40 grid grid-cols-2 gap-x-4 gap-y-3 text-xs sm:text-sm font-heading">
           <div className="flex items-center gap-2 font-bold text-[#271812]">
             <Target className="w-4 h-4 text-[#f15e1c] shrink-0" />
             <span>Goal-Driven Execution</span>
@@ -754,36 +787,295 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           </div>
         </div>
 
-        {/* Panoramic Mobile Visual Container */}
-        <div className="relative w-full rounded-2xl overflow-hidden shadow-warm-lg border border-brand-peach/60 aspect-[1806/871] bg-[#faf6f0]">
+        {/* ============================================================ */}
+        {/* 5. OFFICE SCENE VISUAL CONTAINER WITH OVERLAID CARDS         */}
+        {/* ============================================================ */}
+        <div className="relative w-full aspect-[1306/871] rounded-2xl sm:rounded-3xl overflow-hidden shadow-warm-lg border border-brand-peach/80 bg-[#1e130c] select-none">
+          {/* Office Scene Image with Founder looking at mobile phone */}
           <img
-            src="/assets/golden_hour_glass_tech_hub.png"
-            alt="FounderOS Command Center"
-            className="w-full h-full object-cover"
-            loading="lazy"
+            src="/assets/golden_hour_tech_hub_mobile.png"
+            alt="FounderOS Command Center Hub"
+            className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
+            loading="eager"
           />
-        </div>
 
-        {/* Mobile Quick Department Switcher */}
-        <div className="space-y-2">
-          <span className="text-[11px] font-heading font-extrabold uppercase tracking-wider text-terracotta-muted block">
-            Tap Department to Inspect
-          </span>
-          <div className="grid grid-cols-3 gap-2">
-            {DEPARTMENTS.map((dept) => (
-              <button
+          {/* Glowing Animated Warm Orange SVG Connector Lines */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none z-10"
+            viewBox="0 0 1000 667"
+            fill="none"
+          >
+            {/* Vertical connector lines between Row 1 and Row 2 */}
+            <path
+              d="M 138 174 L 138 234"
+              stroke="#ea580c"
+              strokeWidth="2.5"
+              strokeDasharray="4 3"
+              className="animate-dash-flow"
+              opacity="0.85"
+            />
+            <path
+              d="M 358 174 L 358 234"
+              stroke="#ea580c"
+              strokeWidth="2.5"
+              strokeDasharray="4 3"
+              className="animate-dash-flow"
+              opacity="0.85"
+            />
+            <path
+              d="M 578 174 L 578 234"
+              stroke="#ea580c"
+              strokeWidth="2.5"
+              strokeDasharray="4 3"
+              className="animate-dash-flow"
+              opacity="0.85"
+            />
+
+            {/* Connector Lines from Row 2 converging down into Company Goal */}
+            {/* Sales (Col 1) to Goal left */}
+            <path
+              d="M 138 358 L 138 392 L 245 392 L 245 427"
+              stroke="#ea580c"
+              strokeWidth="2.5"
+              strokeDasharray="4 3"
+              className="animate-dash-flow"
+              opacity="0.9"
+            />
+            {/* HR (Col 2) to Goal center */}
+            <path
+              d="M 358 358 L 358 427"
+              stroke="#ea580c"
+              strokeWidth="2.5"
+              strokeDasharray="4 3"
+              className="animate-dash-flow"
+              opacity="0.9"
+            />
+            {/* Finance (Col 3) to Goal right */}
+            <path
+              d="M 578 358 L 578 392 L 465 392 L 465 427"
+              stroke="#ea580c"
+              strokeWidth="2.5"
+              strokeDasharray="4 3"
+              className="animate-dash-flow"
+              opacity="0.9"
+            />
+
+            {/* Glowing Bus Junction Nodes */}
+            <circle cx="138" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="245" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="358" cy="392" r="3.5" fill="#2e936f" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="465" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="578" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
+
+            {/* Goal Top Anchor Nodes */}
+            <circle cx="245" cy="427" r="3" fill="#2e936f" />
+            <circle cx="358" cy="427" r="3.5" fill="#2e936f" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="465" cy="427" r="3" fill="#2e936f" />
+          </svg>
+
+          {/* Overlaid 6 Department Cards in 2 Rows of 3 */}
+          {/* Row 1: Product, Engineering, Marketing */}
+          {/* Row 2: Sales, HR, Finance */}
+          {DEPARTMENTS.map((dept) => {
+            const isSelected = selectedDept?.id === dept.id;
+
+            return (
+              <div
                 key={dept.id}
                 onClick={() => setSelectedDept(dept)}
-                className="p-2.5 rounded-xl bg-white border border-brand-peach/60 shadow-warm-xs flex flex-col items-center gap-1 text-center cursor-pointer hover:border-brand-orange"
+                className={`absolute z-20 rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_4px_14px_rgba(0,0,0,0.12)] p-1 xs:p-1.5 sm:p-2 flex flex-col justify-between cursor-pointer select-none active:scale-95 transition-all group overflow-hidden ${
+                  isSelected ? 'ring-2 ring-brand-orange bg-white' : 'hover:border-brand-orange/50'
+                }`}
+                style={{
+                  left: dept.mobileLeft,
+                  top: dept.mobileTop,
+                  width: dept.mobileWidth,
+                  height: dept.mobileHeight,
+                }}
+                title={`Click to inspect ${dept.name} (${dept.progress} - ${dept.statusText})`}
               >
-                <dept.icon className={`w-4 h-4 ${dept.iconColor}`} />
-                <span className="font-heading font-extrabold text-xs text-espresso">
-                  {dept.name}
+                {/* Top Row: Icon + Name */}
+                <div className="flex items-center gap-1 xs:gap-1.5 min-w-0">
+                  <div
+                    className={`w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 rounded-md ${dept.iconBg} flex items-center justify-center shrink-0`}
+                  >
+                    <dept.icon className={`w-2 h-2 xs:w-2.5 xs:h-2.5 sm:w-3 sm:h-3 ${dept.iconColor}`} />
+                  </div>
+                  <span className="font-heading font-extrabold text-[#271812] text-[8px] xs:text-[9.5px] sm:text-xs leading-none truncate">
+                    {dept.name}
+                  </span>
+                </div>
+
+                {/* Bottom Row: Percentage + Progress Bar + Sparkline */}
+                <div className="flex items-end justify-between w-full gap-1 mt-0.5">
+                  <div className="min-w-0 flex-1">
+                    <span className="font-heading font-extrabold text-[#271812] text-[9px] xs:text-[11px] sm:text-xs leading-none block mb-0.5">
+                      {dept.progress}
+                    </span>
+                    <div className="w-full h-0.5 xs:h-1 bg-gray-100 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full ${dept.barColor} rounded-full transition-all duration-500`}
+                        style={{ width: dept.progress }}
+                      />
+                    </div>
+                  </div>
+                  <div className="w-4 xs:w-5 sm:w-6 h-2 xs:h-2.5 sm:h-3 shrink-0 flex items-center justify-end">
+                    <svg viewBox="0 0 36 16" className="w-full h-full overflow-visible" fill="none">
+                      <path
+                        d={dept.sparklinePath}
+                        stroke={dept.sparklineColor}
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+
+          {/* Central Company Goal Card (Lower Middle Left) */}
+          <div
+            onClick={() => setCompanyGoalModalOpen(true)}
+            className="absolute z-20 rounded-xl xs:rounded-2xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_6px_20px_rgba(46,147,111,0.22),0_2px_4px_rgba(0,0,0,0.06)] p-1.5 xs:p-2 sm:p-2.5 cursor-pointer active:scale-95 transition-all select-none group flex flex-col justify-between"
+            style={{
+              left: '14%',
+              top: '64%',
+              width: '43%',
+              height: '24%',
+            }}
+            title="Company Goal: Launch Product V2 (72%) - Click to inspect"
+          >
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center gap-1 xs:gap-1.5 sm:gap-2 min-w-0">
+                <div className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 rounded-md bg-[#fceade] flex items-center justify-center shrink-0">
+                  <Target className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 text-[#f15e1c]" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[7px] xs:text-[8px] sm:text-[9px] font-heading font-extrabold text-[#2e936f] uppercase tracking-wider block leading-none mb-0.5">
+                    Company Goal
+                  </span>
+                  <span className="font-heading font-extrabold text-[#271812] text-[8.5px] xs:text-[10px] sm:text-xs leading-none truncate block">
+                    Launch Product V2
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center gap-0.5 shrink-0">
+                <span className="font-heading font-extrabold text-[#2e936f] text-[10px] xs:text-xs sm:text-sm">
+                  72%
                 </span>
-                <span className="text-[10px] font-mono font-bold text-terracotta-muted">
-                  {dept.progress}
-                </span>
-              </button>
+                <ChevronRight className="w-3 h-3 text-gray-400 group-hover:text-[#2e936f] group-hover:translate-x-0.5 transition-all" />
+              </div>
+            </div>
+
+            <div className="w-full h-1 xs:h-1.5 bg-gray-100 rounded-full overflow-hidden mt-0.5">
+              <div
+                className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full transition-all duration-500"
+                style={{ width: '72%' }}
+              />
+            </div>
+          </div>
+
+          {/* Three Recent Activity Notification Cards (Stacked Vertically on Right) */}
+          <div
+            className="absolute z-20 flex flex-col gap-1 xs:gap-1.5 sm:gap-2"
+            style={{
+              right: '2.5%',
+              top: '7%',
+              width: '27%',
+            }}
+          >
+            {NOTIFICATIONS.map((notif) => (
+              <div
+                key={notif.id}
+                onClick={() => setActiveNotif(notif)}
+                className="rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_3px_10px_rgba(0,0,0,0.1)] p-1 xs:p-1.5 flex items-center justify-between cursor-pointer active:scale-95 transition-all select-none group"
+                title={`Click to view ${notif.dept} update`}
+              >
+                <div className="flex items-center gap-1 min-w-0">
+                  <div
+                    className={`w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 rounded-md ${notif.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
+                  >
+                    <notif.icon className={`w-2 h-2 xs:w-2.5 xs:h-2.5 sm:w-3 sm:h-3 ${notif.iconColor}`} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="font-heading font-extrabold text-[#271812] text-[8px] xs:text-[9px] sm:text-[10px] leading-tight block truncate">
+                      {notif.dept}
+                    </span>
+                    <span className="text-[6.5px] xs:text-[7.5px] sm:text-[8.5px] text-gray-500 font-medium leading-none block truncate">
+                      {notif.action}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-end shrink-0 gap-0.5 ml-1">
+                  {notif.isCheck ? (
+                    <CheckCircle2 className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 text-[#2e936f]" />
+                  ) : (
+                    <AlertTriangle className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 text-[#ea580c]" />
+                  )}
+                  <span
+                    className={`text-[6.5px] xs:text-[7px] sm:text-[8px] font-heading font-bold whitespace-nowrap ${
+                      notif.isCheck ? 'text-[#2e936f]' : 'text-[#ea580c]'
+                    }`}
+                  >
+                    {notif.time}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Founder Executive Mobile Sync Hotspot (Bottom-Right, over phone and desk) */}
+          <div
+            onClick={() => setMobileSyncOpen(true)}
+            className="absolute z-20 cursor-pointer group"
+            style={{
+              right: '2%',
+              bottom: '2%',
+              width: '32%',
+              height: '46%',
+            }}
+            title="Executive Mobile Sync Stream - Click to view real-time feed"
+          >
+            <div className="absolute inset-0 rounded-2xl transition-all duration-300 group-hover:ring-2 group-hover:ring-brand-orange group-hover:bg-brand-orange/15 group-hover:shadow-[0_0_24px_rgba(241,94,28,0.45)]" />
+          </div>
+        </div>
+
+        {/* ============================================================ */}
+        {/* 6. TAP DEPARTMENT TO INSPECT (3-COLUMN GRID)                 */}
+        {/* ============================================================ */}
+        <div className="space-y-2.5 pt-2">
+          <h3 className="text-[11px] sm:text-xs font-heading font-extrabold uppercase tracking-wider text-terracotta-muted">
+            TAP DEPARTMENT TO INSPECT
+          </h3>
+
+          <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
+            {DEPARTMENTS.map((dept) => (
+              <div
+                key={dept.id}
+                onClick={() => setSelectedDept(dept)}
+                className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl bg-white border border-brand-peach/80 shadow-[0_2px_8px_rgba(42,26,20,0.04)] hover:border-brand-orange/50 hover:shadow-warm-sm transition-all cursor-pointer flex items-center justify-between group active:scale-[0.98] select-none"
+                title={`Inspect ${dept.name} Department (${dept.progress})`}
+              >
+                <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                  <div
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full ${dept.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
+                  >
+                    <dept.icon className={`w-3.5 h-3.5 ${dept.iconColor}`} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="font-heading font-extrabold text-[11px] sm:text-xs text-[#271812] leading-tight truncate block">
+                      {dept.name}
+                    </span>
+                    <span className="font-heading font-bold text-[10px] sm:text-[11px] text-[#5a4138] leading-tight block mt-0.5">
+                      {dept.progress}
+                    </span>
+                  </div>
+                </div>
+                <ChevronRight className="w-3.5 h-3.5 text-stone-400 group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
+              </div>
             ))}
           </div>
         </div>

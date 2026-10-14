@@ -12,8 +12,8 @@ export const GoalsProgress: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso">
           Automated Mathematical Rollup Engine
         </h1>
-        <p className="text-base text-terracotta leading-relaxed">
-          Track work from subtask checklists up to executive dashboards with mathematical precision. Executive overrides give founders total control over reported figures.
+        <p className="text-base text-terracotta leading-relaxed text-left sm:text-justify max-w-2xl mx-auto">
+          Track work from tasks up to executive dashboards with mathematical precision and founder override control.
         </p>
       </div>
 

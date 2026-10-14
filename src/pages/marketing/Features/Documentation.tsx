@@ -12,8 +12,8 @@ export const Documentation: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso">
           Project Documentation & Version Specs
         </h1>
-        <p className="text-base text-terracotta leading-relaxed">
-          TipTap rich text editor integration for writing technical specs directly attached to project execution containers with version history logs.
+        <p className="text-base text-terracotta leading-relaxed text-left sm:text-justify max-w-2xl mx-auto">
+          Rich documentation and technical specs attached directly to project execution containers with version logs.
         </p>
       </div>
       <CTASection />

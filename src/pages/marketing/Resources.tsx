@@ -11,8 +11,8 @@ export const Resources: React.FC = () => {
         <h1 className="brand-h1 text-espresso">
           Architecture Whitepapers & OKR Guides
         </h1>
-        <p className="brand-subtitle text-terracotta">
-          Deep dives into 7-level hierarchy orchestration, mathematical rollup engineering, and Gemini AI task decomposition.
+        <p className="brand-subtitle text-terracotta text-left sm:text-justify max-w-2xl mx-auto">
+          Executive whitepapers on 7-level hierarchy orchestration, rollup engineering, and AI planning.
         </p>
       </div>
       <CTASection />

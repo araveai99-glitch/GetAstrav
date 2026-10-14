@@ -12,8 +12,8 @@ export const Analytics: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso">
           Dual-Mode Executive & Employee Radar
         </h1>
-        <p className="text-base text-terracotta leading-relaxed">
-          Executive KPI dashboards for owners and managers alongside personal streak counters and urgency-sorted task feeds for contributors.
+        <p className="text-base text-terracotta leading-relaxed text-left sm:text-justify max-w-2xl mx-auto">
+          Executive KPI dashboards for leadership alongside personal streak counters and focus feeds for contributors.
         </p>
       </div>
       <CTASection />

@@ -11,8 +11,8 @@ export const Founders: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso">
           From Founder Vision to Automated Autopilot
         </h1>
-        <p className="text-base text-terracotta leading-relaxed">
-          Never sit in manual status meetings again. Get automated mathematical progress rollups and executive override controls.
+        <p className="text-base text-terracotta leading-relaxed text-left sm:text-justify max-w-2xl mx-auto">
+          Automated progress rollups and executive override controls—with zero status meetings.
         </p>
       </div>
       <CTASection />

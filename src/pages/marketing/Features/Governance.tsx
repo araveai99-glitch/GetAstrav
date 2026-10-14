@@ -12,8 +12,8 @@ export const Governance: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso">
           Composable Scoped RBAC & Zero-Owner Protections
         </h1>
-        <p className="text-base text-terracotta leading-relaxed">
-          Bank-grade Row Level Security with scoped department and project access grants. Sole owner deletion is strictly blocked at the database layer.
+        <p className="text-base text-terracotta leading-relaxed text-left sm:text-justify max-w-2xl mx-auto">
+          Row-Level Security with scoped department and project access grants, backed by automated zero-owner protections.
         </p>
       </div>
       <CTASection />

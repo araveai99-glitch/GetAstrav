@@ -12,8 +12,8 @@ export const Teams: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso">
           Cross-Functional Agile Pods
         </h1>
-        <p className="text-base text-terracotta leading-relaxed">
-          Group organization members into cross-functional teams that span projects and departments with explicit UUID identity tracking.
+        <p className="text-base text-terracotta leading-relaxed text-left sm:text-justify max-w-2xl mx-auto">
+          Group members into high-velocity agile pods that span projects and departments with clear ownership.
         </p>
       </div>
       <CTASection />

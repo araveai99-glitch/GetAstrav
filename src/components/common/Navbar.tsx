@@ -49,26 +49,26 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/75 backdrop-blur-2xl border-b border-brand-peach/60 shadow-warm-sm h-18 sm:h-20'
-          : 'bg-white/40 backdrop-blur-xl border-b border-brand-peach/30 shadow-none h-20 sm:h-22'
+          ? 'bg-[#faf6f0]/95 backdrop-blur-2xl border-b border-brand-peach/60 shadow-warm-sm h-16 sm:h-20'
+          : 'bg-[#faf6f0]/90 backdrop-blur-xl border-b border-brand-peach/40 shadow-none h-16 sm:h-20'
       }`}
     >
       <div
         ref={dropdownRef}
-        className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 h-full flex items-center justify-between gap-6"
+        className="max-w-[1600px] mx-auto px-3 sm:px-6 lg:px-10 h-full flex items-center justify-between gap-2 sm:gap-6"
       >
         {/* LEFT: Brand Logo - GetAstrav */}
-        <Link to="/" className="flex items-center gap-3 group shrink-0">
-          <div className="w-10 h-10 rounded-xl bg-brand-orange text-white p-0.5 shadow-sm shadow-brand-orange/30 group-hover:scale-105 transition-transform flex items-center justify-center">
-            <div className="w-full h-full bg-brand-orange rounded-[10px] flex items-center justify-center">
-              <Layers className="w-5.5 h-5.5 text-white" />
+        <Link to="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-brand-orange text-white p-0.5 shadow-sm shadow-brand-orange/30 group-hover:scale-105 transition-transform flex items-center justify-center shrink-0">
+            <div className="w-full h-full bg-brand-orange rounded-[9px] sm:rounded-[10px] flex items-center justify-center">
+              <Layers className="w-4.5 h-4.5 sm:w-5.5 sm:h-5.5 text-white" />
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="font-heading font-extrabold text-lg sm:text-xl tracking-tight text-espresso leading-none group-hover:text-brand-orange transition-colors">
+            <span className="font-heading font-extrabold text-[15px] sm:text-xl tracking-tight text-espresso leading-none group-hover:text-brand-orange transition-colors">
               GetAstrav
             </span>
-            <span className="text-[10px] font-heading font-extrabold tracking-[0.2em] text-brand-orange uppercase mt-0.5">
+            <span className="text-[8.5px] sm:text-[10px] font-heading font-extrabold tracking-[0.16em] sm:tracking-[0.2em] text-brand-orange uppercase mt-0.5">
               COMMAND CENTER
             </span>
           </div>
@@ -366,19 +366,19 @@ export const Navbar: React.FC = () => {
                 navigate('/#conversion-cta');
               }
             }}
-            className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-md shadow-brand-orange/30 transition-all hover:-translate-y-0.5 active:translate-y-0 group cursor-pointer"
+            className="inline-flex items-center justify-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-3.5 sm:px-6 py-2 sm:py-3 rounded-full shadow-md shadow-brand-orange/30 transition-all hover:-translate-y-0.5 active:translate-y-0 group cursor-pointer shrink-0"
           >
             <span>Book a Demo</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
           </a>
 
           {/* Mobile Drawer Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-terracotta hover:text-espresso focus:outline-none"
+            className="lg:hidden p-1.5 sm:p-2 text-espresso hover:text-brand-orange focus:outline-none shrink-0"
             aria-label="Toggle navigation"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-6 h-6 text-espresso" /> : <Menu className="w-6 h-6 text-espresso" />}
           </button>
         </div>
       </div>

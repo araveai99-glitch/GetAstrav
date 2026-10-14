@@ -12,8 +12,8 @@ export const Automation: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso">
           Automated Reminders & Overdue Alerts
         </h1>
-        <p className="text-base text-terracotta leading-relaxed">
-          Deno Edge Functions and Resend API dispatch automated email reminders for custom scheduled events and tasks overdue by 15+ days.
+        <p className="text-base text-terracotta leading-relaxed text-left sm:text-justify max-w-2xl mx-auto">
+          Automated email reminders and scheduled alerts for milestones and overdue tasks.
         </p>
       </div>
       <CTASection />

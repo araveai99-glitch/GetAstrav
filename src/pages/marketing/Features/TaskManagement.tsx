@@ -12,8 +12,8 @@ export const TaskManagement: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso">
           Task Execution & Manager Approvals
         </h1>
-        <p className="text-base text-terracotta leading-relaxed">
-          Enforce quality checks before completing tasks. Subtask checklists, dependency locking via blocked_by keys, and contextual discussion streams ensure complete clarity.
+        <p className="text-base text-terracotta leading-relaxed text-left sm:text-justify max-w-2xl mx-auto">
+          Enforce quality checks, subtask dependencies, and contextual team discussions with complete clarity.
         </p>
       </div>
       <CTASection />

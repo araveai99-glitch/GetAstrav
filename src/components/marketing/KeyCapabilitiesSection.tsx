@@ -17,7 +17,7 @@ const CAPABILITIES: CapabilityCard[] = [
   {
     id: 'goals',
     title: 'Goals & Milestones',
-    description: 'Set ambitious goals and break them into clear milestones and tasks.',
+    description: 'Set strategic North Star goals with automated mathematical rollups.',
     icon: Target,
     iconBg: 'bg-[#fceade]',
     iconColor: 'text-brand-orange',
@@ -26,7 +26,7 @@ const CAPABILITIES: CapabilityCard[] = [
   {
     id: 'collaboration',
     title: 'Team Collaboration',
-    description: 'Assign work, review progress and keep everyone aligned.',
+    description: 'Cross-functional alignment with clear ownership and zero friction.',
     icon: Users,
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
@@ -35,7 +35,7 @@ const CAPABILITIES: CapabilityCard[] = [
   {
     id: 'ai',
     title: 'AI-Powered Planning',
-    description: 'Get intelligent task suggestions and daily priorities using AI.',
+    description: 'Predictive planning, daily focus priorities, and blocker detection.',
     icon: Sparkles,
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
@@ -44,7 +44,7 @@ const CAPABILITIES: CapabilityCard[] = [
   {
     id: 'visibility',
     title: 'Real-Time Visibility',
-    description: 'Track progress, spot delays early and make better decisions.',
+    description: 'Live organizational velocity, early risk signals, and executive clarity.',
     icon: BarChart3,
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
@@ -83,8 +83,8 @@ export const KeyCapabilitiesSection: React.FC = () => {
                 Everything You Need to Run<br />
                 <span className="text-[#f15e1c]">Your Organization.</span>
               </h2>
-              <p className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-lg">
-                From planning to execution, FounderOS brings your entire company together in one powerful workspace.
+              <p className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-lg text-left sm:text-justify">
+                FounderOS unifies your strategy, teams, and execution into one executive workspace.
               </p>
             </div>
           </MotionWrapper>
@@ -124,7 +124,7 @@ export const KeyCapabilitiesSection: React.FC = () => {
                       </h3>
                       <ArrowUpRight className="w-4 h-4 text-terracotta-muted opacity-0 group-hover:opacity-100 group-hover:text-brand-orange transition-all duration-200" />
                     </div>
-                    <p className="text-xs sm:text-sm text-terracotta leading-relaxed mt-1.5 font-body">
+                    <p className="text-xs sm:text-sm text-terracotta leading-relaxed mt-1.5 font-body text-left sm:text-justify">
                       {card.description}
                     </p>
                   </div>

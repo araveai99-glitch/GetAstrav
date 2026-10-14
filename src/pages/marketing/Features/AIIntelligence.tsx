@@ -12,8 +12,8 @@ export const AIIntelligence: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso">
           Gemini 2.5 AI Co-Pilot for Goal Decomposition
         </h1>
-        <p className="text-base text-terracotta leading-relaxed">
-          Eliminate writer's block. FounderOS uses server-side Gemini API calls to decompose strategic goals into concrete task proposals with assigned deadlines and team members.
+        <p className="text-base text-terracotta leading-relaxed text-left sm:text-justify max-w-2xl mx-auto">
+          Decompose strategic goals into concrete task proposals with intelligent timelines and ownership.
         </p>
       </div>
 
@@ -21,7 +21,9 @@ export const AIIntelligence: React.FC = () => {
         <div className="p-6 bg-white rounded-2xl border border-brand-peach/60 shadow-warm-md space-y-3">
           <Sparkles className="w-6 h-6 text-brand-orange" />
           <h3 className="text-lg font-bold text-espresso">Today Focus Insights</h3>
-          <p className="text-xs text-terracotta">Analyzes active organization task telemetry to output the top 3 action items, risk bottlenecks, and daily productivity advice.</p>
+          <p className="text-xs text-terracotta text-left sm:text-justify">
+            Analyzes active task telemetry to surface top priorities, risk bottlenecks, and daily focus recommendations.
+          </p>
         </div>
         <div className="p-6 bg-white rounded-2xl border border-brand-peach/60 shadow-warm-md space-y-3">
           <Sparkles className="w-6 h-6 text-brand-yellow" />

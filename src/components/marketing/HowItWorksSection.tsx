@@ -422,22 +422,22 @@ export const HowItWorksSection: React.FC = () => {
               {
                 num: '1',
                 title: 'Set Company Goals',
-                desc: 'Define what you want to achieve and align your teams.',
+                desc: 'Define North Star goals and align every team around core outcomes.',
               },
               {
                 num: '2',
                 title: 'Break into Projects & Milestones',
-                desc: 'Turn strategy into actionable work.',
+                desc: 'Decompose strategy into actionable milestones and clear deliverables.',
               },
               {
                 num: '3',
                 title: 'Track Execution Automatically',
-                desc: 'See real-time progress across every department.',
+                desc: 'Live automated progress rollups across every department.',
               },
               {
                 num: '4',
                 title: 'Stay in Control',
-                desc: 'Get AI-powered insights, spot risks early, and keep everyone accountable.',
+                desc: 'AI-powered insights to spot risks early and maintain momentum.',
               },
             ].map((step, idx) => (
               <MotionWrapper key={step.num} delay={0.15 + idx * 0.08} direction="left">
@@ -449,7 +449,7 @@ export const HowItWorksSection: React.FC = () => {
                     <h4 className="font-heading font-bold text-base text-espresso group-hover:text-brand-orange transition-colors">
                       {step.title}
                     </h4>
-                    <p className="text-sm text-terracotta leading-relaxed mt-0.5">
+                    <p className="text-sm text-terracotta leading-relaxed mt-0.5 text-left sm:text-justify">
                       {step.desc}
                     </p>
                   </div>

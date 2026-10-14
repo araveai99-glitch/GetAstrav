@@ -13,8 +13,8 @@ export const Product: React.FC = () => {
         <h1 className="brand-h1 text-espresso">
           The Executive Command Operating System
         </h1>
-        <p className="brand-subtitle text-terracotta">
-          FounderOS bridges executive strategy with operational execution across a strict 7-level hierarchy. Explore our core pillars below.
+        <p className="brand-subtitle text-terracotta text-left sm:text-justify max-w-2xl mx-auto">
+          FounderOS bridges executive strategy with daily execution across a strict 7-level organizational hierarchy.
         </p>
       </div>
 
@@ -22,7 +22,9 @@ export const Product: React.FC = () => {
         <div className="p-6 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-md space-y-3">
           <Target className="w-6 h-6 text-brand-orange" />
           <h3 className="text-lg font-bold text-espresso">Automated Rollup Engine</h3>
-          <p className="text-xs text-terracotta">Leaf task completion mathematical ratios propagate continuously up into Milestones, Goals, Projects, and Departments.</p>
+          <p className="text-xs text-terracotta text-left sm:text-justify">
+            Task completions propagate mathematically up through milestones, goals, projects, and departments.
+          </p>
           <Link to="/features/goals-progress" className="text-xs font-bold text-brand-orange hover:underline inline-flex items-center gap-1">
             Learn more <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -31,7 +33,9 @@ export const Product: React.FC = () => {
         <div className="p-6 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-md space-y-3">
           <Zap className="w-6 h-6 text-brand-yellow" />
           <h3 className="text-lg font-bold text-espresso">AI Execution Intelligence</h3>
-          <p className="text-xs text-terracotta">Gemini 2.5 Flash Lite engine delivers daily Focus Today recommendations and autonomous goal decomposition proposals.</p>
+          <p className="text-xs text-terracotta text-left sm:text-justify">
+            AI-powered goal decomposition proposals and automated daily priority recommendations.
+          </p>
           <Link to="/features/ai" className="text-xs font-bold text-brand-orange hover:underline inline-flex items-center gap-1">
             Learn more <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -40,7 +44,9 @@ export const Product: React.FC = () => {
         <div className="p-6 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-md space-y-3">
           <ShieldCheck className="w-6 h-6 text-brand-green" />
           <h3 className="text-lg font-bold text-espresso">Composable Enterprise RBAC</h3>
-          <p className="text-xs text-terracotta">Global roles plus scoped department and project rights. PostgreSQL triggers enforce zero-owner protection.</p>
+          <p className="text-xs text-terracotta text-left sm:text-justify">
+            Granular department and project permissions with automated zero-owner safeguards.
+          </p>
           <Link to="/features/governance" className="text-xs font-bold text-brand-orange hover:underline inline-flex items-center gap-1">
             Learn more <ArrowRight className="w-3.5 h-3.5" />
           </Link>

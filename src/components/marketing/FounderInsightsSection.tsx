@@ -221,8 +221,8 @@ export const FounderInsightsSection: React.FC = () => {
                 Make Faster Decisions<br />
                 with <span className="text-[#f15e1c]">Real Insights.</span>
               </h2>
-              <p className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-lg">
-                Get a clear view of what's happening across your company, without chasing updates or sitting in endless status meetings.
+              <p className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-lg text-left sm:text-justify">
+                Real-time visibility across your entire company—without chasing updates or sitting in status meetings.
               </p>
             </div>
           </MotionWrapper>
@@ -230,10 +230,10 @@ export const FounderInsightsSection: React.FC = () => {
           {/* 4 Checkmark Items (Orange circle with white check icon) */}
           <div className="space-y-3.5 pt-2">
             {[
-              'Real-time progress across all departments',
-              'Automatic rollups from tasks to company goals',
-              'Identify risks and overdue work instantly',
-              'Stay focused on what matters most',
+              'Live execution velocity across every department',
+              'Automated mathematical rollups to North Star goals',
+              'Instant blocker, risk, and overdue task alerts',
+              'Zero micromanagement, total strategic clarity',
             ].map((text, idx) => (
               <MotionWrapper key={idx} delay={0.15 + idx * 0.08} direction="left">
                 <div className="flex items-center gap-3 group cursor-default">

@@ -11,8 +11,8 @@ export const Managers: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso">
           Quality Control & Task Approvals
         </h1>
-        <p className="text-base text-terracotta leading-relaxed">
-          Enforce quality reviews, subtask checklists, and AI goal decomposition to keep agile teams aligned.
+        <p className="text-base text-terracotta leading-relaxed text-left sm:text-justify max-w-2xl mx-auto">
+          Enforce quality reviews, subtask checklists, and AI goal decomposition across agile teams.
         </p>
       </div>
       <CTASection />
