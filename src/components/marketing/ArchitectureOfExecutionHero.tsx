@@ -58,10 +58,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     barColor: 'bg-[#2e936f]',
     sparklineColor: '#2e936f',
     sparklinePath: 'M 2 12 Q 10 14, 18 8 T 34 3',
-    left: '37.45%',
-    top: '8.9%',
-    width: '11.23%',
-    height: '9.1%',
+    left: '32.2%',
+    top: '18.1%',
+    width: '12.8%',
+    height: '10.6%',
     head: 'Elena Vance (VP Product)',
     activeTasks: 14,
     milestones: '3/4 Milestones Completed',
@@ -84,10 +84,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     barColor: 'bg-[#fab60a]',
     sparklineColor: '#fab60a',
     sparklinePath: 'M 2 13 Q 10 15, 20 8 T 34 3',
-    left: '50.93%',
-    top: '8.9%',
-    width: '10.79%',
-    height: '9.1%',
+    left: '47.4%',
+    top: '18.1%',
+    width: '12.8%',
+    height: '10.6%',
     head: 'Marcus Thorne (CTO)',
     activeTasks: 22,
     milestones: '4/6 Milestones Completed',
@@ -110,10 +110,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     barColor: 'bg-[#fab60a]',
     sparklineColor: '#fab60a',
     sparklinePath: 'M 2 14 Q 10 11, 20 9 T 34 4',
-    left: '63.62%',
-    top: '8.9%',
-    width: '11.38%',
-    height: '9.1%',
+    left: '62.5%',
+    top: '18.1%',
+    width: '12.8%',
+    height: '10.6%',
     head: 'Sarah Jenkins (Growth Lead)',
     activeTasks: 9,
     milestones: '2/4 Milestones Completed',
@@ -137,10 +137,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     barColor: 'bg-[#2e936f]',
     sparklineColor: '#2e936f',
     sparklinePath: 'M 2 14 Q 10 14, 18 7 T 34 2',
-    left: '37.99%',
-    top: '33.2%',
-    width: '10.84%',
-    height: '9.1%',
+    left: '32.2%',
+    top: '43.6%',
+    width: '12.8%',
+    height: '10.6%',
     head: 'Priya Roy (Head of Revenue)',
     activeTasks: 18,
     milestones: '3/5 Milestones Completed',
@@ -163,10 +163,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     barColor: 'bg-[#2e936f]',
     sparklineColor: '#2e936f',
     sparklinePath: 'M 2 13 Q 12 14, 20 6 T 34 2',
-    left: '51.76%',
-    top: '33.2%',
-    width: '10.99%',
-    height: '9.1%',
+    left: '47.4%',
+    top: '43.6%',
+    width: '12.8%',
+    height: '10.6%',
     head: 'Devon Lee (People Operations)',
     activeTasks: 6,
     milestones: '4/4 Milestones Completed',
@@ -189,10 +189,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     barColor: 'bg-[#fab60a]',
     sparklineColor: '#fab60a',
     sparklinePath: 'M 2 12 Q 12 15, 20 10 T 34 4',
-    left: '64.7%',
-    top: '33.2%',
-    width: '10.79%',
-    height: '9.1%',
+    left: '62.5%',
+    top: '43.6%',
+    width: '12.8%',
+    height: '10.6%',
     head: 'Arthur Pendelton (Finance VP)',
     activeTasks: 8,
     milestones: '2/4 Milestones Completed',
@@ -227,10 +227,10 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Marketing',
     action: 'Campaign launched',
     time: '2 min ago',
-    left: '79.25%',
-    top: '8.9%',
-    width: '16.55%',
-    height: '7.2%',
+    left: '79.1%',
+    top: '17.4%',
+    width: '16.6%',
+    height: '7.6%',
     icon: Megaphone,
     iconBg: 'bg-[#fceade]',
     iconColor: 'text-[#f15e1c]',
@@ -242,10 +242,10 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Engineering',
     action: '2 tasks overdue',
     time: '12 min ago',
-    left: '79.25%',
-    top: '17.4%',
-    width: '16.55%',
-    height: '7.2%',
+    left: '79.1%',
+    top: '27.0%',
+    width: '16.6%',
+    height: '7.6%',
     icon: Code,
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
@@ -257,10 +257,10 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Sales',
     action: 'Deal stage updated',
     time: '25 min ago',
-    left: '79.25%',
-    top: '26.0%',
-    width: '16.55%',
-    height: '7.2%',
+    left: '79.1%',
+    top: '36.6%',
+    width: '16.6%',
+    height: '7.6%',
     icon: BarChart3,
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
@@ -305,285 +305,93 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       {/* DESKTOP / WIDE SCREEN: 4K HIGH-DEF PANORAMIC HERO BACKDROP   */}
       {/* ============================================================ */}
       <div className="hidden lg:block relative w-full">
-        <div className="relative w-full aspect-[2048/1000] overflow-hidden">
-          {/* Panoramic 4K Clean Backdrop (Razor Sharp with Zero Artifacts) */}
+        <div className="relative w-full aspect-[1806/871] overflow-hidden">
+          {/* Panoramic Clean Reference Backdrop (Crisp with Zero Stretching) */}
           <img
-            src="/assets/hero_panoramic_4k.png"
-            alt="GetAstrav FounderOS Command Center 4K Ultra Quality Panoramic View"
+            src="/assets/golden_hour_glass_tech_hub.png"
+            alt="FounderOS Executive Organization Command Center"
             className="w-full h-full object-cover block select-none pointer-events-none"
             loading="eager"
             decoding="async"
           />
 
           {/* ============================================================ */}
-          {/* DARK VIVID CONNECTING ARROWS & STRATEGIC FLOW PIPELINES      */}
+          {/* ACCESSIBLE SEO LAYER (Screen Readers & Search Engines)       */}
           {/* ============================================================ */}
-          <svg
-            className="absolute inset-0 w-full h-full pointer-events-none z-10"
-            viewBox="0 0 2048 1000"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              {/* Dark Emerald Green Arrowhead */}
-              <marker
-                id="arrow-dark-green"
-                viewBox="0 0 10 10"
-                refX="8"
-                refY="5"
-                markerWidth="7"
-                markerHeight="7"
-                orient="auto"
-              >
-                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#0b5d36" stroke="#15803d" strokeWidth="1" />
-              </marker>
-
-              {/* Intense Glowing Green Arrowhead */}
-              <marker
-                id="arrow-active-green"
-                viewBox="0 0 10 10"
-                refX="8"
-                refY="5"
-                markerWidth="8"
-                markerHeight="8"
-                orient="auto"
-              >
-                <path d="M 0 1 L 10 5 L 0 9 z" fill="#22c55e" stroke="#16a34a" strokeWidth="1" />
-              </marker>
-
-              {/* Terracotta / Amber Activity Arrowhead */}
-              <marker
-                id="arrow-amber"
-                viewBox="0 0 10 10"
-                refX="8"
-                refY="5"
-                markerWidth="7"
-                markerHeight="7"
-                orient="auto"
-              >
-                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#c2410c" stroke="#ea580c" strokeWidth="1" />
-              </marker>
-
-              {/* Glow Filter */}
-              <filter id="emerald-glow" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="3.5" result="blur" />
-                <feComposite in="SourceGraphic" in2="blur" operator="over" />
-              </filter>
-            </defs>
-
-            {/* 1. Flow: Company Goal -> Sales */}
-            <path
-              d="M 940 510 C 940 470, 888 470, 888 433"
-              fill="none"
-              stroke={isSalesActive || isProductActive || isGoalActive ? '#15803d' : '#0d5c34'}
-              strokeWidth={isSalesActive || isProductActive || isGoalActive ? '4.5' : '3.5'}
-              filter="url(#emerald-glow)"
-              markerEnd={isSalesActive || isProductActive || isGoalActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
-            />
-            <path
-              d="M 940 510 C 940 470, 888 470, 888 433"
-              fill="none"
-              stroke={isSalesActive || isProductActive || isGoalActive ? '#4ade80' : '#22c55e'}
-              strokeWidth="2"
-              strokeDasharray="6 8"
-              className="animate-dash-flow opacity-90"
-            />
-
-            {/* 2. Flow: Company Goal -> HR */}
-            <path
-              d="M 1060 510 C 1060 470, 1172 470, 1172 433"
-              fill="none"
-              stroke={isHRActive || isEngActive || isGoalActive ? '#15803d' : '#0d5c34'}
-              strokeWidth={isHRActive || isEngActive || isGoalActive ? '4.5' : '3.5'}
-              filter="url(#emerald-glow)"
-              markerEnd={isHRActive || isEngActive || isGoalActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
-            />
-            <path
-              d="M 1060 510 C 1060 470, 1172 470, 1172 433"
-              fill="none"
-              stroke={isHRActive || isEngActive || isGoalActive ? '#4ade80' : '#22c55e'}
-              strokeWidth="2"
-              strokeDasharray="6 8"
-              className="animate-dash-flow opacity-90"
-            />
-
-            {/* 3. Flow: Company Goal -> Finance */}
-            <path
-              d="M 1200 510 C 1220 470, 1436 470, 1436 433"
-              fill="none"
-              stroke={isFinanceActive || isMktActive || isGoalActive ? '#15803d' : '#0d5c34'}
-              strokeWidth={isFinanceActive || isMktActive || isGoalActive ? '4.5' : '3.5'}
-              filter="url(#emerald-glow)"
-              markerEnd={isFinanceActive || isMktActive || isGoalActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
-            />
-            <path
-              d="M 1200 510 C 1220 470, 1436 470, 1436 433"
-              fill="none"
-              stroke={isFinanceActive || isMktActive || isGoalActive ? '#4ade80' : '#22c55e'}
-              strokeWidth="2"
-              strokeDasharray="6 8"
-              className="animate-dash-flow opacity-90"
-            />
-
-            {/* 4. Flow: Sales -> Product */}
-            <path
-              d="M 888 332 C 888 260, 882 250, 882 182"
-              fill="none"
-              stroke={isSalesActive || isProductActive ? '#15803d' : '#0d5c34'}
-              strokeWidth={isSalesActive || isProductActive ? '4.5' : '3.5'}
-              filter="url(#emerald-glow)"
-              markerEnd={isSalesActive || isProductActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
-            />
-            <path
-              d="M 888 332 C 888 260, 882 250, 882 182"
-              fill="none"
-              stroke={isSalesActive || isProductActive ? '#4ade80' : '#22c55e'}
-              strokeWidth="2"
-              strokeDasharray="6 8"
-              className="animate-dash-flow opacity-90"
-            />
-
-            {/* 5. Flow: HR -> Engineering */}
-            <path
-              d="M 1172 332 C 1172 260, 1153 250, 1153 182"
-              fill="none"
-              stroke={isHRActive || isEngActive ? '#15803d' : '#0d5c34'}
-              strokeWidth={isHRActive || isEngActive ? '4.5' : '3.5'}
-              filter="url(#emerald-glow)"
-              markerEnd={isHRActive || isEngActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
-            />
-            <path
-              d="M 1172 332 C 1172 260, 1153 250, 1153 182"
-              fill="none"
-              stroke={isHRActive || isEngActive ? '#4ade80' : '#22c55e'}
-              strokeWidth="2"
-              strokeDasharray="6 8"
-              className="animate-dash-flow opacity-90"
-            />
-
-            {/* 6. Flow: Finance -> Marketing */}
-            <path
-              d="M 1436 332 C 1436 260, 1420 250, 1420 182"
-              fill="none"
-              stroke={isFinanceActive || isMktActive ? '#15803d' : '#0d5c34'}
-              strokeWidth={isFinanceActive || isMktActive ? '4.5' : '3.5'}
-              filter="url(#emerald-glow)"
-              markerEnd={isFinanceActive || isMktActive ? 'url(#arrow-active-green)' : 'url(#arrow-dark-green)'}
-            />
-            <path
-              d="M 1436 332 C 1436 260, 1420 250, 1420 182"
-              fill="none"
-              stroke={isFinanceActive || isMktActive ? '#4ade80' : '#22c55e'}
-              strokeWidth="2"
-              strokeDasharray="6 8"
-              className="animate-dash-flow opacity-90"
-            />
-
-            {/* 7. Stream: Marketing -> Marketing Activity Notification */}
-            <path
-              d="M 1536 135 C 1565 135, 1590 135, 1618 135"
-              fill="none"
-              stroke="#b45309"
-              strokeWidth="2.5"
-              strokeDasharray="4 6"
-              markerEnd="url(#arrow-amber)"
-            />
-
-            {/* 8. Notification Activity Spine: Notif 1 -> Notif 2 */}
-            <path
-              d="M 1660 162 L 1660 174"
-              fill="none"
-              stroke="#b45309"
-              strokeWidth="2"
-              strokeDasharray="3 3"
-              markerEnd="url(#arrow-amber)"
-            />
-
-            {/* 9. Notification Activity Spine: Notif 2 -> Notif 3 */}
-            <path
-              d="M 1660 252 L 1660 260"
-              fill="none"
-              stroke="#0d5c34"
-              strokeWidth="2"
-              strokeDasharray="3 3"
-              markerEnd="url(#arrow-dark-green)"
-            />
-          </svg>
+          <div className="sr-only">
+            <h1>FOUNDEROS WORKSPACE V4.8 — Your Entire Company In One View.</h1>
+            <p>
+              Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
+            </p>
+            <div>
+              <Link to="/product">Explore FounderOS</Link>
+              <a href="#how-it-works">See How It Works</a>
+            </div>
+            <h2>Departments</h2>
+            <ul>
+              {DEPARTMENTS.map((dept) => (
+                <li key={dept.id}>
+                  {dept.name}: {dept.progress} - {dept.statusText}
+                </li>
+              ))}
+            </ul>
+            <h2>Company Goal: Launch Product V2 (72%)</h2>
+          </div>
 
           {/* ============================================================ */}
-          {/* 1. LEFT COLUMN: EDITORIAL COPY & CTAs OVERLAY                */}
+          {/* 1. CRISP VECTOR LEFT-SIDE HERO CONTENT                       */}
           {/* ============================================================ */}
           <div
-            className="absolute z-20 flex flex-col justify-between"
+            className="absolute z-20 flex flex-col justify-start select-none"
             style={{
-              left: '5.5%',
-              top: '6%',
-              bottom: '22%',
-              width: '28.5%',
+              left: '5.2%',
+              top: '13.5%',
+              width: '26.5%',
             }}
           >
-            {/* Top: Green Badge & Headline */}
-            <div className="space-y-3.5 xl:space-y-5">
-              <MotionWrapper direction="down">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e936f]"></span>
-                  </span>
-                  <span className="text-[10px] xl:text-[11px] font-heading font-extrabold tracking-widest text-[#2e936f] uppercase">
-                    FOUNDEROS WORKSPACE V4.8
-                  </span>
-                </div>
-              </MotionWrapper>
-
-              <MotionWrapper delay={0.08}>
-                <h1 className="text-[34px] xl:text-[44px] 2xl:text-[50px] font-extrabold text-[#271812] leading-[1.07] tracking-[-0.03em] font-heading">
-                  Your Entire<br />
-                  Company<br />
-                  In <span className="text-[#f15e1c]">One View.</span>
-                </h1>
-              </MotionWrapper>
+            {/* Small Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs w-fit mb-3 xl:mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#2e936f] animate-pulse" />
+              <span className="text-[10px] xl:text-[11px] font-heading font-extrabold tracking-widest text-[#2e936f] uppercase">
+                FOUNDEROS WORKSPACE V4.8
+              </span>
             </div>
 
-            {/* Middle: Subtitle & CTA Buttons */}
-            <div className="space-y-4 xl:space-y-5">
-              <p className="text-xs xl:text-sm text-[#5a4138] font-body leading-relaxed max-w-sm">
-                Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
-              </p>
+            {/* Main Headline */}
+            <h1 className="text-[34px] xl:text-[44px] 2xl:text-[52px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading mb-3 xl:mb-4">
+              Your Entire<br />
+              Company<br />
+              In <span className="text-[#f15e1c]">One View.</span>
+            </h1>
 
-              <div className="flex flex-wrap items-center gap-2.5 pt-0.5">
-                <Link
-                  to="/product"
-                  className="inline-flex items-center justify-center gap-2 text-xs xl:text-sm font-heading font-bold text-white bg-[#f15e1c] hover:bg-[#d94e10] px-5 xl:px-6 py-2.5 xl:py-3 rounded-full shadow-lg shadow-[#f15e1c]/30 hover:-translate-y-0.5 transition-all group cursor-pointer"
-                >
-                  <Layers className="w-4 h-4 text-white" />
-                  <span>Explore FounderOS</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </Link>
+            {/* Supporting Paragraph */}
+            <p className="text-xs xl:text-sm 2xl:text-base text-[#5a4138] font-body leading-relaxed mb-5 xl:mb-6 max-w-[420px]">
+              Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
+            </p>
 
-                <a
-                  href="#how-it-works"
-                  className="inline-flex items-center justify-center gap-2 text-xs xl:text-sm font-heading font-bold text-[#271812] bg-white hover:bg-brand-orange-light px-4 xl:px-5 py-2.5 xl:py-3 rounded-full border border-brand-peach transition-all hover:border-[#f15e1c] hover:text-[#f15e1c] shadow-warm-sm cursor-pointer"
-                >
-                  <Play className="w-3.5 h-3.5 text-[#271812] fill-[#271812]/15" />
-                  <span>See How It Works</span>
-                </a>
-              </div>
+            {/* CTA Buttons */}
+            <div className="flex items-center gap-2.5 xl:gap-3">
+              <Link
+                to="/product"
+                className="inline-flex items-center justify-center gap-1.5 xl:gap-2 px-4.5 xl:px-6 py-2.5 xl:py-3 rounded-full bg-[#f15e1c] hover:bg-[#d94e10] text-white font-heading font-bold text-xs xl:text-sm shadow-lg shadow-[#f15e1c]/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap shrink-0"
+              >
+                <Layers className="w-4 h-4 text-white" />
+                <span>Explore FounderOS</span>
+                <ArrowRight className="w-3.5 h-3.5 text-white" />
+              </Link>
+
+              <a
+                href="#how-it-works"
+                className="inline-flex items-center justify-center gap-1.5 xl:gap-2 px-4 xl:px-5 py-2.5 xl:py-3 rounded-full bg-white hover:bg-gray-50 text-[#271812] font-heading font-bold text-xs xl:text-sm border border-[#f5ded0] shadow-warm-sm hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap shrink-0"
+              >
+                <Play className="w-3.5 h-3.5 text-[#271812] fill-[#271812]/20" />
+                <span>See How It Works</span>
+              </a>
             </div>
           </div>
 
           {/* ============================================================ */}
-          {/* 2. GLOWING ORANGE ARROW BADGE (CONNECTING TEXT TO OFFICE)    */}
-          {/* ============================================================ */}
-          <div
-            className="absolute z-20 flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 rounded-full bg-brand-orange text-white shadow-lg shadow-brand-orange/40 animate-pulse cursor-pointer group"
-            style={{ left: '31.8%', top: '19.28%' }}
-            title="Strategic Alignment Flow"
-          >
-            <ArrowRight className="w-3 h-3 xl:w-3.5 xl:h-3.5 group-hover:translate-x-0.5 transition-transform" />
-          </div>
-
-          {/* ============================================================ */}
-          {/* 3. SHARP, HIGH-DEFINITION DEPARTMENT CARDS                   */}
+          {/* 2. SHARP, HIGH-DEFINITION DEPARTMENT CARDS                   */}
           {/* ============================================================ */}
           {DEPARTMENTS.map((dept) => {
             const isHovered = hoveredDeptId === dept.id;
@@ -596,56 +404,49 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 onMouseEnter={() => setHoveredDeptId(dept.id)}
                 onMouseLeave={() => setHoveredDeptId(null)}
                 onClick={() => setSelectedDept(dept)}
-                className={`absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border ${
+                className={`absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_6px_20px_rgba(0,0,0,0.08),0_2px_4px_rgba(0,0,0,0.04)] p-2 xl:p-2.5 2xl:p-3 flex flex-col justify-between group overflow-hidden ${
                   isActive
-                    ? 'border-[#f15e1c] shadow-[0_12px_28px_rgba(241,94,28,0.35),0_4px_10px_rgba(0,0,0,0.08)] ring-2 ring-[#f15e1c] scale-[1.03]'
-                    : 'border-black/[0.08] shadow-[0_6px_20px_rgba(0,0,0,0.12),0_2px_6px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_24px_rgba(0,0,0,0.16)] hover:border-[#f15e1c]/50 hover:scale-[1.02]'
-                } flex flex-col justify-between p-2 sm:p-2.5 xl:p-3 overflow-hidden group`}
+                    ? 'ring-2 ring-[#f15e1c] shadow-[0_12px_28px_rgba(241,94,28,0.3)] scale-[1.02]'
+                    : 'hover:shadow-[0_10px_24px_rgba(0,0,0,0.12)] hover:border-[#f15e1c]/40 hover:scale-[1.01]'
+                }`}
                 style={{
                   left: dept.left,
                   top: dept.top,
                   width: dept.width,
                   height: dept.height,
                 }}
-                title={`Click ${dept.name} to inspect (${dept.progress} - ${dept.statusText})`}
+                title={`Click to inspect ${dept.name} (${dept.progress} - ${dept.statusText})`}
               >
                 {/* Top Row: Icon + Name + Chevron */}
-                <div className="flex items-center justify-between gap-1 xl:gap-1.5 w-full">
+                <div className="flex items-center justify-between w-full">
                   <div className="flex items-center gap-1.5 xl:gap-2 min-w-0">
                     <div
-                      className={`w-5 h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7 rounded-md xl:rounded-lg ${dept.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
+                      className={`w-5 h-5 xl:w-6 xl:h-6 rounded-md xl:rounded-lg ${dept.iconBg} flex items-center justify-center shrink-0`}
                     >
-                      <dept.icon className={`w-3 h-3 xl:w-3.5 xl:h-3.5 2xl:w-4 2xl:h-4 ${dept.iconColor}`} />
+                      <dept.icon className={`w-3 h-3 xl:w-3.5 xl:h-3.5 ${dept.iconColor}`} />
                     </div>
-                    <span className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-[13px] 2xl:text-[14px] tracking-tight leading-none truncate">
+                    <span className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-[12px] 2xl:text-[13px] leading-tight truncate">
                       {dept.name}
                     </span>
                   </div>
                   <ChevronRight className="w-3 h-3 xl:w-3.5 xl:h-3.5 text-gray-400 group-hover:text-[#f15e1c] group-hover:translate-x-0.5 transition-all shrink-0" />
                 </div>
 
-                {/* Bottom Row: Metric % + Progress Bar + Sparkline */}
-                <div className="flex items-end justify-between gap-1 xl:gap-2 w-full pt-0.5">
-                  <div className="flex flex-col justify-end gap-1 flex-1 min-w-0">
-                    <span className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-[13px] 2xl:text-[14px] leading-none">
+                {/* Bottom Row: Percentage + Progress Bar + Sparkline */}
+                <div className="flex items-end justify-between w-full mt-0.5">
+                  <div className="min-w-0 flex-1 mr-2">
+                    <span className="font-heading font-extrabold text-[#271812] text-xs xl:text-sm 2xl:text-base leading-none block mb-1">
                       {dept.progress}
                     </span>
-                    {/* Progress pill */}
-                    <div className="h-1.5 xl:h-2 w-full max-w-[55px] xl:max-w-[70px] 2xl:max-w-[85px] bg-gray-100 rounded-full overflow-hidden">
+                    <div className="w-full h-1 xl:h-1.5 bg-gray-100 rounded-full overflow-hidden">
                       <div
-                        className={`h-full ${dept.barColor} rounded-full transition-all duration-300`}
+                        className={`h-full ${dept.barColor} rounded-full transition-all duration-500`}
                         style={{ width: dept.progress }}
                       />
                     </div>
                   </div>
-
-                  {/* Sparkline Vector */}
-                  <div className="shrink-0 flex items-center justify-end">
-                    <svg
-                      className="w-8 h-3.5 xl:w-10 xl:h-4.5 2xl:w-12 2xl:h-5 overflow-visible"
-                      viewBox="0 0 36 16"
-                      fill="none"
-                    >
+                  <div className="w-8 xl:w-10 h-4 xl:h-5 shrink-0 flex items-center justify-end">
+                    <svg viewBox="0 0 36 16" className="w-full h-full overflow-visible" fill="none">
                       <path
                         d={dept.sparklinePath}
                         stroke={dept.sparklineColor}
@@ -661,43 +462,43 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           })}
 
           {/* ============================================================ */}
-          {/* 4. SHARP, HIGH-DEFINITION COMPANY GOAL CARD                  */}
+          {/* 3. SHARP, HIGH-DEFINITION COMPANY GOAL CARD                  */}
           {/* ============================================================ */}
           <div
             onClick={() => setCompanyGoalModalOpen(true)}
-            className="absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_8px_24px_rgba(0,0,0,0.14),0_2px_6px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_28px_rgba(46,147,111,0.3)] hover:border-[#2e936f] hover:scale-[1.02] p-2 xl:p-2.5 2xl:p-3 flex flex-col justify-between group overflow-hidden"
+            className="absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_8px_24px_rgba(0,0,0,0.12),0_2px_6px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_28px_rgba(46,147,111,0.3)] hover:border-[#2e936f] hover:scale-[1.01] p-2 xl:p-2.5 2xl:p-3 flex flex-col justify-between group overflow-hidden"
             style={{
-              left: '43.16%',
-              top: '51.0%',
-              width: '17.38%',
-              height: '8.6%',
+              left: '40.33%',
+              top: '63.5%',
+              width: '23.0%',
+              height: '11.0%',
             }}
             title="Company Goal: Launch Product V2 (72%) - Click to inspect"
           >
             <div className="flex items-center justify-between w-full">
-              <div className="flex items-center gap-1.5 xl:gap-2 min-w-0">
-                <div className="w-5 h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7 rounded-md xl:rounded-lg bg-[#fceade] flex items-center justify-center shrink-0">
-                  <Target className="w-3 h-3 xl:w-3.5 xl:h-3.5 2xl:w-4 2xl:h-4 text-[#f15e1c]" />
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="w-6 h-6 xl:w-7 xl:h-7 rounded-lg bg-[#fceade] flex items-center justify-center shrink-0">
+                  <Target className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#f15e1c]" />
                 </div>
                 <div className="min-w-0">
                   <div className="text-[8.5px] xl:text-[9.5px] font-heading font-bold text-[#2e936f] leading-none mb-0.5 uppercase tracking-wider">
                     Company Goal
                   </div>
-                  <div className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-[12px] 2xl:text-[13px] leading-tight truncate">
+                  <div className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-[13px] 2xl:text-[14px] leading-tight truncate">
                     Launch Product V2
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-1 xl:gap-1.5 shrink-0">
-                <span className="font-heading font-extrabold text-[#2e936f] text-xs xl:text-sm 2xl:text-base">
+              <div className="flex items-center gap-1.5 shrink-0">
+                <span className="font-heading font-extrabold text-[#2e936f] text-sm xl:text-base 2xl:text-lg">
                   72%
                 </span>
-                <ChevronRight className="w-3 h-3 xl:w-3.5 xl:h-3.5 text-gray-400 group-hover:text-[#2e936f] group-hover:translate-x-0.5 transition-all" />
+                <ChevronRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-[#2e936f] group-hover:translate-x-0.5 transition-all" />
               </div>
             </div>
 
             {/* Full width Progress Bar */}
-            <div className="w-full h-1.5 xl:h-2 bg-gray-100 rounded-full overflow-hidden mt-1">
+            <div className="w-full h-1.5 xl:h-2 bg-gray-100 rounded-full overflow-hidden mt-0.5">
               <div
                 className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full transition-all duration-500"
                 style={{ width: '72%' }}
@@ -706,13 +507,13 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           </div>
 
           {/* ============================================================ */}
-          {/* 5. SHARP, HIGH-DEFINITION NOTIFICATION STACK                 */}
+          {/* 4. SHARP, HIGH-DEFINITION NOTIFICATION STACK                 */}
           {/* ============================================================ */}
           {NOTIFICATIONS.map((notif) => (
             <div
               key={notif.id}
               onClick={() => setActiveNotif(notif)}
-              className="absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_6px_20px_rgba(0,0,0,0.1),0_2px_4px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)] hover:border-brand-orange/60 hover:scale-[1.02] p-2 xl:p-2.5 2xl:p-3 flex items-center justify-between group overflow-hidden"
+              className="absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_6px_20px_rgba(0,0,0,0.08),0_2px_4px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_24px_rgba(0,0,0,0.14)] hover:border-brand-orange/60 hover:scale-[1.01] px-2.5 py-1.5 xl:px-3 xl:py-2 flex items-center justify-between group overflow-hidden"
               style={{
                 left: notif.left,
                 top: notif.top,
@@ -721,32 +522,30 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               }}
               title={`Click to view ${notif.dept} update (${notif.action})`}
             >
-              {/* Left: Icon + Text */}
-              <div className="flex items-center gap-2 xl:gap-2.5 min-w-0">
+              <div className="flex items-center gap-2 min-w-0">
                 <div
-                  className={`w-6 h-6 xl:w-7 xl:h-7 2xl:w-8 2xl:h-8 rounded-lg xl:rounded-xl ${notif.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
+                  className={`w-6 h-6 xl:w-7 xl:h-7 rounded-lg ${notif.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
                 >
-                  <notif.icon className={`w-3.5 h-3.5 xl:w-4 xl:h-4 ${notif.iconColor}`} />
+                  <notif.icon className={`w-3.5 h-3.5 ${notif.iconColor}`} />
                 </div>
                 <div className="min-w-0">
                   <h5 className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-[12px] 2xl:text-[13px] leading-tight truncate">
                     {notif.dept}
                   </h5>
-                  <p className="text-[9.5px] xl:text-[10.5px] 2xl:text-[11px] text-gray-500 font-medium leading-none mt-0.5 truncate">
+                  <p className="text-[9.5px] xl:text-[10px] text-gray-500 font-medium leading-none mt-0.5 truncate">
                     {notif.action}
                   </p>
                 </div>
               </div>
 
-              {/* Right: Badge & Timestamp */}
               <div className="flex flex-col items-end shrink-0 gap-0.5">
                 {notif.isCheck ? (
-                  <CheckCircle2 className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#2e936f] fill-[#2e936f]/15" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#2e936f] fill-[#2e936f]/15" />
                 ) : (
-                  <AlertTriangle className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#ea580c] fill-[#ea580c]/15" />
+                  <AlertTriangle className="w-3.5 h-3.5 text-[#ea580c] fill-[#ea580c]/15" />
                 )}
                 <span
-                  className={`text-[8.5px] xl:text-[9.5px] font-heading font-bold ${
+                  className={`text-[8.5px] xl:text-[9px] font-heading font-bold ${
                     notif.isCheck ? 'text-[#2e936f]' : 'text-[#ea580c]'
                   }`}
                 >
@@ -757,16 +556,16 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           ))}
 
           {/* ============================================================ */}
-          {/* 6. FOUNDER SMARTPHONE HOTSPOT (BOTTOM-RIGHT)                 */}
+          {/* 5. FOUNDER SMARTPHONE HOTSPOT (BOTTOM-RIGHT)                 */}
           {/* ============================================================ */}
           <div
             onClick={() => setMobileSyncOpen(true)}
             className="absolute z-20 rounded-2xl cursor-pointer group transition-all duration-200 active:scale-[0.98]"
             style={{
-              left: '77.6%',
-              top: '49.9%',
-              width: '10.25%',
-              height: '24.2%',
+              left: '77.2%',
+              top: '53.0%',
+              width: '11.0%',
+              height: '28.0%',
             }}
             title="Founder Executive Mobile Command Stream - Click to view real-time feed"
           >
@@ -809,9 +608,9 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       </div>
 
       {/* ============================================================ */}
-      {/* STRATEGIC EXECUTION PILLARS DOCK (PAGE BOTTOM FOLD)          */}
+      {/* STRATEGIC EXECUTION PILLARS DOCK (PAGE BOTTOM FOLD - DESKTOP)*/}
       {/* ============================================================ */}
-      <div className="w-full bg-[#fdfbf7] border-t border-brand-peach/60 py-6 sm:py-8 px-4 sm:px-6 lg:px-12 select-none shadow-[0_-4px_24px_rgba(39,24,18,0.03)]">
+      <div className="hidden lg:block w-full bg-[#fdfbf7] border-t border-brand-peach/60 py-6 sm:py-8 px-4 sm:px-6 lg:px-12 select-none shadow-[0_-4px_24px_rgba(39,24,18,0.03)]">
         <div className="max-w-[1600px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6">
             {/* 1. Goal-Driven Execution */}
@@ -956,9 +755,9 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
         </div>
 
         {/* Panoramic Mobile Visual Container */}
-        <div className="relative w-full rounded-2xl overflow-hidden shadow-warm-lg border border-brand-peach/60 aspect-[16/9]">
+        <div className="relative w-full rounded-2xl overflow-hidden shadow-warm-lg border border-brand-peach/60 aspect-[1806/871] bg-[#faf6f0]">
           <img
-            src="/assets/hero_panoramic_clean_hq.png"
+            src="/assets/golden_hour_glass_tech_hub.png"
             alt="FounderOS Command Center"
             className="w-full h-full object-cover"
             loading="lazy"
