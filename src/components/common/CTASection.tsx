@@ -28,7 +28,8 @@ export const CTASection: React.FC = () => {
               <button
                 type="button"
                 onClick={openDemoModal}
-                className="inline-flex items-center justify-center gap-2.5 text-base font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-8 py-3.5 rounded-full shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 active:translate-y-0 transition-all group cursor-pointer"
+                style={{ touchAction: 'manipulation' }}
+                className="inline-flex items-center justify-center gap-2.5 text-base font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-8 py-3.5 rounded-full shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 active:translate-y-0 transition-all group cursor-pointer select-none"
               >
                 <span>Book a Demo</span>
                 <ArrowRight className="w-4.5 h-4.5 group-hover:translate-x-1 transition-transform" />

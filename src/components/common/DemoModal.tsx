@@ -21,8 +21,31 @@ export const DemoModal: React.FC = () => {
       setIsOpen(true);
     };
     window.addEventListener('open-demo-modal', handleOpen);
+
+    if (window.location.hash === '#demo' || window.location.hash === '#book-demo') {
+      setIsOpen(true);
+    }
+
     return () => window.removeEventListener('open-demo-modal', handleOpen);
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -37,9 +60,12 @@ export const DemoModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-espresso/60 backdrop-blur-md animate-fadeIn">
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-espresso/70 backdrop-blur-md animate-fadeIn"
+      onClick={handleClose}
+    >
       <div
-        className="relative w-full max-w-lg bg-white rounded-3xl shadow-warm-xl border border-brand-peach/80 overflow-hidden flex flex-col max-h-[92vh] animate-scaleUp"
+        className="relative w-full max-w-lg bg-white rounded-3xl shadow-warm-xl border border-brand-peach/80 overflow-hidden flex flex-col max-h-[92vh] animate-scaleUp z-10"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}

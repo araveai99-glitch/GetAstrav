@@ -364,7 +364,8 @@ export const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={openDemoModal}
-            className="inline-flex items-center justify-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-3.5 sm:px-6 py-2 sm:py-3 rounded-full shadow-md shadow-brand-orange/30 transition-all hover:-translate-y-0.5 active:translate-y-0 group cursor-pointer shrink-0"
+            style={{ touchAction: 'manipulation' }}
+            className="inline-flex items-center justify-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-3.5 sm:px-6 py-2 sm:py-3 rounded-full shadow-md shadow-brand-orange/30 transition-all hover:-translate-y-0.5 active:translate-y-0 group cursor-pointer shrink-0 select-none"
           >
             <span>Book a Demo</span>
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
