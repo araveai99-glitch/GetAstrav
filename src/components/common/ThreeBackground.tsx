@@ -173,10 +173,13 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll, { passive: true });
 
+    let cachedScrollHeight = typeof document !== 'undefined' ? (document.documentElement.scrollHeight || 1) : 1000;
+
     const handleResize = () => {
       if (!container) return;
       const w = container.clientWidth || window.innerWidth;
       const h = container.clientHeight || window.innerHeight;
+      cachedScrollHeight = document.documentElement.scrollHeight || 1;
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
@@ -192,7 +195,7 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
 
       // Smooth scroll lerp damping (5-15% subtle position offset)
       currentScrollY += (scrollYTarget - currentScrollY) * 0.05;
-      const scrollOffset = (currentScrollY / (document.documentElement.scrollHeight || 1)) * 10;
+      const scrollOffset = (currentScrollY / cachedScrollHeight) * 10;
 
       // Slow orbital 3D movement + smooth scroll offset
       nodesGroup.rotation.y = elapsedTime * 0.04 + mouseX * 0.08;

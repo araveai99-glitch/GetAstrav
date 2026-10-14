@@ -62,7 +62,7 @@ export const Navbar: React.FC = () => {
         ref={dropdownRef}
         className="max-w-[1600px] mx-auto px-3 sm:px-6 lg:px-10 h-full flex items-center justify-between gap-2 sm:gap-6"
       >
-        {/* LEFT: Brand Logo - GetAstrav */}
+        {/* LEFT: Brand Logo - Astrav */}
         <Link to="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
           <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-brand-orange text-white p-0.5 shadow-sm shadow-brand-orange/30 group-hover:scale-105 transition-transform flex items-center justify-center shrink-0">
             <div className="w-full h-full bg-brand-orange rounded-[9px] sm:rounded-[10px] flex items-center justify-center">
@@ -71,7 +71,7 @@ export const Navbar: React.FC = () => {
           </div>
           <div className="flex flex-col">
             <span className="font-heading font-extrabold text-[15px] sm:text-xl tracking-tight text-espresso leading-none group-hover:text-brand-orange transition-colors">
-              GetAstrav
+              Astrav
             </span>
             <span className="text-[8.5px] sm:text-[10px] font-heading font-extrabold tracking-[0.16em] sm:tracking-[0.2em] text-brand-orange uppercase mt-0.5">
               COMMAND CENTER
@@ -329,7 +329,7 @@ export const Navbar: React.FC = () => {
                     onClick={() => setOpenDropdown(null)}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
-                    About GetAstrav
+                    About Astrav
                   </Link>
                   <a
                     href="#conversion-cta"
@@ -392,7 +392,7 @@ export const Navbar: React.FC = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-brand-peach p-5 space-y-4 shadow-warm-xl max-h-[85vh] overflow-y-auto animate-fadeIn">
           <div className="text-xs font-mono font-bold text-espresso uppercase tracking-wider">
-            GetAstrav Navigation
+            Astrav Navigation
           </div>
           <div className="grid grid-cols-1 gap-1.5">
             <Link to="/" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-bold text-espresso hover:bg-surface-tier1">Home Overview</Link>

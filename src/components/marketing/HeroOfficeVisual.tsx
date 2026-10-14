@@ -301,7 +301,7 @@ export const HeroOfficeVisual: React.FC = () => {
           <div className="relative w-full h-full rounded-3xl overflow-hidden [mask-image:radial-gradient(ellipse_97%_93%_at_50%_50%,black_72%,rgba(0,0,0,0.4)_88%,transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_97%_93%_at_50%_50%,black_72%,rgba(0,0,0,0.4)_88%,transparent_100%)]">
             <img
               src="/assets/hero_office_scene_hq.jpg"
-              alt="GetAstrav 3D Architectural Mezzanine Office Command Center with Real-Time Department Execution"
+              alt="Astrav 3D Architectural Mezzanine Office Command Center with Real-Time Department Execution"
               className="w-full h-full object-cover block select-none pointer-events-none"
               loading="eager"
               decoding="async"

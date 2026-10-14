@@ -21,7 +21,7 @@ const hierarchyNodes: HierarchyNode[] = [
   {
     id: 'org',
     level: 'L1 • MULTI-TENANT ORG ROOT',
-    name: 'GetAstrav Enterprise',
+    name: 'Astrav Enterprise',
     subtitle: 'Root Governance Container',
     metrics: '4 Strategic Divisions • 18 Squads • $24M Target ARR',
     status: '100% Operational',

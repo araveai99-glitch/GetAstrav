@@ -53,7 +53,7 @@ export const HowItWorksSection: React.FC = () => {
                     <Layers className="w-4 h-4" />
                   </div>
                   <span className="font-heading font-extrabold text-base tracking-tight text-espresso">
-                    GetAstrav
+                    Astrav
                   </span>
                 </div>
 

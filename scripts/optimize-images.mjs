@@ -51,6 +51,29 @@ async function optimize() {
       .toFile(desktopWebpOut);
     const webpStats = fs.statSync(desktopWebpOut);
     console.log(`Created golden_hour_glass_tech_hub.webp: ${(webpStats.size / 1024).toFixed(1)} KB (-${((1 - webpStats.size / origStats.size) * 100).toFixed(1)}%)`);
+
+    const desktop1440WebpOut = path.join(assetsDir, 'golden_hour_glass_tech_hub_1440.webp');
+    await sharp(desktopHeroSrc)
+      .resize(1440, null, { withoutEnlargement: true })
+      .webp({ quality: 82, effort: 6 })
+      .toFile(desktop1440WebpOut);
+    const webp1440Stats = fs.statSync(desktop1440WebpOut);
+    console.log(`Created golden_hour_glass_tech_hub_1440.webp: ${(webp1440Stats.size / 1024).toFixed(1)} KB (-${((1 - webp1440Stats.size / origStats.size) * 100).toFixed(1)}%)`);
+
+    const desktopAvifOut = path.join(assetsDir, 'golden_hour_glass_tech_hub.avif');
+    await sharp(desktopHeroSrc)
+      .avif({ quality: 78, effort: 6 })
+      .toFile(desktopAvifOut);
+    const avifStats = fs.statSync(desktopAvifOut);
+    console.log(`Created golden_hour_glass_tech_hub.avif: ${(avifStats.size / 1024).toFixed(1)} KB`);
+
+    const desktop1440AvifOut = path.join(assetsDir, 'golden_hour_glass_tech_hub_1440.avif');
+    await sharp(desktopHeroSrc)
+      .resize(1440, null, { withoutEnlargement: true })
+      .avif({ quality: 78, effort: 6 })
+      .toFile(desktop1440AvifOut);
+    const avif1440Stats = fs.statSync(desktop1440AvifOut);
+    console.log(`Created golden_hour_glass_tech_hub_1440.avif: ${(avif1440Stats.size / 1024).toFixed(1)} KB`);
   }
 
   // 3. Founder Desk Scene (founder_desk_scene_hq.jpg)

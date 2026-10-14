@@ -21,7 +21,7 @@ export const Login: React.FC = () => {
               <Layers className="w-6 h-6 text-brand-orange" />
             </div>
           </div>
-          <h2 className="text-2xl font-extrabold text-espresso">Sign In to GetAstrav</h2>
+          <h2 className="text-2xl font-extrabold text-espresso">Sign In to Astrav</h2>
           <p className="text-xs text-terracotta-muted">Access your Executive Command Console</p>
         </div>
 

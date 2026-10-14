@@ -63,10 +63,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     barColor: 'bg-[#2e936f]',
     sparklineColor: '#2e936f',
     sparklinePath: 'M 2 12 Q 10 14, 18 8 T 34 3',
-    left: '32.2%',
-    top: '18.1%',
-    width: '12.8%',
-    height: '10.6%',
+    left: '36.0%',
+    top: '17.5%',
+    width: '13.4%',
+    height: '11.5%',
     mobileLeft: '3.5%',
     mobileTop: '7%',
     mobileWidth: '20.5%',
@@ -93,10 +93,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     barColor: 'bg-[#fab60a]',
     sparklineColor: '#fab60a',
     sparklinePath: 'M 2 13 Q 10 15, 20 8 T 34 3',
-    left: '47.4%',
-    top: '18.1%',
-    width: '12.8%',
-    height: '10.6%',
+    left: '51.0%',
+    top: '17.5%',
+    width: '13.4%',
+    height: '11.5%',
     mobileLeft: '25.5%',
     mobileTop: '7%',
     mobileWidth: '20.5%',
@@ -123,10 +123,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     barColor: 'bg-[#fab60a]',
     sparklineColor: '#fab60a',
     sparklinePath: 'M 2 14 Q 10 11, 20 9 T 34 4',
-    left: '62.5%',
-    top: '18.1%',
-    width: '12.8%',
-    height: '10.6%',
+    left: '66.0%',
+    top: '17.5%',
+    width: '13.4%',
+    height: '11.5%',
     mobileLeft: '47.5%',
     mobileTop: '7%',
     mobileWidth: '20.5%',
@@ -154,10 +154,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     barColor: 'bg-[#2e936f]',
     sparklineColor: '#2e936f',
     sparklinePath: 'M 2 14 Q 10 14, 18 7 T 34 2',
-    left: '32.2%',
-    top: '43.6%',
-    width: '12.8%',
-    height: '10.6%',
+    left: '36.0%',
+    top: '40.0%',
+    width: '13.4%',
+    height: '11.5%',
     mobileLeft: '3.5%',
     mobileTop: '35%',
     mobileWidth: '20.5%',
@@ -184,10 +184,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     barColor: 'bg-[#2e936f]',
     sparklineColor: '#2e936f',
     sparklinePath: 'M 2 13 Q 12 14, 20 6 T 34 2',
-    left: '47.4%',
-    top: '43.6%',
-    width: '12.8%',
-    height: '10.6%',
+    left: '51.0%',
+    top: '40.0%',
+    width: '13.4%',
+    height: '11.5%',
     mobileLeft: '25.5%',
     mobileTop: '35%',
     mobileWidth: '20.5%',
@@ -214,10 +214,10 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     barColor: 'bg-[#fab60a]',
     sparklineColor: '#fab60a',
     sparklinePath: 'M 2 12 Q 12 15, 20 10 T 34 4',
-    left: '62.5%',
-    top: '43.6%',
-    width: '12.8%',
-    height: '10.6%',
+    left: '66.0%',
+    top: '40.0%',
+    width: '13.4%',
+    height: '11.5%',
     mobileLeft: '47.5%',
     mobileTop: '35%',
     mobileWidth: '20.5%',
@@ -257,10 +257,10 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Marketing',
     action: 'Campaign launched',
     time: '2 min ago',
-    left: '79.1%',
-    top: '17.4%',
-    width: '16.6%',
-    height: '7.6%',
+    left: '79.5%',
+    top: '15.0%',
+    width: '16.5%',
+    height: '8.5%',
     mobileTop: '7%',
     icon: Megaphone,
     iconBg: 'bg-[#fceade]',
@@ -273,10 +273,10 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Engineering',
     action: '2 tasks overdue',
     time: '12 min ago',
-    left: '79.1%',
-    top: '27.0%',
-    width: '16.6%',
-    height: '7.6%',
+    left: '79.5%',
+    top: '26.5%',
+    width: '16.5%',
+    height: '8.5%',
     mobileTop: '20.5%',
     icon: Code,
     iconBg: 'bg-[#fef3dc]',
@@ -289,10 +289,10 @@ const NOTIFICATIONS: NotificationHotspot[] = [
     dept: 'Sales',
     action: 'Deal stage updated',
     time: '25 min ago',
-    left: '79.1%',
-    top: '36.6%',
-    width: '16.6%',
-    height: '7.6%',
+    left: '79.5%',
+    top: '38.0%',
+    width: '16.5%',
+    height: '8.5%',
     mobileTop: '34%',
     icon: BarChart3,
     iconBg: 'bg-[#edf7f3]',
@@ -338,16 +338,33 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       {/* DESKTOP / WIDE SCREEN: 4K HIGH-DEF PANORAMIC HERO BACKDROP   */}
       {/* ============================================================ */}
       <div className="hidden lg:block relative w-full">
-        <div className="relative w-full aspect-[1806/871] overflow-hidden">
+        <div className="relative w-full aspect-[1806/760] overflow-hidden">
           {/* Panoramic Clean Reference Backdrop (Crisp with Zero Stretching) */}
           <picture>
-            <source type="image/webp" srcSet="/assets/golden_hour_glass_tech_hub.webp" />
+            <source
+              type="image/avif"
+              media="(min-width: 1536px)"
+              srcSet="/assets/golden_hour_glass_tech_hub.avif"
+            />
+            <source
+              type="image/webp"
+              media="(min-width: 1536px)"
+              srcSet="/assets/golden_hour_glass_tech_hub.webp"
+            />
+            <source
+              type="image/avif"
+              srcSet="/assets/golden_hour_glass_tech_hub_1440.avif"
+            />
+            <source
+              type="image/webp"
+              srcSet="/assets/golden_hour_glass_tech_hub_1440.webp"
+            />
             <img
-              src="/assets/golden_hour_glass_tech_hub.webp"
+              src="/assets/golden_hour_glass_tech_hub_1440.webp"
               alt="FounderOS Executive Organization Command Center"
               width={1806}
               height={871}
-              className="w-full h-full object-cover block select-none pointer-events-none"
+              className="w-full h-full object-cover object-bottom block select-none pointer-events-none"
               loading="eager"
               fetchPriority="high"
               decoding="async"
@@ -358,7 +375,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* ACCESSIBLE SEO LAYER (Screen Readers & Search Engines)       */}
           {/* ============================================================ */}
           <div className="sr-only">
-            <h1>FOUNDEROS WORKSPACE V4.8 — Your Entire Company In One View.</h1>
+            <h1>Your Entire Company In One View.</h1>
             <p>
               Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
             </p>
@@ -383,28 +400,20 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <div
             className="absolute z-20 flex flex-col justify-start select-none"
             style={{
-              left: '5.2%',
-              top: '13.5%',
-              width: '26.5%',
+              left: '5.4%',
+              top: '14.5%',
+              width: '27.0%',
             }}
           >
-            {/* Small Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs w-fit mb-3 xl:mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#2e936f] animate-pulse" />
-              <span className="text-[10px] xl:text-[11px] font-heading font-extrabold tracking-widest text-[#2e936f] uppercase">
-                FOUNDEROS WORKSPACE V4.8
-              </span>
-            </div>
-
             {/* Main Headline */}
-            <h1 className="text-[34px] xl:text-[44px] 2xl:text-[52px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading mb-3 xl:mb-4">
+            <h1 className="text-[30px] xl:text-[40px] 2xl:text-[48px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading mb-2.5 xl:mb-3">
               Your Entire<br />
               Company<br />
               In <span className="text-[#f15e1c]">One View.</span>
             </h1>
 
             {/* Supporting Paragraph */}
-            <p className="text-xs xl:text-sm 2xl:text-base text-[#5a4138] font-body leading-relaxed mb-5 xl:mb-6 max-w-[420px] text-justify">
+            <p className="text-xs xl:text-sm 2xl:text-base text-[#5a4138] font-body leading-relaxed mb-4 xl:mb-5 max-w-[420px] text-justify">
               Connect goals, teams, and daily execution across every department. Spot delays early and run your company with total clarity.
             </p>
 
@@ -443,7 +452,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 onMouseEnter={() => setHoveredDeptId(dept.id)}
                 onMouseLeave={() => setHoveredDeptId(null)}
                 onClick={() => setSelectedDept(dept)}
-                className={`absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_6px_20px_rgba(0,0,0,0.08),0_2px_4px_rgba(0,0,0,0.04)] p-2 xl:p-2.5 2xl:p-3 flex flex-col justify-between group overflow-hidden ${
+                className={`absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_6px_20px_rgba(0,0,0,0.08),0_2px_4px_rgba(0,0,0,0.04)] px-2 py-1.5 xl:px-2.5 xl:py-2 flex flex-col justify-between group overflow-hidden ${
                   isActive
                     ? 'ring-2 ring-[#f15e1c] shadow-[0_12px_28px_rgba(241,94,28,0.3)] scale-[1.02]'
                     : 'hover:shadow-[0_10px_24px_rgba(0,0,0,0.12)] hover:border-[#f15e1c]/40 hover:scale-[1.01]'
@@ -460,11 +469,11 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center gap-1.5 xl:gap-2 min-w-0">
                     <div
-                      className={`w-5 h-5 xl:w-6 xl:h-6 rounded-md xl:rounded-lg ${dept.iconBg} flex items-center justify-center shrink-0`}
+                      className={`w-4.5 h-4.5 xl:w-5 xl:h-5 rounded-md xl:rounded-lg ${dept.iconBg} flex items-center justify-center shrink-0`}
                     >
                       <dept.icon className={`w-3 h-3 xl:w-3.5 xl:h-3.5 ${dept.iconColor}`} />
                     </div>
-                    <span className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-[12px] 2xl:text-[13px] leading-tight truncate">
+                    <span className="font-heading font-extrabold text-[#271812] text-[10.5px] xl:text-[11.5px] 2xl:text-[12.5px] leading-tight truncate">
                       {dept.name}
                     </span>
                   </div>
@@ -474,7 +483,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 {/* Bottom Row: Percentage + Progress Bar + Sparkline */}
                 <div className="flex items-end justify-between w-full mt-0.5">
                   <div className="min-w-0 flex-1 mr-2">
-                    <span className="font-heading font-extrabold text-[#271812] text-xs xl:text-sm 2xl:text-base leading-none block mb-1">
+                    <span className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-xs 2xl:text-sm leading-none block mb-0.5 xl:mb-1">
                       {dept.progress}
                     </span>
                     <div className="w-full h-1 xl:h-1.5 bg-gray-100 rounded-full overflow-hidden">
@@ -484,7 +493,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                       />
                     </div>
                   </div>
-                  <div className="w-8 xl:w-10 h-4 xl:h-5 shrink-0 flex items-center justify-end">
+                  <div className="w-7 xl:w-9 h-3.5 xl:h-4 shrink-0 flex items-center justify-end">
                     <svg viewBox="0 0 36 16" className="w-full h-full overflow-visible" fill="none">
                       <path
                         d={dept.sparklinePath}
@@ -507,10 +516,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             onClick={() => setCompanyGoalModalOpen(true)}
             className="absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_8px_24px_rgba(0,0,0,0.12),0_2px_6px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_28px_rgba(46,147,111,0.3)] hover:border-[#2e936f] hover:scale-[1.01] p-2 xl:p-2.5 2xl:p-3 flex flex-col justify-between group overflow-hidden"
             style={{
-              left: '40.33%',
-              top: '63.5%',
-              width: '23.0%',
-              height: '11.0%',
+              left: '41.0%',
+              top: '62.0%',
+              width: '25.5%',
+              height: '11.5%',
             }}
             title="Company Goal: Launch Product V2 (72%) - Click to inspect"
           >
@@ -601,8 +610,8 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             onClick={() => setMobileSyncOpen(true)}
             className="absolute z-20 rounded-2xl cursor-pointer group transition-all duration-200 active:scale-[0.98]"
             style={{
-              left: '77.2%',
-              top: '53.0%',
+              left: '77.5%',
+              top: '56.0%',
               width: '11.0%',
               height: '28.0%',
             }}

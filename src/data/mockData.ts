@@ -68,7 +68,7 @@ export const mockProfiles: Profile[] = [
 export const mockOrganizations: Organization[] = [
   {
     id: 'org-01',
-    name: 'GETASTRAV FounderOS',
+    name: 'ASTRAV FounderOS',
     billing_tier: 'Enterprise Scale Pilot',
     created_at: '2026-01-01T00:00:00Z',
   },
