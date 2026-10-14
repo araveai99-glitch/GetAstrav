@@ -16,7 +16,7 @@ export const ProductInMotion: React.FC = () => {
           Product in Motion
         </h2>
         <p className="brand-body text-terracotta max-w-[800px] mx-auto">
-          Experience the FounderOS unified operating system. Seamlessly switch focus between strategic goals, leaf task execution, executive analytics, and AI goal decomposition.
+          Experience the Astrav unified operating system. Seamlessly switch focus between strategic goals, leaf task execution, executive analytics, and AI goal decomposition.
         </p>
       </div>
 
@@ -57,7 +57,7 @@ export const ProductInMotion: React.FC = () => {
             <div className="w-3 h-3 rounded-full bg-brand-yellow" />
             <div className="w-3 h-3 rounded-full bg-brand-green" />
             <span className="text-xs font-mono text-terracotta ml-2 font-bold">
-              founderos.app/app/dashboard?focus={activeTab}
+              astrav.app/app/dashboard?focus={activeTab}
             </span>
           </div>
           <div className="flex items-center gap-3">

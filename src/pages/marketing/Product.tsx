@@ -14,7 +14,7 @@ export const Product: React.FC = () => {
           The Executive Command Operating System
         </h1>
         <p className="brand-subtitle text-terracotta text-left sm:text-justify max-w-2xl mx-auto">
-          FounderOS bridges executive strategy with daily execution across a strict 7-level organizational hierarchy.
+          Astrav bridges executive strategy with daily execution across a strict 7-level organizational hierarchy.
         </p>
       </div>
 

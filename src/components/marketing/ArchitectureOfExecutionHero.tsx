@@ -361,7 +361,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             />
             <img
               src="/assets/golden_hour_glass_tech_hub_1440.webp"
-              alt="FounderOS Executive Organization Command Center"
+              alt="Astrav Executive Organization Command Center"
               width={1806}
               height={871}
               className="w-full h-full object-cover object-bottom block select-none pointer-events-none"
@@ -380,7 +380,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
             </p>
             <div>
-              <Link to="/product">Explore FounderOS</Link>
+              <Link to="/product">Explore Astrav</Link>
               <a href="#how-it-works">See How It Works</a>
             </div>
             <h2>Departments</h2>
@@ -424,7 +424,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 className="inline-flex items-center justify-center gap-1.5 xl:gap-2 px-4.5 xl:px-6 py-2.5 xl:py-3 rounded-full bg-[#f15e1c] hover:bg-[#d94e10] text-white font-heading font-bold text-xs xl:text-sm shadow-lg shadow-[#f15e1c]/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap shrink-0"
               >
                 <Layers className="w-4 h-4 text-white" />
-                <span>Explore FounderOS</span>
+                <span>Explore Astrav</span>
                 <ArrowRight className="w-3.5 h-3.5 text-white" />
               </Link>
 
@@ -722,7 +722,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   <Users className="w-5 h-5 text-[#f15e1c]" />
                 </div>
                 <span className="px-2.5 py-0.5 rounded-full text-[10px] font-heading font-extrabold text-[#f15e1c] bg-[#fceade] border border-[#f15e1c]/30">
-                  FounderOS V4.8
+                  Astrav V4.8
                 </span>
               </div>
               <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
@@ -758,7 +758,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             className="inline-flex items-center justify-center gap-2 text-sm sm:text-base font-heading font-bold text-white bg-[#f15e1c] hover:bg-[#d94e10] px-6 py-3.5 rounded-full shadow-lg shadow-[#f15e1c]/30 active:scale-[0.98] transition-all cursor-pointer"
           >
             <Layers className="w-4.5 h-4.5 text-white" />
-            <span>Explore FounderOS</span>
+            <span>Explore Astrav</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
 
@@ -808,7 +808,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             />
             <img
               src="/assets/golden_hour_tech_hub_mobile.webp"
-              alt="FounderOS Command Center Hub"
+              alt="Astrav Command Center Hub"
               width={1306}
               height={871}
               className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
@@ -1189,7 +1189,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               {/* Action Footer */}
               <div className="flex items-center justify-between pt-3 border-t border-brand-peach/40">
                 <span className="text-xs text-terracotta-muted">
-                  Live connection to FounderOS Mesh
+                  Live connection to Astrav Mesh
                 </span>
                 <button
                   onClick={() => setSelectedDept(null)}

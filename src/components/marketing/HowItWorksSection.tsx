@@ -42,7 +42,7 @@ export const HowItWorksSection: React.FC = () => {
     >
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         {/* ============================================================ */}
-        {/* LEFT COLUMN: Large Polished FounderOS Dashboard Mockup       */}
+        {/* LEFT COLUMN: Large Polished Astrav Dashboard Mockup          */}
         {/* ============================================================ */}
         <div className="lg:col-span-7 w-full">
           <MotionWrapper direction="up" delay={0.1}>

@@ -14,7 +14,7 @@ app.use(express.json());
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
-    service: 'FounderOS / ASTRAV API Engine',
+    service: 'Astrav API Engine',
     version: 'v4.8',
     timestamp: new Date().toISOString(),
   });
@@ -55,7 +55,7 @@ app.post('/api/ai-insights', async (req, res) => {
             {
               parts: [
                 {
-                  text: `You are FounderOS AI Executive Assistant. Analyze these active tasks and output valid JSON with keys "focusToday" (array of top 3 action items), "risk" (string statement of bottlenecks), and "insight" (productivity tip). Tasks: ${JSON.stringify(
+                  text: `You are Astrav AI Executive Assistant. Analyze these active tasks and output valid JSON with keys "focusToday" (array of top 3 action items), "risk" (string statement of bottlenecks), and "insight" (productivity tip). Tasks: ${JSON.stringify(
                     tasks
                   )}`,
                 },
@@ -124,5 +124,5 @@ app.post('/api/reminders/send', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`[FounderOS Server] Express API running on http://localhost:${PORT}`);
+  console.log(`[Astrav Server] Express API running on http://localhost:${PORT}`);
 });

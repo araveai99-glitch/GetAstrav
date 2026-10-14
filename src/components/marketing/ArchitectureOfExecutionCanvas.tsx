@@ -598,7 +598,7 @@ export const ArchitectureOfExecutionCanvas: React.FC = () => {
       <div className="absolute top-4 left-4 sm:top-5 sm:left-6 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-brand-peach shadow-warm-xs z-20">
         <span className="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse" />
         <span className="text-[11px] font-heading font-extrabold tracking-wider text-espresso uppercase">
-          FounderOS Execution Hierarchy
+          Astrav Execution Hierarchy
         </span>
         <span className="hidden md:inline-block text-[11px] text-terracotta-muted font-normal">
           • Strategy to Daily Work

@@ -8,7 +8,7 @@ export const OSMapInfographic: React.FC = () => {
       {/* Header */}
       <div className="text-center max-w-[1000px] mx-auto space-y-3">
         <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-orange-light border border-brand-orange/30 text-xs font-heading font-bold text-brand-orange uppercase tracking-wider">
-          Visual J • Master Architectural Map of FounderOS
+          Visual J • Master Architectural Map of Astrav
         </span>
         <h2 className="brand-h2 text-espresso">
           A Unified Operating System in One View
@@ -26,7 +26,7 @@ export const OSMapInfographic: React.FC = () => {
               <Layers className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h3 className="text-base sm:text-lg font-extrabold text-espresso">FounderOS Master Operating Kernel</h3>
+              <h3 className="text-base sm:text-lg font-extrabold text-espresso">Astrav Master Operating Kernel</h3>
               <span className="text-xs text-terracotta font-mono font-bold">UNIFIED GRAPH ARCHITECTURE V4.8</span>
             </div>
           </div>

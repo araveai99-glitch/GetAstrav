@@ -9,7 +9,7 @@ export const About: React.FC = () => {
           About Astrav
         </span>
         <h1 className="brand-h1 text-espresso">
-          The Team Behind FounderOS
+          The Team Behind Astrav
         </h1>
         <p className="brand-subtitle text-terracotta text-left sm:text-justify max-w-2xl mx-auto">
           We build executive operating systems designed to align high-level strategy with daily execution.

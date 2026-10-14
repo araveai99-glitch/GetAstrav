@@ -1,4 +1,4 @@
-// FounderOS / ASTRAV Command Center Domain Type Definitions
+// Astrav Command Center Domain Type Definitions
 
 export type OrgRole = 'owner' | 'manager' | 'employee' | 'guest';
 export type ScopedRole = 'manager' | 'employee' | 'guest';

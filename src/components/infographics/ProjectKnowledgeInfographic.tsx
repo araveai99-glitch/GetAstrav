@@ -16,7 +16,7 @@ export const ProjectKnowledgeInfographic: React.FC = () => {
           Keep Knowledge and Live Execution in One Command Center
         </h2>
         <p className="brand-body text-terracotta max-w-[800px] mx-auto">
-          No more context switching between task trackers and stale documentation. FounderOS ties architecture markdown specs directly to live tasks and immutable version history.
+          No more context switching between task trackers and stale documentation. Astrav ties architecture markdown specs directly to live tasks and immutable version history.
         </p>
       </div>
 

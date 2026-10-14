@@ -19,7 +19,7 @@ export const AIDecompositionInfographic: React.FC = () => {
           Turn Goals into Actionable Tasks.
         </h2>
         <p className="brand-body text-terracotta max-w-[700px] mx-auto">
-          FounderOS can suggest tasks for a goal, helping you plan the work ahead. Review and adjust suggestions before using them.
+          Astrav can suggest tasks for a goal, helping you plan the work ahead. Review and adjust suggestions before using them.
         </p>
       </div>
 

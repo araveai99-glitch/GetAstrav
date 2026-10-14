@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Layers, ArrowRight } from 'lucide-react';
 
 export const Login: React.FC = () => {
-  const [email, setEmail] = useState('arjun@founderos.app');
+  const [email, setEmail] = useState('arjun@astrav.app');
   const [password, setPassword] = useState('password123');
   const navigate = useNavigate();
 

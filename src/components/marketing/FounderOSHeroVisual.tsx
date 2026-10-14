@@ -104,7 +104,7 @@ export const FounderOSHeroVisual: React.FC = () => {
         {/* The 3D Render Image */}
         <img
           src="/assets/founder_os_hero_3d.png"
-          alt="Astrav FounderOS Interactive Execution Command Center"
+          alt="Astrav Interactive Execution Command Center"
           className="w-full h-auto object-contain block drop-shadow-2xl select-none pointer-events-auto"
           loading="eager"
           decoding="async"

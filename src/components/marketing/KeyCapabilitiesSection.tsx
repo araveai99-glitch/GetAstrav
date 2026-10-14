@@ -84,7 +84,7 @@ export const KeyCapabilitiesSection: React.FC = () => {
                 <span className="text-[#f15e1c]">Your Organization.</span>
               </h2>
               <p className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-lg text-left sm:text-justify">
-                FounderOS unifies your strategy, teams, and execution into one executive workspace.
+                Astrav unifies your strategy, teams, and execution into one executive workspace.
               </p>
             </div>
           </MotionWrapper>

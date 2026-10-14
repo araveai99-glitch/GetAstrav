@@ -85,7 +85,7 @@ export const HeroArchitecturalStructure: React.FC = () => {
               </span>
             </h1>
             <p className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-md pt-1">
-              FounderOS connects high-level company objectives down to individual leaf tasks across an immutable 4-tier architectural system with automated mathematical rollups.
+              Astrav connects high-level company objectives down to individual leaf tasks across an immutable 4-tier architectural system with automated mathematical rollups.
             </p>
           </div>
 

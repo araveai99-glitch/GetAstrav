@@ -49,7 +49,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
                 to="/product"
                 className="inline-flex items-center justify-center gap-2 text-base font-heading font-bold text-espresso bg-white hover:bg-brand-orange-light px-7 py-3.5 rounded-full shadow-warm-sm border border-brand-peach transition-all hover:border-brand-orange hover:text-brand-orange hover:-translate-y-0.5 active:translate-y-0"
               >
-                <span>Explore FounderOS</span>
+                <span>Explore Astrav</span>
               </Link>
             </div>
           </div>

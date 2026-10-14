@@ -79,7 +79,7 @@ export const DemoModal: React.FC = () => {
                 Schedule Astrav Demo
               </h3>
               <p className="text-[11px] text-terracotta-muted font-medium">
-                FounderOS Executive Command Center Walkthrough
+                Astrav Executive Command Center Walkthrough
               </p>
             </div>
           </div>

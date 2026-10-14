@@ -659,7 +659,7 @@ export const HeroOfficeVisual: React.FC = () => {
               {/* Action Footer */}
               <div className="flex items-center justify-between pt-3 border-t border-brand-peach/40">
                 <span className="text-xs text-terracotta-muted">
-                  Live connection to FounderOS Mesh
+                  Live connection to Astrav Mesh
                 </span>
                 <button
                   onClick={() => setSelectedDept(null)}

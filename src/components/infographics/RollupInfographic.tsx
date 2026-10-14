@@ -144,7 +144,7 @@ export const RollupInfographic: React.FC = () => {
                 </div>
                 <h3 className="text-lg font-heading font-extrabold text-espresso mt-1">Clear Visibility Without Chasing Status Updates</h3>
                 <p className="brand-body text-terracotta mt-0.5">
-                  As team members complete tasks, progress updates automatically. If a task slips behind schedule, FounderOS highlights the delay immediately.
+                  As team members complete tasks, progress updates automatically. If a task slips behind schedule, Astrav highlights the delay immediately.
                 </p>
               </div>
             </div>
