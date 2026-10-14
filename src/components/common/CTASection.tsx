@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Layers, ArrowRight, Sparkles, Megaphone, CheckCircle2 } from 'lucide-react';
 import { MotionWrapper } from './MotionWrapper';
+import { openDemoModal } from './DemoModal';
 
 export const CTASection: React.FC = () => {
   return (
@@ -24,17 +25,14 @@ export const CTASection: React.FC = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a
-                href="#conversion-cta"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
+              <button
+                type="button"
+                onClick={openDemoModal}
                 className="inline-flex items-center justify-center gap-2.5 text-base font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-8 py-3.5 rounded-full shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 active:translate-y-0 transition-all group cursor-pointer"
               >
                 <span>Book a Demo</span>
                 <ArrowRight className="w-4.5 h-4.5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </button>
 
               <Link
                 to="/product"

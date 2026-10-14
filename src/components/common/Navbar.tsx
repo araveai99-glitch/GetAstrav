@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Layers, ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
+import { openDemoModal } from './DemoModal';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -360,22 +361,14 @@ export const Navbar: React.FC = () => {
             Sign In
           </Link>
 
-          <a
-            href="#conversion-cta"
-            onClick={(e) => {
-              const el = document.getElementById('conversion-cta');
-              if (el) {
-                e.preventDefault();
-                el.scrollIntoView({ behavior: 'smooth' });
-              } else {
-                navigate('/#conversion-cta');
-              }
-            }}
+          <button
+            type="button"
+            onClick={openDemoModal}
             className="inline-flex items-center justify-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-3.5 sm:px-6 py-2 sm:py-3 rounded-full shadow-md shadow-brand-orange/30 transition-all hover:-translate-y-0.5 active:translate-y-0 group cursor-pointer shrink-0"
           >
             <span>Book a Demo</span>
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </button>
 
           {/* Mobile Drawer Button */}
           <button

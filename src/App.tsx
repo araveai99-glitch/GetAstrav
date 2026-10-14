@@ -6,6 +6,7 @@ import { ThreeBackground } from './components/common/ThreeBackground';
 // Marketing Layout Header/Footer
 import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
+import { DemoModal } from './components/common/DemoModal';
 
 // Marketing Pages
 import { Home } from './pages/marketing/Home';
@@ -83,6 +84,7 @@ const MarketingLayout: React.FC = () => {
         </Routes>
       </main>
       <Footer />
+      <DemoModal />
     </div>
   );
 };

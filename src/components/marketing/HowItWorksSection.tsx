@@ -22,6 +22,7 @@ import {
   Check,
 } from 'lucide-react';
 import { MotionWrapper } from '../common/MotionWrapper';
+import { openDemoModal } from '../common/DemoModal';
 
 export const HowItWorksSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('home');
@@ -461,13 +462,14 @@ export const HowItWorksSection: React.FC = () => {
           {/* CTA & Trust Avatars */}
           <MotionWrapper delay={0.5}>
             <div className="flex flex-wrap items-center gap-5 pt-4">
-              <a
-                href="#conversion-cta"
+              <button
+                type="button"
+                onClick={openDemoModal}
                 className="inline-flex items-center justify-center gap-2.5 text-sm sm:text-base font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-7 py-3.5 rounded-full shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 transition-all group cursor-pointer"
               >
                 <span>Book a Demo</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </button>
 
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-2">

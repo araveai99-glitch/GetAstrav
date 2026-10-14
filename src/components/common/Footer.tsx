@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Layers, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { openDemoModal } from './DemoModal';
 
 export const Footer: React.FC = () => {
   return (
@@ -76,7 +77,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-sm sm:text-base text-terracotta font-medium">
               <li><Link to="/about" className="hover:text-brand-orange transition-colors">About Astrav</Link></li>
               <li><a href="#conversion-cta" className="hover:text-brand-orange transition-colors">Contact Engineering</a></li>
-              <li><a href="#conversion-cta" className="hover:text-brand-orange transition-colors">Book a Demo</a></li>
+              <li><button type="button" onClick={openDemoModal} className="hover:text-brand-orange transition-colors cursor-pointer text-left">Book a Demo</button></li>
             </ul>
           </div>
 

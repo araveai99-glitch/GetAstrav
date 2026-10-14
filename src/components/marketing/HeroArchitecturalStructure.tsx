@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Target, Shield, FolderGit2, CheckSquare, Sparkles, ArrowRight, Layers, Activity, Lock, CheckCircle2 } from 'lucide-react';
+import { openDemoModal } from '../common/DemoModal';
 
 export const HeroArchitecturalStructure: React.FC = () => {
   const [selectedTier, setSelectedTier] = useState<number | 'all'>('all');
@@ -91,13 +92,14 @@ export const HeroArchitecturalStructure: React.FC = () => {
           {/* CTAs */}
           <div className="space-y-4 pt-1">
             <div className="flex flex-wrap items-center gap-3.5">
-              <a
-                href="#conversion-cta"
-                className="inline-flex items-center justify-center gap-2.5 text-sm font-bold text-white bg-brand-orange hover:bg-primary-hover px-7 py-3.5 rounded-xl shadow-glow-orange hover:-translate-y-0.5 transition-all group"
+              <button
+                type="button"
+                onClick={openDemoModal}
+                className="inline-flex items-center justify-center gap-2.5 text-sm font-bold text-white bg-brand-orange hover:bg-primary-hover px-7 py-3.5 rounded-xl shadow-glow-orange hover:-translate-y-0.5 transition-all group cursor-pointer"
               >
                 <span>Book a Demo</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </button>
 
               <Link
                 to="/app/dashboard"
