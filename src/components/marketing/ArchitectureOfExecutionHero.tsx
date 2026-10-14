@@ -67,9 +67,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     top: '17.5%',
     width: '13.4%',
     height: '11.5%',
-    mobileLeft: '3.5%',
+    mobileLeft: '2.5%',
     mobileTop: '7%',
-    mobileWidth: '20.5%',
+    mobileWidth: '22.0%',
     mobileHeight: '19%',
     head: 'Elena Vance (VP Product)',
     activeTasks: 14,
@@ -97,9 +97,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     top: '17.5%',
     width: '13.4%',
     height: '11.5%',
-    mobileLeft: '25.5%',
+    mobileLeft: '26.0%',
     mobileTop: '7%',
-    mobileWidth: '20.5%',
+    mobileWidth: '22.0%',
     mobileHeight: '19%',
     head: 'Marcus Thorne (CTO)',
     activeTasks: 22,
@@ -127,9 +127,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     top: '17.5%',
     width: '13.4%',
     height: '11.5%',
-    mobileLeft: '47.5%',
+    mobileLeft: '49.5%',
     mobileTop: '7%',
-    mobileWidth: '20.5%',
+    mobileWidth: '22.0%',
     mobileHeight: '19%',
     head: 'Sarah Jenkins (Growth Lead)',
     activeTasks: 9,
@@ -158,9 +158,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     top: '40.0%',
     width: '13.4%',
     height: '11.5%',
-    mobileLeft: '3.5%',
+    mobileLeft: '2.5%',
     mobileTop: '35%',
-    mobileWidth: '20.5%',
+    mobileWidth: '22.0%',
     mobileHeight: '19%',
     head: 'Priya Roy (Head of Revenue)',
     activeTasks: 18,
@@ -188,9 +188,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     top: '40.0%',
     width: '13.4%',
     height: '11.5%',
-    mobileLeft: '25.5%',
+    mobileLeft: '26.0%',
     mobileTop: '35%',
-    mobileWidth: '20.5%',
+    mobileWidth: '22.0%',
     mobileHeight: '19%',
     head: 'Devon Lee (People Operations)',
     activeTasks: 6,
@@ -218,9 +218,9 @@ const DEPARTMENTS: DepartmentHotspot[] = [
     top: '40.0%',
     width: '13.4%',
     height: '11.5%',
-    mobileLeft: '47.5%',
+    mobileLeft: '49.5%',
     mobileTop: '35%',
-    mobileWidth: '20.5%',
+    mobileWidth: '22.0%',
     mobileHeight: '19%',
     head: 'Arthur Pendelton (Finance VP)',
     activeTasks: 8,
@@ -739,7 +739,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       {/* ============================================================ */}
       {/* MOBILE / TABLET VIEW (<1024px): CLOSE TO REFERENCE IMAGE 1   */}
       {/* ============================================================ */}
-      <div className="lg:hidden max-w-xl mx-auto px-4 sm:px-6 pt-2 sm:pt-4 space-y-7 text-left pb-12">
+      <div className="lg:hidden max-w-xl mx-auto px-3.5 sm:px-6 pt-2.5 sm:pt-4 space-y-7 text-left pb-12">
         {/* 1. Headline & Supporting Text */}
         <div className="space-y-3.5">
           <h1 className="text-[34px] xs:text-[38px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading">
@@ -826,7 +826,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           >
             {/* Vertical connector lines between Row 1 and Row 2 */}
             <path
-              d="M 138 174 L 138 234"
+              d="M 135 174 L 135 234"
               stroke="#ea580c"
               strokeWidth="2.5"
               strokeDasharray="4 3"
@@ -834,7 +834,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               opacity="0.85"
             />
             <path
-              d="M 358 174 L 358 234"
+              d="M 370 174 L 370 234"
               stroke="#ea580c"
               strokeWidth="2.5"
               strokeDasharray="4 3"
@@ -842,7 +842,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               opacity="0.85"
             />
             <path
-              d="M 578 174 L 578 234"
+              d="M 605 174 L 605 234"
               stroke="#ea580c"
               strokeWidth="2.5"
               strokeDasharray="4 3"
@@ -853,7 +853,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             {/* Connector Lines from Row 2 converging down into Company Goal */}
             {/* Sales (Col 1) to Goal left */}
             <path
-              d="M 138 358 L 138 392 L 245 392 L 245 427"
+              d="M 135 358 L 135 392 L 235 392 L 235 427"
               stroke="#ea580c"
               strokeWidth="2.5"
               strokeDasharray="4 3"
@@ -862,7 +862,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             />
             {/* HR (Col 2) to Goal center */}
             <path
-              d="M 358 358 L 358 427"
+              d="M 370 358 L 370 427"
               stroke="#ea580c"
               strokeWidth="2.5"
               strokeDasharray="4 3"
@@ -871,7 +871,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             />
             {/* Finance (Col 3) to Goal right */}
             <path
-              d="M 578 358 L 578 392 L 465 392 L 465 427"
+              d="M 605 358 L 605 392 L 505 392 L 505 427"
               stroke="#ea580c"
               strokeWidth="2.5"
               strokeDasharray="4 3"
@@ -880,16 +880,16 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             />
 
             {/* Glowing Bus Junction Nodes */}
-            <circle cx="138" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
-            <circle cx="245" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
-            <circle cx="358" cy="392" r="3.5" fill="#2e936f" stroke="#ffffff" strokeWidth="1.5" />
-            <circle cx="465" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
-            <circle cx="578" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="135" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="235" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="370" cy="392" r="3.5" fill="#2e936f" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="505" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="605" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
 
             {/* Goal Top Anchor Nodes */}
-            <circle cx="245" cy="427" r="3" fill="#2e936f" />
-            <circle cx="358" cy="427" r="3.5" fill="#2e936f" stroke="#ffffff" strokeWidth="1.5" />
-            <circle cx="465" cy="427" r="3" fill="#2e936f" />
+            <circle cx="235" cy="427" r="3" fill="#2e936f" />
+            <circle cx="370" cy="427" r="3.5" fill="#2e936f" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="505" cy="427" r="3" fill="#2e936f" />
           </svg>
 
           {/* Overlaid 6 Department Cards in 2 Rows of 3 */}
@@ -902,7 +902,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               <div
                 key={dept.id}
                 onClick={() => setSelectedDept(dept)}
-                className={`absolute z-20 rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_4px_14px_rgba(0,0,0,0.12)] p-1 xs:p-1.5 sm:p-2 flex flex-col justify-between cursor-pointer select-none active:scale-95 transition-all group overflow-hidden ${
+                className={`absolute z-20 rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_4px_14px_rgba(0,0,0,0.12)] px-1.5 py-1 xs:py-1.5 sm:p-2 flex flex-col justify-between cursor-pointer select-none active:scale-95 transition-all group overflow-hidden ${
                   isSelected ? 'ring-2 ring-brand-orange bg-white' : 'hover:border-brand-orange/50'
                 }`}
                 style={{
@@ -913,22 +913,25 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 }}
                 title={`Click to inspect ${dept.name} (${dept.progress} - ${dept.statusText})`}
               >
-                {/* Top Row: Icon + Name */}
-                <div className="flex items-center gap-1 xs:gap-1.5 min-w-0">
-                  <div
-                    className={`w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 rounded-md ${dept.iconBg} flex items-center justify-center shrink-0`}
-                  >
-                    <dept.icon className={`w-2 h-2 xs:w-2.5 xs:h-2.5 sm:w-3 sm:h-3 ${dept.iconColor}`} />
+                {/* Top Row: Icon + Name + Chevron */}
+                <div className="flex items-center justify-between w-full">
+                  <div className="flex items-center gap-1 min-w-0">
+                    <div
+                      className={`w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 rounded-md ${dept.iconBg} flex items-center justify-center shrink-0`}
+                    >
+                      <dept.icon className={`w-2 h-2 xs:w-2.5 xs:h-2.5 sm:w-3 sm:h-3 ${dept.iconColor}`} />
+                    </div>
+                    <span className="font-heading font-extrabold text-[#271812] text-[7.5px] xs:text-[8.5px] sm:text-xs leading-none whitespace-nowrap tracking-tight">
+                      {dept.name}
+                    </span>
                   </div>
-                  <span className="font-heading font-extrabold text-[#271812] text-[8px] xs:text-[9.5px] sm:text-xs leading-none truncate">
-                    {dept.name}
-                  </span>
+                  <ChevronRight className="w-2.5 h-2.5 xs:w-3 xs:h-3 text-gray-400 group-hover:text-brand-orange shrink-0" />
                 </div>
 
                 {/* Bottom Row: Percentage + Progress Bar + Sparkline */}
                 <div className="flex items-end justify-between w-full gap-1 mt-0.5">
                   <div className="min-w-0 flex-1">
-                    <span className="font-heading font-extrabold text-[#271812] text-[9px] xs:text-[11px] sm:text-xs leading-none block mb-0.5">
+                    <span className="font-heading font-extrabold text-[#271812] text-[9px] xs:text-[10.5px] sm:text-xs leading-none block mb-0.5">
                       {dept.progress}
                     </span>
                     <div className="w-full h-0.5 xs:h-1 bg-gray-100 rounded-full overflow-hidden">
@@ -959,9 +962,9 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             onClick={() => setCompanyGoalModalOpen(true)}
             className="absolute z-20 rounded-xl xs:rounded-2xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_6px_20px_rgba(46,147,111,0.22),0_2px_4px_rgba(0,0,0,0.06)] p-1.5 xs:p-2 sm:p-2.5 cursor-pointer active:scale-95 transition-all select-none group flex flex-col justify-between"
             style={{
-              left: '14%',
+              left: '12%',
               top: '64%',
-              width: '43%',
+              width: '46%',
               height: '24%',
             }}
             title="Company Goal: Launch Product V2 (72%) - Click to inspect"
@@ -1000,9 +1003,9 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <div
             className="absolute z-20 flex flex-col gap-1 xs:gap-1.5 sm:gap-2"
             style={{
-              right: '2.5%',
+              right: '1.5%',
               top: '7%',
-              width: '27%',
+              width: '25.5%',
             }}
           >
             {NOTIFICATIONS.map((notif) => (
