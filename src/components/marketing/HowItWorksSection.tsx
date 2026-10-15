@@ -147,9 +147,12 @@ export const HowItWorksSection: React.FC = () => {
 
                     {/* Progress Bar */}
                     <div className="w-full h-2 rounded-full bg-brand-peach/40 mt-2.5 overflow-hidden">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-brand-green to-emerald-400 transition-all duration-500"
-                        style={{ width: '72%' }}
+                      <motion.div
+                        className="h-full rounded-full bg-gradient-to-r from-brand-green to-emerald-400"
+                        initial={{ width: '0%' }}
+                        whileInView={{ width: '72%' }}
+                        viewport={{ once: false, amount: 0.2 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
                       />
                     </div>
                   </div>
@@ -199,7 +202,7 @@ export const HowItWorksSection: React.FC = () => {
                         color: 'bg-brand-yellow',
                         width: '66%',
                       },
-                    ].map((dept) => (
+                    ].map((dept, idx) => (
                       <div
                         key={dept.name}
                         onMouseEnter={() => setHoveredCard(dept.name)}
@@ -219,9 +222,12 @@ export const HowItWorksSection: React.FC = () => {
                           </span>
                         </div>
                         <div className="w-full h-1.5 rounded-full bg-brand-peach/30 my-1.5 overflow-hidden">
-                          <div
+                          <motion.div
                             className={`h-full rounded-full ${dept.color}`}
-                            style={{ width: dept.width }}
+                            initial={{ width: '0%' }}
+                            whileInView={{ width: dept.width }}
+                            viewport={{ once: false, amount: 0.2 }}
+                            transition={{ duration: 0.7, delay: 0.25 + idx * 0.05, ease: 'easeOut' }}
                           />
                         </div>
                         <span className="text-[9px] sm:text-[10px] text-terracotta-muted font-medium block">
@@ -352,7 +358,7 @@ export const HowItWorksSection: React.FC = () => {
                               stroke="#f7d7b0"
                               strokeWidth="3.5"
                             />
-                            <circle
+                            <motion.circle
                               cx="18"
                               cy="18"
                               r="15"
@@ -361,6 +367,10 @@ export const HowItWorksSection: React.FC = () => {
                               strokeWidth="3.5"
                               strokeDasharray="68, 100"
                               strokeLinecap="round"
+                              initial={{ pathLength: 0 }}
+                              whileInView={{ pathLength: 1 }}
+                              viewport={{ once: false, amount: 0.2 }}
+                              transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
                             />
                           </svg>
                           <span className="absolute font-heading font-extrabold text-xs text-espresso">

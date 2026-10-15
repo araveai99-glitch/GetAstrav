@@ -1,0 +1,98 @@
+import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowRight, Layers, CheckCircle2, ShieldCheck, TrendingUp } from 'lucide-react';
+import { openDemoModal } from '../common/DemoModal';
+
+export const ProductFinalCTA: React.FC = () => {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto">
+      <div className="rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-8 sm:p-12 md:p-14 border border-brand-peach/80 shadow-warm-lg relative overflow-hidden text-center">
+        {/* Soft Warm Ambient Sheen with Gentle Decorative Floating Movement */}
+        <motion.div
+          animate={
+            shouldReduceMotion
+              ? {}
+              : {
+                  scale: [1, 1.1, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                  x: [0, 15, 0],
+                  y: [0, -10, 0],
+                }
+          }
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute top-0 right-12 w-[420px] h-[420px] bg-gradient-to-bl from-brand-orange-light via-brand-peach/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10"
+        />
+
+        <div className="max-w-2xl mx-auto space-y-5 relative z-10">
+          {/* Subtle Brand Icon Badge with Repeat-on-Scroll */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.35 }}
+            className="w-12 h-12 rounded-2xl bg-brand-orange text-white flex items-center justify-center mx-auto shadow-md shadow-brand-orange/25"
+          >
+            <Layers className="w-6 h-6" />
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="brand-h2 text-espresso"
+          >
+            Bring Your Goals and Teams Together.
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.4, delay: 0.18 }}
+            className="brand-subtitle text-terracotta text-base sm:text-lg font-normal max-w-lg mx-auto"
+          >
+            Keep everyone aligned and see what moves your work forward.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.4, delay: 0.25 }}
+            className="pt-2"
+          >
+            <button
+              type="button"
+              onClick={openDemoModal}
+              className="btn-brand-primary px-8 py-3.5 text-base font-heading font-bold shadow-md shadow-brand-orange/30 hover:-translate-y-0.5 active:translate-y-0 transition-all inline-flex items-center gap-2.5 cursor-pointer"
+            >
+              <span>Book a Demo</span>
+              <ArrowRight className="w-4.5 h-4.5" />
+            </button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.4, delay: 0.32 }}
+            className="flex flex-wrap items-center justify-center gap-6 pt-4 text-xs font-heading font-semibold text-terracotta-muted border-t border-brand-peach/50 max-w-md mx-auto"
+          >
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-brand-green" /> Zero Commitment
+            </span>
+            <span className="flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-brand-green" /> Enterprise RBAC
+            </span>
+            <span className="flex items-center gap-1.5">
+              <TrendingUp className="w-4 h-4 text-brand-orange" /> Real-Time Rollups
+            </span>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};

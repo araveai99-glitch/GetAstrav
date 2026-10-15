@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Layers, ArrowRight, Sparkles, Megaphone, CheckCircle2 } from 'lucide-react';
-import { MotionWrapper } from './MotionWrapper';
 import { openDemoModal } from './DemoModal';
 
 interface CTASectionProps {
@@ -25,16 +25,34 @@ export const CTASection: React.FC<CTASectionProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           {/* LEFT: Copy & Action Buttons */}
           <div className="lg:col-span-8 space-y-6 text-left">
-            <h2 className="text-[32px] sm:text-[46px] font-extrabold text-[#271812] leading-[1.12] tracking-[-0.02em] font-heading">
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.45, ease: 'easeOut' }}
+              className="text-[32px] sm:text-[46px] font-extrabold text-[#271812] leading-[1.12] tracking-[-0.02em] font-heading"
+            >
               Ready to See Your Company<br />
               <span className="text-[#f15e1c]">in One View?</span>
-            </h2>
+            </motion.h2>
 
-            <p className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-xl text-left sm:text-justify">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.45, delay: 0.1, ease: 'easeOut' }}
+              className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-xl text-left sm:text-justify"
+            >
               Join forward-thinking founders who run their organizations with clarity, velocity, and execution precision.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.45, delay: 0.2, ease: 'easeOut' }}
+              className="flex flex-wrap items-center gap-4 pt-2"
+            >
               <button
                 type="button"
                 onClick={openDemoModal}
@@ -51,11 +69,17 @@ export const CTASection: React.FC<CTASectionProps> = ({
               >
                 <span>Explore Astrav</span>
               </Link>
-            </div>
+            </motion.div>
           </div>
 
           {/* RIGHT: Compact Brand Visual with 3D Logo & Handwritten Note */}
-          <div className="lg:col-span-4 flex items-center justify-center relative">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 12 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-4 flex items-center justify-center relative"
+          >
             <div className="relative w-full max-w-[280px] aspect-square flex items-center justify-center">
               {/* Handwritten note & curly arrow */}
               <div className="absolute top-2 left-0 z-20 text-left pointer-events-none">
@@ -97,9 +121,10 @@ export const CTASection: React.FC<CTASectionProps> = ({
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 };
+

@@ -397,7 +397,14 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* ============================================================ */}
           {/* 1. CRISP VECTOR LEFT-SIDE HERO CONTENT                       */}
           {/* ============================================================ */}
-          <div
+          {/* ============================================================ */}
+          {/* 1. CRISP VECTOR LEFT-SIDE HERO CONTENT                       */}
+          {/* ============================================================ */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="absolute z-20 flex flex-col justify-start select-none"
             style={{
               left: '5.4%',
@@ -406,19 +413,37 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             }}
           >
             {/* Main Headline */}
-            <h1 className="text-[30px] xl:text-[40px] 2xl:text-[48px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading mb-2.5 xl:mb-3">
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.45, delay: 0.05, ease: 'easeOut' }}
+              className="text-[30px] xl:text-[40px] 2xl:text-[48px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading mb-2.5 xl:mb-3"
+            >
               Your Entire<br />
               Company<br />
               In <span className="text-[#f15e1c]">One View.</span>
-            </h1>
+            </motion.h1>
 
             {/* Supporting Paragraph */}
-            <p className="text-xs xl:text-sm 2xl:text-base text-[#5a4138] font-body leading-relaxed mb-4 xl:mb-5 max-w-[420px] text-justify">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.45, delay: 0.15, ease: 'easeOut' }}
+              className="text-xs xl:text-sm 2xl:text-base text-[#5a4138] font-body leading-relaxed mb-4 xl:mb-5 max-w-[420px] text-justify"
+            >
               Connect goals, teams, and daily execution across every department. Spot delays early and run your company with total clarity.
-            </p>
+            </motion.p>
 
             {/* CTA Buttons */}
-            <div className="flex items-center gap-2.5 xl:gap-3">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.45, delay: 0.25, ease: 'easeOut' }}
+              className="flex items-center gap-2.5 xl:gap-3"
+            >
               <Link
                 to="/product"
                 className="inline-flex items-center justify-center gap-1.5 xl:gap-2 px-4.5 xl:px-6 py-2.5 xl:py-3 rounded-full bg-[#f15e1c] hover:bg-[#d94e10] text-white font-heading font-bold text-xs xl:text-sm shadow-lg shadow-[#f15e1c]/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap shrink-0"
@@ -435,20 +460,28 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 <Play className="w-3.5 h-3.5 text-[#271812] fill-[#271812]/20" />
                 <span>See How It Works</span>
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* ============================================================ */}
           {/* 2. SHARP, HIGH-DEFINITION DEPARTMENT CARDS                   */}
           {/* ============================================================ */}
-          {DEPARTMENTS.map((dept) => {
+          {DEPARTMENTS.map((dept, index) => {
             const isHovered = hoveredDeptId === dept.id;
             const isSelected = selectedDept?.id === dept.id;
             const isActive = isHovered || isSelected;
 
             return (
-              <div
+              <motion.div
                 key={dept.id}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{
+                  duration: 0.45,
+                  delay: 0.1 + index * 0.07,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
                 onMouseEnter={() => setHoveredDeptId(dept.id)}
                 onMouseLeave={() => setHoveredDeptId(null)}
                 onClick={() => setSelectedDept(dept)}
@@ -487,9 +520,16 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                       {dept.progress}
                     </span>
                     <div className="w-full h-1 xl:h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                      <div
-                        className={`h-full ${dept.barColor} rounded-full transition-all duration-500`}
-                        style={{ width: dept.progress }}
+                      <motion.div
+                        className={`h-full ${dept.barColor} rounded-full`}
+                        initial={{ width: '0%' }}
+                        whileInView={{ width: dept.progress }}
+                        viewport={{ once: false, amount: 0.2 }}
+                        transition={{
+                          duration: 0.75,
+                          delay: 0.2 + index * 0.07,
+                          ease: 'easeOut',
+                        }}
                       />
                     </div>
                   </div>
@@ -505,14 +545,18 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                     </svg>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
 
           {/* ============================================================ */}
           {/* 3. SHARP, HIGH-DEFINITION COMPANY GOAL CARD                  */}
           {/* ============================================================ */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.45, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
             onClick={() => setCompanyGoalModalOpen(true)}
             className="absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_8px_24px_rgba(0,0,0,0.12),0_2px_6px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_28px_rgba(46,147,111,0.3)] hover:border-[#2e936f] hover:scale-[1.01] p-2 xl:p-2.5 2xl:p-3 flex flex-col justify-between group overflow-hidden"
             style={{
@@ -547,19 +591,26 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
             {/* Full width Progress Bar */}
             <div className="w-full h-1.5 xl:h-2 bg-gray-100 rounded-full overflow-hidden mt-0.5">
-              <div
-                className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full transition-all duration-500"
-                style={{ width: '72%' }}
+              <motion.div
+                className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full"
+                initial={{ width: '0%' }}
+                whileInView={{ width: '72%' }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.8, delay: 0.45, ease: 'easeOut' }}
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* ============================================================ */}
           {/* 4. SHARP, HIGH-DEFINITION NOTIFICATION STACK                 */}
           {/* ============================================================ */}
-          {NOTIFICATIONS.map((notif) => (
-            <div
+          {NOTIFICATIONS.map((notif, idx) => (
+            <motion.div
               key={notif.id}
+              initial={{ opacity: 0, x: 18 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.25 + idx * 0.08, ease: 'easeOut' }}
               onClick={() => setActiveNotif(notif)}
               className="absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_6px_20px_rgba(0,0,0,0.08),0_2px_4px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_24px_rgba(0,0,0,0.14)] hover:border-brand-orange/60 hover:scale-[1.01] px-2.5 py-1.5 xl:px-3 xl:py-2 flex items-center justify-between group overflow-hidden"
               style={{
@@ -600,8 +651,9 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   {notif.time}
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
+
 
           {/* ============================================================ */}
           {/* 5. FOUNDER SMARTPHONE HOTSPOT (BOTTOM-RIGHT)                 */}
@@ -661,77 +713,67 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       <div className="hidden lg:block w-full bg-[#fdfbf7] border-t border-brand-peach/60 py-6 sm:py-8 px-4 sm:px-6 lg:px-12 select-none shadow-[0_-4px_24px_rgba(39,24,18,0.03)]">
         <div className="max-w-[1600px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6">
-            {/* 1. Goal-Driven Execution */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-xs hover:border-brand-orange/60 hover:shadow-warm-md hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-10 h-10 rounded-xl bg-[#fceade] text-[#f15e1c] flex items-center justify-center shadow-warm-2xs group-hover:scale-105 transition-transform">
-                  <Target className="w-5 h-5 text-[#f15e1c]" />
-                </div>
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-heading font-extrabold text-[#2e936f] bg-[#edf7f3] border border-[#2e936f]/30">
-                  100% Rollup
-                </span>
-              </div>
-              <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
-                Goal-Driven Execution
-              </h4>
-              <p className="text-xs text-terracotta leading-relaxed mt-1 text-justify">
-                Projects, milestones, and daily tasks roll up directly into company North Star goals.
-              </p>
-            </div>
-
-            {/* 2. AI-Powered Planning */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-xs hover:border-brand-orange/60 hover:shadow-warm-md hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-10 h-10 rounded-xl bg-[#fef3dc] text-[#fab60a] flex items-center justify-center shadow-warm-2xs group-hover:scale-105 transition-transform">
-                  <Sparkles className="w-5 h-5 text-[#fab60a]" />
-                </div>
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-heading font-extrabold text-[#fab60a] bg-[#fef3dc] border border-[#fab60a]/30">
-                  Predictive Mesh
-                </span>
-              </div>
-              <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
-                AI-Powered Planning
-              </h4>
-              <p className="text-xs text-terracotta leading-relaxed mt-1 text-justify">
-                Detects project blockers, overdue tasks, and resource clashes before delays happen.
-              </p>
-            </div>
-
-            {/* 3. Real Progress Visibility */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-xs hover:border-brand-orange/60 hover:shadow-warm-md hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-10 h-10 rounded-xl bg-[#edf7f3] text-[#2e936f] flex items-center justify-center shadow-warm-2xs group-hover:scale-105 transition-transform">
-                  <BarChart3 className="w-5 h-5 text-[#2e936f]" />
-                </div>
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-heading font-extrabold text-[#2e936f] bg-[#edf7f3] border border-[#2e936f]/30">
-                  Real-Time Sync
-                </span>
-              </div>
-              <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
-                Real Progress Visibility
-              </h4>
-              <p className="text-xs text-terracotta leading-relaxed mt-1 text-justify">
-                Live, unfiltered execution velocity across Product, Engineering, Marketing, Sales, HR, and Finance.
-              </p>
-            </div>
-
-            {/* 4. Built for Founders */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-xs hover:border-brand-orange/60 hover:shadow-warm-md hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-10 h-10 rounded-xl bg-[#fceade] text-[#f15e1c] flex items-center justify-center shadow-warm-2xs group-hover:scale-105 transition-transform">
-                  <Users className="w-5 h-5 text-[#f15e1c]" />
-                </div>
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-heading font-extrabold text-[#f15e1c] bg-[#fceade] border border-[#f15e1c]/30">
-                  Astrav V4.8
-                </span>
-              </div>
-              <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
-                Built for Founders
-              </h4>
-              <p className="text-xs text-terracotta leading-relaxed mt-1 text-justify">
-                Total control of cross-team execution with zero micromanagement or status meetings.
-              </p>
-            </div>
+            {[
+              {
+                icon: Target,
+                badge: '100% Rollup',
+                badgeBg: 'bg-[#edf7f3] text-[#2e936f] border-[#2e936f]/30',
+                iconBg: 'bg-[#fceade] text-[#f15e1c]',
+                title: 'Goal-Driven Execution',
+                desc: 'Projects, milestones, and daily tasks roll up directly into company North Star goals.',
+              },
+              {
+                icon: Sparkles,
+                badge: 'Predictive Mesh',
+                badgeBg: 'bg-[#fef3dc] text-[#fab60a] border-[#fab60a]/30',
+                iconBg: 'bg-[#fef3dc] text-[#fab60a]',
+                title: 'AI-Powered Planning',
+                desc: 'Detects project blockers, overdue tasks, and resource clashes before delays happen.',
+              },
+              {
+                icon: BarChart3,
+                badge: 'Real-Time Sync',
+                badgeBg: 'bg-[#edf7f3] text-[#2e936f] border-[#2e936f]/30',
+                iconBg: 'bg-[#edf7f3] text-[#2e936f]',
+                title: 'Real Progress Visibility',
+                desc: 'Live, unfiltered execution velocity across Product, Engineering, Marketing, Sales, HR, and Finance.',
+              },
+              {
+                icon: Users,
+                badge: 'Astrav V4.8',
+                badgeBg: 'bg-[#fceade] text-[#f15e1c] border-[#f15e1c]/30',
+                iconBg: 'bg-[#fceade] text-[#f15e1c]',
+                title: 'Built for Founders',
+                desc: 'Total control of cross-team execution with zero micromanagement or status meetings.',
+              },
+            ].map((pillar, idx) => {
+              const Icon = pillar.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.2 }}
+                  transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-xs hover:border-brand-orange/60 hover:shadow-warm-md hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer"
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <div className={`w-10 h-10 rounded-xl ${pillar.iconBg} flex items-center justify-center shadow-warm-2xs group-hover:scale-105 transition-transform`}>
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-heading font-extrabold ${pillar.badgeBg} border`}>
+                      {pillar.badge}
+                    </span>
+                  </div>
+                  <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
+                    {pillar.title}
+                  </h4>
+                  <p className="text-xs text-terracotta leading-relaxed mt-1 text-justify">
+                    {pillar.desc}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -741,7 +783,13 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       {/* ============================================================ */}
       <div className="lg:hidden max-w-xl mx-auto px-3.5 sm:px-6 pt-2.5 sm:pt-4 space-y-7 text-left pb-12">
         {/* 1. Headline & Supporting Text */}
-        <div className="space-y-3.5">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.45, ease: 'easeOut' }}
+          className="space-y-3.5"
+        >
           <h1 className="text-[34px] xs:text-[38px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading">
             Your Entire Company<br />
             In <span className="text-[#f15e1c]">One View.</span>
@@ -749,10 +797,16 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <p className="text-sm sm:text-base text-[#5a4138] font-body leading-relaxed text-justify">
             Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
           </p>
-        </div>
+        </motion.div>
 
         {/* 3. CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.45, delay: 0.1, ease: 'easeOut' }}
+          className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
+        >
           <Link
             to="/product"
             className="inline-flex items-center justify-center gap-2 text-sm sm:text-base font-heading font-bold text-white bg-[#f15e1c] hover:bg-[#d94e10] px-6 py-3.5 rounded-full shadow-lg shadow-[#f15e1c]/30 active:scale-[0.98] transition-all cursor-pointer"
@@ -769,10 +823,16 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             <Play className="w-4 h-4 text-[#271812] fill-[#271812]/15" />
             <span>See How It Works</span>
           </a>
-        </div>
+        </motion.div>
 
         {/* 4. Four Value Prop Highlights (2x2 Grid) */}
-        <div className="pt-2 border-t border-brand-peach/40 grid grid-cols-2 gap-x-4 gap-y-3 text-xs sm:text-sm font-heading">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.45, delay: 0.15, ease: 'easeOut' }}
+          className="pt-2 border-t border-brand-peach/40 grid grid-cols-2 gap-x-4 gap-y-3 text-xs sm:text-sm font-heading"
+        >
           <div className="flex items-center gap-2 font-bold text-[#271812]">
             <Target className="w-4 h-4 text-[#f15e1c] shrink-0" />
             <span>Goal-Driven Execution</span>
@@ -789,12 +849,18 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             <Users className="w-4 h-4 text-[#f15e1c] shrink-0" />
             <span>Built for Founders</span>
           </div>
-        </div>
+        </motion.div>
 
         {/* ============================================================ */}
         {/* 5. OFFICE SCENE VISUAL CONTAINER WITH OVERLAID CARDS         */}
         {/* ============================================================ */}
-        <div className="relative w-full aspect-[1306/871] rounded-2xl sm:rounded-3xl overflow-hidden shadow-warm-lg border border-brand-peach/80 bg-[#1e130c] select-none">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="relative w-full aspect-[1306/871] rounded-2xl sm:rounded-3xl overflow-hidden shadow-warm-lg border border-brand-peach/80 bg-[#1e130c] select-none"
+        >
           {/* Office Scene Image with Founder looking at mobile phone */}
           <picture>
             <source
@@ -889,18 +955,26 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             {/* Goal Top Anchor Nodes */}
             <circle cx="235" cy="427" r="3" fill="#2e936f" />
             <circle cx="370" cy="427" r="3.5" fill="#2e936f" stroke="#ffffff" strokeWidth="1.5" />
-            <circle cx="505" cy="427" r="3" fill="#2e936f" />
+            <circle cx="505" cy="427" r="3.5" fill="#2e936f" />
           </svg>
 
           {/* Overlaid 6 Department Cards in 2 Rows of 3 */}
           {/* Row 1: Product, Engineering, Marketing */}
           {/* Row 2: Sales, HR, Finance */}
-          {DEPARTMENTS.map((dept) => {
+          {DEPARTMENTS.map((dept, index) => {
             const isSelected = selectedDept?.id === dept.id;
 
             return (
-              <div
+              <motion.div
                 key={dept.id}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{
+                  duration: 0.35,
+                  delay: 0.08 + index * 0.05,
+                  ease: 'easeOut',
+                }}
                 onClick={() => setSelectedDept(dept)}
                 className={`absolute z-20 rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_4px_14px_rgba(0,0,0,0.12)] px-1.5 py-1 xs:py-1.5 sm:p-2 flex flex-col justify-between cursor-pointer select-none active:scale-95 transition-all group overflow-hidden ${
                   isSelected ? 'ring-2 ring-brand-orange bg-white' : 'hover:border-brand-orange/50'
@@ -935,9 +1009,16 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                       {dept.progress}
                     </span>
                     <div className="w-full h-0.5 xs:h-1 bg-gray-100 rounded-full overflow-hidden">
-                      <div
-                        className={`h-full ${dept.barColor} rounded-full transition-all duration-500`}
-                        style={{ width: dept.progress }}
+                      <motion.div
+                        className={`h-full ${dept.barColor} rounded-full`}
+                        initial={{ width: '0%' }}
+                        whileInView={{ width: dept.progress }}
+                        viewport={{ once: false, amount: 0.2 }}
+                        transition={{
+                          duration: 0.75,
+                          delay: 0.15 + index * 0.05,
+                          ease: 'easeOut',
+                        }}
                       />
                     </div>
                   </div>
@@ -953,12 +1034,16 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                     </svg>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
 
           {/* Central Company Goal Card (Lower Middle Left) */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.45, delay: 0.35, ease: 'easeOut' }}
             onClick={() => setCompanyGoalModalOpen(true)}
             className="absolute z-20 rounded-xl xs:rounded-2xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_6px_20px_rgba(46,147,111,0.22),0_2px_4px_rgba(0,0,0,0.06)] p-1.5 xs:p-2 sm:p-2.5 cursor-pointer active:scale-95 transition-all select-none group flex flex-col justify-between"
             style={{
@@ -992,12 +1077,15 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             </div>
 
             <div className="w-full h-1 xs:h-1.5 bg-gray-100 rounded-full overflow-hidden mt-0.5">
-              <div
-                className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full transition-all duration-500"
-                style={{ width: '72%' }}
+              <motion.div
+                className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full"
+                initial={{ width: '0%' }}
+                whileInView={{ width: '72%' }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.8, delay: 0.45, ease: 'easeOut' }}
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Three Recent Activity Notification Cards (Stacked Vertically on Right) */}
           <div
@@ -1008,9 +1096,13 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               width: '25.5%',
             }}
           >
-            {NOTIFICATIONS.map((notif) => (
-              <div
+            {NOTIFICATIONS.map((notif, idx) => (
+              <motion.div
                 key={notif.id}
+                initial={{ opacity: 0, x: 14 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.35, delay: 0.2 + idx * 0.06, ease: 'easeOut' }}
                 onClick={() => setActiveNotif(notif)}
                 className="rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_3px_10px_rgba(0,0,0,0.1)] p-1 xs:p-1.5 flex items-center justify-between cursor-pointer active:scale-95 transition-all select-none group"
                 title={`Click to view ${notif.dept} update`}
@@ -1045,9 +1137,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                     {notif.time}
                   </span>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
+
 
           {/* Founder Executive Mobile Sync Hotspot (Bottom-Right, over phone and desk) */}
           <div
@@ -1063,20 +1156,30 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           >
             <div className="absolute inset-0 rounded-2xl transition-all duration-300 group-hover:ring-2 group-hover:ring-brand-orange group-hover:bg-brand-orange/15 group-hover:shadow-[0_0_24px_rgba(241,94,28,0.45)]" />
           </div>
-        </div>
+        </motion.div>
 
         {/* ============================================================ */}
         {/* 6. TAP DEPARTMENT TO INSPECT (3-COLUMN GRID)                 */}
         {/* ============================================================ */}
-        <div className="space-y-2.5 pt-2">
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.45, ease: 'easeOut' }}
+          className="space-y-2.5 pt-2"
+        >
           <h3 className="text-[11px] sm:text-xs font-heading font-extrabold uppercase tracking-wider text-terracotta-muted">
             TAP DEPARTMENT TO INSPECT
           </h3>
 
           <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
-            {DEPARTMENTS.map((dept) => (
-              <div
+            {DEPARTMENTS.map((dept, index) => (
+              <motion.div
                 key={dept.id}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.35, delay: index * 0.05, ease: 'easeOut' }}
                 onClick={() => setSelectedDept(dept)}
                 className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl bg-white border border-brand-peach/80 shadow-[0_2px_8px_rgba(42,26,20,0.04)] hover:border-brand-orange/50 hover:shadow-warm-sm transition-all cursor-pointer flex items-center justify-between group active:scale-[0.98] select-none"
                 title={`Inspect ${dept.name} Department (${dept.progress})`}
@@ -1097,10 +1200,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   </div>
                 </div>
                 <ChevronRight className="w-3.5 h-3.5 text-stone-400 group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* ============================================================ */}

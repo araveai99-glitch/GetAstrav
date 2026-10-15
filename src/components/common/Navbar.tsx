@@ -87,17 +87,25 @@ export const Navbar: React.FC = () => {
             <button
               onClick={() => toggleDropdown('product')}
               onMouseEnter={() => setOpenDropdown('product')}
-              className={navItemClass}
+              className={`${navItemClass} ${location.pathname.startsWith('/product') ? 'text-brand-orange' : ''}`}
               aria-expanded={openDropdown === 'product'}
             >
               <span>Product</span>
               <ChevronDown
-                className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${
-                  openDropdown === 'product' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  openDropdown === 'product'
+                    ? 'rotate-180 text-brand-orange'
+                    : location.pathname.startsWith('/product')
+                    ? 'text-brand-orange'
+                    : 'text-terracotta-muted group-hover:text-brand-orange'
                 }`}
               />
               {/* High-contrast smooth growing underline */}
-              <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-brand-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center rounded-full" />
+              <span
+                className={`absolute bottom-0 left-3 right-3 h-[2px] bg-brand-orange transition-transform duration-200 origin-center rounded-full ${
+                  location.pathname.startsWith('/product') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}
+              />
             </button>
             {openDropdown === 'product' && (
               <div
@@ -108,9 +116,13 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/product"
                     onClick={() => setOpenDropdown(null)}
-                    className="px-4 py-2.5 rounded-xl text-sm font-heading font-bold text-espresso hover:bg-brand-orange-light hover:text-brand-orange transition-colors"
+                    className={`px-4 py-2.5 rounded-xl text-sm font-heading font-bold transition-colors ${
+                      location.pathname === '/product'
+                        ? 'bg-brand-orange-light text-brand-orange'
+                        : 'text-espresso hover:bg-brand-orange-light hover:text-brand-orange'
+                    }`}
                   >
-                    Command Center Overview
+                    Astrav / Command Center
                   </Link>
                   <Link
                     to="/features/goals-progress"
@@ -390,7 +402,17 @@ export const Navbar: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 gap-1.5">
             <Link to="/" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-bold text-espresso hover:bg-surface-tier1">Home Overview</Link>
-            <Link to="/product" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1">Product Console</Link>
+            <Link
+              to="/product"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`p-3 rounded-xl text-sm font-heading font-bold transition-colors ${
+                location.pathname === '/product'
+                  ? 'bg-brand-orange-light text-brand-orange'
+                  : 'text-espresso hover:bg-surface-tier1'
+              }`}
+            >
+              Astrav / Command Center
+            </Link>
             <Link to="/features/goals-progress" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1">Goals & Progress</Link>
             <Link to="/features/ai" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1">AI Intelligence</Link>
             <Link to="/features/governance" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1">Governance & RBAC</Link>

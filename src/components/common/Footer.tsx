@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Layers, ShieldCheck, ArrowUpRight } from 'lucide-react';
 import { openDemoModal } from './DemoModal';
 
@@ -8,7 +9,13 @@ export const Footer: React.FC = () => {
     <footer className="bg-white border-t border-brand-peach/80 pt-16 pb-12 px-4 sm:px-6 lg:px-10">
       <div className="max-w-[1600px] mx-auto space-y-12">
         {/* TOP BRAND STATEMENT & POSITIONING */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-b border-brand-peach/60 pb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-b border-brand-peach/60 pb-12"
+        >
           <div className="lg:col-span-6 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-orange via-brand-yellow to-brand-green p-0.5 shadow-warm-sm flex items-center justify-center">
@@ -34,10 +41,16 @@ export const Footer: React.FC = () => {
               <ShieldCheck className="w-4 h-4 text-brand-green" /> Zero-Owner Safeguard
             </span>
           </div>
-        </div>
+        </motion.div>
 
         {/* 5 ENTERPRISE FOOTER COLUMNS */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 0.4, delay: 0.08, ease: 'easeOut' }}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8"
+        >
           {/* Column 1: PRODUCT */}
           <div className="space-y-3">
             <h4 className="text-xs font-extrabold text-brand-orange uppercase tracking-wider">Product</h4>
@@ -91,57 +104,67 @@ export const Footer: React.FC = () => {
               <li><span className="cursor-pointer hover:text-brand-orange transition-colors">Security Architecture</span></li>
             </ul>
           </div>
-        </div>
+        </motion.div>
 
         {/* BOTTOM COPYRIGHT & COMPLIANCE BAR */}
-        <div className="pt-8 border-t border-brand-peach/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-terracotta font-semibold">
-          <div>© 2026 Astrav Operating Engine. All rights reserved.</div>
-          <div className="flex flex-wrap items-center gap-6">
-            <span className="flex items-center gap-1 hover:text-brand-orange transition-colors">
-              Audited Trust Anchor <ArrowUpRight className="w-3.5 h-3.5" />
-            </span>
-            <span className="flex items-center gap-1 hover:text-brand-orange transition-colors">
-              SOC2 Type II Aligned <ArrowUpRight className="w-3.5 h-3.5" />
-            </span>
-            <span>99.99% Availability SLA</span>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 0.4, delay: 0.12, ease: 'easeOut' }}
+          className="space-y-6"
+        >
+          <div className="pt-8 border-t border-brand-peach/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-terracotta font-semibold">
+            <div>© 2026 Astrav Operating Engine. All rights reserved.</div>
+            <div className="flex flex-wrap items-center gap-6">
+              <span className="flex items-center gap-1 hover:text-brand-orange transition-colors">
+                Audited Trust Anchor <ArrowUpRight className="w-3.5 h-3.5" />
+              </span>
+              <span className="flex items-center gap-1 hover:text-brand-orange transition-colors">
+                SOC2 Type II Aligned <ArrowUpRight className="w-3.5 h-3.5" />
+              </span>
+              <span>99.99% Availability SLA</span>
+            </div>
           </div>
-        </div>
 
-        {/* ARAV INNOVATIONS FOOTER BRAND ATTRIBUTION */}
-        <div className="pt-6 border-t border-brand-peach/40 flex items-center justify-center sm:justify-start">
-          <a
-            href="https://aravinnovations.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center sm:justify-start gap-4 sm:gap-5 hover:opacity-90 transition-opacity"
-          >
-            <picture>
-              <source type="image/webp" srcSet="/assets/arav-logo.webp" />
-              <img
-                src="/assets/arav-logo.webp"
-                alt="Arav Innovations Ribbon Logo"
-                width={200}
-                height={208}
-                loading="lazy"
-                decoding="async"
-                className="h-14 sm:h-14 md:h-12 w-auto object-contain drop-shadow-sm"
-              />
-            </picture>
-            <picture>
-              <source type="image/webp" srcSet="/assets/powered-by-arav.webp" />
-              <img
-                src="/assets/powered-by-arav.webp"
-                alt="Powered by Arav Innovations - Elevating Brands, One Click at a Time"
-                width={380}
-                height={127}
-                loading="lazy"
-                decoding="async"
-                className="h-12 sm:h-12 md:h-11 w-auto object-contain drop-shadow-sm"
-              />
-            </picture>
-          </a>
-        </div>
+          {/* ARAV INNOVATIONS FOOTER BRAND ATTRIBUTION */}
+          <div className="pt-6 border-t border-brand-peach/40 flex items-center justify-start">
+            <a
+              href="https://aravinnovations.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-start gap-4 sm:gap-6 hover:opacity-95 transition-opacity group"
+              title="Arav Innovations - Elevating Brands, One Click at a Time"
+            >
+              <picture>
+                <source type="image/webp" srcSet="/assets/arav-logo.webp" />
+                <img
+                  src="/assets/arav-logo.png"
+                  alt="Arav Innovations Ribbon Logo"
+                  width={160}
+                  height={166}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-12 sm:h-14 md:h-14 lg:h-[58px] w-auto object-contain drop-shadow-sm shrink-0 group-hover:scale-105 transition-transform"
+                />
+              </picture>
+              <picture>
+                <source type="image/webp" srcSet="/assets/powered-by-arav.webp" />
+                <img
+                  src="/assets/powered-by-arav.png"
+                  alt="Powered by Arav Innovations - Elevating Brands, One Click at a Time"
+                  width={380}
+                  height={127}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-14 sm:h-16 md:h-16 lg:h-[68px] w-auto object-contain drop-shadow-sm shrink-0 group-hover:scale-[1.02] transition-transform"
+                />
+              </picture>
+            </a>
+          </div>
+        </motion.div>
       </div>
     </footer>
   );
 };
+

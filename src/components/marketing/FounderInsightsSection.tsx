@@ -112,19 +112,26 @@ export const FounderInsightsSection: React.FC = () => {
                 {/* ============================================================ */}
                 {/* 3 CRISP, VECTOR-PERFECT FLOATING CARDS (RESPONSIVE ALIGNMENT)*/}
                 {/* ============================================================ */}
-                {INSIGHT_CARDS.map((card) => {
+                {INSIGHT_CARDS.map((card, idx) => {
                   const Icon = card.icon;
                   const isHovered = hoveredId === card.id;
 
                   return (
                     <motion.div
                       key={card.id}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: false, amount: 0.2 }}
                       onMouseEnter={() => setHoveredId(card.id)}
                       onMouseLeave={() => setHoveredId(null)}
                       onClick={() => setSelectedInsight(card)}
                       whileHover={{ scale: 1.05, y: -4 }}
                       whileTap={{ scale: 0.96 }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                      transition={{
+                        opacity: { duration: 0.45, delay: 0.2 + idx * 0.1, ease: 'easeOut' },
+                        y: { duration: 0.45, delay: 0.2 + idx * 0.1, ease: 'easeOut' },
+                        scale: { type: 'spring', stiffness: 400, damping: 25 },
+                      }}
                       className={`absolute z-20 cursor-pointer transition-all duration-200
                         bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl
                         p-2 sm:p-2.5 md:p-3
