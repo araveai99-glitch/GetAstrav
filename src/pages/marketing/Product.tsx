@@ -5,12 +5,12 @@ import { ProductFinalCTA } from '../../components/product/ProductFinalCTA';
 
 export const Product: React.FC = () => {
   useEffect(() => {
-    document.title = 'Product | FounderOS Workflow — Astrav';
+    document.title = 'Product | Astrav Workflow — Astrav';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Connect your goals, projects, and everyday work with Astrav FounderOS. Real-time automatic progress rollups and aligned team execution.'
+        'Connect your goals, projects, and everyday work with Astrav. Real-time automatic progress rollups and aligned team execution.'
       );
     }
     window.scrollTo(0, 0);

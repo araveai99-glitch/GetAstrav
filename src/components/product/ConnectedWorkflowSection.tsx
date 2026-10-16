@@ -452,7 +452,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
         >
           <span className="w-2 h-2 rounded-full bg-brand-orange" />
           <span className="text-xs font-heading font-extrabold text-brand-orange uppercase tracking-wider">
-            FOUNDEROS WORKFLOW
+            ASTRAV WORKFLOW
           </span>
         </motion.div>
 
