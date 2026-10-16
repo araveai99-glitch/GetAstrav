@@ -56,6 +56,7 @@ export const Footer: React.FC = () => {
             <h4 className="text-xs font-extrabold text-brand-orange uppercase tracking-wider">Product</h4>
             <ul className="space-y-2.5 text-sm sm:text-base text-terracotta font-medium">
               <li><Link to="/product" className="hover:text-brand-orange transition-colors">Command Center</Link></li>
+              <li><Link to="/product/automated-progress-rollups" className="hover:text-brand-orange transition-colors">Automated Progress Rollups</Link></li>
               <li><Link to="/features/goals-progress" className="hover:text-brand-orange transition-colors">Goals & Progress</Link></li>
               <li><Link to="/features/ai" className="hover:text-brand-orange transition-colors">AI Intelligence</Link></li>
               <li><Link to="/features/task-management" className="hover:text-brand-orange transition-colors">Task Execution</Link></li>

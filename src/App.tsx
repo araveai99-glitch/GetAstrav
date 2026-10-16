@@ -11,6 +11,7 @@ import { DemoModal } from './components/common/DemoModal';
 // Marketing Pages
 import { Home } from './pages/marketing/Home';
 import { Product } from './pages/marketing/Product';
+import { AutomatedProgressRollups } from './pages/marketing/AutomatedProgressRollups';
 import { GoalsProgress } from './pages/marketing/Features/GoalsProgress';
 import { AIIntelligence } from './pages/marketing/Features/AIIntelligence';
 import { TaskManagement } from './pages/marketing/Features/TaskManagement';
@@ -59,6 +60,7 @@ const MarketingLayout: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product" element={<Product />} />
+          <Route path="/product/automated-progress-rollups" element={<AutomatedProgressRollups />} />
 
           {/* Features */}
           <Route path="/features/goals-progress" element={<GoalsProgress />} />

@@ -125,9 +125,13 @@ export const Navbar: React.FC = () => {
                     Astrav / Command Center
                   </Link>
                   <Link
-                    to="/features/goals-progress"
+                    to="/product/automated-progress-rollups"
                     onClick={() => setOpenDropdown(null)}
-                    className="px-4 py-2.5 rounded-xl text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange transition-colors"
+                    className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                      location.pathname === '/product/automated-progress-rollups'
+                        ? 'bg-brand-orange-light text-brand-orange font-bold'
+                        : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
+                    }`}
                   >
                     Automated Progress Rollups
                   </Link>
@@ -412,6 +416,17 @@ export const Navbar: React.FC = () => {
               }`}
             >
               Astrav / Command Center
+            </Link>
+            <Link
+              to="/product/automated-progress-rollups"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`p-3 rounded-xl text-sm font-semibold transition-colors ${
+                location.pathname === '/product/automated-progress-rollups'
+                  ? 'bg-brand-orange-light text-brand-orange font-bold'
+                  : 'text-terracotta hover:bg-surface-tier1'
+              }`}
+            >
+              Automated Progress Rollups
             </Link>
             <Link to="/features/goals-progress" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1">Goals & Progress</Link>
             <Link to="/features/ai" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1">AI Intelligence</Link>
