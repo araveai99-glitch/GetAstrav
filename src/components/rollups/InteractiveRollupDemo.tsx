@@ -91,7 +91,7 @@ export const InteractiveRollupDemo: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto relative overflow-hidden"
+      className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto relative overflow-hidden"
     >
       {/* Background Soft Glow */}
       <motion.div
@@ -108,7 +108,7 @@ export const InteractiveRollupDemo: React.FC = () => {
       />
 
       {/* Section Header */}
-      <div className="text-center max-w-2xl mx-auto space-y-3 mb-8 sm:mb-12">
+      <div className="text-center max-w-2xl mx-auto space-y-2 mb-4 sm:mb-6">
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
@@ -140,20 +140,20 @@ export const InteractiveRollupDemo: React.FC = () => {
         </motion.p>
       </div>
 
-      {/* Main Diagram Card Container */}
+      {/* Main Diagram Card Container (Expanded 1720px Width) */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="bg-white rounded-3xl p-5 sm:p-7 md:p-8 border border-brand-peach/80 shadow-warm-xl max-w-5xl mx-auto relative overflow-hidden"
+        className="bg-white rounded-3xl p-6 sm:p-9 lg:p-12 border-2 border-brand-peach/80 shadow-warm-xl w-full mx-auto relative overflow-hidden"
       >
         {/* Sample Data Disclaimer & Control Top Bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-brand-peach/50">
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-full bg-surface-tier1 text-[11px] font-mono font-bold text-terracotta border border-brand-peach/40">
+            <span className="px-3 py-1 rounded-full bg-surface-tier1 text-xs font-mono font-bold text-terracotta border border-brand-peach/40">
               SAMPLE DATA
             </span>
-            <span className="text-xs text-terracotta-muted hidden sm:inline">
+            <span className="text-xs sm:text-sm text-terracotta-muted hidden sm:inline">
               Toggle any task to observe real-time mathematical rollups.
             </span>
           </div>
@@ -164,7 +164,7 @@ export const InteractiveRollupDemo: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-brand-orange bg-brand-orange-light px-2.5 py-1 rounded-full border border-brand-orange/30 shadow-warm-2xs"
+                className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-brand-orange bg-brand-orange-light px-3 py-1 rounded-full border border-brand-orange/30 shadow-warm-2xs"
               >
                 <Zap className="w-3.5 h-3.5 fill-current animate-bounce" />
                 <span>Rollup Synced</span>
@@ -174,7 +174,7 @@ export const InteractiveRollupDemo: React.FC = () => {
             <button
               type="button"
               onClick={resetAll}
-              className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold text-terracotta-muted hover:text-brand-orange px-3 py-1.5 rounded-xl hover:bg-surface-tier1 transition-colors cursor-pointer select-none"
+              className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold text-terracotta-muted hover:text-brand-orange px-3.5 py-1.5 rounded-xl hover:bg-surface-tier1 transition-colors cursor-pointer select-none border border-brand-peach/40"
               title="Reset demonstration to default state"
             >
               <RefreshCw className="w-3.5 h-3.5" />
@@ -184,59 +184,59 @@ export const InteractiveRollupDemo: React.FC = () => {
         </div>
 
         {/* Desktop 2-Column / Mobile Stacked Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* LEFT: Tasks Column (Interactive Checkable Items) */}
-          <div className="lg:col-span-5 space-y-3.5">
+          <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center justify-between pb-1">
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-brand-green-light text-brand-green flex items-center justify-center font-bold">
-                  <CheckSquare className="w-4 h-4" />
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center font-bold">
+                  <CheckSquare className="w-4.5 h-4.5" />
                 </div>
                 <div>
-                  <h3 className="font-heading font-bold text-sm text-espresso">
+                  <h3 className="font-heading font-bold text-base text-espresso">
                     Current Tasks
                   </h3>
-                  <p className="text-[11px] text-terracotta-muted">
+                  <p className="text-xs text-terracotta-muted">
                     Click to check or uncheck
                   </p>
                 </div>
               </div>
 
-              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-md bg-surface-tier1 text-espresso border border-brand-peach/40">
+              <span className="text-xs font-mono font-bold px-3 py-1 rounded-md bg-surface-tier1 text-espresso border border-brand-peach/50">
                 {completedCount} of {tasks.length} Done ({taskProgress}%)
               </span>
             </div>
 
-            {/* Checkable Task Cards */}
-            <div className="space-y-2.5">
+            {/* Checkable Task Cards (Enlarged) */}
+            <div className="space-y-3">
               {tasks.map((task, idx) => {
                 const isSelected = task.id === lastToggledId && activeSignal;
                 return (
                   <motion.div
                     key={task.id}
                     layout
-                    whileHover={{ scale: 1.01 }}
+                    whileHover={{ scale: 1.015 }}
                     whileTap={{ scale: 0.99 }}
                     onClick={() => toggleTask(task.id)}
-                    className={`relative p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer select-none flex items-center justify-between group ${
+                    className={`relative p-4 sm:p-5 rounded-2xl border-2 transition-all duration-200 cursor-pointer select-none flex items-center justify-between group ${
                       task.completed
-                        ? 'bg-brand-green-light/40 border-brand-green/40 shadow-warm-2xs'
-                        : 'bg-white border-brand-peach hover:border-brand-orange/40 hover:bg-surface-tier1/50 shadow-warm-2xs'
-                    } ${isSelected ? 'ring-2 ring-brand-orange ring-offset-1' : ''}`}
+                        ? 'bg-brand-green-light/40 border-brand-green/40 shadow-warm-xs'
+                        : 'bg-white border-brand-peach hover:border-brand-orange/50 hover:bg-surface-tier1/50 shadow-warm-xs'
+                    } ${isSelected ? 'ring-2 ring-brand-orange ring-offset-2' : ''}`}
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3.5">
                       {/* Checkbox Icon */}
                       <button
                         type="button"
                         aria-label={`Mark task ${task.title} as ${task.completed ? 'incomplete' : 'complete'}`}
-                        className={`w-6 h-6 rounded-lg flex items-center justify-center transition-all ${
+                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center transition-all ${
                           task.completed
                             ? 'bg-brand-green text-white shadow-sm'
                             : 'border-2 border-brand-peach group-hover:border-brand-orange text-transparent'
                         }`}
                       >
                         <CheckCircle2
-                          className={`w-4 h-4 transition-transform duration-200 ${
+                          className={`w-5 h-5 transition-transform duration-200 ${
                             task.completed ? 'scale-100' : 'scale-0'
                           }`}
                         />
@@ -244,25 +244,25 @@ export const InteractiveRollupDemo: React.FC = () => {
 
                       <div>
                         <p
-                          className={`text-sm font-heading font-semibold transition-colors ${
+                          className={`text-sm sm:text-base font-heading font-bold transition-colors ${
                             task.completed
-                              ? 'text-terracotta-muted line-through opacity-85'
+                              ? 'text-terracotta-muted line-through opacity-80'
                               : 'text-espresso group-hover:text-brand-orange'
                           }`}
                         >
                           {task.title}
                         </p>
-                        <span className="text-[10px] font-mono font-medium text-terracotta-muted uppercase tracking-wider">
+                        <span className="text-xs font-mono font-medium text-terracotta-muted uppercase tracking-wider">
                           {task.category}
                         </span>
                       </div>
                     </div>
 
                     <span
-                      className={`text-[11px] font-heading font-bold px-2 py-0.5 rounded-md ${
+                      className={`text-xs font-heading font-bold px-3 py-1 rounded-md ${
                         task.completed
                           ? 'bg-brand-green text-white'
-                          : 'bg-surface-tier1 text-terracotta-muted'
+                          : 'bg-surface-tier1 text-terracotta-muted border border-brand-peach/40'
                       }`}
                     >
                       {task.completed ? 'Done' : 'Pending'}
@@ -274,11 +274,11 @@ export const InteractiveRollupDemo: React.FC = () => {
 
             {/* Task summary micro-meter */}
             <div className="pt-2">
-              <div className="flex items-center justify-between text-[11px] font-medium text-terracotta-muted mb-1">
+              <div className="flex items-center justify-between text-xs font-medium text-terracotta-muted mb-1.5">
                 <span>Task Sprint Progress</span>
-                <span className="font-mono font-bold text-espresso">{taskProgress}%</span>
+                <span className="font-mono font-bold text-espresso text-sm">{taskProgress}%</span>
               </div>
-              <div className="h-1.5 w-full bg-surface-tier1 rounded-full overflow-hidden border border-brand-peach/40">
+              <div className="h-2 sm:h-2.5 w-full bg-surface-tier1 rounded-full overflow-hidden border border-brand-peach/40 p-0.5">
                 <motion.div
                   initial={false}
                   animate={{ width: `${taskProgress}%` }}
@@ -329,33 +329,33 @@ export const InteractiveRollupDemo: React.FC = () => {
           </div>
 
           {/* RIGHT: Rollup Hierarchy (Project → Milestone → Goal) */}
-          <div className="lg:col-span-6 space-y-4">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-5">
             {/* 1. Project Progress Bar */}
-            <div className="p-4 rounded-2xl bg-surface-tier1 border border-brand-peach/60 shadow-warm-2xs space-y-2.5">
+            <div className="p-5 sm:p-6 lg:p-7 rounded-2xl sm:rounded-3xl bg-surface-tier1 border-2 border-brand-peach/60 shadow-warm-xs space-y-3 sm:space-y-3.5">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-md bg-brand-orange-light text-brand-orange flex items-center justify-center">
-                    <FolderGit2 className="w-3.5 h-3.5" />
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center shrink-0">
+                    <FolderGit2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase tracking-wider">
+                    <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                       PROJECT LEVEL
                     </span>
-                    <h4 className="text-xs sm:text-sm font-heading font-bold text-espresso leading-none">
+                    <h4 className="text-base sm:text-lg lg:text-xl font-heading font-extrabold text-espresso leading-snug">
                       Website Redesign Initiative
                     </h4>
                   </div>
                 </div>
 
-                <div className="text-right">
-                  <span className="text-sm sm:text-base font-heading font-extrabold text-brand-orange">
+                <div className="text-right shrink-0">
+                  <span className="text-xl sm:text-2xl lg:text-3xl font-heading font-black text-brand-orange">
                     {projectProgress}%
                   </span>
                 </div>
               </div>
 
               {/* Animated Progress Bar */}
-              <div className="w-full h-2.5 rounded-full bg-white overflow-hidden border border-brand-peach/50 p-0.5">
+              <div className="w-full h-3 sm:h-3.5 rounded-full bg-white overflow-hidden border border-brand-peach/50 p-0.5">
                 <motion.div
                   initial={false}
                   animate={{ width: `${projectProgress}%` }}
@@ -364,38 +364,38 @@ export const InteractiveRollupDemo: React.FC = () => {
                 />
               </div>
 
-              <div className="flex items-center justify-between text-[10px] text-terracotta-muted font-medium">
+              <div className="flex items-center justify-between text-xs sm:text-sm text-terracotta-muted font-medium">
                 <span>Calculated from active task deliverables</span>
-                <span>Base 40% + 20% / task</span>
+                <span className="font-mono font-bold">Base 40% + 20% / task</span>
               </div>
             </div>
 
             {/* 2. Milestone Progress Bar */}
-            <div className="p-4 rounded-2xl bg-surface-tier1 border border-brand-peach/60 shadow-warm-2xs space-y-2.5">
+            <div className="p-5 sm:p-6 lg:p-7 rounded-2xl sm:rounded-3xl bg-surface-tier1 border-2 border-brand-peach/60 shadow-warm-xs space-y-3 sm:space-y-3.5">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-md bg-amber-100 text-brand-yellow flex items-center justify-center">
-                    <Flag className="w-3.5 h-3.5" />
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-100 text-brand-yellow flex items-center justify-center shrink-0">
+                    <Flag className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase tracking-wider">
+                    <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                       MILESTONE LEVEL
                     </span>
-                    <h4 className="text-xs sm:text-sm font-heading font-bold text-espresso leading-none">
+                    <h4 className="text-base sm:text-lg lg:text-xl font-heading font-extrabold text-espresso leading-snug">
                       Q4 Web Experience Delivery
                     </h4>
                   </div>
                 </div>
 
-                <div className="text-right">
-                  <span className="text-sm sm:text-base font-heading font-extrabold text-amber-600">
+                <div className="text-right shrink-0">
+                  <span className="text-xl sm:text-2xl lg:text-3xl font-heading font-black text-amber-600">
                     {milestoneProgress}%
                   </span>
                 </div>
               </div>
 
               {/* Animated Progress Bar */}
-              <div className="w-full h-2.5 rounded-full bg-white overflow-hidden border border-brand-peach/50 p-0.5">
+              <div className="w-full h-3 sm:h-3.5 rounded-full bg-white overflow-hidden border border-brand-peach/50 p-0.5">
                 <motion.div
                   initial={false}
                   animate={{ width: `${milestoneProgress}%` }}
@@ -404,29 +404,29 @@ export const InteractiveRollupDemo: React.FC = () => {
                 />
               </div>
 
-              <div className="flex items-center justify-between text-[10px] text-terracotta-muted font-medium">
+              <div className="flex items-center justify-between text-xs sm:text-sm text-terracotta-muted font-medium">
                 <span>Aggregated across project workstreams</span>
-                <span>Status: {milestoneProgress === 100 ? 'Completed' : 'On Track'}</span>
+                <span className="font-semibold text-espresso">Status: {milestoneProgress === 100 ? 'Completed' : 'On Track'}</span>
               </div>
             </div>
 
             {/* 3. Goal Circular Progress Ring */}
-            <div className="p-4.5 rounded-2xl bg-gradient-to-br from-brand-orange-light/50 via-white to-surface-tier1 border border-brand-orange/30 shadow-warm-md flex items-center justify-between gap-4">
-              <div className="space-y-1">
-                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-brand-orange-light text-[10px] font-heading font-extrabold text-brand-orange uppercase tracking-wider border border-brand-orange/20">
-                  <Target className="w-3 h-3" />
+            <div className="p-6 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-brand-orange-light/50 via-white to-surface-tier1 border-2 border-brand-orange/30 shadow-warm-md flex items-center justify-between gap-6">
+              <div className="space-y-1.5">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange-light text-xs font-heading font-extrabold text-brand-orange uppercase tracking-wider border border-brand-orange/20">
+                  <Target className="w-3.5 h-3.5" />
                   <span>OVERALL STRATEGIC GOAL</span>
                 </div>
-                <h4 className="text-sm sm:text-base font-heading font-bold text-espresso">
+                <h4 className="text-base sm:text-lg lg:text-2xl font-heading font-extrabold text-espresso">
                   Expand Digital Market Reach
                 </h4>
-                <p className="text-xs text-terracotta-muted">
-                  Mathematical rollup across all connected milestones
+                <p className="text-xs sm:text-sm text-terracotta-muted leading-relaxed">
+                  Mathematical rollup across all connected milestones and sprints
                 </p>
               </div>
 
-              {/* Circular Progress Ring */}
-              <div className="relative w-24 h-24 sm:w-28 sm:h-28 shrink-0 flex items-center justify-center">
+              {/* Circular Progress Ring (Enlarged) */}
+              <div className="relative w-28 h-28 sm:w-34 sm:h-34 lg:w-36 lg:h-36 shrink-0 flex items-center justify-center">
                 <svg className="w-full h-full -rotate-90" viewBox="0 0 110 110">
                   {/* Background Track */}
                   <circle
@@ -459,11 +459,11 @@ export const InteractiveRollupDemo: React.FC = () => {
                     key={goalProgress}
                     initial={{ scale: 0.8, opacity: 0.5 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    className="text-xl sm:text-2xl font-heading font-extrabold text-espresso"
+                    className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-espresso"
                   >
                     {goalProgress}%
                   </motion.span>
-                  <span className="text-[9px] font-heading font-bold text-brand-orange uppercase tracking-wider">
+                  <span className="text-[10px] sm:text-xs font-heading font-bold text-brand-orange uppercase tracking-wider">
                     Rollup
                   </span>
                 </div>

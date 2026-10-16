@@ -11,9 +11,9 @@ export const RollupFinalCTA: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto"
+      className="pt-2 sm:pt-4 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto"
     >
-      <div className="rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-8 sm:p-12 md:p-14 border border-brand-peach/80 shadow-warm-lg relative overflow-hidden text-center">
+      <div className="rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-8 sm:p-12 md:p-16 border-2 border-brand-peach/80 shadow-warm-xl relative overflow-hidden text-center">
         {/* Soft Ambient Floating Glow */}
         <motion.div
           animate={

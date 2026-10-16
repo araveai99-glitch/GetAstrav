@@ -7,8 +7,8 @@ export const ProductFinalCTA: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto">
-      <div className="rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-8 sm:p-12 md:p-14 border border-brand-peach/80 shadow-warm-lg relative overflow-hidden text-center">
+    <section className="py-8 sm:py-12 md:py-14 px-4 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto">
+      <div className="rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-6 sm:p-10 md:p-12 border border-brand-peach/80 shadow-warm-lg relative overflow-hidden text-center">
         {/* Soft Warm Ambient Sheen with Gentle Decorative Floating Movement */}
         <motion.div
           animate={

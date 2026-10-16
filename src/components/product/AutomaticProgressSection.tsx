@@ -59,7 +59,7 @@ export const AutomaticProgressSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto bg-surface-ambient/50 rounded-3xl border border-brand-peach/40 my-6 sm:my-8 relative overflow-hidden"
+      className="py-10 sm:py-12 md:py-14 px-4 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto bg-surface-ambient/50 rounded-3xl border border-brand-peach/40 my-4 sm:my-6 relative overflow-hidden"
     >
       {/* Subtle Background Glow */}
       <motion.div

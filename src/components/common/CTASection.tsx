@@ -12,12 +12,12 @@ interface CTASectionProps {
 
 export const CTASection: React.FC<CTASectionProps> = ({
   className = '',
-  paddingY = 'py-6 sm:py-10 md:py-20',
-  paddingX = 'px-4 sm:px-6 lg:px-10',
+  paddingY = 'py-8 sm:py-10 md:py-14',
+  paddingX = 'px-4 sm:px-6 lg:px-10 xl:px-12',
 }) => {
   return (
     <section id="conversion-cta" className={`w-full ${paddingY} ${paddingX} bg-transparent ${className}`}>
-      <div className="max-w-[1600px] mx-auto rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-8 sm:p-12 md:p-16 border border-brand-peach/80 shadow-architectural relative overflow-hidden">
+      <div className="max-w-[1600px] mx-auto rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-6 sm:p-10 md:p-12 border border-brand-peach/80 shadow-architectural relative overflow-hidden">
         {/* Soft atmospheric background glow */}
         <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-brand-orange-light via-brand-peach/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
         <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-gradient-to-tr from-brand-yellow-light/20 via-surface-ambient to-transparent rounded-full blur-2xl pointer-events-none -z-10" />

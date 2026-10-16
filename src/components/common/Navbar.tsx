@@ -61,7 +61,7 @@ export const Navbar: React.FC = () => {
     >
       <div
         ref={dropdownRef}
-        className="max-w-[1600px] mx-auto px-3 sm:px-6 lg:px-10 h-full flex items-center justify-between gap-2 sm:gap-6"
+        className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 h-full flex items-center justify-between gap-2 sm:gap-6"
       >
         {/* LEFT: Brand Logo - Astrav */}
         <Link to="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">

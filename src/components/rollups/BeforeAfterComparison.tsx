@@ -31,10 +31,10 @@ export const BeforeAfterComparison: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto relative overflow-hidden"
+      className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto relative overflow-hidden"
     >
       {/* Section Header */}
-      <div className="text-center max-w-2xl mx-auto space-y-3 mb-10 sm:mb-12">
+      <div className="text-center max-w-2xl mx-auto space-y-2 mb-4 sm:mb-6">
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
@@ -66,37 +66,37 @@ export const BeforeAfterComparison: React.FC = () => {
         </motion.p>
       </div>
 
-      {/* Two Compact Comparison Panels */}
-      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+      {/* Two Large Comparison Panels (Full 1720px Width) */}
+      <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-stretch">
         {/* Panel 1: Without automatic rollups */}
         <motion.div
           initial={{ opacity: 0, x: -16 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
           transition={{ duration: 0.45, delay: 0.15 }}
-          className="bg-surface-tier1/70 rounded-3xl p-6 sm:p-7 border border-brand-peach/70 shadow-warm-sm flex flex-col justify-between"
+          className="bg-surface-tier1/70 rounded-3xl p-7 sm:p-9 lg:p-12 border-2 border-brand-peach/70 shadow-warm-sm flex flex-col justify-between min-h-[360px] sm:min-h-[400px]"
         >
           <div>
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-brand-peach/40">
+            <div className="flex items-center justify-between pb-4 mb-5 border-b border-brand-peach/40">
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-terracotta-muted">
                 TRADITIONAL WORKFLOW
               </span>
-              <span className="inline-flex items-center gap-1 text-[11px] font-heading font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
-                <AlertCircle className="w-3 h-3" />
+              <span className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+                <AlertCircle className="w-3.5 h-3.5" />
                 Manual Overhead
               </span>
             </div>
 
-            <h3 className="text-lg font-heading font-bold text-espresso mb-4">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-heading font-extrabold text-espresso mb-5 sm:mb-6">
               Without automatic rollups
             </h3>
 
-            <div className="space-y-3.5">
+            <div className="space-y-4 sm:space-y-5">
               {withoutPoints.map((point, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
-                    <XCircle className="w-3.5 h-3.5" />
+                <div key={index} className="flex items-start gap-3.5">
+                  <div className="w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
+                    <XCircle className="w-4 h-4" />
                   </div>
-                  <span className="text-sm font-medium text-terracotta leading-relaxed">
+                  <span className="text-base sm:text-lg font-medium text-terracotta leading-relaxed">
                     {point}
                   </span>
                 </div>
@@ -105,13 +105,13 @@ export const BeforeAfterComparison: React.FC = () => {
           </div>
 
           {/* Bottom Visual Card */}
-          <div className="mt-6 pt-4 border-t border-brand-peach/40">
-            <div className="p-3 rounded-xl bg-white/70 border border-brand-peach/50 flex items-center justify-between text-xs text-terracotta-muted">
-              <span className="flex items-center gap-1.5 font-medium">
-                <Clock className="w-3.5 h-3.5 text-amber-600" />
+          <div className="mt-8 pt-5 border-t border-brand-peach/40">
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/80 border border-brand-peach/50 flex items-center justify-between text-xs sm:text-sm text-terracotta-muted">
+              <span className="flex items-center gap-2 font-medium">
+                <Clock className="w-4 h-4 text-amber-600" />
                 Weekly Status Reports
               </span>
-              <span className="font-heading font-semibold text-amber-800">
+              <span className="font-heading font-bold text-amber-800">
                 Often Out of Date
               </span>
             </div>
@@ -123,33 +123,33 @@ export const BeforeAfterComparison: React.FC = () => {
           initial={{ opacity: 0, x: 16 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 16 }}
           transition={{ duration: 0.45, delay: 0.25 }}
-          className="bg-white rounded-3xl p-6 sm:p-7 border-2 border-brand-orange/40 shadow-warm-lg flex flex-col justify-between relative overflow-hidden group"
+          className="bg-white rounded-3xl p-7 sm:p-9 lg:p-12 border-2 border-brand-orange/50 shadow-warm-lg flex flex-col justify-between relative overflow-hidden group min-h-[360px] sm:min-h-[400px]"
         >
           {/* Subtle Ambient Sheen */}
-          <div className="absolute top-0 right-0 w-44 h-44 bg-brand-orange-light/40 rounded-full blur-2xl pointer-events-none -z-10" />
+          <div className="absolute top-0 right-0 w-56 h-56 bg-brand-orange-light/40 rounded-full blur-2xl pointer-events-none -z-10" />
 
           <div>
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-brand-peach/40">
+            <div className="flex items-center justify-between pb-4 mb-5 border-b border-brand-peach/40">
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-orange">
                 ASTRAV ARCHITECTURE
               </span>
-              <span className="inline-flex items-center gap-1 text-[11px] font-heading font-bold text-brand-green bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/30">
-                <Sparkles className="w-3 h-3" />
+              <span className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-brand-green bg-brand-green-light px-3 py-1 rounded-full border border-brand-green/30">
+                <Sparkles className="w-3.5 h-3.5" />
                 Always Live
               </span>
             </div>
 
-            <h3 className="text-lg font-heading font-bold text-espresso mb-4">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-heading font-extrabold text-espresso mb-5 sm:mb-6">
               With Astrav
             </h3>
 
-            <div className="space-y-3.5">
+            <div className="space-y-4 sm:space-y-5">
               {withPoints.map((point, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-brand-green-light text-brand-green flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
+                <div key={index} className="flex items-start gap-3.5">
+                  <div className="w-6 h-6 rounded-full bg-brand-green-light text-brand-green flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4" />
                   </div>
-                  <span className="text-sm font-heading font-semibold text-espresso leading-relaxed">
+                  <span className="text-base sm:text-lg font-heading font-bold text-espresso leading-relaxed">
                     {point}
                   </span>
                 </div>
@@ -158,10 +158,10 @@ export const BeforeAfterComparison: React.FC = () => {
           </div>
 
           {/* Bottom Visual Card */}
-          <div className="mt-6 pt-4 border-t border-brand-peach/40">
-            <div className="p-3 rounded-xl bg-brand-orange-light/50 border border-brand-orange/30 flex items-center justify-between text-xs">
-              <span className="flex items-center gap-1.5 font-heading font-bold text-espresso">
-                <TrendingUp className="w-3.5 h-3.5 text-brand-orange" />
+          <div className="mt-8 pt-5 border-t border-brand-peach/40">
+            <div className="p-4 sm:p-5 rounded-2xl bg-brand-orange-light/50 border border-brand-orange/30 flex items-center justify-between text-xs sm:text-sm">
+              <span className="flex items-center gap-2 font-heading font-bold text-espresso">
+                <TrendingUp className="w-4 h-4 text-brand-orange" />
                 Live Goal Alignment
               </span>
               <span className="font-heading font-extrabold text-brand-orange">

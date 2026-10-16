@@ -425,7 +425,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
   return (
     <section
       id="connected-workflow"
-      className="relative pt-24 sm:pt-28 md:pt-32 pb-14 sm:pb-18 md:pb-20 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto overflow-hidden"
+      className="relative pt-20 sm:pt-24 md:pt-28 pb-10 sm:pb-14 px-4 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto overflow-hidden"
     >
       {/* Subtle Background Ambient Decorative Sheen */}
       <motion.div

@@ -58,7 +58,7 @@ export const KeyCapabilitiesSection: React.FC = () => {
   return (
     <section
       id="capabilities"
-      className="relative w-full py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-10 bg-surface-ambient border-b border-brand-peach/50"
+      className="relative w-full py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-10 xl:px-12 bg-surface-ambient border-b border-brand-peach/50"
     >
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         {/* ============================================================ */}

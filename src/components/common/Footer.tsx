@@ -6,7 +6,7 @@ import { openDemoModal } from './DemoModal';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-white border-t border-brand-peach/80 pt-16 pb-12 px-4 sm:px-6 lg:px-10">
+    <footer className="bg-white border-t border-brand-peach/80 pt-12 sm:pt-14 pb-10 sm:pb-12 px-4 sm:px-6 lg:px-10 xl:px-12">
       <div className="max-w-[1600px] mx-auto space-y-12">
         {/* TOP BRAND STATEMENT & POSITIONING */}
         <motion.div
