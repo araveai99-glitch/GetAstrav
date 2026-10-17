@@ -62,26 +62,14 @@ export const KeyCapabilitiesSection: React.FC = () => {
     >
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         {/* ============================================================ */}
-        {/* LEFT COLUMN: Section Badge, Headline & Subtitle              */}
+        {/* LEFT COLUMN: Headline & Subtitle                            */}
         {/* ============================================================ */}
         <div className="lg:col-span-5 space-y-6 text-left z-10">
-          <MotionWrapper direction="down">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e936f]"></span>
-              </span>
-              <span className="text-[11px] font-heading font-extrabold tracking-widest text-[#2e936f] uppercase">
-                KEY CAPABILITIES
-              </span>
-            </div>
-          </MotionWrapper>
-
-          <MotionWrapper delay={0.1}>
+          <MotionWrapper delay={0.05}>
             <div className="space-y-4">
-              <h2 className="text-[32px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.12] tracking-[-0.02em] font-heading">
-                Everything You Need to Run<br />
-                <span className="text-[#f15e1c]">Your Organization.</span>
+              <h2 className="text-[20.5px] min-[360px]:text-[23px] min-[375px]:text-[24.5px] min-[393px]:text-[26px] min-[430px]:text-[28.5px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.15] sm:leading-[1.12] tracking-[-0.025em] sm:tracking-[-0.02em] font-heading">
+                <span className="block whitespace-nowrap">Everything You Need to Run</span>
+                <span className="text-[#f15e1c] block whitespace-nowrap">Your Organization.</span>
               </h2>
               <p className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-lg text-left sm:text-justify">
                 Astrav unifies your strategy, teams, and execution into one executive workspace.

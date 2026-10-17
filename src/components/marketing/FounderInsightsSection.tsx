@@ -212,23 +212,11 @@ export const FounderInsightsSection: React.FC = () => {
         </div>
 
         {/* ============================================================ */}
-        {/* RIGHT COLUMN: Built For Founders Copy & Value Checkmarks     */}
+        {/* RIGHT COLUMN: Copy & Value Checkmarks (Built for Founders)   */}
         {/* ============================================================ */}
-        <div className="lg:col-span-5 space-y-7 text-left z-10">
-          <MotionWrapper direction="down">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e936f]"></span>
-              </span>
-              <span className="text-[11px] font-heading font-extrabold tracking-widest text-[#2e936f] uppercase">
-                BUILT FOR FOUNDERS
-              </span>
-            </div>
-          </MotionWrapper>
-
-          <MotionWrapper delay={0.1}>
-            <div className="space-y-4">
+        <div className="lg:col-span-5 space-y-6 sm:space-y-7 text-left z-10">
+          <MotionWrapper delay={0.05}>
+            <div className="space-y-3.5 sm:space-y-4">
               <h2 className="text-[32px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.12] tracking-[-0.02em] font-heading">
                 Make Faster Decisions<br />
                 with <span className="text-[#f15e1c]">Real Insights.</span>
@@ -239,15 +227,16 @@ export const FounderInsightsSection: React.FC = () => {
             </div>
           </MotionWrapper>
 
-          {/* 4 Checkmark Items (Orange circle with white check icon) */}
-          <div className="space-y-3.5 pt-2">
+          {/* 5 Checkmark Items (Orange circle with white check icon) */}
+          <div className="space-y-3.5">
             {[
+              'Built for founders',
               'Live execution velocity across every department',
               'Automated mathematical rollups to North Star goals',
               'Instant blocker, risk, and overdue task alerts',
               'Zero micromanagement, total strategic clarity',
             ].map((text, idx) => (
-              <MotionWrapper key={idx} delay={0.15 + idx * 0.08} direction="left">
+              <MotionWrapper key={idx} delay={0.12 + idx * 0.07} direction="left">
                 <div className="flex items-center gap-3 group cursor-default">
                   <div className="w-5 h-5 rounded-full bg-brand-orange text-white flex items-center justify-center shrink-0 shadow-sm shadow-brand-orange/30 group-hover:scale-110 transition-transform">
                     <Check className="w-3.5 h-3.5 stroke-[3]" />

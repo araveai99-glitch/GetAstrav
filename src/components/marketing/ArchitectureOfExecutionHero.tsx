@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowRight,
@@ -20,219 +20,8 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { MotionWrapper } from '../common/MotionWrapper';
+import { DEPARTMENTS } from '../../data/departmentWorkflows';
 
-interface DepartmentHotspot {
-  id: string;
-  name: string;
-  progress: string;
-  status: 'on_track' | 'attention' | 'optimal';
-  statusText: string;
-  icon: React.ElementType;
-  iconBg: string;
-  iconColor: string;
-  barColor: string;
-  sparklineColor: string;
-  sparklinePath: string;
-  // Percentage coordinates on the 2048x756 panoramic canvas
-  left: string;
-  top: string;
-  width: string;
-  height: string;
-  // Mobile specific coordinates on the 1306x871 mobile visual container
-  mobileLeft: string;
-  mobileTop: string;
-  mobileWidth: string;
-  mobileHeight: string;
-  head: string;
-  activeTasks: number;
-  milestones: string;
-  deliverables: string[];
-}
-
-const DEPARTMENTS: DepartmentHotspot[] = [
-  // Top Mezzanine Level
-  {
-    id: 'product',
-    name: 'Product',
-    progress: '78%',
-    status: 'on_track',
-    statusText: 'On Track',
-    icon: Package,
-    iconBg: 'bg-[#fceade]',
-    iconColor: 'text-[#f15e1c]',
-    barColor: 'bg-[#2e936f]',
-    sparklineColor: '#2e936f',
-    sparklinePath: 'M 2 12 Q 10 14, 18 8 T 34 3',
-    left: '36.0%',
-    top: '17.5%',
-    width: '13.4%',
-    height: '11.5%',
-    mobileLeft: '2.5%',
-    mobileTop: '7%',
-    mobileWidth: '22.0%',
-    mobileHeight: '19%',
-    head: 'Elena Vance (VP Product)',
-    activeTasks: 14,
-    milestones: '3/4 Milestones Completed',
-    deliverables: [
-      'Product V2 Core Architecture (Done)',
-      'Design System Glassmorphism v4.8 (Done)',
-      'Cross-departmental Rollup Engine (85% In Progress)',
-      'Enterprise UX Accessibility Audit (Planned)',
-    ],
-  },
-  {
-    id: 'engineering',
-    name: 'Engineering',
-    progress: '62%',
-    status: 'attention',
-    statusText: '2 Overdue Tasks',
-    icon: Code,
-    iconBg: 'bg-[#fef3dc]',
-    iconColor: 'text-[#fab60a]',
-    barColor: 'bg-[#fab60a]',
-    sparklineColor: '#fab60a',
-    sparklinePath: 'M 2 13 Q 10 15, 20 8 T 34 3',
-    left: '51.0%',
-    top: '17.5%',
-    width: '13.4%',
-    height: '11.5%',
-    mobileLeft: '26.0%',
-    mobileTop: '7%',
-    mobileWidth: '22.0%',
-    mobileHeight: '19%',
-    head: 'Marcus Thorne (CTO)',
-    activeTasks: 22,
-    milestones: '4/6 Milestones Completed',
-    deliverables: [
-      'Distributed Task Engine v2 (Done)',
-      'Real-time WebSocket Push Synchronization (Done)',
-      'Fix 2 API Latency Bottlenecks (Overdue - Reviewing)',
-      'SOC2 Automated Compliance Controls (In Progress)',
-    ],
-  },
-  {
-    id: 'marketing',
-    name: 'Marketing',
-    progress: '54%',
-    status: 'attention',
-    statusText: 'Campaign Live',
-    icon: Megaphone,
-    iconBg: 'bg-[#fceade]',
-    iconColor: 'text-[#f15e1c]',
-    barColor: 'bg-[#fab60a]',
-    sparklineColor: '#fab60a',
-    sparklinePath: 'M 2 14 Q 10 11, 20 9 T 34 4',
-    left: '66.0%',
-    top: '17.5%',
-    width: '13.4%',
-    height: '11.5%',
-    mobileLeft: '49.5%',
-    mobileTop: '7%',
-    mobileWidth: '22.0%',
-    mobileHeight: '19%',
-    head: 'Sarah Jenkins (Growth Lead)',
-    activeTasks: 9,
-    milestones: '2/4 Milestones Completed',
-    deliverables: [
-      'Q3 Product Launch Distribution (Launched)',
-      'Interactive Product Tour & SEO Landing Pages (Done)',
-      'Founder Retargeting Funnel Optimizations (In Progress)',
-      'Customer Video Case Studies & Trust Badges (Pending)',
-    ],
-  },
-  // Middle Floor Level
-  {
-    id: 'sales',
-    name: 'Sales',
-    progress: '71%',
-    status: 'on_track',
-    statusText: 'On Track',
-    icon: BarChart3,
-    iconBg: 'bg-[#edf7f3]',
-    iconColor: 'text-[#2e936f]',
-    barColor: 'bg-[#2e936f]',
-    sparklineColor: '#2e936f',
-    sparklinePath: 'M 2 14 Q 10 14, 18 7 T 34 2',
-    left: '36.0%',
-    top: '40.0%',
-    width: '13.4%',
-    height: '11.5%',
-    mobileLeft: '2.5%',
-    mobileTop: '35%',
-    mobileWidth: '22.0%',
-    mobileHeight: '19%',
-    head: 'Priya Roy (Head of Revenue)',
-    activeTasks: 18,
-    milestones: '3/5 Milestones Completed',
-    deliverables: [
-      'Close 15 Enterprise Pilot Agreements (87% Achieved)',
-      'Sales Demo Environment Self-Service Sandbox (Done)',
-      'Contract Lifecycle & Renewal Automation (In Progress)',
-      'Global SDR Expansion & Territory Mapping (Planned)',
-    ],
-  },
-  {
-    id: 'hr',
-    name: 'HR',
-    progress: '88%',
-    status: 'optimal',
-    statusText: 'All Onboarded',
-    icon: Users,
-    iconBg: 'bg-[#edf7f3]',
-    iconColor: 'text-[#2e936f]',
-    barColor: 'bg-[#2e936f]',
-    sparklineColor: '#2e936f',
-    sparklinePath: 'M 2 13 Q 12 14, 20 6 T 34 2',
-    left: '51.0%',
-    top: '40.0%',
-    width: '13.4%',
-    height: '11.5%',
-    mobileLeft: '26.0%',
-    mobileTop: '35%',
-    mobileWidth: '22.0%',
-    mobileHeight: '19%',
-    head: 'Devon Lee (People Operations)',
-    activeTasks: 6,
-    milestones: '4/4 Milestones Completed',
-    deliverables: [
-      'Senior Infrastructure Engineer Onboarding (Completed)',
-      'Annual Performance Calibration (Completed)',
-      'Founder 360 Feedback Rollout (Completed)',
-      'Remote Pod Offsite Planning (In Progress)',
-    ],
-  },
-  {
-    id: 'finance',
-    name: 'Finance',
-    progress: '66%',
-    status: 'attention',
-    statusText: 'Runway Clear',
-    icon: Coins,
-    iconBg: 'bg-[#fef3dc]',
-    iconColor: 'text-[#fab60a]',
-    barColor: 'bg-[#fab60a]',
-    sparklineColor: '#fab60a',
-    sparklinePath: 'M 2 12 Q 12 15, 20 10 T 34 4',
-    left: '66.0%',
-    top: '40.0%',
-    width: '13.4%',
-    height: '11.5%',
-    mobileLeft: '49.5%',
-    mobileTop: '35%',
-    mobileWidth: '22.0%',
-    mobileHeight: '19%',
-    head: 'Arthur Pendelton (Finance VP)',
-    activeTasks: 8,
-    milestones: '2/4 Milestones Completed',
-    deliverables: [
-      '24-Month Operating Runway & Cash Flow Model (Done)',
-      'Multi-currency Subscription Billing Gateway (Done)',
-      'Departmental SaaS Spend Audit (In Progress)',
-      'Board of Directors Q3 Financial Packet (In Progress)',
-    ],
-  },
-];
 
 interface NotificationHotspot {
   id: string;
@@ -303,7 +92,7 @@ const NOTIFICATIONS: NotificationHotspot[] = [
 ];
 
 export const ArchitectureOfExecutionHero: React.FC = () => {
-  const [selectedDept, setSelectedDept] = useState<DepartmentHotspot | null>(null);
+  const navigate = useNavigate();
   const [hoveredDeptId, setHoveredDeptId] = useState<string | null>(null);
   const [activeNotif, setActiveNotif] = useState<NotificationHotspot | null>(null);
   const [companyGoalModalOpen, setCompanyGoalModalOpen] = useState(false);
@@ -311,12 +100,12 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
   // Active status for connection highlight illumination
   const isGoalActive = companyGoalModalOpen;
-  const isSalesActive = hoveredDeptId === 'sales' || selectedDept?.id === 'sales';
-  const isHRActive = hoveredDeptId === 'hr' || selectedDept?.id === 'hr';
-  const isFinanceActive = hoveredDeptId === 'finance' || selectedDept?.id === 'finance';
-  const isProductActive = hoveredDeptId === 'product' || selectedDept?.id === 'product';
-  const isEngActive = hoveredDeptId === 'engineering' || selectedDept?.id === 'engineering';
-  const isMktActive = hoveredDeptId === 'marketing' || selectedDept?.id === 'marketing';
+  const isSalesActive = hoveredDeptId === 'sales';
+  const isHRActive = hoveredDeptId === 'hr';
+  const isFinanceActive = hoveredDeptId === 'finance';
+  const isProductActive = hoveredDeptId === 'product';
+  const isEngActive = hoveredDeptId === 'engineering';
+  const isMktActive = hoveredDeptId === 'marketing';
 
   return (
     <section className="relative w-full overflow-hidden bg-[#faf6f0] border-b border-brand-peach/60 pt-20 sm:pt-22 select-none">
@@ -468,8 +257,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* ============================================================ */}
           {DEPARTMENTS.map((dept, index) => {
             const isHovered = hoveredDeptId === dept.id;
-            const isSelected = selectedDept?.id === dept.id;
-            const isActive = isHovered || isSelected;
+            const isActive = isHovered;
 
             return (
               <motion.div
@@ -484,7 +272,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 }}
                 onMouseEnter={() => setHoveredDeptId(dept.id)}
                 onMouseLeave={() => setHoveredDeptId(null)}
-                onClick={() => setSelectedDept(dept)}
+                onClick={() => navigate(`/department-workflow/${dept.id}`)}
                 className={`absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_6px_20px_rgba(0,0,0,0.08),0_2px_4px_rgba(0,0,0,0.04)] px-2 py-1.5 xl:px-2.5 xl:py-2 flex flex-col justify-between group overflow-hidden ${
                   isActive
                     ? 'ring-2 ring-[#f15e1c] shadow-[0_12px_28px_rgba(241,94,28,0.3)] scale-[1.02]'
@@ -496,7 +284,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   width: dept.width,
                   height: dept.height,
                 }}
-                title={`Click to inspect ${dept.name} (${dept.progress} - ${dept.statusText})`}
+                title={`Open ${dept.name} department workflow (${dept.progress} - ${dept.statusText})`}
               >
                 {/* Top Row: Icon + Name + Chevron */}
                 <div className="flex items-center justify-between w-full">
@@ -692,16 +480,15 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   — {DEPARTMENTS.find((d) => d.id === hoveredDeptId)?.milestones}
                 </span>
               </div>
-              <span
+              <button
                 onClick={() => {
-                  const d = DEPARTMENTS.find((dept) => dept.id === hoveredDeptId);
-                  if (d) setSelectedDept(d);
+                  if (hoveredDeptId) navigate(`/department-workflow/${hoveredDeptId}`);
                 }}
-                className="font-heading font-bold text-brand-orange hover:text-brand-orange-hover flex items-center gap-1 cursor-pointer"
+                className="font-heading font-bold text-brand-orange hover:text-brand-orange-hover flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
               >
-                <span>Click to inspect</span>
+                <span>Open Workflow</span>
                 <ChevronRight className="w-3.5 h-3.5" />
-              </span>
+              </button>
             </motion.div>
           )}
         </div>
@@ -716,32 +503,24 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             {[
               {
                 icon: Target,
-                badge: '100% Rollup',
-                badgeBg: 'bg-[#edf7f3] text-[#2e936f] border-[#2e936f]/30',
                 iconBg: 'bg-[#fceade] text-[#f15e1c]',
                 title: 'Goal-Driven Execution',
                 desc: 'Projects, milestones, and daily tasks roll up directly into company North Star goals.',
               },
               {
                 icon: Sparkles,
-                badge: 'Predictive Mesh',
-                badgeBg: 'bg-[#fef3dc] text-[#fab60a] border-[#fab60a]/30',
                 iconBg: 'bg-[#fef3dc] text-[#fab60a]',
                 title: 'AI-Powered Planning',
                 desc: 'Detects project blockers, overdue tasks, and resource clashes before delays happen.',
               },
               {
                 icon: BarChart3,
-                badge: 'Real-Time Sync',
-                badgeBg: 'bg-[#edf7f3] text-[#2e936f] border-[#2e936f]/30',
                 iconBg: 'bg-[#edf7f3] text-[#2e936f]',
                 title: 'Real Progress Visibility',
                 desc: 'Live, unfiltered execution velocity across Product, Engineering, Marketing, Sales, HR, and Finance.',
               },
               {
                 icon: Users,
-                badge: 'Astrav V4.8',
-                badgeBg: 'bg-[#fceade] text-[#f15e1c] border-[#f15e1c]/30',
                 iconBg: 'bg-[#fceade] text-[#f15e1c]',
                 title: 'Built for Founders',
                 desc: 'Total control of cross-team execution with zero micromanagement or status meetings.',
@@ -757,13 +536,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
                   className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-xs hover:border-brand-orange/60 hover:shadow-warm-md hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer"
                 >
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="mb-3">
                     <div className={`w-10 h-10 rounded-xl ${pillar.iconBg} flex items-center justify-center shadow-warm-2xs group-hover:scale-105 transition-transform`}>
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-heading font-extrabold ${pillar.badgeBg} border`}>
-                      {pillar.badge}
-                    </span>
                   </div>
                   <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
                     {pillar.title}
@@ -781,7 +557,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       {/* ============================================================ */}
       {/* MOBILE / TABLET VIEW (<1024px): CLOSE TO REFERENCE IMAGE 1   */}
       {/* ============================================================ */}
-      <div className="lg:hidden max-w-xl mx-auto px-3.5 sm:px-6 pt-2.5 sm:pt-4 space-y-7 text-left pb-12">
+      <div className="lg:hidden max-w-xl mx-auto px-2.5 xs:px-3.5 sm:px-6 pt-2.5 sm:pt-4 space-y-7 text-left pb-12">
         {/* 1. Headline & Supporting Text */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -962,8 +738,6 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           {/* Row 1: Product, Engineering, Marketing */}
           {/* Row 2: Sales, HR, Finance */}
           {DEPARTMENTS.map((dept, index) => {
-            const isSelected = selectedDept?.id === dept.id;
-
             return (
               <motion.div
                 key={dept.id}
@@ -975,37 +749,35 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   delay: 0.08 + index * 0.05,
                   ease: 'easeOut',
                 }}
-                onClick={() => setSelectedDept(dept)}
-                className={`absolute z-20 rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_4px_14px_rgba(0,0,0,0.12)] px-1.5 py-1 xs:py-1.5 sm:p-2 flex flex-col justify-between cursor-pointer select-none active:scale-95 transition-all group overflow-hidden ${
-                  isSelected ? 'ring-2 ring-brand-orange bg-white' : 'hover:border-brand-orange/50'
-                }`}
+                onClick={() => navigate(`/department-workflow/${dept.id}`)}
+                className="absolute z-20 rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_4px_14px_rgba(0,0,0,0.12)] px-1 py-1 xs:px-1.5 xs:py-1.5 sm:p-2 flex flex-col justify-between cursor-pointer select-none active:scale-95 transition-all group overflow-hidden hover:border-brand-orange/50 hover:ring-2 hover:ring-brand-orange/20"
                 style={{
                   left: dept.mobileLeft,
                   top: dept.mobileTop,
                   width: dept.mobileWidth,
                   height: dept.mobileHeight,
                 }}
-                title={`Click to inspect ${dept.name} (${dept.progress} - ${dept.statusText})`}
+                title={`Open ${dept.name} department workflow (${dept.progress} - ${dept.statusText})`}
               >
-                {/* Top Row: Icon + Name + Chevron */}
+                {/* Top Row: Icon + Name */}
                 <div className="flex items-center justify-between w-full">
-                  <div className="flex items-center gap-1 min-w-0">
+                  <div className="flex items-center gap-0.5 xs:gap-1 min-w-0 flex-1">
                     <div
-                      className={`w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 rounded-md ${dept.iconBg} flex items-center justify-center shrink-0`}
+                      className={`w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 rounded-md ${dept.iconBg} flex items-center justify-center shrink-0`}
                     >
-                      <dept.icon className={`w-2 h-2 xs:w-2.5 xs:h-2.5 sm:w-3 sm:h-3 ${dept.iconColor}`} />
+                      <dept.icon className={`w-1.5 h-1.5 xs:w-2 xs:h-2 sm:w-3 sm:h-3 ${dept.iconColor}`} />
                     </div>
-                    <span className="font-heading font-extrabold text-[#271812] text-[7.5px] xs:text-[8.5px] sm:text-xs leading-none whitespace-nowrap tracking-tight">
+                    <span className="font-heading font-extrabold text-[#271812] text-[7px] min-[375px]:text-[7.5px] xs:text-[8px] sm:text-xs leading-none whitespace-nowrap tracking-tight block">
                       {dept.name}
                     </span>
                   </div>
-                  <ChevronRight className="w-2.5 h-2.5 xs:w-3 xs:h-3 text-gray-400 group-hover:text-brand-orange shrink-0" />
+                  <ChevronRight className="w-2.5 h-2.5 text-gray-400 group-hover:text-brand-orange shrink-0 hidden sm:block ml-0.5" />
                 </div>
 
                 {/* Bottom Row: Percentage + Progress Bar + Sparkline */}
-                <div className="flex items-end justify-between w-full gap-1 mt-0.5">
+                <div className="flex items-end justify-between w-full gap-0.5 xs:gap-1 mt-0.5">
                   <div className="min-w-0 flex-1">
-                    <span className="font-heading font-extrabold text-[#271812] text-[9px] xs:text-[10.5px] sm:text-xs leading-none block mb-0.5">
+                    <span className="font-heading font-extrabold text-[#271812] text-[8px] xs:text-[9.5px] sm:text-xs leading-none block mb-0.5">
                       {dept.progress}
                     </span>
                     <div className="w-full h-0.5 xs:h-1 bg-gray-100 rounded-full overflow-hidden">
@@ -1022,7 +794,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                       />
                     </div>
                   </div>
-                  <div className="w-4 xs:w-5 sm:w-6 h-2 xs:h-2.5 sm:h-3 shrink-0 flex items-center justify-end">
+                  <div className="w-3 xs:w-4 sm:w-6 h-2 xs:h-2.5 sm:h-3 shrink-0 flex items-center justify-end">
                     <svg viewBox="0 0 36 16" className="w-full h-full overflow-visible" fill="none">
                       <path
                         d={dept.sparklinePath}
@@ -1093,7 +865,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             style={{
               right: '1.5%',
               top: '7%',
-              width: '25.5%',
+              width: '26.0%',
             }}
           >
             {NOTIFICATIONS.map((notif, idx) => (
@@ -1104,33 +876,36 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.35, delay: 0.2 + idx * 0.06, ease: 'easeOut' }}
                 onClick={() => setActiveNotif(notif)}
-                className="rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_3px_10px_rgba(0,0,0,0.1)] p-1 xs:p-1.5 flex items-center justify-between cursor-pointer active:scale-95 transition-all select-none group"
+                className="rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_3px_10px_rgba(0,0,0,0.1)] p-1 xs:p-1.5 flex flex-col justify-between cursor-pointer active:scale-95 transition-all select-none group"
                 title={`Click to view ${notif.dept} update`}
               >
-                <div className="flex items-center gap-1 min-w-0">
-                  <div
-                    className={`w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 rounded-md ${notif.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
-                  >
-                    <notif.icon className={`w-2 h-2 xs:w-2.5 xs:h-2.5 sm:w-3 sm:h-3 ${notif.iconColor}`} />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="font-heading font-extrabold text-[#271812] text-[8px] xs:text-[9px] sm:text-[10px] leading-tight block truncate">
+                {/* Row 1: Icon + Full Dept Name + Status Icon */}
+                <div className="flex items-center justify-between w-full gap-0.5">
+                  <div className="flex items-center gap-1 min-w-0">
+                    <div
+                      className={`w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4.5 sm:h-4.5 rounded-md ${notif.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
+                    >
+                      <notif.icon className={`w-1.5 h-1.5 xs:w-2 xs:h-2 sm:w-2.5 sm:h-2.5 ${notif.iconColor}`} />
+                    </div>
+                    <span className="font-heading font-extrabold text-[#271812] text-[7px] min-[375px]:text-[7.5px] xs:text-[8.5px] sm:text-[9.5px] leading-tight block whitespace-nowrap tracking-tight">
                       {notif.dept}
                     </span>
-                    <span className="text-[6.5px] xs:text-[7.5px] sm:text-[8.5px] text-gray-500 font-medium leading-none block truncate">
-                      {notif.action}
-                    </span>
                   </div>
+
+                  {notif.isCheck ? (
+                    <CheckCircle2 className="w-2.5 h-2.5 xs:w-3 xs:h-3 text-[#2e936f] shrink-0" />
+                  ) : (
+                    <AlertTriangle className="w-2.5 h-2.5 xs:w-3 xs:h-3 text-[#ea580c] shrink-0" />
+                  )}
                 </div>
 
-                <div className="flex flex-col items-end shrink-0 gap-0.5 ml-1">
-                  {notif.isCheck ? (
-                    <CheckCircle2 className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 text-[#2e936f]" />
-                  ) : (
-                    <AlertTriangle className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 text-[#ea580c]" />
-                  )}
+                {/* Row 2: Action Description + Timestamp */}
+                <div className="flex items-center justify-between w-full mt-0.5 text-[6px] xs:text-[6.5px] sm:text-[7.5px] leading-none text-gray-500">
+                  <span className="truncate max-w-[48px] min-[375px]:max-w-[55px] xs:max-w-[65px] sm:max-w-[75px] font-medium">
+                    {notif.action}
+                  </span>
                   <span
-                    className={`text-[6.5px] xs:text-[7px] sm:text-[8px] font-heading font-bold whitespace-nowrap ${
+                    className={`font-heading font-bold whitespace-nowrap shrink-0 ml-0.5 ${
                       notif.isCheck ? 'text-[#2e936f]' : 'text-[#ea580c]'
                     }`}
                   >
@@ -1172,7 +947,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             TAP DEPARTMENT TO INSPECT
           </h3>
 
-          <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
+          <div className="grid grid-cols-3 gap-1.5 xs:gap-2 sm:gap-2.5">
             {DEPARTMENTS.map((dept, index) => (
               <motion.div
                 key={dept.id}
@@ -1180,131 +955,31 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.35, delay: index * 0.05, ease: 'easeOut' }}
-                onClick={() => setSelectedDept(dept)}
-                className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl bg-white border border-brand-peach/80 shadow-[0_2px_8px_rgba(42,26,20,0.04)] hover:border-brand-orange/50 hover:shadow-warm-sm transition-all cursor-pointer flex items-center justify-between group active:scale-[0.98] select-none"
-                title={`Inspect ${dept.name} Department (${dept.progress})`}
+                onClick={() => navigate(`/department-workflow/${dept.id}`)}
+                className="px-1.5 py-2 xs:px-2 xs:py-2.5 sm:p-2.5 rounded-xl sm:rounded-2xl bg-white border border-brand-peach/80 shadow-[0_2px_8px_rgba(42,26,20,0.04)] hover:border-brand-orange/50 hover:shadow-warm-sm transition-all cursor-pointer flex items-center justify-between group active:scale-[0.98] select-none"
+                title={`Open ${dept.name} Department Workflow (${dept.progress})`}
               >
-                <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                <div className="flex items-center gap-1 xs:gap-1.5 sm:gap-2 min-w-0 flex-1">
                   <div
-                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full ${dept.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
+                    className={`w-5.5 h-5.5 xs:w-6.5 xs:h-6.5 sm:w-8 sm:h-8 rounded-full ${dept.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
                   >
-                    <dept.icon className={`w-3.5 h-3.5 ${dept.iconColor}`} />
+                    <dept.icon className={`w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 ${dept.iconColor}`} />
                   </div>
-                  <div className="min-w-0">
-                    <span className="font-heading font-extrabold text-[11px] sm:text-xs text-[#271812] leading-tight truncate block">
+                  <div className="min-w-0 flex-1">
+                    <span className="font-heading font-extrabold text-[9px] min-[375px]:text-[10px] xs:text-[10.5px] sm:text-xs text-[#271812] leading-tight block whitespace-nowrap tracking-tight">
                       {dept.name}
                     </span>
-                    <span className="font-heading font-bold text-[10px] sm:text-[11px] text-[#5a4138] leading-tight block mt-0.5">
+                    <span className="font-heading font-bold text-[8.5px] min-[375px]:text-[9px] xs:text-[10px] sm:text-[11px] text-[#5a4138] leading-tight block mt-0.5">
                       {dept.progress}
                     </span>
                   </div>
                 </div>
-                <ChevronRight className="w-3.5 h-3.5 text-stone-400 group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
+                <ChevronRight className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 text-stone-400 group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all shrink-0 ml-0.5 hidden min-[375px]:block" />
               </motion.div>
             ))}
           </div>
         </motion.div>
       </div>
-
-      {/* ============================================================ */}
-      {/* INTERACTIVE FULL DEEP-DIVE MODAL (ON CLICK)                  */}
-      {/* ============================================================ */}
-      <AnimatePresence>
-        {selectedDept && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fadeIn">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 16 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.94, y: 16 }}
-              className="relative w-full max-w-lg bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-brand-peach space-y-5"
-            >
-              {/* Header */}
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`w-12 h-12 rounded-2xl ${selectedDept.iconBg} flex items-center justify-center shrink-0 shadow-warm-xs`}
-                  >
-                    <selectedDept.icon className={`w-6 h-6 ${selectedDept.iconColor}`} />
-                  </div>
-                  <div>
-                    <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider block">
-                      Department Command Center
-                    </span>
-                    <h3 className="font-heading font-extrabold text-xl text-espresso">
-                      {selectedDept.name} Execution
-                    </h3>
-                  </div>
-                </div>
-
-                <button
-                  onClick={() => setSelectedDept(null)}
-                  className="p-2 rounded-full hover:bg-surface-tier1 text-terracotta hover:text-espresso transition-colors cursor-pointer"
-                  aria-label="Close modal"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Progress Summary Card */}
-              <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/60 flex items-center justify-between">
-                <div>
-                  <span className="text-xs text-terracotta-muted font-medium block">
-                    Execution Velocity
-                  </span>
-                  <div className="flex items-center gap-2 mt-0.5">
-                    <span className="font-heading font-extrabold text-2xl text-espresso">
-                      {selectedDept.progress}
-                    </span>
-                    <span className="px-2.5 py-0.5 rounded-full text-xs font-heading font-bold bg-brand-green-light text-brand-green border border-brand-green/20">
-                      {selectedDept.statusText}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="text-right">
-                  <span className="text-xs text-terracotta-muted font-medium block">
-                    Leadership
-                  </span>
-                  <span className="font-heading font-bold text-sm text-espresso mt-0.5 block">
-                    {selectedDept.head}
-                  </span>
-                </div>
-              </div>
-
-              {/* Key Deliverables */}
-              <div className="space-y-2.5">
-                <span className="text-xs font-heading font-bold text-espresso uppercase tracking-wider block">
-                  Active Deliverables & Rollup Items
-                </span>
-                <div className="space-y-2">
-                  {selectedDept.deliverables.map((obj, i) => (
-                    <div
-                      key={i}
-                      className="flex items-start gap-2.5 p-2.5 rounded-xl bg-white border border-brand-peach/40 text-xs text-espresso"
-                    >
-                      <CheckCircle2 className="w-4 h-4 text-brand-green shrink-0 mt-0.5" />
-                      <span className="leading-snug">{obj}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Action Footer */}
-              <div className="flex items-center justify-between pt-3 border-t border-brand-peach/40">
-                <span className="text-xs text-terracotta-muted">
-                  Live connection to Astrav Mesh
-                </span>
-                <button
-                  onClick={() => setSelectedDept(null)}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white font-heading font-bold text-sm shadow-md shadow-brand-orange/20 transition-all cursor-pointer"
-                >
-                  <span>Close Inspection</span>
-                </button>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
 
       {/* Company Goal Inspection Modal */}
       <AnimatePresence>

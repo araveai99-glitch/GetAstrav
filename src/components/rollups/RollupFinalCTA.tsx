@@ -29,27 +29,10 @@ export const RollupFinalCTA: React.FC = () => {
         />
 
         <div className="max-w-2xl mx-auto space-y-6 relative z-10">
-          {/* Minimal Decorative Progress Visual */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.85 }}
-            transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-orange/30 shadow-warm-2xs mx-auto"
-          >
-            <div className="flex items-center gap-1">
-              <span className="w-1.5 h-3.5 rounded-full bg-brand-green" />
-              <span className="w-1.5 h-4.5 rounded-full bg-brand-yellow" />
-              <span className="w-1.5 h-5.5 rounded-full bg-brand-orange" />
-            </div>
-            <span className="text-xs font-heading font-extrabold text-brand-orange uppercase tracking-wider">
-              CONTINUOUS HARMONIZATION
-            </span>
-          </motion.div>
-
           <motion.h2
             initial={{ opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-            transition={{ duration: 0.4, delay: 0.08 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
             className="brand-h2 text-espresso"
           >
             Let Progress Speak for Itself.

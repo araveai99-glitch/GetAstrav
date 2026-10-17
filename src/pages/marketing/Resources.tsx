@@ -40,12 +40,6 @@ export const Resources: React.FC = () => {
     <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-24 pb-8 sm:pb-12 flex flex-col space-y-8 sm:space-y-10">
       {/* Page Header */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange-light border border-brand-orange/30 shadow-warm-2xs">
-          <BookOpen className="w-3.5 h-3.5 text-brand-orange" />
-          <span className="text-xs font-heading font-extrabold text-brand-orange uppercase tracking-wider">
-            RESOURCES & ARCHITECTURE BRIEFS
-          </span>
-        </div>
         <h1 className="brand-h1 text-espresso tracking-tight">
           Executive Whitepapers & Engineering Frameworks
         </h1>

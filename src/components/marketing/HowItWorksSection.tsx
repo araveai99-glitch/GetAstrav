@@ -44,7 +44,15 @@ export const HowItWorksSection: React.FC = () => {
         {/* ============================================================ */}
         {/* LEFT COLUMN: Large Polished Astrav Dashboard Mockup          */}
         {/* ============================================================ */}
-        <div className="lg:col-span-7 w-full">
+        <div className="lg:col-span-7 w-full space-y-3 sm:space-y-4">
+          <MotionWrapper direction="down" delay={0.05}>
+            <div className="text-center">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-heading font-extrabold text-espresso tracking-tight">
+                Demo Dashboard
+              </h3>
+            </div>
+          </MotionWrapper>
+
           <MotionWrapper direction="up" delay={0.1}>
             <div className="w-full bg-white rounded-3xl border border-brand-peach/70 shadow-architectural p-4 sm:p-6 overflow-hidden select-none transition-all hover:shadow-warm-xl">
               {/* TOP HEADER: Logo, Search, Notification Bell, User Avatar */}
@@ -407,20 +415,8 @@ export const HowItWorksSection: React.FC = () => {
         {/* ============================================================ */}
         {/* RIGHT COLUMN: 4 Simple Steps & Action CTA                    */}
         {/* ============================================================ */}
-        <div className="lg:col-span-5 space-y-7 text-left z-10">
-          <MotionWrapper direction="down">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#edf7f3] border border-[#2e936f]/30 shadow-warm-2xs">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e936f] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e936f]"></span>
-              </span>
-              <span className="text-[11px] font-heading font-extrabold tracking-widest text-[#2e936f] uppercase">
-                HOW IT WORKS
-              </span>
-            </div>
-          </MotionWrapper>
-
-          <MotionWrapper delay={0.1}>
+        <div className="lg:col-span-5 space-y-6 sm:space-y-7 text-left z-10">
+          <MotionWrapper delay={0.05}>
             <h2 className="text-[32px] sm:text-[42px] font-extrabold text-[#271812] leading-[1.12] tracking-[-0.02em] font-heading">
               From Goals to Execution<br />
               in <span className="text-[#f15e1c]">4 Simple Steps.</span>
@@ -428,7 +424,7 @@ export const HowItWorksSection: React.FC = () => {
           </MotionWrapper>
 
           {/* 4 Steps */}
-          <div className="space-y-5 pt-2">
+          <div className="space-y-4 sm:space-y-5">
             {[
               {
                 num: '1',

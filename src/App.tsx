@@ -27,6 +27,7 @@ import { Founders } from './pages/marketing/Solutions/Founders';
 import { Managers } from './pages/marketing/Solutions/Managers';
 import { Resources } from './pages/marketing/Resources';
 import { About } from './pages/marketing/About';
+import { DepartmentWorkflow } from './pages/marketing/DepartmentWorkflow';
 
 // Auth Pages
 import { Login } from './pages/auth/Login';
@@ -81,6 +82,14 @@ const MarketingLayout: React.FC = () => {
           {/* Resources & About */}
           <Route path="/resources" element={<Resources />} />
           <Route path="/about" element={<About />} />
+
+          {/* Department Workflows */}
+          <Route path="/department-workflow/:deptId" element={<DepartmentWorkflow />} />
+          <Route path="/department-workflow" element={<DepartmentWorkflow />} />
+          <Route path="/organization-workflow/:deptId" element={<DepartmentWorkflow />} />
+          <Route path="/organization-workflow" element={<DepartmentWorkflow />} />
+          <Route path="/organization-execution/:deptId" element={<DepartmentWorkflow />} />
+          <Route path="/organization-execution" element={<DepartmentWorkflow />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

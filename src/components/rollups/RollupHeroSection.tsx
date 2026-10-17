@@ -114,22 +114,10 @@ export const RollupHeroSection: React.FC = () => {
 
       {/* Header Container */}
       <div className="text-center max-w-3xl mx-auto space-y-2 mb-6 sm:mb-8">
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-          transition={{ duration: 0.35 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange-light border border-brand-orange/30 shadow-warm-2xs"
-        >
-          <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
-          <span className="text-xs font-heading font-extrabold text-brand-orange uppercase tracking-wider">
-            AUTOMATED ROLLUPS
-          </span>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 14 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
-          transition={{ duration: 0.4, delay: 0.08 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
           className="brand-h1 text-espresso tracking-tight"
         >
           Every Task Moves the Bigger Goal Forward.

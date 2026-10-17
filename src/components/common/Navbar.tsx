@@ -362,17 +362,10 @@ export const Navbar: React.FC = () => {
         </nav>
 
         {/* RIGHT: Action CTAs */}
-        <div className="flex items-center gap-3 shrink-0">
-          <Link
-            to="/app/dashboard"
-            className="hidden xl:inline-flex items-center justify-center text-xs sm:text-sm font-heading font-bold text-espresso bg-white hover:bg-brand-orange-light px-5 py-2.5 rounded-full shadow-warm-sm border border-brand-peach transition-all hover:border-brand-orange hover:text-brand-orange hover:-translate-y-0.5 active:translate-y-0"
-          >
-            Launch Console
-          </Link>
-
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <Link
             to="/login"
-            className="hidden md:inline-flex items-center justify-center text-xs sm:text-sm font-heading font-bold text-terracotta hover:text-brand-orange px-3 py-2.5 transition-colors hover:-translate-y-0.5 active:translate-y-0"
+            className="hidden md:inline-flex items-center justify-center text-xs sm:text-sm font-heading font-bold text-terracotta hover:text-brand-orange px-3.5 py-2.5 transition-colors hover:-translate-y-0.5 active:translate-y-0"
           >
             Sign In
           </Link>
@@ -431,9 +424,8 @@ export const Navbar: React.FC = () => {
             <Link to="/features/goals-progress" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1">Goals & Progress</Link>
             <Link to="/features/ai" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1">AI Intelligence</Link>
             <Link to="/features/governance" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1">Governance & RBAC</Link>
-            <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1">Sign In</Link>
-            <Link to="/app/dashboard" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-bold text-espresso hover:bg-surface-tier1 flex items-center justify-between">
-              <span>Launch Command Console</span>
+            <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-bold text-brand-orange hover:bg-surface-tier1 flex items-center justify-between">
+              <span>Sign In</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

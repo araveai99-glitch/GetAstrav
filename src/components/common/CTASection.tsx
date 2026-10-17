@@ -30,10 +30,10 @@ export const CTASection: React.FC<CTASectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.45, ease: 'easeOut' }}
-              className="text-[32px] sm:text-[46px] font-extrabold text-[#271812] leading-[1.12] tracking-[-0.02em] font-heading"
+              className="text-[18.5px] min-[360px]:text-[21.5px] min-[375px]:text-[23px] min-[393px]:text-[24.5px] min-[430px]:text-[27px] sm:text-[46px] font-extrabold text-[#271812] leading-[1.15] sm:leading-[1.12] tracking-[-0.025em] sm:tracking-[-0.02em] font-heading"
             >
-              Ready to See Your Company<br />
-              <span className="text-[#f15e1c]">in One View?</span>
+              <span className="block whitespace-nowrap">Ready to See Your Company</span>
+              <span className="text-[#f15e1c] block whitespace-nowrap">in One View?</span>
             </motion.h2>
 
             <motion.p
@@ -104,22 +104,27 @@ export const CTASection: React.FC<CTASectionProps> = ({
                 </svg>
               </div>
 
-              {/* 3D Stacked Logo Icon in Hexagonal Pedestal */}
-              <div className="relative w-36 h-36 rounded-3xl bg-gradient-to-tr from-[#f15e1c] via-[#fab60a] to-[#ffec69] p-1 shadow-warm-xl flex items-center justify-center group hover:scale-105 transition-transform duration-300">
-                <div className="w-full h-full rounded-[22px] bg-gradient-to-tr from-[#f15e1c] to-[#fab60a] flex items-center justify-center shadow-inner">
-                  <Layers className="w-16 h-16 text-white drop-shadow-md" />
+              {/* Interactive 3D Stacked Logo Icon -> Navigates to Organization Execution & Department Workflows */}
+              <Link
+                to="/organization-workflow"
+                aria-label="View Organization Execution & Department Workflows"
+                title="View Organization Execution & Department Workflows"
+                className="group relative w-36 h-36 rounded-3xl bg-gradient-to-tr from-[#f15e1c] via-[#fab60a] to-[#ffec69] p-1 shadow-warm-xl flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-orange/40 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-orange/50 focus-visible:ring-offset-4 focus-visible:ring-offset-[#fff7f0] active:scale-95"
+              >
+                <div className="w-full h-full rounded-[22px] bg-gradient-to-tr from-[#f15e1c] to-[#fab60a] flex items-center justify-center shadow-inner transition-transform duration-300 group-hover:scale-[1.02]">
+                  <Layers className="w-16 h-16 text-white drop-shadow-md transition-transform duration-300 group-hover:scale-110" />
                 </div>
 
                 {/* Floating Megaphone Badge (Bottom-Left) */}
-                <div className="absolute -bottom-3 -left-3 w-10 h-10 rounded-full bg-white shadow-warm-md border border-brand-peach flex items-center justify-center">
+                <div className="absolute -bottom-3 -left-3 w-10 h-10 rounded-full bg-white shadow-warm-md border border-brand-peach flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <Megaphone className="w-5 h-5 text-brand-orange" />
                 </div>
 
                 {/* Floating Green Progress Badge (Bottom-Right) */}
-                <div className="absolute -bottom-2 -right-3 w-9 h-9 rounded-full bg-white shadow-warm-md border border-brand-peach flex items-center justify-center">
+                <div className="absolute -bottom-2 -right-3 w-9 h-9 rounded-full bg-white shadow-warm-md border border-brand-peach flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <CheckCircle2 className="w-5 h-5 text-brand-green" />
                 </div>
-              </div>
+              </Link>
             </div>
           </motion.div>
         </div>

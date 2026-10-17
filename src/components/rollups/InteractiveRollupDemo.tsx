@@ -109,22 +109,10 @@ export const InteractiveRollupDemo: React.FC = () => {
 
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto space-y-2 mb-4 sm:mb-6">
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-          transition={{ duration: 0.35 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-green-light border border-brand-green/30 shadow-warm-2xs"
-        >
-          <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
-          <span className="text-xs font-heading font-extrabold text-brand-green uppercase tracking-wider">
-            LIVE INTERACTIVE SIMULATION
-          </span>
-        </motion.div>
-
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-          transition={{ duration: 0.4, delay: 0.08 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
           className="brand-h2 text-espresso"
         >
           See Progress Add Up.
@@ -413,10 +401,6 @@ export const InteractiveRollupDemo: React.FC = () => {
             {/* 3. Goal Circular Progress Ring */}
             <div className="p-6 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-brand-orange-light/50 via-white to-surface-tier1 border-2 border-brand-orange/30 shadow-warm-md flex items-center justify-between gap-6">
               <div className="space-y-1.5">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange-light text-xs font-heading font-extrabold text-brand-orange uppercase tracking-wider border border-brand-orange/20">
-                  <Target className="w-3.5 h-3.5" />
-                  <span>OVERALL STRATEGIC GOAL</span>
-                </div>
                 <h4 className="text-base sm:text-lg lg:text-2xl font-heading font-extrabold text-espresso">
                   Expand Digital Market Reach
                 </h4>

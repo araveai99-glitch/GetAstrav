@@ -77,24 +77,11 @@ export const AutomaticProgressSection: React.FC = () => {
 
       {/* Section Header with Repeat-on-Scroll */}
       <div className="text-center max-w-2xl mx-auto space-y-3 mb-8 sm:mb-12">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.35 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-green-light border border-brand-green/30 shadow-warm-2xs"
-        >
-          <span className="w-2 h-2 rounded-full bg-brand-green" />
-          <span className="text-xs font-heading font-extrabold text-brand-green uppercase tracking-wider">
-            AUTOMATIC PROGRESS ENGINE
-          </span>
-        </motion.div>
-
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
           className="brand-h2 text-espresso"
         >
           See Progress as Work Gets Done.

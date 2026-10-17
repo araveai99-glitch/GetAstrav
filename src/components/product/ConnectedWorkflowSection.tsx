@@ -443,24 +443,11 @@ export const ConnectedWorkflowSection: React.FC = () => {
 
       {/* Section Header with repeat-on-scroll entrance */}
       <div className="text-center max-w-3xl mx-auto space-y-3 mb-8 sm:mb-10">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.35 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange-light border border-brand-orange/30 shadow-warm-2xs"
-        >
-          <span className="w-2 h-2 rounded-full bg-brand-orange" />
-          <span className="text-xs font-heading font-extrabold text-brand-orange uppercase tracking-wider">
-            ASTRAV WORKFLOW
-          </span>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
           className="brand-h1 text-espresso tracking-tight"
         >
           From Big Goals to Daily Work.
@@ -613,11 +600,6 @@ export const ConnectedWorkflowSection: React.FC = () => {
               className="lg:col-span-5 space-y-5"
             >
               <div className="space-y-3">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange-light text-brand-orange border border-brand-orange/20 text-xs font-heading font-bold">
-                  <Target className="w-3.5 h-3.5 text-brand-orange" />
-                  <span>GOALS IN ACTION</span>
-                </div>
-
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-espresso font-heading tracking-tight leading-[1.2]">
                   Turn Goals Into Real Progress
                 </h2>

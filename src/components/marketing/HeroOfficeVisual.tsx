@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import {
   ArrowUpRight,
@@ -239,7 +240,7 @@ const NOTIFICATIONS: NotificationCardData[] = [
 ];
 
 export const HeroOfficeVisual: React.FC = () => {
-  const [selectedDept, setSelectedDept] = useState<DepartmentCardData | null>(null);
+  const navigate = useNavigate();
   const [hoveredDeptId, setHoveredDeptId] = useState<string | null>(null);
   const [activeNotif, setActiveNotif] = useState<NotificationCardData | null>(null);
   const [mobileSyncOpen, setMobileSyncOpen] = useState<boolean>(false);
@@ -386,7 +387,7 @@ export const HeroOfficeVisual: React.FC = () => {
                 key={dept.id}
                 onMouseEnter={() => setHoveredDeptId(dept.id)}
                 onMouseLeave={() => setHoveredDeptId(null)}
-                onClick={() => setSelectedDept(dept)}
+                onClick={() => navigate(`/department-workflow/${dept.id}`)}
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.96 }}
                 transition={{ type: 'spring', stiffness: 350, damping: 22 }}
@@ -573,105 +574,7 @@ export const HeroOfficeVisual: React.FC = () => {
         )}
       </motion.div>
 
-      {/* ============================================================ */}
-      {/* INTERACTIVE FULL DEEP-DIVE MODAL (ON CLICK)                  */}
-      {/* ============================================================ */}
-      <AnimatePresence>
-        {selectedDept && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/45 backdrop-blur-sm animate-fadeIn">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 16 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.94, y: 16 }}
-              className="relative w-full max-w-lg bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-brand-peach space-y-5"
-            >
-              {/* Header */}
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`w-12 h-12 rounded-2xl ${selectedDept.iconBg} flex items-center justify-center shrink-0 shadow-warm-xs`}
-                  >
-                    <selectedDept.icon className={`w-6 h-6 ${selectedDept.iconColor}`} />
-                  </div>
-                  <div>
-                    <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider block">
-                      Department Command Center
-                    </span>
-                    <h3 className="font-heading font-extrabold text-xl text-espresso">
-                      {selectedDept.name} Execution
-                    </h3>
-                  </div>
-                </div>
 
-                <button
-                  onClick={() => setSelectedDept(null)}
-                  className="p-2 rounded-full hover:bg-surface-tier1 text-terracotta hover:text-espresso transition-colors cursor-pointer"
-                  aria-label="Close modal"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Progress Summary Card */}
-              <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/60 flex items-center justify-between">
-                <div>
-                  <span className="text-xs text-terracotta-muted font-medium block">
-                    Execution Velocity
-                  </span>
-                  <div className="flex items-center gap-2 mt-0.5">
-                    <span className="font-heading font-extrabold text-2xl text-espresso">
-                      {selectedDept.progress}
-                    </span>
-                    <span className="px-2.5 py-0.5 rounded-full text-xs font-heading font-bold bg-brand-green-light text-brand-green border border-brand-green/20">
-                      {selectedDept.statusText}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="text-right">
-                  <span className="text-xs text-terracotta-muted font-medium block">
-                    Leadership
-                  </span>
-                  <span className="font-heading font-bold text-sm text-espresso mt-0.5 block">
-                    {selectedDept.head}
-                  </span>
-                </div>
-              </div>
-
-              {/* Key Deliverables */}
-              <div className="space-y-2.5">
-                <span className="text-xs font-heading font-bold text-espresso uppercase tracking-wider block">
-                  Active Deliverables & Rollup Items
-                </span>
-                <div className="space-y-2">
-                  {selectedDept.deliverables.map((obj, i) => (
-                    <div
-                      key={i}
-                      className="flex items-start gap-2.5 p-2.5 rounded-xl bg-white border border-brand-peach/40 text-xs text-espresso"
-                    >
-                      <CheckCircle2 className="w-4 h-4 text-brand-green shrink-0 mt-0.5" />
-                      <span className="leading-snug">{obj}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Action Footer */}
-              <div className="flex items-center justify-between pt-3 border-t border-brand-peach/40">
-                <span className="text-xs text-terracotta-muted">
-                  Live connection to Astrav Mesh
-                </span>
-                <button
-                  onClick={() => setSelectedDept(null)}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white font-heading font-bold text-sm shadow-md shadow-brand-orange/20 transition-all cursor-pointer"
-                >
-                  <span>Close Inspection</span>
-                </button>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
 
       {/* Activity Notification Modal */}
       <AnimatePresence>
