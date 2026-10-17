@@ -57,26 +57,6 @@ export const Login: React.FC = () => {
           </button>
         </form>
 
-        {/* Alternative Console Access Option */}
-        <div className="space-y-3 pt-1">
-          <div className="relative flex items-center justify-center">
-            <div className="border-t border-brand-peach/80 w-full" />
-            <span className="bg-white px-3 text-[10px] font-heading font-bold text-terracotta-muted uppercase tracking-wider shrink-0">
-              Direct Console Access
-            </span>
-            <div className="border-t border-brand-peach/80 w-full" />
-          </div>
-
-          <Link
-            to="/app/dashboard"
-            className="w-full py-3 rounded-xl bg-surface-ambient hover:bg-brand-orange-light text-espresso hover:text-brand-orange border border-brand-peach/90 hover:border-brand-orange/60 text-xs font-heading font-bold shadow-warm-xs transition-all flex items-center justify-center gap-2.5 cursor-pointer active:scale-[0.98] group"
-          >
-            <Layers className="w-4 h-4 text-brand-orange group-hover:scale-110 transition-transform" />
-            <span>Launch Console</span>
-            <ArrowRight className="w-3.5 h-3.5 text-terracotta-muted group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all" />
-          </Link>
-        </div>
-
         <div className="text-center text-xs text-terracotta-muted">
           Don't have an account? <Link to="/signup" className="font-bold text-brand-orange hover:underline">Sign up</Link>
         </div>

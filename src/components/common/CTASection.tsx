@@ -8,12 +8,18 @@ interface CTASectionProps {
   className?: string;
   paddingY?: string;
   paddingX?: string;
+  title?: string;
+  highlightTitle?: string;
+  description?: string;
 }
 
 export const CTASection: React.FC<CTASectionProps> = ({
   className = '',
   paddingY = 'py-8 sm:py-10 md:py-14',
   paddingX = 'px-4 sm:px-6 lg:px-10 xl:px-12',
+  title,
+  highlightTitle,
+  description,
 }) => {
   return (
     <section id="conversion-cta" className={`w-full ${paddingY} ${paddingX} bg-transparent ${className}`}>
@@ -32,8 +38,17 @@ export const CTASection: React.FC<CTASectionProps> = ({
               transition={{ duration: 0.45, ease: 'easeOut' }}
               className="text-[18.5px] min-[360px]:text-[21.5px] min-[375px]:text-[23px] min-[393px]:text-[24.5px] min-[430px]:text-[27px] sm:text-[46px] font-extrabold text-[#271812] leading-[1.15] sm:leading-[1.12] tracking-[-0.025em] sm:tracking-[-0.02em] font-heading"
             >
-              <span className="block whitespace-nowrap">Ready to See Your Company</span>
-              <span className="text-[#f15e1c] block whitespace-nowrap">in One View?</span>
+              {title ? (
+                <>
+                  <span className="block">{title}</span>
+                  {highlightTitle && <span className="text-[#f15e1c] block">{highlightTitle}</span>}
+                </>
+              ) : (
+                <>
+                  <span className="block whitespace-nowrap">Ready to See Your Company</span>
+                  <span className="text-[#f15e1c] block whitespace-nowrap">in One View?</span>
+                </>
+              )}
             </motion.h2>
 
             <motion.p
@@ -43,7 +58,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
               transition={{ duration: 0.45, delay: 0.1, ease: 'easeOut' }}
               className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-xl text-left sm:text-justify"
             >
-              Join forward-thinking founders who run their organizations with clarity, velocity, and execution precision.
+              {description || 'Join forward-thinking founders who run their organizations with clarity, velocity, and execution precision.'}
             </motion.p>
 
             <motion.div
@@ -51,7 +66,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.45, delay: 0.2, ease: 'easeOut' }}
-              className="flex flex-wrap items-center gap-4 pt-2"
+              className="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-2"
             >
               <button
                 type="button"
@@ -62,6 +77,15 @@ export const CTASection: React.FC<CTASectionProps> = ({
                 <span>Book a Demo</span>
                 <ArrowRight className="w-4.5 h-4.5 group-hover:translate-x-1 transition-transform" />
               </button>
+
+              <Link
+                to="/app/dashboard"
+                className="inline-flex items-center justify-center gap-2.5 text-base font-heading font-bold text-espresso bg-white hover:bg-brand-orange-light px-7 py-3.5 rounded-full shadow-warm-sm border border-brand-peach/90 hover:border-brand-orange hover:text-brand-orange hover:-translate-y-0.5 active:translate-y-0 transition-all group cursor-pointer"
+              >
+                <Layers className="w-4.5 h-4.5 text-brand-orange group-hover:scale-110 transition-transform" />
+                <span>Launch Console</span>
+                <ArrowRight className="w-4 h-4 text-terracotta-muted group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all" />
+              </Link>
 
               <Link
                 to="/product"

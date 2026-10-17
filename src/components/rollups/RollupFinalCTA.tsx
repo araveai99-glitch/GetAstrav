@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, ShieldCheck, TrendingUp, Sparkles } from 'lucide-react';
+import { ArrowRight, Layers, CheckCircle2, ShieldCheck, TrendingUp, Sparkles } from 'lucide-react';
 import { openDemoModal } from '../common/DemoModal';
 
 export const RollupFinalCTA: React.FC = () => {
@@ -52,7 +53,7 @@ export const RollupFinalCTA: React.FC = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
             transition={{ duration: 0.4, delay: 0.24 }}
-            className="pt-2"
+            className="pt-2 flex flex-wrap items-center justify-center gap-3.5 sm:gap-4"
           >
             <button
               type="button"
@@ -62,6 +63,15 @@ export const RollupFinalCTA: React.FC = () => {
               <span>Book a Demo</span>
               <ArrowRight className="w-4.5 h-4.5" />
             </button>
+
+            <Link
+              to="/app/dashboard"
+              className="inline-flex items-center justify-center gap-2.5 text-base font-heading font-bold text-espresso bg-white hover:bg-brand-orange-light px-7 py-3.5 rounded-full shadow-warm-sm border border-brand-peach/90 hover:border-brand-orange hover:text-brand-orange hover:-translate-y-0.5 active:translate-y-0 transition-all group cursor-pointer"
+            >
+              <Layers className="w-4.5 h-4.5 text-brand-orange group-hover:scale-110 transition-transform" />
+              <span>Launch Console</span>
+              <ArrowRight className="w-4 h-4 text-terracotta-muted group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all" />
+            </Link>
           </motion.div>
 
           {/* Trust Points */}

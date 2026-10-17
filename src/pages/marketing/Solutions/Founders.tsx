@@ -1,132 +1,506 @@
-import React, { useEffect } from 'react';
-import { Target, TrendingUp, ShieldCheck, Zap, Layers, CheckCircle2, ArrowRight } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
+import {
+  Compass,
+  Target,
+  FolderGit2,
+  Users,
+  CheckCircle2,
+  AlertTriangle,
+  Clock,
+  ArrowRight,
+  Calendar,
+  Activity,
+  MessageSquareWarning,
+  HelpCircle,
+  RefreshCw,
+} from 'lucide-react';
 import { CTASection } from '../../../components/common/CTASection';
+
+const VISION_STEPS = [
+  {
+    id: 'vision',
+    number: '01',
+    label: 'Vision',
+    icon: Compass,
+    title: 'Strategic Direction',
+    desc: 'Set the company destination and long-term vision.',
+  },
+  {
+    id: 'goals',
+    number: '02',
+    label: 'Goals',
+    icon: Target,
+    title: 'Company Objectives',
+    desc: 'Break vision into measurable quarterly targets.',
+  },
+  {
+    id: 'projects',
+    number: '03',
+    label: 'Projects',
+    icon: FolderGit2,
+    title: 'Core Initiatives',
+    desc: 'Group high-impact work into clear deliverables.',
+  },
+  {
+    id: 'teams',
+    number: '04',
+    label: 'Teams',
+    icon: Users,
+    title: 'Team Ownership',
+    desc: 'Assign clear accountability to dedicated pods.',
+  },
+  {
+    id: 'results',
+    number: '05',
+    label: 'Results',
+    icon: CheckCircle2,
+    title: 'Automated Outcomes',
+    desc: 'Real progress updates automatically as work gets done.',
+  },
+];
 
 export const Founders: React.FC = () => {
   useEffect(() => {
-    document.title = 'Astrav for Founders & CEOs — Astrav';
+    document.title = 'Astrav for Founders — Turn Your Vision Into Results';
     window.scrollTo(0, 0);
   }, []);
 
+  const shouldReduceMotion = useReducedMotion();
+
+  // Section A: From Vision to Action
+  const sectionARef = useRef<HTMLDivElement>(null);
+  const isSectionAInView = useInView(sectionARef, { once: false, amount: 0.2 });
+  const [selectedStep, setSelectedStep] = useState(0);
+
+  // Section B: Know Where Your Business Stands
+  const sectionBRef = useRef<HTMLDivElement>(null);
+  const isSectionBInView = useInView(sectionBRef, { once: false, amount: 0.2 });
+
+  // Section C: Less Chasing. More Progress
+  const sectionCRef = useRef<HTMLDivElement>(null);
+  const isSectionCInView = useInView(sectionCRef, { once: false, amount: 0.2 });
+
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-24 pb-8 sm:pb-12 flex flex-col space-y-8 sm:space-y-10">
-      {/* Page Header */}
-      <div className="text-center max-w-3xl mx-auto space-y-3">
-        <h1 className="brand-h1 text-espresso tracking-tight">
-          Run Your Entire Company in One View
+    <div className="w-full max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-24 sm:pt-28 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12">
+      {/* ==================================================================== */}
+      {/* DIRECT OPENING (PROPER NAVBAR CLEARANCE, NO HERO BANNER, NO BADGES) */}
+      {/* ==================================================================== */}
+      <div className="max-w-4xl xl:max-w-5xl space-y-3">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight lg:whitespace-nowrap">
+          Turn Your Vision <span className="text-brand-orange">Into Results.</span>
         </h1>
-        <p className="brand-subtitle text-terracotta text-base sm:text-lg max-w-2xl mx-auto font-normal">
-          Eliminate status check meetings. Connect high-level company strategy directly to everyday task execution with mathematical certainty.
+        <p className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-3xl">
+          Connect your goals, teams, and projects in one view. See what is moving forward, spot delays early, and make clear decisions without chasing updates.
         </p>
       </div>
 
-      {/* 3 Symmetric Feature Pillars */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-        <div className="p-6 bg-white rounded-2xl border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between">
-          <div>
-            <div className="w-10 h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center mb-4">
-              <TrendingUp className="w-5 h-5" />
+      {/* ==================================================================== */}
+      {/* SECTION A — From Vision to Action (Animated Workflow Diagram)        */}
+      {/* ==================================================================== */}
+      <section
+        ref={sectionARef}
+        className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative overflow-hidden space-y-6"
+      >
+        <div className="max-w-2xl space-y-1 text-left">
+          <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+            From Vision to Action
+          </h2>
+          <p className="text-xs sm:text-sm text-terracotta">
+            See how everyday work connects to big company goals in 5 clear steps.
+          </p>
+        </div>
+
+        {/* Diagram Flow */}
+        <div className="relative pt-2">
+          {/* Animated Connecting Line on Desktop */}
+          <div className="hidden lg:block absolute top-[44px] left-[5%] right-[5%] h-[3px] bg-brand-peach/40 -z-0">
+            <motion.div
+              initial={{ width: '0%' }}
+              animate={{
+                width: isSectionAInView || shouldReduceMotion ? '100%' : '0%',
+              }}
+              transition={{ duration: 1, ease: 'easeInOut' }}
+              className="h-full bg-gradient-to-r from-brand-orange via-brand-yellow to-brand-green"
+            />
+          </div>
+
+          {/* Steps Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 relative z-10">
+            {VISION_STEPS.map((step, idx) => {
+              const StepIcon = step.icon;
+              const isSelected = selectedStep === idx;
+              const delay = shouldReduceMotion ? 0 : 0.1 * idx;
+
+              return (
+                <motion.div
+                  key={step.id}
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={
+                    isSectionAInView || shouldReduceMotion
+                      ? { opacity: 1, y: 0 }
+                      : { opacity: 0, y: 14 }
+                  }
+                  transition={{ duration: 0.4, delay }}
+                  onClick={() => setSelectedStep(idx)}
+                  className={`cursor-pointer rounded-2xl p-4 border transition-all duration-200 flex flex-col justify-between group ${
+                    isSelected
+                      ? 'bg-gradient-to-b from-[#fffbf7] to-white border-brand-orange shadow-warm-md scale-[1.02] ring-2 ring-brand-orange/20'
+                      : 'bg-surface-ambient hover:bg-white border-brand-peach/70 hover:border-brand-orange/50 shadow-warm-xs'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div
+                        className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold transition-all ${
+                          isSelected
+                            ? 'bg-brand-orange text-white shadow-sm shadow-brand-orange/30'
+                            : 'bg-white text-brand-orange border border-brand-peach/70'
+                        }`}
+                      >
+                        <StepIcon className="w-5 h-5" />
+                      </div>
+                      <span className="text-xs font-mono font-bold text-terracotta-muted">
+                        {step.number}
+                      </span>
+                    </div>
+
+                    <div className="space-y-0.5 text-left">
+                      <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-orange">
+                        {step.label}
+                      </div>
+                      <h3 className="font-heading font-bold text-sm text-espresso">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs text-terracotta leading-relaxed pt-1">
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-3 pt-2.5 border-t border-brand-peach/40 flex items-center justify-between text-[11px] font-heading font-semibold text-terracotta-muted">
+                    <span className={isSelected ? 'text-brand-orange font-bold' : ''}>
+                      {isSelected ? 'Active Step' : 'Click to inspect'}
+                    </span>
+                    <ArrowRight
+                      className={`w-3 h-3 transition-transform ${
+                        isSelected ? 'text-brand-orange translate-x-1' : 'text-terracotta-muted'
+                      }`}
+                    />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Detail Callout for Active Step */}
+          <div className="mt-4 p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-left">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-brand-orange text-white flex items-center justify-center shrink-0">
+                {React.createElement(VISION_STEPS[selectedStep].icon, { className: 'w-4 h-4' })}
+              </div>
+              <div>
+                <span className="text-[10px] font-mono font-bold text-brand-orange uppercase">
+                  Step {VISION_STEPS[selectedStep].number} • {VISION_STEPS[selectedStep].label}
+                </span>
+                <div className="text-xs sm:text-sm font-heading font-bold text-espresso">
+                  {VISION_STEPS[selectedStep].title}: {VISION_STEPS[selectedStep].desc}
+                </div>
+              </div>
             </div>
-            <h3 className="font-heading font-bold text-lg text-espresso mb-2">
-              Zero-Meeting Telemetry
-            </h3>
-            <p className="text-sm text-terracotta leading-relaxed">
-              Stop waiting for Friday status decks. Open the command center and see exactly which milestones are on track, which pods have excess capacity, and what requires founder attention.
-            </p>
-          </div>
-          <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-orange">
-            <span>Instant Executive Clarity</span>
-            <span>Always Fresh</span>
-          </div>
-        </div>
 
-        <div className="p-6 bg-white rounded-2xl border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between">
-          <div>
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-brand-yellow flex items-center justify-center mb-4">
-              <ShieldCheck className="w-5 h-5 text-amber-600" />
+            <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-brand-green bg-white px-3 py-1 rounded-full border border-brand-green/30 shrink-0">
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              <span>Live Telemetry Active</span>
             </div>
-            <h3 className="font-heading font-bold text-lg text-espresso mb-2">
-              Founder Override Governance
-            </h3>
-            <p className="text-sm text-terracotta leading-relaxed">
-              Maintain complete executive control over strategic targets. Override calculated progress with full audit logging and board-ready commentary whenever business conditions shift.
-            </p>
-          </div>
-          <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-amber-700">
-            <span>Executive Authority</span>
-            <span>Full Audit Trail</span>
           </div>
         </div>
+      </section>
 
-        <div className="p-6 bg-white rounded-2xl border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between">
-          <div>
-            <div className="w-10 h-10 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center mb-4">
-              <Zap className="w-5 h-5" />
+      {/* ==================================================================== */}
+      {/* SECTION B — See the Bigger Picture (Dashboard Progress Telemetry)    */}
+      {/* ==================================================================== */}
+      <section
+        ref={sectionBRef}
+        className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-6"
+      >
+        <div className="max-w-2xl space-y-1 text-left">
+          <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+            Know Where Your Business Stands.
+          </h2>
+          <p className="text-xs sm:text-sm text-terracotta">
+            A quick view of your company's progress, healthy projects, and upcoming milestones.
+          </p>
+        </div>
+
+        {/* 4 Telemetry Panels */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Card 1: Overall Goal Progress */}
+          <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
+            <div>
+              <div className="flex items-center justify-between text-xs font-heading font-bold text-terracotta mb-1">
+                <span className="flex items-center gap-1.5">
+                  <Target className="w-4 h-4 text-brand-orange" /> Goal Progress
+                </span>
+                <span className="font-mono text-brand-orange font-bold">78%</span>
+              </div>
+              <div className="text-xl font-extrabold font-heading text-espresso">
+                Q3 Strategy
+              </div>
+              <p className="text-xs text-terracotta-muted mt-0.5">
+                Calculated from 18 verified deliverables
+              </p>
             </div>
-            <h3 className="font-heading font-bold text-lg text-espresso mb-2">
-              Board & Investor Ready
-            </h3>
-            <p className="text-sm text-terracotta leading-relaxed">
-              Generate executive summaries with transparent mathematical rollups. Provide board members with read-only views into organizational health, velocity run-rates, and SLA adherence.
-            </p>
+
+            <div className="space-y-1">
+              <div className="w-full h-2.5 rounded-full bg-white border border-brand-peach/60 overflow-hidden">
+                <motion.div
+                  initial={{ width: '0%' }}
+                  animate={{
+                    width: isSectionBInView || shouldReduceMotion ? '78%' : '0%',
+                  }}
+                  transition={{ duration: 0.9, delay: 0.15, ease: 'easeOut' }}
+                  className="h-full rounded-full bg-gradient-to-r from-brand-orange to-brand-yellow"
+                />
+              </div>
+              <div className="flex justify-between text-[10px] font-mono text-terracotta-muted">
+                <span>Paced for Oct 31</span>
+                <span>+6% this week</span>
+              </div>
+            </div>
           </div>
-          <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-green">
-            <span>Board Confidence</span>
-            <span>Deterministic Metrics</span>
+
+          {/* Card 2: Projects On Track */}
+          <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
+            <div>
+              <div className="flex items-center justify-between text-xs font-heading font-bold text-terracotta mb-1">
+                <span className="flex items-center gap-1.5">
+                  <Activity className="w-4 h-4 text-brand-green" /> Projects On Track
+                </span>
+                <span className="font-mono text-brand-green font-bold">14 / 16</span>
+              </div>
+              <div className="text-xl font-extrabold font-heading text-espresso">
+                14 Healthy
+              </div>
+              <p className="text-xs text-terracotta-muted mt-0.5">
+                87.5% of active initiatives on schedule
+              </p>
+            </div>
+
+            <div className="space-y-1">
+              <div className="w-full h-2.5 rounded-full bg-white border border-brand-peach/60 overflow-hidden">
+                <motion.div
+                  initial={{ width: '0%' }}
+                  animate={{
+                    width: isSectionBInView || shouldReduceMotion ? '87.5%' : '0%',
+                  }}
+                  transition={{ duration: 0.9, delay: 0.25, ease: 'easeOut' }}
+                  className="h-full rounded-full bg-brand-green"
+                />
+              </div>
+              <div className="flex justify-between text-[10px] font-mono text-terracotta-muted">
+                <span>Across 5 Teams</span>
+                <span>2 In Review</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: Work Needing Attention */}
+          <div className="p-4 rounded-2xl bg-[#fffbf7] border-2 border-brand-orange/60 shadow-warm-xs flex flex-col justify-between space-y-3">
+            <div>
+              <div className="flex items-center justify-between text-xs font-heading font-bold text-brand-orange mb-1">
+                <span className="flex items-center gap-1.5">
+                  <AlertTriangle className="w-4 h-4 text-brand-orange" /> Needs Attention
+                </span>
+                <span className="font-mono font-bold">1 Delay</span>
+              </div>
+              <div className="text-base font-extrabold font-heading text-espresso leading-snug">
+                Security Sign-Off
+              </div>
+              <p className="text-xs text-terracotta mt-0.5">
+                Review waiting &gt; 48h for approval
+              </p>
+            </div>
+
+            <div className="pt-2 border-t border-brand-peach/50 flex items-center justify-between text-xs font-heading font-bold text-brand-orange">
+              <span>Unblock in 1 Click</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </div>
+          </div>
+
+          {/* Card 4: Upcoming Milestones */}
+          <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
+            <div>
+              <div className="flex items-center justify-between text-xs font-heading font-bold text-terracotta mb-1">
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="w-4 h-4 text-brand-yellow" /> Next 14 Days
+                </span>
+                <span className="font-mono font-bold text-espresso">3 Gates</span>
+              </div>
+              <div className="text-xl font-extrabold font-heading text-espresso">
+                Upcoming Gates
+              </div>
+              <p className="text-xs text-terracotta-muted mt-0.5">
+                Beta Rollout, SOC2 Audit, Billing v2
+              </p>
+            </div>
+
+            <div className="text-[11px] font-mono text-brand-green font-semibold">
+              ✓ All requirements assigned
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Wide Founder Command Center Snapshot */}
-      <div className="p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-md">
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-4 mb-5 border-b border-brand-peach/50">
-          <div>
-            <h3 className="text-base sm:text-lg font-heading font-bold text-espresso">
-              The Founder’s Daily Decision Architecture
-            </h3>
-            <p className="text-xs text-terracotta-muted">
-              Designed specifically for CEOs managing 10 to 500+ person technology companies
-            </p>
-          </div>
-          <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-3 py-1 rounded-full border border-brand-orange/30">
-            Executive View
-          </span>
+        <div className="text-left text-[11px] font-mono text-terracotta-muted">
+          * Illustrative sample data demonstrating live progress telemetry.
+        </div>
+      </section>
+
+      {/* ==================================================================== */}
+      {/* SECTION C — Focus on What Matters (Comparison Flows)                */}
+      {/* ==================================================================== */}
+      <section
+        ref={sectionCRef}
+        className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-6"
+      >
+        <div className="max-w-2xl space-y-1 text-left">
+          <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+            Less Chasing. More Progress.
+          </h2>
+          <p className="text-xs sm:text-sm text-terracotta">
+            Spend less time in status meetings and more time moving the company forward.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm text-terracotta">
-          <div className="p-4 rounded-xl bg-surface-tier1 border border-brand-peach/50 space-y-2">
-            <h4 className="font-heading font-bold text-espresso flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-brand-green" />
-              Spot Execution Drift Early
-            </h4>
-            <p className="text-xs leading-relaxed">
-              Detect when department deliverables drift away from the core strategic target weeks before end-of-quarter surprises.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+          {/* Flow 1: Manual */}
+          <motion.div
+            initial={{ opacity: 0, x: -14 }}
+            animate={
+              isSectionCInView || shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -14 }
+            }
+            transition={{ duration: 0.45 }}
+            className="p-5 rounded-2xl bg-[#fff7f5] border border-red-200/80 flex flex-col justify-between space-y-4"
+          >
+            <div className="space-y-3">
+              <span className="text-xs font-mono font-bold text-red-600 uppercase">
+                The Manual Way
+              </span>
 
-          <div className="p-4 rounded-xl bg-surface-tier1 border border-brand-peach/50 space-y-2">
-            <h4 className="font-heading font-bold text-espresso flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-brand-green" />
-              Align Department Leads
-            </h4>
-            <p className="text-xs leading-relaxed">
-              Give engineering, design, and product leaders a single source of truth for dependencies and cross-pod handoffs.
-            </p>
-          </div>
+              <div className="space-y-2.5">
+                <div className="p-3 rounded-xl bg-white border border-red-100 flex items-center gap-3">
+                  <Clock className="w-4 h-4 text-red-500 shrink-0" />
+                  <div>
+                    <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                      Manual follow-ups
+                    </h4>
+                    <p className="text-xs text-terracotta">
+                      Constant messages, status check-ins, and recap emails.
+                    </p>
+                  </div>
+                </div>
 
-          <div className="p-4 rounded-xl bg-surface-tier1 border border-brand-peach/50 space-y-2">
-            <h4 className="font-heading font-bold text-espresso flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-brand-green" />
-              Focus on High-Leverage Decisions
-            </h4>
-            <p className="text-xs leading-relaxed">
-              Spend executive energy unblocking strategic bottlenecks rather than interrogating managers about task statuses.
-            </p>
-          </div>
+                <div className="p-3 rounded-xl bg-white border border-red-100 flex items-center gap-3">
+                  <MessageSquareWarning className="w-4 h-4 text-red-500 shrink-0" />
+                  <div>
+                    <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                      Scattered updates
+                    </h4>
+                    <p className="text-xs text-terracotta">
+                      Information spread across chat, documents, and spreadsheets.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-white border border-red-100 flex items-center gap-3">
+                  <HelpCircle className="w-4 h-4 text-red-500 shrink-0" />
+                  <div>
+                    <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                      Unclear progress
+                    </h4>
+                    <p className="text-xs text-terracotta">
+                      Decisions based on gut feelings and outdated status reports.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-2.5 rounded-xl bg-red-100/70 text-red-800 text-xs font-heading font-semibold text-center">
+              Hours wasted chasing updates each week
+            </div>
+          </motion.div>
+
+          {/* Flow 2: Astrav */}
+          <motion.div
+            initial={{ opacity: 0, x: 14 }}
+            animate={
+              isSectionCInView || shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 14 }
+            }
+            transition={{ duration: 0.45, delay: 0.1 }}
+            className="p-5 rounded-2xl bg-gradient-to-b from-[#f9fffb] to-[#f0fbf5] border-2 border-brand-green/70 shadow-warm-xs flex flex-col justify-between space-y-4"
+          >
+            <div className="space-y-3">
+              <span className="text-xs font-mono font-bold text-brand-green uppercase">
+                With Astrav
+              </span>
+
+              <div className="space-y-2.5">
+                <div className="p-3 rounded-xl bg-white border border-brand-green/40 flex items-center gap-3">
+                  <Target className="w-4 h-4 text-brand-green shrink-0" />
+                  <div>
+                    <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                      Connected goals
+                    </h4>
+                    <p className="text-xs text-terracotta">
+                      High-level strategy connects directly to daily tasks.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-white border border-brand-green/40 flex items-center gap-3">
+                  <RefreshCw className="w-4 h-4 text-brand-green shrink-0" />
+                  <div>
+                    <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                      Automatic progress updates
+                    </h4>
+                    <p className="text-xs text-terracotta">
+                      Completed work recalculates progress in real time.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-white border border-brand-green/40 flex items-center gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-brand-green shrink-0" />
+                  <div>
+                    <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                      Clear decisions
+                    </h4>
+                    <p className="text-xs text-terracotta">
+                      Spot problems early and lead with live, accurate numbers.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-2.5 rounded-xl bg-brand-green text-white text-xs font-heading font-bold text-center shadow-sm">
+              Complete progress visibility without status meetings
+            </div>
+          </motion.div>
         </div>
-      </div>
+      </section>
 
-      <CTASection paddingY="pt-2 pb-2" paddingX="px-0" />
+      {/* ==================================================================== */}
+      {/* FINAL CTA                                                            */}
+      {/* ==================================================================== */}
+      <CTASection
+        title="Move Your Vision"
+        highlightTitle="Forward."
+        description="Connect your strategy to daily execution and gain real-time visibility into your entire organization."
+        paddingY="pt-2 pb-2"
+        paddingX="px-0"
+      />
     </div>
   );
 };

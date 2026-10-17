@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, ArrowRight, Calendar, Building2, Mail, User, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { X, CheckCircle2, ArrowRight, Calendar, Building2, Mail, User, Users, Layers } from 'lucide-react';
 
 export const openDemoModal = () => {
   window.dispatchEvent(new CustomEvent('open-demo-modal'));
@@ -107,12 +108,25 @@ export const DemoModal: React.FC = () => {
                   Thank you, <span className="font-bold text-espresso">{formData.name}</span>. Our executive architecture team has received your request for <span className="font-bold text-espresso">{formData.company || 'your company'}</span> and will email calendar invites to <span className="font-bold text-brand-orange">{formData.email}</span> within 2 hours.
                 </p>
               </div>
-              <button
-                onClick={handleClose}
-                className="mt-4 px-6 py-2.5 rounded-full bg-brand-orange text-white text-xs font-heading font-bold shadow-md shadow-brand-orange/30 hover:bg-brand-orange-hover transition-all cursor-pointer"
-              >
-                Close & Explore Astrav
-              </button>
+              <div className="pt-3 flex flex-col items-center justify-center gap-2.5 w-full max-w-xs mx-auto">
+                <button
+                  type="button"
+                  onClick={handleClose}
+                  className="w-full px-6 py-2.5 rounded-full bg-brand-orange text-white text-xs font-heading font-bold shadow-md shadow-brand-orange/30 hover:bg-brand-orange-hover active:scale-[0.98] transition-all cursor-pointer text-center"
+                >
+                  Close & Explore Astrav
+                </button>
+
+                <Link
+                  to="/app/dashboard"
+                  onClick={handleClose}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-surface-ambient hover:bg-brand-orange-light text-espresso hover:text-brand-orange border border-brand-peach/90 hover:border-brand-orange/60 text-xs font-heading font-bold shadow-warm-xs active:scale-[0.98] transition-all group cursor-pointer text-center"
+                >
+                  <Layers className="w-3.5 h-3.5 text-brand-orange group-hover:scale-110 transition-transform" />
+                  <span>Launch Console</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-terracotta-muted group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all" />
+                </Link>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
