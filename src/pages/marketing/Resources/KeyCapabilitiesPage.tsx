@@ -134,12 +134,12 @@ export const KeyCapabilitiesPage: React.FC = () => {
   return (
     <div className="w-full min-h-screen bg-surface-ambient text-espresso flex flex-col">
       {/* 1. HERO SECTION */}
-      <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full text-center">
+      <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full text-left">
         <motion.h1
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-espresso tracking-tight max-w-4xl mx-auto leading-[1.12]"
+          className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-espresso tracking-tight max-w-4xl text-left leading-[1.12]"
         >
           Everything You Need to Keep Work Moving.
         </motion.h1>
@@ -148,7 +148,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-terracotta text-base sm:text-lg lg:text-xl max-w-2xl mx-auto mt-2.5 sm:mt-3.5 font-normal leading-relaxed"
+          className="text-terracotta text-base sm:text-lg lg:text-xl max-w-2xl text-left mt-2.5 sm:mt-3.5 font-normal leading-relaxed"
         >
           Bring goals, projects, tasks, and progress together in one clear workspace.
         </motion.p>
@@ -157,9 +157,9 @@ export const KeyCapabilitiesPage: React.FC = () => {
       {/* 2. SECTION A: FOUR CORE CAPABILITIES */}
       <section
         ref={sectionARef}
-        className="pt-4 sm:pt-6 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full"
+        className="pt-4 sm:pt-6 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full"
       >
-        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-1.5 sm:space-y-2">
+        <div className="text-left max-w-2xl mb-6 sm:mb-8 space-y-1.5 sm:space-y-2">
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-espresso">
             Four Core Capabilities
           </h2>
@@ -561,9 +561,9 @@ export const KeyCapabilitiesPage: React.FC = () => {
       {/* 3. SECTION B: SHOW HOW THEY CONNECT (INTERACTIVE CAPABILITY MAP) */}
       <section
         ref={sectionBRef}
-        className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full"
+        className="pt-4 sm:pt-6 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1520px] mx-auto w-full"
       >
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-1.5 sm:space-y-2">
           <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
             Interactive Ecosystem
           </span>
@@ -576,194 +576,196 @@ export const KeyCapabilitiesPage: React.FC = () => {
         </div>
 
         {/* Interactive Capability Map Container */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-brand-peach/80 shadow-warm-lg">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="bg-white rounded-3xl p-4 sm:p-8 lg:p-10 border border-brand-peach/80 shadow-warm-lg">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center">
             {/* Visual Map (7 Cols on LG) */}
-            <div className="lg:col-span-7 relative min-h-[360px] sm:min-h-[420px] flex items-center justify-center">
-              {/* Outer Decorative Ambient Glow */}
-              <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-brand-orange/5 blur-3xl pointer-events-none" />
+            <div className="lg:col-span-7 flex items-center justify-center">
+              <div className="relative w-full max-w-[580px] min-h-[360px] sm:min-h-[420px] flex items-center justify-center">
+                {/* Outer Decorative Ambient Glow */}
+                <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-brand-orange/5 blur-3xl pointer-events-none" />
 
-              {/* Central Astrav Core Node */}
-              <motion.div
-                initial={{ scale: 0.6, opacity: 0 }}
-                animate={
-                  isSectionBInView || shouldReduceMotion
-                    ? { scale: 1, opacity: 1 }
-                    : { scale: 0.6, opacity: 0 }
-                }
-                transition={{ duration: 0.55 }}
-                className="relative z-20 w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-br from-espresso via-[#3d261e] to-espresso text-white shadow-warm-xl flex flex-col items-center justify-center border-4 border-brand-peach/80"
-              >
-                {/* Concentric Pulse Rings */}
+                {/* Central Astrav Core Node */}
                 <motion.div
+                  initial={{ scale: 0.6, opacity: 0 }}
                   animate={
-                    isSectionBInView && !shouldReduceMotion
-                      ? { scale: [1, 1.25, 1], opacity: [0.6, 0, 0.6] }
-                      : {}
+                    isSectionBInView || shouldReduceMotion
+                      ? { scale: 1, opacity: 1 }
+                      : { scale: 0.6, opacity: 0 }
                   }
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="absolute inset-0 rounded-full border-2 border-brand-orange/40 pointer-events-none"
-                />
+                  transition={{ duration: 0.55 }}
+                  className="relative z-20 w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-br from-espresso via-[#3d261e] to-espresso text-white shadow-warm-xl flex flex-col items-center justify-center border-4 border-brand-peach/80"
+                >
+                  {/* Concentric Pulse Rings */}
+                  <motion.div
+                    animate={
+                      isSectionBInView && !shouldReduceMotion
+                        ? { scale: [1, 1.25, 1], opacity: [0.6, 0, 0.6] }
+                        : {}
+                    }
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="absolute inset-0 rounded-full border-2 border-brand-orange/40 pointer-events-none"
+                  />
 
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-brand-orange flex items-center justify-center mb-1 shadow-md">
-                  <Activity className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-brand-orange flex items-center justify-center mb-1 shadow-md">
+                    <Activity className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                  </div>
+                  <span className="font-heading font-extrabold text-xs sm:text-sm tracking-tight text-white">
+                    Astrav
+                  </span>
+                  <span className="text-[8px] sm:text-[9px] font-mono uppercase tracking-widest text-brand-orange font-bold">
+                    Core Engine
+                  </span>
+                </motion.div>
+
+                {/* 4 Connected Capability Nodes Positioned Around Astrav */}
+                {/* Node 1: Goal Planning (Top-Left) */}
+                <div className="absolute top-2 left-2 sm:top-6 sm:left-6 z-30">
+                  <button
+                    onClick={() => setSelectedCapability('planning')}
+                    className={`p-2.5 sm:p-4 rounded-2xl border text-left transition-all ${
+                      selectedCapability === 'planning'
+                        ? 'bg-brand-orange-light border-brand-orange shadow-warm-md scale-105'
+                        : 'bg-white border-brand-peach/80 hover:border-brand-orange/40 hover:bg-surface-tier1 shadow-xs'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <Target className="w-4 h-4 text-brand-orange" />
+                      <span className="text-xs sm:text-sm font-heading font-bold text-espresso">
+                        Goal Planning
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono text-terracotta block">
+                      Strategic alignment
+                    </span>
+                  </button>
                 </div>
-                <span className="font-heading font-extrabold text-xs sm:text-sm tracking-tight text-white">
-                  Astrav
-                </span>
-                <span className="text-[8px] sm:text-[9px] font-mono uppercase tracking-widest text-brand-orange font-bold">
-                  Core Engine
-                </span>
-              </motion.div>
 
-              {/* 4 Connected Capability Nodes Positioned Around Astrav */}
-              {/* Node 1: Goal Planning (Top-Left) */}
-              <div className="absolute top-2 left-2 sm:top-6 sm:left-6 z-30">
-                <button
-                  onClick={() => setSelectedCapability('planning')}
-                  className={`p-3.5 sm:p-4 rounded-2xl border text-left transition-all ${
-                    selectedCapability === 'planning'
-                      ? 'bg-brand-orange-light border-brand-orange shadow-warm-md scale-105'
-                      : 'bg-white border-brand-peach/80 hover:border-brand-orange/40 hover:bg-surface-tier1 shadow-xs'
-                  }`}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <Target className="w-4 h-4 text-brand-orange" />
-                    <span className="text-xs sm:text-sm font-heading font-bold text-espresso">
-                      Goal Planning
+                {/* Node 2: Connected Work (Top-Right) */}
+                <div className="absolute top-2 right-2 sm:top-6 sm:right-6 z-30">
+                  <button
+                    onClick={() => setSelectedCapability('connected')}
+                    className={`p-2.5 sm:p-4 rounded-2xl border text-left transition-all ${
+                      selectedCapability === 'connected'
+                        ? 'bg-brand-green-light border-brand-green shadow-warm-md scale-105'
+                        : 'bg-white border-brand-peach/80 hover:border-brand-green/40 hover:bg-surface-tier1 shadow-xs'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <Layers className="w-4 h-4 text-brand-green" />
+                      <span className="text-xs sm:text-sm font-heading font-bold text-espresso">
+                        Connected Work
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono text-terracotta block">
+                      Linked execution
                     </span>
-                  </div>
-                  <span className="text-[10px] font-mono text-terracotta block">
-                    Strategic alignment
-                  </span>
-                </button>
-              </div>
+                  </button>
+                </div>
 
-              {/* Node 2: Connected Work (Top-Right) */}
-              <div className="absolute top-2 right-2 sm:top-6 sm:right-6 z-30">
-                <button
-                  onClick={() => setSelectedCapability('connected')}
-                  className={`p-3.5 sm:p-4 rounded-2xl border text-left transition-all ${
-                    selectedCapability === 'connected'
-                      ? 'bg-brand-green-light border-brand-green shadow-warm-md scale-105'
-                      : 'bg-white border-brand-peach/80 hover:border-brand-green/40 hover:bg-surface-tier1 shadow-xs'
-                  }`}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <Layers className="w-4 h-4 text-brand-green" />
-                    <span className="text-xs sm:text-sm font-heading font-bold text-espresso">
-                      Connected Work
+                {/* Node 3: Automatic Progress (Bottom-Left) */}
+                <div className="absolute bottom-2 left-2 sm:bottom-6 sm:left-6 z-30">
+                  <button
+                    onClick={() => setSelectedCapability('rollups')}
+                    className={`p-2.5 sm:p-4 rounded-2xl border text-left transition-all ${
+                      selectedCapability === 'rollups'
+                        ? 'bg-amber-50 border-amber-400 shadow-warm-md scale-105'
+                        : 'bg-white border-brand-peach/80 hover:border-amber-400/40 hover:bg-surface-tier1 shadow-xs'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <TrendingUp className="w-4 h-4 text-amber-600" />
+                      <span className="text-xs sm:text-sm font-heading font-bold text-espresso">
+                        Automatic Progress
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono text-terracotta block">
+                      Real-time rollups
                     </span>
-                  </div>
-                  <span className="text-[10px] font-mono text-terracotta block">
-                    Linked execution
-                  </span>
-                </button>
-              </div>
+                  </button>
+                </div>
 
-              {/* Node 3: Automatic Progress (Bottom-Left) */}
-              <div className="absolute bottom-2 left-2 sm:bottom-6 sm:left-6 z-30">
-                <button
-                  onClick={() => setSelectedCapability('rollups')}
-                  className={`p-3.5 sm:p-4 rounded-2xl border text-left transition-all ${
-                    selectedCapability === 'rollups'
-                      ? 'bg-amber-50 border-amber-400 shadow-warm-md scale-105'
-                      : 'bg-white border-brand-peach/80 hover:border-amber-400/40 hover:bg-surface-tier1 shadow-xs'
-                  }`}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <TrendingUp className="w-4 h-4 text-amber-600" />
-                    <span className="text-xs sm:text-sm font-heading font-bold text-espresso">
-                      Automatic Progress
+                {/* Node 4: Team Visibility (Bottom-Right) */}
+                <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-6 z-30">
+                  <button
+                    onClick={() => setSelectedCapability('visibility')}
+                    className={`p-2.5 sm:p-4 rounded-2xl border text-left transition-all ${
+                      selectedCapability === 'visibility'
+                        ? 'bg-brand-orange-light border-brand-orange shadow-warm-md scale-105'
+                        : 'bg-white border-brand-peach/80 hover:border-brand-orange/40 hover:bg-surface-tier1 shadow-xs'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <Users className="w-4 h-4 text-brand-orange" />
+                      <span className="text-xs sm:text-sm font-heading font-bold text-espresso">
+                        Team Visibility
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono text-terracotta block">
+                      Shared momentum
                     </span>
-                  </div>
-                  <span className="text-[10px] font-mono text-terracotta block">
-                    Real-time rollups
-                  </span>
-                </button>
-              </div>
+                  </button>
+                </div>
 
-              {/* Node 4: Team Visibility (Bottom-Right) */}
-              <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-6 z-30">
-                <button
-                  onClick={() => setSelectedCapability('visibility')}
-                  className={`p-3.5 sm:p-4 rounded-2xl border text-left transition-all ${
-                    selectedCapability === 'visibility'
-                      ? 'bg-brand-orange-light border-brand-orange shadow-warm-md scale-105'
-                      : 'bg-white border-brand-peach/80 hover:border-brand-orange/40 hover:bg-surface-tier1 shadow-xs'
-                  }`}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <Users className="w-4 h-4 text-brand-orange" />
-                    <span className="text-xs sm:text-sm font-heading font-bold text-espresso">
-                      Team Visibility
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-mono text-terracotta block">
-                    Shared momentum
-                  </span>
-                </button>
+                {/* SVG Connecting Spoke Lines */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" aria-hidden="true">
+                  {/* Spoke 1: Center to Top-Left */}
+                  <motion.line
+                    x1="50%"
+                    y1="50%"
+                    x2="22%"
+                    y2="20%"
+                    stroke="#f15e1c"
+                    strokeWidth={selectedCapability === 'planning' ? '3' : '1.5'}
+                    strokeDasharray="4 4"
+                    initial={{ pathLength: 0 }}
+                    animate={isSectionBInView ? { pathLength: 1 } : { pathLength: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    opacity={selectedCapability === 'planning' ? 1 : 0.4}
+                  />
+                  {/* Spoke 2: Center to Top-Right */}
+                  <motion.line
+                    x1="50%"
+                    y1="50%"
+                    x2="78%"
+                    y2="20%"
+                    stroke="#2e936f"
+                    strokeWidth={selectedCapability === 'connected' ? '3' : '1.5'}
+                    strokeDasharray="4 4"
+                    initial={{ pathLength: 0 }}
+                    animate={isSectionBInView ? { pathLength: 1 } : { pathLength: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    opacity={selectedCapability === 'connected' ? 1 : 0.4}
+                  />
+                  {/* Spoke 3: Center to Bottom-Left */}
+                  <motion.line
+                    x1="50%"
+                    y1="50%"
+                    x2="22%"
+                    y2="80%"
+                    stroke="#fab60a"
+                    strokeWidth={selectedCapability === 'rollups' ? '3' : '1.5'}
+                    strokeDasharray="4 4"
+                    initial={{ pathLength: 0 }}
+                    animate={isSectionBInView ? { pathLength: 1 } : { pathLength: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    opacity={selectedCapability === 'rollups' ? 1 : 0.4}
+                  />
+                  {/* Spoke 4: Center to Bottom-Right */}
+                  <motion.line
+                    x1="50%"
+                    y1="50%"
+                    x2="78%"
+                    y2="80%"
+                    stroke="#f15e1c"
+                    strokeWidth={selectedCapability === 'visibility' ? '3' : '1.5'}
+                    strokeDasharray="4 4"
+                    initial={{ pathLength: 0 }}
+                    animate={isSectionBInView ? { pathLength: 1 } : { pathLength: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    opacity={selectedCapability === 'visibility' ? 1 : 0.4}
+                  />
+                </svg>
               </div>
-
-              {/* SVG Connecting Spoke Lines */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" aria-hidden="true">
-                {/* Spoke 1: Center to Top-Left */}
-                <motion.line
-                  x1="50%"
-                  y1="50%"
-                  x2="22%"
-                  y2="20%"
-                  stroke="#f15e1c"
-                  strokeWidth={selectedCapability === 'planning' ? '3' : '1.5'}
-                  strokeDasharray="4 4"
-                  initial={{ pathLength: 0 }}
-                  animate={isSectionBInView ? { pathLength: 1 } : { pathLength: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  opacity={selectedCapability === 'planning' ? 1 : 0.4}
-                />
-                {/* Spoke 2: Center to Top-Right */}
-                <motion.line
-                  x1="50%"
-                  y1="50%"
-                  x2="78%"
-                  y2="20%"
-                  stroke="#2e936f"
-                  strokeWidth={selectedCapability === 'connected' ? '3' : '1.5'}
-                  strokeDasharray="4 4"
-                  initial={{ pathLength: 0 }}
-                  animate={isSectionBInView ? { pathLength: 1 } : { pathLength: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  opacity={selectedCapability === 'connected' ? 1 : 0.4}
-                />
-                {/* Spoke 3: Center to Bottom-Left */}
-                <motion.line
-                  x1="50%"
-                  y1="50%"
-                  x2="22%"
-                  y2="80%"
-                  stroke="#fab60a"
-                  strokeWidth={selectedCapability === 'rollups' ? '3' : '1.5'}
-                  strokeDasharray="4 4"
-                  initial={{ pathLength: 0 }}
-                  animate={isSectionBInView ? { pathLength: 1 } : { pathLength: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  opacity={selectedCapability === 'rollups' ? 1 : 0.4}
-                />
-                {/* Spoke 4: Center to Bottom-Right */}
-                <motion.line
-                  x1="50%"
-                  y1="50%"
-                  x2="78%"
-                  y2="80%"
-                  stroke="#f15e1c"
-                  strokeWidth={selectedCapability === 'visibility' ? '3' : '1.5'}
-                  strokeDasharray="4 4"
-                  initial={{ pathLength: 0 }}
-                  animate={isSectionBInView ? { pathLength: 1 } : { pathLength: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  opacity={selectedCapability === 'visibility' ? 1 : 0.4}
-                />
-              </svg>
             </div>
 
             {/* Explanation Detail Card (5 Cols on LG) */}
@@ -843,21 +845,18 @@ export const KeyCapabilitiesPage: React.FC = () => {
       {/* 4. SECTION C: FROM EVERYDAY WORK TO CLEAR RESULTS (BEFORE & AFTER DIAGRAM) */}
       <section
         ref={sectionCRef}
-        className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full"
+        className="pt-4 sm:pt-6 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full text-left"
       >
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
-          <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
-            Clear Contrast
-          </span>
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-espresso">
+        <div className="text-left max-w-3xl mb-6 sm:mb-8 space-y-1.5 sm:space-y-2">
+          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-espresso text-left">
             From Everyday Work to Clear Results
           </h2>
-          <p className="text-sm sm:text-base text-terracotta">
+          <p className="text-sm sm:text-base text-terracotta text-left">
             See the difference between disconnected manual tracking and Astrav's automated execution system.
           </p>
 
           {/* View Toggle on Mobile/Tablet */}
-          <div className="inline-flex sm:hidden p-1 bg-white rounded-xl border border-brand-peach mt-3">
+          <div className="inline-flex sm:hidden p-1 bg-white rounded-xl border border-brand-peach mt-2.5">
             <button
               onClick={() => setActiveTab('both')}
               className={`px-3 py-1 rounded-lg text-xs font-bold ${

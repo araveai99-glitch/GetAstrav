@@ -11,11 +11,11 @@ export const AIIntelligence: React.FC = () => {
   return (
     <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-24 pb-8 sm:pb-12 flex flex-col space-y-8 sm:space-y-10">
       {/* Page Header */}
-      <div className="text-left sm:text-center max-w-3xl sm:mx-auto space-y-2.5 sm:space-y-3">
-        <h1 className="brand-h1 text-espresso tracking-tight">
+      <div className="text-left max-w-3xl space-y-2.5 sm:space-y-3">
+        <h1 className="brand-h1 text-espresso tracking-tight text-left">
           AI Co-Pilot for Goal Decomposition
         </h1>
-        <p className="brand-subtitle text-terracotta text-base sm:text-lg max-w-2xl sm:mx-auto font-normal">
+        <p className="brand-subtitle text-terracotta text-base sm:text-lg max-w-2xl font-normal text-left">
           Decompose high-level strategic objectives into concrete task proposals with realistic timelines, suggested owners, and automated dependency mapping.
         </p>
       </div>
