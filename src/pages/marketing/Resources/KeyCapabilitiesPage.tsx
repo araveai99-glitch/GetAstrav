@@ -7,7 +7,6 @@ import {
   Users,
   ArrowRight,
   CheckCircle2,
-  Sparkles,
   Zap,
   Activity,
   GitBranch,
@@ -135,17 +134,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
   return (
     <div className="w-full min-h-screen bg-surface-ambient text-espresso flex flex-col">
       {/* 1. HERO SECTION */}
-      <section className="relative pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange-light border border-brand-orange/30 text-brand-orange text-xs font-mono font-bold tracking-wider uppercase mb-5"
-        >
-          <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-          <span>Product Core</span>
-        </motion.div>
-
+      <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full text-center">
         <motion.h1
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
@@ -159,7 +148,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-terracotta text-base sm:text-lg lg:text-xl max-w-2xl mx-auto mt-4 font-normal leading-relaxed"
+          className="text-terracotta text-base sm:text-lg lg:text-xl max-w-2xl mx-auto mt-2.5 sm:mt-3.5 font-normal leading-relaxed"
         >
           Bring goals, projects, tasks, and progress together in one clear workspace.
         </motion.p>
@@ -168,12 +157,9 @@ export const KeyCapabilitiesPage: React.FC = () => {
       {/* 2. SECTION A: FOUR CORE CAPABILITIES */}
       <section
         ref={sectionARef}
-        className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full"
+        className="pt-4 sm:pt-6 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full"
       >
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
-          <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
-            Essential Foundation
-          </span>
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-1.5 sm:space-y-2">
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-espresso">
             Four Core Capabilities
           </h2>

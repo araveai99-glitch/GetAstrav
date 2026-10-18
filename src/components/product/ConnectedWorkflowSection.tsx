@@ -442,7 +442,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
       />
 
       {/* Section Header with repeat-on-scroll entrance */}
-      <div className="text-center max-w-3xl mx-auto space-y-3 mb-8 sm:mb-10">
+      <div className="text-left sm:text-center max-w-3xl sm:mx-auto space-y-2.5 sm:space-y-3 mb-8 sm:mb-10">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -458,7 +458,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-xl mx-auto"
+          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-xl sm:mx-auto"
         >
           Connect your goals, projects, and everyday work.
         </motion.p>

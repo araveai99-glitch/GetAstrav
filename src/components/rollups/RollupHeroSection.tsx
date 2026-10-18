@@ -113,7 +113,7 @@ export const RollupHeroSection: React.FC = () => {
       />
 
       {/* Header Container */}
-      <div className="text-center max-w-3xl mx-auto space-y-2 mb-6 sm:mb-8">
+      <div className="text-left sm:text-center max-w-3xl sm:mx-auto space-y-2 mb-6 sm:mb-8">
         <motion.h1
           initial={{ opacity: 0, y: 14 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
@@ -127,7 +127,7 @@ export const RollupHeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.4, delay: 0.16 }}
-          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-xl mx-auto"
+          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-xl sm:mx-auto"
         >
           Complete everyday work and watch project and goal progress update automatically.
         </motion.p>
