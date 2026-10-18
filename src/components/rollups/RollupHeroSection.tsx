@@ -118,16 +118,16 @@ export const RollupHeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 14 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="brand-h1 text-espresso tracking-tight"
+          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight"
         >
-          Every Task Moves the Bigger Goal Forward.
+          Every Task Moves the Bigger Goal <span className="text-brand-orange">Forward.</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.4, delay: 0.16 }}
-          className="brand-subtitle text-terracotta text-base sm:text-lg max-w-xl mx-auto font-normal"
+          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-xl mx-auto"
         >
           Complete everyday work and watch project and goal progress update automatically.
         </motion.p>

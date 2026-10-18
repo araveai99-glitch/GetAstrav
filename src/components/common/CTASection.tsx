@@ -11,6 +11,7 @@ interface CTASectionProps {
   title?: string;
   highlightTitle?: string;
   description?: string;
+  showLaunchConsole?: boolean;
 }
 
 export const CTASection: React.FC<CTASectionProps> = ({
@@ -20,6 +21,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
   title,
   highlightTitle,
   description,
+  showLaunchConsole = true,
 }) => {
   return (
     <section id="conversion-cta" className={`w-full ${paddingY} ${paddingX} bg-transparent ${className}`}>
@@ -77,15 +79,6 @@ export const CTASection: React.FC<CTASectionProps> = ({
                 <span>Book a Demo</span>
                 <ArrowRight className="w-4.5 h-4.5 group-hover:translate-x-1 transition-transform" />
               </button>
-
-              <Link
-                to="/app/dashboard"
-                className="inline-flex items-center justify-center gap-2.5 text-base font-heading font-bold text-espresso bg-white hover:bg-brand-orange-light px-7 py-3.5 rounded-full shadow-warm-sm border border-brand-peach/90 hover:border-brand-orange hover:text-brand-orange hover:-translate-y-0.5 active:translate-y-0 transition-all group cursor-pointer"
-              >
-                <Layers className="w-4.5 h-4.5 text-brand-orange group-hover:scale-110 transition-transform" />
-                <span>Launch Console</span>
-                <ArrowRight className="w-4 h-4 text-terracotta-muted group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all" />
-              </Link>
 
               <Link
                 to="/product"

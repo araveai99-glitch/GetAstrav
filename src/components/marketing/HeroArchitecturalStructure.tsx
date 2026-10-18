@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Target, Shield, FolderGit2, CheckSquare, Sparkles, ArrowRight, Layers, Activity, Lock, CheckCircle2 } from 'lucide-react';
+import { Target, Shield, FolderGit2, CheckSquare, Sparkles, ArrowRight, Activity, Lock, CheckCircle2 } from 'lucide-react';
 import { openDemoModal } from '../common/DemoModal';
 
 export const HeroArchitecturalStructure: React.FC = () => {
@@ -100,14 +99,6 @@ export const HeroArchitecturalStructure: React.FC = () => {
                 <span>Book a Demo</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-
-              <Link
-                to="/app/dashboard"
-                className="inline-flex items-center justify-center gap-2 text-sm font-bold text-espresso bg-surface-tier1 hover:bg-white px-6 py-3.5 rounded-xl border border-brand-peach/80 transition-all hover:border-brand-orange shadow-warm-2xs"
-              >
-                <Layers className="w-4.5 h-4.5 text-brand-orange" />
-                <span>Launch Console</span>
-              </Link>
             </div>
 
             <div className="flex items-center gap-6 pt-1 text-xs font-mono text-terracotta">

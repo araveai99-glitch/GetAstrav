@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Layers, CheckCircle2, ShieldCheck, TrendingUp } from 'lucide-react';
 import { openDemoModal } from '../common/DemoModal';
@@ -43,7 +42,7 @@ export const ProductFinalCTA: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="brand-h2 text-espresso"
+            className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight"
           >
             Bring Your Goals and Teams Together.
           </motion.h2>
@@ -53,7 +52,7 @@ export const ProductFinalCTA: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.4, delay: 0.18 }}
-            className="brand-subtitle text-terracotta text-base sm:text-lg font-normal max-w-lg mx-auto"
+            className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-lg mx-auto"
           >
             Keep everyone aligned and see what moves your work forward.
           </motion.p>
@@ -73,15 +72,6 @@ export const ProductFinalCTA: React.FC = () => {
               <span>Book a Demo</span>
               <ArrowRight className="w-4.5 h-4.5" />
             </button>
-
-            <Link
-              to="/app/dashboard"
-              className="inline-flex items-center justify-center gap-2.5 text-base font-heading font-bold text-espresso bg-white hover:bg-brand-orange-light px-7 py-3.5 rounded-full shadow-warm-sm border border-brand-peach/90 hover:border-brand-orange hover:text-brand-orange hover:-translate-y-0.5 active:translate-y-0 transition-all group cursor-pointer"
-            >
-              <Layers className="w-4.5 h-4.5 text-brand-orange group-hover:scale-110 transition-transform" />
-              <span>Launch Console</span>
-              <ArrowRight className="w-4 h-4 text-terracotta-muted group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all" />
-            </Link>
           </motion.div>
 
           <motion.div

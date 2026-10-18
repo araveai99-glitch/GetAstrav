@@ -566,6 +566,7 @@ export const UseCases: React.FC = () => {
         description="Connect departments, automate goal rollups, and keep your entire team moving in sync."
         paddingY="pt-2 pb-2"
         paddingX="px-0"
+        showLaunchConsole={false}
       />
     </div>
   );

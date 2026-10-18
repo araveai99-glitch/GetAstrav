@@ -39,7 +39,7 @@ export const BeforeAfterComparison: React.FC = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="brand-h2 text-espresso"
+          className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight"
         >
           Less Manual Tracking. More Clarity.
         </motion.h2>
@@ -48,7 +48,7 @@ export const BeforeAfterComparison: React.FC = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.4, delay: 0.16 }}
-          className="brand-subtitle text-terracotta text-base sm:text-lg max-w-md mx-auto font-normal"
+          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-md mx-auto"
         >
           Stop spending time managing spreadsheets. Let your real work keep everyone in sync.
         </motion.p>

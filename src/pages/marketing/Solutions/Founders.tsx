@@ -498,6 +498,7 @@ export const Founders: React.FC = () => {
         title="Move Your Vision"
         highlightTitle="Forward."
         description="Connect your strategy to daily execution and gain real-time visibility into your entire organization."
+        showLaunchConsole={false}
         paddingY="pt-2 pb-2"
         paddingX="px-0"
       />

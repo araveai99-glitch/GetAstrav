@@ -448,9 +448,9 @@ export const ConnectedWorkflowSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="brand-h1 text-espresso tracking-tight"
+          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight"
         >
-          From Big Goals to Daily Work.
+          From Big Goals to <span className="text-brand-orange">Daily Work.</span>
         </motion.h1>
 
         <motion.p
@@ -458,7 +458,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="brand-subtitle text-terracotta text-base sm:text-lg max-w-xl mx-auto font-normal"
+          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-xl mx-auto"
         >
           Connect your goals, projects, and everyday work.
         </motion.p>
@@ -600,11 +600,11 @@ export const ConnectedWorkflowSection: React.FC = () => {
               className="lg:col-span-5 space-y-5"
             >
               <div className="space-y-3">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-espresso font-heading tracking-tight leading-[1.2]">
+                <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-espresso tracking-tight leading-tight">
                   Turn Goals Into Real Progress
                 </h2>
 
-                <p className="text-sm sm:text-base text-terracotta leading-relaxed font-body font-normal">
+                <p className="text-sm sm:text-base text-terracotta leading-relaxed font-normal">
                   Set clear goals, break them into smaller milestones, and see how every completed task moves your team closer to success.
                 </p>
               </div>

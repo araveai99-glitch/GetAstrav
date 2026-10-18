@@ -1,15 +1,114 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Layers, ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
+import { Layers, ChevronDown, Menu, X, ArrowRight, Compass } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { openDemoModal } from './DemoModal';
+
+interface NavItem {
+  name: string;
+  path: string;
+  badge?: string;
+  isAnchor?: boolean;
+}
+
+interface NavCategory {
+  id: string;
+  name: string;
+  items: NavItem[];
+}
+
+const mobileNavCategories: NavCategory[] = [
+  {
+    id: 'product',
+    name: 'Product',
+    items: [
+      { name: 'FounderOS / Command Center', path: '/product' },
+      { name: 'Automated Progress Rollups', path: '/product/automated-progress-rollups' },
+      { name: 'AI Goal Decomposition', path: '/features/ai' },
+    ],
+  },
+  {
+    id: 'features',
+    name: 'Features',
+    items: [
+      { name: 'Goals & Progress', path: '/features/goals-progress' },
+      { name: 'Task Execution & SLA', path: '/features/task-management' },
+      { name: 'Teams & Pods', path: '/features/teams' },
+      { name: 'Project Containers', path: '/features/projects' },
+      { name: 'Dual-Mode Analytics', path: '/features/analytics' },
+      { name: 'Governance & RBAC', path: '/features/governance' },
+      { name: 'Project Knowledge Specs', path: '/features/documentation' },
+      { name: 'Automation & Reminders', path: '/features/automation' },
+    ],
+  },
+  {
+    id: 'solutions',
+    name: 'Solutions',
+    items: [
+      { name: 'For Founders', path: '/solutions/founders' },
+      { name: 'For Managers', path: '/solutions/managers' },
+      { name: 'Enterprise Use Cases', path: '/solutions/use-cases' },
+    ],
+  },
+  {
+    id: 'resources',
+    name: 'Resources',
+    items: [
+      { name: 'Documentation & Guides', path: '/resources' },
+      { name: 'How It Works', path: '/how-it-works' },
+      { name: 'Key Capabilities', path: '/key-capabilities' },
+    ],
+  },
+  {
+    id: 'company',
+    name: 'Company',
+    items: [
+      { name: 'About Astrav', path: '/about' },
+      { name: 'Contact Sales', path: '/#conversion-cta', isAnchor: true },
+    ],
+  },
+];
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileExploreOpen, setMobileExploreOpen] = useState(false);
+  const [mobileExpandedCats, setMobileExpandedCats] = useState<Record<string, boolean>>({
+    product: false,
+    features: false,
+    solutions: false,
+    resources: false,
+    company: false,
+  });
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Automatically close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  const toggleMobileCategory = (catId: string) => {
+    setMobileExpandedCats(prev => ({
+      ...prev,
+      [catId]: !prev[catId],
+    }));
+  };
+
+  const handleContactSales = (e: React.MouseEvent) => {
+    setMobileMenuOpen(false);
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const el = document.getElementById('conversion-cta');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate('/#conversion-cta');
+    }
+  };
 
   useEffect(() => {
     let lastScrolled = window.scrollY > 20;
@@ -296,24 +395,36 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/resources"
                     onClick={() => setOpenDropdown(null)}
-                    className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
+                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${
+                      location.pathname === '/resources'
+                        ? 'bg-brand-orange-light text-brand-orange font-bold'
+                        : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
+                    }`}
                   >
                     Documentation & Guides
                   </Link>
-                  <a
-                    href="#how-it-works"
+                  <Link
+                    to="/how-it-works"
                     onClick={() => setOpenDropdown(null)}
-                    className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
+                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${
+                      location.pathname === '/how-it-works'
+                        ? 'bg-brand-orange-light text-brand-orange font-bold'
+                        : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
+                    }`}
                   >
                     How It Works
-                  </a>
-                  <a
-                    href="#capabilities"
+                  </Link>
+                  <Link
+                    to="/key-capabilities"
                     onClick={() => setOpenDropdown(null)}
-                    className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
+                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${
+                      location.pathname === '/key-capabilities'
+                        ? 'bg-brand-orange-light text-brand-orange font-bold'
+                        : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
+                    }`}
                   >
                     Key Capabilities
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}
@@ -382,9 +493,11 @@ export const Navbar: React.FC = () => {
 
           {/* Mobile Drawer Button */}
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1.5 sm:p-2 text-espresso hover:text-brand-orange focus:outline-none shrink-0"
-            aria-label="Toggle navigation"
+            className="lg:hidden p-2 text-espresso hover:text-brand-orange hover:bg-brand-orange-light/40 rounded-xl transition-colors focus:outline-none shrink-0"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X className="w-6 h-6 text-espresso" /> : <Menu className="w-6 h-6 text-espresso" />}
           </button>
@@ -392,45 +505,213 @@ export const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-brand-peach p-5 space-y-4 shadow-warm-xl max-h-[85vh] overflow-y-auto animate-fadeIn">
-          <div className="text-xs font-mono font-bold text-espresso uppercase tracking-wider">
-            Astrav Navigation
-          </div>
-          <div className="grid grid-cols-1 gap-1.5">
-            <Link to="/" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-bold text-espresso hover:bg-surface-tier1">Home Overview</Link>
-            <Link
-              to="/product"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`p-3 rounded-xl text-sm font-heading font-bold transition-colors ${
-                location.pathname === '/product'
-                  ? 'bg-brand-orange-light text-brand-orange'
-                  : 'text-espresso hover:bg-surface-tier1'
-              }`}
-            >
-              Astrav / Command Center
-            </Link>
-            <Link
-              to="/product/automated-progress-rollups"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`p-3 rounded-xl text-sm font-semibold transition-colors ${
-                location.pathname === '/product/automated-progress-rollups'
-                  ? 'bg-brand-orange-light text-brand-orange font-bold'
-                  : 'text-terracotta hover:bg-surface-tier1'
-              }`}
-            >
-              Automated Progress Rollups
-            </Link>
-            <Link to="/features/goals-progress" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1">Goals & Progress</Link>
-            <Link to="/features/ai" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1">AI Intelligence</Link>
-            <Link to="/features/governance" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-semibold text-terracotta hover:bg-surface-tier1">Governance & RBAC</Link>
-            <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl text-sm font-bold text-brand-orange hover:bg-surface-tier1 flex items-center justify-between">
-              <span>Sign In</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="lg:hidden bg-[#faf6f0] border-b border-brand-peach shadow-warm-xl max-h-[calc(100vh-70px)] sm:max-h-[calc(100vh-80px)] overflow-y-auto overscroll-contain"
+          >
+            <div className="p-4 sm:p-5 space-y-3 max-w-lg mx-auto">
+              {/* Home Overview Link */}
+              <Link
+                to="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-heading font-bold transition-all ${
+                  location.pathname === '/'
+                    ? 'bg-brand-orange-light text-brand-orange shadow-warm-2xs'
+                    : 'bg-white border border-brand-peach/80 text-espresso hover:text-brand-orange hover:border-brand-orange/40'
+                }`}
+              >
+                <span>Home Overview</span>
+                <ArrowRight className="w-4 h-4 opacity-70" />
+              </Link>
+
+              {/* SINGLE EXPANDABLE "EXPLORE" ENTRY POINT */}
+              <div className="rounded-2xl border border-brand-peach bg-white shadow-warm-sm overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => setMobileExploreOpen(prev => !prev)}
+                  aria-expanded={mobileExploreOpen}
+                  aria-controls="mobile-explore-dropdown"
+                  className={`w-full flex items-center justify-between p-3.5 sm:p-4 text-left transition-colors cursor-pointer select-none ${
+                    mobileExploreOpen
+                      ? 'bg-brand-orange-light/40 text-espresso'
+                      : 'hover:bg-brand-orange-light/20 text-espresso'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                        mobileExploreOpen
+                          ? 'bg-brand-orange text-white shadow-sm shadow-brand-orange/30'
+                          : 'bg-surface-tier1 text-espresso border border-brand-peach/80'
+                      }`}
+                    >
+                      <Compass className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="font-heading font-extrabold text-[15px] sm:text-base text-espresso leading-snug">
+                        Explore
+                      </div>
+                      <div className="text-[11px] sm:text-xs text-terracotta font-medium">
+                        Product, Features, Solutions & more
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-white border border-brand-peach text-terracotta">
+                      5 categories
+                    </span>
+                    <ChevronDown
+                      className={`w-4 h-4 text-terracotta transition-transform duration-200 ${
+                        mobileExploreOpen ? 'rotate-180 text-brand-orange' : ''
+                      }`}
+                    />
+                  </div>
+                </button>
+
+                {/* NESTED CATEGORIES ACCORDION */}
+                <AnimatePresence initial={false}>
+                  {mobileExploreOpen && (
+                    <motion.div
+                      id="mobile-explore-dropdown"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: 'easeInOut' }}
+                      className="overflow-hidden border-t border-brand-peach/60 bg-[#faf6f0]/60 p-2.5 sm:p-3 space-y-2"
+                    >
+                      {mobileNavCategories.map(category => {
+                        const isExpanded = !!mobileExpandedCats[category.id];
+                        const isAnySubActive = category.items.some(it => location.pathname === it.path);
+
+                        return (
+                          <div
+                            key={category.id}
+                            className={`rounded-xl border transition-all overflow-hidden ${
+                              isExpanded
+                                ? 'border-brand-orange/40 bg-white shadow-warm-xs'
+                                : 'border-brand-peach/80 bg-white hover:border-brand-orange/30'
+                            }`}
+                          >
+                            {/* Entire category row is clickable */}
+                            <button
+                              type="button"
+                              onClick={() => toggleMobileCategory(category.id)}
+                              aria-expanded={isExpanded}
+                              aria-controls={`mobile-category-${category.id}`}
+                              className="w-full flex items-center justify-between px-3.5 py-3 text-left cursor-pointer select-none group"
+                            >
+                              <div className="flex items-center gap-2.5">
+                                <span
+                                  className={`w-2 h-2 rounded-full shrink-0 transition-colors ${
+                                    isAnySubActive || isExpanded ? 'bg-brand-orange' : 'bg-brand-peach'
+                                  }`}
+                                />
+                                <span
+                                  className={`font-heading font-extrabold text-sm sm:text-[15px] transition-colors ${
+                                    isExpanded || isAnySubActive
+                                      ? 'text-brand-orange'
+                                      : 'text-espresso group-hover:text-brand-orange'
+                                  }`}
+                                >
+                                  {category.name}
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/70 text-terracotta">
+                                  {category.items.length}
+                                </span>
+                                <ChevronDown
+                                  className={`w-4 h-4 text-terracotta transition-transform duration-200 ${
+                                    isExpanded ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
+                                  }`}
+                                />
+                              </div>
+                            </button>
+
+                            {/* Submenu for this category */}
+                            <AnimatePresence initial={false}>
+                              {isExpanded && (
+                                <motion.div
+                                  id={`mobile-category-${category.id}`}
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: 'auto', opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  transition={{ duration: 0.2, ease: 'easeInOut' }}
+                                  className="overflow-hidden border-t border-brand-peach/40 bg-[#fdfbf9]"
+                                >
+                                  <div className="p-1.5 sm:p-2 space-y-1">
+                                    {category.items.map(item => {
+                                      const isActive = location.pathname === item.path;
+                                      return (
+                                        <Link
+                                          key={item.path}
+                                          to={item.path}
+                                          onClick={e => {
+                                            if (item.isAnchor) {
+                                              handleContactSales(e);
+                                            } else {
+                                              setMobileMenuOpen(false);
+                                            }
+                                          }}
+                                          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-lg text-xs sm:text-sm transition-all group ${
+                                            isActive
+                                              ? 'bg-brand-orange-light text-brand-orange font-bold shadow-warm-2xs'
+                                              : 'text-terracotta font-medium hover:text-brand-orange hover:bg-brand-orange-light/30'
+                                          }`}
+                                        >
+                                          <span className="leading-snug">{item.name}</span>
+                                          {isActive ? (
+                                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange shrink-0 ml-2" />
+                                          ) : (
+                                            <ArrowRight className="w-3.5 h-3.5 text-terracotta/40 group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
+                                          )}
+                                        </Link>
+                                      );
+                                    })}
+                                  </div>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        );
+                      })}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Bottom Actions: Sign In & Book a Demo */}
+              <div className="pt-2 border-t border-brand-peach/60 space-y-2">
+                <Link
+                  to="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-white border border-brand-peach/80 text-sm font-heading font-bold text-espresso hover:text-brand-orange hover:border-brand-orange/40 transition-colors"
+                >
+                  <span>Sign In</span>
+                  <ArrowRight className="w-4 h-4 text-terracotta" />
+                </Link>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    openDemoModal();
+                  }}
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-heading font-bold shadow-md shadow-brand-orange/30 transition-all cursor-pointer"
+                >
+                  <span>Book a Demo</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

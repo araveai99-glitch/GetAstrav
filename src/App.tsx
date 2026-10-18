@@ -25,7 +25,7 @@ import { Automation } from './pages/marketing/Features/Automation';
 import { UseCases } from './pages/marketing/Solutions/UseCases';
 import { Founders } from './pages/marketing/Solutions/Founders';
 import { Managers } from './pages/marketing/Solutions/Managers';
-import { Resources } from './pages/marketing/Resources';
+import { Resources, HowItWorksPage, KeyCapabilitiesPage } from './pages/marketing/Resources';
 import { About } from './pages/marketing/About';
 import { DepartmentWorkflow } from './pages/marketing/DepartmentWorkflow';
 
@@ -81,6 +81,11 @@ const MarketingLayout: React.FC = () => {
 
           {/* Resources & About */}
           <Route path="/resources" element={<Resources />} />
+          <Route path="/resources/documentation-guides" element={<Resources />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/resources/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/key-capabilities" element={<KeyCapabilitiesPage />} />
+          <Route path="/resources/key-capabilities" element={<KeyCapabilitiesPage />} />
           <Route path="/about" element={<About />} />
 
           {/* Department Workflows */}

@@ -423,8 +423,81 @@ export const HowItWorksSection: React.FC = () => {
             </h2>
           </MotionWrapper>
 
-          {/* 4 Steps */}
-          <div className="space-y-4 sm:space-y-5">
+          {/* 4 Steps - Mobile Cards (< md) & Desktop List (md+) */}
+          {/* Mobile View (< md): Premium Vertically Stacked Cards matching Reference */}
+          <div className="space-y-3 md:hidden">
+            {[
+              {
+                num: '1',
+                title: 'Set Company Goals',
+                desc: 'Define North Star goals and align every team around core outcomes.',
+                badgeBg: 'bg-[#fdeee4] border-[#fcd8c1] text-[#f15e1c]',
+                image: '/assets/steps/step1_goals.png',
+                imageWebp: '/assets/steps/step1_goals.webp',
+              },
+              {
+                num: '2',
+                title: 'Break into Projects & Milestones',
+                desc: 'Decompose strategy into actionable milestones and clear deliverables.',
+                badgeBg: 'bg-[#fef9c3] border-[#fef08a] text-[#b45309]',
+                image: '/assets/steps/step2_milestones.png',
+                imageWebp: '/assets/steps/step2_milestones.webp',
+              },
+              {
+                num: '3',
+                title: 'Track Execution Automatically',
+                desc: 'Live automated progress rollups across every department.',
+                badgeBg: 'bg-[#dcfce7] border-[#bbf7d0] text-[#15803d]',
+                image: '/assets/steps/step3_rollups.png',
+                imageWebp: '/assets/steps/step3_rollups.webp',
+              },
+              {
+                num: '4',
+                title: 'Stay in Control',
+                desc: 'AI-powered insights to spot risks early and maintain momentum.',
+                badgeBg: 'bg-[#fdeee4] border-[#fcd8c1] text-[#f15e1c]',
+                image: '/assets/steps/step4_control.png',
+                imageWebp: '/assets/steps/step4_control.webp',
+              },
+            ].map((step, idx) => (
+              <MotionWrapper key={step.num} delay={0.1 + idx * 0.05} direction="up">
+                <div className="relative rounded-2xl bg-white border border-brand-peach/60 shadow-[0_4px_16px_rgba(42,26,20,0.04)] p-3.5 flex items-center gap-3 overflow-hidden transition-all duration-200 hover:shadow-warm-sm hover:border-brand-orange/40 active:scale-[0.99]">
+                  {/* Number Badge at Top-Left */}
+                  <div
+                    className={`absolute top-2.5 left-2.5 w-6 h-6 rounded-full border flex items-center justify-center font-heading font-extrabold text-xs shadow-2xs ${step.badgeBg}`}
+                  >
+                    {step.num}
+                  </div>
+
+                  {/* 3D Illustration Graphic */}
+                  <div className="w-[84px] h-[76px] shrink-0 flex items-center justify-center pl-3.5 pt-0.5">
+                    <picture>
+                      <source srcSet={step.imageWebp} type="image/webp" />
+                      <img
+                        src={step.image}
+                        alt={step.title}
+                        className="w-full h-full object-contain select-none pointer-events-none drop-shadow-[0_4px_8px_rgba(241,94,28,0.06)]"
+                        loading="lazy"
+                      />
+                    </picture>
+                  </div>
+
+                  {/* Text Content */}
+                  <div className="flex-1 min-w-0 pr-1">
+                    <h4 className="font-heading font-bold text-[14px] xs:text-[15px] text-espresso leading-snug">
+                      {step.title}
+                    </h4>
+                    <p className="text-[12px] xs:text-[12.5px] text-terracotta/90 leading-relaxed mt-1 text-left">
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              </MotionWrapper>
+            ))}
+          </div>
+
+          {/* Desktop & Tablet View (md+): Preserved Layout */}
+          <div className="hidden md:block space-y-4 sm:space-y-5">
             {[
               {
                 num: '1',
@@ -466,12 +539,12 @@ export const HowItWorksSection: React.FC = () => {
           </div>
 
           {/* CTA & Trust Avatars */}
-          <MotionWrapper delay={0.5}>
-            <div className="flex flex-wrap items-center gap-5 pt-4">
+          <MotionWrapper delay={0.4}>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5 pt-2 sm:pt-4">
               <button
                 type="button"
                 onClick={openDemoModal}
-                className="inline-flex items-center justify-center gap-2.5 text-sm sm:text-base font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-7 py-3.5 rounded-full shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 transition-all group cursor-pointer"
+                className="inline-flex items-center justify-center gap-2.5 text-sm sm:text-base font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-7 py-3.5 rounded-full shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 transition-all group cursor-pointer w-fit"
               >
                 <span>Book a Demo</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

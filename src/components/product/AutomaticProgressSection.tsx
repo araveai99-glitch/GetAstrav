@@ -82,7 +82,7 @@ export const AutomaticProgressSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="brand-h2 text-espresso"
+          className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight"
         >
           See Progress as Work Gets Done.
         </motion.h2>
@@ -92,7 +92,7 @@ export const AutomaticProgressSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="brand-subtitle text-terracotta text-base sm:text-lg font-normal max-w-xl mx-auto"
+          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-xl mx-auto"
         >
           Complete a task and watch overall progress update automatically.
         </motion.p>

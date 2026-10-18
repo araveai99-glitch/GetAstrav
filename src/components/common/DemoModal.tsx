@@ -109,23 +109,23 @@ export const DemoModal: React.FC = () => {
                 </p>
               </div>
               <div className="pt-3 flex flex-col items-center justify-center gap-2.5 w-full max-w-xs mx-auto">
-                <button
-                  type="button"
-                  onClick={handleClose}
-                  className="w-full px-6 py-2.5 rounded-full bg-brand-orange text-white text-xs font-heading font-bold shadow-md shadow-brand-orange/30 hover:bg-brand-orange-hover active:scale-[0.98] transition-all cursor-pointer text-center"
-                >
-                  Close & Explore Astrav
-                </button>
-
                 <Link
                   to="/app/dashboard"
                   onClick={handleClose}
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-surface-ambient hover:bg-brand-orange-light text-espresso hover:text-brand-orange border border-brand-peach/90 hover:border-brand-orange/60 text-xs font-heading font-bold shadow-warm-xs active:scale-[0.98] transition-all group cursor-pointer text-center"
+                  className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-xs sm:text-sm font-heading font-bold shadow-md shadow-brand-orange/30 hover:-translate-y-0.5 active:translate-y-0 transition-all group cursor-pointer text-center"
                 >
-                  <Layers className="w-3.5 h-3.5 text-brand-orange group-hover:scale-110 transition-transform" />
+                  <Layers className="w-4 h-4 text-white" />
                   <span>Launch Console</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-terracotta-muted group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all" />
+                  <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
                 </Link>
+
+                <button
+                  type="button"
+                  onClick={handleClose}
+                  className="w-full px-6 py-2.5 rounded-full bg-surface-ambient hover:bg-brand-orange-light text-espresso hover:text-brand-orange border border-brand-peach/90 text-xs font-heading font-bold transition-all cursor-pointer text-center"
+                >
+                  Close & Explore Astrav
+                </button>
               </div>
             </div>
           ) : (
