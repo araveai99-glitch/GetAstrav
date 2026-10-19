@@ -59,7 +59,7 @@ export const AutomaticProgressSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-10 sm:py-12 md:py-14 px-4 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto bg-surface-ambient/50 rounded-3xl border border-brand-peach/40 my-4 sm:my-6 relative overflow-hidden"
+      className="py-6 sm:py-8 md:py-10 px-4 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto bg-surface-ambient/50 rounded-3xl border border-brand-peach/40 my-3 sm:my-4 relative overflow-hidden text-left"
     >
       {/* Subtle Background Glow */}
       <motion.div
@@ -76,13 +76,13 @@ export const AutomaticProgressSection: React.FC = () => {
       />
 
       {/* Section Header with Repeat-on-Scroll */}
-      <div className="text-center max-w-2xl mx-auto space-y-3 mb-8 sm:mb-12">
+      <div className="text-left w-full max-w-5xl space-y-2 sm:space-y-2.5 mb-6 sm:mb-8">
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight"
+          className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
         >
           See Progress as Work Gets Done.
         </motion.h2>
@@ -92,14 +92,14 @@ export const AutomaticProgressSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-xl mx-auto"
+          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal text-left max-w-4xl lg:whitespace-nowrap"
         >
           Complete a task and watch overall progress update automatically.
         </motion.p>
       </div>
 
       {/* Main Interactive Rollup Card */}
-      <div className="rounded-3xl bg-white border border-brand-peach/80 p-6 sm:p-8 lg:p-10 shadow-warm-lg space-y-8">
+      <div className="rounded-3xl bg-white border border-brand-peach/80 p-5 sm:p-7 lg:p-9 shadow-warm-lg space-y-6 sm:space-y-7">
         {/* Simple 4-Step Rollup Flow Indicator with animated connector pulse */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}

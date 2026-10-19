@@ -425,7 +425,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
   return (
     <section
       id="connected-workflow"
-      className="relative pt-20 sm:pt-24 md:pt-28 pb-10 sm:pb-14 px-4 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto overflow-hidden"
+      className="relative pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto overflow-hidden"
     >
       {/* Subtle Background Ambient Decorative Sheen */}
       <motion.div
@@ -442,13 +442,13 @@ export const ConnectedWorkflowSection: React.FC = () => {
       />
 
       {/* Section Header with repeat-on-scroll entrance */}
-      <div className="text-left max-w-3xl space-y-2.5 sm:space-y-3 mb-8 sm:mb-10">
+      <div className="text-left w-full max-w-5xl space-y-2 sm:space-y-2.5 mb-6 sm:mb-8">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left"
+          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left lg:whitespace-nowrap"
         >
           From Big Goals to <span className="text-brand-orange">Daily Work.</span>
         </motion.h1>
@@ -458,7 +458,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-xl text-left"
+          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-3xl text-left lg:whitespace-nowrap"
         >
           Connect your goals, projects, and everyday work.
         </motion.p>

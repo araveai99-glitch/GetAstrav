@@ -134,14 +134,14 @@ export const KeyCapabilitiesPage: React.FC = () => {
   return (
     <div className="w-full min-h-screen bg-surface-ambient text-espresso flex flex-col">
       {/* 1. HERO SECTION */}
-      <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full text-left">
+      <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1520px] 2xl:max-w-[1600px] mx-auto w-full text-left">
         <motion.h1
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-espresso tracking-tight max-w-4xl text-left leading-[1.12]"
+          className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[42px] xl:text-5xl 2xl:text-[56px] text-espresso tracking-tight w-full max-w-none text-left leading-[1.12] lg:whitespace-nowrap"
         >
-          Everything You Need to Keep Work Moving.
+          Everything You Need to Keep <span className="text-brand-orange">Work Moving.</span>
         </motion.h1>
 
         <motion.p
@@ -157,19 +157,19 @@ export const KeyCapabilitiesPage: React.FC = () => {
       {/* 2. SECTION A: FOUR CORE CAPABILITIES */}
       <section
         ref={sectionARef}
-        className="pt-4 sm:pt-6 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full"
+        className="pt-4 sm:pt-6 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1520px] 2xl:max-w-[1600px] mx-auto w-full text-left"
       >
-        <div className="text-left max-w-2xl mb-6 sm:mb-8 space-y-1.5 sm:space-y-2">
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-espresso">
+        <div className="text-left w-full max-w-4xl mb-6 sm:mb-8 space-y-1.5 sm:space-y-2">
+          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-espresso text-left">
             Four Core Capabilities
           </h2>
-          <p className="text-sm sm:text-base text-terracotta">
+          <p className="text-sm sm:text-base text-terracotta text-left">
             Designed to bridge the gap between high-level ambition and ground-level execution.
           </p>
         </div>
 
         {/* 4 Balanced Cards with Unique Animated Visuals */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch w-full">
           {/* CARD 1: Goal Planning */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
@@ -179,7 +179,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 : { opacity: 0, y: 28 }
             }
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between group"
+            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -281,7 +281,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 : { opacity: 0, y: 28 }
             }
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between group"
+            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -375,7 +375,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 : { opacity: 0, y: 28 }
             }
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between group"
+            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -473,7 +473,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 : { opacity: 0, y: 28 }
             }
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between group"
+            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -845,9 +845,9 @@ export const KeyCapabilitiesPage: React.FC = () => {
       {/* 4. SECTION C: FROM EVERYDAY WORK TO CLEAR RESULTS (BEFORE & AFTER DIAGRAM) */}
       <section
         ref={sectionCRef}
-        className="pt-4 sm:pt-6 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full text-left"
+        className="pt-4 sm:pt-6 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1520px] 2xl:max-w-[1600px] mx-auto w-full text-left"
       >
-        <div className="text-left max-w-3xl mb-6 sm:mb-8 space-y-1.5 sm:space-y-2">
+        <div className="text-left w-full max-w-4xl mb-6 sm:mb-8 space-y-1.5 sm:space-y-2">
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-espresso text-left">
             From Everyday Work to Clear Results
           </h2>
@@ -885,7 +885,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
         </div>
 
         {/* Compact Before and After Side-by-Side Diagram */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch w-full">
           {/* PANEL 1: BEFORE ASTRAV */}
           {(activeTab === 'both' || activeTab === 'before') && (
             <motion.div
@@ -896,15 +896,15 @@ export const KeyCapabilitiesPage: React.FC = () => {
                   : { opacity: 0, x: -24 }
               }
               transition={{ duration: 0.55 }}
-              className="bg-white/80 rounded-3xl p-6 sm:p-8 border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between relative overflow-hidden"
+              className="w-full bg-white/80 rounded-3xl p-6 sm:p-8 border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between relative overflow-hidden"
             >
               {/* Top Pill */}
               <div className="flex items-center justify-between mb-6">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-mono font-bold uppercase tracking-wider">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-mono font-bold uppercase tracking-wider shrink-0">
                   <AlertTriangle className="w-3.5 h-3.5" />
                   <span>Before Astrav</span>
                 </div>
-                <span className="text-xs font-mono text-terracotta-muted">
+                <span className="text-xs font-mono text-terracotta-muted shrink-0">
                   Fragmented Workflow
                 </span>
               </div>
@@ -912,11 +912,11 @@ export const KeyCapabilitiesPage: React.FC = () => {
               {/* 3 Step Flow */}
               <div className="space-y-4">
                 {/* Step 1 */}
-                <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/60 flex items-start gap-3">
+                <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/60 flex items-start gap-3 w-full">
                   <div className="w-8 h-8 rounded-xl bg-red-100 text-red-700 flex items-center justify-center shrink-0 font-bold text-xs">
                     ✕
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <h4 className="font-heading font-bold text-sm text-espresso">
                       Disconnected Tasks
                     </h4>
@@ -932,11 +932,11 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 </div>
 
                 {/* Step 2 */}
-                <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/60 flex items-start gap-3">
+                <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/60 flex items-start gap-3 w-full">
                   <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 font-bold text-xs">
                     ⏳
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <h4 className="font-heading font-bold text-sm text-espresso">
                       Manual Updates & Chasing
                     </h4>
@@ -952,11 +952,11 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 </div>
 
                 {/* Step 3 */}
-                <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/60 flex items-start gap-3">
+                <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/60 flex items-start gap-3 w-full">
                   <div className="w-8 h-8 rounded-xl bg-red-100 text-red-700 flex items-center justify-center shrink-0 font-bold text-xs">
                     ❓
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <h4 className="font-heading font-bold text-sm text-espresso">
                       Unclear Progress & Guesswork
                     </h4>
@@ -970,7 +970,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
               {/* Bottom Result Summary */}
               <div className="mt-6 pt-4 border-t border-brand-peach/60 flex items-center justify-between text-xs text-red-700 font-medium">
                 <span>Result: Blind spots and delayed launches</span>
-                <span className="font-mono font-bold">Low Confidence</span>
+                <span className="font-mono font-bold shrink-0">Low Confidence</span>
               </div>
             </motion.div>
           )}
@@ -985,18 +985,18 @@ export const KeyCapabilitiesPage: React.FC = () => {
                   : { opacity: 0, x: 24 }
               }
               transition={{ duration: 0.55 }}
-              className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-brand-orange/40 shadow-warm-lg flex flex-col justify-between relative overflow-hidden"
+              className="w-full bg-white rounded-3xl p-6 sm:p-8 border-2 border-brand-orange/40 shadow-warm-lg flex flex-col justify-between relative overflow-hidden"
             >
               {/* Subtle Brand Ambient Glow */}
               <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-brand-orange-light/60 blur-2xl pointer-events-none" />
 
               {/* Top Pill */}
               <div className="flex items-center justify-between mb-6 relative z-10">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-green-light border border-brand-green/30 text-brand-green text-xs font-mono font-bold uppercase tracking-wider">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-green-light border border-brand-green/30 text-brand-green text-xs font-mono font-bold uppercase tracking-wider shrink-0">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>With Astrav</span>
                 </div>
-                <span className="text-xs font-mono font-bold text-brand-orange">
+                <span className="text-xs font-mono font-bold text-brand-orange shrink-0">
                   Deterministic System
                 </span>
               </div>
@@ -1004,11 +1004,11 @@ export const KeyCapabilitiesPage: React.FC = () => {
               {/* 3 Step Flow */}
               <div className="space-y-4 relative z-10">
                 {/* Step 1 */}
-                <div className="p-4 rounded-2xl bg-brand-green-light/30 border border-brand-green/40 flex items-start gap-3">
+                <div className="p-4 rounded-2xl bg-brand-green-light/30 border border-brand-green/40 flex items-start gap-3 w-full">
                   <div className="w-8 h-8 rounded-xl bg-brand-green text-white flex items-center justify-center shrink-0 font-bold text-xs shadow-xs">
                     <Check className="w-4 h-4 stroke-[3]" />
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <h4 className="font-heading font-bold text-sm text-espresso">
                       Connected Work
                     </h4>
@@ -1024,11 +1024,11 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 </div>
 
                 {/* Step 2 */}
-                <div className="p-4 rounded-2xl bg-brand-orange-light/30 border border-brand-orange/40 flex items-start gap-3">
+                <div className="p-4 rounded-2xl bg-brand-orange-light/30 border border-brand-orange/40 flex items-start gap-3 w-full">
                   <div className="w-8 h-8 rounded-xl bg-brand-orange text-white flex items-center justify-center shrink-0 font-bold text-xs shadow-xs">
                     <Zap className="w-4 h-4 stroke-[2.5]" />
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <h4 className="font-heading font-bold text-sm text-espresso">
                       Automatic Rollups
                     </h4>
@@ -1044,11 +1044,11 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 </div>
 
                 {/* Step 3 */}
-                <div className="p-4 rounded-2xl bg-brand-green-light/30 border border-brand-green/40 flex items-start gap-3">
+                <div className="p-4 rounded-2xl bg-brand-green-light/30 border border-brand-green/40 flex items-start gap-3 w-full">
                   <div className="w-8 h-8 rounded-xl bg-brand-green text-white flex items-center justify-center shrink-0 font-bold text-xs shadow-xs">
                     <TrendingUp className="w-4 h-4 stroke-[2.5]" />
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <h4 className="font-heading font-bold text-sm text-espresso">
                       Clear Visibility
                     </h4>
@@ -1062,7 +1062,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
               {/* Bottom Result Summary */}
               <div className="mt-6 pt-4 border-t border-brand-peach/60 flex items-center justify-between text-xs text-brand-green font-bold relative z-10">
                 <span>Result: Continuous momentum & alignment</span>
-                <span className="font-mono">100% Verified</span>
+                <span className="font-mono shrink-0">100% Verified</span>
               </div>
             </motion.div>
           )}

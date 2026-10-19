@@ -27,6 +27,7 @@ import { Founders } from './pages/marketing/Solutions/Founders';
 import { Managers } from './pages/marketing/Solutions/Managers';
 import { Resources, HowItWorksPage, KeyCapabilitiesPage } from './pages/marketing/Resources';
 import { About } from './pages/marketing/About';
+import { ContactSales } from './pages/marketing/ContactSales';
 import { DepartmentWorkflow } from './pages/marketing/DepartmentWorkflow';
 
 // Auth Pages
@@ -87,6 +88,8 @@ const MarketingLayout: React.FC = () => {
           <Route path="/key-capabilities" element={<KeyCapabilitiesPage />} />
           <Route path="/resources/key-capabilities" element={<KeyCapabilitiesPage />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<ContactSales />} />
+          <Route path="/contact-sales" element={<ContactSales />} />
 
           {/* Department Workflows */}
           <Route path="/department-workflow/:deptId" element={<DepartmentWorkflow />} />

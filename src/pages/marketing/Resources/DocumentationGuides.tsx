@@ -168,7 +168,7 @@ export const DocumentationGuides: React.FC = () => {
       {/* ==================================================================== */}
       {/* PAGE HEADER: Clear, warm, uncluttered                              */}
       {/* ==================================================================== */}
-      <div className="max-w-4xl space-y-2.5 sm:space-y-3">
+      <div className="max-w-5xl space-y-2.5 sm:space-y-3">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight">
           Everything You Need to <span className="text-brand-orange">Get Started.</span>
         </h1>
@@ -182,13 +182,10 @@ export const DocumentationGuides: React.FC = () => {
       {/* ==================================================================== */}
       <section
         ref={sectionARef}
-        className="w-full p-6 sm:p-8 lg:p-10 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative overflow-hidden space-y-8"
+        className="w-full !mt-8 sm:!mt-10 px-6 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative overflow-hidden space-y-6"
       >
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brand-peach/40 pb-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brand-peach/40 pb-4">
           <div>
-            <span className="text-xs font-mono font-extrabold text-brand-orange uppercase tracking-wider block">
-              Section A — Starting Point
-            </span>
             <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
               Your 3-Step Starting Point
             </h2>
@@ -298,12 +295,9 @@ export const DocumentationGuides: React.FC = () => {
       {/* ==================================================================== */}
       {/* SECTION B — Explore Guides by Topic: Clean Grid of Cards             */}
       {/* ==================================================================== */}
-      <section ref={sectionBRef} className="space-y-6">
+      <section ref={sectionBRef} className="!mt-7 sm:!mt-9 space-y-5 sm:space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
           <div className="space-y-1">
-            <span className="text-xs font-mono font-extrabold text-brand-orange uppercase tracking-wider block">
-              Section B — Topics
-            </span>
             <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-espresso">
               Find the Help You Need.
             </h2>
@@ -376,12 +370,9 @@ export const DocumentationGuides: React.FC = () => {
       {/* ==================================================================== */}
       <section
         ref={sectionCRef}
-        className="w-full p-6 sm:p-8 lg:p-10 bg-gradient-to-b from-[#fffbf7] via-white to-surface-ambient rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-8"
+        className="w-full !mt-7 sm:!mt-9 px-6 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-7 bg-gradient-to-b from-[#fffbf7] via-white to-surface-ambient rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-6"
       >
         <div className="max-w-2xl space-y-1">
-          <span className="text-xs font-mono font-extrabold text-brand-orange uppercase tracking-wider block">
-            Section C — Visual Roadmap
-          </span>
           <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-espresso">
             A Simple Learning Path
           </h2>

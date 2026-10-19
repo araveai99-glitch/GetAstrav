@@ -196,13 +196,10 @@ export const HowItWorksPage: React.FC = () => {
       {/* ==================================================================== */}
       <section
         ref={sectionARef}
-        className="w-full p-6 sm:p-8 lg:p-10 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative overflow-hidden space-y-8"
+        className="w-full !mt-8 sm:!mt-10 px-6 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative overflow-hidden space-y-6"
       >
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brand-peach/40 pb-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brand-peach/40 pb-4">
           <div>
-            <span className="text-xs font-mono font-extrabold text-brand-orange uppercase tracking-wider block">
-              Section A — Workflow Journey
-            </span>
             <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
               The 5-Stage Astrav Workflow
             </h2>
@@ -329,13 +326,10 @@ export const HowItWorksPage: React.FC = () => {
       {/* ==================================================================== */}
       <section
         ref={sectionBRef}
-        className="w-full p-6 sm:p-8 lg:p-10 bg-gradient-to-b from-white via-[#fffdfa] to-surface-ambient rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-8"
+        className="w-full !mt-6 sm:!mt-8 px-6 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-7 bg-gradient-to-b from-white via-[#fffdfa] to-surface-ambient rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-6"
       >
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brand-peach/40 pb-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brand-peach/40 pb-4">
           <div className="space-y-1">
-            <span className="text-xs font-mono font-extrabold text-brand-orange uppercase tracking-wider block">
-              Section B — Live Interactive Demo
-            </span>
             <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
               See Progress Come Together.
             </h2>
@@ -508,15 +502,12 @@ export const HowItWorksPage: React.FC = () => {
         ref={sectionCRef}
         className="w-full p-6 sm:p-8 lg:p-10 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-8"
       >
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brand-peach/40 pb-5">
+        <div className="border-b border-brand-peach/40 pb-5">
           <div className="space-y-1">
-            <span className="text-xs font-mono font-extrabold text-brand-orange uppercase tracking-wider block">
-              Section C — Hub-and-Spoke View
-            </span>
             <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
               Everything Works Together.
             </h2>
-            <p className="text-xs sm:text-sm text-terracotta max-w-xl">
+            <p className="text-xs sm:text-sm text-terracotta">
               Goals, projects, tasks, and team progress form one single source of organizational truth. Select any node to explore.
             </p>
           </div>

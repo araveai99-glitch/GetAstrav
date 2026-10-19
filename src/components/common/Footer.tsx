@@ -90,7 +90,7 @@ export const Footer: React.FC = () => {
             <h4 className="text-xs font-extrabold text-brand-orange uppercase tracking-wider">Company</h4>
             <ul className="space-y-2.5 text-sm sm:text-base text-terracotta font-medium">
               <li><Link to="/about" className="hover:text-brand-orange transition-colors">About Astrav</Link></li>
-              <li><a href="#conversion-cta" className="hover:text-brand-orange transition-colors">Contact Engineering</a></li>
+              <li><Link to="/contact" className="hover:text-brand-orange transition-colors">Contact Sales</Link></li>
               <li><button type="button" onClick={openDemoModal} className="hover:text-brand-orange transition-colors cursor-pointer text-left">Book a Demo</button></li>
             </ul>
           </div>

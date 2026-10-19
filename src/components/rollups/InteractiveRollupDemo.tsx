@@ -108,12 +108,12 @@ export const InteractiveRollupDemo: React.FC = () => {
       />
 
       {/* Section Header */}
-      <div className="text-center max-w-2xl mx-auto space-y-2 mb-4 sm:mb-6">
+      <div className="text-left w-full max-w-5xl space-y-1.5 sm:space-y-2 mb-5 sm:mb-6">
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight"
+          className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
         >
           See Progress Add Up.
         </motion.h2>
@@ -122,7 +122,7 @@ export const InteractiveRollupDemo: React.FC = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.4, delay: 0.16 }}
-          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-lg mx-auto"
+          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left lg:whitespace-nowrap"
         >
           Complete a task and watch the bigger picture change.
         </motion.p>
@@ -133,15 +133,12 @@ export const InteractiveRollupDemo: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="bg-white rounded-3xl p-6 sm:p-9 lg:p-12 border-2 border-brand-peach/80 shadow-warm-xl w-full mx-auto relative overflow-hidden"
+        className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-brand-peach/80 shadow-warm-xl w-full mx-auto relative overflow-hidden"
       >
         {/* Sample Data Disclaimer & Control Top Bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-brand-peach/50">
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1 rounded-full bg-surface-tier1 text-xs font-mono font-bold text-terracotta border border-brand-peach/40">
-              SAMPLE DATA
-            </span>
-            <span className="text-xs sm:text-sm text-terracotta-muted hidden sm:inline">
+            <span className="text-xs sm:text-sm text-terracotta-muted">
               Toggle any task to observe real-time mathematical rollups.
             </span>
           </div>

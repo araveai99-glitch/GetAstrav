@@ -64,7 +64,7 @@ const mobileNavCategories: NavCategory[] = [
     name: 'Company',
     items: [
       { name: 'About Astrav', path: '/about' },
-      { name: 'Contact Sales', path: '/#conversion-cta', isAnchor: true },
+      { name: 'Contact Sales', path: '/contact' },
     ],
   },
 ];
@@ -98,16 +98,9 @@ export const Navbar: React.FC = () => {
   };
 
   const handleContactSales = (e: React.MouseEvent) => {
+    e.preventDefault();
     setMobileMenuOpen(false);
-    if (location.pathname === '/') {
-      e.preventDefault();
-      const el = document.getElementById('conversion-cta');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      navigate('/#conversion-cta');
-    }
+    navigate('/contact');
   };
 
   useEffect(() => {
@@ -459,13 +452,13 @@ export const Navbar: React.FC = () => {
                   >
                     About Astrav
                   </Link>
-                  <a
-                    href="#conversion-cta"
+                  <Link
+                    to="/contact"
                     onClick={() => setOpenDropdown(null)}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     Contact Sales
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}

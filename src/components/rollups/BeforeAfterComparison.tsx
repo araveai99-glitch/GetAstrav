@@ -34,12 +34,12 @@ export const BeforeAfterComparison: React.FC = () => {
       className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto relative overflow-hidden"
     >
       {/* Section Header */}
-      <div className="text-center max-w-2xl mx-auto space-y-2 mb-4 sm:mb-6">
+      <div className="text-left w-full max-w-5xl space-y-1.5 sm:space-y-2 mb-5 sm:mb-6">
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight"
+          className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
         >
           Less Manual Tracking. More Clarity.
         </motion.h2>
@@ -48,7 +48,7 @@ export const BeforeAfterComparison: React.FC = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.4, delay: 0.16 }}
-          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-md mx-auto"
+          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left lg:whitespace-nowrap"
         >
           Stop spending time managing spreadsheets. Let your real work keep everyone in sync.
         </motion.p>
@@ -61,13 +61,10 @@ export const BeforeAfterComparison: React.FC = () => {
           initial={{ opacity: 0, x: -16 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
           transition={{ duration: 0.45, delay: 0.15 }}
-          className="bg-surface-tier1/70 rounded-3xl p-7 sm:p-9 lg:p-12 border-2 border-brand-peach/70 shadow-warm-sm flex flex-col justify-between min-h-[360px] sm:min-h-[400px]"
+          className="bg-surface-tier1/70 rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-brand-peach/70 shadow-warm-sm flex flex-col justify-between min-h-[360px] sm:min-h-[400px]"
         >
           <div>
-            <div className="flex items-center justify-between pb-4 mb-5 border-b border-brand-peach/40">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-terracotta-muted">
-                TRADITIONAL WORKFLOW
-              </span>
+            <div className="flex items-center justify-end pb-4 mb-5 border-b border-brand-peach/40">
               <span className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
                 <AlertCircle className="w-3.5 h-3.5" />
                 Manual Overhead
@@ -111,16 +108,13 @@ export const BeforeAfterComparison: React.FC = () => {
           initial={{ opacity: 0, x: 16 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 16 }}
           transition={{ duration: 0.45, delay: 0.25 }}
-          className="bg-white rounded-3xl p-7 sm:p-9 lg:p-12 border-2 border-brand-orange/50 shadow-warm-lg flex flex-col justify-between relative overflow-hidden group min-h-[360px] sm:min-h-[400px]"
+          className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-brand-orange/50 shadow-warm-lg flex flex-col justify-between relative overflow-hidden group min-h-[360px] sm:min-h-[400px]"
         >
           {/* Subtle Ambient Sheen */}
           <div className="absolute top-0 right-0 w-56 h-56 bg-brand-orange-light/40 rounded-full blur-2xl pointer-events-none -z-10" />
 
           <div>
-            <div className="flex items-center justify-between pb-4 mb-5 border-b border-brand-peach/40">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-orange">
-                ASTRAV ARCHITECTURE
-              </span>
+            <div className="flex items-center justify-end pb-4 mb-5 border-b border-brand-peach/40">
               <span className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-brand-green bg-brand-green-light px-3 py-1 rounded-full border border-brand-green/30">
                 <Sparkles className="w-3.5 h-3.5" />
                 Always Live

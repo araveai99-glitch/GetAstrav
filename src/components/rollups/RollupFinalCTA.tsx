@@ -13,7 +13,7 @@ export const RollupFinalCTA: React.FC = () => {
       ref={sectionRef}
       className="pt-2 sm:pt-4 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto"
     >
-      <div className="rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-8 sm:p-12 md:p-16 border-2 border-brand-peach/80 shadow-warm-xl relative overflow-hidden text-center">
+      <div className="rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-6 sm:p-10 md:p-12 border-2 border-brand-peach/80 shadow-warm-xl relative overflow-hidden text-center">
         {/* Soft Ambient Floating Glow */}
         <motion.div
           animate={
@@ -33,7 +33,7 @@ export const RollupFinalCTA: React.FC = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
             transition={{ duration: 0.4, delay: 0.05 }}
-            className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight"
+            className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight lg:whitespace-nowrap"
           >
             Let Progress Speak for Itself.
           </motion.h2>
@@ -42,7 +42,7 @@ export const RollupFinalCTA: React.FC = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
             transition={{ duration: 0.4, delay: 0.16 }}
-            className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-lg mx-auto"
+            className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-2xl mx-auto lg:whitespace-nowrap"
           >
             Keep your team aligned and see how everyday work moves your goals forward.
           </motion.p>
