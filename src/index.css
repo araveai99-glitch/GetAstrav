@@ -312,8 +312,22 @@
   .animate-spin-slow,
   .animate-spin-slow-reverse,
   .animate-spin-medium,
-  .animate-float-slow {
+  .animate-float-slow,
+  .animate-dash-flow {
     animation: none !important;
   }
+}
+
+@keyframes dashFlow {
+  from {
+    stroke-dashoffset: 28;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-dash-flow {
+  animation: dashFlow 1.4s linear infinite;
 }
 

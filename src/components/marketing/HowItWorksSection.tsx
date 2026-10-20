@@ -476,8 +476,11 @@ export const HowItWorksSection: React.FC = () => {
                       <img
                         src={step.image}
                         alt={step.title}
+                        width={84}
+                        height={76}
                         className="w-full h-full object-contain select-none pointer-events-none drop-shadow-[0_4px_8px_rgba(241,94,28,0.06)]"
                         loading="lazy"
+                        decoding="async"
                       />
                     </picture>
                   </div>
@@ -554,18 +557,30 @@ export const HowItWorksSection: React.FC = () => {
                 <div className="flex -space-x-2">
                   <img
                     className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=faces&auto=format&q=75"
                     alt="Founder"
+                    width={32}
+                    height={32}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <img
                     className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=faces&auto=format&q=75"
                     alt="Founder"
+                    width={32}
+                    height={32}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <img
                     className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80"
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=faces&auto=format&q=75"
                     alt="Founder"
+                    width={32}
+                    height={32}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <span className="text-xs font-heading font-semibold text-terracotta max-w-[180px] leading-tight">

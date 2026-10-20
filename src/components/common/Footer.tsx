@@ -138,24 +138,32 @@ export const Footer: React.FC = () => {
               title="Arav Innovations - Elevating Brands, One Click at a Time"
             >
               <picture>
-                <source type="image/webp" srcSet="/assets/arav-logo.webp" />
+                <source
+                  type="image/webp"
+                  srcSet="/assets/arav-logo-sm.webp 112w, /assets/arav-logo.webp 160w"
+                  sizes="58px"
+                />
                 <img
-                  src="/assets/arav-logo.png"
+                  src="/assets/arav-logo-sm.webp"
                   alt="Arav Innovations Ribbon Logo"
-                  width={160}
-                  height={166}
+                  width={112}
+                  height={116}
                   loading="lazy"
                   decoding="async"
                   className="h-12 sm:h-14 md:h-14 lg:h-[58px] w-auto object-contain drop-shadow-sm shrink-0 group-hover:scale-105 transition-transform"
                 />
               </picture>
               <picture>
-                <source type="image/webp" srcSet="/assets/powered-by-arav.webp" />
+                <source
+                  type="image/webp"
+                  srcSet="/assets/powered-by-arav-sm.webp 203w, /assets/powered-by-arav.webp 380w"
+                  sizes="(max-width: 640px) 160px, 203px"
+                />
                 <img
-                  src="/assets/powered-by-arav.png"
+                  src="/assets/powered-by-arav-sm.webp"
                   alt="Powered by Arav Innovations - Elevating Brands, One Click at a Time"
-                  width={380}
-                  height={127}
+                  width={203}
+                  height={68}
                   loading="lazy"
                   decoding="async"
                   className="h-14 sm:h-16 md:h-16 lg:h-[68px] w-auto object-contain drop-shadow-sm shrink-0 group-hover:scale-[1.02] transition-transform"

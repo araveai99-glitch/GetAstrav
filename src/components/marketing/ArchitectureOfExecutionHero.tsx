@@ -109,19 +109,6 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-[#faf6f0] border-b border-brand-peach/60 pt-20 sm:pt-22 select-none">
-      <style>{`
-        @keyframes dashFlow {
-          from {
-            stroke-dashoffset: 28;
-          }
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-        .animate-dash-flow {
-          animation: dashFlow 1.4s linear infinite;
-        }
-      `}</style>
 
       {/* ============================================================ */}
       {/* DESKTOP / WIDE SCREEN: 4K HIGH-DEF PANORAMIC HERO BACKDROP   */}
@@ -149,7 +136,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               srcSet="/assets/golden_hour_glass_tech_hub_1440.webp"
             />
             <img
-              src="/assets/golden_hour_glass_tech_hub_1440.webp"
+              src="/assets/golden_hour_glass_tech_hub_1440.avif"
               alt="Astrav Executive Organization Command Center"
               width={1806}
               height={871}
@@ -559,13 +546,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       {/* ============================================================ */}
       <div className="lg:hidden max-w-xl mx-auto px-2.5 xs:px-3.5 sm:px-6 pt-2.5 sm:pt-4 space-y-7 text-left pb-12">
         {/* 1. Headline & Supporting Text */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.45, ease: 'easeOut' }}
-          className="space-y-3.5"
-        >
+        <div className="space-y-3.5">
           <h1 className="text-[34px] xs:text-[38px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading">
             Your Entire Company<br />
             In <span className="text-[#f15e1c]">One View.</span>
@@ -573,16 +554,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <p className="text-sm sm:text-base text-[#5a4138] font-body leading-relaxed text-justify">
             Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
           </p>
-        </motion.div>
+        </div>
 
         {/* 3. CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.45, delay: 0.1, ease: 'easeOut' }}
-          className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
-        >
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
           <Link
             to="/product"
             className="inline-flex items-center justify-center gap-2 text-sm sm:text-base font-heading font-bold text-white bg-[#f15e1c] hover:bg-[#d94e10] px-6 py-3.5 rounded-full shadow-lg shadow-[#f15e1c]/30 active:scale-[0.98] transition-all cursor-pointer"
@@ -599,16 +574,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             <Play className="w-4 h-4 text-[#271812] fill-[#271812]/15" />
             <span>See How It Works</span>
           </a>
-        </motion.div>
+        </div>
 
         {/* 4. Four Value Prop Highlights (2x2 Grid) */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.45, delay: 0.15, ease: 'easeOut' }}
-          className="pt-2 border-t border-brand-peach/40 grid grid-cols-2 gap-x-4 gap-y-3 text-xs sm:text-sm font-heading"
-        >
+        <div className="pt-2 border-t border-brand-peach/40 grid grid-cols-2 gap-x-4 gap-y-3 text-xs sm:text-sm font-heading">
           <div className="flex items-center gap-2 font-bold text-[#271812]">
             <Target className="w-4 h-4 text-[#f15e1c] shrink-0" />
             <span>Goal-Driven Execution</span>
@@ -625,18 +594,12 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             <Users className="w-4 h-4 text-[#f15e1c] shrink-0" />
             <span>Built for Founders</span>
           </div>
-        </motion.div>
+        </div>
 
         {/* ============================================================ */}
         {/* 5. OFFICE SCENE VISUAL CONTAINER WITH OVERLAID CARDS         */}
         {/* ============================================================ */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: false, amount: 0.15 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="relative w-full aspect-[1306/871] rounded-2xl sm:rounded-3xl overflow-hidden shadow-warm-lg border border-brand-peach/80 bg-[#1e130c] select-none"
-        >
+        <div className="relative w-full aspect-[1306/871] rounded-2xl sm:rounded-3xl overflow-hidden shadow-warm-lg border border-brand-peach/80 bg-[#1e130c] select-none">
           {/* Office Scene Image with Founder looking at mobile phone */}
           <picture>
             <source
@@ -649,10 +612,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               srcSet="/assets/golden_hour_tech_hub_mobile.webp"
             />
             <img
-              src="/assets/golden_hour_tech_hub_mobile.webp"
+              src="/assets/golden_hour_tech_hub_mobile_sm.webp"
               alt="Astrav Command Center Hub"
-              width={1306}
-              height={871}
+              width={680}
+              height={454}
               className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
               loading="eager"
               fetchPriority="high"
@@ -931,7 +894,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           >
             <div className="absolute inset-0 rounded-2xl transition-all duration-300 group-hover:ring-2 group-hover:ring-brand-orange group-hover:bg-brand-orange/15 group-hover:shadow-[0_0_24px_rgba(241,94,28,0.45)]" />
           </div>
-        </motion.div>
+        </div>
 
         {/* ============================================================ */}
         {/* 6. TAP DEPARTMENT TO INSPECT (3-COLUMN GRID)                 */}

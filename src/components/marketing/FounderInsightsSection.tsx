@@ -94,12 +94,21 @@ export const FounderInsightsSection: React.FC = () => {
               {/* Full 16:9 Unblurred Founder Desk Artwork (Zero baked UI text) */}
               <div className="relative w-full aspect-[16/9] overflow-hidden bg-transparent">
                 <picture>
-                  <source type="image/webp" srcSet="/assets/founder_desk_scene_hq.webp" />
+                  <source
+                    type="image/webp"
+                    media="(max-width: 768px)"
+                    srcSet="/assets/founder_desk_scene_mobile.webp"
+                  />
+                  <source
+                    type="image/webp"
+                    srcSet="/assets/founder_desk_scene_desktop.webp 750w, /assets/founder_desk_scene_hq.webp 1000w"
+                    sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 55vw, 750px"
+                  />
                   <img
-                    src="/assets/founder_desk_scene_hq.webp"
+                    src="/assets/founder_desk_scene_desktop.webp"
                     alt="Founder reviewing real-time company performance insights on dual displays in modern executive suite"
-                    width={1376}
-                    height={768}
+                    width={750}
+                    height={419}
                     className="w-full h-full object-cover block select-none pointer-events-none transition-transform duration-700 group-hover:scale-[1.015]"
                     loading="lazy"
                     decoding="async"

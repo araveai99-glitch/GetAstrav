@@ -1,27 +1,33 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { ArchitectureOfExecutionHero } from '../../components/marketing/ArchitectureOfExecutionHero';
-import { HowItWorksSection } from '../../components/marketing/HowItWorksSection';
-import { KeyCapabilitiesSection } from '../../components/marketing/KeyCapabilitiesSection';
-import { FounderInsightsSection } from '../../components/marketing/FounderInsightsSection';
-import { CTASection } from '../../components/common/CTASection';
+
+// Lazy load below-the-fold sections to minimize critical JavaScript execution on first paint
+const HowItWorksSection = lazy(() =>
+  import('../../components/marketing/HowItWorksSection').then((m) => ({ default: m.HowItWorksSection }))
+);
+const KeyCapabilitiesSection = lazy(() =>
+  import('../../components/marketing/KeyCapabilitiesSection').then((m) => ({ default: m.KeyCapabilitiesSection }))
+);
+const FounderInsightsSection = lazy(() =>
+  import('../../components/marketing/FounderInsightsSection').then((m) => ({ default: m.FounderInsightsSection }))
+);
+const CTASection = lazy(() =>
+  import('../../components/common/CTASection').then((m) => ({ default: m.CTASection }))
+);
 
 export const Home: React.FC = () => {
   return (
     <div className="w-full flex flex-col overflow-x-hidden">
-      {/* 1. HERO SECTION: Your Entire Company In One View */}
+      {/* 1. HERO SECTION: Your Entire Company In One View (Critical Above-the-Fold Path) */}
       <ArchitectureOfExecutionHero />
 
-      {/* 2. HOW IT WORKS: From Goals to Execution in 4 Simple Steps */}
-      <HowItWorksSection />
-
-      {/* 3. KEY CAPABILITIES: Everything You Need to Run Your Organization */}
-      <KeyCapabilitiesSection />
-
-      {/* 4. BUILT FOR FOUNDERS: Make Faster Decisions with Real Insights */}
-      <FounderInsightsSection />
-
-      {/* 5. CLOSING CTA: Ready to See Your Company in One View? */}
-      <CTASection />
+      {/* 2-5. BELOW-THE-FOLD SECTIONS: Lazy-loaded asynchronously */}
+      <Suspense fallback={<div className="min-h-[300px]" />}>
+        <HowItWorksSection />
+        <KeyCapabilitiesSection />
+        <FounderInsightsSection />
+        <CTASection />
+      </Suspense>
     </div>
   );
 };
