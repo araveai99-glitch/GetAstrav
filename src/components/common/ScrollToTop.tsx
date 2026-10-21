@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation, useNavigationType } from 'react-router-dom';
 
 /**
@@ -19,7 +19,14 @@ export const ScrollToTop: React.FC = () => {
     }
   }, []);
 
-  useLayoutEffect(() => {
+  const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
     const isSamePath = prevPathRef.current === pathname;
     prevPathRef.current = pathname;
 
@@ -40,37 +47,34 @@ export const ScrollToTop: React.FC = () => {
 
     // Helper to perform strict, immediate top reset
     const performScrollReset = () => {
-      // 'instant' immediately halts any currently active smooth scroll animation
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'instant' as ScrollBehavior,
-      });
-
-      if (document.documentElement) {
-        document.documentElement.scrollTop = 0;
-      }
-      if (document.body) {
-        document.body.scrollTop = 0;
+      if (window.scrollY !== 0) {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'instant' as ScrollBehavior,
+        });
       }
     };
 
     // 1. Immediate synchronous reset before paint
     performScrollReset();
 
-    // 2. Next animation frame (handles any layout recalculation from routing)
-    const rafId = requestAnimationFrame(() => {
-      performScrollReset();
-    });
+    // 2. Schedule follow-ups only if still scrolled
+    let rafId: number | null = null;
+    let timerId: NodeJS.Timeout | null = null;
 
-    // 3. Short timeout fallback to handle async lazy-loaded route chunk mounting (React.lazy / Suspense)
-    const timerId = setTimeout(() => {
-      performScrollReset();
-    }, 60);
+    if (window.scrollY !== 0) {
+      rafId = requestAnimationFrame(() => {
+        performScrollReset();
+      });
+      timerId = setTimeout(() => {
+        performScrollReset();
+      }, 60);
+    }
 
     return () => {
-      cancelAnimationFrame(rafId);
-      clearTimeout(timerId);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      if (timerId !== null) clearTimeout(timerId);
     };
   }, [pathname, search, hash, navType]);
 

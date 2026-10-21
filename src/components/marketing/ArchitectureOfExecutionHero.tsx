@@ -129,20 +129,21 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             />
             <source
               type="image/avif"
+              media="(min-width: 1024px)"
               srcSet="/assets/golden_hour_glass_tech_hub_1440.avif"
             />
             <source
               type="image/webp"
+              media="(min-width: 1024px)"
               srcSet="/assets/golden_hour_glass_tech_hub_1440.webp"
             />
             <img
-              src="/assets/golden_hour_glass_tech_hub_1440.avif"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1806 871'%3E%3C/svg%3E"
               alt="Astrav Executive Organization Command Center"
               width={1806}
               height={871}
               className="w-full h-full object-cover object-bottom block select-none pointer-events-none"
-              loading="eager"
-              fetchPriority="high"
+              loading="lazy"
               decoding="async"
             />
           </picture>
@@ -179,7 +180,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="absolute z-20 flex flex-col justify-start select-none"
             style={{
@@ -192,7 +193,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.45, delay: 0.05, ease: 'easeOut' }}
               className="text-[32px] sm:text-[38px] xl:text-[46px] 2xl:text-[54px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.03em] font-heading mb-2.5 xl:mb-3"
             >
@@ -205,7 +206,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.45, delay: 0.15, ease: 'easeOut' }}
               className="text-sm xl:text-base 2xl:text-[17px] text-[#5a4138] font-body leading-relaxed mb-4 xl:mb-5 max-w-[440px] text-left"
             >
@@ -216,7 +217,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.45, delay: 0.25, ease: 'easeOut' }}
               className="flex items-center gap-2.5 xl:gap-3"
             >
@@ -251,7 +252,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 key={dept.id}
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{
                   duration: 0.45,
                   delay: 0.1 + index * 0.07,
@@ -299,7 +300,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                         className={`h-full ${dept.barColor} rounded-full`}
                         initial={{ width: '0%' }}
                         whileInView={{ width: dept.progress }}
-                        viewport={{ once: false, amount: 0.2 }}
+                        viewport={{ once: true, amount: 0.2 }}
                         transition={{
                           duration: 0.75,
                           delay: 0.2 + index * 0.07,
@@ -330,7 +331,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.45, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
             onClick={() => setCompanyGoalModalOpen(true)}
             className="absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_8px_24px_rgba(0,0,0,0.12),0_2px_6px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_28px_rgba(46,147,111,0.3)] hover:border-[#2e936f] hover:scale-[1.01] p-2 xl:p-2.5 2xl:p-3 flex flex-col justify-between group overflow-hidden"
@@ -370,7 +371,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full"
                 initial={{ width: '0%' }}
                 whileInView={{ width: '72%' }}
-                viewport={{ once: false, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.8, delay: 0.45, ease: 'easeOut' }}
               />
             </div>
@@ -384,7 +385,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               key={notif.id}
               initial={{ opacity: 0, x: 18 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.4, delay: 0.25 + idx * 0.08, ease: 'easeOut' }}
               onClick={() => setActiveNotif(notif)}
               className="absolute z-20 rounded-xl xl:rounded-2xl cursor-pointer transition-all duration-200 select-none bg-white border border-black/[0.08] shadow-[0_6px_20px_rgba(0,0,0,0.08),0_2px_4px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_24px_rgba(0,0,0,0.14)] hover:border-brand-orange/60 hover:scale-[1.01] px-2.5 py-1.5 xl:px-3 xl:py-2 flex items-center justify-between group overflow-hidden"
@@ -519,7 +520,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   key={idx}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
                   className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-xs hover:border-brand-orange/60 hover:shadow-warm-md hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer"
                 >
@@ -609,6 +610,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             />
             <source
               type="image/webp"
+              media="(min-width: 641px)"
               srcSet="/assets/golden_hour_tech_hub_mobile.webp"
             />
             <img
@@ -707,7 +709,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 key={dept.id}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{
                   duration: 0.35,
                   delay: 0.08 + index * 0.05,
@@ -746,7 +748,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                         className={`h-full ${dept.barColor} rounded-full`}
                         initial={{ width: '0%' }}
                         whileInView={{ width: dept.progress }}
-                        viewport={{ once: false, amount: 0.2 }}
+                        viewport={{ once: true, amount: 0.2 }}
                         transition={{
                           duration: 0.75,
                           delay: 0.15 + index * 0.05,
@@ -775,7 +777,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.45, delay: 0.35, ease: 'easeOut' }}
             onClick={() => setCompanyGoalModalOpen(true)}
             className="absolute z-20 rounded-xl xs:rounded-2xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_6px_20px_rgba(46,147,111,0.22),0_2px_4px_rgba(0,0,0,0.06)] p-1.5 min-[360px]:p-2 min-[375px]:p-2 sm:p-2.5 cursor-pointer active:scale-95 transition-all select-none group flex flex-col justify-between"
@@ -814,7 +816,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full"
                 initial={{ width: '0%' }}
                 whileInView={{ width: '72%' }}
-                viewport={{ once: false, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.8, delay: 0.45, ease: 'easeOut' }}
               />
             </div>
@@ -834,7 +836,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 key={notif.id}
                 initial={{ opacity: 0, x: 14 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.35, delay: 0.2 + idx * 0.06, ease: 'easeOut' }}
                 onClick={() => setActiveNotif(notif)}
                 className="rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_3px_10px_rgba(0,0,0,0.1)] p-1 min-[375px]:p-1.25 flex flex-col justify-between cursor-pointer active:scale-95 transition-all select-none group"

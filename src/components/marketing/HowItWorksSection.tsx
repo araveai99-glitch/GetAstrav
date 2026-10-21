@@ -176,7 +176,7 @@ export const HowItWorksSection: React.FC = () => {
                         className="h-full rounded-full bg-gradient-to-r from-brand-green to-emerald-400"
                         initial={{ width: '0%' }}
                         whileInView={{ width: '72%' }}
-                        viewport={{ once: false, amount: 0.2 }}
+                        viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
                       />
                     </div>
@@ -251,7 +251,7 @@ export const HowItWorksSection: React.FC = () => {
                             className={`h-full rounded-full ${dept.color}`}
                             initial={{ width: '0%' }}
                             whileInView={{ width: dept.width }}
-                            viewport={{ once: false, amount: 0.2 }}
+                            viewport={{ once: true, amount: 0.2 }}
                             transition={{ duration: 0.7, delay: 0.25 + idx * 0.05, ease: 'easeOut' }}
                           />
                         </div>
@@ -398,7 +398,7 @@ export const HowItWorksSection: React.FC = () => {
                               strokeLinecap="round"
                               initial={{ pathLength: 0 }}
                               whileInView={{ pathLength: 1 }}
-                              viewport={{ once: false, amount: 0.2 }}
+                              viewport={{ once: true, amount: 0.2 }}
                               transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
                             />
                           </svg>

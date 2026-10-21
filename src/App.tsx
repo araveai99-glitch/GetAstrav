@@ -2,8 +2,41 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 
-// Background 3D Canvas (deferred & lazy-loaded to prevent blocking initial paint)
-const ThreeBackground = lazy(() => import('./components/common/ThreeBackground'));
+// Background 3D Canvas (deferred to user interaction or idle timer so Three.js does not compete with initial paint or LCP)
+const DeferredThreeBackground: React.FC<{ intensity?: 'hero' | 'standard' | 'subtle'; className?: string }> = (props) => {
+  const [Comp, setComp] = React.useState<React.ComponentType<any> | null>(null);
+
+  React.useEffect(() => {
+    let active = true;
+    const load = () => {
+      window.removeEventListener('scroll', load);
+      window.removeEventListener('pointerdown', load);
+      window.removeEventListener('keydown', load);
+      import('./components/common/ThreeBackground').then((mod) => {
+        if (active) {
+          setComp(() => mod.default || mod.ThreeBackground);
+        }
+      });
+    };
+
+    window.addEventListener('scroll', load, { passive: true, once: true });
+    window.addEventListener('pointerdown', load, { passive: true, once: true });
+    window.addEventListener('keydown', load, { passive: true, once: true });
+
+    const timer = setTimeout(load, 8000);
+
+    return () => {
+      active = false;
+      window.removeEventListener('scroll', load);
+      window.removeEventListener('pointerdown', load);
+      window.removeEventListener('keydown', load);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  if (!Comp) return null;
+  return <Comp {...props} />;
+};
 
 // Marketing Layout Header/Footer & Modals
 import { Navbar } from './components/common/Navbar';
@@ -63,9 +96,7 @@ const ActivityPage = lazy(() => import('./pages/app/ActivityPage').then(m => ({ 
 const MarketingLayout: React.FC = () => {
   return (
     <div className="min-h-screen bg-surface-ambient flex flex-col font-sans selection:bg-brand-orange selection:text-white relative">
-      <Suspense fallback={null}>
-        <ThreeBackground intensity="hero" />
-      </Suspense>
+      <DeferredThreeBackground intensity="hero" />
       <Navbar />
       <main className="flex-1 relative z-10">
         <Suspense fallback={null}>
