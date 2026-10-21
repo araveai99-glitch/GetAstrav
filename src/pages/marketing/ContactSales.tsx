@@ -114,7 +114,7 @@ export const ContactSales: React.FC = () => {
                 <h3 className="text-2xl font-heading font-extrabold text-espresso">
                   Thank You, {formData.fullName.split(' ')[0]}!
                 </h3>
-                <p className="text-sm sm:text-base text-terracotta leading-relaxed">
+                <p className="text-base sm:text-lg text-terracotta leading-relaxed">
                   We've received your requirements for <span className="font-heading font-bold text-espresso">{formData.companyName}</span>. Our team will review your workflow goals and reach out to explore the best setup.
                 </p>
               </div>
@@ -130,7 +130,7 @@ export const ContactSales: React.FC = () => {
                     notes: '',
                   });
                 }}
-                className="btn-brand-secondary px-6 py-2.5 text-xs sm:text-sm font-heading font-bold rounded-xl mt-4 cursor-pointer"
+                className="btn-brand-secondary px-6 py-2.5 text-sm font-heading font-bold rounded-xl mt-4 cursor-pointer"
               >
                 Send Another Message
               </button>
@@ -138,17 +138,17 @@ export const ContactSales: React.FC = () => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="pb-4 border-b border-brand-peach/40">
-                <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+                <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
                   Get in Touch
                 </h2>
-                <p className="text-xs sm:text-sm text-terracotta mt-0.5">
+                <p className="text-sm sm:text-base text-terracotta mt-0.5">
                   Fill in your details below and we'll prepare a tailored walkthrough.
                 </p>
               </div>
 
               {/* Full Name */}
               <div>
-                <label className="block text-xs font-heading font-bold text-espresso mb-1.5">
+                <label className="block text-sm font-heading font-bold text-espresso mb-1.5">
                   Full Name *
                 </label>
                 <div className="relative">
@@ -161,19 +161,19 @@ export const ContactSales: React.FC = () => {
                       if (errors.fullName) setErrors({ ...errors, fullName: '' });
                     }}
                     placeholder="e.g. Sarah Jenkins"
-                    className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm text-espresso bg-surface-tier1/50 placeholder:text-terracotta-muted/70 focus:outline-none focus:ring-2 focus:ring-brand-orange/40 transition-all ${
+                    className={`w-full pl-10 pr-4 py-3 rounded-xl border text-base text-espresso bg-surface-tier1/50 placeholder:text-terracotta-muted/70 focus:outline-none focus:ring-2 focus:ring-brand-orange/40 transition-all ${
                       errors.fullName ? 'border-red-400 bg-red-50/20' : 'border-brand-peach/70 hover:border-brand-peach'
                     }`}
                   />
                 </div>
                 {errors.fullName && (
-                  <p className="text-xs text-red-600 mt-1">{errors.fullName}</p>
+                  <p className="text-xs sm:text-sm text-red-600 mt-1">{errors.fullName}</p>
                 )}
               </div>
 
               {/* Work Email */}
               <div>
-                <label className="block text-xs font-heading font-bold text-espresso mb-1.5">
+                <label className="block text-sm font-heading font-bold text-espresso mb-1.5">
                   Work Email *
                 </label>
                 <div className="relative">
@@ -186,20 +186,20 @@ export const ContactSales: React.FC = () => {
                       if (errors.email) setErrors({ ...errors, email: '' });
                     }}
                     placeholder="sarah@company.com"
-                    className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm text-espresso bg-surface-tier1/50 placeholder:text-terracotta-muted/70 focus:outline-none focus:ring-2 focus:ring-brand-orange/40 transition-all ${
+                    className={`w-full pl-10 pr-4 py-3 rounded-xl border text-base text-espresso bg-surface-tier1/50 placeholder:text-terracotta-muted/70 focus:outline-none focus:ring-2 focus:ring-brand-orange/40 transition-all ${
                       errors.email ? 'border-red-400 bg-red-50/20' : 'border-brand-peach/70 hover:border-brand-peach'
                     }`}
                   />
                 </div>
                 {errors.email && (
-                  <p className="text-xs text-red-600 mt-1">{errors.email}</p>
+                  <p className="text-xs sm:text-sm text-red-600 mt-1">{errors.email}</p>
                 )}
               </div>
 
               {/* Company Name & Team Size Row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-heading font-bold text-espresso mb-1.5">
+                  <label className="block text-sm font-heading font-bold text-espresso mb-1.5">
                     Company Name *
                   </label>
                   <div className="relative">
@@ -212,18 +212,18 @@ export const ContactSales: React.FC = () => {
                         if (errors.companyName) setErrors({ ...errors, companyName: '' });
                       }}
                       placeholder="Acme Innovations"
-                      className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm text-espresso bg-surface-tier1/50 placeholder:text-terracotta-muted/70 focus:outline-none focus:ring-2 focus:ring-brand-orange/40 transition-all ${
+                      className={`w-full pl-10 pr-4 py-3 rounded-xl border text-base text-espresso bg-surface-tier1/50 placeholder:text-terracotta-muted/70 focus:outline-none focus:ring-2 focus:ring-brand-orange/40 transition-all ${
                         errors.companyName ? 'border-red-400 bg-red-50/20' : 'border-brand-peach/70 hover:border-brand-peach'
                       }`}
                     />
                   </div>
                   {errors.companyName && (
-                    <p className="text-xs text-red-600 mt-1">{errors.companyName}</p>
+                    <p className="text-xs sm:text-sm text-red-600 mt-1">{errors.companyName}</p>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-heading font-bold text-espresso mb-1.5">
+                  <label className="block text-sm font-heading font-bold text-espresso mb-1.5">
                     Team Size (Optional)
                   </label>
                   <div className="relative">
@@ -231,7 +231,7 @@ export const ContactSales: React.FC = () => {
                     <select
                       value={formData.teamSize}
                       onChange={(e) => setFormData({ ...formData, teamSize: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-brand-peach/70 text-sm text-espresso bg-surface-tier1/50 focus:outline-none focus:ring-2 focus:ring-brand-orange/40 cursor-pointer transition-all"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-brand-peach/70 text-base text-espresso bg-surface-tier1/50 focus:outline-none focus:ring-2 focus:ring-brand-orange/40 cursor-pointer transition-all"
                     >
                       <option value="1-10">1 – 10 members</option>
                       <option value="11-50">11 – 50 members</option>
@@ -244,7 +244,7 @@ export const ContactSales: React.FC = () => {
 
               {/* What would you like to discuss? */}
               <div>
-                <label className="block text-xs font-heading font-bold text-espresso mb-1.5">
+                <label className="block text-sm font-heading font-bold text-espresso mb-1.5">
                   What would you like to discuss? (Optional)
                 </label>
                 <div className="relative">
@@ -253,7 +253,7 @@ export const ContactSales: React.FC = () => {
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                     placeholder="Tell us about your current workflow, challenges, or pods..."
-                    className="w-full px-4 py-3 rounded-xl border border-brand-peach/70 text-sm text-espresso bg-surface-tier1/50 placeholder:text-terracotta-muted/70 focus:outline-none focus:ring-2 focus:ring-brand-orange/40 transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-brand-peach/70 text-base text-espresso bg-surface-tier1/50 placeholder:text-terracotta-muted/70 focus:outline-none focus:ring-2 focus:ring-brand-orange/40 transition-all resize-none"
                   />
                 </div>
               </div>
@@ -284,7 +284,7 @@ export const ContactSales: React.FC = () => {
               <span className="text-xs font-mono font-bold text-terracotta-muted">
                 HOW WE WORK TOGETHER
               </span>
-              <span className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-brand-orange">
+              <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold text-brand-orange">
                 <Sparkles className="w-3.5 h-3.5" />
                 Zero Pressure
               </span>
@@ -293,49 +293,49 @@ export const ContactSales: React.FC = () => {
             {/* 3 Step Flow */}
             <div className="space-y-4">
               <div className="p-4 bg-white rounded-2xl border border-brand-peach/50 shadow-warm-2xs flex items-start gap-3.5">
-                <div className="w-8 h-8 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center shrink-0 font-mono font-bold text-xs mt-0.5">
+                <div className="w-8 h-8 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center shrink-0 font-mono font-bold text-xs min-[375px]:text-sm mt-0.5">
                   01
                 </div>
                 <div>
-                  <h4 className="font-heading font-bold text-sm sm:text-base text-espresso">
+                  <h4 className="font-heading font-bold text-base sm:text-lg text-espresso">
                     Share Your Needs
                   </h4>
-                  <p className="text-xs text-terracotta leading-relaxed mt-1">
+                  <p className="text-sm min-[375px]:text-base text-terracotta leading-relaxed mt-1">
                     Tell us your team size, key goals, and current toolchain challenges.
                   </p>
                 </div>
               </div>
 
               <div className="p-4 bg-white rounded-2xl border border-brand-peach/50 shadow-warm-2xs flex items-start gap-3.5">
-                <div className="w-8 h-8 rounded-xl bg-amber-50 text-brand-yellow flex items-center justify-center shrink-0 font-mono font-bold text-xs mt-0.5">
+                <div className="w-8 h-8 rounded-xl bg-amber-50 text-brand-yellow flex items-center justify-center shrink-0 font-mono font-bold text-xs min-[375px]:text-sm mt-0.5">
                   02
                 </div>
                 <div>
-                  <h4 className="font-heading font-bold text-sm sm:text-base text-espresso">
+                  <h4 className="font-heading font-bold text-base sm:text-lg text-espresso">
                     Explore Astrav
                   </h4>
-                  <p className="text-xs text-terracotta leading-relaxed mt-1">
+                  <p className="text-sm min-[375px]:text-base text-terracotta leading-relaxed mt-1">
                     We'll walk through how automatic progress rollups and pods map to your company structure.
                   </p>
                 </div>
               </div>
 
               <div className="p-4 bg-white rounded-2xl border border-brand-peach/50 shadow-warm-2xs flex items-start gap-3.5">
-                <div className="w-8 h-8 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center shrink-0 font-mono font-bold text-xs mt-0.5">
+                <div className="w-8 h-8 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center shrink-0 font-mono font-bold text-xs min-[375px]:text-sm mt-0.5">
                   03
                 </div>
                 <div>
-                  <h4 className="font-heading font-bold text-sm sm:text-base text-espresso">
+                  <h4 className="font-heading font-bold text-base sm:text-lg text-espresso">
                     Plan Your Next Steps
                   </h4>
-                  <p className="text-xs text-terracotta leading-relaxed mt-1">
+                  <p className="text-sm min-[375px]:text-base text-terracotta leading-relaxed mt-1">
                     Get a clear rollout recommendation tailored for your leadership and pod leads.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-white/80 border border-brand-peach/40 text-xs text-terracotta leading-relaxed">
+            <div className="p-4 rounded-xl bg-white/80 border border-brand-peach/40 text-sm text-terracotta leading-relaxed">
               <span className="font-heading font-bold text-espresso block mb-1">
                 Zero Commitment Walkthrough
               </span>
@@ -348,7 +348,7 @@ export const ContactSales: React.FC = () => {
       {/* Section 3: What Happens Next */}
       <div className="space-y-4">
         <div className="text-left w-full max-w-5xl space-y-1 sm:space-y-1.5">
-          <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-espresso tracking-tight text-left lg:whitespace-nowrap">
+          <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso tracking-tight text-left lg:whitespace-nowrap">
             What Happens Next.
           </h2>
           <p className="text-sm sm:text-base text-terracotta leading-relaxed max-w-3xl text-left lg:whitespace-nowrap">
@@ -368,14 +368,14 @@ export const ContactSales: React.FC = () => {
               <div className="w-10 h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center mb-4 font-mono font-bold text-sm">
                 1
               </div>
-              <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
                 Share Your Requirements
               </h3>
-              <p className="text-sm text-terracotta leading-relaxed">
+              <p className="text-base text-terracotta leading-relaxed">
                 Submit the form with your team focus areas so we can prepare relevant workflow examples.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-xs font-heading font-semibold text-brand-orange">
+            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-sm font-heading font-semibold text-brand-orange">
               Requirement Review
             </div>
           </motion.div>
@@ -391,14 +391,14 @@ export const ContactSales: React.FC = () => {
               <div className="w-10 h-10 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center mb-4 font-mono font-bold text-sm">
                 2
               </div>
-              <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
                 Discuss Your Team's Needs
               </h3>
-              <p className="text-sm text-terracotta leading-relaxed">
+              <p className="text-base text-terracotta leading-relaxed">
                 We'll walk through real examples of goals, milestones, and pod tracking tailored to your company.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-xs font-heading font-semibold text-brand-green">
+            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-sm font-heading font-semibold text-brand-green">
               Tailored Walkthrough
             </div>
           </motion.div>
@@ -414,14 +414,14 @@ export const ContactSales: React.FC = () => {
               <div className="w-10 h-10 rounded-xl bg-amber-50 text-brand-yellow flex items-center justify-center mb-4 font-mono font-bold text-sm">
                 3
               </div>
-              <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
                 Explore the Next Steps
               </h3>
-              <p className="text-sm text-terracotta leading-relaxed">
+              <p className="text-base text-terracotta leading-relaxed">
                 Decide if Astrav is the right fit with clear guidance on onboarding, setup, and pod architecture.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-xs font-heading font-semibold text-amber-700">
+            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-sm font-heading font-semibold text-amber-700">
               Clear Rollout Path
             </div>
           </motion.div>

@@ -133,7 +133,7 @@ export const Managers: React.FC = () => {
       {/* DIRECT OPENING (PROPER NAVBAR CLEARANCE, NO HERO BANNER, NO BADGES) */}
       {/* ==================================================================== */}
       <div className="max-w-4xl xl:max-w-5xl space-y-3">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight lg:whitespace-nowrap">
+        <h1 className="text-3xl min-[390px]:text-[32px] sm:text-4xl lg:text-[42px] xl:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight lg:whitespace-nowrap">
           Keep Your Team <span className="text-brand-orange">Moving Together.</span>
         </h1>
         <p className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-3xl">
@@ -149,10 +149,10 @@ export const Managers: React.FC = () => {
         className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative overflow-hidden space-y-6"
       >
         <div className="max-w-2xl space-y-1 text-left">
-          <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+          <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
             Turn Plans Into Teamwork
           </h2>
-          <p className="text-xs sm:text-sm text-terracotta">
+          <p className="text-base text-terracotta mt-1 leading-relaxed">
             Organize work in 4 simple stages, from high-level planning down to finished results.
           </p>
         </div>
@@ -193,21 +193,21 @@ export const Managers: React.FC = () => {
                         {stage.stageNumber}
                       </span>
                       <span
-                        className={`text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded-full border ${stage.badgeClass}`}
+                        className={`text-xs font-mono font-bold uppercase px-2 py-0.5 rounded-full border ${stage.badgeClass}`}
                       >
                         {stage.status}
                       </span>
                     </div>
 
-                    <h3 className="font-heading font-bold text-base text-espresso">
+                    <h3 className="font-heading font-bold text-[17px] sm:text-base text-espresso">
                       {stage.title}
                     </h3>
-                    <p className="text-xs text-terracotta leading-relaxed">
+                    <p className="text-sm text-terracotta leading-relaxed">
                       {stage.desc}
                     </p>
                   </div>
 
-                  <div className="p-2.5 rounded-xl bg-white border border-brand-peach/70 shadow-warm-2xs flex items-center justify-between text-xs font-heading font-bold text-espresso">
+                  <div className="p-2.5 rounded-xl bg-white border border-brand-peach/70 shadow-warm-2xs flex items-center justify-between text-sm font-heading font-bold text-espresso">
                     <span className="truncate pr-2">{stage.sampleCard}</span>
                     <CheckCircle2
                       className={`w-4 h-4 shrink-0 ${
@@ -230,10 +230,10 @@ export const Managers: React.FC = () => {
         className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative overflow-hidden space-y-6"
       >
         <div className="max-w-2xl space-y-1 text-left">
-          <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+          <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
             Know What Needs Attention.
           </h2>
-          <p className="text-xs sm:text-sm text-terracotta">
+          <p className="text-base text-terracotta mt-1 leading-relaxed">
             Select a task below to see its status, spot delays, and review the recommended next action.
           </p>
         </div>
@@ -263,11 +263,11 @@ export const Managers: React.FC = () => {
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-mono font-bold text-terracotta-muted">
+                    <span className="text-xs font-mono font-bold text-terracotta-muted">
                       {task.pod} • {task.owner}
                     </span>
                     <span
-                      className={`text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded-full border flex items-center gap-1 ${
+                      className={`text-xs font-mono font-bold uppercase px-2 py-0.5 rounded-full border flex items-center gap-1 ${
                         isBlocked
                           ? 'bg-brand-orange-light text-brand-orange border-brand-orange/30'
                           : task.status === 'Completed'
@@ -280,13 +280,13 @@ export const Managers: React.FC = () => {
                     </span>
                   </div>
 
-                  <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso leading-snug">
+                  <h4 className="font-heading font-bold text-[16px] sm:text-sm text-espresso leading-snug">
                     {task.title}
                   </h4>
 
                   {/* Progress Mini Bar */}
                   <div className="space-y-1">
-                    <div className="flex justify-between text-[10px] font-mono text-terracotta">
+                    <div className="flex justify-between text-xs font-mono text-terracotta">
                       <span>Progress</span>
                       <span className="font-bold">{task.progress}%</span>
                     </div>
@@ -316,10 +316,10 @@ export const Managers: React.FC = () => {
           <div className="lg:col-span-7 p-5 rounded-3xl bg-surface-ambient border border-brand-peach/90 shadow-warm-xs space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-brand-peach/60">
               <div>
-                <span className="text-[10px] font-mono font-bold text-brand-orange uppercase block">
+                <span className="text-xs font-mono font-bold text-brand-orange uppercase block">
                   Task Detail
                 </span>
-                <h3 className="font-heading font-bold text-sm sm:text-base text-espresso">
+                <h3 className="font-heading font-bold text-[18px] sm:text-base text-espresso">
                   {activeTask.title}
                 </h3>
               </div>
@@ -336,10 +336,10 @@ export const Managers: React.FC = () => {
                   01
                 </div>
                 <div>
-                  <div className="text-[10px] font-heading font-bold text-terracotta uppercase">
+                  <div className="text-xs font-heading font-bold text-terracotta uppercase">
                     Assigned Work
                   </div>
-                  <div className="text-xs sm:text-sm font-heading font-bold text-espresso">
+                  <div className="text-sm sm:text-sm font-heading font-bold text-espresso">
                     {activeTask.title} assigned to {activeTask.pod}
                   </div>
                 </div>
@@ -351,9 +351,9 @@ export const Managers: React.FC = () => {
                   02
                 </div>
                 <div className="w-full space-y-1">
-                  <div className="flex justify-between items-center text-[10px] font-heading font-bold text-terracotta">
+                  <div className="flex justify-between items-center gap-2 text-xs font-heading font-bold text-terracotta">
                     <span className="uppercase">Current Progress</span>
-                    <span className="font-mono text-espresso font-bold">{activeTask.progress}% Complete</span>
+                    <span className="font-mono text-espresso font-bold whitespace-nowrap shrink-0">{activeTask.progress}% Complete</span>
                   </div>
                   <div className="w-full h-2 rounded-full bg-surface-ambient border border-brand-peach/60 overflow-hidden">
                     <motion.div
@@ -392,13 +392,13 @@ export const Managers: React.FC = () => {
                 </div>
                 <div>
                   <div
-                    className={`text-[10px] font-heading font-bold uppercase ${
+                    className={`text-xs font-heading font-bold uppercase ${
                       activeTask.status === 'Blocked' ? 'text-brand-orange' : 'text-terracotta'
                     }`}
                   >
                     {activeTask.status === 'Blocked' ? 'Delayed Work Detected' : 'Blocker Check'}
                   </div>
-                  <div className="text-xs sm:text-sm font-heading font-bold text-espresso">
+                  <div className="text-sm sm:text-sm font-heading font-bold text-espresso">
                     {activeTask.blockerDetail || 'No delays detected. Work is moving forward on schedule.'}
                   </div>
                 </div>
@@ -410,10 +410,10 @@ export const Managers: React.FC = () => {
                   04
                 </div>
                 <div>
-                  <div className="text-[10px] font-heading font-bold text-brand-green uppercase">
+                  <div className="text-xs font-heading font-bold text-brand-green uppercase">
                     Next Action
                   </div>
-                  <div className="text-xs sm:text-sm font-heading font-bold text-espresso">
+                  <div className="text-sm sm:text-sm font-heading font-bold text-espresso">
                     {activeTask.nextAction}
                   </div>
                 </div>
@@ -431,10 +431,10 @@ export const Managers: React.FC = () => {
         className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-6"
       >
         <div className="max-w-2xl space-y-1 text-left">
-          <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+          <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
             Your Team's Progress, At a Glance.
           </h2>
-          <p className="text-xs sm:text-sm text-terracotta">
+          <p className="text-base text-terracotta mt-1 leading-relaxed">
             Keep team workloads balanced and track project deadlines without constant follow-ups.
           </p>
         </div>
@@ -444,16 +444,16 @@ export const Managers: React.FC = () => {
           {/* 1. Team Workload */}
           <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center justify-between text-xs font-heading font-bold text-terracotta mb-1">
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
                 <span className="flex items-center gap-1.5">
                   <Activity className="w-4 h-4 text-brand-green" /> Team Workload
                 </span>
                 <span className="font-mono text-brand-green font-bold">Balanced</span>
               </div>
-              <div className="text-xl font-extrabold font-heading text-espresso">
+              <div className="text-[20px] font-extrabold font-heading text-espresso">
                 4 Active Pods
               </div>
-              <p className="text-xs text-terracotta-muted mt-0.5">
+              <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
                 74% average workload; no burnout risk
               </p>
             </div>
@@ -469,7 +469,7 @@ export const Managers: React.FC = () => {
                   className="h-full rounded-full bg-brand-green"
                 />
               </div>
-              <div className="flex justify-between text-[10px] font-mono text-terracotta-muted">
+              <div className="flex justify-between text-xs font-mono text-terracotta-muted">
                 <span>Healthy Distribution</span>
                 <span>Zero Alerts</span>
               </div>
@@ -479,16 +479,16 @@ export const Managers: React.FC = () => {
           {/* 2. Task Completion */}
           <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center justify-between text-xs font-heading font-bold text-terracotta mb-1">
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
                 <span className="flex items-center gap-1.5">
                   <CheckSquare className="w-4 h-4 text-brand-orange" /> Task Completion
                 </span>
                 <span className="font-mono text-brand-orange font-bold">88%</span>
               </div>
-              <div className="text-xl font-extrabold font-heading text-espresso">
+              <div className="text-[20px] font-extrabold font-heading text-espresso">
                 44 / 50 Tasks
               </div>
-              <p className="text-xs text-terracotta-muted mt-0.5">
+              <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
                 Paced 2 days ahead of sprint schedule
               </p>
             </div>
@@ -504,7 +504,7 @@ export const Managers: React.FC = () => {
                   className="h-full rounded-full bg-gradient-to-r from-brand-orange to-brand-yellow"
                 />
               </div>
-              <div className="flex justify-between text-[10px] font-mono text-terracotta-muted">
+              <div className="flex justify-between text-xs font-mono text-terracotta-muted">
                 <span>44 Verified</span>
                 <span>6 In Review</span>
               </div>
@@ -514,16 +514,16 @@ export const Managers: React.FC = () => {
           {/* 3. Project Progress */}
           <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center justify-between text-xs font-heading font-bold text-terracotta mb-1">
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
                 <span className="flex items-center gap-1.5">
                   <TrendingUp className="w-4 h-4 text-brand-yellow" /> Project Progress
                 </span>
                 <span className="font-mono text-amber-700 font-bold">91%</span>
               </div>
-              <div className="text-xl font-extrabold font-heading text-espresso">
+              <div className="text-[20px] font-extrabold font-heading text-espresso">
                 Core Platform
               </div>
-              <p className="text-xs text-terracotta-muted mt-0.5">
+              <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
                 Progress calculated from completed tasks
               </p>
             </div>
@@ -539,7 +539,7 @@ export const Managers: React.FC = () => {
                   className="h-full rounded-full bg-gradient-to-r from-brand-yellow to-brand-green"
                 />
               </div>
-              <div className="flex justify-between text-[10px] font-mono text-terracotta-muted">
+              <div className="flex justify-between text-xs font-mono text-terracotta-muted">
                 <span>Milestone 3</span>
                 <span>On Track</span>
               </div>
@@ -549,28 +549,28 @@ export const Managers: React.FC = () => {
           {/* 4. Upcoming Deadlines */}
           <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center justify-between text-xs font-heading font-bold text-terracotta mb-1">
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="w-4 h-4 text-brand-orange" /> Deadlines
                 </span>
                 <span className="font-mono font-bold text-brand-orange">In 3 Days</span>
               </div>
-              <div className="text-xl font-extrabold font-heading text-espresso">
+              <div className="text-[20px] font-extrabold font-heading text-espresso">
                 Release v2.4
               </div>
-              <p className="text-xs text-terracotta-muted mt-0.5">
+              <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
                 Scheduled for Friday deployment
               </p>
             </div>
 
-            <div className="flex items-center gap-1 text-[11px] font-heading font-semibold text-brand-green">
+            <div className="flex items-center gap-1 text-xs font-heading font-semibold text-brand-green">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>All 3 review gates passed</span>
             </div>
           </div>
         </div>
 
-        <div className="text-left text-[11px] font-mono text-terracotta-muted">
+        <div className="text-left text-xs font-mono text-terracotta-muted">
           * Illustrative team data demonstrating automated sprint progress tracking.
         </div>
       </section>

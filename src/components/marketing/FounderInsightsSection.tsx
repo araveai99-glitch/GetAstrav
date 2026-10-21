@@ -168,10 +168,10 @@ export const FounderInsightsSection: React.FC = () => {
                           />
                         </div>
 
-                        {/* Text Metrics */}
+                          {/* Text Metrics */}
                         <div className="leading-tight">
                           <div className="flex items-center gap-1.5">
-                            <span className="font-heading font-extrabold text-[11px] sm:text-xs md:text-sm text-espresso">
+                            <span className="font-heading font-extrabold text-[11.5px] xs:text-xs md:text-sm text-espresso">
                               {card.title}
                             </span>
                             <span
@@ -183,7 +183,7 @@ export const FounderInsightsSection: React.FC = () => {
                           </div>
 
                           <span
-                            className={`text-[9px] sm:text-[11px] md:text-xs block font-heading ${
+                            className={`text-[10px] xs:text-[11px] md:text-xs block font-heading ${
                               card.isAlert
                                 ? 'text-amber-800 font-bold'
                                 : 'text-terracotta-muted font-medium'
@@ -193,7 +193,7 @@ export const FounderInsightsSection: React.FC = () => {
                           </span>
 
                           <span
-                            className={`text-[8.5px] sm:text-[10px] md:text-[11px] block font-mono font-bold ${
+                            className={`text-[9.5px] xs:text-[10.5px] md:text-xs block font-mono font-bold ${
                               card.isAlert ? 'text-amber-600' : 'text-brand-green'
                             }`}
                           >
@@ -207,12 +207,12 @@ export const FounderInsightsSection: React.FC = () => {
               </div>
 
               {/* Mobile Quick Inspector Bar (Visible on mobile screens < 640px) */}
-              <div className="sm:hidden px-3 py-2.5 bg-white border-t border-brand-peach/40 flex items-center justify-between text-xs">
-                <span className="text-[11px] font-heading font-bold text-espresso flex items-center gap-1.5">
+              <div className="sm:hidden px-3.5 py-2.5 bg-white border-t border-brand-peach/40 flex items-center justify-between text-xs">
+                <span className="text-xs font-heading font-bold text-espresso flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-brand-green animate-ping" />
                   3 Live Department Signals
                 </span>
-                <span className="text-[10px] font-heading font-bold text-brand-orange">
+                <span className="text-[11px] xs:text-xs font-heading font-bold text-brand-orange">
                   Tap cards to inspect
                 </span>
               </div>
@@ -226,7 +226,7 @@ export const FounderInsightsSection: React.FC = () => {
         <div className="lg:col-span-5 space-y-6 sm:space-y-7 text-left z-10">
           <MotionWrapper delay={0.05}>
             <div className="space-y-3.5 sm:space-y-4">
-              <h2 className="text-[32px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.12] tracking-[-0.02em] font-heading">
+              <h2 className="text-[28px] xs:text-[32px] sm:text-[40px] lg:text-[44px] font-extrabold text-[#271812] leading-[1.14] tracking-[-0.02em] font-heading">
                 Make Faster Decisions<br />
                 with <span className="text-[#f15e1c]">Real Insights.</span>
               </h2>
@@ -295,19 +295,19 @@ export const FounderInsightsSection: React.FC = () => {
                 </button>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-surface-ambient border border-brand-peach/50 text-xs text-espresso leading-relaxed">
+              <div className="p-3.5 rounded-2xl bg-surface-ambient border border-brand-peach/50 text-[13px] sm:text-sm text-espresso leading-relaxed">
                 {selectedInsight.deepDive}
               </div>
 
               <div className="space-y-2 pt-1">
-                <span className="text-[11px] font-heading font-bold uppercase tracking-wider text-espresso block">
+                <span className="text-xs font-heading font-bold uppercase tracking-wider text-espresso block">
                   Active Metrics
                 </span>
                 <div className="space-y-1.5">
                   {selectedInsight.metrics.map((m, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-2 text-xs text-espresso bg-white px-3 py-1.5 rounded-xl border border-brand-peach/40"
+                      className="flex items-center gap-2 text-xs sm:text-[13px] text-espresso bg-white px-3 py-1.5 rounded-xl border border-brand-peach/40"
                     >
                       <CheckCircle2 className="w-3.5 h-3.5 text-brand-green shrink-0" />
                       <span>{m}</span>
@@ -318,7 +318,7 @@ export const FounderInsightsSection: React.FC = () => {
 
               <button
                 onClick={() => setSelectedInsight(null)}
-                className="w-full py-2.5 rounded-full bg-brand-orange text-white font-heading font-bold text-xs shadow-md shadow-brand-orange/20 cursor-pointer hover:bg-brand-orange-hover transition-colors"
+                className="w-full py-2.5 rounded-full bg-brand-orange text-white font-heading font-bold text-xs sm:text-sm shadow-md shadow-brand-orange/20 cursor-pointer hover:bg-brand-orange-hover transition-colors"
               >
                 Close Inspection
               </button>

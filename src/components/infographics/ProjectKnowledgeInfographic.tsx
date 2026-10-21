@@ -33,8 +33,8 @@ export const ProjectKnowledgeInfographic: React.FC = () => {
                     <FolderGit2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-extrabold text-espresso">Project: Payment Gateway & SAML SSO</h3>
-                    <span className="text-[10px] text-terracotta font-mono">CONTAINER ID: prj_8f92a10</span>
+                    <h3 className="text-[16px] sm:text-base font-extrabold text-espresso">Project: Payment Gateway & SAML SSO</h3>
+                    <span className="text-xs text-terracotta font-mono">CONTAINER ID: prj_8f92a10</span>
                   </div>
                 </div>
                 <span className="px-3 py-1 rounded-full bg-mint-soft border border-brand-green/30 text-brand-green text-xs font-bold font-mono">
@@ -44,19 +44,19 @@ export const ProjectKnowledgeInfographic: React.FC = () => {
 
               {/* Linked Tasks */}
               <div className="space-y-2.5">
-                <span className="text-[10px] font-mono font-extrabold text-brand-orange uppercase tracking-wider">
+                <span className="text-xs font-mono font-extrabold text-brand-orange uppercase tracking-wider">
                   LINKED ACTIONABLE LEAF TASKS
                 </span>
                 {[
                   { title: 'Stripe Webhook Signature Verification Lock', status: 'Completed', owner: 'Alex M.' },
                   { title: 'OAuth PKCE Idempotency Layer for Payment Retries', status: 'In Review', owner: 'Priya K.' },
                 ].map((task, idx) => (
-                  <div key={idx} className="p-3.5 rounded-xl bg-ivory border border-brand-peach/60 flex items-center justify-between text-xs sm:text-sm">
+                  <div key={idx} className="p-3.5 rounded-xl bg-ivory border border-brand-peach/60 flex items-center justify-between text-sm">
                     <div className="flex items-center gap-2.5">
-                      <CheckSquare className="w-4 h-4 text-brand-orange" />
-                      <span className="font-bold text-espresso">{task.title}</span>
+                      <CheckSquare className="w-4 h-4 text-brand-orange shrink-0" />
+                      <span className="font-bold text-espresso text-[14px] sm:text-sm">{task.title}</span>
                     </div>
-                    <span className="text-[10px] sm:text-xs font-semibold text-terracotta font-mono">{task.owner}</span>
+                    <span className="text-xs font-semibold text-terracotta font-mono shrink-0 ml-2">{task.owner}</span>
                   </div>
                 ))}
               </div>
@@ -82,8 +82,8 @@ export const ProjectKnowledgeInfographic: React.FC = () => {
                     <FileText className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-extrabold text-espresso">Architecture Specification</h3>
-                    <span className="text-[10px] text-terracotta font-mono">SPEC: spec_payment_v2.md</span>
+                    <h3 className="text-[16px] sm:text-base font-extrabold text-espresso">Architecture Specification</h3>
+                    <span className="text-xs text-terracotta font-mono">SPEC: spec_payment_v2.md</span>
                   </div>
                 </div>
 
@@ -107,13 +107,13 @@ export const ProjectKnowledgeInfographic: React.FC = () => {
 
               {/* Doc Preview Panel */}
               <div className="p-4 rounded-xl bg-ivory border border-brand-peach/60 space-y-2">
-                <div className="text-xs sm:text-sm font-mono text-espresso font-extrabold flex items-center justify-between">
+                <div className="text-sm font-mono text-espresso font-extrabold flex items-center justify-between">
                   <span># Payment Engine Spec ({activeVersion})</span>
-                  <span className="text-[10px] text-brand-green font-mono font-bold flex items-center gap-1">
+                  <span className="text-xs text-brand-green font-mono font-bold flex items-center gap-1">
                     <CheckCircle2 className="w-3 h-3" /> Signed off by VP Ops
                   </span>
                 </div>
-                <p className="text-xs text-terracotta leading-relaxed font-normal">
+                <p className="text-sm sm:text-xs text-terracotta leading-relaxed font-normal">
                   {activeVersion === 'v3.4' && 'All transaction events require sub-50ms idempotency lookup using Redis key locks with zero-downtime failover.'}
                   {activeVersion === 'v3.3' && 'Added PKCE OAuth token refresh handler for enterprise single sign-on.'}
                   {activeVersion === 'v3.2' && 'Initial draft for Stripe webhook payload signature verification.'}

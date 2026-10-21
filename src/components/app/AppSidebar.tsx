@@ -34,49 +34,72 @@ const appNavItems = [
   { path: '/app/settings', label: 'Org Settings & RBAC', icon: Settings },
 ];
 
-export const AppSidebar: React.FC = () => {
+interface AppSidebarProps {
+  mobileOpen?: boolean;
+  onCloseMobile?: () => void;
+}
+
+export const AppSidebar: React.FC<AppSidebarProps> = ({ mobileOpen, onCloseMobile }) => {
   return (
-    <aside className="w-64 bg-white border-r border-brand-peach/80 h-screen sticky top-0 flex flex-col justify-between p-4 z-40 shrink-0">
-      <div className="space-y-4 overflow-y-auto">
-        {/* Workspace Switcher Header */}
-        <OrganizationSwitcher />
+    <>
+      {/* Mobile Backdrop */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 bg-espresso/60 backdrop-blur-xs z-40 md:hidden animate-fadeIn"
+          onClick={onCloseMobile}
+        />
+      )}
 
-        {/* Navigation Items */}
-        <nav className="space-y-1">
-          <div className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-terracotta-muted">
-            Command Menu
-          </div>
-          {appNavItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
-                    isActive
-                      ? 'bg-brand-orange text-white shadow-glow-orange'
-                      : 'text-terracotta hover:bg-surface-tier1 hover:text-brand-orange'
-                  }`
-                }
-              >
-                <Icon className="w-4 h-4 shrink-0" />
-                <span>{item.label}</span>
-              </NavLink>
-            );
-          })}
-        </nav>
-      </div>
+      <aside
+        className={`bg-white border-r border-brand-peach/80 h-screen sticky top-0 flex flex-col justify-between p-4 z-40 shrink-0 transition-transform duration-300 md:translate-x-0 ${
+          mobileOpen
+            ? 'fixed inset-y-0 left-0 z-50 w-72 shadow-2xl translate-x-0'
+            : 'hidden md:flex w-64'
+        }`}
+      >
+        <div className="space-y-4 overflow-y-auto">
+          {/* Workspace Switcher Header */}
+          <OrganizationSwitcher />
 
-      {/* Footer Return Link */}
-      <div className="pt-4 border-t border-brand-peach/60 space-y-2">
-        <Link
-          to="/"
-          className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold text-terracotta-muted hover:text-brand-orange hover:bg-surface-tier1 transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" /> Return to Website
-        </Link>
-      </div>
-    </aside>
+          {/* Navigation Items */}
+          <nav className="space-y-1">
+            <div className="px-3 py-1.5 text-xs sm:text-[10px] font-bold uppercase tracking-wider text-terracotta-muted">
+              Command Menu
+            </div>
+            {appNavItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  onClick={onCloseMobile}
+                  className={({ isActive }) =>
+                    `flex items-center gap-3 px-3 py-2.5 sm:py-2 rounded-xl text-sm sm:text-xs font-semibold transition-all ${
+                      isActive
+                        ? 'bg-brand-orange text-white shadow-glow-orange'
+                        : 'text-terracotta hover:bg-surface-tier1 hover:text-brand-orange'
+                    }`
+                  }
+                >
+                  <Icon className="w-4 h-4 shrink-0" />
+                  <span>{item.label}</span>
+                </NavLink>
+              );
+            })}
+          </nav>
+        </div>
+
+        {/* Footer Return Link */}
+        <div className="pt-4 border-t border-brand-peach/60 space-y-2">
+          <Link
+            to="/"
+            onClick={onCloseMobile}
+            className="flex items-center gap-2 px-3 py-2.5 sm:py-2 rounded-xl text-sm sm:text-xs font-semibold text-terracotta-muted hover:text-brand-orange hover:bg-surface-tier1 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" /> Return to Website
+          </Link>
+        </div>
+      </aside>
+    </>
   );
 };

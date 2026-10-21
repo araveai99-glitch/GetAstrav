@@ -87,7 +87,7 @@ export const Founders: React.FC = () => {
       {/* DIRECT OPENING (PROPER NAVBAR CLEARANCE, NO HERO BANNER, NO BADGES) */}
       {/* ==================================================================== */}
       <div className="max-w-4xl xl:max-w-5xl space-y-3">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight lg:whitespace-nowrap">
+        <h1 className="text-3xl min-[390px]:text-[32px] sm:text-4xl lg:text-[42px] xl:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight lg:whitespace-nowrap">
           Turn Your Vision <span className="text-brand-orange">Into Results.</span>
         </h1>
         <p className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-3xl">
@@ -103,10 +103,10 @@ export const Founders: React.FC = () => {
         className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative overflow-hidden space-y-6"
       >
         <div className="max-w-2xl space-y-1 text-left">
-          <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+          <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
             From Vision to Action
           </h2>
-          <p className="text-xs sm:text-sm text-terracotta">
+          <p className="text-base text-terracotta mt-1 leading-relaxed">
             See how everyday work connects to big company goals in 5 clear steps.
           </p>
         </div>
@@ -166,24 +166,24 @@ export const Founders: React.FC = () => {
                     </div>
 
                     <div className="space-y-0.5 text-left">
-                      <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-orange">
+                      <div className="text-xs font-mono font-bold uppercase tracking-wider text-brand-orange">
                         {step.label}
                       </div>
-                      <h3 className="font-heading font-bold text-sm text-espresso">
+                      <h3 className="font-heading font-bold text-[17px] sm:text-sm text-espresso">
                         {step.title}
                       </h3>
-                      <p className="text-xs text-terracotta leading-relaxed pt-1">
+                      <p className="text-sm text-terracotta leading-relaxed pt-1">
                         {step.desc}
                       </p>
                     </div>
                   </div>
 
-                  <div className="mt-3 pt-2.5 border-t border-brand-peach/40 flex items-center justify-between text-[11px] font-heading font-semibold text-terracotta-muted">
+                  <div className="mt-3 pt-2.5 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-terracotta-muted">
                     <span className={isSelected ? 'text-brand-orange font-bold' : ''}>
                       {isSelected ? 'Active Step' : 'Click to inspect'}
                     </span>
                     <ArrowRight
-                      className={`w-3 h-3 transition-transform ${
+                      className={`w-3.5 h-3.5 transition-transform ${
                         isSelected ? 'text-brand-orange translate-x-1' : 'text-terracotta-muted'
                       }`}
                     />
@@ -200,10 +200,10 @@ export const Founders: React.FC = () => {
                 {React.createElement(VISION_STEPS[selectedStep].icon, { className: 'w-4 h-4' })}
               </div>
               <div>
-                <span className="text-[10px] font-mono font-bold text-brand-orange uppercase">
+                <span className="text-xs font-mono font-bold text-brand-orange uppercase">
                   Step {VISION_STEPS[selectedStep].number} • {VISION_STEPS[selectedStep].label}
                 </span>
-                <div className="text-xs sm:text-sm font-heading font-bold text-espresso">
+                <div className="text-sm sm:text-sm font-heading font-bold text-espresso">
                   {VISION_STEPS[selectedStep].title}: {VISION_STEPS[selectedStep].desc}
                 </div>
               </div>
@@ -225,10 +225,10 @@ export const Founders: React.FC = () => {
         className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-6"
       >
         <div className="max-w-2xl space-y-1 text-left">
-          <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+          <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
             Know Where Your Business Stands.
           </h2>
-          <p className="text-xs sm:text-sm text-terracotta">
+          <p className="text-base text-terracotta mt-1 leading-relaxed">
             A quick view of your company's progress, healthy projects, and upcoming milestones.
           </p>
         </div>
@@ -238,16 +238,16 @@ export const Founders: React.FC = () => {
           {/* Card 1: Overall Goal Progress */}
           <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center justify-between text-xs font-heading font-bold text-terracotta mb-1">
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
                 <span className="flex items-center gap-1.5">
                   <Target className="w-4 h-4 text-brand-orange" /> Goal Progress
                 </span>
                 <span className="font-mono text-brand-orange font-bold">78%</span>
               </div>
-              <div className="text-xl font-extrabold font-heading text-espresso">
+              <div className="text-[20px] font-extrabold font-heading text-espresso">
                 Q3 Strategy
               </div>
-              <p className="text-xs text-terracotta-muted mt-0.5">
+              <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
                 Calculated from 18 verified deliverables
               </p>
             </div>
@@ -263,7 +263,7 @@ export const Founders: React.FC = () => {
                   className="h-full rounded-full bg-gradient-to-r from-brand-orange to-brand-yellow"
                 />
               </div>
-              <div className="flex justify-between text-[10px] font-mono text-terracotta-muted">
+              <div className="flex justify-between text-xs font-mono text-terracotta-muted">
                 <span>Paced for Oct 31</span>
                 <span>+6% this week</span>
               </div>
@@ -273,16 +273,16 @@ export const Founders: React.FC = () => {
           {/* Card 2: Projects On Track */}
           <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center justify-between text-xs font-heading font-bold text-terracotta mb-1">
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
                 <span className="flex items-center gap-1.5">
                   <Activity className="w-4 h-4 text-brand-green" /> Projects On Track
                 </span>
                 <span className="font-mono text-brand-green font-bold">14 / 16</span>
               </div>
-              <div className="text-xl font-extrabold font-heading text-espresso">
+              <div className="text-[20px] font-extrabold font-heading text-espresso">
                 14 Healthy
               </div>
-              <p className="text-xs text-terracotta-muted mt-0.5">
+              <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
                 87.5% of active initiatives on schedule
               </p>
             </div>
@@ -298,7 +298,7 @@ export const Founders: React.FC = () => {
                   className="h-full rounded-full bg-brand-green"
                 />
               </div>
-              <div className="flex justify-between text-[10px] font-mono text-terracotta-muted">
+              <div className="flex justify-between text-xs font-mono text-terracotta-muted">
                 <span>Across 5 Teams</span>
                 <span>2 In Review</span>
               </div>
@@ -308,50 +308,50 @@ export const Founders: React.FC = () => {
           {/* Card 3: Work Needing Attention */}
           <div className="p-4 rounded-2xl bg-[#fffbf7] border-2 border-brand-orange/60 shadow-warm-xs flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center justify-between text-xs font-heading font-bold text-brand-orange mb-1">
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-brand-orange mb-1">
                 <span className="flex items-center gap-1.5">
                   <AlertTriangle className="w-4 h-4 text-brand-orange" /> Needs Attention
                 </span>
                 <span className="font-mono font-bold">1 Delay</span>
               </div>
-              <div className="text-base font-extrabold font-heading text-espresso leading-snug">
+              <div className="text-[18px] sm:text-base font-extrabold font-heading text-espresso leading-snug">
                 Security Sign-Off
               </div>
-              <p className="text-xs text-terracotta mt-0.5">
+              <p className="text-sm sm:text-xs text-terracotta mt-0.5">
                 Review waiting &gt; 48h for approval
               </p>
             </div>
 
-            <div className="pt-2 border-t border-brand-peach/50 flex items-center justify-between text-xs font-heading font-bold text-brand-orange">
+            <div className="pt-2 border-t border-brand-peach/50 flex items-center justify-between text-sm font-heading font-bold text-brand-orange">
               <span>Unblock in 1 Click</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-4 h-4" />
             </div>
           </div>
 
           {/* Card 4: Upcoming Milestones */}
           <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center justify-between text-xs font-heading font-bold text-terracotta mb-1">
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="w-4 h-4 text-brand-yellow" /> Next 14 Days
                 </span>
                 <span className="font-mono font-bold text-espresso">3 Gates</span>
               </div>
-              <div className="text-xl font-extrabold font-heading text-espresso">
+              <div className="text-[20px] font-extrabold font-heading text-espresso">
                 Upcoming Gates
               </div>
-              <p className="text-xs text-terracotta-muted mt-0.5">
+              <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
                 Beta Rollout, SOC2 Audit, Billing v2
               </p>
             </div>
 
-            <div className="text-[11px] font-mono text-brand-green font-semibold">
+            <div className="text-xs font-mono text-brand-green font-semibold">
               ✓ All requirements assigned
             </div>
           </div>
         </div>
 
-        <div className="text-left text-[11px] font-mono text-terracotta-muted">
+        <div className="text-left text-xs font-mono text-terracotta-muted">
           * Illustrative sample data demonstrating live progress telemetry.
         </div>
       </section>
@@ -364,10 +364,10 @@ export const Founders: React.FC = () => {
         className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-6"
       >
         <div className="max-w-2xl space-y-1 text-left">
-          <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+          <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
             Less Chasing. More Progress.
           </h2>
-          <p className="text-xs sm:text-sm text-terracotta">
+          <p className="text-base text-terracotta mt-1 leading-relaxed">
             Spend less time in status meetings and more time moving the company forward.
           </p>
         </div>
@@ -391,10 +391,10 @@ export const Founders: React.FC = () => {
                 <div className="p-3 rounded-xl bg-white border border-red-100 flex items-center gap-3">
                   <Clock className="w-4 h-4 text-red-500 shrink-0" />
                   <div>
-                    <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                    <h4 className="font-heading font-bold text-[16px] sm:text-sm text-espresso">
                       Manual follow-ups
                     </h4>
-                    <p className="text-xs text-terracotta">
+                    <p className="text-sm sm:text-xs text-terracotta">
                       Constant messages, status check-ins, and recap emails.
                     </p>
                   </div>
@@ -403,10 +403,10 @@ export const Founders: React.FC = () => {
                 <div className="p-3 rounded-xl bg-white border border-red-100 flex items-center gap-3">
                   <MessageSquareWarning className="w-4 h-4 text-red-500 shrink-0" />
                   <div>
-                    <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                    <h4 className="font-heading font-bold text-[16px] sm:text-sm text-espresso">
                       Scattered updates
                     </h4>
-                    <p className="text-xs text-terracotta">
+                    <p className="text-sm sm:text-xs text-terracotta">
                       Information spread across chat, documents, and spreadsheets.
                     </p>
                   </div>
@@ -415,10 +415,10 @@ export const Founders: React.FC = () => {
                 <div className="p-3 rounded-xl bg-white border border-red-100 flex items-center gap-3">
                   <HelpCircle className="w-4 h-4 text-red-500 shrink-0" />
                   <div>
-                    <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                    <h4 className="font-heading font-bold text-[16px] sm:text-sm text-espresso">
                       Unclear progress
                     </h4>
-                    <p className="text-xs text-terracotta">
+                    <p className="text-sm sm:text-xs text-terracotta">
                       Decisions based on gut feelings and outdated status reports.
                     </p>
                   </div>
@@ -426,7 +426,7 @@ export const Founders: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-2.5 rounded-xl bg-red-100/70 text-red-800 text-xs font-heading font-semibold text-center">
+            <div className="p-2.5 rounded-xl bg-red-100/70 text-red-800 text-sm font-heading font-semibold text-center">
               Hours wasted chasing updates each week
             </div>
           </motion.div>
@@ -449,10 +449,10 @@ export const Founders: React.FC = () => {
                 <div className="p-3 rounded-xl bg-white border border-brand-green/40 flex items-center gap-3">
                   <Target className="w-4 h-4 text-brand-green shrink-0" />
                   <div>
-                    <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                    <h4 className="font-heading font-bold text-[16px] sm:text-sm text-espresso">
                       Connected goals
                     </h4>
-                    <p className="text-xs text-terracotta">
+                    <p className="text-sm sm:text-xs text-terracotta">
                       High-level strategy connects directly to daily tasks.
                     </p>
                   </div>
@@ -461,10 +461,10 @@ export const Founders: React.FC = () => {
                 <div className="p-3 rounded-xl bg-white border border-brand-green/40 flex items-center gap-3">
                   <RefreshCw className="w-4 h-4 text-brand-green shrink-0" />
                   <div>
-                    <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                    <h4 className="font-heading font-bold text-[16px] sm:text-sm text-espresso">
                       Automatic progress updates
                     </h4>
-                    <p className="text-xs text-terracotta">
+                    <p className="text-sm sm:text-xs text-terracotta">
                       Completed work recalculates progress in real time.
                     </p>
                   </div>
@@ -473,10 +473,10 @@ export const Founders: React.FC = () => {
                 <div className="p-3 rounded-xl bg-white border border-brand-green/40 flex items-center gap-3">
                   <CheckCircle2 className="w-4 h-4 text-brand-green shrink-0" />
                   <div>
-                    <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                    <h4 className="font-heading font-bold text-[16px] sm:text-sm text-espresso">
                       Clear decisions
                     </h4>
-                    <p className="text-xs text-terracotta">
+                    <p className="text-sm sm:text-xs text-terracotta">
                       Spot problems early and lead with live, accurate numbers.
                     </p>
                   </div>
@@ -484,7 +484,7 @@ export const Founders: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-2.5 rounded-xl bg-brand-green text-white text-xs font-heading font-bold text-center shadow-sm">
+            <div className="p-2.5 rounded-xl bg-brand-green text-white text-sm font-heading font-bold text-center shadow-sm">
               Complete progress visibility without status meetings
             </div>
           </motion.div>

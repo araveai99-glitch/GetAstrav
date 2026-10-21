@@ -25,7 +25,7 @@ export const TaskList: React.FC<TaskListProps> = ({ tasks, filterStatus = 'All' 
   return (
     <div className="space-y-3">
       {filteredTasks.length === 0 ? (
-        <div className="p-8 text-center bg-white rounded-2xl border border-brand-peach/60 text-xs text-terracotta-muted">
+        <div className="p-8 text-center bg-white rounded-2xl border border-brand-peach/60 text-sm sm:text-xs text-terracotta-muted">
           No tasks found matching current filter.
         </div>
       ) : (
@@ -58,20 +58,20 @@ export const TaskList: React.FC<TaskListProps> = ({ tasks, filterStatus = 'All' 
                   className="cursor-pointer truncate text-left"
                 >
                   <h4
-                    className={`text-sm font-bold text-espresso group-hover:text-brand-orange transition-colors truncate ${
+                    className={`text-base sm:text-sm font-bold text-espresso group-hover:text-brand-orange transition-colors truncate ${
                       t.completed ? 'line-through text-terracotta-muted' : ''
                     }`}
                   >
                     {t.title}
                   </h4>
-                  <div className="flex items-center gap-3 text-[11px] text-terracotta-muted mt-0.5">
+                  <div className="flex items-center gap-3 text-xs sm:text-[11px] text-terracotta-muted mt-0.5">
                     {t.assignee && (
                       <span className="flex items-center gap-1 font-medium">
-                        <UserCheck className="w-3 h-3 text-brand-green" /> {t.assignee.full_name}
+                        <UserCheck className="w-3.5 h-3.5 text-brand-green" /> {t.assignee.full_name}
                       </span>
                     )}
                     <span className="flex items-center gap-1 font-mono">
-                      <Clock className="w-3 h-3 text-brand-orange" />
+                      <Clock className="w-3.5 h-3.5 text-brand-orange" />
                       Due: {new Date(t.deadline).toLocaleDateString()}
                     </span>
                   </div>
@@ -80,13 +80,13 @@ export const TaskList: React.FC<TaskListProps> = ({ tasks, filterStatus = 'All' 
 
               <div className="flex items-center gap-3 shrink-0">
                 {t.approval_status === 'pending' && (
-                  <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold border border-amber-200">
+                  <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-xs sm:text-[10px] font-bold border border-amber-200">
                     Review Pending
                   </span>
                 )}
                 {isOverdue && (
-                  <span className="px-2 py-0.5 rounded-full bg-red-100 text-red-700 text-[10px] font-bold flex items-center gap-1 border border-red-200">
-                    <AlertCircle className="w-3 h-3" /> Overdue
+                  <span className="px-2 py-0.5 rounded-full bg-red-100 text-red-700 text-xs sm:text-[10px] font-bold flex items-center gap-1 border border-red-200">
+                    <AlertCircle className="w-3.5 h-3.5" /> Overdue
                   </span>
                 )}
                 <button

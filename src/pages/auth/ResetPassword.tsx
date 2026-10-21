@@ -15,24 +15,24 @@ export const ResetPassword: React.FC = () => {
               <Layers className="w-6 h-6 text-brand-orange" />
             </div>
           </div>
-          <h2 className="text-2xl font-extrabold text-espresso">Set New Password</h2>
-          <p className="text-xs text-terracotta-muted">Enter your new secure credential</p>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-espresso">Set New Password</h2>
+          <p className="text-base text-terracotta-muted">Enter your new secure credential</p>
         </div>
 
         <form onSubmit={(e) => { e.preventDefault(); navigate('/login'); }} className="space-y-4">
           <div>
-            <label className="text-[10px] font-bold uppercase tracking-wider text-terracotta-muted block mb-1">New Password</label>
+            <label className="text-xs sm:text-[11px] font-bold uppercase tracking-wider text-terracotta-muted block mb-1.5">New Password</label>
             <input
               type="password"
               required
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-brand-peach text-xs font-semibold text-espresso focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"
+              className="w-full px-4 py-3 sm:py-2.5 rounded-xl border border-brand-peach text-base sm:text-sm font-medium text-espresso focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"
             />
           </div>
           <button
             type="submit"
-            className="w-full py-3 rounded-xl bg-brand-orange text-white text-xs font-bold hover:bg-primary-hover shadow-glow-orange transition-all"
+            className="w-full py-3.5 sm:py-3 rounded-xl bg-brand-orange text-white text-base sm:text-sm font-bold hover:bg-primary-hover shadow-glow-orange transition-all"
           >
             Update Password & Sign In
           </button>

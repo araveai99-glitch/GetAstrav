@@ -67,9 +67,9 @@ export const KeyCapabilitiesSection: React.FC = () => {
         <div className="lg:col-span-5 space-y-6 text-left z-10">
           <MotionWrapper delay={0.05}>
             <div className="space-y-4">
-              <h2 className="text-[20.5px] min-[360px]:text-[23px] min-[375px]:text-[24.5px] min-[393px]:text-[26px] min-[430px]:text-[28.5px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.15] sm:leading-[1.12] tracking-[-0.025em] sm:tracking-[-0.02em] font-heading">
-                <span className="block whitespace-nowrap">Everything You Need to Run</span>
-                <span className="text-[#f15e1c] block whitespace-nowrap">Your Organization.</span>
+              <h2 className="text-[25px] min-[375px]:text-[28px] sm:text-[38px] lg:text-[44px] font-extrabold text-[#271812] leading-[1.18] sm:leading-[1.12] tracking-[-0.025em] sm:tracking-[-0.02em] font-heading">
+                <span className="block sm:whitespace-nowrap">Everything You Need to Run</span>
+                <span className="text-[#f15e1c] block sm:whitespace-nowrap">Your Organization.</span>
               </h2>
               <p className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed max-w-lg text-left sm:text-justify">
                 Astrav unifies your strategy, teams, and execution into one executive workspace.
@@ -107,12 +107,12 @@ export const KeyCapabilitiesSection: React.FC = () => {
 
                   <div className="flex-1">
                     <div className="flex items-center justify-between gap-2">
-                      <h3 className="font-heading font-extrabold text-base text-espresso group-hover:text-brand-orange transition-colors">
+                      <h3 className="font-heading font-extrabold text-[16px] sm:text-[17px] text-espresso group-hover:text-brand-orange transition-colors">
                         {card.title}
                       </h3>
                       <ArrowUpRight className="w-4 h-4 text-terracotta-muted opacity-0 group-hover:opacity-100 group-hover:text-brand-orange transition-all duration-200" />
                     </div>
-                    <p className="text-xs sm:text-sm text-terracotta leading-relaxed mt-1.5 font-body text-left sm:text-justify">
+                    <p className="text-[13.5px] sm:text-sm text-terracotta leading-relaxed mt-1.5 font-body text-left">
                       {card.description}
                     </p>
                   </div>

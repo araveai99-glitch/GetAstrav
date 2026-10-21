@@ -127,15 +127,15 @@ export const Documentation: React.FC = () => {
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-brand-peach/50 relative z-10">
           <div>
-            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+            <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
               Specification-to-Execution <span className="text-brand-orange">Bridge</span>
             </h2>
-            <p className="text-sm text-terracotta mt-1">
+            <p className="text-base text-terracotta mt-1.5 leading-relaxed">
               Click any active task to highlight its attached PRD section, technical decision, and verification criteria.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-heading font-semibold text-terracotta-muted bg-surface-tier1 px-3 py-1.5 rounded-xl border border-brand-peach/50 self-start sm:self-auto">
+          <div className="flex items-center gap-2 text-[13px] font-heading font-semibold text-terracotta-muted bg-surface-tier1 px-3 py-1.5 rounded-xl border border-brand-peach/50 self-start sm:self-auto">
             <Link2 className="w-4 h-4 text-brand-orange" />
             <span>Zero Tab Switching</span>
           </div>
@@ -172,12 +172,12 @@ export const Documentation: React.FC = () => {
                     </span>
                   </div>
 
-                  <h4 className="font-heading font-bold text-base text-espresso flex items-center justify-between">
+                  <h4 className="font-heading font-bold text-[17px] sm:text-base text-espresso flex items-center justify-between">
                     <span>{task.title}</span>
                     <ArrowRight className={`w-4 h-4 text-brand-orange transition-transform ${isSelected ? 'translate-x-1' : 'opacity-0 group-hover:opacity-100'}`} />
                   </h4>
 
-                  <div className="flex items-center justify-between mt-3 pt-2 border-t border-brand-peach/30 text-xs text-terracotta-muted">
+                  <div className="flex items-center justify-between mt-3 pt-2 border-t border-brand-peach/30 text-sm sm:text-xs text-terracotta-muted">
                     <span>Assignee: {task.assignee}</span>
                     <span className="text-brand-green font-medium flex items-center gap-1">
                       <CheckCircle2 className="w-3.5 h-3.5" /> Spec Linked
@@ -198,7 +198,7 @@ export const Documentation: React.FC = () => {
                     <FileText className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-heading font-extrabold text-base text-espresso">
+                    <h4 className="font-heading font-extrabold text-[18px] sm:text-base text-espresso">
                       {activeTask.docTitle}
                     </h4>
                     <span className="text-xs font-mono text-terracotta-muted">
@@ -220,11 +220,11 @@ export const Documentation: React.FC = () => {
                 transition={{ duration: 0.3 }}
                 className="mt-5 space-y-2"
               >
-                <div className="flex items-center gap-1.5 text-xs font-heading font-bold text-espresso">
+                <div className="flex items-center gap-1.5 text-sm sm:text-xs font-heading font-bold text-espresso">
                   <Lightbulb className="w-4 h-4 text-brand-yellow fill-brand-yellow/30" />
                   <span>Why This Task Exists (Decision Rationale)</span>
                 </div>
-                <div className="p-4 rounded-2xl bg-white border border-brand-peach/50 text-xs sm:text-sm text-terracotta leading-relaxed shadow-warm-2xs">
+                <div className="p-4 rounded-2xl bg-white border border-brand-peach/50 text-base text-terracotta leading-relaxed shadow-warm-2xs">
                   {activeTask.decisionRationale}
                 </div>
               </motion.div>
@@ -237,7 +237,7 @@ export const Documentation: React.FC = () => {
                 transition={{ duration: 0.3, delay: 0.1 }}
                 className="mt-5 space-y-2.5"
               >
-                <div className="flex items-center gap-1.5 text-xs font-heading font-bold text-espresso">
+                <div className="flex items-center gap-1.5 text-sm sm:text-xs font-heading font-bold text-espresso">
                   <CheckSquare className="w-4 h-4 text-brand-green" />
                   <span>Acceptance Criteria for Signoff Gate</span>
                 </div>
@@ -246,7 +246,7 @@ export const Documentation: React.FC = () => {
                   {activeTask.acceptanceCriteria.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-3 bg-white rounded-xl border border-brand-peach/40 flex items-start gap-2.5 text-xs text-espresso shadow-warm-2xs"
+                      className="p-3 bg-white rounded-xl border border-brand-peach/40 flex items-start gap-2.5 text-sm text-espresso shadow-warm-2xs"
                     >
                       <CheckCircle2 className="w-4 h-4 text-brand-green shrink-0 mt-0.5" />
                       <span>{item}</span>
@@ -256,7 +256,7 @@ export const Documentation: React.FC = () => {
               </motion.div>
             </div>
 
-            <div className="pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs text-terracotta-muted">
+            <div className="pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm sm:text-xs text-terracotta-muted">
               <span>PRD revisions automatically notify assigned task owners.</span>
               <span className="font-heading font-bold text-brand-orange">
                 Always Aligned
@@ -286,16 +286,16 @@ export const Documentation: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Context in the Flow of Work
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Builders never ask "why are we doing this?". Technical constraints and business rationale are accessible directly inside the deliverable card.
             </p>
 
             {/* Micro PRD Excerpt Widget */}
             <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5 text-xs font-mono">
-              <span className="text-terracotta-muted text-[10px] uppercase block font-bold">
+              <span className="text-terracotta-muted text-[11px] uppercase block font-bold">
                 Linked Spec Pill
               </span>
               <div className="p-2 bg-white rounded-xl border border-brand-peach/40 text-espresso truncate">
@@ -304,7 +304,7 @@ export const Documentation: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-orange">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-orange">
             <span>Zero Handoff Confusion</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -328,10 +328,10 @@ export const Documentation: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Living Documentation
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               When product requirements change, affected tasks update automatically. No stale specifications buried in abandoned Google Docs.
             </p>
 
@@ -344,7 +344,7 @@ export const Documentation: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-green">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-green">
             <span>Always Synchronized</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -368,10 +368,10 @@ export const Documentation: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Accelerated Onboarding
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               New team members ramp up 3x faster by inspecting past deliverables alongside their architectural decision records and acceptance checklists.
             </p>
 
@@ -382,7 +382,7 @@ export const Documentation: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-amber-700">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-amber-700">
             <span>Frictionless Knowledge Transfer</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>

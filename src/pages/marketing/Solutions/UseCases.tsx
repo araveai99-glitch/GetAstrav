@@ -96,7 +96,7 @@ export const UseCases: React.FC = () => {
       {/* DIRECT OPENING (PROPER NAVBAR CLEARANCE, NO HERO BANNER, NO BADGES) */}
       {/* ==================================================================== */}
       <div className="max-w-5xl space-y-3">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight lg:whitespace-nowrap">
+        <h1 className="text-3xl min-[390px]:text-[32px] sm:text-4xl lg:text-[42px] xl:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight lg:whitespace-nowrap">
           Bring Every Department <span className="text-brand-orange">Into Alignment.</span>
         </h1>
         <p className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-3xl">
@@ -111,38 +111,42 @@ export const UseCases: React.FC = () => {
         ref={sectionARef}
         className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative overflow-hidden space-y-6"
       >
-        <div className="max-w-2xl space-y-1 text-left">
-          <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+        <div className="max-w-2xl space-y-1.5 text-left">
+          <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
             One Organization, Connected Teams
           </h2>
-          <p className="text-xs sm:text-sm text-terracotta">
+          <p className="text-sm sm:text-base text-terracotta">
             Leadership → Departments → Projects → Teams → Business Goals
           </p>
         </div>
 
         {/* Department Switcher Tabs */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs font-mono font-bold text-terracotta-muted mr-1">Select Department:</span>
-          {DEPARTMENTS_DATA.map((dept) => {
-            const isSelected = selectedDeptId === dept.id;
-            const DeptIcon = dept.icon;
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3">
+          <span className="text-xs sm:text-sm font-mono font-bold text-terracotta-muted shrink-0">
+            Select Department:
+          </span>
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 w-full sm:w-auto">
+            {DEPARTMENTS_DATA.map((dept) => {
+              const isSelected = selectedDeptId === dept.id;
+              const DeptIcon = dept.icon;
 
-            return (
-              <button
-                key={dept.id}
-                type="button"
-                onClick={() => setSelectedDeptId(dept.id)}
-                className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-heading font-bold transition-all cursor-pointer select-none ${
-                  isSelected
-                    ? 'bg-brand-orange text-white shadow-sm shadow-brand-orange/30'
-                    : 'bg-surface-ambient hover:bg-white text-espresso border border-brand-peach/80'
-                }`}
-              >
-                <DeptIcon className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-brand-orange'}`} />
-                <span>{dept.name}</span>
-              </button>
-            );
-          })}
+              return (
+                <button
+                  key={dept.id}
+                  type="button"
+                  onClick={() => setSelectedDeptId(dept.id)}
+                  className={`inline-flex items-center justify-center gap-1.5 px-3 py-2 sm:px-3.5 sm:py-2 rounded-xl text-xs min-[375px]:text-sm font-heading font-bold transition-all cursor-pointer select-none w-full sm:w-auto whitespace-nowrap ${
+                    isSelected
+                      ? 'bg-brand-orange text-white shadow-sm shadow-brand-orange/30'
+                      : 'bg-surface-ambient hover:bg-white text-espresso border border-brand-peach/80'
+                  }`}
+                >
+                  <DeptIcon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-white' : 'text-brand-orange'}`} />
+                  <span>{dept.name}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* 5-Step Connected Flow for Active Department */}
@@ -176,17 +180,17 @@ export const UseCases: React.FC = () => {
                   </div>
                   <span className="text-xs font-mono font-bold text-terracotta-muted">Tier 01</span>
                 </div>
-                <div className="text-[10px] font-mono font-bold text-brand-orange uppercase">
+                <div className="text-xs font-mono font-bold text-brand-orange uppercase">
                   Leadership
                 </div>
-                <h4 className="font-heading font-bold text-sm text-espresso mt-0.5">
+                <h4 className="font-heading font-bold text-[17px] sm:text-base text-espresso mt-0.5">
                   Company Vision
                 </h4>
-                <p className="text-xs text-terracotta mt-1">
+                <p className="text-sm text-terracotta mt-1">
                   Overall strategic targets set by company leadership.
                 </p>
               </div>
-              <div className="mt-3 pt-2 border-t border-brand-peach/40 text-[11px] font-heading font-semibold text-brand-orange">
+              <div className="mt-3 pt-2 border-t border-brand-peach/40 text-xs min-[375px]:text-sm font-heading font-semibold text-brand-orange">
                 Executive Strategy
               </div>
             </motion.div>
@@ -207,17 +211,17 @@ export const UseCases: React.FC = () => {
                   </div>
                   <span className="text-xs font-mono font-bold text-brand-orange">Tier 02</span>
                 </div>
-                <div className="text-[10px] font-mono font-bold text-brand-orange uppercase">
+                <div className="text-xs font-mono font-bold text-brand-orange uppercase">
                   Department
                 </div>
-                <h4 className="font-heading font-bold text-sm text-espresso mt-0.5">
+                <h4 className="font-heading font-bold text-[17px] sm:text-base text-espresso mt-0.5">
                   {activeDept.name} Pod
                 </h4>
-                <p className="text-xs text-terracotta mt-1">
+                <p className="text-sm text-terracotta mt-1">
                   Dedicated team focused on their key priorities.
                 </p>
               </div>
-              <div className="mt-3 pt-2 border-t border-brand-peach/40 text-[11px] font-heading font-bold text-brand-orange">
+              <div className="mt-3 pt-2 border-t border-brand-peach/40 text-xs min-[375px]:text-sm font-heading font-bold text-brand-orange">
                 {activeDept.progress}% Rollup Status
               </div>
             </motion.div>
@@ -238,17 +242,17 @@ export const UseCases: React.FC = () => {
                   </div>
                   <span className="text-xs font-mono font-bold text-terracotta-muted">Tier 03</span>
                 </div>
-                <div className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">
+                <div className="text-xs font-mono font-bold text-terracotta-muted uppercase">
                   Projects
                 </div>
-                <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso mt-0.5 line-clamp-2">
+                <h4 className="font-heading font-bold text-[17px] sm:text-base text-espresso mt-0.5 line-clamp-2">
                   {activeDept.project}
                 </h4>
-                <p className="text-xs text-terracotta mt-1">
+                <p className="text-sm text-terracotta mt-1">
                   Core initiatives broken down into clear deliverables.
                 </p>
               </div>
-              <div className="mt-3 pt-2 border-t border-brand-peach/40 text-[11px] font-heading font-semibold text-terracotta-muted">
+              <div className="mt-3 pt-2 border-t border-brand-peach/40 text-xs min-[375px]:text-sm font-heading font-semibold text-terracotta-muted">
                 Active Initiative
               </div>
             </motion.div>
@@ -269,17 +273,17 @@ export const UseCases: React.FC = () => {
                   </div>
                   <span className="text-xs font-mono font-bold text-terracotta-muted">Tier 04</span>
                 </div>
-                <div className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">
+                <div className="text-xs font-mono font-bold text-terracotta-muted uppercase">
                   Teams
                 </div>
-                <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso mt-0.5 line-clamp-2">
+                <h4 className="font-heading font-bold text-[17px] sm:text-base text-espresso mt-0.5 line-clamp-2">
                   {activeDept.team}
                 </h4>
-                <p className="text-xs text-terracotta mt-1">
+                <p className="text-sm text-terracotta mt-1">
                   Direct team members executing day-to-day work.
                 </p>
               </div>
-              <div className="mt-3 pt-2 border-t border-brand-peach/40 text-[11px] font-heading font-semibold text-terracotta-muted">
+              <div className="mt-3 pt-2 border-t border-brand-peach/40 text-xs min-[375px]:text-sm font-heading font-semibold text-terracotta-muted">
                 Clear Ownership
               </div>
             </motion.div>
@@ -300,17 +304,17 @@ export const UseCases: React.FC = () => {
                   </div>
                   <span className="text-xs font-mono font-bold text-terracotta-muted">Tier 05</span>
                 </div>
-                <div className="text-[10px] font-mono font-bold text-brand-green uppercase">
+                <div className="text-xs font-mono font-bold text-brand-green uppercase">
                   Business Goal
                 </div>
-                <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso mt-0.5 line-clamp-2">
+                <h4 className="font-heading font-bold text-[17px] sm:text-base text-espresso mt-0.5 line-clamp-2">
                   {activeDept.goal}
                 </h4>
-                <p className="text-xs text-terracotta mt-1">
+                <p className="text-sm text-terracotta mt-1">
                   Measurable outcome updated automatically on completion.
                 </p>
               </div>
-              <div className="mt-3 pt-2 border-t border-brand-peach/40 text-[11px] font-heading font-bold text-brand-green flex items-center gap-1">
+              <div className="mt-3 pt-2 border-t border-brand-peach/40 text-xs min-[375px]:text-sm font-heading font-bold text-brand-green flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>Goal Connected</span>
               </div>
@@ -326,11 +330,11 @@ export const UseCases: React.FC = () => {
         ref={sectionBRef}
         className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative overflow-hidden space-y-6"
       >
-        <div className="max-w-2xl space-y-1 text-left">
-          <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+        <div className="max-w-2xl space-y-1.5 text-left">
+          <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
             Every Team Contributes to the Bigger Goal.
           </h2>
-          <p className="text-xs sm:text-sm text-terracotta">
+          <p className="text-sm sm:text-base text-terracotta">
             See how work from Marketing, Product, and Operations comes together for a shared product launch.
           </p>
         </div>
@@ -341,13 +345,16 @@ export const UseCases: React.FC = () => {
           <div className="lg:col-span-7 space-y-3">
             {/* Track 1: Marketing */}
             <div className="p-3.5 rounded-2xl bg-surface-ambient border border-brand-peach/80 space-y-1.5">
-              <div className="flex items-center justify-between text-xs font-heading font-bold">
-                <span className="flex items-center gap-1.5 text-espresso">
-                  <Megaphone className="w-4 h-4 text-brand-orange" /> Marketing Pod
+              <div className="flex items-center justify-between gap-2.5 text-sm min-[375px]:text-base font-heading font-bold">
+                <span className="flex items-center gap-1.5 text-espresso min-w-0">
+                  <Megaphone className="w-4 h-4 text-brand-orange shrink-0" />
+                  <span>Marketing Pod</span>
                 </span>
-                <span className="font-mono text-brand-orange">85% Complete</span>
+                <span className="font-mono text-brand-orange text-sm min-[375px]:text-base whitespace-nowrap shrink-0 text-right">
+                  85% Complete
+                </span>
               </div>
-              <p className="text-xs text-terracotta">
+              <p className="text-sm min-[375px]:text-base text-terracotta">
                 Launch campaign prepared: website pages, launch announcement, and partner outreach.
               </p>
               <div className="w-full h-2 rounded-full bg-white border border-brand-peach/60 overflow-hidden">
@@ -364,13 +371,16 @@ export const UseCases: React.FC = () => {
 
             {/* Track 2: Product */}
             <div className="p-3.5 rounded-2xl bg-surface-ambient border border-brand-peach/80 space-y-1.5">
-              <div className="flex items-center justify-between text-xs font-heading font-bold">
-                <span className="flex items-center gap-1.5 text-espresso">
-                  <Cpu className="w-4 h-4 text-brand-green" /> Product & Engineering
+              <div className="flex items-center justify-between gap-2.5 text-sm min-[375px]:text-base font-heading font-bold">
+                <span className="flex items-center gap-1.5 text-espresso min-w-0">
+                  <Cpu className="w-4 h-4 text-brand-green shrink-0" />
+                  <span>Product & Engineering</span>
                 </span>
-                <span className="font-mono text-brand-green">90% Complete</span>
+                <span className="font-mono text-brand-green text-sm min-[375px]:text-base whitespace-nowrap shrink-0 text-right">
+                  90% Complete
+                </span>
               </div>
-              <p className="text-xs text-terracotta">
+              <p className="text-sm min-[375px]:text-base text-terracotta">
                 Core features built: automated rollup calculation engine and test verification complete.
               </p>
               <div className="w-full h-2 rounded-full bg-white border border-brand-peach/60 overflow-hidden">
@@ -387,13 +397,16 @@ export const UseCases: React.FC = () => {
 
             {/* Track 3: Operations */}
             <div className="p-3.5 rounded-2xl bg-surface-ambient border border-brand-peach/80 space-y-1.5">
-              <div className="flex items-center justify-between text-xs font-heading font-bold">
-                <span className="flex items-center gap-1.5 text-espresso">
-                  <Activity className="w-4 h-4 text-brand-yellow" /> Operations Pod
+              <div className="flex items-center justify-between gap-2.5 text-sm min-[375px]:text-base font-heading font-bold">
+                <span className="flex items-center gap-1.5 text-espresso min-w-0">
+                  <Activity className="w-4 h-4 text-brand-yellow shrink-0" />
+                  <span>Operations Pod</span>
                 </span>
-                <span className="font-mono text-amber-700">80% Complete</span>
+                <span className="font-mono text-amber-700 text-sm min-[375px]:text-base whitespace-nowrap shrink-0 text-right">
+                  80% Complete
+                </span>
               </div>
-              <p className="text-xs text-terracotta">
+              <p className="text-sm min-[375px]:text-base text-terracotta">
                 Launch process ready: customer support guides, monitoring alerts, and SLA readiness.
               </p>
               <div className="w-full h-2 rounded-full bg-white border border-brand-peach/60 overflow-hidden">
@@ -411,24 +424,24 @@ export const UseCases: React.FC = () => {
 
           {/* RIGHT: Shared Launch Goal Card (lg:col-span-5) */}
           <div className="lg:col-span-5 p-5 sm:p-6 rounded-3xl bg-gradient-to-b from-[#fffbf7] to-white border-2 border-brand-orange shadow-warm-sm space-y-4 text-left">
-            <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-brand-orange uppercase">
+            <div className="flex items-center gap-1.5 text-xs min-[375px]:text-sm font-mono font-bold text-brand-orange uppercase">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Shared Company Goal</span>
             </div>
 
             <div className="space-y-0.5">
-              <h3 className="text-lg sm:text-xl font-heading font-extrabold text-espresso">
+              <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
                 Q3 Product Launch
               </h3>
-              <p className="text-xs text-terracotta leading-relaxed">
+              <p className="text-sm min-[375px]:text-base text-terracotta leading-relaxed">
                 One clear status combining work from Marketing, Product, and Operations.
               </p>
             </div>
 
             <div className="p-3.5 rounded-2xl bg-surface-ambient border border-brand-peach/80 space-y-2">
-              <div className="flex justify-between items-center text-xs font-heading font-bold text-espresso">
+              <div className="flex justify-between items-center gap-2 text-sm font-heading font-bold text-espresso">
                 <span>Overall Readiness</span>
-                <span className="font-mono text-brand-orange text-sm font-bold">85% Ready</span>
+                <span className="font-mono text-brand-orange text-base font-bold whitespace-nowrap shrink-0">85% Ready</span>
               </div>
               <div className="w-full h-2.5 rounded-full bg-white border border-brand-peach/60 overflow-hidden">
                 <motion.div
@@ -440,7 +453,7 @@ export const UseCases: React.FC = () => {
                   className="h-full rounded-full bg-gradient-to-r from-brand-orange to-brand-green"
                 />
               </div>
-              <div className="flex items-center justify-between text-[10px] font-mono text-terracotta-muted">
+              <div className="flex items-center justify-between text-xs font-mono text-terracotta-muted">
                 <span>Paced for Release</span>
                 <span className="text-brand-green font-bold flex items-center gap-1">
                   <CheckCircle2 className="w-3 h-3" /> All Gates Clear
@@ -448,7 +461,7 @@ export const UseCases: React.FC = () => {
               </div>
             </div>
 
-            <div className="text-[11px] text-terracotta font-heading font-semibold flex items-center gap-1.5">
+            <div className="text-xs min-[375px]:text-sm text-terracotta font-heading font-semibold flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-brand-green shrink-0" />
               <span>Next tasks unlock automatically as prerequisites finish</span>
             </div>
@@ -463,11 +476,11 @@ export const UseCases: React.FC = () => {
         ref={sectionCRef}
         className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-6"
       >
-        <div className="max-w-2xl space-y-1 text-left">
-          <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+        <div className="max-w-2xl space-y-1.5 text-left">
+          <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
             One View. Clearer Priorities.
           </h2>
-          <p className="text-xs sm:text-sm text-terracotta">
+          <p className="text-sm sm:text-base text-terracotta">
             Three simple outcomes that help departments work together with clarity.
           </p>
         </div>
@@ -487,21 +500,21 @@ export const UseCases: React.FC = () => {
               <div className="w-10 h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center font-bold mb-3">
                 <TrendingUp className="w-5 h-5" />
               </div>
-              <h3 className="font-heading font-bold text-base text-espresso mb-1">
+              <h3 className="font-heading font-bold text-[18px] sm:text-lg text-espresso mb-1">
                 Shared Progress
               </h3>
-              <p className="text-xs text-terracotta leading-relaxed">
+              <p className="text-base text-terracotta leading-relaxed">
                 All teams see live progress in real time without waiting for weekly status meetings.
               </p>
             </div>
 
-            <div className="pt-2.5 border-t border-brand-peach/40 flex items-center gap-1.5 text-xs font-heading font-semibold text-brand-orange">
+            <div className="pt-2.5 border-t border-brand-peach/40 flex items-center gap-1.5 text-sm font-heading font-semibold text-brand-orange">
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span>Real-Time Visibility</span>
             </div>
           </motion.div>
 
-          {/* Outcome 2: Clear Ownership */}
+            {/* Outcome 2: Clear Ownership */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={
@@ -514,15 +527,15 @@ export const UseCases: React.FC = () => {
               <div className="w-10 h-10 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center font-bold mb-3">
                 <Users className="w-5 h-5" />
               </div>
-              <h3 className="font-heading font-bold text-base text-espresso mb-1">
+              <h3 className="font-heading font-bold text-[18px] sm:text-lg text-espresso mb-1">
                 Clear Ownership
               </h3>
-              <p className="text-xs text-terracotta leading-relaxed">
+              <p className="text-base text-terracotta leading-relaxed">
                 Every project and deliverable has a designated owner so everyone knows who is responsible.
               </p>
             </div>
 
-            <div className="pt-2.5 border-t border-brand-peach/40 flex items-center gap-1.5 text-xs font-heading font-semibold text-brand-green">
+            <div className="pt-2.5 border-t border-brand-peach/40 flex items-center gap-1.5 text-sm font-heading font-semibold text-brand-green">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>Dedicated Pod Leads</span>
             </div>
@@ -541,15 +554,15 @@ export const UseCases: React.FC = () => {
               <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold mb-3 border border-amber-200">
                 <Eye className="w-5 h-5" />
               </div>
-              <h3 className="font-heading font-bold text-base text-espresso mb-1">
+              <h3 className="font-heading font-bold text-[18px] sm:text-lg text-espresso mb-1">
                 Earlier Visibility into Delays
               </h3>
-              <p className="text-xs text-terracotta leading-relaxed">
+              <p className="text-base text-terracotta leading-relaxed">
                 Spot delays days earlier so downstream teams can adjust without last-minute surprises.
               </p>
             </div>
 
-            <div className="pt-2.5 border-t border-brand-peach/40 flex items-center gap-1.5 text-xs font-heading font-semibold text-amber-700">
+            <div className="pt-2.5 border-t border-brand-peach/40 flex items-center gap-1.5 text-sm font-heading font-semibold text-amber-700">
               <Clock className="w-3.5 h-3.5" />
               <span>Zero Surprise Bottlenecks</span>
             </div>

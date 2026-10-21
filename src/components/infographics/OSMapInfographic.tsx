@@ -52,8 +52,8 @@ export const OSMapInfographic: React.FC = () => {
                 <div className="p-4 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-2xs hover:border-brand-orange hover:shadow-warm-md transition-all space-y-3 relative w-full group h-full flex flex-col justify-between">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono font-bold text-terracotta-muted">{node.step}</span>
-                      <span className="px-2 py-0.5 rounded-full bg-brand-orange-light text-brand-orange text-[10px] font-mono font-bold border border-brand-orange/30">
+                      <span className="text-xs font-mono font-bold text-terracotta-muted">{node.step}</span>
+                      <span className="px-2 py-0.5 rounded-full bg-brand-orange-light text-brand-orange text-xs font-mono font-bold border border-brand-orange/30">
                         {node.badge}
                       </span>
                     </div>
@@ -62,8 +62,8 @@ export const OSMapInfographic: React.FC = () => {
                       <Icon className="w-4.5 h-4.5" />
                     </div>
 
-                    <h4 className="text-xs sm:text-sm font-extrabold text-espresso">{node.title}</h4>
-                    <p className="text-[11px] text-terracotta leading-tight">{node.desc}</p>
+                    <h4 className="text-[15px] sm:text-sm font-extrabold text-espresso">{node.title}</h4>
+                    <p className="text-[13px] sm:text-xs text-terracotta leading-tight">{node.desc}</p>
                   </div>
 
                   {/* Connector Arrow */}

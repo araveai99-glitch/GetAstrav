@@ -59,9 +59,9 @@ export const RollupInfographic: React.FC = () => {
                   Work Output
                 </span>
               </div>
-              <h3 className="text-base font-heading font-extrabold text-espresso">Daily Team Execution</h3>
+              <h3 className="text-[17px] sm:text-base lg:text-[17px] font-heading font-extrabold text-espresso">Daily Team Execution</h3>
               <div className="space-y-1.5 pt-1">
-                <div className="flex justify-between items-center text-xs font-heading font-bold">
+                <div className="flex justify-between items-center text-sm sm:text-xs font-heading font-bold">
                   <span>Task Progress</span>
                   <span className="text-brand-orange">{taskCompletion}%</span>
                 </div>
@@ -84,9 +84,9 @@ export const RollupInfographic: React.FC = () => {
                   Auto-Updated
                 </span>
               </div>
-              <h3 className="text-base font-heading font-extrabold text-espresso">Project Deliverable Gate</h3>
+              <h3 className="text-[17px] sm:text-base lg:text-[17px] font-heading font-extrabold text-espresso">Project Deliverable Gate</h3>
               <div className="space-y-1.5 pt-1">
-                <div className="flex justify-between items-center text-xs font-heading font-bold">
+                <div className="flex justify-between items-center text-sm sm:text-xs font-heading font-bold">
                   <span>Milestone Completion</span>
                   <span className="text-espresso font-bold">{milestoneVal}%</span>
                 </div>
@@ -109,9 +109,9 @@ export const RollupInfographic: React.FC = () => {
                   Strategy Target
                 </span>
               </div>
-              <h3 className="text-base font-heading font-extrabold text-espresso">Overall Strategic Goal</h3>
+              <h3 className="text-[17px] sm:text-base lg:text-[17px] font-heading font-extrabold text-espresso">Overall Strategic Goal</h3>
               <div className="space-y-1.5 pt-1">
-                <div className="flex justify-between items-center text-xs font-heading font-bold">
+                <div className="flex justify-between items-center text-sm sm:text-xs font-heading font-bold">
                   <span>Goal Progress</span>
                   <span className="text-brand-green">{goalVal}%</span>
                 </div>
@@ -134,7 +134,7 @@ export const RollupInfographic: React.FC = () => {
                 <TrendingUp className="w-6 h-6" />
               </div>
               <div>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <span className="text-xs font-heading font-bold uppercase text-brand-orange tracking-wider">
                     Automatic Progress & Risk Spotting
                   </span>
@@ -142,15 +142,15 @@ export const RollupInfographic: React.FC = () => {
                     <AlertTriangle className="w-3 h-3 text-brand-yellow" /> Spot Delays Early
                   </span>
                 </div>
-                <h3 className="text-lg font-heading font-extrabold text-espresso mt-1">Clear Visibility Without Chasing Status Updates</h3>
+                <h3 className="text-[19px] sm:text-lg font-heading font-extrabold text-espresso mt-1">Clear Visibility Without Chasing Status Updates</h3>
                 <p className="brand-body text-terracotta mt-0.5">
                   As team members complete tasks, progress updates automatically. If a task slips behind schedule, Astrav highlights the delay immediately.
                 </p>
               </div>
             </div>
 
-            <div className="shrink-0">
-              <span className="px-4 py-2 rounded-full bg-brand-green-light border border-brand-green/30 text-brand-green font-heading font-bold text-xs flex items-center gap-2">
+            <div className="shrink-0 self-start md:self-auto">
+              <span className="px-4 py-2 rounded-full bg-brand-green-light border border-brand-green/30 text-brand-green font-heading font-bold text-[13px] sm:text-xs flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4" /> Zero Status Meetings Needed
               </span>
             </div>

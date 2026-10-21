@@ -53,8 +53,8 @@ export const Footer: React.FC = () => {
         >
           {/* Column 1: PRODUCT */}
           <div className="space-y-3">
-            <h4 className="text-xs font-extrabold text-brand-orange uppercase tracking-wider">Product</h4>
-            <ul className="space-y-2.5 text-sm sm:text-base text-terracotta font-medium">
+            <h4 className="text-[13px] font-extrabold text-brand-orange uppercase tracking-wider">Product</h4>
+            <ul className="space-y-2.5 text-[15px] sm:text-base text-terracotta font-medium">
               <li><Link to="/product" className="hover:text-brand-orange transition-colors">Command Center</Link></li>
               <li><Link to="/product/automated-progress-rollups" className="hover:text-brand-orange transition-colors">Automated Progress Rollups</Link></li>
               <li><Link to="/features/goals-progress" className="hover:text-brand-orange transition-colors">Goals & Progress</Link></li>
@@ -66,8 +66,8 @@ export const Footer: React.FC = () => {
 
           {/* Column 2: SOLUTIONS */}
           <div className="space-y-3">
-            <h4 className="text-xs font-extrabold text-brand-orange uppercase tracking-wider">Solutions</h4>
-            <ul className="space-y-2.5 text-sm sm:text-base text-terracotta font-medium">
+            <h4 className="text-[13px] font-extrabold text-brand-orange uppercase tracking-wider">Solutions</h4>
+            <ul className="space-y-2.5 text-[15px] sm:text-base text-terracotta font-medium">
               <li><Link to="/solutions/founders" className="hover:text-brand-orange transition-colors">Founders</Link></li>
               <li><Link to="/solutions/managers" className="hover:text-brand-orange transition-colors">Managers</Link></li>
               <li><Link to="/features/teams" className="hover:text-brand-orange transition-colors">Teams & Pods</Link></li>
@@ -77,8 +77,8 @@ export const Footer: React.FC = () => {
 
           {/* Column 3: RESOURCES */}
           <div className="space-y-3">
-            <h4 className="text-xs font-extrabold text-brand-orange uppercase tracking-wider">Resources</h4>
-            <ul className="space-y-2.5 text-sm sm:text-base text-terracotta font-medium">
+            <h4 className="text-[13px] font-extrabold text-brand-orange uppercase tracking-wider">Resources</h4>
+            <ul className="space-y-2.5 text-[15px] sm:text-base text-terracotta font-medium">
               <li><Link to="/resources" className="hover:text-brand-orange transition-colors">Resources</Link></li>
               <li><Link to="/resources" className="hover:text-brand-orange transition-colors">Insights & Articles</Link></li>
               <li><Link to="/features/documentation" className="hover:text-brand-orange transition-colors">Documentation Specs</Link></li>
@@ -87,8 +87,8 @@ export const Footer: React.FC = () => {
 
           {/* Column 4: COMPANY */}
           <div className="space-y-3">
-            <h4 className="text-xs font-extrabold text-brand-orange uppercase tracking-wider">Company</h4>
-            <ul className="space-y-2.5 text-sm sm:text-base text-terracotta font-medium">
+            <h4 className="text-[13px] font-extrabold text-brand-orange uppercase tracking-wider">Company</h4>
+            <ul className="space-y-2.5 text-[15px] sm:text-base text-terracotta font-medium">
               <li><Link to="/about" className="hover:text-brand-orange transition-colors">About Astrav</Link></li>
               <li><Link to="/contact" className="hover:text-brand-orange transition-colors">Contact Sales</Link></li>
               <li><button type="button" onClick={openDemoModal} className="hover:text-brand-orange transition-colors cursor-pointer text-left">Book a Demo</button></li>
@@ -97,8 +97,8 @@ export const Footer: React.FC = () => {
 
           {/* Column 5: LEGAL */}
           <div className="space-y-3">
-            <h4 className="text-xs font-extrabold text-brand-orange uppercase tracking-wider">Legal & Trust</h4>
-            <ul className="space-y-2.5 text-sm sm:text-base text-terracotta font-medium">
+            <h4 className="text-[13px] font-extrabold text-brand-orange uppercase tracking-wider">Legal & Trust</h4>
+            <ul className="space-y-2.5 text-[15px] sm:text-base text-terracotta font-medium">
               <li><span className="cursor-pointer hover:text-brand-orange transition-colors">Privacy Policy</span></li>
               <li><span className="cursor-pointer hover:text-brand-orange transition-colors">Terms of Service</span></li>
               <li><span className="cursor-pointer hover:text-brand-orange transition-colors">SOC2 Compliance</span></li>
@@ -115,7 +115,7 @@ export const Footer: React.FC = () => {
           transition={{ duration: 0.4, delay: 0.12, ease: 'easeOut' }}
           className="space-y-6"
         >
-          <div className="pt-8 border-t border-brand-peach/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-terracotta font-semibold">
+          <div className="pt-8 border-t border-brand-peach/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] sm:text-sm text-terracotta font-semibold">
             <div>© 2026 Astrav Operating Engine. All rights reserved.</div>
             <div className="flex flex-wrap items-center gap-6">
               <span className="flex items-center gap-1 hover:text-brand-orange transition-colors">

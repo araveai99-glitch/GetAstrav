@@ -21,43 +21,43 @@ export const Login: React.FC = () => {
               <Layers className="w-6 h-6 text-brand-orange" />
             </div>
           </div>
-          <h2 className="text-2xl font-extrabold text-espresso">Sign In to Astrav</h2>
-          <p className="text-xs text-terracotta-muted">Access your Executive Command Console</p>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-espresso">Sign In to Astrav</h2>
+          <p className="text-sm text-terracotta-muted">Access your Executive Command Console</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="text-[10px] font-bold uppercase tracking-wider text-terracotta-muted block mb-1">Email Address</label>
+            <label className="text-xs font-bold uppercase tracking-wider text-terracotta-muted block mb-1.5">Email Address</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-brand-peach text-xs font-semibold text-espresso focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"
+              className="w-full px-4 py-2.5 rounded-xl border border-brand-peach text-base font-semibold text-espresso focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"
             />
           </div>
           <div>
-            <div className="flex justify-between items-center mb-1">
-              <label className="text-[10px] font-bold uppercase tracking-wider text-terracotta-muted">Password</label>
-              <Link to="/forgot-password" className="text-[11px] font-semibold text-brand-orange hover:underline">Forgot password?</Link>
+            <div className="flex justify-between items-center mb-1.5">
+              <label className="text-xs font-bold uppercase tracking-wider text-terracotta-muted">Password</label>
+              <Link to="/forgot-password" className="text-xs min-[375px]:text-sm font-semibold text-brand-orange hover:underline">Forgot password?</Link>
             </div>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-brand-peach text-xs font-semibold text-espresso focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"
+              className="w-full px-4 py-2.5 rounded-xl border border-brand-peach text-base font-semibold text-espresso focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 rounded-xl bg-brand-orange text-white text-xs font-bold hover:bg-brand-orange-hover shadow-md shadow-brand-orange/30 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+            className="w-full py-3.5 rounded-xl bg-brand-orange text-white text-sm min-[375px]:text-base font-bold hover:bg-brand-orange-hover shadow-md shadow-brand-orange/30 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
           >
             <span>Authenticate & Access</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </form>
 
-        <div className="text-center text-xs text-terracotta-muted">
+        <div className="text-center text-sm text-terracotta-muted">
           Don't have an account? <Link to="/signup" className="font-bold text-brand-orange hover:underline">Sign up</Link>
         </div>
       </div>

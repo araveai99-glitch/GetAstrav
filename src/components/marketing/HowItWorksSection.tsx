@@ -38,22 +38,26 @@ export const HowItWorksSection: React.FC = () => {
   return (
     <section
       id="how-it-works"
-      className="relative w-full py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-10 xl:px-12 bg-white border-b border-brand-peach/50"
+      className="relative w-full pt-4 pb-10 sm:pt-8 sm:pb-14 lg:pt-12 lg:pb-16 px-4 sm:px-6 lg:px-10 xl:px-12 bg-white border-b border-brand-peach/50"
     >
-      <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
         {/* ============================================================ */}
         {/* LEFT COLUMN: Large Polished Astrav Dashboard Mockup          */}
         {/* ============================================================ */}
-        <div className="lg:col-span-7 w-full space-y-3 sm:space-y-4">
-          <MotionWrapper direction="down" delay={0.05}>
-            <div className="text-center">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-heading font-extrabold text-espresso tracking-tight">
-                Demo Dashboard
-              </h3>
+        <div className="lg:col-span-7 w-full">
+          {/* Polished, Attractive Demo Dashboard Heading with Orange Accent */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left mb-3 sm:mb-4">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#fceade] border border-[#f7d7b0] text-[#f15e1c] text-[11px] font-mono font-bold uppercase tracking-wider mb-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#f15e1c] animate-pulse" />
+              <span>Interactive Command Center</span>
             </div>
-          </MotionWrapper>
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-heading font-extrabold text-[#271812] tracking-tight relative inline-flex flex-col items-center lg:items-start">
+              <span>Demo Dashboard</span>
+              <span className="w-12 sm:w-16 h-1 bg-gradient-to-r from-[#f15e1c] to-[#fab60a] rounded-full mt-1.5" />
+            </h3>
+          </div>
 
-          <MotionWrapper direction="up" delay={0.1}>
+          <MotionWrapper direction="up" delay={0.05} once={true} amount="some">
             <div className="w-full bg-white rounded-3xl border border-brand-peach/70 shadow-architectural p-4 sm:p-6 overflow-hidden select-none transition-all hover:shadow-warm-xl">
               {/* TOP HEADER: Logo, Search, Notification Bell, User Avatar */}
               <div className="flex items-center justify-between gap-4 pb-4 border-b border-brand-peach/40">
@@ -125,7 +129,7 @@ export const HowItWorksSection: React.FC = () => {
                           <Target className="w-5 h-5 text-brand-orange" />
                         </div>
                         <div>
-                          <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase tracking-wider block">
+                          <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider block">
                             Company Goal
                           </span>
                           <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso">
@@ -137,13 +141,13 @@ export const HowItWorksSection: React.FC = () => {
                         <span className="font-heading font-extrabold text-base text-espresso">
                           72%
                         </span>
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-heading font-bold text-brand-green bg-brand-green-light border border-brand-green/20">
+                        <span className="px-2.5 py-0.5 rounded-full text-xs font-heading font-bold text-brand-green bg-brand-green-light border border-brand-green/20">
                           On Track
                         </span>
                       </div>
                     </div>
 
-                    <div className="mt-3 flex items-center gap-3 text-[11px] font-mono text-terracotta-muted">
+                    <div className="mt-3 flex items-center gap-3 text-xs font-mono text-terracotta-muted">
                       <span>🕒 Q3 2024</span>
                       <span>•</span>
                       <span>6 Projects</span>
@@ -222,10 +226,10 @@ export const HowItWorksSection: React.FC = () => {
                         }`}
                       >
                         <div className="flex items-center justify-between mb-1">
-                          <span className="font-heading font-bold text-espresso text-[11px] sm:text-xs">
+                          <span className="font-heading font-bold text-espresso text-xs sm:text-sm">
                             {dept.name}
                           </span>
-                          <span className="font-mono font-bold text-espresso text-[11px] sm:text-xs">
+                          <span className="font-mono font-bold text-espresso text-xs sm:text-sm">
                             {dept.progress}
                           </span>
                         </div>
@@ -238,7 +242,7 @@ export const HowItWorksSection: React.FC = () => {
                             transition={{ duration: 0.7, delay: 0.25 + idx * 0.05, ease: 'easeOut' }}
                           />
                         </div>
-                        <span className="text-[9px] sm:text-[10px] text-terracotta-muted font-medium block">
+                        <span className="text-xs text-terracotta-muted font-medium block">
                           {dept.milestones}
                         </span>
                       </div>
@@ -250,51 +254,51 @@ export const HowItWorksSection: React.FC = () => {
                     {/* 1. Recent Activity */}
                     <div className="p-3 rounded-xl bg-white border border-brand-peach/50 shadow-warm-2xs">
                       <div className="flex items-center justify-between pb-2 border-b border-brand-peach/30">
-                        <span className="font-heading font-bold text-espresso text-[11px]">
+                        <span className="font-heading font-bold text-espresso text-sm sm:text-sm">
                           Recent Activity
                         </span>
-                        <span className="text-[9px] font-heading font-semibold text-brand-orange cursor-pointer">
+                        <span className="text-xs sm:text-xs font-heading font-semibold text-brand-orange cursor-pointer hover:text-brand-orange-hover transition-colors">
                           View All
                         </span>
                       </div>
-                      <div className="space-y-2 pt-2 text-[10px]">
-                        <div className="flex items-start gap-1.5">
-                          <div className="w-4 h-4 rounded-full bg-brand-orange-light text-brand-orange font-bold text-[8px] flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="space-y-2.5 sm:space-y-2 pt-2.5 sm:pt-2">
+                        <div className="flex items-start gap-2 sm:gap-1.5">
+                          <div className="w-4.5 h-4.5 sm:w-4 sm:h-4 rounded-full bg-brand-orange-light text-brand-orange font-bold text-[11px] sm:text-[10px] flex items-center justify-center shrink-0 mt-0.5">
                             S
                           </div>
                           <div className="leading-tight">
-                            <span className="font-semibold text-espresso block">
+                            <span className="font-semibold text-espresso text-[13px] sm:text-xs block">
                               Marketing campaign launched
                             </span>
-                            <span className="text-terracotta-muted text-[9px]">
+                            <span className="text-terracotta-muted text-xs sm:text-[11px] block mt-0.5">
                               by Sarah K. · 2 min ago
                             </span>
                           </div>
                         </div>
 
-                        <div className="flex items-start gap-1.5">
-                          <div className="w-4 h-4 rounded-full bg-amber-100 text-amber-700 font-bold text-[8px] flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="flex items-start gap-2 sm:gap-1.5">
+                          <div className="w-4.5 h-4.5 sm:w-4 sm:h-4 rounded-full bg-amber-100 text-amber-700 font-bold text-[11px] sm:text-[10px] flex items-center justify-center shrink-0 mt-0.5">
                             M
                           </div>
                           <div className="leading-tight">
-                            <span className="font-semibold text-espresso block">
+                            <span className="font-semibold text-espresso text-[13px] sm:text-xs block">
                               Engineering: 2 tasks overdue
                             </span>
-                            <span className="text-terracotta-muted text-[9px]">
+                            <span className="text-terracotta-muted text-xs sm:text-[11px] block mt-0.5">
                               by Marcus T. · 12 min ago
                             </span>
                           </div>
                         </div>
 
-                        <div className="flex items-start gap-1.5">
-                          <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 font-bold text-[8px] flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="flex items-start gap-2 sm:gap-1.5">
+                          <div className="w-4.5 h-4.5 sm:w-4 sm:h-4 rounded-full bg-emerald-100 text-emerald-700 font-bold text-[11px] sm:text-[10px] flex items-center justify-center shrink-0 mt-0.5">
                             P
                           </div>
                           <div className="leading-tight">
-                            <span className="font-semibold text-espresso block">
+                            <span className="font-semibold text-espresso text-[13px] sm:text-xs block">
                               Sales deal stage updated
                             </span>
-                            <span className="text-terracotta-muted text-[9px]">
+                            <span className="text-terracotta-muted text-xs sm:text-[11px] block mt-0.5">
                               by Priya R. · 25 min ago
                             </span>
                           </div>
@@ -305,14 +309,14 @@ export const HowItWorksSection: React.FC = () => {
                     {/* 2. Today's Focus */}
                     <div className="p-3 rounded-xl bg-white border border-brand-peach/50 shadow-warm-2xs">
                       <div className="flex items-center justify-between pb-2 border-b border-brand-peach/30">
-                        <span className="font-heading font-bold text-espresso text-[11px]">
+                        <span className="font-heading font-bold text-espresso text-sm sm:text-sm">
                           Today's Focus
                         </span>
-                        <span className="text-[9px] font-mono font-bold text-brand-green">
+                        <span className="text-xs sm:text-xs font-mono font-bold text-brand-green">
                           {completedTasks.length}/4 Done
                         </span>
                       </div>
-                      <div className="space-y-1.5 pt-2 text-[10px]">
+                      <div className="space-y-1 sm:space-y-1.5 pt-2 sm:pt-2">
                         {[
                           { id: 'roadmap', label: 'Review product roadmap' },
                           { id: 'marketing', label: 'Approve marketing plan' },
@@ -324,10 +328,10 @@ export const HowItWorksSection: React.FC = () => {
                             <button
                               key={item.id}
                               onClick={() => toggleTask(item.id)}
-                              className="w-full flex items-center gap-1.5 text-left p-1 rounded-lg hover:bg-surface-tier1 transition-colors cursor-pointer group"
+                              className="w-full flex items-center gap-2 sm:gap-1.5 text-left py-1 px-1 sm:p-1 rounded-lg hover:bg-surface-tier1 transition-colors cursor-pointer group"
                             >
                               <div
-                                className={`w-3.5 h-3.5 rounded flex items-center justify-center transition-all ${
+                                className={`w-4 h-4 sm:w-3.5 sm:h-3.5 rounded flex items-center justify-center shrink-0 transition-all ${
                                   isDone
                                     ? 'bg-brand-green text-white'
                                     : 'border border-brand-peach/80 bg-white group-hover:border-brand-orange'
@@ -336,7 +340,7 @@ export const HowItWorksSection: React.FC = () => {
                                 {isDone && <Check className="w-2.5 h-2.5 stroke-[3]" />}
                               </div>
                               <span
-                                className={`truncate font-medium transition-all ${
+                                className={`truncate text-[13px] sm:text-xs transition-all ${
                                   isDone
                                     ? 'line-through text-terracotta-muted'
                                     : 'text-espresso font-semibold'
@@ -352,10 +356,10 @@ export const HowItWorksSection: React.FC = () => {
 
                     {/* 3. Goal Progress Donut */}
                     <div className="p-3 rounded-xl bg-white border border-brand-peach/50 shadow-warm-2xs flex flex-col justify-between">
-                      <span className="font-heading font-bold text-espresso text-[11px] block pb-1 border-b border-brand-peach/30">
+                      <span className="font-heading font-bold text-espresso text-sm sm:text-sm block pb-1 border-b border-brand-peach/30">
                         Goal Progress
                       </span>
-                      <div className="flex items-center justify-between gap-2 pt-1.5">
+                      <div className="flex items-center justify-between gap-2 pt-2 sm:pt-1.5">
                         <div className="relative w-14 h-14 flex items-center justify-center shrink-0">
                           <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
                             <circle
@@ -381,25 +385,25 @@ export const HowItWorksSection: React.FC = () => {
                               transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
                             />
                           </svg>
-                          <span className="absolute font-heading font-extrabold text-xs text-espresso">
+                          <span className="absolute font-heading font-extrabold text-[13px] sm:text-xs text-espresso">
                             72%
                           </span>
                         </div>
-                        <div className="space-y-0.5 text-[9px] text-terracotta-muted">
-                          <div className="flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-brand-green" />
+                        <div className="space-y-1 sm:space-y-0.5 text-xs sm:text-[11px] text-terracotta-muted">
+                          <div className="flex items-center gap-1.5 sm:gap-1">
+                            <span className="w-2 h-2 sm:w-1.5 sm:h-1.5 rounded-full bg-brand-green shrink-0" />
                             <span>On Track: 6</span>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow" />
+                          <div className="flex items-center gap-1.5 sm:gap-1">
+                            <span className="w-2 h-2 sm:w-1.5 sm:h-1.5 rounded-full bg-brand-yellow shrink-0" />
                             <span>At Risk: 2</span>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
+                          <div className="flex items-center gap-1.5 sm:gap-1">
+                            <span className="w-2 h-2 sm:w-1.5 sm:h-1.5 rounded-full bg-brand-orange shrink-0" />
                             <span>Overdue: 3</span>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+                          <div className="flex items-center gap-1.5 sm:gap-1">
+                            <span className="w-2 h-2 sm:w-1.5 sm:h-1.5 rounded-full bg-gray-300 shrink-0" />
                             <span>Not Started: 1</span>
                           </div>
                         </div>
@@ -416,8 +420,8 @@ export const HowItWorksSection: React.FC = () => {
         {/* RIGHT COLUMN: 4 Simple Steps & Action CTA                    */}
         {/* ============================================================ */}
         <div className="lg:col-span-5 space-y-6 sm:space-y-7 text-left z-10">
-          <MotionWrapper delay={0.05}>
-            <h2 className="text-[32px] sm:text-[42px] font-extrabold text-[#271812] leading-[1.12] tracking-[-0.02em] font-heading">
+          <MotionWrapper delay={0.05} once={true} amount="some">
+            <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-extrabold text-[#271812] leading-[1.15] tracking-[-0.02em] font-heading">
               From Goals to Execution<br />
               in <span className="text-[#f15e1c]">4 Simple Steps.</span>
             </h2>
@@ -460,7 +464,7 @@ export const HowItWorksSection: React.FC = () => {
                 imageWebp: '/assets/steps/step4_control.webp',
               },
             ].map((step, idx) => (
-              <MotionWrapper key={step.num} delay={0.1 + idx * 0.05} direction="up">
+              <MotionWrapper key={step.num} delay={0.1 + idx * 0.05} direction="up" once={true} amount="some">
                 <div className="relative rounded-2xl bg-white border border-brand-peach/60 shadow-[0_4px_16px_rgba(42,26,20,0.04)] p-3.5 flex items-center gap-3 overflow-hidden transition-all duration-200 hover:shadow-warm-sm hover:border-brand-orange/40 active:scale-[0.99]">
                   {/* Number Badge at Top-Left */}
                   <div
@@ -487,10 +491,10 @@ export const HowItWorksSection: React.FC = () => {
 
                   {/* Text Content */}
                   <div className="flex-1 min-w-0 pr-1">
-                    <h4 className="font-heading font-bold text-[14px] xs:text-[15px] text-espresso leading-snug">
+                    <h4 className="font-heading font-bold text-[15px] xs:text-base text-espresso leading-snug">
                       {step.title}
                     </h4>
-                    <p className="text-[12px] xs:text-[12.5px] text-terracotta/90 leading-relaxed mt-1 text-left">
+                    <p className="text-[13px] xs:text-sm text-terracotta/90 leading-relaxed mt-1 text-left">
                       {step.desc}
                     </p>
                   </div>
@@ -523,7 +527,7 @@ export const HowItWorksSection: React.FC = () => {
                 desc: 'AI-powered insights to spot risks early and maintain momentum.',
               },
             ].map((step, idx) => (
-              <MotionWrapper key={step.num} delay={0.15 + idx * 0.08} direction="left">
+              <MotionWrapper key={step.num} delay={0.15 + idx * 0.08} direction="left" once={true} amount="some">
                 <div className="flex items-start gap-4 group">
                   <div className="w-8 h-8 rounded-full bg-brand-orange text-white font-heading font-extrabold text-sm flex items-center justify-center shrink-0 shadow-sm shadow-brand-orange/30 group-hover:scale-105 transition-transform">
                     {step.num}
@@ -542,7 +546,7 @@ export const HowItWorksSection: React.FC = () => {
           </div>
 
           {/* CTA & Trust Avatars */}
-          <MotionWrapper delay={0.4}>
+          <MotionWrapper delay={0.4} once={true} amount="some">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5 pt-2 sm:pt-4">
               <button
                 type="button"

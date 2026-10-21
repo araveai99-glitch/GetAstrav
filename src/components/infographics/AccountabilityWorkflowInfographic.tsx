@@ -36,12 +36,12 @@ export const AccountabilityWorkflowInfographic: React.FC = () => {
                     <span className="w-5 h-5 rounded-full bg-champagne text-espresso font-mono font-bold text-xs flex items-center justify-center border border-champagne-gold">
                       {item.step}
                     </span>
-                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-bold border ${item.badge}`}>
+                    <span className={`px-2 py-0.5 rounded-full text-xs font-mono font-bold border ${item.badge}`}>
                       {item.status}
                     </span>
                   </div>
-                  <h3 className="text-xs sm:text-sm font-extrabold text-espresso">{item.title}</h3>
-                  <p className="text-[11px] text-terracotta leading-tight">{item.desc}</p>
+                  <h3 className="text-[15px] sm:text-sm font-extrabold text-espresso">{item.title}</h3>
+                  <p className="text-[13px] sm:text-xs text-terracotta leading-tight">{item.desc}</p>
                 </div>
 
                 {/* Arrow indicator for desktop */}
@@ -60,37 +60,37 @@ export const AccountabilityWorkflowInfographic: React.FC = () => {
         {/* Annotated Interface Breakdown Cards */}
         <div className="p-6 rounded-2xl bg-white border border-brand-peach shadow-warm-md grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
           <div className="space-y-2.5">
-            <div className="flex items-center gap-2.5 text-xs sm:text-sm font-extrabold text-espresso">
+            <div className="flex items-center gap-2.5 text-[15px] sm:text-base font-extrabold text-espresso">
               <div className="w-8 h-8 rounded-xl bg-champagne text-espresso flex items-center justify-center">
                 <UserCheck className="w-4.5 h-4.5" />
               </div>
               <span>Explicit Single Ownership</span>
             </div>
-            <p className="text-xs sm:text-sm text-terracotta leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed font-normal">
               Every task has exactly one assigned owner. Subtasks feed fractional progress weights directly into the leaf task completion meter.
             </p>
           </div>
 
           <div className="space-y-2.5">
-            <div className="flex items-center gap-2.5 text-xs sm:text-sm font-extrabold text-espresso">
+            <div className="flex items-center gap-2.5 text-[15px] sm:text-base font-extrabold text-espresso">
               <div className="w-8 h-8 rounded-xl bg-sage-light text-brand-green flex items-center justify-center">
                 <Lock className="w-4.5 h-4.5" />
               </div>
               <span>Gated Manager Sign-Off</span>
             </div>
-            <p className="text-xs sm:text-sm text-terracotta leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed font-normal">
               When review is required, task completion is held in pending status until the designated engineering or department lead authorizes sign-off.
             </p>
           </div>
 
           <div className="space-y-2.5">
-            <div className="flex items-center gap-2.5 text-xs sm:text-sm font-extrabold text-espresso">
+            <div className="flex items-center gap-2.5 text-[15px] sm:text-base font-extrabold text-espresso">
               <div className="w-8 h-8 rounded-xl bg-champagne text-espresso flex items-center justify-center">
                 <FileCheck className="w-4.5 h-4.5 text-espresso" />
               </div>
               <span>Immutable Audit Logs</span>
             </div>
-            <p className="text-xs sm:text-sm text-terracotta leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed font-normal">
               Every state transition, SLA timestamp, assignee reassignment, and review feedback is immutably logged into PostgreSQL audit triggers.
             </p>
           </div>

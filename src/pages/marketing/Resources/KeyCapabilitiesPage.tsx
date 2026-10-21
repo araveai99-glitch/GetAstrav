@@ -160,7 +160,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
         className="pt-4 sm:pt-6 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1520px] 2xl:max-w-[1600px] mx-auto w-full text-left"
       >
         <div className="text-left w-full max-w-4xl mb-6 sm:mb-8 space-y-1.5 sm:space-y-2">
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-espresso text-left">
+          <h2 className="font-heading font-extrabold text-[26px] min-[375px]:text-[28px] sm:text-3xl text-espresso text-left">
             Four Core Capabilities
           </h2>
           <p className="text-sm sm:text-base text-terracotta text-left">
@@ -194,16 +194,16 @@ export const KeyCapabilitiesPage: React.FC = () => {
               <h3 className="font-heading font-bold text-xl sm:text-2xl text-espresso mb-1">
                 Goal Planning
               </h3>
-              <p className="text-sm font-semibold text-brand-orange mb-3">
+              <p className="text-base font-semibold text-brand-orange mb-3">
                 Set clear goals and turn them into manageable work.
               </p>
-              <p className="text-xs sm:text-sm text-terracotta leading-relaxed mb-6">
+              <p className="text-base text-terracotta leading-relaxed mb-6">
                 Break complex quarterly strategies into actionable milestones with clear ownership and measurable deliverables.
               </p>
 
               {/* Unique Visual 1: Goal Hierarchy & Decomposition */}
               <div className="bg-surface-ambient rounded-2xl p-4 border border-brand-peach/60 space-y-2.5">
-                <div className="text-[11px] font-mono font-bold text-terracotta-muted uppercase tracking-wider mb-1 flex items-center justify-between">
+                <div className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider mb-1 flex items-center justify-between">
                   <span>Goal Decomposition</span>
                   <span className="text-brand-orange font-semibold">Active</span>
                 </div>
@@ -220,11 +220,11 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-2.5 h-2.5 rounded-full bg-brand-orange" />
-                    <span className="text-xs font-heading font-bold text-espresso">
+                    <span className="text-sm font-heading font-bold text-espresso">
                       Q3 North Star: Enterprise Expansion
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-brand-orange bg-brand-orange-light px-2 py-0.5 rounded-md">
+                  <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2 py-0.5 rounded-md">
                     Top Goal
                   </span>
                 </motion.div>
@@ -237,12 +237,12 @@ export const KeyCapabilitiesPage: React.FC = () => {
                       isSectionAInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }
                     }
                     transition={{ duration: 0.4, delay: 0.25 }}
-                    className="p-2.5 bg-white rounded-lg border border-brand-peach/60 text-xs flex items-center justify-between"
+                    className="p-2.5 bg-white rounded-lg border border-brand-peach/60 text-xs min-[375px]:text-sm flex items-center justify-between"
                   >
                     <span className="text-espresso font-medium truncate">
                       Deliverable A: Rollup Computation Engine
                     </span>
-                    <span className="text-[10px] font-mono text-brand-green font-bold bg-brand-green-light px-1.5 py-0.5 rounded">
+                    <span className="text-xs font-mono text-brand-green font-bold bg-brand-green-light px-1.5 py-0.5 rounded">
                       On Track
                     </span>
                   </motion.div>
@@ -253,12 +253,12 @@ export const KeyCapabilitiesPage: React.FC = () => {
                       isSectionAInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }
                     }
                     transition={{ duration: 0.4, delay: 0.4 }}
-                    className="p-2.5 bg-white rounded-lg border border-brand-peach/60 text-xs flex items-center justify-between"
+                    className="p-2.5 bg-white rounded-lg border border-brand-peach/60 text-xs min-[375px]:text-sm flex items-center justify-between"
                   >
                     <span className="text-espresso font-medium truncate">
                       Deliverable B: SOC2 Security Audit
                     </span>
-                    <span className="text-[10px] font-mono text-amber-700 font-bold bg-amber-50 px-1.5 py-0.5 rounded">
+                    <span className="text-xs font-mono text-amber-700 font-bold bg-amber-50 px-1.5 py-0.5 rounded">
                       Review
                     </span>
                   </motion.div>
@@ -266,7 +266,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs text-terracotta">
+            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm text-terracotta">
               <span>Clarity across all tiers</span>
               <span className="font-bold text-brand-orange">Deterministic</span>
             </div>
@@ -296,16 +296,16 @@ export const KeyCapabilitiesPage: React.FC = () => {
               <h3 className="font-heading font-bold text-xl sm:text-2xl text-espresso mb-1">
                 Connected Work
               </h3>
-              <p className="text-sm font-semibold text-brand-green mb-3">
+              <p className="text-base font-semibold text-brand-green mb-3">
                 Keep projects, milestones, and tasks linked together.
               </p>
-              <p className="text-xs sm:text-sm text-terracotta leading-relaxed mb-6">
+              <p className="text-base text-terracotta leading-relaxed mb-6">
                 Prevent work from becoming isolated. When every daily task is linked to a project and goal, momentum stays continuous.
               </p>
 
               {/* Unique Visual 2: Connected Chain of 3 Linked Elements */}
               <div className="bg-surface-ambient rounded-2xl p-4 border border-brand-peach/60 space-y-3">
-                <div className="text-[11px] font-mono font-bold text-terracotta-muted uppercase tracking-wider mb-1 flex items-center justify-between">
+                <div className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider mb-1 flex items-center justify-between">
                   <span>Linked Execution Chain</span>
                   <span className="text-brand-green font-semibold">100% Linked</span>
                 </div>
@@ -316,28 +316,28 @@ export const KeyCapabilitiesPage: React.FC = () => {
 
                   {/* Node 1: Goal */}
                   <div className="relative z-10 bg-white p-2.5 rounded-xl border border-brand-green/40 shadow-xs flex flex-col items-center">
-                    <span className="text-[10px] font-mono font-bold text-brand-green uppercase">Goal</span>
-                    <span className="text-xs font-bold text-espresso mt-0.5">Scale Q3</span>
+                    <span className="text-xs font-mono font-bold text-brand-green uppercase">Goal</span>
+                    <span className="text-sm font-bold text-espresso mt-0.5">Scale Q3</span>
                     <div className="w-2 h-2 rounded-full bg-brand-green mt-1.5" />
                   </div>
 
                   {/* Node 2: Milestone */}
                   <div className="relative z-10 bg-white p-2.5 rounded-xl border border-brand-green/40 shadow-xs flex flex-col items-center">
-                    <span className="text-[10px] font-mono font-bold text-brand-green uppercase">Milestone</span>
-                    <span className="text-xs font-bold text-espresso mt-0.5">Engine v2</span>
+                    <span className="text-xs font-mono font-bold text-brand-green uppercase">Milestone</span>
+                    <span className="text-sm font-bold text-espresso mt-0.5">Engine v2</span>
                     <div className="w-2 h-2 rounded-full bg-brand-green mt-1.5" />
                   </div>
 
                   {/* Node 3: Daily Task */}
                   <div className="relative z-10 bg-white p-2.5 rounded-xl border border-brand-green/40 shadow-xs flex flex-col items-center">
-                    <span className="text-[10px] font-mono font-bold text-brand-green uppercase">Task</span>
-                    <span className="text-xs font-bold text-espresso mt-0.5">API Tests</span>
+                    <span className="text-xs font-mono font-bold text-brand-green uppercase">Task</span>
+                    <span className="text-sm font-bold text-espresso mt-0.5">API Tests</span>
                     <div className="w-2 h-2 rounded-full bg-brand-green mt-1.5" />
                   </div>
                 </div>
 
                 {/* Animated Signal Traveling along connection */}
-                <div className="w-full bg-white rounded-lg p-2.5 border border-brand-peach/60 flex items-center justify-between text-xs">
+                <div className="w-full bg-white rounded-lg p-2.5 border border-brand-peach/60 flex items-center justify-between text-xs min-[375px]:text-sm">
                   <div className="flex items-center gap-2">
                     <motion.div
                       animate={
@@ -349,18 +349,18 @@ export const KeyCapabilitiesPage: React.FC = () => {
                     >
                       <Zap className="w-3.5 h-3.5 text-brand-green" />
                     </motion.div>
-                    <span className="text-terracotta text-[11px]">
+                    <span className="text-terracotta text-xs min-[375px]:text-sm">
                       Task update triggers instant parent milestone refresh
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-brand-green bg-brand-green-light px-1.5 py-0.5 rounded">
+                  <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-1.5 py-0.5 rounded">
                     Live
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs text-terracotta">
+            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm text-terracotta">
               <span>No orphaned tasks</span>
               <span className="font-bold text-brand-green">Always Linked</span>
             </div>
@@ -390,24 +390,24 @@ export const KeyCapabilitiesPage: React.FC = () => {
               <h3 className="font-heading font-bold text-xl sm:text-2xl text-espresso mb-1">
                 Automatic Progress
               </h3>
-              <p className="text-sm font-semibold text-amber-600 mb-3">
+              <p className="text-base font-semibold text-amber-600 mb-3">
                 See overall progress update as work gets completed.
               </p>
-              <p className="text-xs sm:text-sm text-terracotta leading-relaxed mb-6">
+              <p className="text-base text-terracotta leading-relaxed mb-6">
                 Never ask "What is our status?" again. Click tasks below to test live automatic progress calculation.
               </p>
 
               {/* Unique Visual 3: Live Interactive Progress Rollup Widget */}
               <div className="bg-surface-ambient rounded-2xl p-4 border border-brand-peach/60 space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-bold text-terracotta-muted uppercase tracking-wider">
+                  <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                     Interactive Progress Rollup
                   </span>
                   <div className="flex items-center gap-1.5">
-                    <span className="text-sm font-heading font-extrabold text-espresso">
+                    <span className="text-base font-heading font-extrabold text-espresso">
                       {calculatedProgress}%
                     </span>
-                    <span className="text-[10px] font-mono font-bold text-brand-orange bg-brand-orange-light px-1.5 py-0.5 rounded">
+                    <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-1.5 py-0.5 rounded">
                       Calculated
                     </span>
                   </div>
@@ -429,7 +429,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
                     <button
                       key={t.id}
                       onClick={() => toggleAutoTask(t.id)}
-                      className={`w-full text-left p-2 rounded-lg border text-xs flex items-center justify-between transition-colors ${
+                      className={`w-full text-left p-2 rounded-lg border text-sm flex items-center justify-between transition-colors ${
                         t.done
                           ? 'bg-brand-green-light/40 border-brand-green/30 text-espresso'
                           : 'bg-white border-brand-peach/60 text-terracotta hover:border-brand-orange/40'
@@ -449,7 +449,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
                           {t.name}
                         </span>
                       </div>
-                      <span className="text-[10px] font-mono text-terracotta-muted">
+                      <span className="text-xs font-mono text-terracotta-muted">
                         +{t.weight}%
                       </span>
                     </button>
@@ -458,7 +458,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs text-terracotta">
+            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm text-terracotta">
               <span>Click tasks to test live math</span>
               <span className="font-bold text-amber-600">Zero Manual Math</span>
             </div>
@@ -488,16 +488,16 @@ export const KeyCapabilitiesPage: React.FC = () => {
               <h3 className="font-heading font-bold text-xl sm:text-2xl text-espresso mb-1">
                 Team Visibility
               </h3>
-              <p className="text-sm font-semibold text-brand-orange mb-3">
+              <p className="text-base font-semibold text-brand-orange mb-3">
                 Understand what is moving forward and what needs attention.
               </p>
-              <p className="text-xs sm:text-sm text-terracotta leading-relaxed mb-6">
+              <p className="text-base text-terracotta leading-relaxed mb-6">
                 Empower managers and individual contributors with a real-time view into task velocity, roadblocks, and workload distribution.
               </p>
 
               {/* Unique Visual 4: Team Pulse Matrix */}
               <div className="bg-surface-ambient rounded-2xl p-4 border border-brand-peach/60 space-y-2.5">
-                <div className="text-[11px] font-mono font-bold text-terracotta-muted uppercase tracking-wider mb-1 flex items-center justify-between">
+                <div className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider mb-1 flex items-center justify-between">
                   <span>Department Pulse Radar</span>
                   <span className="text-brand-green font-semibold">Updated 1m ago</span>
                 </div>
@@ -509,17 +509,17 @@ export const KeyCapabilitiesPage: React.FC = () => {
                       ENG
                     </div>
                     <div>
-                      <div className="text-xs font-heading font-bold text-espresso">
+                      <div className="text-sm font-heading font-bold text-espresso">
                         Core Engineering Pod
                       </div>
-                      <div className="text-[10px] text-terracotta-muted">
+                      <div className="text-xs text-terracotta-muted">
                         14 active tasks · 0 roadblocks
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
-                    <span className="text-[10px] font-mono font-bold text-brand-green">
+                    <span className="text-xs font-mono font-bold text-brand-green">
                       92% Done
                     </span>
                   </div>
@@ -532,17 +532,17 @@ export const KeyCapabilitiesPage: React.FC = () => {
                       DES
                     </div>
                     <div>
-                      <div className="text-xs font-heading font-bold text-espresso">
+                      <div className="text-sm font-heading font-bold text-espresso">
                         Product & Design Pod
                       </div>
-                      <div className="text-[10px] text-terracotta-muted">
+                      <div className="text-xs text-terracotta-muted">
                         8 active tasks · 1 review pending
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-amber-500" />
-                    <span className="text-[10px] font-mono font-bold text-amber-700">
+                    <span className="text-xs font-mono font-bold text-amber-700">
                       78% Done
                     </span>
                   </div>
@@ -550,7 +550,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs text-terracotta">
+            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm text-terracotta">
               <span>Cross-department sync</span>
               <span className="font-bold text-brand-orange">Always In View</span>
             </div>
@@ -564,10 +564,10 @@ export const KeyCapabilitiesPage: React.FC = () => {
         className="pt-4 sm:pt-6 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1520px] mx-auto w-full"
       >
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-1.5 sm:space-y-2">
-          <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
+          <span className="text-xs min-[375px]:text-sm font-mono font-bold text-brand-orange uppercase tracking-wider">
             Interactive Ecosystem
           </span>
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-espresso">
+          <h2 className="font-heading font-extrabold text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl text-espresso">
             One Workspace. Connected Work.
           </h2>
           <p className="text-sm sm:text-base text-terracotta">
@@ -609,10 +609,10 @@ export const KeyCapabilitiesPage: React.FC = () => {
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-brand-orange flex items-center justify-center mb-1 shadow-md">
                     <Activity className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
-                  <span className="font-heading font-extrabold text-xs sm:text-sm tracking-tight text-white">
+                  <span className="font-heading font-extrabold text-sm sm:text-base tracking-tight text-white">
                     Astrav
                   </span>
-                  <span className="text-[8px] sm:text-[9px] font-mono uppercase tracking-widest text-brand-orange font-bold">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-brand-orange font-bold">
                     Core Engine
                   </span>
                 </motion.div>
@@ -630,11 +630,11 @@ export const KeyCapabilitiesPage: React.FC = () => {
                   >
                     <div className="flex items-center gap-2 mb-1">
                       <Target className="w-4 h-4 text-brand-orange" />
-                      <span className="text-xs sm:text-sm font-heading font-bold text-espresso">
+                      <span className="text-sm font-heading font-bold text-espresso">
                         Goal Planning
                       </span>
                     </div>
-                    <span className="text-[10px] font-mono text-terracotta block">
+                    <span className="text-xs font-mono text-terracotta block">
                       Strategic alignment
                     </span>
                   </button>
@@ -652,11 +652,11 @@ export const KeyCapabilitiesPage: React.FC = () => {
                   >
                     <div className="flex items-center gap-2 mb-1">
                       <Layers className="w-4 h-4 text-brand-green" />
-                      <span className="text-xs sm:text-sm font-heading font-bold text-espresso">
+                      <span className="text-sm font-heading font-bold text-espresso">
                         Connected Work
                       </span>
                     </div>
-                    <span className="text-[10px] font-mono text-terracotta block">
+                    <span className="text-xs font-mono text-terracotta block">
                       Linked execution
                     </span>
                   </button>
@@ -674,11 +674,11 @@ export const KeyCapabilitiesPage: React.FC = () => {
                   >
                     <div className="flex items-center gap-2 mb-1">
                       <TrendingUp className="w-4 h-4 text-amber-600" />
-                      <span className="text-xs sm:text-sm font-heading font-bold text-espresso">
+                      <span className="text-sm font-heading font-bold text-espresso">
                         Automatic Progress
                       </span>
                     </div>
-                    <span className="text-[10px] font-mono text-terracotta block">
+                    <span className="text-xs font-mono text-terracotta block">
                       Real-time rollups
                     </span>
                   </button>
@@ -696,11 +696,11 @@ export const KeyCapabilitiesPage: React.FC = () => {
                   >
                     <div className="flex items-center gap-2 mb-1">
                       <Users className="w-4 h-4 text-brand-orange" />
-                      <span className="text-xs sm:text-sm font-heading font-bold text-espresso">
+                      <span className="text-sm font-heading font-bold text-espresso">
                         Team Visibility
                       </span>
                     </div>
-                    <span className="text-[10px] font-mono text-terracotta block">
+                    <span className="text-xs font-mono text-terracotta block">
                       Shared momentum
                     </span>
                   </button>
@@ -789,35 +789,35 @@ export const KeyCapabilitiesPage: React.FC = () => {
                           <currentCap.icon className="w-5 h-5" />
                         </div>
                         <div>
-                          <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase tracking-wider block">
+                          <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider block">
                             Capability {currentCap.number}
                           </span>
-                          <h4 className="font-heading font-extrabold text-xl text-espresso">
+                          <h4 className="font-heading font-extrabold text-xl sm:text-2xl text-espresso">
                             {currentCap.title}
                           </h4>
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-sm font-semibold text-espresso leading-snug">
+                    <p className="text-base font-semibold text-espresso leading-snug">
                       "{currentCap.tagline}"
                     </p>
 
                     <div className="p-3.5 bg-white rounded-2xl border border-brand-peach/60 space-y-2">
-                      <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase tracking-wider block">
+                      <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider block">
                         How It Works in Astrav
                       </span>
-                      <p className="text-xs sm:text-sm text-terracotta leading-relaxed">
+                      <p className="text-base text-terracotta leading-relaxed">
                         {currentCap.summary}
                       </p>
                     </div>
 
                     <div className="p-3.5 bg-brand-green-light/40 rounded-2xl border border-brand-green/30 space-y-1">
-                      <div className="flex items-center gap-1.5 text-brand-green text-xs font-bold">
+                      <div className="flex items-center gap-1.5 text-brand-green text-sm font-bold">
                         <CheckCircle2 className="w-4 h-4" />
                         <span>Benefit for Your Team</span>
                       </div>
-                      <p className="text-xs text-espresso font-medium pl-5">
+                      <p className="text-sm text-espresso font-medium pl-5">
                         {currentCap.benefit}
                       </p>
                     </div>
@@ -826,12 +826,12 @@ export const KeyCapabilitiesPage: React.FC = () => {
                   <div className="mt-6 pt-4 border-t border-brand-peach/60 flex items-center justify-between">
                     <button
                       onClick={openDemoModal}
-                      className="text-xs font-heading font-bold text-brand-orange hover:text-brand-orange-hover inline-flex items-center gap-1.5 transition-colors"
+                      className="text-sm font-heading font-bold text-brand-orange hover:text-brand-orange-hover inline-flex items-center gap-1.5 transition-colors"
                     >
                       <span>See live walkthrough</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
-                    <span className="text-[10px] font-mono text-terracotta-muted">
+                    <span className="text-xs font-mono text-terracotta-muted">
                       Deterministic Engine
                     </span>
                   </div>
@@ -848,7 +848,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
         className="pt-4 sm:pt-6 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1520px] 2xl:max-w-[1600px] mx-auto w-full text-left"
       >
         <div className="text-left w-full max-w-4xl mb-6 sm:mb-8 space-y-1.5 sm:space-y-2">
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-espresso text-left">
+          <h2 className="font-heading font-extrabold text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl text-espresso text-left">
             From Everyday Work to Clear Results
           </h2>
           <p className="text-sm sm:text-base text-terracotta text-left">
@@ -904,7 +904,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
                   <AlertTriangle className="w-3.5 h-3.5" />
                   <span>Before Astrav</span>
                 </div>
-                <span className="text-xs font-mono text-terracotta-muted shrink-0">
+                <span className="text-xs min-[375px]:text-sm font-mono text-terracotta-muted shrink-0">
                   Fragmented Workflow
                 </span>
               </div>
@@ -917,10 +917,10 @@ export const KeyCapabilitiesPage: React.FC = () => {
                     ✕
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-heading font-bold text-sm text-espresso">
+                    <h4 className="font-heading font-bold text-base text-espresso">
                       Disconnected Tasks
                     </h4>
-                    <p className="text-xs text-terracotta leading-relaxed mt-0.5">
+                    <p className="text-sm min-[375px]:text-base text-terracotta leading-relaxed mt-0.5">
                       Work lives scattered across Slack threads, Jira tickets, and local todo lists with zero direct link to high-level goals.
                     </p>
                   </div>
@@ -937,10 +937,10 @@ export const KeyCapabilitiesPage: React.FC = () => {
                     ⏳
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-heading font-bold text-sm text-espresso">
+                    <h4 className="font-heading font-bold text-base text-espresso">
                       Manual Updates & Chasing
                     </h4>
-                    <p className="text-xs text-terracotta leading-relaxed mt-0.5">
+                    <p className="text-sm min-[375px]:text-base text-terracotta leading-relaxed mt-0.5">
                       Managers spend hours weekly messaging "Any update on this?", pasting outdated numbers into manual spreadsheet rollups.
                     </p>
                   </div>
@@ -957,10 +957,10 @@ export const KeyCapabilitiesPage: React.FC = () => {
                     ❓
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-heading font-bold text-sm text-espresso">
+                    <h4 className="font-heading font-bold text-base text-espresso">
                       Unclear Progress & Guesswork
                     </h4>
-                    <p className="text-xs text-terracotta leading-relaxed mt-0.5">
+                    <p className="text-sm min-[375px]:text-base text-terracotta leading-relaxed mt-0.5">
                       Nobody knows if the release date is realistic until the last week, resulting in sudden fire-drills and delayed launches.
                     </p>
                   </div>
@@ -968,7 +968,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
               </div>
 
               {/* Bottom Result Summary */}
-              <div className="mt-6 pt-4 border-t border-brand-peach/60 flex items-center justify-between text-xs text-red-700 font-medium">
+              <div className="mt-6 pt-4 border-t border-brand-peach/60 flex items-center justify-between text-xs min-[375px]:text-sm text-red-700 font-medium">
                 <span>Result: Blind spots and delayed launches</span>
                 <span className="font-mono font-bold shrink-0">Low Confidence</span>
               </div>
@@ -996,7 +996,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>With Astrav</span>
                 </div>
-                <span className="text-xs font-mono font-bold text-brand-orange shrink-0">
+                <span className="text-xs min-[375px]:text-sm font-mono font-bold text-brand-orange shrink-0">
                   Deterministic System
                 </span>
               </div>
@@ -1009,10 +1009,10 @@ export const KeyCapabilitiesPage: React.FC = () => {
                     <Check className="w-4 h-4 stroke-[3]" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-heading font-bold text-sm text-espresso">
+                    <h4 className="font-heading font-bold text-base text-espresso">
                       Connected Work
                     </h4>
-                    <p className="text-xs text-terracotta leading-relaxed mt-0.5">
+                    <p className="text-sm min-[375px]:text-base text-terracotta leading-relaxed mt-0.5">
                       Every daily task is explicitly linked to milestones and strategic goals. Nothing exists in isolation.
                     </p>
                   </div>
@@ -1029,10 +1029,10 @@ export const KeyCapabilitiesPage: React.FC = () => {
                     <Zap className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-heading font-bold text-sm text-espresso">
+                    <h4 className="font-heading font-bold text-base text-espresso">
                       Automatic Rollups
                     </h4>
-                    <p className="text-xs text-terracotta leading-relaxed mt-0.5">
+                    <p className="text-sm min-[375px]:text-base text-terracotta leading-relaxed mt-0.5">
                       Completing daily work automatically recalculates project and goal percentages in real-time. Zero status meetings needed.
                     </p>
                   </div>
@@ -1049,10 +1049,10 @@ export const KeyCapabilitiesPage: React.FC = () => {
                     <TrendingUp className="w-4 h-4 stroke-[2.5]" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-heading font-bold text-sm text-espresso">
+                    <h4 className="font-heading font-bold text-base text-espresso">
                       Clear Visibility
                     </h4>
-                    <p className="text-xs text-terracotta leading-relaxed mt-0.5">
+                    <p className="text-sm min-[375px]:text-base text-terracotta leading-relaxed mt-0.5">
                       Leaders and pods see instant, verified progress. Risks are detected weeks before they threaten your roadmap.
                     </p>
                   </div>
@@ -1060,7 +1060,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
               </div>
 
               {/* Bottom Result Summary */}
-              <div className="mt-6 pt-4 border-t border-brand-peach/60 flex items-center justify-between text-xs text-brand-green font-bold relative z-10">
+              <div className="mt-6 pt-4 border-t border-brand-peach/60 flex items-center justify-between text-xs min-[375px]:text-sm text-brand-green font-bold relative z-10">
                 <span>Result: Continuous momentum & alignment</span>
                 <span className="font-mono shrink-0">100% Verified</span>
               </div>
@@ -1082,18 +1082,18 @@ export const KeyCapabilitiesPage: React.FC = () => {
             <Target className="w-7 h-7" />
           </div>
 
-          <h2 className="font-heading font-extrabold text-2xl sm:text-4xl text-espresso tracking-tight">
+          <h2 className="font-heading font-extrabold text-[26px] min-[375px]:text-[28px] sm:text-4xl text-espresso tracking-tight">
             Bring Your Work Into Focus.
           </h2>
 
-          <p className="text-terracotta text-sm sm:text-base max-w-xl mx-auto">
+          <p className="text-terracotta text-base sm:text-lg max-w-xl mx-auto">
             Experience how connected goals, projects, and automatic progress rollups transform execution across your entire organization.
           </p>
 
           <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
             <button
               onClick={openDemoModal}
-              className="btn-brand-primary px-7 py-3.5 text-sm sm:text-base font-heading font-bold shadow-md shadow-brand-orange/30 inline-flex items-center gap-2"
+              className="btn-brand-primary px-7 py-3.5 text-base font-heading font-bold shadow-md shadow-brand-orange/30 inline-flex items-center gap-2"
             >
               <span>Book a Demo</span>
               <ArrowRight className="w-4 h-4" />

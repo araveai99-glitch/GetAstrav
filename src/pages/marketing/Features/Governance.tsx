@@ -131,19 +131,19 @@ export const Governance: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="p-6 sm:p-8 lg:p-10 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-warm-md hover:shadow-warm-lg transition-shadow relative overflow-hidden"
+        className="p-4 xs:p-6 sm:p-8 lg:p-10 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-warm-md hover:shadow-warm-lg transition-shadow relative overflow-hidden"
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-brand-peach/50 relative z-10">
           <div>
-            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+            <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
               Role-to-Permission <span className="text-brand-orange">Flow</span>
             </h2>
-            <p className="text-sm text-terracotta mt-1">
+            <p className="text-base text-terracotta mt-1.5 leading-relaxed">
               Select an example role to see how permissions cascade dynamically to permitted and protected actions.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-heading font-semibold text-terracotta-muted bg-surface-tier1 px-3 py-1.5 rounded-xl border border-brand-peach/50 self-start sm:self-auto">
+          <div className="flex items-center gap-2 text-[13px] font-heading font-semibold text-terracotta-muted bg-surface-tier1 px-3 py-1.5 rounded-xl border border-brand-peach/50 self-start sm:self-auto">
             <Key className="w-4 h-4 text-brand-orange" />
             <span>Least-Privilege Security</span>
           </div>
@@ -183,17 +183,17 @@ export const Governance: React.FC = () => {
                     </div>
 
                     <div>
-                      <h4 className="font-heading font-bold text-sm sm:text-base text-espresso">
+                      <h4 className="font-heading font-bold text-[16px] sm:text-base text-espresso">
                         {role.title}
                       </h4>
-                      <p className="text-xs text-terracotta-muted">
+                      <p className="text-[13px] sm:text-xs text-terracotta-muted">
                         {role.personName}
                       </p>
                     </div>
                   </div>
 
                   <span
-                    className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border ${role.badgeBg}`}
+                    className={`text-xs font-mono font-bold px-2 py-0.5 rounded-full border ${role.badgeBg}`}
                   >
                     {role.badge}
                   </span>
@@ -202,7 +202,7 @@ export const Governance: React.FC = () => {
             })}
 
             {/* Role Context Card */}
-            <div className="p-4 rounded-2xl bg-surface-tier1/60 border border-brand-peach/50 text-xs text-terracotta leading-relaxed mt-4">
+            <div className="p-4 rounded-2xl bg-surface-tier1/60 border border-brand-peach/50 text-sm text-terracotta leading-relaxed mt-4">
               <span className="font-heading font-bold text-espresso block mb-1">
                 Active Role Scope
               </span>
@@ -211,16 +211,16 @@ export const Governance: React.FC = () => {
           </div>
 
           {/* Column 2: Available Actions Matrix (8 cols) */}
-          <div className="lg:col-span-8 bg-surface-tier1/40 rounded-3xl p-6 sm:p-7 border border-brand-peach/70 flex flex-col justify-between space-y-4">
+          <div className="lg:col-span-8 bg-surface-tier1/40 rounded-3xl p-4 xs:p-5 sm:p-7 border border-brand-peach/70 flex flex-col justify-between space-y-4">
             <div>
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-brand-peach/50">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-brand-orange" />
-                  <h4 className="font-heading font-extrabold text-base sm:text-lg text-espresso">
+              <div className="flex items-start sm:items-center justify-between gap-3 sm:gap-4 pb-4 mb-4 border-b border-brand-peach/50">
+                <div className="flex items-start sm:items-center gap-2.5 min-w-0 flex-1">
+                  <ShieldCheck className="w-5 h-5 text-brand-orange shrink-0 mt-0.5 sm:mt-0" />
+                  <h4 className="font-heading font-extrabold text-[16px] xs:text-[17px] sm:text-lg text-espresso leading-snug">
                     Available Actions for {activeRole.title}
                   </h4>
                 </div>
-                <span className="text-xs font-mono font-bold text-terracotta-muted">
+                <span className="text-xs font-mono font-bold text-terracotta-muted bg-white/80 border border-brand-peach/50 px-2.5 py-1 rounded-full shrink-0 whitespace-nowrap">
                   {activeRole.permissions.filter((p) => p.allowed).length} Permitted
                 </span>
               </div>
@@ -233,15 +233,15 @@ export const Governance: React.FC = () => {
                     initial={{ opacity: 0, x: 6 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.25, delay: idx * 0.05 }}
-                    className={`p-3.5 sm:p-4 rounded-2xl border transition-all flex items-center justify-between gap-3 ${
+                    className={`p-3.5 sm:p-4 rounded-2xl border transition-all flex flex-col min-[360px]:flex-row min-[360px]:items-center justify-between gap-2.5 sm:gap-4 ${
                       perm.allowed
                         ? 'bg-white border-brand-green/40 shadow-warm-2xs hover:border-brand-green'
                         : 'bg-white/50 border-brand-peach/30 opacity-70'
                     }`}
                   >
-                    <div className="flex items-center gap-3 min-w-0">
+                    <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
                       <div
-                        className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 ${
+                        className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5 sm:mt-0 ${
                           perm.allowed
                             ? 'bg-brand-green-light text-brand-green border border-brand-green/30'
                             : 'bg-surface-tier2 text-terracotta-muted border border-brand-peach/50'
@@ -253,33 +253,40 @@ export const Governance: React.FC = () => {
                           <Lock className="w-4 h-4 text-terracotta-muted" />
                         )}
                       </div>
-                      <div>
-                        <span className="font-heading font-bold text-xs sm:text-sm text-espresso block truncate">
+                      <div className="min-w-0 flex-1">
+                        <span className="font-heading font-bold text-sm sm:text-[15px] text-espresso block leading-snug">
                           {perm.action}
                         </span>
-                        <span className="text-[11px] text-terracotta-muted">
+                        <span className="text-xs text-terracotta-muted block mt-0.5 leading-normal">
                           {perm.reason}
                         </span>
                       </div>
                     </div>
 
-                    <span
-                      className={`text-xs font-mono font-bold px-2.5 py-1 rounded-md shrink-0 ${
-                        perm.allowed
-                          ? 'bg-brand-green-light text-brand-green border border-brand-green/20'
-                          : 'bg-surface-tier2 text-terracotta-muted border border-brand-peach/40'
-                      }`}
-                    >
-                      {perm.allowed ? 'Authorized' : 'Restricted'}
-                    </span>
+                    <div className="pl-10.5 min-[360px]:pl-0 self-start min-[360px]:self-center shrink-0">
+                      <span
+                        className={`text-xs font-mono font-bold px-2.5 py-1 rounded-md shrink-0 whitespace-nowrap block ${
+                          perm.allowed
+                            ? 'bg-brand-green-light text-brand-green border border-brand-green/20'
+                            : 'bg-surface-tier2 text-terracotta-muted border border-brand-peach/40'
+                        }`}
+                      >
+                        {perm.allowed ? 'Authorized' : 'Restricted'}
+                      </span>
+                    </div>
                   </motion.div>
                 ))}
               </div>
             </div>
 
-            <div className="pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs text-terracotta-muted">
-              <span>All permission modifications emit immutable cryptographic events.</span>
-              <span className="font-heading font-bold text-brand-green">Instant Role Propagation</span>
+            <div className="pt-4 border-t border-brand-peach/40 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 text-xs sm:text-[13px] text-terracotta-muted">
+              <span className="leading-relaxed flex-1 min-w-0">
+                All permission modifications emit immutable cryptographic events.
+              </span>
+              <span className="font-heading font-bold text-brand-green shrink-0 whitespace-nowrap self-start sm:self-auto flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" />
+                <span>Instant Role Propagation</span>
+              </span>
             </div>
           </div>
         </div>
@@ -305,15 +312,15 @@ export const Governance: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Full Audit Transparency
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Every role change, deliverable signoff, and target override is recorded with actor ID and timestamp.
             </p>
 
             {/* Micro Audit Log Ticker */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5 font-mono text-[11px]">
+            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5 font-mono text-xs">
               <div className="flex justify-between text-terracotta-muted">
                 <span>Recent Event</span>
                 <span className="text-brand-green">Verified</span>
@@ -324,7 +331,7 @@ export const Governance: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-orange">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-orange">
             <span>Immutable Audit Trail</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -348,15 +355,15 @@ export const Governance: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Least-Privilege by Default
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               New team members are assigned strictly to their active pod. They never see sensitive executive billing, equity, or unrelated strategic targets.
             </p>
 
             {/* Micro Default Scope Status */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
+            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-sm sm:text-xs font-mono">
               <span className="text-terracotta">Executive Target Access:</span>
               <span className="text-brand-orange font-bold flex items-center gap-1">
                 <Lock className="w-3.5 h-3.5" /> Protected
@@ -364,7 +371,7 @@ export const Governance: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-green">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-green">
             <span>Zero Accidental Exposure</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -388,15 +395,15 @@ export const Governance: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Fast Contractor Scoping
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Bring external design agencies or contract engineers into specific project containers in seconds with granular read/write rights.
             </p>
 
             {/* Micro Scoping Widget */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
+            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-sm sm:text-xs font-mono">
               <span className="text-terracotta">Contractor Timebox:</span>
               <span className="text-brand-green font-bold flex items-center gap-1">
                 <Check className="w-3.5 h-3.5" /> 30-Day Auto-Revoke
@@ -404,7 +411,7 @@ export const Governance: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-amber-700">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-amber-700">
             <span>Frictionless Onboarding</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>

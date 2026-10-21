@@ -38,19 +38,19 @@ export const GoalCard: React.FC<GoalCardProps> = ({
     <div className="bg-white rounded-2xl p-6 shadow-warm-md border border-brand-peach/60 space-y-4 hover:shadow-warm-lg transition-all">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="px-2.5 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach text-[10px] font-bold uppercase tracking-wider text-brand-orange">
+          <div className="flex flex-wrap items-center gap-2 mb-1.5">
+            <span className="px-2.5 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach text-xs sm:text-[10px] font-bold uppercase tracking-wider text-brand-orange">
               Strategic Goal
             </span>
-            <span className="text-xs text-terracotta-muted flex items-center gap-1 font-medium">
+            <span className="text-sm sm:text-xs text-terracotta-muted flex items-center gap-1 font-medium">
               <Layers className="w-3.5 h-3.5 text-brand-orange" /> {goalMilestones.length} Milestones
             </span>
-            <span className="text-xs text-terracotta-muted flex items-center gap-1 font-medium">
+            <span className="text-sm sm:text-xs text-terracotta-muted flex items-center gap-1 font-medium">
               <ListCheck className="w-3.5 h-3.5 text-brand-green" /> {goalTasks.length} Tasks
             </span>
           </div>
-          <h3 className="text-lg font-bold text-espresso">{goal.title}</h3>
-          <p className="text-xs text-terracotta mt-1">{goal.description}</p>
+          <h3 className="text-xl sm:text-lg font-bold text-espresso">{goal.title}</h3>
+          <p className="text-sm sm:text-xs text-terracotta mt-1 leading-relaxed">{goal.description}</p>
         </div>
 
         {onRequestAITasks && (
@@ -73,7 +73,7 @@ export const GoalCard: React.FC<GoalCardProps> = ({
       />
 
       {isOverriding && (
-        <div className="p-3 bg-surface-tier1 rounded-xl border border-brand-peach flex items-center gap-3 animate-fadeIn">
+        <div className="p-3 bg-surface-tier1 rounded-xl border border-brand-peach flex flex-wrap items-center gap-3 animate-fadeIn">
           <input
             type="number"
             min="0"
@@ -81,11 +81,11 @@ export const GoalCard: React.FC<GoalCardProps> = ({
             placeholder="Enter override % (e.g. 85)"
             value={overrideInput}
             onChange={(e) => setOverrideInput(e.target.value)}
-            className="px-3 py-1.5 rounded-lg border border-brand-peach text-xs font-bold text-espresso bg-white w-40 focus:outline-none focus:ring-2 focus:ring-brand-orange"
+            className="px-3 py-2 sm:py-1.5 rounded-lg border border-brand-peach text-base sm:text-xs font-bold text-espresso bg-white w-40 focus:outline-none focus:ring-2 focus:ring-brand-orange"
           />
           <button
             onClick={handleSaveOverride}
-            className="px-3 py-1.5 rounded-lg bg-brand-orange text-white text-xs font-bold hover:bg-primary-hover transition-colors"
+            className="px-3.5 py-2 sm:py-1.5 rounded-lg bg-brand-orange text-white text-sm sm:text-xs font-bold hover:bg-primary-hover transition-colors"
           >
             Save Override
           </button>
@@ -95,7 +95,7 @@ export const GoalCard: React.FC<GoalCardProps> = ({
               onOverride(goal.id, null);
               setIsOverriding(false);
             }}
-            className="px-3 py-1.5 rounded-lg bg-white border border-brand-peach text-espresso text-xs font-semibold hover:bg-surface-ambient transition-colors"
+            className="px-3.5 py-2 sm:py-1.5 rounded-lg bg-white border border-brand-peach text-espresso text-sm sm:text-xs font-semibold hover:bg-surface-ambient transition-colors"
           >
             Clear Override
           </button>

@@ -66,10 +66,10 @@ export const Analytics: React.FC = () => {
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-brand-peach/50 relative z-10">
           <div>
-            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+            <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
               Interactive Analytics <span className="text-brand-orange">Console</span>
             </h2>
-            <p className="text-sm text-terracotta mt-1">
+            <p className="text-base text-terracotta mt-1.5 leading-relaxed">
               Toggle perspectives to experience how the exact same project telemetry translates between strategic and tactical needs.
             </p>
           </div>
@@ -79,7 +79,7 @@ export const Analytics: React.FC = () => {
             <button
               type="button"
               onClick={() => setActiveView('leadership')}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-heading font-bold transition-all cursor-pointer flex items-center gap-2 ${
+              className={`px-4 py-2 rounded-xl text-sm font-heading font-bold transition-all cursor-pointer flex items-center gap-2 ${
                 activeView === 'leadership'
                   ? 'bg-brand-orange text-white shadow-sm scale-[1.02]'
                   : 'text-terracotta-muted hover:text-espresso hover:bg-white/60'
@@ -91,7 +91,7 @@ export const Analytics: React.FC = () => {
             <button
               type="button"
               onClick={() => setActiveView('execution')}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-heading font-bold transition-all cursor-pointer flex items-center gap-2 ${
+              className={`px-4 py-2 rounded-xl text-sm font-heading font-bold transition-all cursor-pointer flex items-center gap-2 ${
                 activeView === 'execution'
                   ? 'bg-brand-orange text-white shadow-sm scale-[1.02]'
                   : 'text-terracotta-muted hover:text-espresso hover:bg-white/60'
@@ -126,7 +126,7 @@ export const Analytics: React.FC = () => {
                       +4.2% MoM
                     </span>
                   </div>
-                  <p className="text-xs text-terracotta-muted">4 of 5 company goals on target</p>
+                  <p className="text-[13px] sm:text-xs text-terracotta-muted">4 of 5 company goals on target</p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2 hover:bg-white hover:shadow-warm-xs transition-all">
@@ -139,7 +139,7 @@ export const Analytics: React.FC = () => {
                       On Track
                     </span>
                   </div>
-                  <p className="text-xs text-terracotta-muted">Estimated launch in 14 days</p>
+                  <p className="text-[13px] sm:text-xs text-terracotta-muted">Estimated launch in 14 days</p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2 hover:bg-white hover:shadow-warm-xs transition-all">
@@ -152,7 +152,7 @@ export const Analytics: React.FC = () => {
                       Zero Breaches
                     </span>
                   </div>
-                  <p className="text-xs text-terracotta-muted">Across 3 active pods</p>
+                  <p className="text-[13px] sm:text-xs text-terracotta-muted">Across 3 active pods</p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2 hover:bg-white hover:shadow-warm-xs transition-all">
@@ -163,7 +163,7 @@ export const Analytics: React.FC = () => {
                     <span className="font-heading font-extrabold text-3xl text-espresso">12</span>
                     <span className="text-xs font-mono font-bold text-terracotta-muted">All Synced</span>
                   </div>
-                  <p className="text-xs text-terracotta-muted">Zero unassigned initiatives</p>
+                  <p className="text-[13px] sm:text-xs text-terracotta-muted">Zero unassigned initiatives</p>
                 </div>
               </div>
 
@@ -171,10 +171,10 @@ export const Analytics: React.FC = () => {
               <div className="p-6 sm:p-7 rounded-2xl bg-surface-tier1/40 border border-brand-peach/60 space-y-5">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <h4 className="font-heading font-extrabold text-lg text-espresso">
+                    <h4 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso">
                       Company Milestone Rollup Status
                     </h4>
-                    <p className="text-xs text-terracotta-muted">
+                    <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
                       Executive dashboard automatically synthesized from ground-level tasks.
                     </p>
                   </div>
@@ -184,51 +184,58 @@ export const Analytics: React.FC = () => {
                 </div>
 
                 {/* Animated Visual Multi-Bar Progress */}
-                <div className="space-y-4 pt-1">
-                  <div>
-                    <div className="flex justify-between text-xs font-heading font-bold mb-1.5">
-                      <span className="text-espresso">Enterprise Launch Q4 (Goal 1)</span>
-                      <span className="text-brand-orange font-mono">88% Complete</span>
+                <div className="space-y-5 pt-1">
+                  {[
+                    {
+                      name: 'Enterprise Launch Q4 (Goal 1)',
+                      progress: '88%',
+                      statusColor: 'text-brand-orange',
+                      barClass: 'bg-gradient-to-r from-brand-orange to-brand-green',
+                      delay: 0,
+                    },
+                    {
+                      name: 'Core Architecture Migration (Goal 2)',
+                      progress: '94%',
+                      statusColor: 'text-brand-green',
+                      barClass: 'bg-brand-green',
+                      delay: 0.1,
+                    },
+                    {
+                      name: 'SOC2 Type II Audit Compliance (Goal 3)',
+                      progress: '72%',
+                      statusColor: 'text-amber-600',
+                      barClass: 'bg-gradient-to-r from-amber-500 to-brand-yellow',
+                      delay: 0.2,
+                    },
+                  ].map((milestone) => (
+                    <div key={milestone.name} className="space-y-2">
+                      <div className="flex flex-col min-[360px]:flex-row min-[360px]:items-baseline justify-between gap-1 min-[360px]:gap-3">
+                        <span className="text-espresso font-heading font-bold text-sm sm:text-xs leading-snug">
+                          {milestone.name}
+                        </span>
+                        <div className={`flex items-baseline gap-1.5 shrink-0 whitespace-nowrap self-start min-[360px]:self-auto ${milestone.statusColor}`}>
+                          <span className="font-heading font-extrabold text-sm sm:text-xs">
+                            {milestone.progress}
+                          </span>
+                          <span className="text-xs font-mono font-bold">
+                            Complete
+                          </span>
+                        </div>
+                      </div>
+                      <div className="w-full h-3 rounded-full bg-white border border-brand-peach/50 p-0.5 overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: milestone.progress }}
+                          transition={{
+                            duration: shouldReduceMotion ? 0 : 0.8,
+                            ease: 'easeOut',
+                            delay: milestone.delay,
+                          }}
+                          className={`h-full ${milestone.barClass} rounded-full`}
+                        />
+                      </div>
                     </div>
-                    <div className="w-full h-3 rounded-full bg-white border border-brand-peach/50 p-0.5 overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: '88%' }}
-                        transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: 'easeOut' }}
-                        className="h-full bg-gradient-to-r from-brand-orange to-brand-green rounded-full"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-xs font-heading font-bold mb-1.5">
-                      <span className="text-espresso">Core Architecture Migration (Goal 2)</span>
-                      <span className="text-brand-green font-mono">94% Complete</span>
-                    </div>
-                    <div className="w-full h-3 rounded-full bg-white border border-brand-peach/50 p-0.5 overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: '94%' }}
-                        transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: 'easeOut', delay: 0.1 }}
-                        className="h-full bg-brand-green rounded-full"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-xs font-heading font-bold mb-1.5">
-                      <span className="text-espresso">SOC2 Type II Audit Compliance (Goal 3)</span>
-                      <span className="text-amber-600 font-mono">72% Complete</span>
-                    </div>
-                    <div className="w-full h-3 rounded-full bg-white border border-brand-peach/50 p-0.5 overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: '72%' }}
-                        transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: 'easeOut', delay: 0.2 }}
-                        className="h-full bg-gradient-to-r from-amber-500 to-brand-yellow rounded-full"
-                      />
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -253,7 +260,7 @@ export const Analytics: React.FC = () => {
                       High Flow
                     </span>
                   </div>
-                  <p className="text-xs text-terracotta-muted">Average turnaround 4.2 hours</p>
+                  <p className="text-[13px] sm:text-xs text-terracotta-muted">Average turnaround 4.2 hours</p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2 hover:bg-white hover:shadow-warm-xs transition-all">
@@ -266,7 +273,7 @@ export const Analytics: React.FC = () => {
                       24 Done
                     </span>
                   </div>
-                  <p className="text-xs text-terracotta-muted">10 currently in progress</p>
+                  <p className="text-[13px] sm:text-xs text-terracotta-muted">10 currently in progress</p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2 hover:bg-white hover:shadow-warm-xs transition-all">
@@ -279,7 +286,7 @@ export const Analytics: React.FC = () => {
                       -45m vs Target
                     </span>
                   </div>
-                  <p className="text-xs text-terracotta-muted">Zero PRs blocked &gt; 6h</p>
+                  <p className="text-[13px] sm:text-xs text-terracotta-muted">Zero PRs blocked &gt; 6h</p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2 hover:bg-white hover:shadow-warm-xs transition-all">
@@ -292,7 +299,7 @@ export const Analytics: React.FC = () => {
                       Clear Queue
                     </span>
                   </div>
-                  <p className="text-xs text-terracotta-muted">All dependencies satisfied</p>
+                  <p className="text-[13px] sm:text-xs text-terracotta-muted">All dependencies satisfied</p>
                 </div>
               </div>
 
@@ -300,10 +307,10 @@ export const Analytics: React.FC = () => {
               <div className="p-6 sm:p-7 rounded-2xl bg-surface-tier1/40 border border-brand-peach/60 space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <h4 className="font-heading font-extrabold text-lg text-espresso">
+                    <h4 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso">
                       Live Ground-Level Task Stream
                     </h4>
-                    <p className="text-xs text-terracotta-muted">
+                    <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
                       Real-time deliverable execution telemetry informing parent milestones.
                     </p>
                   </div>
@@ -317,10 +324,10 @@ export const Analytics: React.FC = () => {
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-brand-green shrink-0" />
                       <div>
-                        <span className="font-heading font-bold text-xs sm:text-sm text-espresso block">
+                        <span className="font-heading font-bold text-[15px] sm:text-sm text-espresso block">
                           Merge OAuth2 Redirection Handshake
                         </span>
-                        <span className="text-[11px] text-terracotta-muted">Frontend Pod • Marcus Vance</span>
+                        <span className="text-xs text-terracotta-muted">Frontend Pod • Marcus Vance</span>
                       </div>
                     </div>
                     <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-1 rounded-md">
@@ -332,10 +339,10 @@ export const Analytics: React.FC = () => {
                     <div className="flex items-center gap-3">
                       <Activity className="w-5 h-5 text-brand-orange shrink-0 animate-pulse" />
                       <div>
-                        <span className="font-heading font-bold text-xs sm:text-sm text-espresso block">
+                        <span className="font-heading font-bold text-[15px] sm:text-sm text-espresso block">
                           Provision PostgreSQL Read Replicas
                         </span>
-                        <span className="text-[11px] text-terracotta-muted">Backend Pod • Priya Sharma</span>
+                        <span className="text-xs text-terracotta-muted">Backend Pod • Priya Sharma</span>
                       </div>
                     </div>
                     <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-1 rounded-md">
@@ -369,16 +376,16 @@ export const Analytics: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               For Founders & Executives
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Understand company health in 10 seconds. Spot lagging milestones and resource constraints without scheduling status calls.
             </p>
 
             {/* Micro Executive Radar Widget */}
             <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
-              <div className="flex items-center justify-between text-xs font-mono font-bold">
+              <div className="flex items-center justify-between text-sm sm:text-xs font-mono font-bold">
                 <span className="text-espresso">Company Health Pulse</span>
                 <span className="text-brand-green font-bold">94.8% Safe</span>
               </div>
@@ -389,7 +396,7 @@ export const Analytics: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-orange">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-orange">
             <span>Macro Strategic Clarity</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -413,16 +420,16 @@ export const Analytics: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               For Pod Leads & Engineers
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Track pull request turnaround, subtask burndown rates, and SLA timers. Optimize sprint flow with immediate operational telemetry.
             </p>
 
             {/* Micro Sprint Burndown Widget */}
             <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5">
-              <div className="flex items-center justify-between text-xs font-mono">
+              <div className="flex items-center justify-between text-sm sm:text-xs font-mono">
                 <span className="text-espresso font-bold">Sprint Burndown</span>
                 <span className="text-brand-green font-bold">18 Tasks/Day</span>
               </div>
@@ -436,7 +443,7 @@ export const Analytics: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-green">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-green">
             <span>Operational Precision</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -460,15 +467,15 @@ export const Analytics: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Single Underlying Data
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Both views originate from the same deterministic mathematical ground truth. No discrepancy between builder metrics and executive summaries.
             </p>
 
             {/* Micro Sync State */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
+            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-sm sm:text-xs font-mono">
               <span className="text-terracotta">Sync Latency:</span>
               <span className="text-brand-green font-bold flex items-center gap-1">
                 <Check className="w-3.5 h-3.5" /> 0ms (In-Memory)
@@ -476,7 +483,7 @@ export const Analytics: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-amber-700">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-amber-700">
             <span>Deterministic Sync</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>

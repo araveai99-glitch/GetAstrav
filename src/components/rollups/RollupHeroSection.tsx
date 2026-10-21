@@ -176,7 +176,7 @@ export const RollupHeroSection: React.FC = () => {
                   <h3 className="font-heading font-extrabold text-lg sm:text-xl lg:text-2xl text-espresso leading-snug group-hover:text-brand-orange transition-colors">
                     {item.example}
                   </h3>
-                  <p className="text-sm sm:text-base text-terracotta-muted font-normal mt-1.5">
+                  <p className="text-[15px] sm:text-base text-terracotta-muted font-normal mt-1.5">
                     {item.subtitle}
                   </p>
                 </div>
@@ -218,7 +218,7 @@ export const RollupHeroSection: React.FC = () => {
           transition={{ duration: 0.4, delay: 0.65 }}
           className="mt-4 text-center"
         >
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/90 border border-brand-peach/80 shadow-warm-xs text-xs font-semibold text-terracotta">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/90 border border-brand-peach/80 shadow-warm-xs text-[13px] sm:text-sm font-semibold text-terracotta">
             <Sparkles className="w-3.5 h-3.5 text-brand-orange shrink-0" />
             <span>Zero manual status reports — every completed item automatically rolls up</span>
           </div>

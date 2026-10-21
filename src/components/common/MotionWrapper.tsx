@@ -15,8 +15,8 @@ export const MotionWrapper: React.FC<MotionWrapperProps> = ({
   delay = 0,
   direction = 'up',
   className = '',
-  once = false,
-  amount = 0.2,
+  once = true,
+  amount = 'some',
 }) => {
   const shouldReduceMotion = useReducedMotion();
 

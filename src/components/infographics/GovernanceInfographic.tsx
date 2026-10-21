@@ -34,7 +34,7 @@ export const GovernanceInfographic: React.FC = () => {
             <div className="px-8 py-4 rounded-2xl bg-brand-orange text-white shadow-glow-orange flex items-center gap-3 border border-brand-orange">
               <KeyRound className="w-5 h-5 text-white" />
               <span className="text-sm sm:text-base font-extrabold tracking-wide">ORGANIZATION OWNER / FOUNDER</span>
-              <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-mono font-bold">
+              <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-white text-xs font-mono font-bold">
                 ROOT RLS LEVEL
               </span>
             </div>
@@ -47,19 +47,19 @@ export const GovernanceInfographic: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 relative w-full max-w-3xl">
             <MotionWrapper direction="right" delay={0.1}>
               <div className="p-5 rounded-2xl bg-white border border-brand-peach shadow-satin-card text-center space-y-2 hover:border-brand-orange transition-all">
-                <div className="flex items-center justify-center gap-2 font-extrabold text-sm sm:text-base text-espresso">
+                <div className="flex items-center justify-center gap-2 font-extrabold text-[15px] sm:text-base text-espresso">
                   <ShieldCheck className="w-4.5 h-4.5 text-brand-orange" /> DEPARTMENT MANAGER
                 </div>
-                <p className="text-xs text-terracotta leading-relaxed">Division oversight, sprint creation & manager sign-off gates</p>
+                <p className="text-[13px] sm:text-xs text-terracotta leading-relaxed">Division oversight, sprint creation & manager sign-off gates</p>
               </div>
             </MotionWrapper>
 
             <MotionWrapper direction="left" delay={0.1}>
               <div className="p-5 rounded-2xl bg-white border border-brand-peach shadow-satin-card text-center space-y-2 hover:border-brand-green transition-all">
-                <div className="flex items-center justify-center gap-2 font-extrabold text-sm sm:text-base text-espresso">
+                <div className="flex items-center justify-center gap-2 font-extrabold text-[15px] sm:text-base text-espresso">
                   <Lock className="w-4.5 h-4.5 text-brand-green" /> EXECUTIVE AUDITOR
                 </div>
-                <p className="text-xs text-terracotta leading-relaxed">Read-only global OKR rollups & high-level target adjustments</p>
+                <p className="text-[13px] sm:text-xs text-terracotta leading-relaxed">Read-only global OKR rollups & high-level target adjustments</p>
               </div>
             </MotionWrapper>
           </div>
@@ -69,7 +69,7 @@ export const GovernanceInfographic: React.FC = () => {
 
           {/* Level 3: SCOPED PROJECTS */}
           <MotionWrapper direction="up" delay={0.2}>
-            <div className="px-6 py-2.5 rounded-full bg-champagne border border-champagne-gold text-espresso text-xs sm:text-sm font-extrabold shadow-warm-2xs text-center font-mono">
+            <div className="px-6 py-2.5 rounded-full bg-champagne border border-champagne-gold text-espresso text-[13px] sm:text-sm font-extrabold shadow-warm-2xs text-center font-mono">
               STRICT SCOPED PROJECT & SQUAD BOUNDARIES
             </div>
           </MotionWrapper>
@@ -81,19 +81,19 @@ export const GovernanceInfographic: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 relative w-full max-w-3xl">
             <MotionWrapper direction="up" delay={0.3}>
               <div className="p-5 rounded-2xl bg-white border border-brand-peach shadow-warm-2xs text-center space-y-1.5">
-                <div className="font-extrabold text-xs sm:text-sm text-espresso flex items-center justify-center gap-1.5">
+                <div className="font-extrabold text-[15px] sm:text-sm text-espresso flex items-center justify-center gap-1.5">
                   <UserCheck className="w-4 h-4 text-brand-orange" /> INDIVIDUAL CONTRIBUTOR
                 </div>
-                <p className="text-xs text-terracotta leading-relaxed">Executes assigned leaf tasks & subtask checklists</p>
+                <p className="text-[13px] sm:text-xs text-terracotta leading-relaxed">Executes assigned leaf tasks & subtask checklists</p>
               </div>
             </MotionWrapper>
 
             <MotionWrapper direction="up" delay={0.3}>
               <div className="p-5 rounded-2xl bg-white border border-brand-peach shadow-warm-2xs text-center space-y-1.5">
-                <div className="font-extrabold text-xs sm:text-sm text-espresso flex items-center justify-center gap-1.5">
+                <div className="font-extrabold text-[15px] sm:text-sm text-espresso flex items-center justify-center gap-1.5">
                   <Shield className="w-4 h-4 text-brand-green" /> GUEST / AUDITOR
                 </div>
-                <p className="text-xs text-terracotta leading-relaxed">Scoped external read-only contractor access</p>
+                <p className="text-[13px] sm:text-xs text-terracotta leading-relaxed">Scoped external read-only contractor access</p>
               </div>
             </MotionWrapper>
           </div>
@@ -110,8 +110,8 @@ export const GovernanceInfographic: React.FC = () => {
           ].map((feature, idx) => (
             <div key={idx} className="p-4 rounded-xl bg-white border border-brand-peach/80 shadow-warm-2xs space-y-2 text-center hover:border-brand-orange transition-all">
               <CheckCircle2 className="w-5 h-5 text-brand-green mx-auto" />
-              <h4 className="text-xs font-extrabold text-espresso">{feature.title}</h4>
-              <p className="text-[11px] text-terracotta leading-tight">{feature.desc}</p>
+              <h4 className="text-sm font-extrabold text-espresso">{feature.title}</h4>
+              <p className="text-[13px] sm:text-xs text-terracotta leading-tight">{feature.desc}</p>
             </div>
           ))}
         </div>

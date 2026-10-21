@@ -200,11 +200,11 @@ export const HowItWorksPage: React.FC = () => {
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brand-peach/40 pb-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+            <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
               The 5-Stage Astrav Workflow
             </h2>
           </div>
-          <p className="text-xs sm:text-sm text-terracotta max-w-md">
+          <p className="text-sm sm:text-base text-terracotta max-w-md">
             Click on any stage to see real-world execution in motion.
           </p>
         </div>
@@ -274,28 +274,28 @@ export const HowItWorksPage: React.FC = () => {
                       }`}>
                         <Icon className="w-5 h-5" />
                       </div>
-                      <span className="font-mono font-extrabold text-xs text-terracotta-muted">
+                      <span className="font-mono font-extrabold text-xs min-[375px]:text-sm text-terracotta-muted">
                         STAGE {stage.step}
                       </span>
                     </div>
 
                     <div>
-                      <h3 className="font-heading font-extrabold text-base text-espresso group-hover:text-brand-orange transition-colors">
+                      <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso group-hover:text-brand-orange transition-colors">
                         {stage.title}
                       </h3>
-                      <span className="text-[11px] font-mono text-terracotta-muted block mt-0.5">
+                      <span className="text-xs min-[375px]:text-sm font-mono text-terracotta-muted block mt-0.5">
                         {stage.subtitle}
                       </span>
                     </div>
 
                     {/* Stage Example Box */}
-                    <div className="p-2.5 rounded-xl bg-surface-tier1 border border-brand-peach/50 text-[11px] text-terracotta leading-snug">
+                    <div className="p-2.5 rounded-xl bg-surface-tier1 border border-brand-peach/50 text-xs min-[375px]:text-sm text-terracotta leading-snug">
                       <span className="font-bold text-espresso block mb-0.5">Example:</span>
                       <span>{stage.example}</span>
                     </div>
                   </div>
 
-                  <div className="pt-3 mt-3 border-t border-brand-peach/40 flex items-center justify-between text-[11px]">
+                  <div className="pt-3 mt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm">
                     <span className={`font-mono font-bold ${isSelected ? 'text-brand-orange' : 'text-terracotta-muted'}`}>
                       {isSelected ? '● Active View' : 'Click to inspect'}
                     </span>
@@ -308,14 +308,14 @@ export const HowItWorksPage: React.FC = () => {
         </div>
 
         {/* Selected Stage Detail Banner */}
-        <div className="p-4 rounded-2xl bg-surface-tier1 border border-brand-peach/70 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        <div className="p-4 rounded-2xl bg-surface-tier1 border border-brand-peach/70 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm">
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse" />
-            <span className="font-bold text-espresso font-heading">
+            <span className="font-bold text-espresso font-heading text-sm sm:text-base">
               Current Focus: Stage {WORKFLOW_STAGES[activeWorkflowStage].step} — {WORKFLOW_STAGES[activeWorkflowStage].title}
             </span>
           </div>
-          <span className="font-medium text-terracotta">
+          <span className="font-medium text-terracotta text-xs min-[375px]:text-sm">
             {WORKFLOW_STAGES[activeWorkflowStage].example}
           </span>
         </div>
@@ -330,16 +330,16 @@ export const HowItWorksPage: React.FC = () => {
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brand-peach/40 pb-4">
           <div className="space-y-1">
-            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+            <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
               See Progress Come Together.
             </h2>
-            <p className="text-xs sm:text-sm text-terracotta max-w-xl">
+            <p className="text-sm sm:text-base text-terracotta max-w-xl">
               Check off tasks below. Watch how completing individual actions automatically rolls up into project and goal milestones.
             </p>
           </div>
           <button
             onClick={resetTasks}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-brand-peach/80 text-xs font-heading font-bold text-espresso hover:text-brand-orange hover:border-brand-orange transition-colors shadow-warm-2xs cursor-pointer self-start sm:self-auto"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-brand-peach/80 text-sm font-heading font-bold text-espresso hover:text-brand-orange hover:border-brand-orange transition-colors shadow-warm-2xs cursor-pointer self-start sm:self-auto"
           >
             <RotateCcw className="w-3.5 h-3.5 text-brand-orange" />
             <span>Reset Demo</span>
@@ -351,7 +351,7 @@ export const HowItWorksPage: React.FC = () => {
           
           {/* Left: 3 Checkable Tasks */}
           <div className="lg:col-span-6 space-y-3">
-            <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider block">
+            <span className="text-xs min-[375px]:text-sm font-mono font-bold text-terracotta-muted uppercase tracking-wider block">
               Interactive Task Queue ({completedCount}/3 Completed)
             </span>
 
@@ -377,7 +377,7 @@ export const HowItWorksPage: React.FC = () => {
                   </div>
                   <div className="truncate">
                     <span
-                      className={`text-sm font-heading font-bold block truncate transition-all ${
+                      className={`text-sm min-[375px]:text-base font-heading font-bold block truncate transition-all ${
                         task.completed
                           ? 'line-through text-terracotta-muted'
                           : 'text-espresso group-hover:text-brand-orange'
@@ -385,14 +385,14 @@ export const HowItWorksPage: React.FC = () => {
                     >
                       {task.name}
                     </span>
-                    <span className="text-[11px] font-mono text-terracotta-muted">
+                    <span className="text-xs min-[375px]:text-sm font-mono text-terracotta-muted">
                       {task.dept} • Weight: {task.weight}%
                     </span>
                   </div>
                 </div>
 
                 <span
-                  className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border shrink-0 ${
+                  className={`px-2.5 py-0.5 rounded-full text-xs font-bold border shrink-0 ${
                     task.completed
                       ? 'bg-brand-green/10 text-brand-green border-brand-green/30'
                       : 'bg-surface-tier1 text-terracotta border-brand-peach/60'
@@ -403,7 +403,7 @@ export const HowItWorksPage: React.FC = () => {
               </div>
             ))}
 
-            <p className="text-[11px] font-mono text-terracotta-muted italic pt-1">
+            <p className="text-xs font-mono text-terracotta-muted italic pt-1">
               *All sample values are illustrative of the mathematical rollup engine.
             </p>
           </div>
@@ -416,11 +416,11 @@ export const HowItWorksPage: React.FC = () => {
               <div className="flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
                   <FolderGit2 className="w-4 h-4 text-brand-orange" />
-                  <span className="font-heading font-extrabold text-espresso text-sm">
+                  <span className="font-heading font-extrabold text-espresso text-sm min-[375px]:text-base">
                     Connected Project: Onboarding Engine
                   </span>
                 </div>
-                <span className="font-mono font-extrabold text-brand-orange text-sm">
+                <span className="font-mono font-extrabold text-brand-orange text-base">
                   {projectPercentage}%
                 </span>
               </div>
@@ -441,14 +441,14 @@ export const HowItWorksPage: React.FC = () => {
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <Target className="w-4 h-4 text-brand-green" />
-                  <span className="font-heading font-extrabold text-espresso text-sm">
+                  <span className="font-heading font-extrabold text-espresso text-base">
                     Company Goal Rollup
                   </span>
                 </div>
-                <p className="text-xs text-terracotta leading-relaxed max-w-xs font-normal">
+                <p className="text-sm min-[375px]:text-base text-terracotta leading-relaxed max-w-xs font-normal">
                   Scale Operations to $20M ARR. Daily tasks feed directly into this North Star metric.
                 </p>
-                <div className="pt-1 flex items-center gap-2 text-[11px] font-mono text-brand-green font-bold">
+                <div className="pt-1 flex items-center gap-2 text-xs min-[375px]:text-sm font-mono text-brand-green font-bold">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Deterministic Automated Rollup</span>
                 </div>
@@ -479,10 +479,10 @@ export const HowItWorksPage: React.FC = () => {
                   />
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <span className="font-heading font-extrabold text-sm sm:text-base text-espresso">
+                  <span className="font-heading font-extrabold text-base sm:text-lg text-espresso">
                     {goalPercentage}%
                   </span>
-                  <span className="text-[9px] font-mono font-bold text-brand-green">
+                  <span className="text-[11px] font-mono font-bold text-brand-green">
                     {goalPercentage === 100 ? 'Achieved' : 'On Track'}
                   </span>
                 </div>
@@ -504,10 +504,10 @@ export const HowItWorksPage: React.FC = () => {
       >
         <div className="border-b border-brand-peach/40 pb-5">
           <div className="space-y-1">
-            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+            <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
               Everything Works Together.
             </h2>
-            <p className="text-xs sm:text-sm text-terracotta">
+            <p className="text-sm sm:text-base text-terracotta">
               Goals, projects, tasks, and team progress form one single source of organizational truth. Select any node to explore.
             </p>
           </div>
@@ -551,15 +551,15 @@ export const HowItWorksPage: React.FC = () => {
                     }`}>
                       <Icon className="w-4.5 h-4.5" />
                     </div>
-                    <span className="text-[10px] font-mono font-bold text-terracotta-muted px-2 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50">
+                    <span className="text-xs font-mono font-bold text-terracotta-muted px-2 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50">
                       {spoke.tag}
                     </span>
                   </div>
                   <div>
-                    <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
+                    <h4 className="font-heading font-extrabold text-base sm:text-lg text-espresso group-hover:text-brand-orange transition-colors">
                       {spoke.label}
                     </h4>
-                    <span className="text-[11px] font-medium text-brand-orange mt-1 block">
+                    <span className="text-xs min-[375px]:text-sm font-medium text-brand-orange mt-1 block">
                       {isSelected ? '● Currently Selected' : 'Click to inspect'}
                     </span>
                   </div>
@@ -580,7 +580,7 @@ export const HowItWorksPage: React.FC = () => {
                 className="p-6 sm:p-7 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-md space-y-4"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-extrabold text-brand-orange uppercase tracking-wider">
+                  <span className="text-xs min-[375px]:text-sm font-mono font-extrabold text-brand-orange uppercase tracking-wider">
                     {SPOKES_DATA[selectedSpoke as keyof typeof SPOKES_DATA].badge}
                   </span>
                   <div className="w-7 h-7 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center">
@@ -588,19 +588,19 @@ export const HowItWorksPage: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-heading font-extrabold text-espresso">
+                <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
                   {SPOKES_DATA[selectedSpoke as keyof typeof SPOKES_DATA].title}
                 </h3>
 
-                <p className="text-sm text-terracotta leading-relaxed font-normal">
+                <p className="text-base text-terracotta leading-relaxed font-normal">
                   {SPOKES_DATA[selectedSpoke as keyof typeof SPOKES_DATA].description}
                 </p>
 
                 <div className="p-3.5 rounded-xl bg-surface-tier1 border border-brand-peach/60 space-y-1">
-                  <span className="text-[11px] font-mono font-extrabold text-espresso uppercase tracking-wider block">
+                  <span className="text-xs min-[375px]:text-sm font-mono font-extrabold text-espresso uppercase tracking-wider block">
                     Core Benefit:
                   </span>
-                  <p className="text-xs text-terracotta font-medium">
+                  <p className="text-sm min-[375px]:text-base text-terracotta font-medium">
                     {SPOKES_DATA[selectedSpoke as keyof typeof SPOKES_DATA].benefit}
                   </p>
                 </div>
@@ -616,10 +616,10 @@ export const HowItWorksPage: React.FC = () => {
       {/* ==================================================================== */}
       <section className="w-full rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-8 sm:p-12 border-2 border-brand-peach/80 shadow-warm-md text-center space-y-5">
         <div className="max-w-xl mx-auto space-y-2">
-          <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-espresso">
+          <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
             See Astrav in Action.
           </h2>
-          <p className="text-sm sm:text-base text-terracotta">
+          <p className="text-base sm:text-lg text-terracotta">
             Book a quick 15-minute walkthrough to experience how automated rollups and aligned pods transform execution.
           </p>
         </div>

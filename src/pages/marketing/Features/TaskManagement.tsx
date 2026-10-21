@@ -163,10 +163,10 @@ export const TaskManagement: React.FC = () => {
         {/* Header Bar with Control Toggle */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-brand-peach/50 relative z-10">
           <div>
-            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+            <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
               Interactive Task <span className="text-brand-orange">Lifecycle</span>
             </h2>
-            <p className="text-sm text-terracotta mt-1">
+            <p className="text-base text-terracotta mt-1.5 leading-relaxed">
               Click any stage or toggle subtasks below to watch the live SLA timeline and progress recalculate.
             </p>
           </div>
@@ -176,7 +176,7 @@ export const TaskManagement: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsAutoPlaying((prev) => !prev)}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-surface-tier1 hover:bg-brand-peach/30 border border-brand-peach/60 text-xs font-heading font-semibold text-espresso transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-surface-tier1 hover:bg-brand-peach/30 border border-brand-peach/60 text-sm font-heading font-semibold text-espresso transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               {isAutoPlaying ? (
                 <>
@@ -191,7 +191,7 @@ export const TaskManagement: React.FC = () => {
               )}
             </button>
 
-            <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-terracotta-muted bg-surface-tier1 px-3 py-1.5 rounded-xl border border-brand-peach/50">
+            <span className="inline-flex items-center gap-1.5 text-[13px] font-mono font-bold text-terracotta-muted bg-surface-tier1 px-3 py-1.5 rounded-xl border border-brand-peach/50">
               <Clock className="w-3.5 h-3.5 text-brand-orange animate-pulse" />
               Live SLA Engine
             </span>
@@ -267,14 +267,14 @@ export const TaskManagement: React.FC = () => {
                     </div>
 
                     <span
-                      className={`text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${stage.badgeBg}`}
+                      className={`text-xs font-mono font-bold px-2.5 py-0.5 rounded-full border ${stage.badgeBg}`}
                     >
                       {stage.badgeText}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-extrabold text-base text-espresso flex items-center gap-1.5">
+                    <h3 className="font-heading font-extrabold text-[17px] sm:text-base text-espresso flex items-center gap-1.5">
                       <span>{stage.label}</span>
                       {isSelected && (
                         <motion.span
@@ -283,7 +283,7 @@ export const TaskManagement: React.FC = () => {
                         />
                       )}
                     </h3>
-                    <p className="text-xs text-terracotta-muted mt-0.5">
+                    <p className="text-[13px] sm:text-xs text-terracotta-muted mt-0.5">
                       {stage.sublabel}
                     </p>
                   </div>
@@ -318,14 +318,14 @@ export const TaskManagement: React.FC = () => {
 
               <div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <h4 className="font-heading font-extrabold text-lg sm:text-xl text-espresso">
+                  <h4 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso">
                     Ship Interactive Dashboard v2.4
                   </h4>
-                  <span className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-white border border-brand-peach/50 text-terracotta-muted">
+                  <span className="text-xs font-mono px-2 py-0.5 rounded-md bg-white border border-brand-peach/50 text-terracotta-muted">
                     TASK-0419
                   </span>
                 </div>
-                <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-terracotta-muted mt-1">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-[13px] sm:text-xs text-terracotta-muted mt-1">
                   <span className="flex items-center gap-1.5">
                     <User className="w-3.5 h-3.5 text-brand-orange" /> Lead: {currentStage.assignee}
                   </span>
@@ -348,10 +348,10 @@ export const TaskManagement: React.FC = () => {
                 }`}
               />
               <div className="text-left sm:text-right">
-                <span className={`text-xs font-heading font-bold block ${currentStage.slaColor}`}>
+                <span className={`text-sm sm:text-xs font-heading font-bold block ${currentStage.slaColor}`}>
                   {currentStage.slaTime}
                 </span>
-                <span className="text-[11px] text-terracotta-muted">
+                <span className="text-xs text-terracotta-muted">
                   {currentStage.id === 'completed' ? 'Target Met (Zero Breach)' : 'SLA Target Window'}
                 </span>
               </div>
@@ -360,10 +360,10 @@ export const TaskManagement: React.FC = () => {
 
           {/* Smooth Dynamic Progress Fill */}
           <div className="space-y-2">
-            <div className="flex items-center justify-between text-xs sm:text-sm font-heading font-bold">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center justify-between gap-3 text-sm sm:text-base font-heading font-bold">
+              <div className="flex items-center gap-2 min-w-0">
                 <span className="text-espresso">Deliverable Progress</span>
-                <span className="text-xs font-normal text-terracotta-muted">
+                <span className="text-[13px] font-normal text-terracotta-muted">
                   (Mathematical Weight Rollup)
                 </span>
               </div>
@@ -371,7 +371,7 @@ export const TaskManagement: React.FC = () => {
                 key={dynamicTaskProgress}
                 initial={{ scale: 1.2, color: '#f15e1c' }}
                 animate={{ scale: 1 }}
-                className="text-brand-orange font-mono text-sm"
+                className="text-brand-orange font-mono text-sm sm:text-base whitespace-nowrap shrink-0"
               >
                 {dynamicTaskProgress}% Complete
               </motion.span>
@@ -397,7 +397,7 @@ export const TaskManagement: React.FC = () => {
               <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                 Subtasks (Click to test progress rollup):
               </span>
-              <span className="text-[11px] text-brand-orange font-heading font-semibold">
+              <span className="text-xs text-brand-orange font-heading font-semibold">
                 Interactive Checkpoints
               </span>
             </div>
@@ -432,7 +432,7 @@ export const TaskManagement: React.FC = () => {
                         )}
                       </div>
                       <span
-                        className={`text-xs font-medium truncate ${
+                        className={`text-[15px] sm:text-xs font-medium ${
                           isChecked
                             ? 'text-espresso line-through decoration-brand-green/60'
                             : 'text-terracotta'
@@ -441,7 +441,7 @@ export const TaskManagement: React.FC = () => {
                         {st.title}
                       </span>
                     </div>
-                    <span className="text-[11px] font-mono font-bold text-terracotta-muted pl-2 shrink-0">
+                    <span className="text-xs font-mono font-bold text-terracotta-muted pl-2 shrink-0">
                       {st.weight}%
                     </span>
                   </button>
@@ -455,7 +455,7 @@ export const TaskManagement: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`p-3.5 rounded-xl border flex items-center gap-3 text-xs sm:text-sm ${
+              className={`p-3.5 rounded-xl border flex items-center gap-3 text-sm ${
                 currentStage.id === 'completed'
                   ? 'bg-brand-green-light/70 border-brand-green/30 text-emerald-950 font-medium'
                   : 'bg-amber-50/80 border-brand-yellow/40 text-amber-950 font-medium'
@@ -492,21 +492,21 @@ export const TaskManagement: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-xl text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-2">
               Automated Deadline Warnings
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-6">
+            <p className="text-base text-terracotta leading-relaxed mb-6">
               When work velocity dips below the scheduled completion trajectory, Astrav alerts the pod lead hours before any deadline slips.
             </p>
 
             {/* Interactive SLA Threshold Filter Preview */}
             <div className="p-4 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-3">
-              <div className="flex items-center justify-between text-xs font-mono font-bold">
+              <div className="flex items-center justify-between text-[13px] font-mono font-bold">
                 <span className="text-espresso">Simulate Health Window</span>
                 <span className="text-brand-orange">Interactive Trigger</span>
               </div>
 
-              <div className="grid grid-cols-3 gap-2 text-center text-xs">
+              <div className="grid grid-cols-3 gap-2 text-center text-[13px]">
                 <button
                   type="button"
                   onClick={() => setSlaFilter('safe')}
@@ -543,7 +543,7 @@ export const TaskManagement: React.FC = () => {
               </div>
 
               {/* Status callout reacting to the button click */}
-              <div className="p-2.5 rounded-xl bg-white border border-brand-peach/40 text-[11px] font-mono flex items-center justify-between">
+              <div className="p-2.5 rounded-xl bg-white border border-brand-peach/40 text-xs font-mono flex items-center justify-between">
                 <span className="text-terracotta-muted">Action Dispatched:</span>
                 <span className="font-bold text-espresso">
                   {slaFilter === 'safe'
@@ -556,7 +556,7 @@ export const TaskManagement: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-orange">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-orange">
             <span>Zero Missed Deliverables</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -580,16 +580,16 @@ export const TaskManagement: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-xl text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-2">
               Direct Progress Rollup
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-6">
+            <p className="text-base text-terracotta leading-relaxed mb-6">
               Every completed subtask contributes exact mathematical weight to parent milestones. Leaders see ground truth without manual status requests.
             </p>
 
             {/* Micro Rollup Visualizer */}
             <div className="p-4 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-3">
-              <div className="flex items-center justify-between text-xs">
+              <div className="flex items-center justify-between text-sm">
                 <span className="font-heading font-bold text-espresso">Parent Milestone: Release v2.4</span>
                 <span className="font-mono font-bold text-brand-green">+25% Contribution</span>
               </div>
@@ -598,14 +598,14 @@ export const TaskManagement: React.FC = () => {
                 <div className="w-[82%] h-full bg-gradient-to-r from-brand-orange to-brand-green rounded-full" />
               </div>
 
-              <div className="flex items-center justify-between text-[11px] font-mono text-terracotta-muted">
+              <div className="flex items-center justify-between text-xs font-mono text-terracotta-muted">
                 <span>Milestone Health: 82%</span>
                 <span className="text-brand-green font-bold">On Schedule</span>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-green">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-green">
             <span>100% Deterministic Math</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>

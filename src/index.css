@@ -25,17 +25,17 @@
  * =========================================================
  */
 
-/* H1 (Hero Title): Desktop 48–56px | Mobile 32–40px */
+/* H1 (Hero Title): Desktop 48–56px | Mobile 30–36px */
 .brand-h1 {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
-  font-size: 32px;
+  font-size: clamp(30px, 5.5vw, 36px);
   line-height: 1.12;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 @media (min-width: 640px) {
   .brand-h1 {
-    font-size: 40px;
+    font-size: clamp(36px, 5vw, 44px);
   }
 }
 @media (min-width: 1024px) {
@@ -50,11 +50,11 @@
   }
 }
 
-/* H2 (Section Heading): Desktop 36–42px | Mobile 28–32px */
+/* H2 (Section Heading): Desktop 36–42px | Mobile 26–30px */
 .brand-h2 {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
-  font-size: 28px;
+  font-size: clamp(26px, 4.8vw, 30px);
   line-height: 1.2;
   letter-spacing: -0.015em;
 }
@@ -75,61 +75,156 @@
   }
 }
 
-/* Subtitle: Desktop 22–26px | Mobile 20–22px */
+/* H3 (Subsection Heading): Desktop 24–28px | Mobile 21–24px */
+.brand-h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(21px, 3.8vw, 24px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+@media (min-width: 1024px) {
+  .brand-h3 {
+    font-size: 26px;
+    line-height: 1.22;
+  }
+}
+@media (min-width: 1280px) {
+  .brand-h3 {
+    font-size: 28px;
+  }
+}
+
+/* Card Heading: Desktop 18–20px | Mobile 17–19px */
+.brand-card-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 3vw, 19px);
+  line-height: 1.35;
+}
+@media (min-width: 1024px) {
+  .brand-card-heading {
+    font-size: 19px;
+  }
+}
+@media (min-width: 1280px) {
+  .brand-card-heading {
+    font-size: 20px;
+  }
+}
+
+/* Subtitle: Desktop 20–24px | Mobile 18–20px */
 .brand-subtitle {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 20px;
+  font-size: clamp(18px, 2.5vw, 20px);
   line-height: 1.5;
 }
 @media (min-width: 640px) {
   .brand-subtitle {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 @media (min-width: 1024px) {
   .brand-subtitle {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1.55;
   }
 }
 @media (min-width: 1280px) {
   .brand-subtitle {
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 
-/* Body Text: Desktop 14–16px | Mobile 14–15px */
+/* Body and Description Text: Desktop 16–17px | Mobile 16–17px */
 .brand-body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
 }
 @media (min-width: 640px) {
   .brand-body {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 @media (min-width: 1024px) {
   .brand-body {
-    font-size: 16px;
+    font-size: 16.5px;
+    line-height: 1.65;
+  }
+}
+@media (min-width: 1280px) {
+  .brand-body {
+    font-size: 17px;
   }
 }
 
-/* Card Text: Desktop 14–16px | Mobile 14–15px */
+/* Card Text: Desktop 15–16px | Mobile 15.5–16px */
 .brand-card-text {
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 15.5px;
   line-height: 1.55;
 }
 @media (min-width: 640px) {
   .brand-card-text {
-    font-size: 15px;
+    font-size: 15.5px;
   }
 }
 @media (min-width: 1024px) {
   .brand-card-text {
+    font-size: 16px;
+  }
+}
+
+/* Diagram Labels and Card Details: Desktop 14–15px | Mobile 14–15px */
+.brand-detail {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+}
+@media (min-width: 640px) {
+  .brand-detail {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .brand-detail {
+    font-size: 14.5px;
+  }
+}
+
+/* Small Metadata, Timestamps and Badges: 13–14px */
+.brand-meta {
+  font-size: 13px;
+  line-height: 1.35;
+}
+@media (min-width: 640px) {
+  .brand-meta {
+    font-size: 13.5px;
+  }
+}
+@media (min-width: 1024px) {
+  .brand-meta {
+    font-size: 14px;
+  }
+}
+
+/* Buttons and Navigation items: 15–16px */
+.brand-button-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+}
+@media (min-width: 640px) {
+  .brand-button-text {
+    font-size: 15.5px;
+  }
+}
+@media (min-width: 1024px) {
+  .brand-button-text {
     font-size: 16px;
   }
 }

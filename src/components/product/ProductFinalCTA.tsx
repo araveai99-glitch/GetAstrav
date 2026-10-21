@@ -42,7 +42,7 @@ export const ProductFinalCTA: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight lg:whitespace-nowrap"
+            className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight lg:whitespace-nowrap"
           >
             Bring Your Goals and Teams Together.
           </motion.h2>
@@ -79,7 +79,7 @@ export const ProductFinalCTA: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.4, delay: 0.32 }}
-            className="flex flex-wrap items-center justify-center gap-6 pt-4 text-xs font-heading font-semibold text-terracotta-muted border-t border-brand-peach/50 max-w-md mx-auto"
+            className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-4 text-[13px] sm:text-sm font-heading font-semibold text-terracotta-muted border-t border-brand-peach/50 max-w-md mx-auto"
           >
             <span className="flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 text-brand-green" /> Zero Commitment

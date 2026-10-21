@@ -147,7 +147,7 @@ export const HierarchyInfographic: React.FC = () => {
               <React.Fragment key={node.id}>
                 <button
                   onClick={() => setSelectedNode(node.id)}
-                  className={`px-4 py-2.5 rounded-full text-xs sm:text-sm font-heading font-bold flex items-center gap-2.5 transition-all cursor-pointer ${
+                  className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full text-[13px] sm:text-sm font-heading font-bold flex items-center gap-2 transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-brand-orange text-white shadow-glow-orange scale-105 border border-brand-orange'
                       : 'bg-white text-espresso hover:bg-brand-orange-light hover:text-brand-orange border border-brand-peach shadow-warm-2xs'
@@ -173,9 +173,9 @@ export const HierarchyInfographic: React.FC = () => {
                   <currentNode.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-extrabold text-brand-orange uppercase tracking-wider">{currentNode.level}</span>
-                  <h3 className="text-lg sm:text-xl font-heading font-extrabold text-espresso">{currentNode.name}</h3>
-                  <p className="brand-body text-xs text-terracotta">{currentNode.subtitle}</p>
+                  <span className="text-xs font-mono font-extrabold text-brand-orange uppercase tracking-wider">{currentNode.level}</span>
+                  <h3 className="text-[18px] sm:text-xl font-heading font-extrabold text-espresso">{currentNode.name}</h3>
+                  <p className="text-sm text-terracotta">{currentNode.subtitle}</p>
                 </div>
               </div>
               <span className="px-3.5 py-1.5 rounded-full bg-brand-green-light border border-brand-green/30 text-brand-green text-xs font-heading font-bold shrink-0 flex items-center gap-1.5">
@@ -190,22 +190,22 @@ export const HierarchyInfographic: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-4 rounded-xl bg-ivory border border-brand-peach/60 space-y-1">
-                <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">LIVE NODE METRICS</span>
-                <p className="text-xs sm:text-sm font-heading font-bold text-espresso">{currentNode.metrics}</p>
+                <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">LIVE NODE METRICS</span>
+                <p className="text-sm font-heading font-bold text-espresso">{currentNode.metrics}</p>
               </div>
 
               <div className="p-4 rounded-xl bg-ivory border border-brand-peach/60 space-y-1">
-                <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase flex items-center gap-1">
+                <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider flex items-center gap-1">
                   <Lock className="w-3 h-3 text-brand-orange" /> RBAC PERMISSION SCOPE
                 </span>
-                <p className="text-xs sm:text-sm font-heading font-bold text-espresso">{currentNode.permissionScope}</p>
+                <p className="text-sm font-heading font-bold text-espresso">{currentNode.permissionScope}</p>
               </div>
 
               <div className="p-4 rounded-xl bg-ivory border border-brand-peach/60 space-y-1">
-                <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase flex items-center gap-1">
+                <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider flex items-center gap-1">
                   <Sparkles className="w-3 h-3 text-brand-green" /> ROLLUP ENGINE
                 </span>
-                <p className="text-xs sm:text-sm font-heading font-bold text-brand-green">Sub-50ms Cascade Synced</p>
+                <p className="text-sm font-heading font-bold text-brand-green">Sub-50ms Cascade Synced</p>
               </div>
             </div>
           </div>

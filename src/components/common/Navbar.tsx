@@ -512,7 +512,7 @@ export const Navbar: React.FC = () => {
               <Link
                 to="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-heading font-bold transition-all ${
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-[15px] sm:text-base font-heading font-bold transition-all ${
                   location.pathname === '/'
                     ? 'bg-brand-orange-light text-brand-orange shadow-warm-2xs'
                     : 'bg-white border border-brand-peach/80 text-espresso hover:text-brand-orange hover:border-brand-orange/40'
@@ -549,13 +549,13 @@ export const Navbar: React.FC = () => {
                       <div className="font-heading font-extrabold text-[15px] sm:text-base text-espresso leading-snug">
                         Explore
                       </div>
-                      <div className="text-[11px] sm:text-xs text-terracotta font-medium">
+                      <div className="text-xs text-terracotta font-medium">
                         Product, Features, Solutions & more
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-white border border-brand-peach text-terracotta">
+                    <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-white border border-brand-peach text-terracotta">
                       5 categories
                     </span>
                     <ChevronDown
@@ -605,7 +605,7 @@ export const Navbar: React.FC = () => {
                                   }`}
                                 />
                                 <span
-                                  className={`font-heading font-extrabold text-sm sm:text-[15px] transition-colors ${
+                                  className={`font-heading font-extrabold text-[15px] sm:text-base transition-colors ${
                                     isExpanded || isAnySubActive
                                       ? 'text-brand-orange'
                                       : 'text-espresso group-hover:text-brand-orange'
@@ -615,7 +615,7 @@ export const Navbar: React.FC = () => {
                                 </span>
                               </div>
                               <div className="flex items-center gap-2">
-                                <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/70 text-terracotta">
+                                <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/70 text-terracotta">
                                   {category.items.length}
                                 </span>
                                 <ChevronDown
@@ -651,7 +651,7 @@ export const Navbar: React.FC = () => {
                                               setMobileMenuOpen(false);
                                             }
                                           }}
-                                          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-lg text-xs sm:text-sm transition-all group ${
+                                          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-lg text-[14px] sm:text-sm transition-all group ${
                                             isActive
                                               ? 'bg-brand-orange-light text-brand-orange font-bold shadow-warm-2xs'
                                               : 'text-terracotta font-medium hover:text-brand-orange hover:bg-brand-orange-light/30'
@@ -683,7 +683,7 @@ export const Navbar: React.FC = () => {
                 <Link
                   to="/login"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-white border border-brand-peach/80 text-sm font-heading font-bold text-espresso hover:text-brand-orange hover:border-brand-orange/40 transition-colors"
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-white border border-brand-peach/80 text-[15px] sm:text-base font-heading font-bold text-espresso hover:text-brand-orange hover:border-brand-orange/40 transition-colors"
                 >
                   <span>Sign In</span>
                   <ArrowRight className="w-4 h-4 text-terracotta" />
@@ -695,7 +695,7 @@ export const Navbar: React.FC = () => {
                     setMobileMenuOpen(false);
                     openDemoModal();
                   }}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-heading font-bold shadow-md shadow-brand-orange/30 transition-all cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-brand-orange hover:bg-brand-orange-hover text-white text-[15px] sm:text-base font-heading font-bold shadow-md shadow-brand-orange/30 transition-all cursor-pointer"
                 >
                   <span>Book a Demo</span>
                   <ArrowRight className="w-4 h-4" />

@@ -152,10 +152,10 @@ export const Teams: React.FC = () => {
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-brand-peach/50 relative z-10">
           <div>
-            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+            <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
               Cross-Pod <span className="text-brand-orange">Collaboration Hub</span>
             </h2>
-            <p className="text-sm text-terracotta mt-1">
+            <p className="text-base text-terracotta mt-1.5 leading-relaxed">
               Click any pod to stream its verified output directly into the central initiative milestone.
             </p>
           </div>
@@ -164,7 +164,7 @@ export const Teams: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsAutoCycling((prev) => !prev)}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-surface-tier1 hover:bg-brand-peach/30 border border-brand-peach/60 text-xs font-heading font-semibold text-espresso transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-surface-tier1 hover:bg-brand-peach/30 border border-brand-peach/60 text-sm font-heading font-semibold text-espresso transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               {isAutoCycling ? (
                 <>
@@ -179,7 +179,7 @@ export const Teams: React.FC = () => {
               )}
             </button>
 
-            <span className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold text-terracotta-muted bg-surface-tier1 px-3 py-1.5 rounded-xl border border-brand-peach/50">
+            <span className="inline-flex items-center gap-1.5 text-[13px] font-heading font-semibold text-terracotta-muted bg-surface-tier1 px-3 py-1.5 rounded-xl border border-brand-peach/50">
               <Users className="w-4 h-4 text-brand-orange" />
               <span>Zero Functional Silos</span>
             </span>
@@ -204,17 +204,17 @@ export const Teams: React.FC = () => {
             </div>
 
             <div>
-              <h3 className="font-heading font-extrabold text-2xl text-espresso">
+              <h3 className="font-heading font-extrabold text-[22px] sm:text-2xl text-espresso">
                 Customer Experience Engine v3
               </h3>
-              <p className="text-xs sm:text-sm text-terracotta-muted mt-1.5">
+              <p className="text-[15px] sm:text-sm text-terracotta-muted mt-1.5 leading-relaxed">
                 3 cross-functional pods contributing outputs to 1 synchronized milestone.
               </p>
             </div>
 
             {/* Circular / Large Bar Progress Metric */}
             <div className="p-5 rounded-2xl bg-white border border-brand-peach/60 space-y-3 shadow-warm-2xs">
-              <div className="flex items-center justify-between text-sm font-heading font-bold">
+              <div className="flex items-center justify-between text-sm sm:text-base font-heading font-bold">
                 <span className="text-espresso">Initiative Completion</span>
                 <motion.span
                   key={overallProgress}
@@ -233,7 +233,7 @@ export const Teams: React.FC = () => {
                   className="h-full rounded-full bg-gradient-to-r from-brand-orange via-brand-yellow to-brand-green"
                 />
               </div>
-              <div className="flex items-center justify-between text-xs text-terracotta-muted pt-1">
+              <div className="flex items-center justify-between text-[13px] sm:text-xs text-terracotta-muted pt-1">
                 <span>{streamCount} of {totalTasks} Tasks Rolled Up</span>
                 <span className="text-brand-green font-semibold flex items-center gap-1">
                   <CheckCircle2 className="w-3.5 h-3.5" /> Synchronized
@@ -247,10 +247,10 @@ export const Teams: React.FC = () => {
                 <Zap className="w-5 h-5 animate-bounce" />
               </div>
               <div className="min-w-0">
-                <span className="text-[11px] font-mono font-bold text-brand-orange uppercase block">
+                <span className="text-xs font-mono font-bold text-brand-orange uppercase block">
                   Active Stream from {selectedPod.name}
                 </span>
-                <span className="text-xs font-heading font-bold text-espresso truncate block">
+                <span className="text-sm sm:text-xs font-heading font-bold text-espresso truncate block">
                   {selectedPod.recentDeliverable}
                 </span>
               </div>
@@ -292,16 +292,16 @@ export const Teams: React.FC = () => {
 
                       <div>
                         <div className="flex items-center gap-2">
-                          <h4 className="font-heading font-bold text-base text-espresso">
+                          <h4 className="font-heading font-bold text-[17px] sm:text-base text-espresso">
                             {pod.name}
                           </h4>
                           <span
-                            className={`text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${pod.badgeBg}`}
+                            className={`text-xs font-mono font-bold px-2.5 py-0.5 rounded-full border ${pod.badgeBg}`}
                           >
                             {pod.progress}% Run Rate
                           </span>
                         </div>
-                        <p className="text-xs text-terracotta-muted mt-0.5">
+                        <p className="text-[13px] sm:text-xs text-terracotta-muted mt-0.5">
                           Lead: {pod.lead} ({pod.leadAvatar}) • {pod.role}
                         </p>
                       </div>
@@ -309,10 +309,10 @@ export const Teams: React.FC = () => {
 
                     <div className="flex items-center justify-between sm:justify-end gap-4 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-brand-peach/40">
                       <div className="text-left sm:text-right">
-                        <span className="text-xs font-mono font-bold text-espresso block">
+                        <span className="text-sm sm:text-xs font-mono font-bold text-espresso block">
                           {pod.tasksCompleted}/{pod.totalTasks} Tasks
                         </span>
-                        <span className="text-[11px] text-brand-green font-medium flex items-center gap-1 sm:justify-end">
+                        <span className="text-xs text-brand-green font-medium flex items-center gap-1 sm:justify-end">
                           <Send className="w-3 h-3" /> Stream to Hub
                         </span>
                       </div>
@@ -332,7 +332,7 @@ export const Teams: React.FC = () => {
             </div>
 
             {/* Selected Pod Deliverable Detail */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-surface-tier1/80 border border-brand-peach/60 flex items-center justify-between text-xs">
+            <div className="p-4 sm:p-5 rounded-2xl bg-surface-tier1/80 border border-brand-peach/60 flex items-center justify-between text-sm">
               <span className="text-terracotta">
                 <strong>{selectedPod.name}:</strong> Daily outputs push into the central container in real time.
               </span>
@@ -364,36 +364,36 @@ export const Teams: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Cross-Functional Velocity
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Designers, engineers, and product leads collaborate in the same pod container. Work advances from wireframe to PR with zero ticketing queues.
             </p>
 
             {/* Micro Specialist Allocation Widget */}
             <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2.5">
-              <span className="text-[11px] font-mono font-bold text-terracotta-muted uppercase block">
+              <span className="text-xs font-mono font-bold text-terracotta-muted uppercase block">
                 Pod Composition
               </span>
               <div className="grid grid-cols-3 gap-1.5 text-center text-xs">
                 <div className="p-2 bg-white rounded-xl border border-brand-peach/40">
                   <span className="font-bold text-brand-orange block">1 Design</span>
-                  <span className="text-[10px] text-terracotta-muted">UI/Tokens</span>
+                  <span className="text-[11px] text-terracotta-muted">UI/Tokens</span>
                 </div>
                 <div className="p-2 bg-white rounded-xl border border-brand-peach/40">
                   <span className="font-bold text-brand-green block">2 Frontend</span>
-                  <span className="text-[10px] text-terracotta-muted">React/State</span>
+                  <span className="text-[11px] text-terracotta-muted">React/State</span>
                 </div>
                 <div className="p-2 bg-white rounded-xl border border-brand-peach/40">
                   <span className="font-bold text-amber-700 block">2 Backend</span>
-                  <span className="text-[10px] text-terracotta-muted">APIs/DB</span>
+                  <span className="text-[11px] text-terracotta-muted">APIs/DB</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-orange">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-orange">
             <span>Single Mission Pods</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -417,28 +417,28 @@ export const Teams: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Continuous Progress Streaming
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Outputs stream automatically into company initiatives. Founders review live run-rates without pinging builders or waiting for sprint demos.
             </p>
 
             {/* Micro Live Ticker Widget */}
             <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
-              <div className="flex items-center justify-between text-xs font-mono font-bold">
+              <div className="flex items-center justify-between text-sm sm:text-xs font-mono font-bold">
                 <span className="text-espresso">Live Feed Pulse</span>
                 <span className="text-brand-green flex items-center gap-1">
                   <span className="w-2 h-2 rounded-full bg-brand-green animate-ping" /> Active
                 </span>
               </div>
-              <div className="p-2 bg-white rounded-xl border border-brand-peach/40 text-[11px] text-terracotta truncate">
+              <div className="p-2 bg-white rounded-xl border border-brand-peach/40 text-xs text-terracotta truncate">
                 ✓ Elena approved design token package v2.4
               </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-green">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-green">
             <span>Zero Status Interruption</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -462,16 +462,16 @@ export const Teams: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Autonomous Ownership
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Pod leads own their SLA commitments end-to-end. Cross-pod dependencies become instantly visible before launch timelines slip.
             </p>
 
             {/* Micro SLA Ownership Pill */}
             <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
-              <div className="flex items-center justify-between text-xs">
+              <div className="flex items-center justify-between text-sm">
                 <span className="font-bold text-espresso">Pod SLA Health</span>
                 <span className="font-mono text-amber-700 font-bold">100% On-Target</span>
               </div>
@@ -481,7 +481,7 @@ export const Teams: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-amber-700">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-amber-700">
             <span>Clear Pod Accountability</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>

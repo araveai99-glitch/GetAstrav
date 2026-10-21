@@ -1,10 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { ArchitectureOfExecutionHero } from '../../components/marketing/ArchitectureOfExecutionHero';
+import { HowItWorksSection } from '../../components/marketing/HowItWorksSection';
 
-// Lazy load below-the-fold sections to minimize critical JavaScript execution on first paint
-const HowItWorksSection = lazy(() =>
-  import('../../components/marketing/HowItWorksSection').then((m) => ({ default: m.HowItWorksSection }))
-);
+// Lazy load below-the-fold sections
 const KeyCapabilitiesSection = lazy(() =>
   import('../../components/marketing/KeyCapabilitiesSection').then((m) => ({ default: m.KeyCapabilitiesSection }))
 );
@@ -21,9 +19,11 @@ export const Home: React.FC = () => {
       {/* 1. HERO SECTION: Your Entire Company In One View (Critical Above-the-Fold Path) */}
       <ArchitectureOfExecutionHero />
 
-      {/* 2-5. BELOW-THE-FOLD SECTIONS: Lazy-loaded asynchronously */}
-      <Suspense fallback={<div className="min-h-[300px]" />}>
-        <HowItWorksSection />
+      {/* 2. DEMO DASHBOARD & HOW IT WORKS: Directly rendered in normal document flow */}
+      <HowItWorksSection />
+
+      {/* 3-5. BELOW-THE-FOLD SECTIONS: Lazy-loaded asynchronously */}
+      <Suspense fallback={<div className="min-h-[40px]" />}>
         <KeyCapabilitiesSection />
         <FounderInsightsSection />
         <CTASection />

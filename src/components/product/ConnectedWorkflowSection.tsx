@@ -498,7 +498,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-center justify-between">
-                        <span className={`text-[10px] font-mono font-extrabold px-2 py-0.5 rounded ${step.bg} ${step.accent}`}>
+                        <span className={`text-xs font-mono font-extrabold px-2 py-0.5 rounded ${step.bg} ${step.accent}`}>
                           0{step.step}
                         </span>
                         <div className={`w-7 h-7 rounded-lg ${step.bg} ${step.accent} flex items-center justify-center font-bold transition-transform group-hover:scale-105`}>
@@ -509,14 +509,14 @@ export const ConnectedWorkflowSection: React.FC = () => {
                         <h3 className="font-heading font-extrabold text-sm sm:text-base text-espresso">
                           {step.title}
                         </h3>
-                        <p className="text-xs text-terracotta-muted mt-0.5">
+                        <p className="text-xs sm:text-[13px] text-terracotta-muted mt-0.5">
                           {step.shortLabel}
                         </p>
                       </div>
                     </div>
 
                     <div className="pt-2 border-t border-brand-peach/40">
-                      <span className="text-[11px] font-mono text-terracotta truncate block">
+                      <span className="text-xs font-mono text-terracotta truncate block">
                         {step.example}
                       </span>
                     </div>
@@ -566,17 +566,17 @@ export const ConnectedWorkflowSection: React.FC = () => {
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-mono font-bold text-brand-orange">
+                        <span className="text-xs font-mono font-bold text-brand-orange">
                           0{step.step}
                         </span>
-                        <h3 className="font-heading font-bold text-sm text-espresso">
+                        <h3 className="font-heading font-bold text-[17px] sm:text-base text-espresso">
                           {step.title}
                         </h3>
                       </div>
-                      <p className="text-xs text-terracotta-muted">{step.shortLabel}</p>
+                      <p className="text-sm sm:text-[13px] text-terracotta-muted">{step.shortLabel}</p>
                     </div>
                   </div>
-                  <span className="text-xs font-mono font-semibold text-terracotta">
+                  <span className="text-[13px] sm:text-[13px] font-mono font-semibold text-terracotta">
                     {step.example}
                   </span>
                 </div>
@@ -600,11 +600,11 @@ export const ConnectedWorkflowSection: React.FC = () => {
               className="lg:col-span-5 space-y-5"
             >
               <div className="space-y-3">
-                <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-espresso tracking-tight leading-tight">
+                <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso tracking-tight leading-tight">
                   Turn Goals Into Real Progress
                 </h2>
 
-                <p className="text-sm sm:text-base text-terracotta leading-relaxed font-normal">
+                <p className="text-base sm:text-base text-terracotta leading-relaxed font-normal">
                   Set clear goals, break them into smaller milestones, and see how every completed task moves your team closer to success.
                 </p>
               </div>
@@ -620,7 +620,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
                   <div className="w-6 h-6 rounded-lg bg-brand-orange-light text-brand-orange flex items-center justify-center shrink-0">
                     <Target className="w-3.5 h-3.5" />
                   </div>
-                  <span className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                  <span className="font-heading font-bold text-sm text-espresso">
                     Clear Goals
                   </span>
                 </motion.div>
@@ -634,7 +634,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
                   <div className="w-6 h-6 rounded-lg bg-brand-green-light text-brand-green flex items-center justify-center shrink-0">
                     <TrendingUp className="w-3.5 h-3.5" />
                   </div>
-                  <span className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                  <span className="font-heading font-bold text-sm text-espresso">
                     Measurable Progress
                   </span>
                 </motion.div>
@@ -648,7 +648,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
                   <div className="w-6 h-6 rounded-lg bg-amber-50 text-brand-yellow flex items-center justify-center shrink-0">
                     <Sparkles className="w-3.5 h-3.5" />
                   </div>
-                  <span className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                  <span className="font-heading font-bold text-sm text-espresso">
                     Automatic Updates
                   </span>
                 </motion.div>
@@ -673,20 +673,20 @@ export const ConnectedWorkflowSection: React.FC = () => {
                 <div className="space-y-2 text-center sm:text-left flex-1 min-w-0">
                   <div className="flex items-center justify-center sm:justify-start gap-2">
                     <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
-                    <span className="text-[11px] font-mono font-bold text-brand-orange uppercase">
+                    <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
                       ACTIVE OBJECTIVE
                     </span>
                   </div>
-                  <h3 className="font-heading font-extrabold text-base sm:text-lg text-espresso">
+                  <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso">
                     Launch New Brand & Product Hub
                   </h3>
-                  <p className="text-xs text-terracotta-muted">
+                  <p className="text-sm sm:text-[13px] text-terracotta-muted">
                     Quarterly target broken down into 3 delivery milestones
                   </p>
 
                   {/* Goal Rollup Bar: Animates smoothly from 0% to 72% */}
                   <div className="pt-1 max-w-xs mx-auto sm:mx-0">
-                    <div className="flex items-center justify-between text-[11px] font-mono mb-1">
+                    <div className="flex items-center justify-between text-xs font-mono mb-1">
                       <span className="text-terracotta-muted">Goal Rollup</span>
                       <span className="font-bold text-brand-orange">{progressCounter}%</span>
                     </div>
@@ -734,7 +734,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
                     <span className="text-xl sm:text-2xl font-extrabold text-espresso font-heading leading-none">
                       {progressCounter}%
                     </span>
-                    <span className="text-[9px] font-mono font-bold text-brand-orange uppercase mt-0.5">
+                    <span className="text-xs font-mono font-bold text-brand-orange uppercase mt-0.5 tracking-wider">
                       Progress
                     </span>
                   </div>
@@ -815,15 +815,15 @@ export const ConnectedWorkflowSection: React.FC = () => {
                   className="p-3.5 rounded-xl bg-white border border-brand-peach/80 shadow-warm-2xs hover:border-brand-orange/50 hover:-translate-y-0.5 hover:shadow-warm-sm transition-all duration-200 cursor-pointer space-y-2"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">
+                    <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                       MILESTONE
                     </span>
-                    <span className="text-xs font-mono font-bold text-brand-green">
+                    <span className="text-xs sm:text-sm font-mono font-bold text-brand-green">
                       {milestoneCounters.m1}%
                     </span>
                   </div>
 
-                  <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso leading-snug">
+                  <h4 className="font-heading font-bold text-[15px] sm:text-sm text-espresso leading-snug">
                     {MILESTONES[0].name}
                   </h4>
 
@@ -842,7 +842,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
                     initial="hidden"
                     animate={controls}
                     variants={m1StatusVariants}
-                    className="flex items-center justify-between text-[10px] text-terracotta-muted pt-0.5"
+                    className="flex items-center justify-between text-[13px] sm:text-xs text-terracotta-muted pt-0.5"
                   >
                     <span>Status</span>
                     <span className="text-brand-green font-semibold flex items-center gap-1">
@@ -860,15 +860,15 @@ export const ConnectedWorkflowSection: React.FC = () => {
                   className="p-3.5 rounded-xl bg-white border border-brand-peach/80 shadow-warm-2xs hover:border-brand-orange/50 hover:-translate-y-0.5 hover:shadow-warm-sm transition-all duration-200 cursor-pointer space-y-2"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">
+                    <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                       MILESTONE
                     </span>
-                    <span className="text-xs font-mono font-bold text-brand-green">
+                    <span className="text-xs sm:text-sm font-mono font-bold text-brand-green">
                       {milestoneCounters.m2}%
                     </span>
                   </div>
 
-                  <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso leading-snug">
+                  <h4 className="font-heading font-bold text-[15px] sm:text-sm text-espresso leading-snug">
                     {MILESTONES[1].name}
                   </h4>
 
@@ -887,7 +887,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
                     initial="hidden"
                     animate={controls}
                     variants={m2StatusVariants}
-                    className="flex items-center justify-between text-[10px] text-terracotta-muted pt-0.5"
+                    className="flex items-center justify-between text-[13px] sm:text-xs text-terracotta-muted pt-0.5"
                   >
                     <span>Status</span>
                     <span className="text-brand-orange font-semibold flex items-center gap-1">
@@ -904,15 +904,15 @@ export const ConnectedWorkflowSection: React.FC = () => {
                   className="p-3.5 rounded-xl bg-white border border-brand-peach/80 shadow-warm-2xs hover:border-brand-orange/50 hover:-translate-y-0.5 hover:shadow-warm-sm transition-all duration-200 cursor-pointer space-y-2"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">
+                    <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                       MILESTONE
                     </span>
-                    <span className="text-xs font-mono font-bold text-brand-green">
+                    <span className="text-xs sm:text-sm font-mono font-bold text-brand-green">
                       {milestoneCounters.m3}%
                     </span>
                   </div>
 
-                  <h4 className="font-heading font-bold text-xs sm:text-sm text-espresso leading-snug">
+                  <h4 className="font-heading font-bold text-[15px] sm:text-sm text-espresso leading-snug">
                     {MILESTONES[2].name}
                   </h4>
 
@@ -931,7 +931,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
                     initial="hidden"
                     animate={controls}
                     variants={m3StatusVariants}
-                    className="flex items-center justify-between text-[10px] text-terracotta-muted pt-0.5"
+                    className="flex items-center justify-between text-[13px] sm:text-xs text-terracotta-muted pt-0.5"
                   >
                     <span>Status</span>
                     <span className="text-brand-orange font-semibold flex items-center gap-1">

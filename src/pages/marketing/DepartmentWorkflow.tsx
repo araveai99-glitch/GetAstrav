@@ -112,10 +112,10 @@ export const DepartmentWorkflow: React.FC = () => {
           {/* Main Page Heading and Supporting Description */}
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2 border-b border-brand-peach/60">
             <div className="space-y-2 max-w-3xl">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#271812] tracking-tight font-heading leading-[1.12]">
+              <h1 className="text-3xl min-[390px]:text-[32px] sm:text-4xl lg:text-4xl xl:text-5xl font-extrabold text-[#271812] tracking-tight font-heading leading-[1.12]">
                 {ORGANIZATION_OVERVIEW.title}
               </h1>
-              <p className="text-sm sm:text-base text-[#5a4138] leading-relaxed font-normal">
+              <p className="text-base text-[#5a4138] leading-relaxed font-normal">
                 {ORGANIZATION_OVERVIEW.description}
               </p>
             </div>
@@ -127,14 +127,14 @@ export const DepartmentWorkflow: React.FC = () => {
                   <Target className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-heading font-bold text-terracotta-muted uppercase tracking-wider block">
+                  <span className="text-xs font-heading font-bold text-terracotta-muted uppercase tracking-wider block">
                     Strategic Rollup
                   </span>
                   <div className="flex items-center gap-1.5">
                     <span className="font-heading font-extrabold text-lg text-espresso leading-none">
                       {ORGANIZATION_OVERVIEW.northStarProgress}
                     </span>
-                    <span className="text-xs font-heading font-bold text-[#2e936f]">
+                    <span className="text-xs sm:text-sm font-heading font-bold text-[#2e936f]">
                       {ORGANIZATION_OVERVIEW.northStarGoal}
                     </span>
                   </div>
@@ -145,23 +145,23 @@ export const DepartmentWorkflow: React.FC = () => {
 
               <div className="flex items-center gap-4 text-xs font-heading">
                 <div>
-                  <span className="text-[10px] text-terracotta-muted font-bold block uppercase tracking-wider">
+                  <span className="text-xs text-terracotta-muted font-bold block uppercase tracking-wider">
                     Departments
                   </span>
-                  <span className="font-extrabold text-espresso text-sm">
+                  <span className="font-extrabold text-espresso text-sm sm:text-base">
                     {ORGANIZATION_OVERVIEW.totalDepartments} Active
                   </span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-terracotta-muted font-bold block uppercase tracking-wider">
+                  <span className="text-xs text-terracotta-muted font-bold block uppercase tracking-wider">
                     Total Tasks
                   </span>
-                  <span className="font-extrabold text-espresso text-sm">
+                  <span className="font-extrabold text-espresso text-sm sm:text-base">
                     {ORGANIZATION_OVERVIEW.totalActiveTasks} Rollup
                   </span>
                 </div>
                 <div className="hidden xl:block">
-                  <span className="text-[10px] text-terracotta-muted font-bold block uppercase tracking-wider">
+                  <span className="text-xs text-terracotta-muted font-bold block uppercase tracking-wider">
                     Sync Status
                   </span>
                   <span className="font-bold text-[#2e936f] text-xs flex items-center gap-1">
@@ -178,11 +178,11 @@ export const DepartmentWorkflow: React.FC = () => {
         {/* QUICK DEPARTMENT SELECTOR / FILTER STRIP                     */}
         {/* ============================================================ */}
         <div className="space-y-2">
-          <div className="flex items-center justify-between text-xs">
-            <span className="font-heading font-extrabold text-terracotta-muted uppercase tracking-wider text-[11px]">
+          <div className="flex items-center justify-between text-xs sm:text-sm">
+            <span className="font-heading font-extrabold text-terracotta-muted uppercase tracking-wider text-xs">
               Select Department to Inspect
             </span>
-            <span className="text-terracotta-muted text-xs">
+            <span className="text-terracotta-muted text-xs sm:text-sm">
               Showing <span className="font-bold text-brand-orange">{selectedDept.name}</span> in primary focus
             </span>
           </div>
@@ -212,10 +212,10 @@ export const DepartmentWorkflow: React.FC = () => {
                       <Icon className={`w-4 h-4 ${dept.iconColor}`} />
                     </div>
                     <div className="min-w-0">
-                      <span className="font-heading font-extrabold text-xs text-espresso block truncate leading-tight">
+                      <span className="font-heading font-extrabold text-sm min-[375px]:text-base text-espresso block truncate leading-tight">
                         {dept.name}
                       </span>
-                      <span className="font-mono font-bold text-[11px] text-terracotta-muted block leading-none mt-0.5">
+                      <span className="font-mono font-bold text-xs min-[375px]:text-sm text-terracotta-muted block leading-none mt-0.5">
                         {dept.progress}
                       </span>
                     </div>
@@ -272,11 +272,11 @@ export const DepartmentWorkflow: React.FC = () => {
                     <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                       Department Command Center
                     </span>
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-heading font-extrabold bg-[#edf7f3] text-[#2e936f] border border-[#2e936f]/30">
+                    <span className="px-2 py-0.5 rounded-full text-xs font-heading font-extrabold bg-[#edf7f3] text-[#2e936f] border border-[#2e936f]/30">
                       Live Telemetry
                     </span>
                   </div>
-                  <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-espresso tracking-tight mt-0.5">
+                  <h2 className="font-heading font-extrabold text-[26px] min-[375px]:text-[28px] sm:text-3xl text-espresso tracking-tight mt-0.5">
                     {selectedDept.name} Execution
                   </h2>
                 </div>
@@ -317,7 +317,7 @@ export const DepartmentWorkflow: React.FC = () => {
                     <span className="font-heading font-extrabold text-3xl sm:text-4xl text-espresso">
                       {selectedDept.progress}
                     </span>
-                    <span className="text-xs font-heading font-bold text-[#2e936f]">
+                    <span className="text-xs sm:text-sm font-heading font-bold text-[#2e936f]">
                       Rollup Metric
                     </span>
                   </div>
@@ -345,7 +345,7 @@ export const DepartmentWorkflow: React.FC = () => {
                       {selectedDept.head}
                     </span>
                   </div>
-                  <span className="text-xs text-terracotta-muted font-medium block">
+                  <span className="text-xs min-[375px]:text-sm text-terracotta-muted font-medium block">
                     Accountable Head of Pod
                   </span>
                 </div>
@@ -360,7 +360,7 @@ export const DepartmentWorkflow: React.FC = () => {
                   <span className="font-heading font-extrabold text-base sm:text-lg text-espresso block">
                     {selectedDept.milestones}
                   </span>
-                  <span className="text-xs text-terracotta-muted font-medium block">
+                  <span className="text-xs min-[375px]:text-sm text-terracotta-muted font-medium block">
                     Target Quarter Deadlines
                   </span>
                 </div>
@@ -376,11 +376,11 @@ export const DepartmentWorkflow: React.FC = () => {
                     <span className="font-heading font-extrabold text-3xl text-espresso">
                       {selectedDept.activeTasks}
                     </span>
-                    <span className="text-xs text-terracotta-muted font-semibold">
+                    <span className="text-xs min-[375px]:text-sm text-terracotta-muted font-semibold">
                       In Queue / Review
                     </span>
                   </div>
-                  <span className="text-xs text-terracotta-muted font-medium block">
+                  <span className="text-xs min-[375px]:text-sm text-terracotta-muted font-medium block">
                     Automated Workflows
                   </span>
                 </div>
@@ -390,11 +390,11 @@ export const DepartmentWorkflow: React.FC = () => {
             {/* Active Deliverables & Rollup Items */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <h3 className="text-sm font-heading font-extrabold text-espresso uppercase tracking-wider flex items-center gap-2">
+                <h3 className="text-base font-heading font-extrabold text-espresso uppercase tracking-wider flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-brand-orange" />
                   <span>Active Deliverables & Rollup Items</span>
                 </h3>
-                <span className="text-xs text-terracotta-muted font-medium">
+                <span className="text-xs min-[375px]:text-sm text-terracotta-muted font-medium">
                   {selectedDept.deliverables.length} Deliverables Tracked
                 </span>
               </div>
@@ -403,14 +403,14 @@ export const DepartmentWorkflow: React.FC = () => {
                 {selectedDept.deliverables.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-3 p-3.5 sm:p-4 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-2xs hover:border-brand-orange/40 transition-colors text-xs sm:text-sm text-espresso"
+                    className="flex items-start gap-3 p-3.5 sm:p-4 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-2xs hover:border-brand-orange/40 transition-colors text-sm min-[375px]:text-base text-espresso"
                   >
                     {getDeliverableIcon(item)}
                     <div className="space-y-0.5 min-w-0">
                       <span className="font-heading font-bold leading-snug block">
                         {item}
                       </span>
-                      <span className="text-[11px] text-terracotta-muted block">
+                      <span className="text-xs min-[375px]:text-sm text-terracotta-muted block">
                         Connected to Company Goal Rollup
                       </span>
                     </div>
@@ -420,7 +420,7 @@ export const DepartmentWorkflow: React.FC = () => {
             </div>
 
             {/* Action Footer & Live Sync Connection Info */}
-            <div className="pt-4 border-t border-brand-peach/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+            <div className="pt-4 border-t border-brand-peach/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs min-[375px]:text-sm">
               <div className="flex items-center gap-2 text-terracotta font-medium">
                 <span className="w-2 h-2 rounded-full bg-brand-green animate-ping" />
                 <span className="font-bold text-brand-green">Live connection to Astrav Mesh</span>
@@ -430,7 +430,7 @@ export const DepartmentWorkflow: React.FC = () => {
               <div className="flex items-center gap-3">
                 <Link
                   to="/features/goals-progress"
-                  className="text-xs font-heading font-bold text-brand-orange hover:text-brand-orange-hover flex items-center gap-1 transition-colors"
+                  className="text-sm font-heading font-bold text-brand-orange hover:text-brand-orange-hover flex items-center gap-1 transition-colors"
                 >
                   <span>Explore Rollup Engine</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -446,10 +446,10 @@ export const DepartmentWorkflow: React.FC = () => {
         <section aria-label="Other Department Workflows" className="space-y-5 pt-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-brand-peach/60 pb-3">
             <div>
-              <h2 className="text-xl sm:text-2xl font-extrabold text-[#271812] font-heading tracking-tight">
+              <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-extrabold text-[#271812] font-heading tracking-tight">
                 Other Department Workflows ({remainingDepts.length})
               </h2>
-              <p className="text-xs sm:text-sm text-[#5a4138]">
+              <p className="text-sm sm:text-base text-[#5a4138]">
                 Select any department below to bring it to primary focus or inspect deliverables.
               </p>
             </div>
@@ -481,14 +481,14 @@ export const DepartmentWorkflow: React.FC = () => {
                       </div>
                       <div className="min-w-0">
                         <div className="flex items-center gap-2">
-                          <span className="text-[11px] font-mono font-bold text-terracotta-muted uppercase tracking-wider">
+                          <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                             Department Command Center
                           </span>
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-heading font-extrabold bg-[#edf7f3] text-[#2e936f] border border-[#2e936f]/20">
+                          <span className="px-2 py-0.5 rounded-full text-xs font-heading font-extrabold bg-[#edf7f3] text-[#2e936f] border border-[#2e936f]/20">
                             {dept.statusText}
                           </span>
                         </div>
-                        <h3 className="font-heading font-extrabold text-xl text-espresso tracking-tight mt-0.5">
+                        <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-espresso tracking-tight mt-0.5">
                           {dept.name} Execution
                         </h3>
                       </div>
@@ -497,7 +497,7 @@ export const DepartmentWorkflow: React.FC = () => {
                     {/* Make Primary Focus Button */}
                     <button
                       onClick={() => handleSelectDepartment(dept.id)}
-                      className="inline-flex items-center justify-center gap-2 px-4.5 py-2 rounded-full bg-surface-ambient hover:bg-brand-orange text-espresso hover:text-white border border-brand-peach hover:border-brand-orange text-xs sm:text-sm font-heading font-bold shadow-warm-2xs transition-all cursor-pointer group-hover:bg-brand-orange group-hover:text-white group-hover:border-brand-orange whitespace-nowrap self-start sm:self-auto"
+                      className="inline-flex items-center justify-center gap-2 px-4.5 py-2 rounded-full bg-surface-ambient hover:bg-brand-orange text-espresso hover:text-white border border-brand-peach hover:border-brand-orange text-sm font-heading font-bold shadow-warm-2xs transition-all cursor-pointer group-hover:bg-brand-orange group-hover:text-white group-hover:border-brand-orange whitespace-nowrap self-start sm:self-auto"
                       title={`Make ${dept.name} the primary department`}
                     >
                       <span>Focus {dept.name}</span>
@@ -506,13 +506,13 @@ export const DepartmentWorkflow: React.FC = () => {
                   </div>
 
                   {/* Summary Metric Ribbon */}
-                  <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-surface-ambient border border-brand-peach/60 grid grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                  <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-surface-ambient border border-brand-peach/60 grid grid-cols-2 lg:grid-cols-4 gap-3 text-xs min-[375px]:text-sm">
                     <div>
-                      <span className="text-[10px] text-terracotta-muted font-bold uppercase tracking-wider block">
+                      <span className="text-xs text-terracotta-muted font-bold uppercase tracking-wider block">
                         Execution Velocity
                       </span>
                       <div className="flex items-center gap-2 mt-0.5">
-                        <span className="font-heading font-extrabold text-xl text-espresso">
+                        <span className="font-heading font-extrabold text-xl sm:text-2xl text-espresso">
                           {dept.progress}
                         </span>
                         <div className="w-16 h-1 bg-gray-200 rounded-full overflow-hidden hidden sm:block">
@@ -525,28 +525,28 @@ export const DepartmentWorkflow: React.FC = () => {
                     </div>
 
                     <div>
-                      <span className="text-[10px] text-terracotta-muted font-bold uppercase tracking-wider block">
+                      <span className="text-xs text-terracotta-muted font-bold uppercase tracking-wider block">
                         Leadership
                       </span>
-                      <span className="font-heading font-bold text-espresso text-xs sm:text-sm block mt-0.5 truncate">
+                      <span className="font-heading font-bold text-espresso text-sm sm:text-base block mt-0.5 truncate">
                         {dept.head}
                       </span>
                     </div>
 
                     <div>
-                      <span className="text-[10px] text-terracotta-muted font-bold uppercase tracking-wider block">
+                      <span className="text-xs text-terracotta-muted font-bold uppercase tracking-wider block">
                         Milestones
                       </span>
-                      <span className="font-heading font-bold text-espresso text-xs sm:text-sm block mt-0.5 truncate">
+                      <span className="font-heading font-bold text-espresso text-sm sm:text-base block mt-0.5 truncate">
                         {dept.milestones}
                       </span>
                     </div>
 
                     <div>
-                      <span className="text-[10px] text-terracotta-muted font-bold uppercase tracking-wider block">
+                      <span className="text-xs text-terracotta-muted font-bold uppercase tracking-wider block">
                         Active Tasks
                       </span>
-                      <span className="font-heading font-bold text-espresso text-xs sm:text-sm block mt-0.5">
+                      <span className="font-heading font-bold text-espresso text-sm sm:text-base block mt-0.5">
                         {dept.activeTasks} Tasks In Queue
                       </span>
                     </div>
@@ -554,10 +554,10 @@ export const DepartmentWorkflow: React.FC = () => {
 
                   {/* Complete Deliverables Preserved Exactly */}
                   <div className="space-y-2">
-                    <span className="text-[11px] font-heading font-bold text-espresso uppercase tracking-wider block">
+                    <span className="text-xs min-[375px]:text-sm font-heading font-bold text-espresso uppercase tracking-wider block">
                       Active Deliverables & Rollup Items
                     </span>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-espresso">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm min-[375px]:text-base text-espresso">
                       {dept.deliverables.map((item, i) => (
                         <div
                           key={i}
@@ -571,7 +571,7 @@ export const DepartmentWorkflow: React.FC = () => {
                   </div>
 
                   {/* Card Bottom Meta */}
-                  <div className="flex items-center justify-between pt-2 border-t border-brand-peach/40 text-[11px] text-terracotta-muted">
+                  <div className="flex items-center justify-between pt-2 border-t border-brand-peach/40 text-xs min-[375px]:text-sm text-terracotta-muted">
                     <span>Live connection to Astrav Mesh</span>
                     <button
                       onClick={() => handleSelectDepartment(dept.id)}

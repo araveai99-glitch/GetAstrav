@@ -15,8 +15,8 @@ export const DashboardPage: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-extrabold text-espresso">Command Center Dashboard</h1>
-          <p className="text-xs text-terracotta-muted">Real-time executive goal progression and daily AI focus</p>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-espresso">Command Center Dashboard</h1>
+          <p className="text-base sm:text-sm text-terracotta-muted">Real-time executive goal progression and daily AI focus</p>
         </div>
       </div>
 
@@ -25,7 +25,7 @@ export const DashboardPage: React.FC = () => {
 
       {/* Strategic Goals & Mathematical Rollups */}
       <div className="space-y-4">
-        <h2 className="text-lg font-bold text-espresso flex items-center gap-2">
+        <h2 className="text-xl sm:text-lg font-bold text-espresso flex items-center gap-2">
           <Target className="w-5 h-5 text-brand-orange" />
           Active Strategic Goals & Rollups ({goals.length})
         </h2>
@@ -45,7 +45,7 @@ export const DashboardPage: React.FC = () => {
 
       {/* Task Stream Section */}
       <div className="bg-white p-6 rounded-2xl border border-brand-peach/60 shadow-warm-md space-y-4">
-        <h2 className="text-lg font-bold text-espresso flex items-center gap-2">
+        <h2 className="text-xl sm:text-lg font-bold text-espresso flex items-center gap-2">
           <ListCheck className="w-5 h-5 text-brand-green" />
           Active Execution Tasks ({tasks.length})
         </h2>

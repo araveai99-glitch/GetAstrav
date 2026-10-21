@@ -90,8 +90,8 @@ export const GoalToExecutionWorkflow: React.FC = () => {
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono font-extrabold text-terracotta-muted">STEP 0{idx + 1}</span>
-                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${item.badge}`}>
+                      <span className="text-xs font-mono font-extrabold text-terracotta-muted">STEP 0{idx + 1}</span>
+                      <span className={`px-2.5 py-1 rounded-full text-xs font-bold border ${item.badge}`}>
                         {item.level}
                       </span>
                     </div>
@@ -102,12 +102,12 @@ export const GoalToExecutionWorkflow: React.FC = () => {
                       <Icon className="w-5 h-5" />
                     </div>
 
-                    <h3 className="text-sm font-extrabold text-espresso leading-snug">{item.title}</h3>
-                    <p className="text-xs text-terracotta leading-relaxed font-normal">{item.detail}</p>
+                    <h3 className="text-[17px] sm:text-base lg:text-[17px] font-extrabold text-espresso leading-snug">{item.title}</h3>
+                    <p className="text-sm sm:text-[14px] text-terracotta leading-relaxed font-normal">{item.detail}</p>
                   </div>
 
                   <div className="pt-3 border-t border-brand-peach/40 space-y-1">
-                    <div className="flex items-center gap-1.5 text-xs text-terracotta font-semibold truncate">
+                    <div className="flex items-center gap-1.5 text-[13px] sm:text-xs text-terracotta font-semibold truncate">
                       <User className="w-3.5 h-3.5 text-brand-orange shrink-0" />
                       <span className="truncate">{item.owner}</span>
                     </div>
@@ -128,12 +128,12 @@ export const GoalToExecutionWorkflow: React.FC = () => {
         </div>
 
         {/* Selected Step Summary Bar */}
-        <div className="p-4 rounded-xl bg-white border border-brand-peach/80 shadow-warm-xs flex items-center justify-between gap-4 text-xs">
-          <div className="flex items-center gap-2">
+        <div className="p-4 rounded-xl bg-white border border-brand-peach/80 shadow-warm-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm">
+          <div className="flex flex-wrap items-center gap-2">
             <span className="font-bold text-brand-orange">Workflow Path:</span>
             <span className="font-semibold text-espresso">Company Goal → Project → Milestones → Tasks → Completion</span>
           </div>
-          <span className="px-3 py-1 rounded-full bg-brand-green/10 text-brand-green font-bold shrink-0">
+          <span className="px-3 py-1 rounded-full bg-brand-green/10 text-brand-green font-bold shrink-0 self-start sm:self-auto">
             Clear Ownership & Alignment
           </span>
         </div>

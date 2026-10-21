@@ -194,7 +194,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.45, delay: 0.05, ease: 'easeOut' }}
-              className="text-[30px] xl:text-[40px] 2xl:text-[48px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading mb-2.5 xl:mb-3"
+              className="text-[32px] sm:text-[38px] xl:text-[46px] 2xl:text-[54px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.03em] font-heading mb-2.5 xl:mb-3"
             >
               Your Entire<br />
               Company<br />
@@ -207,7 +207,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.45, delay: 0.15, ease: 'easeOut' }}
-              className="text-xs xl:text-sm 2xl:text-base text-[#5a4138] font-body leading-relaxed mb-4 xl:mb-5 max-w-[420px] text-justify"
+              className="text-sm xl:text-base 2xl:text-[17px] text-[#5a4138] font-body leading-relaxed mb-4 xl:mb-5 max-w-[440px] text-left"
             >
               Connect goals, teams, and daily execution across every department. Spot delays early and run your company with total clarity.
             </motion.p>
@@ -222,7 +222,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             >
               <Link
                 to="/product"
-                className="inline-flex items-center justify-center gap-1.5 xl:gap-2 px-4.5 xl:px-6 py-2.5 xl:py-3 rounded-full bg-[#f15e1c] hover:bg-[#d94e10] text-white font-heading font-bold text-xs xl:text-sm shadow-lg shadow-[#f15e1c]/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap shrink-0"
+                className="inline-flex items-center justify-center gap-2 px-5 xl:px-6 py-2.5 xl:py-3 rounded-full bg-[#f15e1c] hover:bg-[#d94e10] text-white font-heading font-bold text-sm xl:text-base shadow-lg shadow-[#f15e1c]/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap shrink-0"
               >
                 <Layers className="w-4 h-4 text-white" />
                 <span>Explore Astrav</span>
@@ -231,7 +231,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
               <a
                 href="#how-it-works"
-                className="inline-flex items-center justify-center gap-1.5 xl:gap-2 px-4 xl:px-5 py-2.5 xl:py-3 rounded-full bg-white hover:bg-gray-50 text-[#271812] font-heading font-bold text-xs xl:text-sm border border-[#f5ded0] shadow-warm-sm hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap shrink-0"
+                className="inline-flex items-center justify-center gap-2 px-4.5 xl:px-5 py-2.5 xl:py-3 rounded-full bg-white hover:bg-gray-50 text-[#271812] font-heading font-bold text-sm xl:text-base border border-[#f5ded0] shadow-warm-sm hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap shrink-0"
               >
                 <Play className="w-3.5 h-3.5 text-[#271812] fill-[#271812]/20" />
                 <span>See How It Works</span>
@@ -281,17 +281,17 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                     >
                       <dept.icon className={`w-3 h-3 xl:w-3.5 xl:h-3.5 ${dept.iconColor}`} />
                     </div>
-                    <span className="font-heading font-extrabold text-[#271812] text-[10.5px] xl:text-[11.5px] 2xl:text-[12.5px] leading-tight truncate">
+                    <span className="font-heading font-extrabold text-[#271812] text-xs xl:text-sm 2xl:text-[15px] leading-tight truncate">
                       {dept.name}
                     </span>
                   </div>
-                  <ChevronRight className="w-3 h-3 xl:w-3.5 xl:h-3.5 text-gray-400 group-hover:text-[#f15e1c] group-hover:translate-x-0.5 transition-all shrink-0" />
+                  <ChevronRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-[#f15e1c] group-hover:translate-x-0.5 transition-all shrink-0" />
                 </div>
 
                 {/* Bottom Row: Percentage + Progress Bar + Sparkline */}
                 <div className="flex items-end justify-between w-full mt-0.5">
                   <div className="min-w-0 flex-1 mr-2">
-                    <span className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-xs 2xl:text-sm leading-none block mb-0.5 xl:mb-1">
+                    <span className="font-heading font-extrabold text-[#271812] text-xs xl:text-sm 2xl:text-base leading-none block mb-0.5 xl:mb-1">
                       {dept.progress}
                     </span>
                     <div className="w-full h-1 xl:h-1.5 bg-gray-100 rounded-full overflow-hidden">
@@ -348,16 +348,16 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   <Target className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#f15e1c]" />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-[8.5px] xl:text-[9.5px] font-heading font-bold text-[#2e936f] leading-none mb-0.5 uppercase tracking-wider">
+                  <div className="text-[11px] xl:text-xs font-mono font-bold text-[#2e936f] leading-none mb-0.5 uppercase tracking-wider">
                     Company Goal
                   </div>
-                  <div className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-[13px] 2xl:text-[14px] leading-tight truncate">
+                  <div className="font-heading font-extrabold text-[#271812] text-xs xl:text-sm 2xl:text-base leading-tight truncate">
                     Launch Product V2
                   </div>
                 </div>
               </div>
               <div className="flex items-center gap-1.5 shrink-0">
-                <span className="font-heading font-extrabold text-[#2e936f] text-sm xl:text-base 2xl:text-lg">
+                <span className="font-heading font-extrabold text-[#2e936f] text-base xl:text-lg 2xl:text-xl">
                   72%
                 </span>
                 <ChevronRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-[#2e936f] group-hover:translate-x-0.5 transition-all" />
@@ -403,10 +403,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   <notif.icon className={`w-3.5 h-3.5 ${notif.iconColor}`} />
                 </div>
                 <div className="min-w-0">
-                  <h5 className="font-heading font-extrabold text-[#271812] text-[11px] xl:text-[12px] 2xl:text-[13px] leading-tight truncate">
+                  <h5 className="font-heading font-extrabold text-[#271812] text-xs xl:text-sm leading-tight truncate">
                     {notif.dept}
                   </h5>
-                  <p className="text-[9.5px] xl:text-[10px] text-gray-500 font-medium leading-none mt-0.5 truncate">
+                  <p className="text-[11px] xl:text-xs text-gray-500 font-medium leading-none mt-0.5 truncate">
                     {notif.action}
                   </p>
                 </div>
@@ -419,7 +419,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   <AlertTriangle className="w-3.5 h-3.5 text-[#ea580c] fill-[#ea580c]/15" />
                 )}
                 <span
-                  className={`text-[8.5px] xl:text-[9px] font-heading font-bold ${
+                  className={`text-[10.5px] xl:text-xs font-heading font-bold ${
                     notif.isCheck ? 'text-[#2e936f]' : 'text-[#ea580c]'
                   }`}
                 >
@@ -528,10 +528,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
-                  <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
+                  <h4 className="font-heading font-extrabold text-base sm:text-lg text-espresso group-hover:text-brand-orange transition-colors">
                     {pillar.title}
                   </h4>
-                  <p className="text-xs text-terracotta leading-relaxed mt-1 text-justify">
+                  <p className="text-xs sm:text-sm text-terracotta leading-relaxed mt-1 text-left sm:text-justify">
                     {pillar.desc}
                   </p>
                 </motion.div>
@@ -544,14 +544,14 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
       {/* ============================================================ */}
       {/* MOBILE / TABLET VIEW (<1024px): CLOSE TO REFERENCE IMAGE 1   */}
       {/* ============================================================ */}
-      <div className="lg:hidden max-w-xl mx-auto px-2.5 xs:px-3.5 sm:px-6 pt-2.5 sm:pt-4 space-y-7 text-left pb-12">
+      <div className="lg:hidden max-w-xl mx-auto px-2.5 xs:px-3.5 sm:px-6 pt-2.5 sm:pt-4 space-y-6 sm:space-y-7 text-left pb-4 sm:pb-6">
         {/* 1. Headline & Supporting Text */}
         <div className="space-y-3.5">
-          <h1 className="text-[34px] xs:text-[38px] sm:text-[44px] font-extrabold text-[#271812] leading-[1.08] tracking-[-0.035em] font-heading">
+          <h1 className="text-[30px] xs:text-[34px] sm:text-[40px] font-extrabold text-[#271812] leading-[1.1] tracking-[-0.03em] font-heading">
             Your Entire Company<br />
             In <span className="text-[#f15e1c]">One View.</span>
           </h1>
-          <p className="text-sm sm:text-base text-[#5a4138] font-body leading-relaxed text-justify">
+          <p className="text-base sm:text-lg text-[#5a4138] font-body leading-relaxed text-left">
             Connect goals, teams, projects and daily work across every department. Get real progress, spot delays early, and run your company with clarity.
           </p>
         </div>
@@ -577,7 +577,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
         </div>
 
         {/* 4. Four Value Prop Highlights (2x2 Grid) */}
-        <div className="pt-2 border-t border-brand-peach/40 grid grid-cols-2 gap-x-4 gap-y-3 text-xs sm:text-sm font-heading">
+        <div className="pt-2 border-t border-brand-peach/40 grid grid-cols-2 gap-x-4 gap-y-3 text-xs sm:text-sm font-heading font-semibold">
           <div className="flex items-center gap-2 font-bold text-[#271812]">
             <Target className="w-4 h-4 text-[#f15e1c] shrink-0" />
             <span>Goal-Driven Execution</span>
@@ -631,7 +631,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           >
             {/* Vertical connector lines between Row 1 and Row 2 */}
             <path
-              d="M 135 174 L 135 234"
+              d="M 130 194 L 130 233"
               stroke="#ea580c"
               strokeWidth="2.5"
               strokeDasharray="4 3"
@@ -639,7 +639,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               opacity="0.85"
             />
             <path
-              d="M 370 174 L 370 234"
+              d="M 365 194 L 365 233"
               stroke="#ea580c"
               strokeWidth="2.5"
               strokeDasharray="4 3"
@@ -647,7 +647,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               opacity="0.85"
             />
             <path
-              d="M 605 174 L 605 234"
+              d="M 600 194 L 600 233"
               stroke="#ea580c"
               strokeWidth="2.5"
               strokeDasharray="4 3"
@@ -658,7 +658,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             {/* Connector Lines from Row 2 converging down into Company Goal */}
             {/* Sales (Col 1) to Goal left */}
             <path
-              d="M 135 358 L 135 392 L 235 392 L 235 427"
+              d="M 130 380 L 130 405 L 200 405 L 200 420"
               stroke="#ea580c"
               strokeWidth="2.5"
               strokeDasharray="4 3"
@@ -667,7 +667,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             />
             {/* HR (Col 2) to Goal center */}
             <path
-              d="M 370 358 L 370 427"
+              d="M 365 380 L 365 405 L 350 405 L 350 420"
               stroke="#ea580c"
               strokeWidth="2.5"
               strokeDasharray="4 3"
@@ -676,7 +676,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             />
             {/* Finance (Col 3) to Goal right */}
             <path
-              d="M 605 358 L 605 392 L 505 392 L 505 427"
+              d="M 600 380 L 600 405 L 500 405 L 500 420"
               stroke="#ea580c"
               strokeWidth="2.5"
               strokeDasharray="4 3"
@@ -685,16 +685,17 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             />
 
             {/* Glowing Bus Junction Nodes */}
-            <circle cx="135" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
-            <circle cx="235" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
-            <circle cx="370" cy="392" r="3.5" fill="#2e936f" stroke="#ffffff" strokeWidth="1.5" />
-            <circle cx="505" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
-            <circle cx="605" cy="392" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="130" cy="405" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="200" cy="405" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="365" cy="405" r="3.5" fill="#2e936f" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="350" cy="405" r="3.5" fill="#2e936f" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="500" cy="405" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="600" cy="405" r="3.5" fill="#ea580c" stroke="#ffffff" strokeWidth="1.5" />
 
             {/* Goal Top Anchor Nodes */}
-            <circle cx="235" cy="427" r="3" fill="#2e936f" />
-            <circle cx="370" cy="427" r="3.5" fill="#2e936f" stroke="#ffffff" strokeWidth="1.5" />
-            <circle cx="505" cy="427" r="3.5" fill="#2e936f" />
+            <circle cx="200" cy="420" r="3" fill="#2e936f" />
+            <circle cx="350" cy="420" r="3.5" fill="#2e936f" stroke="#ffffff" strokeWidth="1.5" />
+            <circle cx="500" cy="420" r="3.5" fill="#2e936f" />
           </svg>
 
           {/* Overlaid 6 Department Cards in 2 Rows of 3 */}
@@ -713,7 +714,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   ease: 'easeOut',
                 }}
                 onClick={() => navigate(`/department-workflow/${dept.id}`)}
-                className="absolute z-20 rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_4px_14px_rgba(0,0,0,0.12)] px-1 py-1 xs:px-1.5 xs:py-1.5 sm:p-2 flex flex-col justify-between cursor-pointer select-none active:scale-95 transition-all group overflow-hidden hover:border-brand-orange/50 hover:ring-2 hover:ring-brand-orange/20"
+                className="absolute z-20 rounded-xl xs:rounded-2xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_4px_14px_rgba(0,0,0,0.12)] px-1 py-1 min-[375px]:px-1.5 min-[375px]:py-1.5 flex flex-col justify-between cursor-pointer select-none active:scale-95 transition-all group overflow-hidden hover:border-brand-orange/50 hover:ring-2 hover:ring-brand-orange/20"
                 style={{
                   left: dept.mobileLeft,
                   top: dept.mobileTop,
@@ -723,27 +724,24 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 title={`Open ${dept.name} department workflow (${dept.progress} - ${dept.statusText})`}
               >
                 {/* Top Row: Icon + Name */}
-                <div className="flex items-center justify-between w-full">
-                  <div className="flex items-center gap-0.5 xs:gap-1 min-w-0 flex-1">
-                    <div
-                      className={`w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 rounded-md ${dept.iconBg} flex items-center justify-center shrink-0`}
-                    >
-                      <dept.icon className={`w-1.5 h-1.5 xs:w-2 xs:h-2 sm:w-3 sm:h-3 ${dept.iconColor}`} />
-                    </div>
-                    <span className="font-heading font-extrabold text-[#271812] text-[7px] min-[375px]:text-[7.5px] xs:text-[8px] sm:text-xs leading-none whitespace-nowrap tracking-tight block">
-                      {dept.name}
-                    </span>
+                <div className="flex items-center gap-1 min-[360px]:gap-1.25 min-w-0 w-full">
+                  <div
+                    className={`w-3.5 h-3.5 min-[375px]:w-4 min-[375px]:h-4 rounded-full ${dept.iconBg} flex items-center justify-center shrink-0`}
+                  >
+                    <dept.icon className={`w-2 h-2 min-[375px]:w-2.5 min-[375px]:h-2.5 ${dept.iconColor}`} />
                   </div>
-                  <ChevronRight className="w-2.5 h-2.5 text-gray-400 group-hover:text-brand-orange shrink-0 hidden sm:block ml-0.5" />
+                  <span className="font-heading font-extrabold text-[#271812] text-[8px] min-[360px]:text-[8.5px] min-[375px]:text-[9px] sm:text-xs leading-none whitespace-nowrap tracking-tight block">
+                    {dept.name}
+                  </span>
                 </div>
 
-                {/* Bottom Row: Percentage + Progress Bar + Sparkline */}
-                <div className="flex items-end justify-between w-full gap-0.5 xs:gap-1 mt-0.5">
-                  <div className="min-w-0 flex-1">
-                    <span className="font-heading font-extrabold text-[#271812] text-[8px] xs:text-[9.5px] sm:text-xs leading-none block mb-0.5">
-                      {dept.progress}
-                    </span>
-                    <div className="w-full h-0.5 xs:h-1 bg-gray-100 rounded-full overflow-hidden">
+                {/* Bottom Section: Percentage + Progress Bar + Sparkline */}
+                <div className="w-full space-y-0.5 min-[375px]:space-y-1">
+                  <span className="font-heading font-extrabold text-[#271812] text-[9.5px] min-[360px]:text-[10px] min-[375px]:text-[10.5px] sm:text-sm leading-none block">
+                    {dept.progress}
+                  </span>
+                  <div className="flex items-center justify-between gap-1 w-full">
+                    <div className="flex-1 h-1 min-[375px]:h-1.5 bg-gray-100 rounded-full overflow-hidden">
                       <motion.div
                         className={`h-full ${dept.barColor} rounded-full`}
                         initial={{ width: '0%' }}
@@ -756,17 +754,17 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                         }}
                       />
                     </div>
-                  </div>
-                  <div className="w-3 xs:w-4 sm:w-6 h-2 xs:h-2.5 sm:h-3 shrink-0 flex items-center justify-end">
-                    <svg viewBox="0 0 36 16" className="w-full h-full overflow-visible" fill="none">
-                      <path
-                        d={dept.sparklinePath}
-                        stroke={dept.sparklineColor}
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <div className="w-3 min-[360px]:w-3.5 min-[375px]:w-4 sm:w-6 h-2 min-[375px]:h-2.5 sm:h-3 shrink-0 flex items-center justify-end">
+                      <svg viewBox="0 0 36 16" className="w-full h-full overflow-visible" fill="none">
+                        <path
+                          d={dept.sparklinePath}
+                          stroke={dept.sparklineColor}
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -780,38 +778,38 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.45, delay: 0.35, ease: 'easeOut' }}
             onClick={() => setCompanyGoalModalOpen(true)}
-            className="absolute z-20 rounded-xl xs:rounded-2xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_6px_20px_rgba(46,147,111,0.22),0_2px_4px_rgba(0,0,0,0.06)] p-1.5 xs:p-2 sm:p-2.5 cursor-pointer active:scale-95 transition-all select-none group flex flex-col justify-between"
+            className="absolute z-20 rounded-xl xs:rounded-2xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_6px_20px_rgba(46,147,111,0.22),0_2px_4px_rgba(0,0,0,0.06)] p-1.5 min-[360px]:p-2 min-[375px]:p-2 sm:p-2.5 cursor-pointer active:scale-95 transition-all select-none group flex flex-col justify-between"
             style={{
-              left: '12%',
-              top: '64%',
-              width: '46%',
-              height: '24%',
+              left: '8.0%',
+              top: '63.0%',
+              width: '54.0%',
+              height: '24.0%',
             }}
             title="Company Goal: Launch Product V2 (72%) - Click to inspect"
           >
             <div className="flex items-center justify-between w-full">
-              <div className="flex items-center gap-1 xs:gap-1.5 sm:gap-2 min-w-0">
-                <div className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 rounded-md bg-[#fceade] flex items-center justify-center shrink-0">
-                  <Target className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 text-[#f15e1c]" />
+              <div className="flex items-center gap-1.5 min-[375px]:gap-2 min-w-0 flex-1">
+                <div className="w-5 h-5 min-[375px]:w-5.5 min-[375px]:h-5.5 sm:w-6 sm:h-6 rounded-lg bg-[#fceade] flex items-center justify-center shrink-0">
+                  <Target className="w-2.5 h-2.5 min-[375px]:w-3 min-[375px]:h-3 sm:w-3.5 sm:h-3.5 text-[#f15e1c]" />
                 </div>
-                <div className="min-w-0">
-                  <span className="text-[7px] xs:text-[8px] sm:text-[9px] font-heading font-extrabold text-[#2e936f] uppercase tracking-wider block leading-none mb-0.5">
+                <div className="min-w-0 flex-1">
+                  <span className="text-[7px] min-[360px]:text-[7.5px] min-[375px]:text-[8px] sm:text-[11px] font-heading font-extrabold text-[#2e936f] uppercase tracking-wider block leading-none mb-0.5">
                     Company Goal
                   </span>
-                  <span className="font-heading font-extrabold text-[#271812] text-[8.5px] xs:text-[10px] sm:text-xs leading-none truncate block">
+                  <span className="font-heading font-extrabold text-[#271812] text-[9px] min-[360px]:text-[9.5px] min-[375px]:text-[10px] sm:text-sm leading-tight block whitespace-nowrap tracking-tight">
                     Launch Product V2
                   </span>
                 </div>
               </div>
-              <div className="flex items-center gap-0.5 shrink-0">
-                <span className="font-heading font-extrabold text-[#2e936f] text-[10px] xs:text-xs sm:text-sm">
+              <div className="flex items-center gap-0.5 shrink-0 ml-1">
+                <span className="font-heading font-extrabold text-[#2e936f] text-xs min-[375px]:text-sm sm:text-base">
                   72%
                 </span>
-                <ChevronRight className="w-3 h-3 text-gray-400 group-hover:text-[#2e936f] group-hover:translate-x-0.5 transition-all" />
+                <ChevronRight className="w-2.5 h-2.5 min-[375px]:w-3 min-[375px]:h-3 text-gray-400 group-hover:text-[#2e936f] group-hover:translate-x-0.5 transition-all" />
               </div>
             </div>
 
-            <div className="w-full h-1 xs:h-1.5 bg-gray-100 rounded-full overflow-hidden mt-0.5">
+            <div className="w-full h-1 min-[375px]:h-1.5 bg-gray-100 rounded-full overflow-hidden mt-0.5">
               <motion.div
                 className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full"
                 initial={{ width: '0%' }}
@@ -826,7 +824,7 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
           <div
             className="absolute z-20 flex flex-col gap-1 xs:gap-1.5 sm:gap-2"
             style={{
-              right: '1.5%',
+              right: '1.2%',
               top: '7%',
               width: '26.0%',
             }}
@@ -839,36 +837,36 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.35, delay: 0.2 + idx * 0.06, ease: 'easeOut' }}
                 onClick={() => setActiveNotif(notif)}
-                className="rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_3px_10px_rgba(0,0,0,0.1)] p-1 xs:p-1.5 flex flex-col justify-between cursor-pointer active:scale-95 transition-all select-none group"
+                className="rounded-lg xs:rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_3px_10px_rgba(0,0,0,0.1)] p-1 min-[375px]:p-1.25 flex flex-col justify-between cursor-pointer active:scale-95 transition-all select-none group"
                 title={`Click to view ${notif.dept} update`}
               >
                 {/* Row 1: Icon + Full Dept Name + Status Icon */}
                 <div className="flex items-center justify-between w-full gap-0.5">
                   <div className="flex items-center gap-1 min-w-0">
                     <div
-                      className={`w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4.5 sm:h-4.5 rounded-md ${notif.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
+                      className={`w-3.5 h-3.5 min-[375px]:w-4 min-[375px]:h-4 rounded-full ${notif.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
                     >
-                      <notif.icon className={`w-1.5 h-1.5 xs:w-2 xs:h-2 sm:w-2.5 sm:h-2.5 ${notif.iconColor}`} />
+                      <notif.icon className={`w-2 h-2 min-[375px]:w-2.5 min-[375px]:h-2.5 ${notif.iconColor}`} />
                     </div>
-                    <span className="font-heading font-extrabold text-[#271812] text-[7px] min-[375px]:text-[7.5px] xs:text-[8.5px] sm:text-[9.5px] leading-tight block whitespace-nowrap tracking-tight">
+                    <span className="font-heading font-extrabold text-[#271812] text-[8px] min-[360px]:text-[8.5px] min-[375px]:text-[9px] sm:text-xs leading-none block whitespace-nowrap tracking-tight">
                       {notif.dept}
                     </span>
                   </div>
 
                   {notif.isCheck ? (
-                    <CheckCircle2 className="w-2.5 h-2.5 xs:w-3 xs:h-3 text-[#2e936f] shrink-0" />
+                    <CheckCircle2 className="w-2.5 h-2.5 min-[375px]:w-3 min-[375px]:h-3 text-[#2e936f] shrink-0" />
                   ) : (
-                    <AlertTriangle className="w-2.5 h-2.5 xs:w-3 xs:h-3 text-[#ea580c] shrink-0" />
+                    <AlertTriangle className="w-2.5 h-2.5 min-[375px]:w-3 min-[375px]:h-3 text-[#ea580c] shrink-0" />
                   )}
                 </div>
 
                 {/* Row 2: Action Description + Timestamp */}
-                <div className="flex items-center justify-between w-full mt-0.5 text-[6px] xs:text-[6.5px] sm:text-[7.5px] leading-none text-gray-500">
-                  <span className="truncate max-w-[48px] min-[375px]:max-w-[55px] xs:max-w-[65px] sm:max-w-[75px] font-medium">
+                <div className="flex items-center justify-between w-full mt-0.5 text-[6.5px] min-[360px]:text-[7px] min-[375px]:text-[7.5px] sm:text-[10px] leading-none text-gray-600 gap-0.5">
+                  <span className="truncate min-w-0 flex-1 font-medium text-gray-500">
                     {notif.action}
                   </span>
                   <span
-                    className={`font-heading font-bold whitespace-nowrap shrink-0 ml-0.5 ${
+                    className={`font-heading font-bold whitespace-nowrap shrink-0 ${
                       notif.isCheck ? 'text-[#2e936f]' : 'text-[#ea580c]'
                     }`}
                   >
@@ -897,47 +895,43 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
         </div>
 
         {/* ============================================================ */}
-        {/* 6. TAP DEPARTMENT TO INSPECT (3-COLUMN GRID)                 */}
+        {/* 6. TAP DEPARTMENT TO INSPECT (3-COLUMN GRID ON MOBILE)       */}
         {/* ============================================================ */}
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.45, ease: 'easeOut' }}
-          className="space-y-2.5 pt-2"
+          viewport={{ once: true, amount: 'some' }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          className="space-y-2 pt-0.5"
         >
-          <h3 className="text-[11px] sm:text-xs font-heading font-extrabold uppercase tracking-wider text-terracotta-muted">
+          <h3 className="text-xs sm:text-sm font-heading font-extrabold uppercase tracking-wider text-terracotta-muted">
             TAP DEPARTMENT TO INSPECT
           </h3>
 
-          <div className="grid grid-cols-3 gap-1.5 xs:gap-2 sm:gap-2.5">
+          <div className="grid grid-cols-3 gap-1.5 xs:gap-2 sm:gap-3">
             {DEPARTMENTS.map((dept, index) => (
               <motion.div
                 key={dept.id}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ duration: 0.35, delay: index * 0.05, ease: 'easeOut' }}
+                viewport={{ once: true, amount: 'some' }}
+                transition={{ duration: 0.3, delay: index * 0.04, ease: 'easeOut' }}
                 onClick={() => navigate(`/department-workflow/${dept.id}`)}
-                className="px-1.5 py-2 xs:px-2 xs:py-2.5 sm:p-2.5 rounded-xl sm:rounded-2xl bg-white border border-brand-peach/80 shadow-[0_2px_8px_rgba(42,26,20,0.04)] hover:border-brand-orange/50 hover:shadow-warm-sm transition-all cursor-pointer flex items-center justify-between group active:scale-[0.98] select-none"
+                className="px-1.5 py-1.5 min-[375px]:px-2 min-[375px]:py-2 sm:px-3.5 sm:py-3 rounded-2xl bg-white border border-[#f8e1d4] shadow-[0_2px_8px_rgba(42,26,20,0.04)] hover:border-brand-orange/60 hover:shadow-warm-sm transition-all cursor-pointer flex items-center justify-between group active:scale-[0.98] select-none"
                 title={`Open ${dept.name} Department Workflow (${dept.progress})`}
               >
-                <div className="flex items-center gap-1 xs:gap-1.5 sm:gap-2 min-w-0 flex-1">
-                  <div
-                    className={`w-5.5 h-5.5 xs:w-6.5 xs:h-6.5 sm:w-8 sm:h-8 rounded-full ${dept.iconBg} flex items-center justify-center shrink-0 shadow-2xs`}
-                  >
-                    <dept.icon className={`w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 ${dept.iconColor}`} />
-                  </div>
+                <div className="flex items-center gap-1 min-[375px]:gap-1.5 min-w-0 flex-1">
+                  <dept.icon className={`w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 ${dept.iconColor} shrink-0`} />
                   <div className="min-w-0 flex-1">
-                    <span className="font-heading font-extrabold text-[9px] min-[375px]:text-[10px] xs:text-[10.5px] sm:text-xs text-[#271812] leading-tight block whitespace-nowrap tracking-tight">
+                    <span className="font-heading font-extrabold text-[10px] min-[375px]:text-[10.5px] min-[410px]:text-[11.5px] sm:text-sm text-[#271812] leading-tight block truncate tracking-tight">
                       {dept.name}
                     </span>
-                    <span className="font-heading font-bold text-[8.5px] min-[375px]:text-[9px] xs:text-[10px] sm:text-[11px] text-[#5a4138] leading-tight block mt-0.5">
+                    <span className="font-heading font-bold text-[9.5px] min-[375px]:text-[10px] min-[410px]:text-[11px] sm:text-[13px] text-[#5a4138] leading-tight block mt-0.5">
                       {dept.progress}
                     </span>
                   </div>
                 </div>
-                <ChevronRight className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 text-stone-400 group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all shrink-0 ml-0.5 hidden min-[375px]:block" />
+                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-stone-300 group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all shrink-0 ml-0.5 sm:ml-1.5" />
               </motion.div>
             ))}
           </div>

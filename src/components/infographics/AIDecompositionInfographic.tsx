@@ -39,10 +39,10 @@ export const AIDecompositionInfographic: React.FC = () => {
 
               <div className="p-4 rounded-xl bg-ivory border border-brand-peach/60 space-y-1.5">
                 <div className="text-xs font-heading font-bold text-terracotta-muted uppercase">COMPANY GOAL:</div>
-                <h3 className="text-base font-heading font-extrabold text-espresso leading-snug">"Launch Mobile App to 5,000 Active Users"</h3>
+                <h3 className="text-[17px] sm:text-lg font-heading font-extrabold text-espresso leading-snug">"Launch Mobile App to 5,000 Active Users"</h3>
               </div>
 
-              <div className="flex items-center justify-between text-xs text-terracotta font-medium pt-1 border-t border-brand-peach/40">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[13px] sm:text-xs text-terracotta font-medium pt-1 border-t border-brand-peach/40">
                 <span>Target Quarter: <strong className="text-espresso font-bold">Q3 Release</strong></span>
                 <span>Target Owner: <strong className="text-espresso font-bold">Product Team</strong></span>
               </div>
@@ -57,8 +57,8 @@ export const AIDecompositionInfographic: React.FC = () => {
               <div className="w-12 h-12 rounded-2xl bg-brand-orange text-white flex items-center justify-center shadow-md shadow-brand-orange/25 animate-pulse">
                 <Sparkles className="w-6 h-6 text-brand-yellow-light" />
               </div>
-              <span className="text-sm font-heading font-extrabold text-espresso">STEP 2 • AI SUGGESTIONS</span>
-              <span className="brand-body text-xs text-terracotta">Analyzing goal & breaking into tasks...</span>
+              <span className="text-[15px] sm:text-sm font-heading font-extrabold text-espresso">STEP 2 • AI SUGGESTIONS</span>
+              <span className="brand-body text-sm sm:text-xs text-terracotta">Analyzing goal & breaking into tasks...</span>
             </div>
           </MotionWrapper>
         </div>
@@ -67,16 +67,16 @@ export const AIDecompositionInfographic: React.FC = () => {
         <div className="lg:col-span-5 space-y-3 w-full">
           <MotionWrapper direction="left" delay={0.3}>
             <div className="space-y-3">
-              <div className="flex items-center justify-between text-xs font-heading font-bold text-espresso px-1">
+              <div className="flex items-center justify-between text-[13px] sm:text-xs font-heading font-bold text-espresso px-1">
                 <span>STEP 3 • REVIEW & ASSIGN TASKS</span>
-                <span className="text-xs text-brand-green font-heading font-bold">Full User Control</span>
+                <span className="text-[13px] sm:text-xs text-brand-green font-heading font-bold">Full User Control</span>
               </div>
 
               {tasks.map((task, idx) => (
                 <div key={idx} className="p-4 rounded-xl bg-white border border-brand-peach/80 shadow-warm-2xs flex items-center justify-between gap-3 hover:border-brand-orange transition-all">
                   <div className="space-y-1 flex-1">
                     <div className="flex items-center gap-2">
-                      <h4 className="text-xs sm:text-sm font-heading font-bold text-espresso">{task.title}</h4>
+                      <h4 className="text-[15px] sm:text-sm font-heading font-bold text-espresso">{task.title}</h4>
                       <button
                         onClick={() => setEditingIndex(editingIndex === idx ? null : idx)}
                         className="text-terracotta-muted hover:text-brand-orange text-xs p-1"
@@ -85,7 +85,7 @@ export const AIDecompositionInfographic: React.FC = () => {
                         <Edit2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-terracotta">
+                    <div className="flex flex-wrap items-center gap-3 text-[13px] sm:text-xs text-terracotta">
                       <span className="flex items-center gap-1 font-semibold"><UserCheck className="w-3.5 h-3.5 text-brand-green" /> {task.assignee}</span>
                       <span className="flex items-center gap-1 font-bold"><Calendar className="w-3.5 h-3.5 text-terracotta-muted" /> {task.deadline}</span>
                     </div>
@@ -103,14 +103,14 @@ export const AIDecompositionInfographic: React.FC = () => {
       {/* Review, Edit & Assign Controls */}
       <MotionWrapper delay={0.4} direction="up">
         <div className="p-5 rounded-2xl bg-white border border-brand-peach shadow-warm-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 w-full">
-          <div className="flex items-center gap-3 text-xs sm:text-sm font-semibold text-espresso">
+          <div className="flex items-center gap-3 text-sm font-semibold text-espresso">
             <ShieldCheck className="w-5 h-5 text-brand-green shrink-0" />
-            <span className="brand-body text-xs sm:text-sm">Review & Edit: You can modify AI suggested tasks and assignees anytime before confirming.</span>
+            <span className="brand-body text-sm">Review & Edit: You can modify AI suggested tasks and assignees anytime before confirming.</span>
           </div>
-          <div className="flex items-center gap-3 shrink-0 self-end sm:self-center">
+          <div className="flex items-center gap-3 shrink-0 self-stretch sm:self-center">
             <button
               onClick={() => setAccepted(!accepted)}
-              className={`px-6 py-3 rounded-full text-xs sm:text-sm font-heading font-bold flex items-center gap-2 transition-all cursor-pointer ${
+              className={`w-full sm:w-auto px-6 py-3 rounded-full text-[15px] sm:text-sm font-heading font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                 accepted
                   ? 'bg-brand-green text-white shadow-glow-green'
                   : 'bg-brand-orange hover:bg-brand-orange-hover text-white shadow-glow-orange'

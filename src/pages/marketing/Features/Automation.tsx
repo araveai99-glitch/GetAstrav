@@ -167,10 +167,10 @@ export const Automation: React.FC = () => {
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-brand-peach/50 relative z-10">
           <div>
-            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+            <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
               Trigger-to-Resolution <span className="text-brand-orange">Pipeline</span>
             </h2>
-            <p className="text-sm text-terracotta mt-1">
+            <p className="text-base text-terracotta mt-1.5 leading-relaxed">
               Follow how an approaching deadline triggers proactive reminders and synchronizes project status automatically.
             </p>
           </div>
@@ -179,7 +179,7 @@ export const Automation: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsAutoPlaying((prev) => !prev)}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-surface-tier1 hover:bg-brand-peach/30 border border-brand-peach/60 text-xs font-heading font-semibold text-espresso transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-surface-tier1 hover:bg-brand-peach/30 border border-brand-peach/60 text-sm font-heading font-semibold text-espresso transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               {isAutoPlaying ? (
                 <>
@@ -194,7 +194,7 @@ export const Automation: React.FC = () => {
               )}
             </button>
 
-            <span className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold text-terracotta-muted bg-surface-tier1 px-3 py-1.5 rounded-xl border border-brand-peach/50">
+            <span className="inline-flex items-center gap-1.5 text-[13px] font-heading font-semibold text-terracotta-muted bg-surface-tier1 px-3 py-1.5 rounded-xl border border-brand-peach/50">
               <Zap className="w-4 h-4 text-brand-orange animate-pulse" />
               <span>Reactive Event Engine</span>
             </span>
@@ -267,20 +267,20 @@ export const Automation: React.FC = () => {
                     </div>
 
                     <span
-                      className={`text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${step.badgeBg}`}
+                      className={`text-xs font-mono font-bold px-2.5 py-0.5 rounded-full border ${step.badgeBg}`}
                     >
                       {step.timeLabel}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-extrabold text-base text-espresso flex items-center justify-between">
+                    <h3 className="font-heading font-extrabold text-[17px] sm:text-base text-espresso flex items-center justify-between">
                       <span>{step.stepNumber}. {step.title}</span>
                       {isSelected && (
                         <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping" />
                       )}
                     </h3>
-                    <p className="text-xs text-terracotta-muted mt-0.5">
+                    <p className="text-[13px] sm:text-xs text-terracotta-muted mt-0.5">
                       {step.status}
                     </p>
                   </div>
@@ -297,10 +297,10 @@ export const Automation: React.FC = () => {
               <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider block mb-1">
                 Active Simulation Stage
               </span>
-              <h4 className="font-heading font-extrabold text-xl text-espresso">
+              <h4 className="font-heading font-extrabold text-[20px] sm:text-xl text-espresso">
                 {currentStep.visualDetail.heading}
               </h4>
-              <p className="text-xs sm:text-sm text-terracotta-muted mt-0.5">
+              <p className="text-sm text-terracotta-muted mt-1 leading-relaxed">
                 {currentStep.visualDetail.subheading}
               </p>
             </div>
@@ -324,18 +324,18 @@ export const Automation: React.FC = () => {
                   <div className="w-8 h-8 rounded-xl bg-brand-orange text-white flex items-center justify-center shadow-warm-2xs">
                     <Bot className="w-4.5 h-4.5" />
                   </div>
-                  <span className="font-heading font-bold text-xs sm:text-sm text-espresso">
+                  <span className="font-heading font-bold text-sm text-espresso">
                     {currentStep.visualDetail.messageBox.sender}
                   </span>
-                  <span className="text-[11px] font-mono text-terracotta-muted">
+                  <span className="text-xs font-mono text-terracotta-muted">
                     {currentStep.visualDetail.messageBox.channel}
                   </span>
                 </div>
-                <span className="text-[11px] text-terracotta-muted">
+                <span className="text-xs text-terracotta-muted">
                   {currentStep.visualDetail.messageBox.time}
                 </span>
               </div>
-              <p className="text-xs sm:text-sm text-terracotta font-mono bg-surface-tier1 p-3 rounded-xl border border-brand-peach/40">
+              <p className="text-sm text-terracotta font-mono bg-surface-tier1 p-3 rounded-xl border border-brand-peach/40">
                 {currentStep.visualDetail.messageBox.text}
               </p>
             </motion.div>
@@ -343,13 +343,13 @@ export const Automation: React.FC = () => {
 
           {/* Dynamic Progress Bar */}
           <div className="space-y-2">
-            <div className="flex items-center justify-between text-xs sm:text-sm font-heading font-bold">
-              <span className="text-espresso">Initiative Resolution Impact</span>
+            <div className="flex items-center justify-between gap-3 text-sm sm:text-sm font-heading font-bold">
+              <span className="text-espresso min-w-0">Initiative Resolution Impact</span>
               <motion.span
                 key={currentStep.visualDetail.progressValue}
                 initial={{ scale: 1.2, color: '#f15e1c' }}
                 animate={{ scale: 1 }}
-                className="text-brand-orange font-mono"
+                className="text-brand-orange font-mono whitespace-nowrap shrink-0"
               >
                 {currentStep.visualDetail.progressValue}% Completed
               </motion.span>
@@ -369,7 +369,7 @@ export const Automation: React.FC = () => {
           </div>
 
           {/* Explanation */}
-          <div className="p-4 rounded-xl bg-white border border-brand-peach/50 text-xs sm:text-sm text-terracotta leading-relaxed shadow-warm-2xs">
+          <div className="p-4 rounded-xl bg-white border border-brand-peach/50 text-base text-terracotta leading-relaxed shadow-warm-2xs">
             <span className="font-heading font-bold text-espresso block mb-1">
               Cause & Effect Sequence:
             </span>
@@ -398,10 +398,10 @@ export const Automation: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Zero Status Chasing
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Eliminate daily standup status pings. The system automatically prompts assignees before deadlines and alerts leads only when true action is needed.
             </p>
 
@@ -417,7 +417,7 @@ export const Automation: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-orange">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-orange">
             <span>Less Friction, More Flow</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -441,22 +441,22 @@ export const Automation: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Proactive Risk Protection
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Never be surprised by a missed launch date. Triggers fire early enough for pod members to reassign subtasks or ask for executive unblocking.
             </p>
 
             {/* Micro Multi-Channel Routing Selector */}
             <div className="p-3 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
-              <div className="flex items-center justify-between text-xs">
+              <div className="flex items-center justify-between text-sm sm:text-xs">
                 <span className="font-bold text-espresso">Dispatch Route:</span>
                 <div className="flex gap-1">
                   <button
                     type="button"
                     onClick={() => setNotificationChannel('slack')}
-                    className={`px-2 py-0.5 rounded-md text-[10px] font-bold cursor-pointer transition-all ${
+                    className={`px-2 py-0.5 rounded-md text-xs font-bold cursor-pointer transition-all ${
                       notificationChannel === 'slack'
                         ? 'bg-brand-green text-white'
                         : 'bg-white text-terracotta-muted'
@@ -467,7 +467,7 @@ export const Automation: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setNotificationChannel('in_app')}
-                    className={`px-2 py-0.5 rounded-md text-[10px] font-bold cursor-pointer transition-all ${
+                    className={`px-2 py-0.5 rounded-md text-xs font-bold cursor-pointer transition-all ${
                       notificationChannel === 'in_app'
                         ? 'bg-brand-orange text-white'
                         : 'bg-white text-terracotta-muted'
@@ -477,14 +477,14 @@ export const Automation: React.FC = () => {
                   </button>
                 </div>
               </div>
-              <div className="p-2 bg-white rounded-lg border border-brand-peach/40 text-[11px] font-mono text-espresso flex items-center gap-1.5">
+              <div className="p-2 bg-white rounded-lg border border-brand-peach/40 text-xs font-mono text-espresso flex items-center gap-1.5">
                 <Send className="w-3.5 h-3.5 text-brand-green" />
                 <span>Deep-link to task checklist</span>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-green">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-green">
             <span>Early Warning Architecture</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -508,15 +508,15 @@ export const Automation: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Instant Upward Cascade
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Once an automated reminder leads to task completion, the parent milestone updates immediately. Leadership sees progress without delay.
             </p>
 
             {/* Micro Recalculation Metric */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
+            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-sm sm:text-xs font-mono">
               <span className="text-terracotta">Milestone Auto-Recalc:</span>
               <span className="text-brand-green font-bold flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5" /> +15% Instantly
@@ -524,7 +524,7 @@ export const Automation: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-amber-700">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-amber-700">
             <span>Real-Time Milestone Health</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>

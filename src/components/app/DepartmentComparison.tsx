@@ -15,13 +15,13 @@ export const DepartmentComparison: React.FC<DepartmentComparisonProps> = ({
   goals,
 }) => {
   return (
-    <div className="bg-white p-6 rounded-2xl border border-brand-peach/60 shadow-warm-md space-y-4">
-      <div className="flex items-center justify-between">
-        <h3 className="text-base font-bold text-espresso flex items-center gap-2">
+    <div className="bg-white p-5 sm:p-6 rounded-2xl border border-brand-peach/60 shadow-warm-md space-y-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+        <h3 className="text-lg sm:text-base font-bold text-espresso flex items-center gap-2">
           <Building2 className="w-5 h-5 text-brand-orange" />
           Departmental Progress Comparison
         </h3>
-        <span className="text-xs text-terracotta-muted">Real-time mathematical rollups</span>
+        <span className="text-sm sm:text-xs text-terracotta-muted">Real-time mathematical rollups</span>
       </div>
 
       <div className="space-y-4">
@@ -43,7 +43,7 @@ export const DepartmentComparison: React.FC<DepartmentComparisonProps> = ({
 
           return (
             <div key={dept.id} className="space-y-1.5">
-              <div className="flex items-center justify-between text-xs font-semibold">
+              <div className="flex items-center justify-between text-sm sm:text-xs font-semibold">
                 <span className="text-espresso font-bold">{dept.name}</span>
                 <span className="font-mono text-espresso">{deptProgress.toFixed(1)}%</span>
               </div>
@@ -53,7 +53,7 @@ export const DepartmentComparison: React.FC<DepartmentComparisonProps> = ({
                   style={{ width: `${deptProgress}%` }}
                 />
               </div>
-              <div className="text-[10px] text-terracotta-muted flex items-center justify-between">
+              <div className="text-xs sm:text-[10px] text-terracotta-muted flex items-center justify-between">
                 <span>{deptProjects.length} Projects linked</span>
                 <span>Weighted math rollup</span>
               </div>

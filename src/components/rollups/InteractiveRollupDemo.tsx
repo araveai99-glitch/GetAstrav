@@ -113,7 +113,7 @@ export const InteractiveRollupDemo: React.FC = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
+          className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
         >
           See Progress Add Up.
         </motion.h2>
@@ -178,7 +178,7 @@ export const InteractiveRollupDemo: React.FC = () => {
                   <CheckSquare className="w-4.5 h-4.5" />
                 </div>
                 <div>
-                  <h3 className="font-heading font-bold text-base text-espresso">
+                  <h3 className="font-heading font-bold text-[17px] sm:text-base text-espresso">
                     Current Tasks
                   </h3>
                   <p className="text-xs text-terracotta-muted">
@@ -229,7 +229,7 @@ export const InteractiveRollupDemo: React.FC = () => {
 
                       <div>
                         <p
-                          className={`text-sm sm:text-base font-heading font-bold transition-colors ${
+                          className={`text-[15px] sm:text-base font-heading font-bold transition-colors ${
                             task.completed
                               ? 'text-terracotta-muted line-through opacity-80'
                               : 'text-espresso group-hover:text-brand-orange'
@@ -291,7 +291,7 @@ export const InteractiveRollupDemo: React.FC = () => {
                   }`}
                 />
               </div>
-              <span className="text-[9px] font-heading font-extrabold uppercase tracking-wider text-brand-orange text-center">
+              <span className="text-[10.5px] font-heading font-extrabold uppercase tracking-wider text-brand-orange text-center">
                 Rolls Up
               </span>
             </div>
@@ -307,7 +307,7 @@ export const InteractiveRollupDemo: React.FC = () => {
               >
                 <ArrowDown className="w-3.5 h-3.5" />
               </div>
-              <span className="text-[10px] font-heading font-bold uppercase tracking-wider text-brand-orange">
+              <span className="text-xs font-heading font-bold uppercase tracking-wider text-brand-orange">
                 Rolls Up to Project, Milestone & Goal
               </span>
             </div>
@@ -326,7 +326,7 @@ export const InteractiveRollupDemo: React.FC = () => {
                     <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                       PROJECT LEVEL
                     </span>
-                    <h4 className="text-base sm:text-lg lg:text-xl font-heading font-extrabold text-espresso leading-snug">
+                    <h4 className="text-[17px] sm:text-lg lg:text-xl font-heading font-extrabold text-espresso leading-snug">
                       Website Redesign Initiative
                     </h4>
                   </div>
@@ -366,7 +366,7 @@ export const InteractiveRollupDemo: React.FC = () => {
                     <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                       MILESTONE LEVEL
                     </span>
-                    <h4 className="text-base sm:text-lg lg:text-xl font-heading font-extrabold text-espresso leading-snug">
+                    <h4 className="text-[17px] sm:text-lg lg:text-xl font-heading font-extrabold text-espresso leading-snug">
                       Q4 Web Experience Delivery
                     </h4>
                   </div>
@@ -398,10 +398,10 @@ export const InteractiveRollupDemo: React.FC = () => {
             {/* 3. Goal Circular Progress Ring */}
             <div className="p-6 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-brand-orange-light/50 via-white to-surface-tier1 border-2 border-brand-orange/30 shadow-warm-md flex items-center justify-between gap-6">
               <div className="space-y-1.5">
-                <h4 className="text-base sm:text-lg lg:text-2xl font-heading font-extrabold text-espresso">
+                <h4 className="text-[17px] sm:text-lg lg:text-2xl font-heading font-extrabold text-espresso">
                   Expand Digital Market Reach
                 </h4>
-                <p className="text-xs sm:text-sm text-terracotta-muted leading-relaxed">
+                <p className="text-sm text-terracotta-muted leading-relaxed">
                   Mathematical rollup across all connected milestones and sprints
                 </p>
               </div>
@@ -444,7 +444,7 @@ export const InteractiveRollupDemo: React.FC = () => {
                   >
                     {goalProgress}%
                   </motion.span>
-                  <span className="text-[10px] sm:text-xs font-heading font-bold text-brand-orange uppercase tracking-wider">
+                  <span className="text-xs font-heading font-bold text-brand-orange uppercase tracking-wider">
                     Rollup
                   </span>
                 </div>
@@ -454,7 +454,7 @@ export const InteractiveRollupDemo: React.FC = () => {
         </div>
 
         {/* Bottom Directional Feedback Banner */}
-        <div className="mt-6 pt-4 border-t border-brand-peach/40 flex flex-wrap items-center justify-between gap-3 text-xs text-terracotta font-medium">
+        <div className="mt-6 pt-4 border-t border-brand-peach/40 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-[13px] text-terracotta font-medium">
           <div className="flex items-center gap-2">
             <TrendingUp className="w-4 h-4 text-brand-green" />
             <span>

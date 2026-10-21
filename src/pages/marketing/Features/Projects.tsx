@@ -137,15 +137,15 @@ export const Projects: React.FC = () => {
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-brand-peach/50 relative z-10">
           <div>
-            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso">
+            <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
               The Project Container <span className="text-brand-orange">Architecture</span>
             </h2>
-            <p className="text-sm text-terracotta mt-1">
+            <p className="text-base text-terracotta mt-1.5 leading-relaxed">
               Click any connected compartment to highlight its relationship with the central container.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-heading font-semibold text-terracotta-muted bg-surface-tier1 px-3 py-1.5 rounded-xl border border-brand-peach/50 self-start sm:self-auto">
+          <div className="flex items-center gap-2 text-[13px] font-heading font-semibold text-terracotta-muted bg-surface-tier1 px-3 py-1.5 rounded-xl border border-brand-peach/50 self-start sm:self-auto">
             <FolderGit2 className="w-4 h-4 text-brand-orange" />
             <span>Structured Hierarchy</span>
           </div>
@@ -179,20 +179,20 @@ export const Projects: React.FC = () => {
                     <Icon className="w-5 h-5" />
                   </div>
                   <span
-                    className={`text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${comp.badgeBg}`}
+                    className={`text-xs font-mono font-bold px-2.5 py-0.5 rounded-full border ${comp.badgeBg}`}
                   >
                     {comp.subtitle}
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="font-heading font-bold text-base text-espresso flex items-center justify-between">
+                  <h3 className="font-heading font-bold text-[17px] sm:text-base text-espresso flex items-center justify-between">
                     <span>{comp.name}</span>
                     {isActive && (
                       <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping" />
                     )}
                   </h3>
-                  <p className="text-xs text-terracotta-muted mt-0.5">
+                  <p className="text-[13px] sm:text-xs text-terracotta-muted mt-0.5">
                     {isActive ? 'Active Connection' : 'Click to inspect'}
                   </p>
                 </div>
@@ -220,10 +220,10 @@ export const Projects: React.FC = () => {
                   <FolderGit2 className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-heading font-extrabold text-xl text-espresso">
+                  <h4 className="font-heading font-extrabold text-[20px] sm:text-xl text-espresso">
                     Unified Auth & Security Kernel
                   </h4>
-                  <p className="text-xs sm:text-sm text-terracotta mt-1">
+                  <p className="text-sm text-terracotta mt-1.5 leading-relaxed">
                     Multi-tenant OAuth2 and RBAC infrastructure migration.
                   </p>
                 </div>
@@ -231,23 +231,23 @@ export const Projects: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-2.5 pt-3">
                 <div className="p-3 bg-white rounded-xl border border-brand-peach/50">
-                  <span className="text-[11px] text-terracotta-muted block">Active Owner</span>
-                  <span className="text-xs font-heading font-bold text-espresso">Engineering & SecOps</span>
+                  <span className="text-xs text-terracotta-muted block">Active Owner</span>
+                  <span className="text-sm sm:text-xs font-heading font-bold text-espresso">Engineering & SecOps</span>
                 </div>
                 <div className="p-3 bg-white rounded-xl border border-brand-peach/50">
-                  <span className="text-[11px] text-terracotta-muted block">Rollup Health</span>
-                  <span className="text-xs font-heading font-bold text-brand-green">88% Verified</span>
+                  <span className="text-xs text-terracotta-muted block">Rollup Health</span>
+                  <span className="text-sm sm:text-xs font-heading font-bold text-brand-green">88% Verified</span>
                 </div>
               </div>
             </div>
 
             {/* Explanation of the Selected Link */}
             <div className="p-4 rounded-2xl bg-white border border-brand-peach/60 space-y-2 shadow-warm-2xs">
-              <div className="flex items-center gap-2 text-xs font-heading font-bold text-brand-orange">
+              <div className="flex items-center gap-2 text-sm sm:text-xs font-heading font-bold text-brand-orange">
                 <Workflow className="w-4 h-4 animate-spin" />
                 <span>Connected: {activeCompartment.name} Compartment</span>
               </div>
-              <p className="text-xs text-terracotta leading-relaxed">
+              <p className="text-sm text-terracotta leading-relaxed">
                 {activeCompartment.summary}
               </p>
             </div>
@@ -259,7 +259,7 @@ export const Projects: React.FC = () => {
               <div className="flex items-center justify-between pb-4 border-b border-brand-peach/50">
                 <div className="flex items-center gap-2.5">
                   <activeCompartment.icon className={`w-5 h-5 ${activeCompartment.accent}`} />
-                  <h4 className="font-heading font-extrabold text-lg text-espresso">
+                  <h4 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso">
                     {activeCompartment.name} Connected Inside Container
                   </h4>
                 </div>
@@ -280,14 +280,14 @@ export const Projects: React.FC = () => {
                   >
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-heading font-bold text-sm sm:text-base text-espresso">
+                        <span className="font-heading font-bold text-[16px] sm:text-base text-espresso">
                           {item.title}
                         </span>
-                        <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-white border border-brand-peach/50 text-terracotta-muted">
+                        <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-white border border-brand-peach/50 text-terracotta-muted">
                           {item.tag}
                         </span>
                       </div>
-                      <p className="text-xs text-terracotta-muted mt-1">
+                      <p className="text-sm sm:text-xs text-terracotta-muted mt-1">
                         {item.meta}
                       </p>
                     </div>
@@ -305,7 +305,7 @@ export const Projects: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs text-terracotta-muted">
+            <div className="pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm sm:text-xs text-terracotta-muted">
               <span>All assets synchronize in real time when modified by pod members.</span>
               <span className="font-heading font-bold text-brand-orange">Zero Tool Switching</span>
             </div>
@@ -333,10 +333,10 @@ export const Projects: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Single Source of Truth
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Every project asset lives inside one container. No more lost Figma links, outdated Notion docs, or isolated Jira tickets.
             </p>
 
@@ -346,7 +346,7 @@ export const Projects: React.FC = () => {
                 <span className="text-espresso">Assets in Container</span>
                 <span className="text-brand-orange">4 Modules Synced</span>
               </div>
-              <div className="grid grid-cols-4 gap-1 text-center text-[10px] font-mono">
+              <div className="grid grid-cols-4 gap-1 text-center text-xs font-mono">
                 <div className="p-1.5 bg-white rounded-lg border border-brand-peach/40">Goals</div>
                 <div className="p-1.5 bg-white rounded-lg border border-brand-peach/40">Milestones</div>
                 <div className="p-1.5 bg-white rounded-lg border border-brand-peach/40">Tasks</div>
@@ -355,7 +355,7 @@ export const Projects: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-orange">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-orange">
             <span>Zero Context Scattering</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -379,22 +379,22 @@ export const Projects: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Scoped Permissions
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               Grant contractors or partner pods access to a single container without exposing company-wide objectives or other project secrets.
             </p>
 
             {/* Micro Scoped Access Toggle */}
             <div className="p-3 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
-              <div className="flex items-center justify-between text-xs">
+              <div className="flex items-center justify-between text-sm sm:text-xs">
                 <span className="font-bold text-espresso">Access Scope:</span>
                 <div className="flex gap-1">
                   <button
                     type="button"
                     onClick={() => setContractorScope('internal')}
-                    className={`px-2 py-0.5 rounded-md text-[10px] font-bold cursor-pointer transition-all ${
+                    className={`px-2 py-0.5 rounded-md text-xs font-bold cursor-pointer transition-all ${
                       contractorScope === 'internal'
                         ? 'bg-brand-green text-white'
                         : 'bg-white text-terracotta-muted'
@@ -405,7 +405,7 @@ export const Projects: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setContractorScope('contractor')}
-                    className={`px-2 py-0.5 rounded-md text-[10px] font-bold cursor-pointer transition-all ${
+                    className={`px-2 py-0.5 rounded-md text-xs font-bold cursor-pointer transition-all ${
                       contractorScope === 'contractor'
                         ? 'bg-brand-orange text-white'
                         : 'bg-white text-terracotta-muted'
@@ -415,7 +415,7 @@ export const Projects: React.FC = () => {
                   </button>
                 </div>
               </div>
-              <div className="p-2 bg-white rounded-lg border border-brand-peach/40 text-[11px] font-mono text-espresso flex items-center gap-1.5">
+              <div className="p-2 bg-white rounded-lg border border-brand-peach/40 text-xs font-mono text-espresso flex items-center gap-1.5">
                 <Lock className="w-3.5 h-3.5 text-brand-green" />
                 <span>
                   {contractorScope === 'internal'
@@ -426,7 +426,7 @@ export const Projects: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-brand-green">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-green">
             <span>Compartmentalized Security</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -450,15 +450,15 @@ export const Projects: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
               Holistic Progress Rollup
             </h3>
-            <p className="text-sm text-terracotta leading-relaxed mb-5">
+            <p className="text-base text-terracotta leading-relaxed mb-5">
               When subtasks inside a container are completed, the container's progress score recalculates instantly, cascading to the overarching OKR.
             </p>
 
             {/* Micro Cascade Visualizer */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5 text-xs">
+            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5 text-sm sm:text-xs">
               <div className="flex justify-between font-mono">
                 <span className="text-terracotta">Container Progress</span>
                 <span className="font-bold text-amber-700">88%</span>
@@ -466,13 +466,13 @@ export const Projects: React.FC = () => {
               <div className="w-full h-2 rounded-full bg-white border border-brand-peach/40 overflow-hidden">
                 <div className="w-[88%] h-full bg-amber-500 rounded-full" />
               </div>
-              <span className="text-[10px] text-terracotta-muted block text-right font-mono">
+              <span className="text-xs text-terracotta-muted block text-right font-mono">
                 → Cascades +8.8% to Company OKR
               </span>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-amber-700">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-amber-700">
             <span>Automatic Upward Cascade</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>

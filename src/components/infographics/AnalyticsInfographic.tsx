@@ -28,8 +28,8 @@ export const AnalyticsInfographic: React.FC = () => {
                     <BarChart3 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-heading font-extrabold text-espresso">Executive Command Radar</h3>
-                    <span className="text-[10px] text-terracotta font-mono">ORGANIZATION-WIDE MACRO METRICS</span>
+                    <h3 className="text-[17px] sm:text-base font-heading font-extrabold text-espresso">Executive Command Radar</h3>
+                    <span className="text-xs text-terracotta font-mono tracking-wider">ORGANIZATION-WIDE MACRO METRICS</span>
                   </div>
                 </div>
                 <span className="px-3 py-1 rounded-full bg-brand-green-light border border-brand-green/30 text-brand-green text-xs font-heading font-bold font-mono">
@@ -40,44 +40,44 @@ export const AnalyticsInfographic: React.FC = () => {
               {/* 4 Metric Cards Grid */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-4 rounded-xl bg-white border border-brand-peach/70 space-y-1">
-                  <div className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">GOAL ROLLUP RATE</div>
+                  <div className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">GOAL ROLLUP RATE</div>
                   <div className="text-2xl sm:text-3xl font-heading font-extrabold text-espresso font-mono">88.4%</div>
-                  <div className="text-xs text-brand-green font-bold flex items-center gap-1">
+                  <div className="text-[13px] sm:text-xs text-brand-green font-bold flex items-center gap-1">
                     <TrendingUp className="w-3.5 h-3.5" /> +5.2% vs last sprint
                   </div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-white border border-brand-peach/70 space-y-1">
-                  <div className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">OVERDUE SLA TASKS</div>
+                  <div className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">OVERDUE SLA TASKS</div>
                   <div className="text-2xl sm:text-3xl font-heading font-extrabold text-brand-orange font-mono">2</div>
-                  <div className="brand-body text-xs text-terracotta">99.1% On-time delivery</div>
+                  <div className="brand-body text-[13px] sm:text-xs text-terracotta">99.1% On-time delivery</div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-white border border-brand-peach/70 space-y-1">
-                  <div className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">PRODUCTIVITY INDEX</div>
+                  <div className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">PRODUCTIVITY INDEX</div>
                   <div className="text-2xl sm:text-3xl font-heading font-extrabold text-espresso font-mono">94 / 100</div>
-                  <div className="text-xs text-brand-green font-bold flex items-center gap-1">
+                  <div className="text-[13px] sm:text-xs text-brand-green font-bold flex items-center gap-1">
                     <Activity className="w-3.5 h-3.5" /> High Velocity
                   </div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-white border border-brand-peach/70 space-y-1">
-                  <div className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">ACTIVE STRATEGIC OKRs</div>
+                  <div className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">ACTIVE STRATEGIC OKRs</div>
                   <div className="text-2xl sm:text-3xl font-heading font-extrabold text-espresso font-mono">28</div>
-                  <div className="brand-body text-xs text-terracotta">4 Strategic Divisions</div>
+                  <div className="brand-body text-[13px] sm:text-xs text-terracotta">4 Strategic Divisions</div>
                 </div>
               </div>
 
               {/* Department Comparison Bar Visual */}
               <div className="p-5 rounded-xl bg-white border border-brand-peach/70 space-y-3">
-                <div className="text-xs sm:text-sm font-heading font-extrabold text-espresso">Division Progress Rollup</div>
+                <div className="text-[15px] sm:text-sm font-heading font-extrabold text-espresso">Division Progress Rollup</div>
                 <div className="space-y-3">
                   {[
                     { dept: 'Engineering & Infrastructure', val: '92.0%', width: '92%', color: 'bg-brand-green' },
                     { dept: 'Product & Design Ops', val: '86.4%', width: '86%', color: 'bg-brand-yellow' },
                     { dept: 'Growth & Enterprise Ops', val: '78.2%', width: '78%', color: 'bg-brand-orange' },
                   ].map((d, i) => (
-                    <div key={i} className="space-y-1.5 text-xs">
+                    <div key={i} className="space-y-1.5 text-sm sm:text-xs">
                       <div className="flex justify-between font-semibold text-espresso">
                         <span>{d.dept}</span>
                         <span className="font-mono font-bold">{d.val}</span>
@@ -103,8 +103,8 @@ export const AnalyticsInfographic: React.FC = () => {
                     <Flame className="w-5 h-5 text-brand-yellow" />
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-heading font-extrabold text-espresso">Individual Focus Radar</h3>
-                    <span className="text-[10px] text-terracotta font-mono">DAILY TASK EXECUTION & STREAK</span>
+                    <h3 className="text-[17px] sm:text-base font-heading font-extrabold text-espresso">Individual Focus Radar</h3>
+                    <span className="text-xs text-terracotta font-mono tracking-wider">DAILY TASK EXECUTION & STREAK</span>
                   </div>
                 </div>
                 <span className="px-3 py-1 rounded-full bg-brand-yellow-light text-espresso text-xs font-mono font-bold border border-brand-yellow/50 flex items-center gap-1.5">
@@ -115,23 +115,23 @@ export const AnalyticsInfographic: React.FC = () => {
               {/* Personal Stats Grid */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-4 rounded-xl bg-white border border-brand-peach/70 space-y-1">
-                  <div className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">PERSONAL SCORE</div>
+                  <div className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">PERSONAL SCORE</div>
                   <div className="text-xl sm:text-2xl font-extrabold text-espresso font-mono">96 / 100</div>
-                  <div className="text-xs text-brand-green font-bold">Top 5% Velocity</div>
+                  <div className="text-[13px] sm:text-xs text-brand-green font-bold">Top 5% Velocity</div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-white border border-brand-peach/70 space-y-1">
-                  <div className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">TASKS COMPLETED</div>
+                  <div className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">TASKS COMPLETED</div>
                   <div className="text-xl sm:text-2xl font-extrabold text-espresso font-mono">18 This Sprint</div>
-                  <div className="text-xs text-terracotta font-medium">0 SLA Breaches</div>
+                  <div className="text-[13px] sm:text-xs text-terracotta font-medium">0 SLA Breaches</div>
                 </div>
               </div>
 
               {/* Urgency Sorted Task Queue */}
               <div className="p-4.5 rounded-xl bg-white border border-brand-peach/70 space-y-3">
-                <div className="text-xs sm:text-sm font-extrabold text-espresso flex items-center justify-between">
+                <div className="text-[15px] sm:text-sm font-extrabold text-espresso flex items-center justify-between">
                   <span>Urgency-Sorted Action Queue</span>
-                  <span className="text-[10px] text-terracotta font-mono font-bold">PRIORITY ORDER</span>
+                  <span className="text-xs text-terracotta font-mono font-bold tracking-wider">PRIORITY ORDER</span>
                 </div>
 
                 {[
@@ -139,9 +139,9 @@ export const AnalyticsInfographic: React.FC = () => {
                   { title: 'Submit unit test coverage report', tag: 'TODAY', color: 'bg-brand-yellow-light text-espresso border border-brand-yellow/40' },
                   { title: 'Update documentation for OAuth callback', tag: 'NORMAL', color: 'bg-ivory text-espresso border border-brand-peach' },
                 ].map((item, idx) => (
-                  <div key={idx} className="p-3 rounded-lg bg-ivory border border-brand-peach/60 flex items-center justify-between text-xs sm:text-sm">
+                  <div key={idx} className="p-3 rounded-lg bg-ivory border border-brand-peach/60 flex items-center justify-between text-sm">
                     <span className="font-semibold text-espresso truncate">{item.title}</span>
-                    <span className={`px-2.5 py-0.5 rounded text-[10px] font-mono font-bold shrink-0 ${item.color}`}>
+                    <span className={`px-2.5 py-0.5 rounded text-xs font-mono font-bold shrink-0 ${item.color}`}>
                       {item.tag}
                     </span>
                   </div>

@@ -82,7 +82,7 @@ export const AutomaticProgressSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
+          className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
         >
           See Progress as Work Gets Done.
         </motion.h2>
@@ -106,7 +106,7 @@ export const AutomaticProgressSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.4 }}
-          className="flex flex-wrap items-center justify-between p-3.5 rounded-2xl bg-surface-ambient border border-brand-peach/60 text-xs font-mono font-bold text-terracotta gap-3 relative overflow-hidden"
+          className="flex flex-wrap items-center justify-between p-3.5 rounded-2xl bg-surface-ambient border border-brand-peach/60 text-[13px] sm:text-xs font-mono font-bold text-terracotta gap-3 relative overflow-hidden"
         >
           {/* Connecting Pulse Beam */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-orange/10 to-transparent pointer-events-none -z-0">
@@ -118,22 +118,22 @@ export const AutomaticProgressSection: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-1.5 text-brand-orange relative z-10">
-            <span className="w-5 h-5 rounded-full bg-brand-orange text-white flex items-center justify-center text-[10px]">1</span>
+            <span className="w-5 h-5 rounded-full bg-brand-orange text-white flex items-center justify-center text-xs font-bold">1</span>
             <span>Subtasks</span>
           </div>
           <ArrowRight className="w-3.5 h-3.5 text-terracotta-muted hidden sm:inline relative z-10" />
           <div className="flex items-center gap-1.5 text-brand-orange relative z-10">
-            <span className="w-5 h-5 rounded-full bg-brand-orange text-white flex items-center justify-center text-[10px]">2</span>
+            <span className="w-5 h-5 rounded-full bg-brand-orange text-white flex items-center justify-center text-xs font-bold">2</span>
             <span>Task</span>
           </div>
           <ArrowRight className="w-3.5 h-3.5 text-terracotta-muted hidden sm:inline relative z-10" />
           <div className="flex items-center gap-1.5 text-brand-yellow relative z-10">
-            <span className="w-5 h-5 rounded-full bg-brand-yellow text-espresso flex items-center justify-center text-[10px]">3</span>
+            <span className="w-5 h-5 rounded-full bg-brand-yellow text-espresso flex items-center justify-center text-xs font-bold">3</span>
             <span>Milestone</span>
           </div>
           <ArrowRight className="w-3.5 h-3.5 text-terracotta-muted hidden sm:inline relative z-10" />
           <div className="flex items-center gap-1.5 text-brand-green relative z-10">
-            <span className="w-5 h-5 rounded-full bg-brand-green text-white flex items-center justify-center text-[10px]">4</span>
+            <span className="w-5 h-5 rounded-full bg-brand-green text-white flex items-center justify-center text-xs font-bold">4</span>
             <span>Goal</span>
           </div>
 
@@ -158,10 +158,10 @@ export const AutomaticProgressSection: React.FC = () => {
           >
             <div className="flex items-center justify-between pb-1">
               <div>
-                <span className="text-[10px] font-mono font-bold text-brand-orange uppercase">
+                <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
                   ACTIVE TASK
                 </span>
-                <h4 className="font-heading font-bold text-base text-espresso">
+                <h4 className="font-heading font-bold text-[17px] sm:text-base text-espresso">
                   Design & build homepage
                 </h4>
               </div>
@@ -197,14 +197,14 @@ export const AutomaticProgressSection: React.FC = () => {
                       <Circle className="w-5 h-5 text-terracotta-muted shrink-0 hover:text-brand-orange transition-colors" />
                     )}
                     <span
-                      className={`text-xs sm:text-sm ${
+                      className={`text-[15px] sm:text-sm ${
                         st.completed ? 'line-through text-terracotta-muted' : 'font-semibold text-espresso'
                       }`}
                     >
                       {st.title}
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-terracotta shrink-0">
+                  <span className="text-xs font-mono font-bold text-terracotta shrink-0">
                     {st.completed ? 'Done' : 'Click to complete'}
                   </span>
                 </motion.div>
@@ -244,10 +244,10 @@ export const AutomaticProgressSection: React.FC = () => {
                     <Flag className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">
+                    <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                       PROJECT MILESTONE
                     </span>
-                    <h5 className="font-heading font-bold text-base text-espresso">
+                    <h5 className="font-heading font-bold text-[17px] sm:text-base text-espresso">
                       Complete project tasks
                     </h5>
                   </div>
@@ -272,7 +272,7 @@ export const AutomaticProgressSection: React.FC = () => {
                   transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: 'easeOut' }}
                 />
               </div>
-              <span className="text-xs text-terracotta-muted block">
+              <span className="text-[13px] sm:text-sm text-terracotta-muted block">
                 Milestone completion updates dynamically as tasks move forward.
               </span>
             </div>
@@ -285,10 +285,10 @@ export const AutomaticProgressSection: React.FC = () => {
                     <Target className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono font-bold text-brand-green uppercase">
+                    <span className="text-xs font-mono font-bold text-brand-green uppercase tracking-wider">
                       ORGANIZATIONAL GOAL
                     </span>
-                    <h5 className="font-heading font-bold text-base text-espresso">
+                    <h5 className="font-heading font-bold text-[17px] sm:text-base text-espresso">
                       Launch company website
                     </h5>
                   </div>
@@ -313,7 +313,7 @@ export const AutomaticProgressSection: React.FC = () => {
                   transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: 'easeOut' }}
                 />
               </div>
-              <span className="text-xs text-terracotta-muted block">
+              <span className="text-[13px] sm:text-sm text-terracotta-muted block">
                 Company leadership sees accurate progress without chasing status reports.
               </span>
             </div>
@@ -321,7 +321,7 @@ export const AutomaticProgressSection: React.FC = () => {
         </div>
 
         {/* Clear Illustrative Sample Data Note */}
-        <div className="flex items-center gap-2 p-3 rounded-xl bg-surface-ambient border border-brand-peach/60 text-xs text-terracotta-muted">
+        <div className="flex items-center gap-2 p-3 rounded-xl bg-surface-ambient border border-brand-peach/60 text-[13px] sm:text-sm text-terracotta-muted">
           <Info className="w-4 h-4 text-brand-orange shrink-0" />
           <span>
             Percentages shown above are illustrative sample data to demonstrate Astrav's automatic progress rollups.

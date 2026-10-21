@@ -34,7 +34,7 @@ export const ProductInMotion: React.FC = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-2.5 transition-all cursor-pointer ${
+              className={`px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl text-[13px] sm:text-sm font-bold flex items-center gap-2 transition-all cursor-pointer ${
                 isActive
                   ? 'bg-brand-orange text-white shadow-glow-orange scale-105 border border-brand-orange'
                   : 'bg-ivory text-espresso hover:bg-surface-tier1 hover:text-brand-orange border border-brand-peach/80 shadow-warm-2xs'
@@ -56,11 +56,11 @@ export const ProductInMotion: React.FC = () => {
             <div className="w-3 h-3 rounded-full bg-brand-orange" />
             <div className="w-3 h-3 rounded-full bg-brand-yellow" />
             <div className="w-3 h-3 rounded-full bg-brand-green" />
-            <span className="text-xs font-mono text-terracotta ml-2 font-bold">
+            <span className="text-xs font-mono text-terracotta ml-2 font-bold truncate">
               astrav.app/app/dashboard?focus={activeTab}
             </span>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <span className="px-3 py-1 rounded-full bg-white border border-brand-peach text-xs font-mono font-extrabold text-espresso shadow-warm-2xs">
               ACTIVE FOCUS: {activeTab.toUpperCase()}
             </span>
@@ -82,15 +82,15 @@ export const ProductInMotion: React.FC = () => {
                         <Target className="w-5 h-5" />
                       </div>
                       <div>
-                        <span className="text-[10px] font-mono font-extrabold text-brand-orange uppercase">OKR-01 • ENTERPRISE GOAL</span>
-                        <h3 className="text-base font-extrabold text-espresso">Scale North America Infrastructure & Pass SOC2</h3>
+                        <span className="text-xs font-mono font-extrabold text-brand-orange uppercase tracking-wider">OKR-01 • ENTERPRISE GOAL</span>
+                        <h3 className="text-[17px] sm:text-lg font-extrabold text-espresso">Scale North America Infrastructure & Pass SOC2</h3>
                       </div>
                     </div>
                     <span className="px-3 py-1 rounded-full bg-mint-soft text-brand-green border border-brand-green/30 text-xs font-bold">
                       88.4% Rollup
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-terracotta leading-relaxed">
+                  <p className="text-sm sm:text-base text-terracotta leading-relaxed">
                     Achieve 99.99% availability across all edge nodes with zero-downtime database failover protocol.
                   </p>
                   <div className="w-full h-3 rounded-full bg-champagne overflow-hidden">
@@ -100,15 +100,15 @@ export const ProductInMotion: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="p-4 rounded-xl bg-white border border-brand-peach/80 space-y-1">
-                    <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">WEIGHTED OKR IMPACT</span>
+                    <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">WEIGHTED OKR IMPACT</span>
                     <div className="text-lg font-extrabold text-espresso">1.5x Multiplier</div>
-                    <p className="text-xs text-terracotta">High priority strategic goal feeding global score</p>
+                    <p className="text-[13px] sm:text-xs text-terracotta">High priority strategic goal feeding global score</p>
                   </div>
 
                   <div className="p-4 rounded-xl bg-white border border-brand-peach/80 space-y-1">
-                    <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase">CONNECTED MILESTONES</span>
+                    <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">CONNECTED MILESTONES</span>
                     <div className="text-lg font-extrabold text-brand-orange">4 Active Milestones</div>
-                    <p className="text-xs text-terracotta">12 leaf tasks currently assigned</p>
+                    <p className="text-[13px] sm:text-xs text-terracotta">12 leaf tasks currently assigned</p>
                   </div>
                 </div>
               </div>
@@ -116,19 +116,19 @@ export const ProductInMotion: React.FC = () => {
               {/* Floating Annotations */}
               <div className="lg:col-span-4 space-y-3">
                 <div className="p-5 rounded-2xl bg-white border border-brand-orange/40 shadow-satin-card space-y-2">
-                  <div className="flex items-center gap-2 text-xs font-bold text-brand-orange">
+                  <div className="flex items-center gap-2 text-sm sm:text-xs font-bold text-brand-orange">
                     <ShieldCheck className="w-4 h-4" /> Mathematical Progress Rollup
                   </div>
-                  <p className="text-xs text-terracotta leading-relaxed">
+                  <p className="text-[14px] sm:text-xs text-terracotta leading-relaxed">
                     Calculated automatically from leaf subtasks without requiring manual status updates.
                   </p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white border border-brand-green/40 shadow-satin-card space-y-2">
-                  <div className="flex items-center gap-2 text-xs font-bold text-brand-green">
+                  <div className="flex items-center gap-2 text-sm sm:text-xs font-bold text-brand-green">
                     <Zap className="w-4 h-4" /> Executive Audit Gate
                   </div>
-                  <p className="text-xs text-terracotta leading-relaxed">
+                  <p className="text-[14px] sm:text-xs text-terracotta leading-relaxed">
                     Founders can inspect or sign off on milestones with complete immutable audit trail logging.
                   </p>
                 </div>
@@ -151,9 +151,9 @@ export const ProductInMotion: React.FC = () => {
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
                         <CheckSquare className="w-4 h-4 text-brand-orange" />
-                        <h4 className="text-sm font-bold text-espresso">{task.title}</h4>
+                        <h4 className="text-[15px] sm:text-sm font-bold text-espresso">{task.title}</h4>
                       </div>
-                      <div className="text-xs text-terracotta">Owner: <strong className="text-espresso">{task.owner}</strong> • Priority: {task.priority}</div>
+                      <div className="text-[13px] sm:text-xs text-terracotta">Owner: <strong className="text-espresso">{task.owner}</strong> • Priority: {task.priority}</div>
                     </div>
                     <span className="px-3.5 py-1 rounded-full bg-brand-orange-light text-brand-orange border border-brand-orange/30 text-xs font-mono font-bold shrink-0">
                       {task.status}
@@ -164,10 +164,10 @@ export const ProductInMotion: React.FC = () => {
 
               <div className="lg:col-span-4 space-y-3">
                 <div className="p-5 rounded-2xl bg-white border border-brand-yellow/50 shadow-satin-card space-y-2">
-                  <div className="flex items-center gap-2 text-xs font-bold text-espresso">
+                  <div className="flex items-center gap-2 text-sm sm:text-xs font-bold text-espresso">
                     <AlertTriangle className="w-4 h-4 text-brand-yellow" /> SLA Risk Auto-Detection
                   </div>
-                  <p className="text-xs text-terracotta leading-relaxed">
+                  <p className="text-[14px] sm:text-xs text-terracotta leading-relaxed">
                     Tasks approaching SLA deadlines trigger automatic founder notifications before delays impact milestones.
                   </p>
                 </div>
@@ -184,7 +184,7 @@ export const ProductInMotion: React.FC = () => {
                 <div className="p-5 rounded-2xl bg-white border border-brand-peach shadow-warm-xs space-y-2">
                   <div className="text-xs font-mono font-bold text-terracotta uppercase">ORGANIZATION HEALTH SCORE</div>
                   <div className="text-3xl font-extrabold text-espresso font-mono">94.8%</div>
-                  <p className="text-xs text-brand-green font-bold flex items-center gap-1">
+                  <p className="text-[13px] sm:text-xs text-brand-green font-bold flex items-center gap-1">
                     <Activity className="w-3.5 h-3.5" /> +6.1% vs target benchmark
                   </p>
                 </div>
@@ -192,14 +192,14 @@ export const ProductInMotion: React.FC = () => {
                 <div className="p-5 rounded-2xl bg-white border border-brand-peach shadow-warm-xs space-y-2">
                   <div className="text-xs font-mono font-bold text-terracotta uppercase">ON-TIME EXECUTION SLA</div>
                   <div className="text-3xl font-extrabold text-brand-orange font-mono">99.2%</div>
-                  <p className="text-xs text-terracotta font-medium">Zero SLA breaches this sprint cycle</p>
+                  <p className="text-[13px] sm:text-xs text-terracotta font-medium">Zero SLA breaches this sprint cycle</p>
                 </div>
               </div>
 
               <div className="lg:col-span-4">
                 <div className="p-5 rounded-2xl bg-white border border-brand-peach shadow-satin-card space-y-2">
-                  <div className="text-xs font-mono font-bold text-espresso uppercase">DUAL-MODE ANALYTICS</div>
-                  <p className="text-xs text-terracotta leading-relaxed">
+                  <div className="text-sm sm:text-xs font-mono font-bold text-espresso uppercase">DUAL-MODE ANALYTICS</div>
+                  <p className="text-[14px] sm:text-xs text-terracotta leading-relaxed">
                     Seamlessly switch between high-level executive macro metrics and individual team member daily velocity.
                   </p>
                 </div>
@@ -214,7 +214,7 @@ export const ProductInMotion: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               <div className="lg:col-span-8 p-6 rounded-2xl bg-white border border-brand-orange/40 shadow-glow-orange space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2.5 text-xs font-extrabold text-espresso">
+                  <div className="flex items-center gap-2.5 text-sm sm:text-xs font-extrabold text-espresso">
                     <Sparkles className="w-5 h-5 text-brand-orange" />
                     <span>Gemini 2.5 AI Goal Decomposition Engine</span>
                   </div>
@@ -222,17 +222,17 @@ export const ProductInMotion: React.FC = () => {
                     ACTIVE ENGINE
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-terracotta leading-relaxed bg-ivory p-4 rounded-xl border border-brand-peach/60">
+                <p className="text-sm sm:text-base text-terracotta leading-relaxed bg-ivory p-4 rounded-xl border border-brand-peach/60">
                   "Analyzed company objective 'Scale North America Infrastructure' &rarr; Proposed 4 leaf tasks with assigned assignees (Alex M., Priya K.) and 14-day SLA deadline."
                 </p>
               </div>
 
               <div className="lg:col-span-4">
                 <div className="p-5 rounded-2xl bg-white border border-brand-green/40 shadow-satin-card space-y-2">
-                  <div className="text-xs font-bold text-brand-green flex items-center gap-1.5">
+                  <div className="text-sm sm:text-xs font-bold text-brand-green flex items-center gap-1.5">
                     <Clock className="w-4 h-4" /> AI Capacity Forecasting
                   </div>
-                  <p className="text-xs text-terracotta leading-relaxed">
+                  <p className="text-[14px] sm:text-xs text-terracotta leading-relaxed">
                     Decomposes complex goals based on real-time team workload and historical SLA velocity.
                   </p>
                 </div>

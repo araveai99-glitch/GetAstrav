@@ -22,50 +22,50 @@ export const Signup: React.FC = () => {
               <Layers className="w-6 h-6 text-brand-orange" />
             </div>
           </div>
-          <h2 className="text-2xl font-extrabold text-espresso">Create Your Account</h2>
-          <p className="text-xs text-terracotta-muted">Scaffold your Astrav Workspace</p>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-espresso">Create Your Account</h2>
+          <p className="text-base text-terracotta-muted">Scaffold your Astrav Workspace</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="text-[10px] font-bold uppercase tracking-wider text-terracotta-muted block mb-1">Full Name</label>
+            <label className="text-xs sm:text-[11px] font-bold uppercase tracking-wider text-terracotta-muted block mb-1.5">Full Name</label>
             <input
               type="text"
               placeholder="Arjun Sharma"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-brand-peach text-xs font-semibold text-espresso focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"
+              className="w-full px-4 py-3 sm:py-2.5 rounded-xl border border-brand-peach text-base sm:text-sm font-medium text-espresso focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"
             />
           </div>
           <div>
-            <label className="text-[10px] font-bold uppercase tracking-wider text-terracotta-muted block mb-1">Work Email</label>
+            <label className="text-xs sm:text-[11px] font-bold uppercase tracking-wider text-terracotta-muted block mb-1.5">Work Email</label>
             <input
               type="email"
               placeholder="you@company.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-brand-peach text-xs font-semibold text-espresso focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"
+              className="w-full px-4 py-3 sm:py-2.5 rounded-xl border border-brand-peach text-base sm:text-sm font-medium text-espresso focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"
             />
           </div>
           <div>
-            <label className="text-[10px] font-bold uppercase tracking-wider text-terracotta-muted block mb-1">Password</label>
+            <label className="text-xs sm:text-[11px] font-bold uppercase tracking-wider text-terracotta-muted block mb-1.5">Password</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-brand-peach text-xs font-semibold text-espresso focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"
+              className="w-full px-4 py-3 sm:py-2.5 rounded-xl border border-brand-peach text-base sm:text-sm font-medium text-espresso focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 rounded-xl bg-brand-orange text-white text-xs font-bold hover:bg-primary-hover shadow-glow-orange transition-all flex items-center justify-center gap-2"
+            className="w-full py-3.5 sm:py-3 rounded-xl bg-brand-orange text-white text-base sm:text-sm font-bold hover:bg-primary-hover shadow-glow-orange transition-all flex items-center justify-center gap-2"
           >
             Create Organization <ArrowRight className="w-4 h-4" />
           </button>
         </form>
 
-        <div className="text-center text-xs text-terracotta-muted">
+        <div className="text-center text-sm sm:text-xs text-terracotta-muted">
           Already have an account? <Link to="/login" className="font-bold text-brand-orange hover:underline">Sign in</Link>
         </div>
       </div>

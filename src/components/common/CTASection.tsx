@@ -38,7 +38,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.45, ease: 'easeOut' }}
-              className="text-[18.5px] min-[360px]:text-[21.5px] min-[375px]:text-[23px] min-[393px]:text-[24.5px] min-[430px]:text-[27px] sm:text-[46px] font-extrabold text-[#271812] leading-[1.15] sm:leading-[1.12] tracking-[-0.025em] sm:tracking-[-0.02em] font-heading"
+              className="text-[25px] min-[375px]:text-[28px] sm:text-[38px] lg:text-[46px] font-extrabold text-[#271812] leading-[1.18] sm:leading-[1.12] tracking-[-0.025em] sm:tracking-[-0.02em] font-heading"
             >
               {title ? (
                 <>
@@ -47,8 +47,8 @@ export const CTASection: React.FC<CTASectionProps> = ({
                 </>
               ) : (
                 <>
-                  <span className="block whitespace-nowrap">Ready to See Your Company</span>
-                  <span className="text-[#f15e1c] block whitespace-nowrap">in One View?</span>
+                  <span className="block sm:whitespace-nowrap">Ready to See Your Company</span>
+                  <span className="text-[#f15e1c] block sm:whitespace-nowrap">in One View?</span>
                 </>
               )}
             </motion.h2>
