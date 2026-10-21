@@ -580,7 +580,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center">
             {/* Visual Map (7 Cols on LG) */}
             <div className="lg:col-span-7 flex items-center justify-center">
-              <div className="relative w-full max-w-[580px] min-h-[360px] sm:min-h-[420px] flex items-center justify-center">
+              <div className="relative w-full max-w-[580px] min-h-[370px] min-[360px]:min-h-[390px] sm:min-h-[420px] flex items-center justify-center">
                 {/* Outer Decorative Ambient Glow */}
                 <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-brand-orange/5 blur-3xl pointer-events-none" />
 
@@ -593,7 +593,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
                       : { scale: 0.6, opacity: 0 }
                   }
                   transition={{ duration: 0.55 }}
-                  className="relative z-20 w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-br from-espresso via-[#3d261e] to-espresso text-white shadow-warm-xl flex flex-col items-center justify-center border-4 border-brand-peach/80"
+                  className="relative z-20 w-24 h-24 min-[360px]:w-28 min-[360px]:h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-br from-espresso via-[#3d261e] to-espresso text-white shadow-warm-xl flex flex-col items-center justify-center border-4 border-brand-peach/80"
                 >
                   {/* Concentric Pulse Rings */}
                   <motion.div
@@ -606,101 +606,109 @@ export const KeyCapabilitiesPage: React.FC = () => {
                     className="absolute inset-0 rounded-full border-2 border-brand-orange/40 pointer-events-none"
                   />
 
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-brand-orange flex items-center justify-center mb-1 shadow-md">
-                    <Activity className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                  <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-brand-orange flex items-center justify-center mb-0.5 sm:mb-1 shadow-md">
+                    <Activity className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" />
                   </div>
-                  <span className="font-heading font-extrabold text-sm sm:text-base tracking-tight text-white">
+                  <span className="font-heading font-extrabold text-xs sm:text-base tracking-tight text-white leading-tight">
                     Astrav
                   </span>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-brand-orange font-bold">
+                  <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider sm:tracking-widest text-brand-orange font-bold">
                     Core Engine
                   </span>
                 </motion.div>
 
                 {/* 4 Connected Capability Nodes Positioned Around Astrav */}
                 {/* Node 1: Goal Planning (Top-Left) */}
-                <div className="absolute top-2 left-2 sm:top-6 sm:left-6 z-30">
+                <div className="absolute top-1 left-1 min-[360px]:top-2 min-[360px]:left-2 sm:top-6 sm:left-6 z-30 w-[calc(50%-8px)] min-[360px]:w-[calc(50%-10px)] sm:w-auto sm:max-w-[210px]">
                   <button
                     onClick={() => setSelectedCapability('planning')}
-                    className={`p-2.5 sm:p-4 rounded-2xl border text-left transition-all ${
+                    className={`w-full p-2 min-[360px]:p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between min-h-[64px] min-[360px]:min-h-[68px] sm:min-h-0 ${
                       selectedCapability === 'planning'
-                        ? 'bg-brand-orange-light border-brand-orange shadow-warm-md scale-105'
+                        ? 'bg-brand-orange-light border-brand-orange shadow-warm-md scale-[1.01] sm:scale-105'
                         : 'bg-white border-brand-peach/80 hover:border-brand-orange/40 hover:bg-surface-tier1 shadow-xs'
                     }`}
                   >
-                    <div className="flex items-center gap-2 mb-1">
-                      <Target className="w-4 h-4 text-brand-orange" />
-                      <span className="text-sm font-heading font-bold text-espresso">
+                    <div className="flex items-start sm:items-center gap-1.5 sm:gap-2 mb-0.5 sm:mb-1 min-w-0">
+                      <div className="shrink-0 mt-0.5 sm:mt-0">
+                        <Target className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-orange" />
+                      </div>
+                      <span className="text-[12px] min-[360px]:text-[13px] sm:text-sm font-heading font-bold text-espresso leading-tight sm:leading-snug break-words">
                         Goal Planning
                       </span>
                     </div>
-                    <span className="text-xs font-mono text-terracotta block">
+                    <span className="text-[10px] min-[360px]:text-[10.5px] sm:text-xs font-mono text-terracotta block leading-tight">
                       Strategic alignment
                     </span>
                   </button>
                 </div>
 
                 {/* Node 2: Connected Work (Top-Right) */}
-                <div className="absolute top-2 right-2 sm:top-6 sm:right-6 z-30">
+                <div className="absolute top-1 right-1 min-[360px]:top-2 min-[360px]:right-2 sm:top-6 sm:right-6 z-30 w-[calc(50%-8px)] min-[360px]:w-[calc(50%-10px)] sm:w-auto sm:max-w-[210px]">
                   <button
                     onClick={() => setSelectedCapability('connected')}
-                    className={`p-2.5 sm:p-4 rounded-2xl border text-left transition-all ${
+                    className={`w-full p-2 min-[360px]:p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between min-h-[64px] min-[360px]:min-h-[68px] sm:min-h-0 ${
                       selectedCapability === 'connected'
-                        ? 'bg-brand-green-light border-brand-green shadow-warm-md scale-105'
+                        ? 'bg-brand-green-light border-brand-green shadow-warm-md scale-[1.01] sm:scale-105'
                         : 'bg-white border-brand-peach/80 hover:border-brand-green/40 hover:bg-surface-tier1 shadow-xs'
                     }`}
                   >
-                    <div className="flex items-center gap-2 mb-1">
-                      <Layers className="w-4 h-4 text-brand-green" />
-                      <span className="text-sm font-heading font-bold text-espresso">
+                    <div className="flex items-start sm:items-center gap-1.5 sm:gap-2 mb-0.5 sm:mb-1 min-w-0">
+                      <div className="shrink-0 mt-0.5 sm:mt-0">
+                        <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-green" />
+                      </div>
+                      <span className="text-[12px] min-[360px]:text-[13px] sm:text-sm font-heading font-bold text-espresso leading-tight sm:leading-snug break-words">
                         Connected Work
                       </span>
                     </div>
-                    <span className="text-xs font-mono text-terracotta block">
+                    <span className="text-[10px] min-[360px]:text-[10.5px] sm:text-xs font-mono text-terracotta block leading-tight">
                       Linked execution
                     </span>
                   </button>
                 </div>
 
                 {/* Node 3: Automatic Progress (Bottom-Left) */}
-                <div className="absolute bottom-2 left-2 sm:bottom-6 sm:left-6 z-30">
+                <div className="absolute bottom-1 left-1 min-[360px]:bottom-2 min-[360px]:left-2 sm:bottom-6 sm:left-6 z-30 w-[calc(50%-8px)] min-[360px]:w-[calc(50%-10px)] sm:w-auto sm:max-w-[210px]">
                   <button
                     onClick={() => setSelectedCapability('rollups')}
-                    className={`p-2.5 sm:p-4 rounded-2xl border text-left transition-all ${
+                    className={`w-full p-2 min-[360px]:p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between min-h-[64px] min-[360px]:min-h-[68px] sm:min-h-0 ${
                       selectedCapability === 'rollups'
-                        ? 'bg-amber-50 border-amber-400 shadow-warm-md scale-105'
+                        ? 'bg-amber-50 border-amber-400 shadow-warm-md scale-[1.01] sm:scale-105'
                         : 'bg-white border-brand-peach/80 hover:border-amber-400/40 hover:bg-surface-tier1 shadow-xs'
                     }`}
                   >
-                    <div className="flex items-center gap-2 mb-1">
-                      <TrendingUp className="w-4 h-4 text-amber-600" />
-                      <span className="text-sm font-heading font-bold text-espresso">
+                    <div className="flex items-start sm:items-center gap-1.5 sm:gap-2 mb-0.5 sm:mb-1 min-w-0">
+                      <div className="shrink-0 mt-0.5 sm:mt-0">
+                        <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-600" />
+                      </div>
+                      <span className="text-[12px] min-[360px]:text-[13px] sm:text-sm font-heading font-bold text-espresso leading-tight sm:leading-snug break-words">
                         Automatic Progress
                       </span>
                     </div>
-                    <span className="text-xs font-mono text-terracotta block">
+                    <span className="text-[10px] min-[360px]:text-[10.5px] sm:text-xs font-mono text-terracotta block leading-tight">
                       Real-time rollups
                     </span>
                   </button>
                 </div>
 
                 {/* Node 4: Team Visibility (Bottom-Right) */}
-                <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-6 z-30">
+                <div className="absolute bottom-1 right-1 min-[360px]:bottom-2 min-[360px]:right-2 sm:bottom-6 sm:right-6 z-30 w-[calc(50%-8px)] min-[360px]:w-[calc(50%-10px)] sm:w-auto sm:max-w-[210px]">
                   <button
                     onClick={() => setSelectedCapability('visibility')}
-                    className={`p-2.5 sm:p-4 rounded-2xl border text-left transition-all ${
+                    className={`w-full p-2 min-[360px]:p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between min-h-[64px] min-[360px]:min-h-[68px] sm:min-h-0 ${
                       selectedCapability === 'visibility'
-                        ? 'bg-brand-orange-light border-brand-orange shadow-warm-md scale-105'
+                        ? 'bg-brand-orange-light border-brand-orange shadow-warm-md scale-[1.01] sm:scale-105'
                         : 'bg-white border-brand-peach/80 hover:border-brand-orange/40 hover:bg-surface-tier1 shadow-xs'
                     }`}
                   >
-                    <div className="flex items-center gap-2 mb-1">
-                      <Users className="w-4 h-4 text-brand-orange" />
-                      <span className="text-sm font-heading font-bold text-espresso">
+                    <div className="flex items-start sm:items-center gap-1.5 sm:gap-2 mb-0.5 sm:mb-1 min-w-0">
+                      <div className="shrink-0 mt-0.5 sm:mt-0">
+                        <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-orange" />
+                      </div>
+                      <span className="text-[12px] min-[360px]:text-[13px] sm:text-sm font-heading font-bold text-espresso leading-tight sm:leading-snug break-words">
                         Team Visibility
                       </span>
                     </div>
-                    <span className="text-xs font-mono text-terracotta block">
+                    <span className="text-[10px] min-[360px]:text-[10.5px] sm:text-xs font-mono text-terracotta block leading-tight">
                       Shared momentum
                     </span>
                   </button>
@@ -712,57 +720,57 @@ export const KeyCapabilitiesPage: React.FC = () => {
                   <motion.line
                     x1="50%"
                     y1="50%"
-                    x2="22%"
-                    y2="20%"
+                    x2="24%"
+                    y2="16%"
                     stroke="#f15e1c"
                     strokeWidth={selectedCapability === 'planning' ? '3' : '1.5'}
                     strokeDasharray="4 4"
                     initial={{ pathLength: 0 }}
                     animate={isSectionBInView ? { pathLength: 1 } : { pathLength: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    opacity={selectedCapability === 'planning' ? 1 : 0.4}
+                    opacity={selectedCapability === 'planning' ? 1 : 0.55}
                   />
                   {/* Spoke 2: Center to Top-Right */}
                   <motion.line
                     x1="50%"
                     y1="50%"
-                    x2="78%"
-                    y2="20%"
+                    x2="76%"
+                    y2="16%"
                     stroke="#2e936f"
                     strokeWidth={selectedCapability === 'connected' ? '3' : '1.5'}
                     strokeDasharray="4 4"
                     initial={{ pathLength: 0 }}
                     animate={isSectionBInView ? { pathLength: 1 } : { pathLength: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
-                    opacity={selectedCapability === 'connected' ? 1 : 0.4}
+                    opacity={selectedCapability === 'connected' ? 1 : 0.55}
                   />
                   {/* Spoke 3: Center to Bottom-Left */}
                   <motion.line
                     x1="50%"
                     y1="50%"
-                    x2="22%"
-                    y2="80%"
+                    x2="24%"
+                    y2="84%"
                     stroke="#fab60a"
                     strokeWidth={selectedCapability === 'rollups' ? '3' : '1.5'}
                     strokeDasharray="4 4"
                     initial={{ pathLength: 0 }}
                     animate={isSectionBInView ? { pathLength: 1 } : { pathLength: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    opacity={selectedCapability === 'rollups' ? 1 : 0.4}
+                    opacity={selectedCapability === 'rollups' ? 1 : 0.55}
                   />
                   {/* Spoke 4: Center to Bottom-Right */}
                   <motion.line
                     x1="50%"
                     y1="50%"
-                    x2="78%"
-                    y2="80%"
+                    x2="76%"
+                    y2="84%"
                     stroke="#f15e1c"
                     strokeWidth={selectedCapability === 'visibility' ? '3' : '1.5'}
                     strokeDasharray="4 4"
                     initial={{ pathLength: 0 }}
                     animate={isSectionBInView ? { pathLength: 1 } : { pathLength: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    opacity={selectedCapability === 'visibility' ? 1 : 0.4}
+                    opacity={selectedCapability === 'visibility' ? 1 : 0.55}
                   />
                 </svg>
               </div>

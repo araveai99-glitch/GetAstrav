@@ -13,8 +13,9 @@ export const GoalsProgress: React.FC = () => {
     <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-24 pb-8 sm:pb-12 flex flex-col space-y-8 sm:space-y-10">
       {/* Page Header */}
       <div className="text-left md:text-center w-full max-w-none md:max-w-3xl mx-0 md:mx-auto space-y-2.5 sm:space-y-3">
-        <h1 className="text-3xl min-[390px]:text-[32px] sm:text-4xl md:brand-h1 font-heading font-extrabold text-espresso tracking-tight text-left md:text-center leading-tight">
-          Automated Mathematical Rollup Engine
+        <h1 className="text-[22px] min-[360px]:text-[24px] min-[390px]:text-[26px] sm:text-4xl md:brand-h1 font-heading font-extrabold text-espresso tracking-tight text-left md:text-center leading-[1.2] sm:leading-tight">
+          <span className="block md:inline">Automated Mathematical </span>
+          <span className="block md:inline">Rollup Engine</span>
         </h1>
         <p className="brand-subtitle text-terracotta text-base sm:text-lg w-full max-w-none md:max-w-2xl mx-0 md:mx-auto font-normal text-left md:text-center leading-relaxed">
           Track work from individual tasks up to executive dashboards with mathematical precision and founder override control.

@@ -30,7 +30,7 @@ export const ProductFinalCTA: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.35 }}
             className="w-12 h-12 rounded-2xl bg-brand-orange text-white flex items-center justify-center mx-auto shadow-md shadow-brand-orange/25"
           >
@@ -38,30 +38,30 @@ export const ProductFinalCTA: React.FC = () => {
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.35, delay: 0.08 }}
             className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight lg:whitespace-nowrap"
           >
             Bring Your Goals and Teams Together.
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.4, delay: 0.18 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.35, delay: 0.14 }}
             className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-2xl mx-auto lg:whitespace-nowrap"
           >
             Keep everyone aligned and see what moves your work forward.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.4, delay: 0.25 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.35, delay: 0.2 }}
             className="pt-2 flex flex-wrap items-center justify-center gap-3.5 sm:gap-4"
           >
             <button
@@ -75,10 +75,10 @@ export const ProductFinalCTA: React.FC = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.4, delay: 0.32 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.35, delay: 0.26 }}
             className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-4 text-[13px] sm:text-sm font-heading font-semibold text-terracotta-muted border-t border-brand-peach/50 max-w-md mx-auto"
           >
             <span className="flex items-center gap-1.5">

@@ -500,7 +500,7 @@ export const HowItWorksPage: React.FC = () => {
       {/* ==================================================================== */}
       <section
         ref={sectionCRef}
-        className="w-full p-6 sm:p-8 lg:p-10 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-8"
+        className="w-full p-3.5 min-[360px]:p-4 sm:p-8 lg:p-10 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-6 sm:space-y-8"
       >
         <div className="border-b border-brand-peach/40 pb-5">
           <div className="space-y-1">
@@ -517,12 +517,40 @@ export const HowItWorksPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left/Center: Visual Spoke Nodes */}
-          <div className="lg:col-span-7 grid grid-cols-2 gap-4 relative p-4 rounded-2xl bg-surface-ambient border border-brand-peach/60">
+          <div className="lg:col-span-7 grid grid-cols-2 gap-2.5 min-[360px]:gap-3 sm:gap-4 relative p-2.5 min-[360px]:p-3 sm:p-4 rounded-2xl bg-surface-ambient border border-brand-peach/60">
             {[
-              { id: 'goals', label: '1. Strategic Goals', icon: Target, tag: 'North Star', color: 'border-brand-orange text-brand-orange' },
-              { id: 'projects', label: '2. Core Projects', icon: FolderGit2, tag: 'Deliverables', color: 'border-amber-400 text-amber-600' },
-              { id: 'tasks', label: '3. Everyday Tasks', icon: CheckSquare, tag: 'Actionable', color: 'border-brand-green text-brand-green' },
-              { id: 'team', label: '4. Team Progress', icon: Users, tag: 'Pods & Owners', color: 'border-brand-orange text-brand-orange' },
+              {
+                id: 'goals',
+                label: '1. Strategic Goals',
+                icon: Target,
+                tag: 'North Star',
+                mobileTagLines: ['North', 'Star'],
+                color: 'border-brand-orange text-brand-orange'
+              },
+              {
+                id: 'projects',
+                label: '2. Core Projects',
+                icon: FolderGit2,
+                tag: 'Deliverables',
+                mobileTagLines: ['Deliver-', 'ables'],
+                color: 'border-amber-400 text-amber-600'
+              },
+              {
+                id: 'tasks',
+                label: '3. Everyday Tasks',
+                icon: CheckSquare,
+                tag: 'Actionable',
+                mobileTagLines: ['Action-', 'able'],
+                color: 'border-brand-green text-brand-green'
+              },
+              {
+                id: 'team',
+                label: '4. Team Progress',
+                icon: Users,
+                tag: 'Pods & Owners',
+                mobileTagLines: ['Pods &', 'Owners'],
+                color: 'border-brand-orange text-brand-orange'
+              },
             ].map((spoke, idx) => {
               const Icon = spoke.icon;
               const isSelected = selectedSpoke === spoke.id;
@@ -539,27 +567,31 @@ export const HowItWorksPage: React.FC = () => {
                   }
                   transition={{ duration: 0.4, delay }}
                   onClick={() => setSelectedSpoke(spoke.id)}
-                  className={`cursor-pointer rounded-2xl p-5 border transition-all duration-200 flex flex-col justify-between group ${
+                  className={`cursor-pointer rounded-2xl p-3 min-[360px]:p-3.5 sm:p-5 border transition-all duration-200 flex flex-col justify-between group h-full min-h-[140px] min-[360px]:min-h-[146px] sm:min-h-[160px] ${
                     isSelected
-                      ? 'bg-white border-brand-orange shadow-warm-md ring-2 ring-brand-orange/20 scale-[1.02]'
+                      ? 'bg-white border-brand-orange shadow-warm-md ring-2 ring-brand-orange/20 scale-[1.01] sm:scale-[1.02]'
                       : 'bg-white/80 hover:bg-white border-brand-peach/70 hover:border-brand-orange/40 shadow-warm-2xs'
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold ${
-                      isSelected ? 'bg-brand-orange text-white' : 'bg-surface-tier1 text-brand-orange'
+                  <div className="flex items-center justify-between gap-1.5 min-[360px]:gap-2 sm:gap-3 mb-2.5 sm:mb-3 min-w-0">
+                    <div className={`w-7 h-7 min-[360px]:w-8 min-[360px]:h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center font-bold shrink-0 transition-transform group-hover:scale-105 ${
+                      isSelected ? 'bg-brand-orange text-white shadow-warm-xs' : 'bg-surface-tier1 text-brand-orange border border-brand-peach/40'
                     }`}>
-                      <Icon className="w-4.5 h-4.5" />
+                      <Icon className="w-3.5 h-3.5 min-[360px]:w-4 min-[360px]:h-4 sm:w-4.5 sm:h-4.5" />
                     </div>
-                    <span className="text-xs font-mono font-bold text-terracotta-muted px-2 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50">
-                      {spoke.tag}
+                    <span className="min-w-0 flex flex-col sm:inline-flex sm:flex-row items-center sm:items-baseline justify-center text-center text-[9px] min-[360px]:text-[10px] sm:text-xs font-mono font-bold text-terracotta-muted px-1.5 min-[360px]:px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-lg sm:rounded-full bg-surface-tier1 border border-brand-peach/50 leading-tight tracking-tight sm:tracking-normal">
+                      <span className="sm:hidden">{spoke.mobileTagLines[0]}</span>
+                      <span className="sm:hidden">{spoke.mobileTagLines[1]}</span>
+                      <span className="hidden sm:inline">{spoke.tag}</span>
                     </span>
                   </div>
-                  <div>
-                    <h4 className="font-heading font-extrabold text-base sm:text-lg text-espresso group-hover:text-brand-orange transition-colors">
+                  <div className="mt-auto">
+                    <h4 className={`font-heading font-extrabold text-[14.5px] min-[360px]:text-[15px] sm:text-lg transition-colors leading-snug ${
+                      isSelected ? 'text-brand-orange' : 'text-espresso group-hover:text-brand-orange'
+                    }`}>
                       {spoke.label}
                     </h4>
-                    <span className="text-xs min-[375px]:text-sm font-medium text-brand-orange mt-1 block">
+                    <span className="text-[11.5px] min-[360px]:text-xs sm:text-sm font-medium text-brand-orange mt-1 block">
                       {isSelected ? '● Currently Selected' : 'Click to inspect'}
                     </span>
                   </div>

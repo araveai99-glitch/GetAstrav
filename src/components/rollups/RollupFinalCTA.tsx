@@ -5,7 +5,7 @@ import { openDemoModal } from '../common/DemoModal';
 
 export const RollupFinalCTA: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.25 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.05 });
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -13,7 +13,7 @@ export const RollupFinalCTA: React.FC = () => {
       ref={sectionRef}
       className="pt-2 sm:pt-4 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto"
     >
-      <div className="rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-6 sm:p-10 md:p-12 border-2 border-brand-peach/80 shadow-warm-xl relative overflow-hidden text-center">
+      <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-5 sm:p-10 md:p-12 border-2 border-brand-peach/80 shadow-warm-xl relative overflow-hidden text-center">
         {/* Soft Ambient Floating Glow */}
         <motion.div
           animate={
@@ -28,12 +28,12 @@ export const RollupFinalCTA: React.FC = () => {
           className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-bl from-brand-orange-light via-brand-peach/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10"
         />
 
-        <div className="max-w-2xl mx-auto space-y-6 relative z-10">
+        <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6 relative z-10">
           <motion.h2
-            initial={{ opacity: 0, y: 12 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-            transition={{ duration: 0.4, delay: 0.05 }}
-            className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight lg:whitespace-nowrap"
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ duration: 0.35, delay: 0.05 }}
+            className="text-2xl min-[375px]:text-[26px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight lg:whitespace-nowrap"
           >
             Let Progress Speak for Itself.
           </motion.h2>

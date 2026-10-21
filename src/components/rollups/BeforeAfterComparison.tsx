@@ -13,7 +13,7 @@ import {
 
 export const BeforeAfterComparison: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.25 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.05 });
   const shouldReduceMotion = useReducedMotion();
 
   const withoutPoints = [
@@ -34,34 +34,34 @@ export const BeforeAfterComparison: React.FC = () => {
       className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto relative overflow-hidden"
     >
       {/* Section Header */}
-      <div className="text-left w-full max-w-5xl space-y-1.5 sm:space-y-2 mb-5 sm:mb-6">
+      <div className="text-left w-full max-w-5xl space-y-1 sm:space-y-1.5 mb-4 sm:mb-6">
         <motion.h2
-          initial={{ opacity: 0, y: 12 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-          transition={{ duration: 0.4, delay: 0.05 }}
-          className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{ duration: 0.35, delay: 0.05 }}
+          className="text-2xl min-[375px]:text-[26px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
         >
           Less Manual Tracking. More Clarity.
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-          transition={{ duration: 0.4, delay: 0.16 }}
-          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left lg:whitespace-nowrap"
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{ duration: 0.35, delay: 0.1 }}
+          className="text-sm sm:text-base lg:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left lg:whitespace-nowrap"
         >
           Stop spending time managing spreadsheets. Let your real work keep everyone in sync.
         </motion.p>
       </div>
 
       {/* Two Large Comparison Panels (Full 1720px Width) */}
-      <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-stretch">
+      <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 lg:gap-10 items-stretch">
         {/* Panel 1: Without automatic rollups */}
         <motion.div
-          initial={{ opacity: 0, x: -16 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
-          transition={{ duration: 0.45, delay: 0.15 }}
-          className="bg-surface-tier1/70 rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-brand-peach/70 shadow-warm-sm flex flex-col justify-between min-h-[360px] sm:min-h-[400px]"
+          initial={{ opacity: 0, x: -12 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -12 }}
+          transition={{ duration: 0.4, delay: 0.12 }}
+          className="bg-surface-tier1/70 rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border-2 border-brand-peach/70 shadow-warm-sm flex flex-col justify-between min-h-[300px] sm:min-h-[400px]"
         >
           <div>
             <div className="flex items-center justify-end pb-4 mb-5 border-b border-brand-peach/40">

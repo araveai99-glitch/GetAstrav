@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Layers,
@@ -122,43 +123,55 @@ export const HowItWorksSection: React.FC = () => {
                 {/* MAIN DASHBOARD CONTENT */}
                 <div className="md:col-span-9 space-y-4">
                   {/* STRATEGIC COMPANY GOAL CARD */}
-                  <div className="bg-surface-ambient rounded-2xl p-4 sm:p-4.5 border border-brand-peach/50 shadow-warm-2xs">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-brand-orange-light border border-brand-orange/20 flex items-center justify-center shrink-0">
+                  <div className="bg-surface-ambient rounded-2xl p-3.5 sm:p-4.5 border border-brand-peach/50 shadow-warm-2xs overflow-hidden">
+                    <div className="flex items-start justify-between gap-2.5 sm:gap-3">
+                      <div className="flex items-start gap-2.5 sm:gap-3 min-w-0 flex-1">
+                        <div className="w-9 h-9 rounded-xl bg-brand-orange-light border border-brand-orange/20 flex items-center justify-center shrink-0 mt-0.5">
                           <Target className="w-5 h-5 text-brand-orange" />
                         </div>
-                        <div>
-                          <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider block">
+                        <div className="min-w-0 flex-1">
+                          <span className="text-[11px] sm:text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider block leading-tight">
                             Company Goal
                           </span>
-                          <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso">
+                          <h4 className="font-heading font-extrabold text-sm sm:text-base text-espresso leading-tight break-words mt-0.5">
                             Launch Product V2
                           </h4>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="font-heading font-extrabold text-base text-espresso">
+                      <div className="flex items-center gap-2 sm:gap-2.5 shrink-0 ml-2">
+                        <span className="font-heading font-extrabold text-base text-espresso whitespace-nowrap">
                           72%
                         </span>
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-heading font-bold text-brand-green bg-brand-green-light border border-brand-green/20">
+                        <span className="px-2 sm:px-2.5 py-0.5 rounded-full text-xs font-heading font-bold text-brand-green bg-brand-green-light border border-brand-green/20 whitespace-nowrap">
                           On Track
                         </span>
                       </div>
                     </div>
 
-                    <div className="mt-3 flex items-center gap-3 text-xs font-mono text-terracotta-muted">
-                      <span>🕒 Q3 2024</span>
-                      <span>•</span>
-                      <span>6 Projects</span>
-                      <span>•</span>
-                      <span>12 Milestones</span>
-                      <span>•</span>
-                      <span>42 Tasks</span>
+                    <div className="mt-3 flex items-center justify-between sm:justify-start gap-1 sm:gap-3 w-full min-w-0 text-xs font-mono text-terracotta-muted">
+                      <div className="min-w-0 flex-auto sm:flex-initial text-left">
+                        <span className="block sm:inline whitespace-nowrap">🕒&nbsp;Q3</span>{' '}
+                        <span className="block sm:inline whitespace-nowrap">2024</span>
+                      </div>
+                      <span className="shrink-0 text-terracotta-muted/50 select-none text-xs px-0.5 sm:px-0">•</span>
+                      <div className="min-w-0 flex-auto sm:flex-initial text-left">
+                        <span className="block sm:inline whitespace-nowrap">6</span>{' '}
+                        <span className="block sm:inline whitespace-nowrap">Projects</span>
+                      </div>
+                      <span className="shrink-0 text-terracotta-muted/50 select-none text-xs px-0.5 sm:px-0">•</span>
+                      <div className="min-w-0 flex-auto sm:flex-initial text-left">
+                        <span className="block sm:inline whitespace-nowrap">12</span>{' '}
+                        <span className="block sm:inline whitespace-nowrap">Milestones</span>
+                      </div>
+                      <span className="shrink-0 text-terracotta-muted/50 select-none text-xs px-0.5 sm:px-0">•</span>
+                      <div className="min-w-0 flex-auto sm:flex-initial text-left">
+                        <span className="block sm:inline whitespace-nowrap">42</span>{' '}
+                        <span className="block sm:inline whitespace-nowrap">Tasks</span>
+                      </div>
                     </div>
 
                     {/* Progress Bar */}
-                    <div className="w-full h-2 rounded-full bg-brand-peach/40 mt-2.5 overflow-hidden">
+                    <div className="w-full h-2 rounded-full bg-brand-peach/40 mt-3 sm:mt-2.5 overflow-hidden">
                       <motion.div
                         className="h-full rounded-full bg-gradient-to-r from-brand-green to-emerald-400"
                         initial={{ width: '0%' }}
@@ -257,9 +270,13 @@ export const HowItWorksSection: React.FC = () => {
                         <span className="font-heading font-bold text-espresso text-sm sm:text-sm">
                           Recent Activity
                         </span>
-                        <span className="text-xs sm:text-xs font-heading font-semibold text-brand-orange cursor-pointer hover:text-brand-orange-hover transition-colors">
+                        <Link
+                          to="/app/activity"
+                          className="text-xs sm:text-xs font-heading font-bold text-brand-orange hover:text-brand-orange-hover active:scale-95 transition-all py-1 px-2 -mr-2 -my-1 rounded-lg hover:bg-brand-orange-light/70 cursor-pointer"
+                          title="View complete activity log"
+                        >
                           View All
-                        </span>
+                        </Link>
                       </div>
                       <div className="space-y-2.5 sm:space-y-2 pt-2.5 sm:pt-2">
                         <div className="flex items-start gap-2 sm:gap-1.5">

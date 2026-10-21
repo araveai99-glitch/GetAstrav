@@ -23,6 +23,7 @@ interface Compartment {
   id: string;
   name: string;
   subtitle: string;
+  subtitleLines: [string, string];
   icon: React.ElementType;
   accent: string;
   badgeBg: string;
@@ -36,6 +37,7 @@ const COMPARTMENTS: Compartment[] = [
     id: 'goals',
     name: 'Goals',
     subtitle: 'Strategic Intent',
+    subtitleLines: ['Strategic', 'Intent'],
     icon: Target,
     accent: 'text-brand-orange',
     badgeBg: 'bg-brand-orange-light text-brand-orange border-brand-orange/30',
@@ -50,6 +52,7 @@ const COMPARTMENTS: Compartment[] = [
     id: 'milestones',
     name: 'Milestones',
     subtitle: 'Phased Checkpoints',
+    subtitleLines: ['Phased', 'Checkpoints'],
     icon: Flag,
     accent: 'text-brand-yellow',
     badgeBg: 'bg-amber-50 text-amber-800 border-amber-200',
@@ -64,6 +67,7 @@ const COMPARTMENTS: Compartment[] = [
     id: 'tasks',
     name: 'Tasks',
     subtitle: 'Daily Execution',
+    subtitleLines: ['Daily', 'Execution'],
     icon: CheckSquare,
     accent: 'text-brand-green',
     badgeBg: 'bg-brand-green-light text-brand-green border-brand-green/30',
@@ -78,6 +82,7 @@ const COMPARTMENTS: Compartment[] = [
     id: 'docs',
     name: 'Documents',
     subtitle: 'Specifications & PRDs',
+    subtitleLines: ['Specifications', '& PRDs'],
     icon: FileText,
     accent: 'text-indigo-600',
     badgeBg: 'bg-indigo-50 text-indigo-700 border-indigo-200',
@@ -133,9 +138,9 @@ export const Projects: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="p-6 sm:p-8 lg:p-10 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-warm-md hover:shadow-warm-lg transition-shadow relative overflow-hidden"
+        className="p-3.5 min-[360px]:p-4 sm:p-8 lg:p-10 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-warm-md hover:shadow-warm-lg transition-shadow relative overflow-hidden"
       >
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-brand-peach/50 relative z-10">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 sm:pb-6 mb-6 sm:mb-8 border-b border-brand-peach/50 relative z-10">
           <div>
             <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
               The Project Container <span className="text-brand-orange">Architecture</span>
@@ -152,7 +157,7 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* 4 Connected Category Tabs */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 mb-8 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 min-[360px]:gap-3 sm:gap-3.5 mb-8 relative z-10">
           {COMPARTMENTS.map((comp) => {
             const Icon = comp.icon;
             const isActive = activeCompartmentId === comp.id;
@@ -162,37 +167,38 @@ export const Projects: React.FC = () => {
                 key={comp.id}
                 type="button"
                 onClick={() => setActiveCompartmentId(comp.id)}
-                className={`p-4 sm:p-5 rounded-2xl border-2 text-left transition-all cursor-pointer select-none flex flex-col justify-between group ${
+                className={`p-3 min-[360px]:p-3.5 sm:p-5 rounded-2xl border-2 text-left transition-all cursor-pointer select-none flex flex-col justify-between group h-full min-h-[138px] min-[360px]:min-h-[142px] sm:min-h-[148px] ${
                   isActive
-                    ? 'bg-brand-orange-light/50 border-brand-orange shadow-warm-md scale-[1.02]'
+                    ? 'bg-brand-orange-light/50 border-brand-orange shadow-warm-md scale-[1.01] sm:scale-[1.02]'
                     : 'bg-surface-tier1/50 border-brand-peach/40 hover:border-brand-peach hover:bg-surface-tier1'
                 }`}
               >
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-between gap-1.5 min-[360px]:gap-2 sm:gap-3 mb-2.5 sm:mb-3 min-w-0">
                   <div
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all group-hover:scale-110 group-hover:rotate-6 ${
+                    className={`w-7 h-7 min-[360px]:w-8 min-[360px]:h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0 transition-all group-hover:scale-110 group-hover:rotate-6 ${
                       isActive
                         ? 'bg-brand-orange text-white shadow-warm-xs'
                         : 'bg-white text-terracotta border border-brand-peach/60'
                     }`}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-3.5 h-3.5 min-[360px]:w-4 min-[360px]:h-4 sm:w-5 sm:h-5" />
                   </div>
                   <span
-                    className={`text-xs font-mono font-bold px-2.5 py-0.5 rounded-full border ${comp.badgeBg}`}
+                    className={`min-w-0 flex flex-col sm:inline-flex sm:flex-row items-center sm:items-baseline justify-center text-center px-1.5 min-[360px]:px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-lg sm:rounded-full border font-mono font-bold text-[9px] min-[360px]:text-[10px] min-[390px]:text-[10.5px] sm:text-xs leading-[1.15] sm:leading-tight tracking-tight sm:tracking-normal ${comp.badgeBg}`}
                   >
-                    {comp.subtitle}
+                    <span>{comp.subtitleLines[0]}</span>
+                    <span className="sm:ml-1">{comp.subtitleLines[1]}</span>
                   </span>
                 </div>
 
-                <div>
-                  <h3 className="font-heading font-bold text-[17px] sm:text-base text-espresso flex items-center justify-between">
+                <div className="mt-auto">
+                  <h3 className="font-heading font-bold text-[15px] min-[360px]:text-base sm:text-base text-espresso flex items-center justify-between">
                     <span>{comp.name}</span>
                     {isActive && (
-                      <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping" />
+                      <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping shrink-0 ml-1" />
                     )}
                   </h3>
-                  <p className="text-[13px] sm:text-xs text-terracotta-muted mt-0.5">
+                  <p className="text-[12px] min-[360px]:text-[13px] sm:text-xs text-terracotta-muted mt-0.5 leading-snug">
                     {isActive ? 'Active Connection' : 'Click to inspect'}
                   </p>
                 </div>

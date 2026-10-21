@@ -9,6 +9,7 @@ const ThreeBackground = lazy(() => import('./components/common/ThreeBackground')
 import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
 import { DemoModal } from './components/common/DemoModal';
+import { ScrollToTop } from './components/common/ScrollToTop';
 
 // Marketing Critical Landing Page (eagerly imported for instant render)
 import { Home } from './pages/marketing/Home';
@@ -108,6 +109,10 @@ const MarketingLayout: React.FC = () => {
             <Route path="/organization-execution/:deptId" element={<DepartmentWorkflow />} />
             <Route path="/organization-execution" element={<DepartmentWorkflow />} />
 
+            {/* Direct Activity Route Aliases */}
+            <Route path="/activity" element={<Navigate to="/app/activity" replace />} />
+            <Route path="/recent-activity" element={<Navigate to="/app/activity" replace />} />
+
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
@@ -122,6 +127,7 @@ export function App() {
   return (
     <AppProvider>
       <Router>
+        <ScrollToTop />
         <Suspense fallback={null}>
           <Routes>
             {/* Auth Routes */}

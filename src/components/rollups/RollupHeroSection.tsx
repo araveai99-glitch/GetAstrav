@@ -68,7 +68,7 @@ const ROLLUP_STEPS: RollupStep[] = [
 
 export const RollupHeroSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.25 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.05 });
   const shouldReduceMotion = useReducedMotion();
 
   // Staggered node animation variants
@@ -77,26 +77,26 @@ export const RollupHeroSection: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: shouldReduceMotion ? 0 : 0.16,
-        delayChildren: 0.15,
+        staggerChildren: shouldReduceMotion ? 0 : 0.12,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 16, scale: 0.96 },
+    hidden: { opacity: 0, y: 12, scale: 0.98 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 0.45, ease: 'easeOut' },
+      transition: { duration: 0.4, ease: 'easeOut' },
     },
   };
 
   return (
     <section
       ref={sectionRef}
-      className="relative pt-16 sm:pt-20 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto overflow-hidden"
+      className="relative pt-20 sm:pt-24 pb-3 sm:pb-5 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto overflow-hidden"
     >
       {/* Subtle Ambient Decorative Glow */}
       <motion.div
@@ -113,21 +113,21 @@ export const RollupHeroSection: React.FC = () => {
       />
 
       {/* Header Container */}
-      <div className="text-left w-full max-w-5xl 2xl:max-w-6xl space-y-1.5 sm:space-y-2 mb-5 sm:mb-6">
+      <div className="text-left w-full max-w-5xl 2xl:max-w-6xl space-y-1 sm:space-y-2 mb-4 sm:mb-6">
         <motion.h1
-          initial={{ opacity: 0, y: 14 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
-          transition={{ duration: 0.4, delay: 0.05 }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left lg:whitespace-nowrap"
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{ duration: 0.35, delay: 0.05 }}
+          className="text-2xl min-[375px]:text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left lg:whitespace-nowrap"
         >
           Every Task Moves the Bigger Goal <span className="text-brand-orange">Forward.</span>
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-          transition={{ duration: 0.4, delay: 0.16 }}
-          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left lg:whitespace-nowrap"
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{ duration: 0.35, delay: 0.12 }}
+          className="text-sm sm:text-base lg:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left lg:whitespace-nowrap"
         >
           Complete everyday work and watch project and goal progress update automatically.
         </motion.p>
@@ -139,7 +139,7 @@ export const RollupHeroSection: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-7 relative"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-7 relative"
         >
           {ROLLUP_STEPS.map((item, index) => {
             const Icon = item.icon;
@@ -149,7 +149,7 @@ export const RollupHeroSection: React.FC = () => {
               <motion.div
                 key={item.id}
                 variants={itemVariants}
-                className="relative bg-white rounded-3xl p-6 sm:p-7 lg:p-8 min-h-[220px] sm:min-h-[240px] border-2 border-brand-peach/80 shadow-warm-md hover:shadow-warm-xl transition-all duration-300 flex flex-col justify-between group"
+                className="relative bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 min-h-[160px] sm:min-h-[200px] lg:min-h-[240px] border-2 border-brand-peach/80 shadow-warm-md hover:shadow-warm-xl transition-all duration-300 flex flex-col justify-between group"
               >
                 {/* Connector Arrow for Desktop */}
                 {!isLast && (
@@ -160,36 +160,36 @@ export const RollupHeroSection: React.FC = () => {
 
                 <div>
                   {/* Top row: step & badge */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono font-bold text-terracotta-muted/90 bg-surface-tier1 px-3 py-1 rounded-full border border-brand-peach/50">
+                  <div className="flex items-center justify-between mb-2.5 sm:mb-4">
+                    <span className="text-[11px] sm:text-xs font-mono font-bold text-terracotta-muted/90 bg-surface-tier1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-brand-peach/50">
                       STEP 0{item.step}
                     </span>
                     <span
-                      className={`inline-flex items-center gap-1.5 text-xs font-heading font-extrabold px-3 py-1 rounded-lg ${item.badgeBg} ${item.badgeText}`}
+                      className={`inline-flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs font-heading font-extrabold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-lg ${item.badgeBg} ${item.badgeText}`}
                     >
-                      <Icon className="w-3.5 h-3.5" />
+                      <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                       {item.title}
                     </span>
                   </div>
 
                   {/* Title and subtitle */}
-                  <h3 className="font-heading font-extrabold text-lg sm:text-xl lg:text-2xl text-espresso leading-snug group-hover:text-brand-orange transition-colors">
+                  <h3 className="font-heading font-extrabold text-base sm:text-xl lg:text-2xl text-espresso leading-snug group-hover:text-brand-orange transition-colors">
                     {item.example}
                   </h3>
-                  <p className="text-[15px] sm:text-base text-terracotta-muted font-normal mt-1.5">
+                  <p className="text-xs sm:text-sm lg:text-base text-terracotta-muted font-normal mt-0.5 sm:mt-1.5">
                     {item.subtitle}
                   </p>
                 </div>
 
                 {/* Progress bar visual indicator */}
-                <div className="mt-6 pt-4 border-t border-brand-peach/50">
-                  <div className="flex items-center justify-between text-xs sm:text-sm mb-2 font-medium">
-                    <span className="text-terracotta-muted text-xs sm:text-sm font-semibold">Rollup Progress</span>
-                    <span className="font-heading font-extrabold text-base sm:text-lg text-espresso">
+                <div className="mt-3.5 sm:mt-6 pt-2.5 sm:pt-4 border-t border-brand-peach/50">
+                  <div className="flex items-center justify-between text-xs sm:text-sm mb-1.5 sm:mb-2 font-medium">
+                    <span className="text-terracotta-muted text-[11px] sm:text-sm font-semibold">Rollup Progress</span>
+                    <span className="font-heading font-extrabold text-sm sm:text-lg text-espresso">
                       {item.progress}%
                     </span>
                   </div>
-                  <div className="w-full h-3 sm:h-3.5 rounded-full bg-surface-tier1 overflow-hidden border border-brand-peach/50 p-0.5">
+                  <div className="w-full h-2.5 sm:h-3.5 rounded-full bg-surface-tier1 overflow-hidden border border-brand-peach/50 p-0.5">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={
@@ -198,8 +198,8 @@ export const RollupHeroSection: React.FC = () => {
                           : { width: 0 }
                       }
                       transition={{
-                        duration: 0.7,
-                        delay: 0.25 + index * 0.12,
+                        duration: 0.65,
+                        delay: 0.15 + index * 0.1,
                         ease: 'easeOut',
                       }}
                       className={`h-full rounded-full ${item.barColor}`}
@@ -213,12 +213,12 @@ export const RollupHeroSection: React.FC = () => {
 
         {/* Informative Flow Indicator Underneath */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-          transition={{ duration: 0.4, delay: 0.65 }}
-          className="mt-4 text-center"
+          initial={{ opacity: 0, y: 8 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+          transition={{ duration: 0.35, delay: 0.5 }}
+          className="mt-3 sm:mt-4 text-center"
         >
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/90 border border-brand-peach/80 shadow-warm-xs text-[13px] sm:text-sm font-semibold text-terracotta">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 sm:px-5 sm:py-2 rounded-full bg-white/90 border border-brand-peach/80 shadow-warm-xs text-xs sm:text-sm font-semibold text-terracotta">
             <Sparkles className="w-3.5 h-3.5 text-brand-orange shrink-0" />
             <span>Zero manual status reports — every completed item automatically rolls up</span>
           </div>

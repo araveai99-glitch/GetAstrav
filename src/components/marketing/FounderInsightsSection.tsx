@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import {
   Check,
   TrendingUp,
   AlertTriangle,
   BarChart3,
-  X,
   ArrowUpRight,
-  CheckCircle2,
-  Sparkles,
 } from 'lucide-react';
 import { MotionWrapper } from '../common/MotionWrapper';
 
@@ -20,13 +18,10 @@ interface FloatingInsightCard {
   icon: React.ElementType;
   iconBg: string;
   iconColor: string;
-  // Responsive desktop percentage positions
-  desktopTop: string;
-  desktopLeft?: string;
-  desktopRight?: string;
+  top: string;
+  left?: string;
+  right?: string;
   isAlert?: boolean;
-  deepDive: string;
-  metrics: string[];
 }
 
 const INSIGHT_CARDS: FloatingInsightCard[] = [
@@ -38,11 +33,8 @@ const INSIGHT_CARDS: FloatingInsightCard[] = [
     icon: TrendingUp,
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
-    desktopTop: '12%',
-    desktopLeft: '26%',
-    deepDive:
-      'Brand acquisition channels and automated milestone rollups are exceeding targets. CAC down 14% over the last 30 days.',
-    metrics: ['Organic Traffic: +28%', 'Conversion Velocity: 4.2%', 'Active Pipeline: 42 Leads'],
+    top: '8%',
+    left: '20%',
   },
   {
     id: 'engineering',
@@ -52,12 +44,9 @@ const INSIGHT_CARDS: FloatingInsightCard[] = [
     icon: AlertTriangle,
     iconBg: 'bg-[#fef3dc]',
     iconColor: 'text-[#fab60a]',
-    desktopTop: '32%',
-    desktopLeft: '50%',
+    top: '38%',
+    left: '42%',
     isAlert: true,
-    deepDive:
-      'Two critical API gateway optimization deliverables have missed their SLA deadline by 48 hours. CTO Marcus has reallocated 2 senior engineers to resolve by EOD.',
-    metrics: ['Gateway Latency: 240ms (Target: 80ms)', 'Sprint Progress: 78%', '2 Blockers Flagged'],
   },
   {
     id: 'sales',
@@ -67,16 +56,13 @@ const INSIGHT_CARDS: FloatingInsightCard[] = [
     icon: BarChart3,
     iconBg: 'bg-[#edf7f3]',
     iconColor: 'text-[#2e936f]',
-    desktopTop: '54%',
-    desktopRight: '4%',
-    deepDive:
-      'Enterprise pipeline advanced 3 tier-1 deals into legal review. Founder signoff scheduled for Thursday morning.',
-    metrics: ['ARR Pipeline: $480K', 'Win Rate: 34%', '3 Enterprise MSA Signoffs Pending'],
+    top: '68%',
+    right: '4%',
   },
 ];
 
 export const FounderInsightsSection: React.FC = () => {
-  const [selectedInsight, setSelectedInsight] = useState<FloatingInsightCard | null>(null);
+  const navigate = useNavigate();
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
@@ -133,18 +119,18 @@ export const FounderInsightsSection: React.FC = () => {
                       viewport={{ once: false, amount: 0.2 }}
                       onMouseEnter={() => setHoveredId(card.id)}
                       onMouseLeave={() => setHoveredId(null)}
-                      onClick={() => setSelectedInsight(card)}
-                      whileHover={{ scale: 1.05, y: -4 }}
-                      whileTap={{ scale: 0.96 }}
+                      onClick={() => navigate(`/department-workflow/${card.id}`)}
+                      whileHover={{ scale: 1.04, y: -2 }}
+                      whileTap={{ scale: 0.97 }}
                       transition={{
                         opacity: { duration: 0.45, delay: 0.2 + idx * 0.1, ease: 'easeOut' },
                         y: { duration: 0.45, delay: 0.2 + idx * 0.1, ease: 'easeOut' },
                         scale: { type: 'spring', stiffness: 400, damping: 25 },
                       }}
-                      className={`absolute z-20 cursor-pointer transition-all duration-200
+                      className={`absolute z-20 cursor-pointer select-none transition-all duration-200
                         bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl
-                        p-2 sm:p-2.5 md:p-3
-                        border shadow-[0_10px_25px_-5px_rgba(42,26,20,0.2)]
+                        px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-3.5 md:py-2.5
+                        border shadow-[0_8px_20px_-4px_rgba(42,26,20,0.18)]
                         ${
                           isHovered
                             ? 'border-brand-orange ring-2 ring-brand-orange/40 shadow-[0_12px_28px_rgba(241,94,28,0.25)]'
@@ -152,11 +138,11 @@ export const FounderInsightsSection: React.FC = () => {
                         }
                       `}
                       style={{
-                        top: card.desktopTop,
-                        left: card.desktopLeft,
-                        right: card.desktopRight,
+                        top: card.top,
+                        left: card.left,
+                        right: card.right,
                       }}
-                      title={`Click to inspect ${card.title} performance intelligence`}
+                      title={`View ${card.title} workflow`}
                     >
                       <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
                         {/* Department Icon Badge */}
@@ -168,22 +154,22 @@ export const FounderInsightsSection: React.FC = () => {
                           />
                         </div>
 
-                          {/* Text Metrics */}
-                        <div className="leading-tight">
-                          <div className="flex items-center gap-1.5">
-                            <span className="font-heading font-extrabold text-[11.5px] xs:text-xs md:text-sm text-espresso">
+                        {/* Text Metrics */}
+                        <div className="leading-tight min-w-0">
+                          <div className="flex items-center gap-1.5 whitespace-nowrap">
+                            <span className="font-heading font-extrabold text-[11px] xs:text-xs sm:text-xs md:text-sm text-espresso">
                               {card.title}
                             </span>
                             <span
                               className={`w-1.5 h-1.5 rounded-full ${
-                                card.isAlert ? 'bg-amber-500 animate-ping' : 'bg-brand-orange'
+                                card.isAlert ? 'bg-amber-500' : 'bg-brand-orange'
                               }`}
                             />
                             <ArrowUpRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-terracotta-muted ml-auto hidden sm:inline-block opacity-60 group-hover:opacity-100" />
                           </div>
 
                           <span
-                            className={`text-[10px] xs:text-[11px] md:text-xs block font-heading ${
+                            className={`text-[9.5px] xs:text-[10px] sm:text-[11px] md:text-xs block font-heading whitespace-nowrap mt-0.5 ${
                               card.isAlert
                                 ? 'text-amber-800 font-bold'
                                 : 'text-terracotta-muted font-medium'
@@ -193,7 +179,7 @@ export const FounderInsightsSection: React.FC = () => {
                           </span>
 
                           <span
-                            className={`text-[9.5px] xs:text-[10.5px] md:text-xs block font-mono font-bold ${
+                            className={`text-[9px] xs:text-[9.5px] sm:text-[10.5px] md:text-xs block font-mono font-bold whitespace-nowrap mt-0.5 ${
                               card.isAlert ? 'text-amber-600' : 'text-brand-green'
                             }`}
                           >
@@ -206,14 +192,22 @@ export const FounderInsightsSection: React.FC = () => {
                 })}
               </div>
 
-              {/* Mobile Quick Inspector Bar (Visible on mobile screens < 640px) */}
-              <div className="sm:hidden px-3.5 py-2.5 bg-white border-t border-brand-peach/40 flex items-center justify-between text-xs">
-                <span className="text-xs font-heading font-bold text-espresso flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-brand-green animate-ping" />
-                  3 Live Department Signals
+              {/* Department Signals Caption Bar */}
+              <div
+                onClick={() => navigate('/department-workflow/marketing')}
+                className="px-4 py-3 sm:px-6 sm:py-3.5 bg-white border-t border-brand-peach/40 flex items-center justify-between text-xs sm:text-sm cursor-pointer hover:bg-surface-tier1 transition-colors group/caption select-none"
+                title="View live department workflows"
+              >
+                <span className="font-heading font-bold text-espresso flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-green" />
+                  </span>
+                  <span>3 Live Department Signals</span>
                 </span>
-                <span className="text-[11px] xs:text-xs font-heading font-bold text-brand-orange">
-                  Tap cards to inspect
+                <span className="font-heading font-bold text-brand-orange flex items-center gap-1 group-hover/caption:translate-x-0.5 transition-transform">
+                  <span>Tap cards to inspect</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-brand-orange" />
                 </span>
               </div>
             </div>
@@ -259,73 +253,6 @@ export const FounderInsightsSection: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Detail Modal when Insight card is clicked */}
-      <AnimatePresence>
-        {selectedInsight && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/45 backdrop-blur-sm animate-fadeIn">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 12 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 12 }}
-              className="relative w-full max-w-md bg-white rounded-3xl p-6 shadow-2xl border border-brand-peach space-y-4"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <div
-                    className={`w-9 h-9 rounded-xl ${selectedInsight.iconBg} flex items-center justify-center`}
-                  >
-                    <selectedInsight.icon className={`w-5 h-5 ${selectedInsight.iconColor}`} />
-                  </div>
-                  <div>
-                    <h3 className="font-heading font-extrabold text-lg text-espresso">
-                      {selectedInsight.title} Intelligence
-                    </h3>
-                    <span className="text-xs font-mono font-semibold text-terracotta-muted">
-                      Status: {selectedInsight.status} ({selectedInsight.delta})
-                    </span>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setSelectedInsight(null)}
-                  className="p-1.5 rounded-full hover:bg-surface-tier1 text-terracotta cursor-pointer"
-                  aria-label="Close modal"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              <div className="p-3.5 rounded-2xl bg-surface-ambient border border-brand-peach/50 text-[13px] sm:text-sm text-espresso leading-relaxed">
-                {selectedInsight.deepDive}
-              </div>
-
-              <div className="space-y-2 pt-1">
-                <span className="text-xs font-heading font-bold uppercase tracking-wider text-espresso block">
-                  Active Metrics
-                </span>
-                <div className="space-y-1.5">
-                  {selectedInsight.metrics.map((m, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-2 text-xs sm:text-[13px] text-espresso bg-white px-3 py-1.5 rounded-xl border border-brand-peach/40"
-                    >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-green shrink-0" />
-                      <span>{m}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <button
-                onClick={() => setSelectedInsight(null)}
-                className="w-full py-2.5 rounded-full bg-brand-orange text-white font-heading font-bold text-xs sm:text-sm shadow-md shadow-brand-orange/20 cursor-pointer hover:bg-brand-orange-hover transition-colors"
-              >
-                Close Inspection
-              </button>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };

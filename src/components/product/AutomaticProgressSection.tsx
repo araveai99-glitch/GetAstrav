@@ -27,7 +27,7 @@ export const AutomaticProgressSection: React.FC = () => {
   ]);
 
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.15 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.05 });
   const shouldReduceMotion = useReducedMotion();
 
   const toggleSubtask = (id: string) => {
@@ -78,20 +78,20 @@ export const AutomaticProgressSection: React.FC = () => {
       {/* Section Header with Repeat-on-Scroll */}
       <div className="text-left w-full max-w-5xl space-y-2 sm:space-y-2.5 mb-6 sm:mb-8">
         <motion.h2
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.4, delay: 0.05 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.35, delay: 0.05 }}
           className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
         >
           See Progress as Work Gets Done.
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.35, delay: 0.12 }}
           className="text-base sm:text-lg text-terracotta leading-relaxed font-normal text-left max-w-4xl lg:whitespace-nowrap"
         >
           Complete a task and watch overall progress update automatically.
@@ -102,10 +102,10 @@ export const AutomaticProgressSection: React.FC = () => {
       <div className="rounded-3xl bg-white border border-brand-peach/80 p-5 sm:p-7 lg:p-9 shadow-warm-lg space-y-6 sm:space-y-7">
         {/* Simple 4-Step Rollup Flow Indicator with animated connector pulse */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.4 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.35 }}
           className="flex flex-wrap items-center justify-between p-3.5 rounded-2xl bg-surface-ambient border border-brand-peach/60 text-[13px] sm:text-xs font-mono font-bold text-terracotta gap-3 relative overflow-hidden"
         >
           {/* Connecting Pulse Beam */}
@@ -150,10 +150,10 @@ export const AutomaticProgressSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* LEFT: Checkable Subtasks Trigger (5 cols) */}
           <motion.div
-            initial={{ opacity: 0, x: -16 }}
+            initial={{ opacity: 0, x: -12 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.45 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.4 }}
             className="lg:col-span-5 space-y-4 p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 shadow-warm-xs"
           >
             <div className="flex items-center justify-between pb-1">
@@ -230,10 +230,10 @@ export const AutomaticProgressSection: React.FC = () => {
 
           {/* RIGHT: Connected Rollup Cards (Milestone -> Goal) (7 cols) */}
           <motion.div
-            initial={{ opacity: 0, x: 16 }}
+            initial={{ opacity: 0, x: 12 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.45, delay: 0.1 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.4, delay: 0.08 }}
             className="lg:col-span-7 space-y-4"
           >
             {/* Milestone Card */}

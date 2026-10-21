@@ -33,7 +33,7 @@ export const InteractiveRollupDemo: React.FC = () => {
   const [lastToggledId, setLastToggledId] = useState<string | null>(null);
 
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.05 });
   const shouldReduceMotion = useReducedMotion();
 
   // Handle task toggle
@@ -91,7 +91,7 @@ export const InteractiveRollupDemo: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto relative overflow-hidden"
+      className="pt-2 sm:pt-4 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto relative overflow-hidden"
     >
       {/* Background Soft Glow */}
       <motion.div
@@ -108,21 +108,23 @@ export const InteractiveRollupDemo: React.FC = () => {
       />
 
       {/* Section Header */}
-      <div className="text-left w-full max-w-5xl space-y-1.5 sm:space-y-2 mb-5 sm:mb-6">
+      <div className="text-left w-full max-w-5xl space-y-1 sm:space-y-1.5 mb-3.5 sm:mb-5">
         <motion.h2
-          initial={{ opacity: 0, y: 12 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-          transition={{ duration: 0.4, delay: 0.05 }}
-          className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.35, delay: 0.05 }}
+          className="text-2xl min-[375px]:text-[26px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
         >
           See Progress Add Up.
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-          transition={{ duration: 0.4, delay: 0.16 }}
-          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left lg:whitespace-nowrap"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.35, delay: 0.1 }}
+          className="text-sm sm:text-base lg:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left lg:whitespace-nowrap"
         >
           Complete a task and watch the bigger picture change.
         </motion.p>
@@ -130,10 +132,11 @@ export const InteractiveRollupDemo: React.FC = () => {
 
       {/* Main Diagram Card Container (Expanded 1720px Width) */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-brand-peach/80 shadow-warm-xl w-full mx-auto relative overflow-hidden"
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.05 }}
+        transition={{ duration: 0.45, delay: 0.12 }}
+        className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-7 lg:p-10 border-2 border-brand-peach/80 shadow-warm-xl w-full mx-auto relative overflow-hidden"
       >
         {/* Sample Data Disclaimer & Control Top Bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-brand-peach/50">
