@@ -4,8 +4,8 @@ import {
   CheckSquare,
   Square,
   CheckCircle2,
-  FolderGit2,
-  Flag,
+  FolderKanban,
+  Milestone,
   Target,
   ArrowRight,
   ArrowDown,
@@ -322,8 +322,8 @@ export const InteractiveRollupDemo: React.FC = () => {
             <div className="p-5 sm:p-6 lg:p-7 rounded-2xl sm:rounded-3xl bg-surface-tier1 border-2 border-brand-peach/60 shadow-warm-xs space-y-3 sm:space-y-3.5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center shrink-0">
-                    <FolderGit2 className="w-5 h-5" />
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/25 text-brand-orange flex items-center justify-center shrink-0 shadow-sm">
+                    <FolderKanban className="w-5 h-5" strokeWidth={2} />
                   </div>
                   <div>
                     <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
@@ -362,8 +362,8 @@ export const InteractiveRollupDemo: React.FC = () => {
             <div className="p-5 sm:p-6 lg:p-7 rounded-2xl sm:rounded-3xl bg-surface-tier1 border-2 border-brand-peach/60 shadow-warm-xs space-y-3 sm:space-y-3.5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-100 text-brand-yellow flex items-center justify-center shrink-0">
-                    <Flag className="w-5 h-5" />
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0] border border-brand-yellow/35 text-amber-700 flex items-center justify-center shrink-0 shadow-sm shadow-brand-yellow/10">
+                    <Milestone className="w-5 h-5" strokeWidth={2} />
                   </div>
                   <div>
                     <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">

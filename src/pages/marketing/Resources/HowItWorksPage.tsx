@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { motion, useInView, useReducedMotion, AnimatePresence } from 'framer-motion';
 import {
   Target,
-  FolderGit2,
+  FolderKanban,
   Users,
-  CheckSquare,
+  ListChecks,
   TrendingUp,
   CheckCircle2,
   Square,
@@ -18,6 +18,7 @@ import {
   Check,
 } from 'lucide-react';
 import { openDemoModal } from '../../../components/common/DemoModal';
+import { IllustratedCardBadge } from '../../../components/common/IllustratedCardBadge';
 
 interface SimTask {
   id: string;
@@ -104,7 +105,7 @@ export const HowItWorksPage: React.FC = () => {
       title: 'Plan Projects',
       subtitle: 'Break into deliverables',
       example: 'e.g. Customer Onboarding Redesign & Automation',
-      icon: FolderGit2,
+      icon: FolderKanban,
       color: 'text-[#b45309]',
       badgeBg: 'bg-[#fef9c3] text-[#b45309] border-amber-200',
       activeRing: 'border-amber-400 ring-amber-200/40',
@@ -126,7 +127,7 @@ export const HowItWorksPage: React.FC = () => {
       title: 'Complete Work',
       subtitle: 'Verify deliverable',
       example: 'e.g. Verification check passes with zero friction',
-      icon: CheckSquare,
+      icon: ListChecks,
       color: 'text-brand-green',
       badgeBg: 'bg-brand-green-light text-brand-green border-brand-green/30',
       activeRing: 'border-brand-green ring-brand-green/20',
@@ -155,14 +156,14 @@ export const HowItWorksPage: React.FC = () => {
     },
     projects: {
       title: 'Core Projects',
-      icon: FolderGit2,
+      icon: FolderKanban,
       badge: 'Level 2: Strategic Initiatives',
       description: 'Projects bridge high-level goals with departmental execution. Each project aggregates progress directly from completed tasks, calculating real-time milestone health.',
       benefit: 'Cross-functional dependencies stay visible with zero manual reporting.',
     },
     tasks: {
       title: 'Everyday Tasks',
-      icon: CheckSquare,
+      icon: ListChecks,
       badge: 'Level 3: Actionable Deliverables',
       description: 'Tasks are assigned to dedicated pods and individual owners with unambiguous acceptance criteria. Checking off a task triggers instantaneous progress updates upwards.',
       benefit: 'Zero ambiguity on who owns what deliverable and when it is due.',
@@ -243,9 +244,18 @@ export const HowItWorksPage: React.FC = () => {
           {/* 5 Stages Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 relative z-10">
             {WORKFLOW_STAGES.map((stage, idx) => {
-              const Icon = stage.icon;
               const isSelected = activeWorkflowStage === idx;
-              const delay = shouldReduceMotion ? 0 : 0.1 * idx;
+              const delay = shouldReduceMotion ? 0 : 0.08 * idx;
+              const badgeVariant =
+                stage.id === 'stage-goal'
+                  ? 'goal'
+                  : stage.id === 'stage-projects'
+                  ? 'projects'
+                  : stage.id === 'stage-tasks'
+                  ? 'tasks'
+                  : stage.id === 'stage-complete'
+                  ? 'control'
+                  : 'progress';
 
               return (
                 <motion.div
@@ -258,38 +268,38 @@ export const HowItWorksPage: React.FC = () => {
                   }
                   transition={{ duration: 0.45, delay }}
                   onClick={() => setActiveWorkflowStage(idx)}
-                  className={`cursor-pointer rounded-2xl p-5 border transition-all duration-300 flex flex-col justify-between group ${
+                  className={`cursor-pointer rounded-3xl p-5 sm:p-5.5 border transition-all duration-300 flex flex-col justify-between group ${
                     isSelected
                       ? `bg-white shadow-warm-md ring-2 scale-[1.02] ${stage.activeRing}`
-                      : 'bg-surface-ambient hover:bg-white border-brand-peach/70 hover:border-brand-orange/40 shadow-warm-2xs'
+                      : 'bg-white hover:bg-surface-ambient/50 border-brand-peach/80 hover:border-brand-orange/40 shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:-translate-y-1'
                   }`}
                 >
-                  <div className="space-y-3.5">
-                    {/* Top Row: Stage Number & Icon */}
+                  <div className="space-y-4">
+                    {/* Top Row: Illustrated Badge & Stage Tag */}
                     <div className="flex items-center justify-between">
-                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold transition-all shadow-sm ${
-                        isSelected
-                          ? 'bg-brand-orange text-white shadow-glow-orange scale-105'
-                          : 'bg-white border border-brand-peach/80 text-brand-orange group-hover:bg-brand-orange group-hover:text-white'
+                      <IllustratedCardBadge
+                        variant={badgeVariant}
+                        size="sm"
+                        stepNumber={stage.step}
+                      />
+                      <span className={`font-mono font-extrabold text-xs px-2 py-0.5 rounded-full ${
+                        isSelected ? 'bg-brand-orange text-white' : 'bg-surface-tier1 text-terracotta-muted border border-brand-peach/50'
                       }`}>
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="font-mono font-extrabold text-xs min-[375px]:text-sm text-terracotta-muted">
-                        STAGE {stage.step}
+                        STEP {stage.step}
                       </span>
                     </div>
 
                     <div>
-                      <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso group-hover:text-brand-orange transition-colors">
+                      <h3 className="font-heading font-extrabold text-[18px] sm:text-base text-espresso group-hover:text-brand-orange transition-colors">
                         {stage.title}
                       </h3>
-                      <span className="text-xs min-[375px]:text-sm font-mono text-terracotta-muted block mt-0.5">
+                      <span className="text-xs min-[375px]:text-sm font-medium text-terracotta-muted block mt-0.5">
                         {stage.subtitle}
                       </span>
                     </div>
 
                     {/* Stage Example Box */}
-                    <div className="p-2.5 rounded-xl bg-surface-tier1 border border-brand-peach/50 text-xs min-[375px]:text-sm text-terracotta leading-snug">
+                    <div className="p-2.5 rounded-xl bg-surface-tier1 border border-brand-peach/50 text-xs text-terracotta leading-snug">
                       <span className="font-bold text-espresso block mb-0.5">Example:</span>
                       <span>{stage.example}</span>
                     </div>
@@ -299,7 +309,7 @@ export const HowItWorksPage: React.FC = () => {
                     <span className={`font-mono font-bold ${isSelected ? 'text-brand-orange' : 'text-terracotta-muted'}`}>
                       {isSelected ? '● Active View' : 'Click to inspect'}
                     </span>
-                    <ArrowRight className="w-3.5 h-3.5 text-brand-orange" />
+                    <ArrowRight className="w-3.5 h-3.5 text-brand-orange group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </motion.div>
               );
@@ -415,7 +425,7 @@ export const HowItWorksPage: React.FC = () => {
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
-                  <FolderGit2 className="w-4 h-4 text-brand-orange" />
+                  <FolderKanban className="w-4 h-4 text-brand-orange stroke-[2]" />
                   <span className="font-heading font-extrabold text-espresso text-sm min-[375px]:text-base">
                     Connected Project: Onboarding Engine
                   </span>
@@ -530,7 +540,7 @@ export const HowItWorksPage: React.FC = () => {
               {
                 id: 'projects',
                 label: '2. Core Projects',
-                icon: FolderGit2,
+                icon: FolderKanban,
                 tag: 'Deliverables',
                 mobileTagLines: ['Deliver-', 'ables'],
                 color: 'border-amber-400 text-amber-600'
@@ -538,7 +548,7 @@ export const HowItWorksPage: React.FC = () => {
               {
                 id: 'tasks',
                 label: '3. Everyday Tasks',
-                icon: CheckSquare,
+                icon: ListChecks,
                 tag: 'Actionable',
                 mobileTagLines: ['Action-', 'able'],
                 color: 'border-brand-green text-brand-green'
@@ -567,31 +577,31 @@ export const HowItWorksPage: React.FC = () => {
                   }
                   transition={{ duration: 0.4, delay }}
                   onClick={() => setSelectedSpoke(spoke.id)}
-                  className={`cursor-pointer rounded-2xl p-3 min-[360px]:p-3.5 sm:p-5 border transition-all duration-200 flex flex-col justify-between group h-full min-h-[140px] min-[360px]:min-h-[146px] sm:min-h-[160px] ${
+                  className={`cursor-pointer rounded-2xl sm:rounded-3xl p-3.5 min-[360px]:p-4 sm:p-5 border transition-all duration-300 flex flex-col justify-between group h-full min-h-[148px] sm:min-h-[168px] ${
                     isSelected
                       ? 'bg-white border-brand-orange shadow-warm-md ring-2 ring-brand-orange/20 scale-[1.01] sm:scale-[1.02]'
-                      : 'bg-white/80 hover:bg-white border-brand-peach/70 hover:border-brand-orange/40 shadow-warm-2xs'
+                      : 'bg-white hover:bg-surface-ambient/60 border-brand-peach/80 hover:border-brand-orange/40 shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:-translate-y-0.5'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-1.5 min-[360px]:gap-2 sm:gap-3 mb-2.5 sm:mb-3 min-w-0">
-                    <div className={`w-7 h-7 min-[360px]:w-8 min-[360px]:h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center font-bold shrink-0 transition-transform group-hover:scale-105 ${
-                      isSelected ? 'bg-brand-orange text-white shadow-warm-xs' : 'bg-surface-tier1 text-brand-orange border border-brand-peach/40'
+                    <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl flex items-center justify-center font-bold shrink-0 transition-transform group-hover:scale-105 shadow-sm ${
+                      isSelected ? 'bg-gradient-to-br from-brand-orange to-[#d94e10] text-white shadow-glow-orange' : 'bg-surface-tier1 text-brand-orange border border-brand-peach/60'
                     }`}>
-                      <Icon className="w-3.5 h-3.5 min-[360px]:w-4 min-[360px]:h-4 sm:w-4.5 sm:h-4.5" />
+                      <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
                     </div>
-                    <span className="min-w-0 flex flex-col sm:inline-flex sm:flex-row items-center sm:items-baseline justify-center text-center text-[9px] min-[360px]:text-[10px] sm:text-xs font-mono font-bold text-terracotta-muted px-1.5 min-[360px]:px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-lg sm:rounded-full bg-surface-tier1 border border-brand-peach/50 leading-tight tracking-tight sm:tracking-normal">
+                    <span className="min-w-0 flex flex-col sm:inline-flex sm:flex-row items-center sm:items-baseline justify-center text-center text-[10px] min-[360px]:text-xs font-mono font-bold text-terracotta-muted px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50 leading-tight">
                       <span className="sm:hidden">{spoke.mobileTagLines[0]}</span>
                       <span className="sm:hidden">{spoke.mobileTagLines[1]}</span>
                       <span className="hidden sm:inline">{spoke.tag}</span>
                     </span>
                   </div>
                   <div className="mt-auto">
-                    <h4 className={`font-heading font-extrabold text-[14.5px] min-[360px]:text-[15px] sm:text-lg transition-colors leading-snug ${
+                    <h4 className={`font-heading font-extrabold text-[15px] sm:text-lg transition-colors leading-snug ${
                       isSelected ? 'text-brand-orange' : 'text-espresso group-hover:text-brand-orange'
                     }`}>
                       {spoke.label}
                     </h4>
-                    <span className="text-[11.5px] min-[360px]:text-xs sm:text-sm font-medium text-brand-orange mt-1 block">
+                    <span className="text-xs sm:text-sm font-medium text-brand-orange mt-1 block">
                       {isSelected ? '● Currently Selected' : 'Click to inspect'}
                     </span>
                   </div>

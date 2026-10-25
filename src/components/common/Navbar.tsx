@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Layers, ChevronDown, Menu, X, ArrowRight, Compass } from 'lucide-react';
+import { Layers, ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { openDemoModal } from './DemoModal';
 
@@ -22,7 +22,7 @@ const mobileNavCategories: NavCategory[] = [
     id: 'product',
     name: 'Product',
     items: [
-      { name: 'FounderOS / Command Center', path: '/product' },
+      { name: 'Astrav / Command Center', path: '/product' },
       { name: 'Automated Progress Rollups', path: '/product/automated-progress-rollups' },
       { name: 'AI Goal Decomposition', path: '/features/ai' },
     ],
@@ -71,14 +71,7 @@ const mobileNavCategories: NavCategory[] = [
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileExploreOpen, setMobileExploreOpen] = useState(false);
-  const [mobileExpandedCats, setMobileExpandedCats] = useState<Record<string, boolean>>({
-    product: false,
-    features: false,
-    solutions: false,
-    resources: false,
-    company: false,
-  });
+  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({});
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -90,10 +83,24 @@ export const Navbar: React.FC = () => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
-  const toggleMobileCategory = (catId: string) => {
-    setMobileExpandedCats(prev => ({
+  // When mobile drawer opens, auto-expand the category matching current path (if any)
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      const activeCat = mobileNavCategories.find(cat =>
+        cat.items.some(it => it.path === location.pathname)
+      );
+      if (activeCat) {
+        setExpandedCategories({ [activeCat.id]: true });
+      } else {
+        setExpandedCategories({});
+      }
+    }
+  }, [mobileMenuOpen]);
+
+  const toggleCategory = (categoryId: string) => {
+    setExpandedCategories(prev => ({
       ...prev,
-      [catId]: !prev[catId],
+      [categoryId]: !prev[categoryId],
     }));
   };
 
@@ -104,23 +111,14 @@ export const Navbar: React.FC = () => {
   };
 
   useEffect(() => {
-    let ticking = false;
     let lastScrolled = window.scrollY > 20;
-
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const isScrolled = window.scrollY > 20;
-          if (isScrolled !== lastScrolled) {
-            lastScrolled = isScrolled;
-            setScrolled(isScrolled);
-          }
-          ticking = false;
-        });
-        ticking = true;
+      const isScrolled = window.scrollY > 20;
+      if (isScrolled !== lastScrolled) {
+        lastScrolled = isScrolled;
+        setScrolled(isScrolled);
       }
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -154,11 +152,10 @@ export const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#faf6f0]/95 backdrop-blur-2xl border-b border-brand-peach/60 shadow-warm-sm h-[70px] sm:h-20'
-          : 'bg-[#faf6f0]/90 backdrop-blur-xl border-b border-brand-peach/40 shadow-none h-[70px] sm:h-20'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        ? 'bg-[#faf6f0]/95 backdrop-blur-2xl border-b border-brand-peach/60 shadow-warm-sm h-[70px] sm:h-20'
+        : 'bg-[#faf6f0]/90 backdrop-blur-xl border-b border-brand-peach/40 shadow-none h-[70px] sm:h-20'
+        }`}
     >
       <div
         ref={dropdownRef}
@@ -175,7 +172,7 @@ export const Navbar: React.FC = () => {
             <span className="font-heading font-extrabold text-[15px] sm:text-xl tracking-tight text-espresso leading-none group-hover:text-brand-orange transition-colors">
               Astrav
             </span>
-            <span className="text-[8.5px] sm:text-[10px] font-heading font-extrabold tracking-[0.16em] sm:tracking-[0.2em] text-brand-orange uppercase mt-0.5">
+            <span className="text-xs font-heading font-extrabold tracking-[0.16em] sm:tracking-[0.2em] text-brand-orange uppercase mt-0.5">
               COMMAND CENTER
             </span>
           </div>
@@ -193,19 +190,17 @@ export const Navbar: React.FC = () => {
             >
               <span>Product</span>
               <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
-                  openDropdown === 'product'
-                    ? 'rotate-180 text-brand-orange'
-                    : location.pathname.startsWith('/product')
+                className={`w-4 h-4 transition-transform duration-200 ${openDropdown === 'product'
+                  ? 'rotate-180 text-brand-orange'
+                  : location.pathname.startsWith('/product')
                     ? 'text-brand-orange'
                     : 'text-terracotta-muted group-hover:text-brand-orange'
-                }`}
+                  }`}
               />
               {/* High-contrast smooth growing underline */}
               <span
-                className={`absolute bottom-0 left-3 right-3 h-[2px] bg-brand-orange transition-transform duration-200 origin-center rounded-full ${
-                  location.pathname.startsWith('/product') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                }`}
+                className={`absolute bottom-0 left-3 right-3 h-[2px] bg-brand-orange transition-transform duration-200 origin-center rounded-full ${location.pathname.startsWith('/product') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                  }`}
               />
             </button>
             {openDropdown === 'product' && (
@@ -217,22 +212,20 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/product"
                     onClick={() => setOpenDropdown(null)}
-                    className={`px-4 py-2.5 rounded-xl text-sm font-heading font-bold transition-colors ${
-                      location.pathname === '/product'
-                        ? 'bg-brand-orange-light text-brand-orange'
-                        : 'text-espresso hover:bg-brand-orange-light hover:text-brand-orange'
-                    }`}
+                    className={`px-4 py-2.5 rounded-xl text-sm font-heading font-bold transition-colors ${location.pathname === '/product'
+                      ? 'bg-brand-orange-light text-brand-orange'
+                      : 'text-espresso hover:bg-brand-orange-light hover:text-brand-orange'
+                      }`}
                   >
                     Astrav / Command Center
                   </Link>
                   <Link
                     to="/product/automated-progress-rollups"
                     onClick={() => setOpenDropdown(null)}
-                    className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                      location.pathname === '/product/automated-progress-rollups'
-                        ? 'bg-brand-orange-light text-brand-orange font-bold'
-                        : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
-                    }`}
+                    className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${location.pathname === '/product/automated-progress-rollups'
+                      ? 'bg-brand-orange-light text-brand-orange font-bold'
+                      : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
+                      }`}
                   >
                     Automated Progress Rollups
                   </Link>
@@ -258,9 +251,8 @@ export const Navbar: React.FC = () => {
             >
               <span>Features</span>
               <ChevronDown
-                className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${
-                  openDropdown === 'features' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
-                }`}
+                className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${openDropdown === 'features' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
+                  }`}
               />
               <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-brand-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center rounded-full" />
             </button>
@@ -334,9 +326,8 @@ export const Navbar: React.FC = () => {
             >
               <span>Solutions</span>
               <ChevronDown
-                className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${
-                  openDropdown === 'solutions' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
-                }`}
+                className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${openDropdown === 'solutions' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
+                  }`}
               />
               <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-brand-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center rounded-full" />
             </button>
@@ -382,9 +373,8 @@ export const Navbar: React.FC = () => {
             >
               <span>Resources</span>
               <ChevronDown
-                className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${
-                  openDropdown === 'resources' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
-                }`}
+                className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${openDropdown === 'resources' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
+                  }`}
               />
               <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-brand-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center rounded-full" />
             </button>
@@ -397,33 +387,30 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/resources"
                     onClick={() => setOpenDropdown(null)}
-                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${
-                      location.pathname === '/resources'
-                        ? 'bg-brand-orange-light text-brand-orange font-bold'
-                        : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
-                    }`}
+                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${location.pathname === '/resources'
+                      ? 'bg-brand-orange-light text-brand-orange font-bold'
+                      : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
+                      }`}
                   >
                     Documentation & Guides
                   </Link>
                   <Link
                     to="/how-it-works"
                     onClick={() => setOpenDropdown(null)}
-                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${
-                      location.pathname === '/how-it-works'
-                        ? 'bg-brand-orange-light text-brand-orange font-bold'
-                        : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
-                    }`}
+                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${location.pathname === '/how-it-works'
+                      ? 'bg-brand-orange-light text-brand-orange font-bold'
+                      : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
+                      }`}
                   >
                     How It Works
                   </Link>
                   <Link
                     to="/key-capabilities"
                     onClick={() => setOpenDropdown(null)}
-                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${
-                      location.pathname === '/key-capabilities'
-                        ? 'bg-brand-orange-light text-brand-orange font-bold'
-                        : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
-                    }`}
+                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${location.pathname === '/key-capabilities'
+                      ? 'bg-brand-orange-light text-brand-orange font-bold'
+                      : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
+                      }`}
                   >
                     Key Capabilities
                   </Link>
@@ -442,9 +429,8 @@ export const Navbar: React.FC = () => {
             >
               <span>Company</span>
               <ChevronDown
-                className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${
-                  openDropdown === 'company' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
-                }`}
+                className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${openDropdown === 'company' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
+                  }`}
               />
               <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-brand-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center rounded-full" />
             </button>
@@ -487,7 +473,7 @@ export const Navbar: React.FC = () => {
             type="button"
             onClick={openDemoModal}
             style={{ touchAction: 'manipulation' }}
-            className="inline-flex items-center justify-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-3.5 sm:px-6 py-2 sm:py-3 rounded-full shadow-md shadow-brand-orange/30 transition-all hover:-translate-y-0.5 active:translate-y-0 group cursor-pointer shrink-0 select-none"
+            className="inline-flex items-center justify-center gap-1.5 sm:gap-2 text-[13px] sm:text-sm font-heading font-bold text-white bg-brand-orange hover:bg-brand-orange-hover px-3.5 sm:px-6 py-2 sm:py-3 rounded-full shadow-md shadow-brand-orange/30 transition-all hover:-translate-y-0.5 active:translate-y-0 group cursor-pointer shrink-0 select-none"
           >
             <span>Book a Demo</span>
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
@@ -516,175 +502,126 @@ export const Navbar: React.FC = () => {
             transition={{ duration: 0.25, ease: 'easeInOut' }}
             className="lg:hidden bg-[#faf6f0] border-b border-brand-peach shadow-warm-xl max-h-[calc(100vh-70px)] sm:max-h-[calc(100vh-80px)] overflow-y-auto overscroll-contain"
           >
-            <div className="p-4 sm:p-5 space-y-3 max-w-lg mx-auto">
+            <div className="p-4 sm:p-5 pb-8 space-y-3 max-w-lg mx-auto">
               {/* Home Overview Link */}
               <Link
                 to="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-[15px] sm:text-base font-heading font-bold transition-all ${
-                  location.pathname === '/'
-                    ? 'bg-brand-orange-light text-brand-orange shadow-warm-2xs'
-                    : 'bg-white border border-brand-peach/80 text-espresso hover:text-brand-orange hover:border-brand-orange/40'
-                }`}
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-heading font-bold transition-all ${location.pathname === '/'
+                  ? 'bg-brand-orange-light text-brand-orange shadow-warm-2xs'
+                  : 'bg-white border border-brand-peach/80 text-espresso hover:text-brand-orange hover:border-brand-orange/40'
+                  }`}
               >
                 <span>Home Overview</span>
                 <ArrowRight className="w-4 h-4 opacity-70" />
               </Link>
 
-              {/* SINGLE EXPANDABLE "EXPLORE" ENTRY POINT */}
-              <div className="rounded-2xl border border-brand-peach bg-white shadow-warm-sm overflow-hidden">
-                <button
-                  type="button"
-                  onClick={() => setMobileExploreOpen(prev => !prev)}
-                  aria-expanded={mobileExploreOpen}
-                  aria-controls="mobile-explore-dropdown"
-                  className={`w-full flex items-center justify-between p-3.5 sm:p-4 text-left transition-colors cursor-pointer select-none ${
-                    mobileExploreOpen
-                      ? 'bg-brand-orange-light/40 text-espresso'
-                      : 'hover:bg-brand-orange-light/20 text-espresso'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1 mr-2 sm:mr-3">
+              {/* Direct Main Navigation Categories */}
+              <div className="space-y-2.5">
+                {mobileNavCategories.map(category => {
+                  const isExpanded = !!expandedCategories[category.id];
+                  const isAnySubActive = category.items.some(it => location.pathname === it.path);
+
+                  return (
                     <div
-                      className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                        mobileExploreOpen
-                          ? 'bg-brand-orange text-white shadow-sm shadow-brand-orange/30'
-                          : 'bg-surface-tier1 text-espresso border border-brand-peach/80'
+                      key={category.id}
+                      className={`rounded-xl border transition-all overflow-hidden bg-white shadow-warm-2xs ${
+                        isAnySubActive
+                          ? 'border-brand-orange/50 ring-1 ring-brand-orange/20'
+                          : isExpanded
+                          ? 'border-brand-orange/30'
+                          : 'border-brand-peach/80'
                       }`}
                     >
-                      <Compass className="w-5 h-5" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="font-heading font-extrabold text-[15px] sm:text-base text-espresso leading-snug">
-                        Explore
-                      </div>
-                      <div className="text-xs text-terracotta font-medium leading-tight">
-                        Product, Features, Solutions & more
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                    <span className="text-[11px] sm:text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-white border border-brand-peach text-terracotta whitespace-nowrap">
-                      5 categories
-                    </span>
-                    <ChevronDown
-                      className={`w-4 h-4 text-terracotta transition-transform duration-200 shrink-0 ${
-                        mobileExploreOpen ? 'rotate-180 text-brand-orange' : ''
-                      }`}
-                    />
-                  </div>
-                </button>
-
-                {/* NESTED CATEGORIES ACCORDION */}
-                <AnimatePresence initial={false}>
-                  {mobileExploreOpen && (
-                    <motion.div
-                      id="mobile-explore-dropdown"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: 'easeInOut' }}
-                      className="overflow-hidden border-t border-brand-peach/60 bg-[#faf6f0]/60 p-2.5 sm:p-3 space-y-2"
-                    >
-                      {mobileNavCategories.map(category => {
-                        const isExpanded = !!mobileExpandedCats[category.id];
-                        const isAnySubActive = category.items.some(it => location.pathname === it.path);
-
-                        return (
-                          <div
-                            key={category.id}
-                            className={`rounded-xl border transition-all overflow-hidden ${
-                              isExpanded
-                                ? 'border-brand-orange/40 bg-white shadow-warm-xs'
-                                : 'border-brand-peach/80 bg-white hover:border-brand-orange/30'
+                      {/* Category Header Button */}
+                      <button
+                        type="button"
+                        onClick={() => toggleCategory(category.id)}
+                        aria-expanded={isExpanded}
+                        aria-controls={`mobile-nav-${category.id}`}
+                        className={`w-full flex items-center justify-between px-4 py-3 text-left transition-colors cursor-pointer select-none ${
+                          isExpanded
+                            ? 'bg-brand-orange-light/35 text-espresso'
+                            : 'hover:bg-brand-orange-light/20 text-espresso'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <span
+                            className={`w-2 h-2 rounded-full transition-colors ${
+                              isAnySubActive
+                                ? 'bg-brand-orange ring-4 ring-brand-orange/20'
+                                : isExpanded
+                                ? 'bg-brand-orange'
+                                : 'bg-brand-peach'
+                            }`}
+                          />
+                          <span
+                            className={`font-heading font-bold text-sm sm:text-base ${
+                              isAnySubActive ? 'text-brand-orange' : 'text-espresso'
                             }`}
                           >
-                            {/* Entire category row is clickable */}
-                            <button
-                              type="button"
-                              onClick={() => toggleMobileCategory(category.id)}
-                              aria-expanded={isExpanded}
-                              aria-controls={`mobile-category-${category.id}`}
-                              className="w-full flex items-center justify-between px-3.5 py-3 text-left cursor-pointer select-none group"
-                            >
-                              <div className="flex items-center gap-2.5">
-                                <span
-                                  className={`w-2 h-2 rounded-full shrink-0 transition-colors ${
-                                    isAnySubActive || isExpanded ? 'bg-brand-orange' : 'bg-brand-peach'
-                                  }`}
-                                />
-                                <span
-                                  className={`font-heading font-extrabold text-[15px] sm:text-base transition-colors ${
-                                    isExpanded || isAnySubActive
-                                      ? 'text-brand-orange'
-                                      : 'text-espresso group-hover:text-brand-orange'
-                                  }`}
-                                >
-                                  {category.name}
-                                </span>
-                              </div>
-                              <div className="flex items-center gap-2">
-                                <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/70 text-terracotta">
-                                  {category.items.length}
-                                </span>
-                                <ChevronDown
-                                  className={`w-4 h-4 text-terracotta transition-transform duration-200 ${
-                                    isExpanded ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
-                                  }`}
-                                />
-                              </div>
-                            </button>
+                            {category.name}
+                          </span>
+                          {isAnySubActive && (
+                            <span className="text-[10px] font-heading font-semibold uppercase tracking-wider text-brand-orange bg-brand-orange-light px-2 py-0.5 rounded-full border border-brand-orange/20">
+                              Active
+                            </span>
+                          )}
+                        </div>
+                        <ChevronDown
+                          className={`w-4 h-4 text-terracotta transition-transform duration-200 shrink-0 ${
+                            isExpanded ? 'rotate-180 text-brand-orange' : ''
+                          }`}
+                        />
+                      </button>
 
-                            {/* Submenu for this category */}
-                            <AnimatePresence initial={false}>
-                              {isExpanded && (
-                                <motion.div
-                                  id={`mobile-category-${category.id}`}
-                                  initial={{ height: 0, opacity: 0 }}
-                                  animate={{ height: 'auto', opacity: 1 }}
-                                  exit={{ height: 0, opacity: 0 }}
-                                  transition={{ duration: 0.2, ease: 'easeInOut' }}
-                                  className="overflow-hidden border-t border-brand-peach/40 bg-[#fdfbf9]"
-                                >
-                                  <div className="p-1.5 sm:p-2 space-y-1">
-                                    {category.items.map(item => {
-                                      const isActive = location.pathname === item.path;
-                                      return (
-                                        <Link
-                                          key={item.path}
-                                          to={item.path}
-                                          onClick={e => {
-                                            if (item.isAnchor) {
-                                              handleContactSales(e);
-                                            } else {
-                                              setMobileMenuOpen(false);
-                                            }
-                                          }}
-                                          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-lg text-[14px] sm:text-sm transition-all group ${
-                                            isActive
-                                              ? 'bg-brand-orange-light text-brand-orange font-bold shadow-warm-2xs'
-                                              : 'text-terracotta font-medium hover:text-brand-orange hover:bg-brand-orange-light/30'
-                                          }`}
-                                        >
-                                          <span className="leading-snug">{item.name}</span>
-                                          {isActive ? (
-                                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange shrink-0 ml-2" />
-                                          ) : (
-                                            <ArrowRight className="w-3.5 h-3.5 text-terracotta/40 group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
-                                          )}
-                                        </Link>
-                                      );
-                                    })}
-                                  </div>
-                                </motion.div>
-                              )}
-                            </AnimatePresence>
-                          </div>
-                        );
-                      })}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      {/* Inline Submenu */}
+                      <AnimatePresence initial={false}>
+                        {isExpanded && (
+                          <motion.div
+                            id={`mobile-nav-${category.id}`}
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2, ease: 'easeInOut' }}
+                            className="overflow-hidden border-t border-brand-peach/50 bg-[#faf6f0]/50"
+                          >
+                            <div className="py-2 px-3 space-y-1 ml-3.5 my-2 border-l-2 border-brand-orange/30 pl-3">
+                              {category.items.map(item => {
+                                const isActive = location.pathname === item.path;
+                                return (
+                                  <Link
+                                    key={item.path}
+                                    to={item.path}
+                                    onClick={e => {
+                                      if (item.isAnchor) {
+                                        handleContactSales(e);
+                                      } else {
+                                        setMobileMenuOpen(false);
+                                      }
+                                    }}
+                                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs sm:text-sm transition-all group ${
+                                      isActive
+                                        ? 'bg-brand-orange-light text-brand-orange font-bold shadow-warm-2xs'
+                                        : 'text-terracotta font-medium hover:text-brand-orange hover:bg-brand-orange-light/30'
+                                    }`}
+                                  >
+                                    <span className="leading-snug">{item.name}</span>
+                                    {isActive ? (
+                                      <span className="w-1.5 h-1.5 rounded-full bg-brand-orange shrink-0 ml-2" />
+                                    ) : (
+                                      <ArrowRight className="w-3.5 h-3.5 text-terracotta/40 group-hover:text-brand-orange group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
+                                    )}
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
               </div>
 
               {/* Bottom Actions: Sign In & Book a Demo */}
@@ -692,7 +629,7 @@ export const Navbar: React.FC = () => {
                 <Link
                   to="/login"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-white border border-brand-peach/80 text-[15px] sm:text-base font-heading font-bold text-espresso hover:text-brand-orange hover:border-brand-orange/40 transition-colors"
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-white border border-brand-peach/80 text-sm font-heading font-bold text-espresso hover:text-brand-orange hover:border-brand-orange/40 transition-colors"
                 >
                   <span>Sign In</span>
                   <ArrowRight className="w-4 h-4 text-terracotta" />
@@ -704,7 +641,7 @@ export const Navbar: React.FC = () => {
                     setMobileMenuOpen(false);
                     openDemoModal();
                   }}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-brand-orange hover:bg-brand-orange-hover text-white text-[15px] sm:text-base font-heading font-bold shadow-md shadow-brand-orange/30 transition-all cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-heading font-bold shadow-md shadow-brand-orange/30 transition-all cursor-pointer"
                 >
                   <span>Book a Demo</span>
                   <ArrowRight className="w-4 h-4" />

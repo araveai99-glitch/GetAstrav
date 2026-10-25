@@ -3,9 +3,10 @@ import { motion, useInView, useReducedMotion } from 'framer-motion';
 import {
   Compass,
   Target,
-  FolderGit2,
+  FolderKanban,
   Users,
   CheckCircle2,
+  TrendingUp,
   AlertTriangle,
   Clock,
   ArrowRight,
@@ -16,6 +17,7 @@ import {
   RefreshCw,
 } from 'lucide-react';
 import { CTASection } from '../../../components/common/CTASection';
+import { IllustratedCardBadge, type IllustratedBadgeVariant } from '../../../components/common/IllustratedCardBadge';
 
 const VISION_STEPS = [
   {
@@ -23,6 +25,10 @@ const VISION_STEPS = [
     number: '01',
     label: 'Vision',
     icon: Compass,
+    illustrationVariant: 'goal' as IllustratedBadgeVariant,
+    accent: 'text-brand-orange',
+    containerBg: 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6]',
+    borderColor: 'border-brand-orange/25',
     title: 'Strategic Direction',
     desc: 'Set the company destination and long-term vision.',
   },
@@ -31,6 +37,10 @@ const VISION_STEPS = [
     number: '02',
     label: 'Goals',
     icon: Target,
+    illustrationVariant: 'goal' as IllustratedBadgeVariant,
+    accent: 'text-amber-700',
+    containerBg: 'bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0]',
+    borderColor: 'border-brand-yellow/35',
     title: 'Company Objectives',
     desc: 'Break vision into measurable quarterly targets.',
   },
@@ -38,7 +48,11 @@ const VISION_STEPS = [
     id: 'projects',
     number: '03',
     label: 'Projects',
-    icon: FolderGit2,
+    icon: FolderKanban,
+    illustrationVariant: 'projects' as IllustratedBadgeVariant,
+    accent: 'text-brand-green',
+    containerBg: 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7]',
+    borderColor: 'border-brand-green/25',
     title: 'Core Initiatives',
     desc: 'Group high-impact work into clear deliverables.',
   },
@@ -47,6 +61,10 @@ const VISION_STEPS = [
     number: '04',
     label: 'Teams',
     icon: Users,
+    illustrationVariant: 'teams' as IllustratedBadgeVariant,
+    accent: 'text-brand-orange',
+    containerBg: 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6]',
+    borderColor: 'border-brand-orange/25',
     title: 'Team Ownership',
     desc: 'Assign clear accountability to dedicated pods.',
   },
@@ -54,7 +72,11 @@ const VISION_STEPS = [
     id: 'results',
     number: '05',
     label: 'Results',
-    icon: CheckCircle2,
+    icon: TrendingUp,
+    illustrationVariant: 'progress' as IllustratedBadgeVariant,
+    accent: 'text-brand-green',
+    containerBg: 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7]',
+    borderColor: 'border-brand-green/25',
     title: 'Automated Outcomes',
     desc: 'Real progress updates automatically as work gets done.',
   },
@@ -128,7 +150,6 @@ export const Founders: React.FC = () => {
           {/* Steps Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 relative z-10">
             {VISION_STEPS.map((step, idx) => {
-              const StepIcon = step.icon;
               const isSelected = selectedStep === idx;
               const delay = shouldReduceMotion ? 0 : 0.1 * idx;
 
@@ -143,42 +164,34 @@ export const Founders: React.FC = () => {
                   }
                   transition={{ duration: 0.4, delay }}
                   onClick={() => setSelectedStep(idx)}
-                  className={`cursor-pointer rounded-2xl p-4 border transition-all duration-200 flex flex-col justify-between group ${
+                  className={`cursor-pointer rounded-3xl p-5 border transition-all duration-300 flex flex-col justify-between group ${
                     isSelected
-                      ? 'bg-gradient-to-b from-[#fffbf7] to-white border-brand-orange shadow-warm-md scale-[1.02] ring-2 ring-brand-orange/20'
-                      : 'bg-surface-ambient hover:bg-white border-brand-peach/70 hover:border-brand-orange/50 shadow-warm-xs'
+                      ? 'bg-white border-brand-orange shadow-warm-md scale-[1.02] ring-2 ring-brand-orange/30'
+                      : 'bg-white hover:bg-surface-ambient border-brand-peach/80 hover:border-brand-orange/50 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md'
                   }`}
                 >
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <div
-                        className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold transition-all ${
-                          isSelected
-                            ? 'bg-brand-orange text-white shadow-sm shadow-brand-orange/30'
-                            : 'bg-white text-brand-orange border border-brand-peach/70'
-                        }`}
-                      >
-                        <StepIcon className="w-5 h-5" />
-                      </div>
-                      <span className="text-xs font-mono font-bold text-terracotta-muted">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="w-7 h-7 rounded-full text-xs font-mono font-bold bg-[#fff4ed] text-brand-orange border border-brand-orange/20 flex items-center justify-center">
                         {step.number}
                       </span>
+                      <IllustratedCardBadge variant={step.illustrationVariant} size="sm" />
                     </div>
 
                     <div className="space-y-0.5 text-left">
                       <div className="text-xs font-mono font-bold uppercase tracking-wider text-brand-orange">
                         {step.label}
                       </div>
-                      <h3 className="font-heading font-bold text-[17px] sm:text-sm text-espresso">
+                      <h3 className="font-heading font-extrabold text-[17px] sm:text-base text-espresso">
                         {step.title}
                       </h3>
-                      <p className="text-sm text-terracotta leading-relaxed pt-1">
+                      <p className="text-sm text-terracotta leading-relaxed pt-0.5">
                         {step.desc}
                       </p>
                     </div>
                   </div>
 
-                  <div className="mt-3 pt-2.5 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-terracotta-muted">
+                  <div className="mt-4 pt-2.5 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-terracotta-muted">
                     <span className={isSelected ? 'text-brand-orange font-bold' : ''}>
                       {isSelected ? 'Active Step' : 'Click to inspect'}
                     </span>
@@ -196,8 +209,8 @@ export const Founders: React.FC = () => {
           {/* Detail Callout for Active Step */}
           <div className="mt-4 p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-left">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-brand-orange text-white flex items-center justify-center shrink-0">
-                {React.createElement(VISION_STEPS[selectedStep].icon, { className: 'w-4 h-4' })}
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-orange to-[#d94e10] text-white flex items-center justify-center shrink-0 shadow-sm shadow-brand-orange/20">
+                {React.createElement(VISION_STEPS[selectedStep].icon, { className: 'w-4.5 h-4.5', strokeWidth: 2 })}
               </div>
               <div>
                 <span className="text-xs font-mono font-bold text-brand-orange uppercase">

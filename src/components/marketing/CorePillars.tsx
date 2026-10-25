@@ -1,6 +1,6 @@
 import React from 'react';
 import { MotionWrapper } from '../common/MotionWrapper';
-import { Target, Sparkles, BarChart3, ShieldCheck, FileText, Bell, ArrowRight } from 'lucide-react';
+import { TrendingUp, BrainCircuit, BarChart3, ShieldCheck, FileText, BellRing, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const pillars = [
@@ -8,8 +8,10 @@ const pillars = [
     num: 'PILLAR 01',
     title: 'Automated Rollup Engine',
     desc: 'Propagates leaf task completion mathematically into strategic OKRs with manual executive override controls.',
-    icon: Target,
+    icon: TrendingUp,
     color: 'text-brand-orange',
+    containerBg: 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6]',
+    borderColor: 'border-brand-orange/25',
     link: '/features/goals-progress',
     badge: 'Mathematical Rollups',
   },
@@ -17,8 +19,10 @@ const pillars = [
     num: 'PILLAR 02 • GEMINI',
     title: 'AI Intelligence: Today Focus',
     desc: 'Gemini Flash Lite heuristic engine decomposes high-level goals into tactical daily execution units.',
-    icon: Sparkles,
-    color: 'text-brand-yellow',
+    icon: BrainCircuit,
+    color: 'text-amber-700',
+    containerBg: 'bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0]',
+    borderColor: 'border-brand-yellow/35',
     link: '/features/ai',
     badge: 'Gemini 2.5 API',
   },
@@ -28,6 +32,8 @@ const pillars = [
     desc: 'Toggle friction-free between Executive Radar views and focused Contributor Workspaces.',
     icon: BarChart3,
     color: 'text-brand-green',
+    containerBg: 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7]',
+    borderColor: 'border-brand-green/25',
     link: '/features/analytics',
     badge: 'Org Radar & Streaks',
   },
@@ -37,6 +43,8 @@ const pillars = [
     desc: 'Global roles merged with project-level privileges, zero-owner safeguards, and PostgreSQL RLS.',
     icon: ShieldCheck,
     color: 'text-brand-orange',
+    containerBg: 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6]',
+    borderColor: 'border-brand-orange/25',
     link: '/features/governance',
     badge: 'Row Level Security',
   },
@@ -45,7 +53,9 @@ const pillars = [
     title: 'Project Documentation',
     desc: 'Integrated rich-text spec editor attached directly to execution nodes with version history logs.',
     icon: FileText,
-    color: 'text-tertiary',
+    color: 'text-espresso',
+    containerBg: 'bg-gradient-to-br from-[#fff8f2] to-[#fae8d8]',
+    borderColor: 'border-brand-peach',
     link: '/features/documentation',
     badge: 'TipTap Editor',
   },
@@ -53,8 +63,10 @@ const pillars = [
     num: 'PILLAR 06 • EDGE ENGINE',
     title: 'Edge Automation & Overdue Alerts',
     desc: 'Autonomous daemons flagging drift, instantly dispatching escalations when items slip 15+ days.',
-    icon: Bell,
+    icon: BellRing,
     color: 'text-brand-green',
+    containerBg: 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7]',
+    borderColor: 'border-brand-green/25',
     link: '/features/automation',
     badge: 'Resend API Dispatch',
   },
@@ -85,8 +97,8 @@ export const CorePillars: React.FC = () => {
               <div className="p-6 rounded-2xl bg-white border border-brand-peach/60 shadow-warm-md hover:border-brand-orange hover:shadow-warm-lg transition-all group flex flex-col justify-between h-full space-y-4">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-surface-tier1 border border-brand-peach/60 flex items-center justify-center">
-                      <Icon className={`w-5 h-5 ${item.color}`} />
+                    <div className={`w-11 h-11 rounded-xl ${item.containerBg} ${item.borderColor} border flex items-center justify-center shrink-0 shadow-sm transition-transform duration-200 group-hover:scale-105`}>
+                      <Icon className={`w-5 h-5 ${item.color}`} strokeWidth={2} />
                     </div>
                     <span className="text-[10px] font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                       {item.num}

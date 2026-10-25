@@ -18,6 +18,7 @@ import {
   HelpCircle,
 } from 'lucide-react';
 import { openDemoModal } from '../../../components/common/DemoModal';
+import { IllustratedCardBadge } from '../../../components/common/IllustratedCardBadge';
 
 interface CapabilityData {
   id: string;
@@ -179,19 +180,17 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 : { opacity: 0, y: 28 }
             }
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between group"
+            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-brand-orange-light border border-brand-orange/30 flex items-center justify-center text-brand-orange group-hover:scale-105 transition-transform">
-                  <Target className="w-6 h-6" />
-                </div>
-                <span className="text-xs font-mono font-bold text-terracotta-muted px-2.5 py-1 rounded-full bg-surface-tier1">
-                  01
+                <IllustratedCardBadge variant="goal" size="md" stepNumber="01" />
+                <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-1 rounded-full border border-brand-orange/30">
+                  PILLAR 01
                 </span>
               </div>
 
-              <h3 className="font-heading font-bold text-xl sm:text-2xl text-espresso mb-1">
+              <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-espresso mb-1">
                 Goal Planning
               </h3>
               <p className="text-base font-semibold text-brand-orange mb-3">
@@ -281,19 +280,17 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 : { opacity: 0, y: 28 }
             }
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between group"
+            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-brand-green-light border border-brand-green/30 flex items-center justify-center text-brand-green group-hover:scale-105 transition-transform">
-                  <Layers className="w-6 h-6" />
-                </div>
-                <span className="text-xs font-mono font-bold text-terracotta-muted px-2.5 py-1 rounded-full bg-surface-tier1">
-                  02
+                <IllustratedCardBadge variant="projects" size="md" stepNumber="02" />
+                <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-1 rounded-full border border-brand-green/30">
+                  PILLAR 02
                 </span>
               </div>
 
-              <h3 className="font-heading font-bold text-xl sm:text-2xl text-espresso mb-1">
+              <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-espresso mb-1">
                 Connected Work
               </h3>
               <p className="text-base font-semibold text-brand-green mb-3">
@@ -375,19 +372,17 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 : { opacity: 0, y: 28 }
             }
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between group"
+            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-600 group-hover:scale-105 transition-transform">
-                  <TrendingUp className="w-6 h-6" />
-                </div>
-                <span className="text-xs font-mono font-bold text-terracotta-muted px-2.5 py-1 rounded-full bg-surface-tier1">
-                  03
+                <IllustratedCardBadge variant="progress" size="md" stepNumber="03" />
+                <span className="text-xs font-mono font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
+                  PILLAR 03
                 </span>
               </div>
 
-              <h3 className="font-heading font-bold text-xl sm:text-2xl text-espresso mb-1">
+              <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-espresso mb-1">
                 Automatic Progress
               </h3>
               <p className="text-base font-semibold text-amber-600 mb-3">
@@ -473,19 +468,17 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 : { opacity: 0, y: 28 }
             }
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between group"
+            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-brand-orange-light border border-brand-orange/30 flex items-center justify-center text-brand-orange group-hover:scale-105 transition-transform">
-                  <Users className="w-6 h-6" />
-                </div>
-                <span className="text-xs font-mono font-bold text-terracotta-muted px-2.5 py-1 rounded-full bg-surface-tier1">
-                  04
+                <IllustratedCardBadge variant="teams" size="md" stepNumber="04" />
+                <span className="text-xs font-mono font-bold text-espresso bg-surface-tier1 px-2.5 py-1 rounded-full border border-brand-peach/50">
+                  PILLAR 04
                 </span>
               </div>
 
-              <h3 className="font-heading font-bold text-xl sm:text-2xl text-espresso mb-1">
+              <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-espresso mb-1">
                 Team Visibility
               </h3>
               <p className="text-base font-semibold text-brand-orange mb-3">

@@ -17,6 +17,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { CTASection } from '../../../components/common/CTASection';
+import { IllustratedCardBadge } from '../../../components/common/IllustratedCardBadge';
 
 interface LinkedTask {
   id: string;
@@ -94,7 +95,7 @@ export const Documentation: React.FC = () => {
     LINKED_TASKS.find((t) => t.id === selectedTaskId) || LINKED_TASKS[0];
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
+    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
       {/* 1. Page Header */}
       <div className="text-left w-full max-w-5xl space-y-2 mb-2 sm:mb-4">
         <motion.h1
@@ -194,8 +195,8 @@ export const Documentation: React.FC = () => {
               {/* Document Header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-brand-peach/50">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-10 h-10 rounded-xl bg-white border border-brand-peach/60 flex items-center justify-center text-brand-orange shadow-warm-2xs">
-                    <FileText className="w-5 h-5" />
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/30 flex items-center justify-center text-brand-orange shadow-sm shadow-brand-orange/10 shrink-0">
+                    <FileText className="w-5 h-5 stroke-[2]" />
                   </div>
                   <div>
                     <h4 className="font-heading font-extrabold text-[18px] sm:text-base text-espresso">
@@ -278,9 +279,7 @@ export const Documentation: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-orange-light text-brand-orange flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <Layers className="w-6 h-6" />
-              </div>
+              <IllustratedCardBadge variant="docs" size="md" />
               <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">
                 In-Flow Context
               </span>
@@ -320,9 +319,7 @@ export const Documentation: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-green-light text-brand-green flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <BookOpen className="w-6 h-6" />
-              </div>
+              <IllustratedCardBadge variant="projects" size="md" />
               <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/20">
                 Bidirectional
               </span>
@@ -360,9 +357,7 @@ export const Documentation: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-brand-yellow flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <Sparkles className="w-6 h-6 text-amber-600" />
-              </div>
+              <IllustratedCardBadge variant="teams" size="md" />
               <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
                 3x Faster Ramp
               </span>

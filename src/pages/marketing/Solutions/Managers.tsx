@@ -11,45 +11,69 @@ import {
   Calendar,
   ShieldCheck,
   Check,
+  Target,
+  FolderKanban,
+  ListChecks,
 } from 'lucide-react';
 import { CTASection } from '../../../components/common/CTASection';
+import { IllustratedCardBadge, type IllustratedBadgeVariant } from '../../../components/common/IllustratedCardBadge';
 
 const TEAMWORK_STAGES = [
   {
     id: 'stage-1',
+    stepNumber: '1',
     stageNumber: 'Stage 1',
     title: 'Team Goals',
     status: 'Planned',
     badgeClass: 'bg-brand-orange-light text-brand-orange border-brand-orange/30',
+    stepBadgeClass: 'bg-[#fff4ed] text-brand-orange border border-brand-orange/30',
     desc: 'Set sprint priorities from high-level company targets.',
     sampleCard: 'Q3 Security Sprint',
+    illustrationVariant: 'goal' as IllustratedBadgeVariant,
+    icon: Target,
+    iconContainer: 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 shadow-sm shadow-brand-orange/10',
   },
   {
     id: 'stage-2',
+    stepNumber: '2',
     stageNumber: 'Stage 2',
     title: 'Assigned Work',
     status: 'Scoped',
     badgeClass: 'bg-amber-50 text-amber-700 border-amber-200',
+    stepBadgeClass: 'bg-[#fefbf0] text-amber-800 border border-amber-200',
     desc: 'Break goals into clear tasks and assign team owners.',
     sampleCard: '14 Tasks • Core Pod',
+    illustrationVariant: 'projects' as IllustratedBadgeVariant,
+    icon: FolderKanban,
+    iconContainer: 'bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0] text-amber-700 border border-brand-yellow/35 shadow-sm shadow-brand-yellow/10',
   },
   {
     id: 'stage-3',
+    stepNumber: '3',
     stageNumber: 'Stage 3',
     title: 'Daily Tasks',
     status: 'In Progress',
     badgeClass: 'bg-blue-50 text-blue-700 border-blue-200',
+    stepBadgeClass: 'bg-[#edf7f3] text-brand-green border border-brand-green/30',
     desc: 'Engineers and designers complete assigned deliverables.',
     sampleCard: 'API Gateway Review #402',
+    illustrationVariant: 'tasks' as IllustratedBadgeVariant,
+    icon: ListChecks,
+    iconContainer: 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 shadow-sm shadow-brand-orange/10',
   },
   {
     id: 'stage-4',
+    stepNumber: '4',
     stageNumber: 'Stage 4',
     title: 'Completed Results',
     status: 'Completed',
     badgeClass: 'bg-brand-green-light text-brand-green border-brand-green/30',
+    stepBadgeClass: 'bg-[#edf7f3] text-brand-green border border-brand-green/30',
     desc: 'Completed work updates overall project progress automatically.',
     sampleCard: '100% Verified & Live',
+    illustrationVariant: 'progress' as IllustratedBadgeVariant,
+    icon: TrendingUp,
+    iconContainer: 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] text-brand-green border border-brand-green/30 shadow-sm shadow-brand-green/10',
   },
 ];
 
@@ -174,6 +198,7 @@ export const Managers: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
             {TEAMWORK_STAGES.map((stage, idx) => {
               const delay = shouldReduceMotion ? 0 : 0.1 * idx;
+              const Icon = stage.icon;
 
               return (
                 <motion.div
@@ -185,29 +210,37 @@ export const Managers: React.FC = () => {
                       : { opacity: 0, y: 14 }
                   }
                   transition={{ duration: 0.4, delay }}
-                  className="rounded-2xl p-4 bg-surface-ambient border border-brand-peach/80 shadow-warm-xs flex flex-col justify-between space-y-3"
+                  className="rounded-3xl p-5 sm:p-6 bg-white border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between space-y-4 group"
                 >
-                  <div className="space-y-2">
+                  <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold text-terracotta-muted">
-                        {stage.stageNumber}
+                      <span
+                        className={`w-7 h-7 rounded-full text-xs font-mono font-bold flex items-center justify-center ${stage.stepBadgeClass}`}
+                      >
+                        {stage.stepNumber}
                       </span>
                       <span
-                        className={`text-xs font-mono font-bold uppercase px-2 py-0.5 rounded-full border ${stage.badgeClass}`}
+                        className={`text-[11px] font-mono font-bold uppercase px-2.5 py-0.5 rounded-full border ${stage.badgeClass}`}
                       >
                         {stage.status}
                       </span>
                     </div>
 
-                    <h3 className="font-heading font-bold text-[17px] sm:text-base text-espresso">
-                      {stage.title}
-                    </h3>
-                    <p className="text-sm text-terracotta leading-relaxed">
-                      {stage.desc}
-                    </p>
+                    <div className="pt-1 flex items-center justify-start">
+                      <IllustratedCardBadge variant={stage.illustrationVariant} size="md" />
+                    </div>
+
+                    <div>
+                      <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-1">
+                        {stage.title}
+                      </h3>
+                      <p className="text-sm text-terracotta leading-relaxed">
+                        {stage.desc}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="p-2.5 rounded-xl bg-white border border-brand-peach/70 shadow-warm-2xs flex items-center justify-between text-sm font-heading font-bold text-espresso">
+                  <div className="p-3 rounded-2xl bg-surface-tier1 border border-brand-peach/60 shadow-warm-2xs flex items-center justify-between text-sm font-heading font-bold text-espresso">
                     <span className="truncate pr-2">{stage.sampleCard}</span>
                     <CheckCircle2
                       className={`w-4 h-4 shrink-0 ${
@@ -440,26 +473,29 @@ export const Managers: React.FC = () => {
         </div>
 
         {/* 4 Connected Operational Metrics */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {/* 1. Team Workload */}
-          <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
+          <div className="p-5 sm:p-6 rounded-3xl bg-white border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-green/40 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div>
-              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
-                <span className="flex items-center gap-1.5">
-                  <Activity className="w-4 h-4 text-brand-green" /> Team Workload
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-3">
+                <span className="flex items-center gap-2">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] text-brand-green border border-brand-green/30 flex items-center justify-center shrink-0 shadow-xs">
+                    <Activity className="w-4 h-4 stroke-[2]" />
+                  </div>
+                  <span>Team Workload</span>
                 </span>
-                <span className="font-mono text-brand-green font-bold">Balanced</span>
+                <span className="font-mono text-brand-green font-bold text-xs bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/20">Balanced</span>
               </div>
-              <div className="text-[20px] font-extrabold font-heading text-espresso">
+              <div className="text-[22px] font-extrabold font-heading text-espresso">
                 4 Active Pods
               </div>
-              <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
+              <p className="text-sm text-terracotta-muted mt-1 leading-relaxed">
                 74% average workload; no burnout risk
               </p>
             </div>
 
-            <div className="space-y-1">
-              <div className="w-full h-2.5 rounded-full bg-white border border-brand-peach/60 overflow-hidden">
+            <div className="space-y-1.5 pt-2 border-t border-brand-peach/40">
+              <div className="w-full h-2.5 rounded-full bg-surface-tier1 border border-brand-peach/60 overflow-hidden">
                 <motion.div
                   initial={{ width: '0%' }}
                   animate={{
@@ -471,30 +507,33 @@ export const Managers: React.FC = () => {
               </div>
               <div className="flex justify-between text-xs font-mono text-terracotta-muted">
                 <span>Healthy Distribution</span>
-                <span>Zero Alerts</span>
+                <span className="text-brand-green font-semibold">Zero Alerts</span>
               </div>
             </div>
           </div>
 
           {/* 2. Task Completion */}
-          <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
+          <div className="p-5 sm:p-6 rounded-3xl bg-white border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div>
-              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
-                <span className="flex items-center gap-1.5">
-                  <CheckSquare className="w-4 h-4 text-brand-orange" /> Task Completion
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-3">
+                <span className="flex items-center gap-2">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 flex items-center justify-center shrink-0 shadow-xs">
+                    <ListChecks className="w-4 h-4 stroke-[2]" />
+                  </div>
+                  <span>Task Completion</span>
                 </span>
-                <span className="font-mono text-brand-orange font-bold">88%</span>
+                <span className="font-mono text-brand-orange font-bold text-xs bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">88%</span>
               </div>
-              <div className="text-[20px] font-extrabold font-heading text-espresso">
+              <div className="text-[22px] font-extrabold font-heading text-espresso">
                 44 / 50 Tasks
               </div>
-              <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
+              <p className="text-sm text-terracotta-muted mt-1 leading-relaxed">
                 Paced 2 days ahead of sprint schedule
               </p>
             </div>
 
-            <div className="space-y-1">
-              <div className="w-full h-2.5 rounded-full bg-white border border-brand-peach/60 overflow-hidden">
+            <div className="space-y-1.5 pt-2 border-t border-brand-peach/40">
+              <div className="w-full h-2.5 rounded-full bg-surface-tier1 border border-brand-peach/60 overflow-hidden">
                 <motion.div
                   initial={{ width: '0%' }}
                   animate={{
@@ -506,30 +545,33 @@ export const Managers: React.FC = () => {
               </div>
               <div className="flex justify-between text-xs font-mono text-terracotta-muted">
                 <span>44 Verified</span>
-                <span>6 In Review</span>
+                <span className="text-brand-orange font-semibold">6 In Review</span>
               </div>
             </div>
           </div>
 
           {/* 3. Project Progress */}
-          <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
+          <div className="p-5 sm:p-6 rounded-3xl bg-white border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-yellow/40 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div>
-              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
-                <span className="flex items-center gap-1.5">
-                  <TrendingUp className="w-4 h-4 text-brand-yellow" /> Project Progress
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-3">
+                <span className="flex items-center gap-2">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0] text-amber-700 border border-brand-yellow/35 flex items-center justify-center shrink-0 shadow-xs">
+                    <TrendingUp className="w-4 h-4 stroke-[2]" />
+                  </div>
+                  <span>Project Progress</span>
                 </span>
-                <span className="font-mono text-amber-700 font-bold">91%</span>
+                <span className="font-mono text-amber-800 font-bold text-xs bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">91%</span>
               </div>
-              <div className="text-[20px] font-extrabold font-heading text-espresso">
+              <div className="text-[22px] font-extrabold font-heading text-espresso">
                 Core Platform
               </div>
-              <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
+              <p className="text-sm text-terracotta-muted mt-1 leading-relaxed">
                 Progress calculated from completed tasks
               </p>
             </div>
 
-            <div className="space-y-1">
-              <div className="w-full h-2.5 rounded-full bg-white border border-brand-peach/60 overflow-hidden">
+            <div className="space-y-1.5 pt-2 border-t border-brand-peach/40">
+              <div className="w-full h-2.5 rounded-full bg-surface-tier1 border border-brand-peach/60 overflow-hidden">
                 <motion.div
                   initial={{ width: '0%' }}
                   animate={{
@@ -541,30 +583,33 @@ export const Managers: React.FC = () => {
               </div>
               <div className="flex justify-between text-xs font-mono text-terracotta-muted">
                 <span>Milestone 3</span>
-                <span>On Track</span>
+                <span className="text-brand-green font-semibold">On Track</span>
               </div>
             </div>
           </div>
 
           {/* 4. Upcoming Deadlines */}
-          <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
+          <div className="p-5 sm:p-6 rounded-3xl bg-white border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div>
-              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-4 h-4 text-brand-orange" /> Deadlines
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-3">
+                <span className="flex items-center gap-2">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 flex items-center justify-center shrink-0 shadow-xs">
+                    <Calendar className="w-4 h-4 stroke-[2]" />
+                  </div>
+                  <span>Deadlines</span>
                 </span>
-                <span className="font-mono font-bold text-brand-orange">In 3 Days</span>
+                <span className="font-mono font-bold text-brand-orange text-xs bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">In 3 Days</span>
               </div>
-              <div className="text-[20px] font-extrabold font-heading text-espresso">
+              <div className="text-[22px] font-extrabold font-heading text-espresso">
                 Release v2.4
               </div>
-              <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
+              <p className="text-sm text-terracotta-muted mt-1 leading-relaxed">
                 Scheduled for Friday deployment
               </p>
             </div>
 
-            <div className="flex items-center gap-1 text-xs font-heading font-semibold text-brand-green">
-              <ShieldCheck className="w-3.5 h-3.5" />
+            <div className="pt-2 border-t border-brand-peach/40 flex items-center gap-1.5 text-xs font-heading font-semibold text-brand-green">
+              <ShieldCheck className="w-4 h-4 shrink-0" />
               <span>All 3 review gates passed</span>
             </div>
           </div>

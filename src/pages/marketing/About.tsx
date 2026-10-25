@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import {
   Target,
-  FolderGit2,
-  CheckSquare,
+  FolderKanban,
+  ListChecks,
   TrendingUp,
   Layers,
   ArrowRight,
@@ -17,6 +17,7 @@ import {
   FileQuestion,
 } from 'lucide-react';
 import { openDemoModal } from '../../components/common/DemoModal';
+import { IllustratedCardBadge } from '../../components/common/IllustratedCardBadge';
 
 interface StepRelation {
   id: string;
@@ -27,6 +28,7 @@ interface StepRelation {
   icon: React.ElementType;
   accent: string;
   lightBg: string;
+  borderColor: string;
   description: string;
 }
 
@@ -39,7 +41,8 @@ const STEP_RELATIONS: StepRelation[] = [
     example: 'Expand Enterprise Market Reach',
     icon: Target,
     accent: 'text-brand-orange',
-    lightBg: 'bg-brand-orange-light',
+    lightBg: 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6]',
+    borderColor: 'border-brand-orange/25',
     description: 'High-level company objectives defined by executive leadership.',
   },
   {
@@ -48,9 +51,10 @@ const STEP_RELATIONS: StepRelation[] = [
     title: 'Projects',
     subtitle: 'Dedicated Containers',
     example: 'Q4 Enterprise Security Suite',
-    icon: FolderGit2,
-    accent: 'text-brand-yellow',
-    lightBg: 'bg-amber-50',
+    icon: FolderKanban,
+    accent: 'text-amber-700',
+    lightBg: 'bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0]',
+    borderColor: 'border-brand-yellow/35',
     description: 'Cross-functional initiatives that bundle milestones, deliverables, and specs.',
   },
   {
@@ -59,9 +63,10 @@ const STEP_RELATIONS: StepRelation[] = [
     title: 'Tasks',
     subtitle: 'Everyday Work',
     example: 'Build SAML SSO & RBAC Gateway',
-    icon: CheckSquare,
-    accent: 'text-espresso',
-    lightBg: 'bg-surface-tier1',
+    icon: ListChecks,
+    accent: 'text-brand-green',
+    lightBg: 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7]',
+    borderColor: 'border-brand-green/25',
     description: 'Action items assigned to pod specialists with clear SLA deadlines.',
   },
   {
@@ -71,8 +76,9 @@ const STEP_RELATIONS: StepRelation[] = [
     subtitle: 'Verifiable Rollup',
     example: '85% Mathematical Rollup',
     icon: TrendingUp,
-    accent: 'text-brand-green',
-    lightBg: 'bg-brand-green-light',
+    accent: 'text-brand-orange',
+    lightBg: 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6]',
+    borderColor: 'border-brand-orange/25',
     description: 'Automatic calculations update company goals as daily deliverables finish.',
   },
 ];
@@ -89,7 +95,7 @@ export const About: React.FC = () => {
   const activeRelation = STEP_RELATIONS[activeRelationIndex];
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
+    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
       {/* Section 1: Hero */}
       <div className="text-left w-full max-w-5xl space-y-1.5 sm:space-y-2 mb-2 sm:mb-4">
         <motion.h1
@@ -121,61 +127,61 @@ export const About: React.FC = () => {
         className="p-6 sm:p-8 lg:p-10 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-md relative overflow-hidden"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex flex-col justify-between">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-mono font-bold text-terracotta-muted">FOUNDATION</span>
-              <Target className="w-5 h-5 text-brand-orange" />
+          <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-1 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between">
+            <div className="flex items-center justify-between mb-4">
+              <IllustratedCardBadge variant="goal" size="sm" stepNumber="01" />
+              <span className="text-xs font-mono font-bold text-terracotta-muted px-2 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50">FOUNDATION</span>
             </div>
             <div>
-              <h3 className="font-heading font-extrabold text-lg min-[375px]:text-xl sm:text-lg text-espresso mb-1">
+              <h3 className="font-heading font-extrabold text-lg min-[375px]:text-xl sm:text-lg text-espresso mb-1.5">
                 Company Goals
               </h3>
-              <p className="text-base text-terracotta leading-relaxed">
+              <p className="text-sm sm:text-base text-terracotta leading-relaxed">
                 Strategic targets set by executive leadership give every initiative a clear purpose.
               </p>
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex flex-col justify-between">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-mono font-bold text-terracotta-muted">STRUCTURE</span>
-              <FolderGit2 className="w-5 h-5 text-brand-yellow" />
+          <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-1 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between">
+            <div className="flex items-center justify-between mb-4">
+              <IllustratedCardBadge variant="projects" size="sm" stepNumber="02" />
+              <span className="text-xs font-mono font-bold text-terracotta-muted px-2 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50">STRUCTURE</span>
             </div>
             <div>
-              <h3 className="font-heading font-extrabold text-lg min-[375px]:text-xl sm:text-lg text-espresso mb-1">
+              <h3 className="font-heading font-extrabold text-lg min-[375px]:text-xl sm:text-lg text-espresso mb-1.5">
                 Project Containers
               </h3>
-              <p className="text-base text-terracotta leading-relaxed">
+              <p className="text-sm sm:text-base text-terracotta leading-relaxed">
                 Dedicated workspaces group milestones, specs, and deliverables into one home.
               </p>
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex flex-col justify-between">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-mono font-bold text-terracotta-muted">EXECUTION</span>
-              <CheckSquare className="w-5 h-5 text-espresso" />
+          <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-1 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between">
+            <div className="flex items-center justify-between mb-4">
+              <IllustratedCardBadge variant="teams" size="sm" stepNumber="03" />
+              <span className="text-xs font-mono font-bold text-terracotta-muted px-2 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50">EXECUTION</span>
             </div>
             <div>
-              <h3 className="font-heading font-extrabold text-lg min-[375px]:text-xl sm:text-lg text-espresso mb-1">
+              <h3 className="font-heading font-extrabold text-lg min-[375px]:text-xl sm:text-lg text-espresso mb-1.5">
                 Autonomous Pods
               </h3>
-              <p className="text-base text-terracotta leading-relaxed">
+              <p className="text-sm sm:text-base text-terracotta leading-relaxed">
                 Designers and engineers focus on everyday work with deterministic ownership.
               </p>
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex flex-col justify-between">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-mono font-bold text-terracotta-muted">VISIBILITY</span>
-              <TrendingUp className="w-5 h-5 text-brand-green" />
+          <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-1 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between">
+            <div className="flex items-center justify-between mb-4">
+              <IllustratedCardBadge variant="progress" size="sm" stepNumber="04" />
+              <span className="text-xs font-mono font-bold text-terracotta-muted px-2 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50">VISIBILITY</span>
             </div>
             <div>
-              <h3 className="font-heading font-extrabold text-lg min-[375px]:text-xl sm:text-lg text-espresso mb-1">
+              <h3 className="font-heading font-extrabold text-lg min-[375px]:text-xl sm:text-lg text-espresso mb-1.5">
                 Live Rollups
               </h3>
-              <p className="text-base text-terracotta leading-relaxed">
+              <p className="text-sm sm:text-base text-terracotta leading-relaxed">
                 Completed work calculates progress automatically without manual status reports.
               </p>
             </div>
@@ -200,20 +206,20 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.4, delay: 0.05 }}
-            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between"
+            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-xl bg-amber-50 text-brand-yellow flex items-center justify-center mb-4">
-                <FileQuestion className="w-5 h-5 text-amber-600" />
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0] border border-brand-yellow/40 text-amber-700 flex items-center justify-center mb-4 shadow-sm">
+                <FileQuestion className="w-6 h-6 stroke-[2]" />
               </div>
-              <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-2">
                 Work Scattered Across Tools
               </h3>
               <p className="text-base text-terracotta leading-relaxed">
                 Context gets lost between fragmented wikis, chat threads, and ticket trackers, leaving teams unclear on what to build next.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-sm font-heading font-semibold text-amber-700">
+            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">
               Disconnected Documentation
             </div>
           </motion.div>
@@ -223,20 +229,20 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.4, delay: 0.12 }}
-            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between"
+            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center mb-4">
-                <AlertCircle className="w-5 h-5" />
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/30 text-brand-orange flex items-center justify-center mb-4 shadow-sm">
+                <AlertCircle className="w-6 h-6 stroke-[2]" />
               </div>
-              <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-2">
                 Teams Struggling to Track Progress
               </h3>
               <p className="text-base text-terracotta leading-relaxed">
                 Subjective status updates create phantom completion, resulting in surprise delays when deliverables near their deadlines.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-sm font-heading font-semibold text-brand-orange">
+            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
               Subjective Status Reports
             </div>
           </motion.div>
@@ -246,20 +252,20 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.4, delay: 0.19 }}
-            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between"
+            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-xl bg-surface-tier1 text-espresso flex items-center justify-center mb-4">
-                <Eye className="w-5 h-5 text-espresso" />
+              <div className="w-12 h-12 rounded-2xl bg-surface-tier1 border border-brand-peach/60 text-espresso flex items-center justify-center mb-4 shadow-sm">
+                <Eye className="w-6 h-6 stroke-[2]" />
               </div>
-              <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-2">
                 Leaders Lacking Clear Visibility
               </h3>
               <p className="text-base text-terracotta leading-relaxed">
                 Founders spend hours in alignment meetings instead of viewing a single, verified dashboard of company velocity and milestone health.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-sm font-heading font-semibold text-espresso">
+            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-espresso uppercase tracking-wider">
               Zero Single Source of Truth
             </div>
           </motion.div>
@@ -292,33 +298,31 @@ export const About: React.FC = () => {
         {/* 4 Interactive Sequence Cards: Goals → Projects → Tasks → Progress */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           {STEP_RELATIONS.map((rel, idx) => {
-            const Icon = rel.icon;
             const isActive = activeRelationIndex === idx;
+            const badgeVariant = rel.id === 'goals' ? 'goal' : rel.id === 'projects' ? 'projects' : rel.id === 'tasks' ? 'tasks' : 'progress';
 
             return (
               <button
                 key={rel.id}
                 type="button"
                 onClick={() => setActiveRelationIndex(idx)}
-                className={`p-4 rounded-2xl border-2 text-left transition-all cursor-pointer select-none flex flex-col justify-between ${
+                className={`p-4 sm:p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer select-none flex flex-col justify-between ${
                   isActive
-                    ? 'bg-brand-orange-light/40 border-brand-orange shadow-warm-xs'
-                    : 'bg-surface-tier1/50 border-brand-peach/50 hover:border-brand-peach hover:bg-surface-tier1'
+                    ? 'bg-white border-brand-orange ring-2 ring-brand-orange/25 shadow-warm-md scale-[1.02]'
+                    : 'bg-white/80 border-brand-peach/70 hover:border-brand-orange/40 hover:bg-white shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:-translate-y-0.5'
                 }`}
               >
-                <div className="flex items-center justify-between mb-3">
-                  <div className={`w-9 h-9 rounded-xl ${rel.lightBg} ${rel.accent} flex items-center justify-center`}>
-                    <Icon className="w-4.5 h-4.5" />
-                  </div>
-                  <span className="text-xs min-[375px]:text-sm font-mono font-bold text-terracotta-muted">
-                    {rel.stepNumber}
+                <div className="flex items-center justify-between mb-3.5">
+                  <IllustratedCardBadge variant={badgeVariant as any} size="sm" stepNumber={rel.stepNumber} />
+                  <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded-full ${isActive ? 'bg-brand-orange text-white' : 'bg-surface-tier1 text-terracotta-muted border border-brand-peach/50'}`}>
+                    {isActive ? 'ACTIVE' : `L-${rel.stepNumber}`}
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-heading font-bold text-[18px] sm:text-base text-espresso">
+                  <h3 className="font-heading font-extrabold text-lg sm:text-base text-espresso">
                     {rel.title}
                   </h3>
-                  <p className="text-xs min-[375px]:text-sm text-terracotta-muted mt-0.5">
+                  <p className="text-xs min-[375px]:text-sm text-terracotta-muted mt-1 leading-snug">
                     {rel.subtitle}
                   </p>
                 </div>
@@ -373,20 +377,20 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.4, delay: 0.05 }}
-            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between"
+            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center mb-4">
-                <Link2 className="w-5 h-5" />
+              <div className="mb-4">
+                <IllustratedCardBadge variant="projects" size="md" />
               </div>
-              <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-2">
                 Keep Work Connected
               </h3>
               <p className="text-base text-terracotta leading-relaxed">
                 Every daily task links directly to a milestone and company goal, ensuring no work is ever orphaned or disconnected from real outcomes.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-sm font-heading font-semibold text-brand-orange">
+            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
               Structural Integrity
             </div>
           </motion.div>
@@ -396,20 +400,20 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.4, delay: 0.12 }}
-            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between"
+            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center mb-4">
-                <TrendingUp className="w-5 h-5" />
+              <div className="mb-4">
+                <IllustratedCardBadge variant="progress" size="md" />
               </div>
-              <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-2">
                 Make Progress Visible
               </h3>
               <p className="text-base text-terracotta leading-relaxed">
                 Mathematical rollups calculate completion and project health in real time, giving founders and leads ground-truth transparency.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-sm font-heading font-semibold text-brand-green">
+            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-brand-green uppercase tracking-wider">
               Zero Manual Reports
             </div>
           </motion.div>
@@ -419,20 +423,20 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.4, delay: 0.19 }}
-            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between"
+            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-xl bg-amber-50 text-brand-yellow flex items-center justify-center mb-4">
-                <Zap className="w-5 h-5 text-amber-600" />
+              <div className="mb-4">
+                <IllustratedCardBadge variant="automation" size="md" />
               </div>
-              <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-2">
                 Help Teams Move Forward
               </h3>
               <p className="text-base text-terracotta leading-relaxed">
                 Clear SLA countdowns and manager sign-off gates unblock contributors days earlier, preventing last-minute delivery crunches.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-sm font-heading font-semibold text-amber-700">
+            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">
               Unblocked Contributors
             </div>
           </motion.div>

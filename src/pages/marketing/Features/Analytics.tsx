@@ -19,6 +19,7 @@ import {
   Check,
 } from 'lucide-react';
 import { CTASection } from '../../../components/common/CTASection';
+import { IllustratedCardBadge } from '../../../components/common/IllustratedCardBadge';
 
 type AnalyticsMode = 'leadership' | 'execution';
 
@@ -33,7 +34,7 @@ export const Analytics: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
+    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
       {/* 1. Page Header */}
       <div className="text-left w-full max-w-5xl space-y-2 mb-2 sm:mb-4">
         <motion.h1
@@ -322,7 +323,9 @@ export const Analytics: React.FC = () => {
                 <div className="space-y-3 pt-1">
                   <div className="p-3.5 bg-white rounded-xl border border-brand-peach/50 flex items-center justify-between shadow-warm-2xs">
                     <div className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-brand-green shrink-0" />
+                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] text-brand-green border border-brand-green/30 flex items-center justify-center shrink-0 shadow-xs">
+                        <CheckCircle2 className="w-4.5 h-4.5 stroke-[2.2]" />
+                      </div>
                       <div>
                         <span className="font-heading font-bold text-[15px] sm:text-sm text-espresso block">
                           Merge OAuth2 Redirection Handshake
@@ -337,7 +340,9 @@ export const Analytics: React.FC = () => {
 
                   <div className="p-3.5 bg-white rounded-xl border border-brand-peach/50 flex items-center justify-between shadow-warm-2xs">
                     <div className="flex items-center gap-3">
-                      <Activity className="w-5 h-5 text-brand-orange shrink-0 animate-pulse" />
+                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 flex items-center justify-center shrink-0 shadow-xs">
+                        <Activity className="w-4.5 h-4.5 stroke-[2] animate-pulse" />
+                      </div>
                       <div>
                         <span className="font-heading font-bold text-[15px] sm:text-sm text-espresso block">
                           Provision PostgreSQL Read Replicas
@@ -368,9 +373,7 @@ export const Analytics: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-orange-light text-brand-orange flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <Compass className="w-6 h-6" />
-              </div>
+              <IllustratedCardBadge variant="goal" size="md" />
               <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">
                 Macro Scope
               </span>
@@ -412,9 +415,7 @@ export const Analytics: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-green-light text-brand-green flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <Cpu className="w-6 h-6" />
-              </div>
+              <IllustratedCardBadge variant="analytics" size="md" />
               <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/20">
                 Micro Telemetry
               </span>
@@ -459,9 +460,7 @@ export const Analytics: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-brand-yellow flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <Sparkles className="w-6 h-6 text-amber-600" />
-              </div>
+              <IllustratedCardBadge variant="progress" size="md" />
               <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
                 Single Source
               </span>

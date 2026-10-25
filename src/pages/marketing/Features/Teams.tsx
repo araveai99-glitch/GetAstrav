@@ -19,6 +19,7 @@ import {
   Radio,
 } from 'lucide-react';
 import { CTASection } from '../../../components/common/CTASection';
+import { IllustratedCardBadge } from '../../../components/common/IllustratedCardBadge';
 
 interface PodNode {
   id: string;
@@ -119,7 +120,7 @@ export const Teams: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
+    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
       {/* 1. Page Header */}
       <div className="text-left w-full max-w-5xl space-y-2 mb-2 sm:mb-4">
         <motion.h1
@@ -243,8 +244,8 @@ export const Teams: React.FC = () => {
 
             {/* Live Incoming Stream Callout */}
             <div className="p-4 rounded-2xl bg-white border border-brand-orange/30 flex items-center gap-3.5 shadow-warm-2xs">
-              <div className="w-10 h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center shrink-0">
-                <Zap className="w-5 h-5 animate-bounce" />
+              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/30 text-brand-orange flex items-center justify-center shrink-0 shadow-sm shadow-brand-orange/10">
+                <Zap className="w-5 h-5 stroke-[2] animate-bounce" />
               </div>
               <div className="min-w-0">
                 <span className="text-xs font-mono font-bold text-brand-orange uppercase block">
@@ -281,13 +282,13 @@ export const Teams: React.FC = () => {
                   >
                     <div className="flex items-center gap-4">
                       <div
-                        className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-110 group-hover:rotate-6 ${
+                        className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-all group-hover:scale-110 group-hover:rotate-3 ${
                           isSelected
-                            ? 'bg-brand-orange text-white shadow-warm-xs'
-                            : 'bg-surface-tier1 text-terracotta border border-brand-peach/60'
+                            ? 'bg-gradient-to-br from-brand-orange to-[#d94e10] text-white shadow-sm shadow-brand-orange/25'
+                            : 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 shadow-sm shadow-brand-orange/10'
                         }`}
                       >
-                        <Icon className="w-6 h-6" />
+                        <Icon className="w-6 h-6 stroke-[2]" />
                       </div>
 
                       <div>
@@ -356,9 +357,7 @@ export const Teams: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-orange-light text-brand-orange flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <Layers className="w-6 h-6" />
-              </div>
+              <IllustratedCardBadge variant="teams" size="md" />
               <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">
                 Zero Handoffs
               </span>
@@ -409,9 +408,7 @@ export const Teams: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-green-light text-brand-green flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <TrendingUp className="w-6 h-6" />
-              </div>
+              <IllustratedCardBadge variant="progress" size="md" />
               <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/20">
                 Live Cascade
               </span>
@@ -454,9 +451,7 @@ export const Teams: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-brand-yellow flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <Zap className="w-6 h-6 text-amber-600" />
-              </div>
+              <IllustratedCardBadge variant="control" size="md" />
               <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
                 Direct Ownership
               </span>

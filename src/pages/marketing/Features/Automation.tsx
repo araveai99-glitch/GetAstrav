@@ -22,6 +22,7 @@ import {
   Radio,
 } from 'lucide-react';
 import { CTASection } from '../../../components/common/CTASection';
+import { IllustratedCardBadge } from '../../../components/common/IllustratedCardBadge';
 
 interface AutomationStep {
   stepNumber: number;
@@ -134,7 +135,7 @@ export const Automation: React.FC = () => {
   const currentStep = AUTOMATION_FLOW[currentStepIdx];
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
+    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
       {/* 1. Page Header */}
       <div className="text-left w-full max-w-5xl space-y-2 mb-2 sm:mb-4">
         <motion.h1
@@ -251,18 +252,18 @@ export const Automation: React.FC = () => {
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all group-hover:scale-110 group-hover:rotate-6 ${
+                      className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all group-hover:scale-110 group-hover:rotate-3 ${
                         isSelected
-                          ? 'bg-brand-orange text-white shadow-warm-xs'
+                          ? 'bg-gradient-to-br from-brand-orange to-[#d94e10] text-white shadow-sm shadow-brand-orange/25'
                           : isPassed
-                          ? 'bg-brand-green text-white shadow-warm-xs'
-                          : 'bg-surface-tier2 text-terracotta-muted border border-brand-peach/50'
+                          ? 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] text-brand-green border border-brand-green/30 shadow-xs'
+                          : 'bg-gradient-to-br from-surface-tier1 to-surface-tier2 text-terracotta-muted border border-brand-peach/50'
                       }`}
                     >
                       {isPassed && idx < currentStepIdx ? (
-                        <Check className="w-5 h-5 stroke-[3]" />
+                        <Check className="w-5 h-5 stroke-[2.5]" />
                       ) : (
-                        <Icon className="w-5 h-5" />
+                        <Icon className="w-5 h-5 stroke-[2]" />
                       )}
                     </div>
 
@@ -390,9 +391,7 @@ export const Automation: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-orange-light text-brand-orange flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <Zap className="w-6 h-6" />
-              </div>
+              <IllustratedCardBadge variant="automation" size="md" />
               <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">
                 Proactive
               </span>
@@ -433,9 +432,7 @@ export const Automation: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-green-light text-brand-green flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
+              <IllustratedCardBadge variant="control" size="md" />
               <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/20">
                 Early Warning
               </span>
@@ -500,9 +497,7 @@ export const Automation: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-brand-yellow flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <TrendingUp className="w-6 h-6 text-amber-600" />
-              </div>
+              <IllustratedCardBadge variant="progress" size="md" />
               <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
                 Auto Sync
               </span>

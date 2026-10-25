@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import {
-  FolderGit2,
+  FolderKanban,
   Target,
-  Flag,
-  CheckSquare,
+  Milestone,
+  ListChecks,
   FileText,
   ArrowRight,
   Sparkles,
@@ -18,6 +18,7 @@ import {
   Lock,
 } from 'lucide-react';
 import { CTASection } from '../../../components/common/CTASection';
+import { IllustratedCardBadge } from '../../../components/common/IllustratedCardBadge';
 
 interface Compartment {
   id: string;
@@ -27,6 +28,8 @@ interface Compartment {
   icon: React.ElementType;
   accent: string;
   badgeBg: string;
+  containerBg: string;
+  borderColor: string;
   wireColor: string;
   summary: string;
   items: { title: string; meta: string; tag: string; status: string }[];
@@ -41,6 +44,8 @@ const COMPARTMENTS: Compartment[] = [
     icon: Target,
     accent: 'text-brand-orange',
     badgeBg: 'bg-brand-orange-light text-brand-orange border-brand-orange/30',
+    containerBg: 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6]',
+    borderColor: 'border-brand-orange/25',
     wireColor: '#f15e1c',
     summary: 'Directly anchors this container to company-wide OKRs and executive strategic milestones.',
     items: [
@@ -53,9 +58,11 @@ const COMPARTMENTS: Compartment[] = [
     name: 'Milestones',
     subtitle: 'Phased Checkpoints',
     subtitleLines: ['Phased', 'Checkpoints'],
-    icon: Flag,
-    accent: 'text-brand-yellow',
+    icon: Milestone,
+    accent: 'text-amber-700',
     badgeBg: 'bg-amber-50 text-amber-800 border-amber-200',
+    containerBg: 'bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0]',
+    borderColor: 'border-brand-yellow/35',
     wireColor: '#fab60a',
     summary: 'Time-boxed delivery checkpoints that aggregate task outputs and monitor team SLA run-rates.',
     items: [
@@ -68,9 +75,11 @@ const COMPARTMENTS: Compartment[] = [
     name: 'Tasks',
     subtitle: 'Daily Execution',
     subtitleLines: ['Daily', 'Execution'],
-    icon: CheckSquare,
+    icon: ListChecks,
     accent: 'text-brand-green',
     badgeBg: 'bg-brand-green-light text-brand-green border-brand-green/30',
+    containerBg: 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7]',
+    borderColor: 'border-brand-green/25',
     wireColor: '#2e936f',
     summary: 'Individual work items assigned to pod specialists with deterministic mathematical weighting.',
     items: [
@@ -86,6 +95,8 @@ const COMPARTMENTS: Compartment[] = [
     icon: FileText,
     accent: 'text-indigo-600',
     badgeBg: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+    containerBg: 'bg-gradient-to-br from-[#f5f3ff] to-[#ede9fe]',
+    borderColor: 'border-indigo-200',
     wireColor: '#6366f1',
     summary: 'Embed PRDs, architectural decision records, and acceptance criteria right alongside everyday work.',
     items: [
@@ -109,7 +120,7 @@ export const Projects: React.FC = () => {
     COMPARTMENTS.find((c) => c.id === activeCompartmentId) || COMPARTMENTS[0];
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
+    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
       {/* 1. Page Header */}
       <div className="text-left w-full max-w-5xl space-y-2 mb-2 sm:mb-4">
         <motion.h1
@@ -151,7 +162,7 @@ export const Projects: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2 text-[13px] font-heading font-semibold text-terracotta-muted bg-surface-tier1 px-3 py-1.5 rounded-xl border border-brand-peach/50 self-start sm:self-auto">
-            <FolderGit2 className="w-4 h-4 text-brand-orange" />
+            <FolderKanban className="w-4 h-4 text-brand-orange stroke-[2]" />
             <span>Structured Hierarchy</span>
           </div>
         </div>
@@ -175,13 +186,13 @@ export const Projects: React.FC = () => {
               >
                 <div className="flex items-center justify-between gap-1.5 min-[360px]:gap-2 sm:gap-3 mb-2.5 sm:mb-3 min-w-0">
                   <div
-                    className={`w-7 h-7 min-[360px]:w-8 min-[360px]:h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0 transition-all group-hover:scale-110 group-hover:rotate-6 ${
+                    className={`w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shrink-0 transition-all group-hover:scale-105 shadow-sm ${
                       isActive
                         ? 'bg-brand-orange text-white shadow-warm-xs'
-                        : 'bg-white text-terracotta border border-brand-peach/60'
+                        : `${comp.containerBg} ${comp.borderColor} border ${comp.accent}`
                     }`}
                   >
-                    <Icon className="w-3.5 h-3.5 min-[360px]:w-4 min-[360px]:h-4 sm:w-5 sm:h-5" />
+                    <Icon className="w-4 h-4 min-[360px]:w-4.5 min-[360px]:h-4.5 sm:w-5 sm:h-5" strokeWidth={2} />
                   </div>
                   <span
                     className={`min-w-0 flex flex-col sm:inline-flex sm:flex-row items-center sm:items-baseline justify-center text-center px-1.5 min-[360px]:px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-lg sm:rounded-full border font-mono font-bold text-[9px] min-[360px]:text-[10px] min-[390px]:text-[10.5px] sm:text-xs leading-[1.15] sm:leading-tight tracking-tight sm:tracking-normal ${comp.badgeBg}`}
@@ -222,8 +233,8 @@ export const Projects: React.FC = () => {
               </div>
 
               <div className="flex items-start gap-3.5 mb-3">
-                <div className="w-12 h-12 rounded-2xl bg-brand-orange text-white flex items-center justify-center shrink-0 shadow-warm-xs">
-                  <FolderGit2 className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-orange to-[#d94e10] text-white flex items-center justify-center shrink-0 shadow-sm shadow-brand-orange/30">
+                  <FolderKanban className="w-6 h-6" strokeWidth={2} />
                 </div>
                 <div>
                   <h4 className="font-heading font-extrabold text-[20px] sm:text-xl text-espresso">
@@ -331,9 +342,7 @@ export const Projects: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-orange-light text-brand-orange flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <Database className="w-6 h-6" />
-              </div>
+              <IllustratedCardBadge variant="projects" size="md" />
               <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">
                 Unified Assets
               </span>
@@ -377,9 +386,7 @@ export const Projects: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-green-light text-brand-green flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
+              <IllustratedCardBadge variant="governance" size="md" />
               <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/20">
                 Scoped RBAC
               </span>
@@ -448,9 +455,7 @@ export const Projects: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-brand-yellow flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <Sparkles className="w-6 h-6 text-amber-600" />
-              </div>
+              <IllustratedCardBadge variant="progress" size="md" />
               <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
                 Auto Cascade
               </span>

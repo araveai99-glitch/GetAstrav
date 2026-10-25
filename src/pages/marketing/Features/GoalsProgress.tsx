@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Target, CheckCircle2, TrendingUp, ShieldCheck, ArrowRight, Layers, Sparkles } from 'lucide-react';
+import { Target, ListChecks, TrendingUp, GitMerge, ShieldCheck, ArrowRight, Layers, Sparkles } from 'lucide-react';
 import { CTASection } from '../../../components/common/CTASection';
+import { IllustratedCardBadge } from '../../../components/common/IllustratedCardBadge';
 
 export const GoalsProgress: React.FC = () => {
   useEffect(() => {
@@ -24,57 +25,99 @@ export const GoalsProgress: React.FC = () => {
 
       {/* 3 Symmetric Feature Pillars */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-        <div className="p-6 bg-white rounded-2xl border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between">
-          <div>
-            <div className="w-10 h-10 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center mb-4">
-              <CheckCircle2 className="w-5 h-5" />
+        {/* Card 1 */}
+        <div className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <IllustratedCardBadge variant="tasks" size="md" />
+              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-3 py-1 rounded-full border border-brand-green/20">
+                Deterministic
+              </span>
             </div>
-            <h3 className="font-heading font-bold text-[18px] text-espresso mb-2">
-              Weighted Subtask Rollup
-            </h3>
-            <p className="text-base text-terracotta leading-relaxed">
-              Every subtask carries defined mathematical weight. As engineering and product complete individual tasks, progress rolls up in real time without manual reporting.
-            </p>
+
+            <div>
+              <h3 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso mb-2">
+                Weighted Subtask Rollup
+              </h3>
+              <p className="text-base text-terracotta leading-relaxed">
+                Every subtask carries defined mathematical weight. As engineering and product complete individual tasks, progress rolls up in real time without manual reporting.
+              </p>
+            </div>
+
+            {/* Micro telemetry widget */}
+            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
+              <span className="text-terracotta">Calculated Rollup:</span>
+              <span className="text-brand-green font-bold">100% Granular Math</span>
+            </div>
           </div>
-          <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-[13px] font-heading font-semibold text-brand-green">
+
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-green">
             <span>Granular Precision</span>
-            <span>100% Deterministic</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
         </div>
 
-        <div className="p-6 bg-white rounded-2xl border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between">
-          <div>
-            <div className="w-10 h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center mb-4">
-              <TrendingUp className="w-5 h-5" />
+        {/* Card 2 */}
+        <div className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <IllustratedCardBadge variant="projects" size="md" />
+              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-3 py-1 rounded-full border border-brand-orange/20">
+                Cross-Pod
+              </span>
             </div>
-            <h3 className="font-heading font-bold text-[18px] text-espresso mb-2">
-              Milestone & Project Sync
-            </h3>
-            <p className="text-base text-terracotta leading-relaxed">
-              Milestones aggregate active deliverables across multiple pods. Deadlines, SLA status, and dependencies calculate automatically so leadership spots risks days earlier.
-            </p>
+
+            <div>
+              <h3 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso mb-2">
+                Milestone & Project Sync
+              </h3>
+              <p className="text-base text-terracotta leading-relaxed">
+                Milestones aggregate active deliverables across multiple pods. Deadlines, SLA status, and dependencies calculate automatically so leadership spots risks days earlier.
+              </p>
+            </div>
+
+            {/* Micro telemetry widget */}
+            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
+              <span className="text-terracotta">Aggregated Milestones:</span>
+              <span className="text-brand-orange font-bold">Active SLA Cascade</span>
+            </div>
           </div>
-          <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-[13px] font-heading font-semibold text-brand-orange">
-            <span>Cross-Department</span>
-            <span>Real-Time SLAs</span>
+
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-orange">
+            <span>Cross-Department Sync</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
         </div>
 
-        <div className="p-6 bg-white rounded-2xl border border-brand-peach/80 shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between">
-          <div>
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-brand-yellow flex items-center justify-center mb-4">
-              <ShieldCheck className="w-5 h-5 text-amber-600" />
+        {/* Card 3 */}
+        <div className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <IllustratedCardBadge variant="control" size="md" />
+              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+                Executive RBAC
+              </span>
             </div>
-            <h3 className="font-heading font-bold text-[18px] text-espresso mb-2">
-              Founder Override Governance
-            </h3>
-            <p className="text-base text-terracotta leading-relaxed">
-              Executive leadership retains override authority on strategic targets. Any manual adjustment is logged with audit timestamps, rationale, and owner tags for governance.
-            </p>
+
+            <div>
+              <h3 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso mb-2">
+                Founder Override Governance
+              </h3>
+              <p className="text-base text-terracotta leading-relaxed">
+                Executive leadership retains override authority on strategic targets. Any manual adjustment is logged with audit timestamps, rationale, and owner tags for governance.
+              </p>
+            </div>
+
+            {/* Micro telemetry widget */}
+            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
+              <span className="text-terracotta">Override Governance:</span>
+              <span className="text-amber-800 font-bold">Immutable Audit Trail</span>
+            </div>
           </div>
-          <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-[13px] font-heading font-semibold text-amber-700">
+
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-amber-700">
             <span>Enterprise RBAC</span>
-            <span>Audit Trail</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
         </div>
       </div>
@@ -82,9 +125,9 @@ export const GoalsProgress: React.FC = () => {
       {/* Wide Formula Architecture Card */}
       <div className="p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-md">
         <div className="flex flex-wrap items-center justify-between gap-4 pb-4 mb-5 border-b border-brand-peach/50">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-brand-orange text-white flex items-center justify-center">
-              <Target className="w-4.5 h-4.5" />
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-orange to-[#d94e10] text-white flex items-center justify-center shadow-sm shadow-brand-orange/25">
+              <Target className="w-5 h-5" strokeWidth={2} />
             </div>
             <div>
               <h3 className="text-base sm:text-lg font-heading font-bold text-espresso">
@@ -105,39 +148,54 @@ export const GoalsProgress: React.FC = () => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 rounded-xl bg-surface-tier1 border border-brand-peach/50 space-y-1.5">
-            <span className="text-xs font-mono font-bold text-brand-green uppercase tracking-wider">
-              LEVEL 1: TASK EXECUTION
-            </span>
-            <h4 className="font-heading font-bold text-[15px] sm:text-sm text-espresso">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+          <div className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="w-7 h-7 rounded-full bg-[#edf7f3] text-brand-green border border-brand-green/30 font-mono font-bold text-xs flex items-center justify-center">
+                1
+              </span>
+              <span className="text-xs font-mono font-bold text-brand-green uppercase tracking-wider">
+                TASK EXECUTION
+              </span>
+            </div>
+            <h4 className="font-heading font-extrabold text-[16px] sm:text-sm text-espresso">
               Task Progress Formula
             </h4>
-            <p className="text-[13px] font-mono text-terracotta bg-white p-2.5 rounded-lg border border-brand-peach/40">
+            <p className="text-[13px] font-mono text-terracotta bg-white p-3 rounded-xl border border-brand-peach/50 shadow-warm-2xs">
               Completed Weights / Total Subtask Weights × 100
             </p>
           </div>
 
-          <div className="p-4 rounded-xl bg-surface-tier1 border border-brand-peach/50 space-y-1.5">
-            <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
-              LEVEL 2: MILESTONES
-            </span>
-            <h4 className="font-heading font-bold text-[15px] sm:text-sm text-espresso">
+          <div className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="w-7 h-7 rounded-full bg-[#fff4ed] text-brand-orange border border-brand-orange/30 font-mono font-bold text-xs flex items-center justify-center">
+                2
+              </span>
+              <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
+                MILESTONES
+              </span>
+            </div>
+            <h4 className="font-heading font-extrabold text-[16px] sm:text-sm text-espresso">
               Milestone Progress Formula
             </h4>
-            <p className="text-[13px] font-mono text-terracotta bg-white p-2.5 rounded-lg border border-brand-peach/40">
+            <p className="text-[13px] font-mono text-terracotta bg-white p-3 rounded-xl border border-brand-peach/50 shadow-warm-2xs">
               ∑ (Task Weight × Task Progress) / Total Project Weight
             </p>
           </div>
 
-          <div className="p-4 rounded-xl bg-surface-tier1 border border-brand-peach/50 space-y-1.5">
-            <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">
-              LEVEL 3: STRATEGIC GOAL
-            </span>
-            <h4 className="font-heading font-bold text-[15px] sm:text-sm text-espresso">
+          <div className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="w-7 h-7 rounded-full bg-[#fefbf0] text-amber-800 border border-amber-200 font-mono font-bold text-xs flex items-center justify-center">
+                3
+              </span>
+              <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">
+                STRATEGIC GOAL
+              </span>
+            </div>
+            <h4 className="font-heading font-extrabold text-[16px] sm:text-sm text-espresso">
               Goal Effective Progress
             </h4>
-            <p className="text-[13px] font-mono text-terracotta bg-white p-2.5 rounded-lg border border-brand-peach/40">
+            <p className="text-[13px] font-mono text-terracotta bg-white p-3 rounded-xl border border-brand-peach/50 shadow-warm-2xs">
               Executive Override ?? Mathematical Computed Progress
             </p>
           </div>

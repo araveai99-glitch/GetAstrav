@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import {
   Building2,
   Users,
   Target,
-  FolderGit2,
+  FolderKanban,
   CheckCircle2,
   TrendingUp,
   Activity,
@@ -17,6 +17,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { CTASection } from '../../../components/common/CTASection';
+import { IllustratedCardBadge } from '../../../components/common/IllustratedCardBadge';
 
 interface DepartmentNode {
   id: string;
@@ -79,6 +80,8 @@ export const UseCases: React.FC = () => {
   const sectionARef = useRef<HTMLDivElement>(null);
   const isSectionAInView = useInView(sectionARef, { once: false, amount: 0.2 });
   const [selectedDeptId, setSelectedDeptId] = useState<string>('product');
+  const selectedDeptCardRef = useRef<HTMLDivElement>(null);
+  const isInitialDeptMount = useRef<boolean>(true);
 
   // Section B: Every Team Contributes
   const sectionBRef = useRef<HTMLDivElement>(null);
@@ -89,6 +92,54 @@ export const UseCases: React.FC = () => {
   const isSectionCInView = useInView(sectionCRef, { once: false, amount: 0.2 });
 
   const activeDept = DEPARTMENTS_DATA.find((d) => d.id === selectedDeptId) || DEPARTMENTS_DATA[1];
+
+  const scrollToSelectedDept = useCallback(() => {
+    // Desktop layout (>= 1024px) has all 5 tiers side-by-side in one row
+    if (window.innerWidth >= 1024) return;
+    if (!selectedDeptCardRef.current) return;
+
+    const cardRect = selectedDeptCardRef.current.getBoundingClientRect();
+    const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Fixed mobile navbar height is 70px
+    const navbarHeight = 70;
+
+    // Measure the sticky department switcher container
+    const switcherEl = document.getElementById('dept-switcher-container');
+    const switcherHeight = switcherEl ? switcherEl.offsetHeight : 0;
+
+    // Controlled buffer (10px) so the card breathes comfortably below the sticky bar
+    const spacingBuffer = 10;
+    const totalTopOffset = navbarHeight + switcherHeight + spacingBuffer;
+
+    const targetY = currentScrollY + cardRect.top - totalTopOffset;
+
+    window.scrollTo({
+      top: Math.max(0, targetY),
+      behavior: shouldReduceMotion ? 'auto' : 'smooth',
+    });
+  }, [shouldReduceMotion]);
+
+  useEffect(() => {
+    if (isInitialDeptMount.current) {
+      isInitialDeptMount.current = false;
+      return;
+    }
+
+    const frameId = requestAnimationFrame(() => {
+      scrollToSelectedDept();
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, [selectedDeptId, scrollToSelectedDept]);
+
+  const handleSelectDepartment = (id: string) => {
+    if (id === selectedDeptId) {
+      scrollToSelectedDept();
+    } else {
+      setSelectedDeptId(id);
+    }
+  };
 
   return (
     <div className="w-full max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-24 sm:pt-28 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12">
@@ -109,7 +160,7 @@ export const UseCases: React.FC = () => {
       {/* ==================================================================== */}
       <section
         ref={sectionARef}
-        className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative overflow-hidden space-y-6"
+        className="w-full p-4 min-[375px]:p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative space-y-6"
       >
         <div className="max-w-2xl space-y-1.5 text-left">
           <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
@@ -121,31 +172,46 @@ export const UseCases: React.FC = () => {
         </div>
 
         {/* Department Switcher Tabs */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3">
-          <span className="text-xs sm:text-sm font-mono font-bold text-terracotta-muted shrink-0">
-            Select Department:
-          </span>
-          <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 w-full sm:w-auto">
-            {DEPARTMENTS_DATA.map((dept) => {
-              const isSelected = selectedDeptId === dept.id;
-              const DeptIcon = dept.icon;
+        <div
+          id="dept-switcher-container"
+          className="sticky top-[70px] z-20 bg-white/95 backdrop-blur-md py-2.5 -mx-4 px-4 min-[375px]:-mx-6 min-[375px]:px-6 sm:mx-0 sm:px-0 sm:py-0 sm:static sm:bg-transparent border-b border-brand-peach/40 sm:border-none shadow-sm sm:shadow-none transition-shadow duration-200"
+        >
+          {/* Mobile Accessible Header */}
+          <div className="flex items-center justify-between pb-1.5 sm:hidden">
+            <span className="text-xs font-heading font-bold text-espresso tracking-tight truncate">
+              One Organization, Connected Teams
+            </span>
+            <span className="text-[11px] font-mono font-bold text-brand-orange uppercase shrink-0 ml-2">
+              {activeDept.name}
+            </span>
+          </div>
 
-              return (
-                <button
-                  key={dept.id}
-                  type="button"
-                  onClick={() => setSelectedDeptId(dept.id)}
-                  className={`inline-flex items-center justify-center gap-1.5 px-3 py-2 sm:px-3.5 sm:py-2 rounded-xl text-xs min-[375px]:text-sm font-heading font-bold transition-all cursor-pointer select-none w-full sm:w-auto whitespace-nowrap ${
-                    isSelected
-                      ? 'bg-brand-orange text-white shadow-sm shadow-brand-orange/30'
-                      : 'bg-surface-ambient hover:bg-white text-espresso border border-brand-peach/80'
-                  }`}
-                >
-                  <DeptIcon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-white' : 'text-brand-orange'}`} />
-                  <span>{dept.name}</span>
-                </button>
-              );
-            })}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+            <span className="text-xs sm:text-sm font-mono font-bold text-terracotta-muted shrink-0 hidden sm:inline">
+              Select Department:
+            </span>
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-1.5 min-[375px]:gap-2 w-full sm:w-auto">
+              {DEPARTMENTS_DATA.map((dept) => {
+                const isSelected = selectedDeptId === dept.id;
+                const DeptIcon = dept.icon;
+
+                return (
+                  <button
+                    key={dept.id}
+                    type="button"
+                    onClick={() => handleSelectDepartment(dept.id)}
+                    className={`inline-flex items-center justify-center gap-1.5 px-2.5 min-[375px]:px-3.5 py-2 rounded-xl text-xs min-[375px]:text-sm font-heading font-bold transition-all cursor-pointer select-none w-full sm:w-auto whitespace-nowrap ${
+                      isSelected
+                        ? 'bg-brand-orange text-white shadow-sm shadow-brand-orange/30'
+                        : 'bg-surface-ambient hover:bg-white text-espresso border border-brand-peach/80'
+                    }`}
+                  >
+                    <DeptIcon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-white' : 'text-brand-orange'}`} />
+                    <span>{dept.name}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -175,8 +241,8 @@ export const UseCases: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <div className="w-9 h-9 rounded-xl bg-brand-orange text-white flex items-center justify-center font-bold text-xs shadow-sm">
-                    <Building2 className="w-4.5 h-4.5" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-orange to-[#d94e10] text-white flex items-center justify-center font-bold text-xs shadow-sm shadow-brand-orange/25">
+                    <Building2 className="w-5 h-5 stroke-[2]" />
                   </div>
                   <span className="text-xs font-mono font-bold text-terracotta-muted">Tier 01</span>
                 </div>
@@ -197,17 +263,19 @@ export const UseCases: React.FC = () => {
 
             {/* Step 2: Departments */}
             <motion.div
+              ref={selectedDeptCardRef}
+              id="selected-department-card"
               initial={{ opacity: 0, y: 14 }}
               animate={
                 isSectionAInView || shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }
               }
               transition={{ duration: 0.4, delay: 0.18 }}
-              className="p-4 rounded-2xl bg-white border-2 border-brand-orange shadow-warm-xs flex flex-col justify-between"
+              className="p-4 rounded-2xl bg-white border-2 border-brand-orange shadow-warm-xs flex flex-col justify-between scroll-mt-[180px]"
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <div className="w-9 h-9 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center font-bold text-xs">
-                    {React.createElement(activeDept.icon, { className: 'w-4.5 h-4.5' })}
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 flex items-center justify-center font-bold text-xs shadow-sm shadow-brand-orange/10">
+                    {React.createElement(activeDept.icon, { className: 'w-5 h-5 stroke-[2]' })}
                   </div>
                   <span className="text-xs font-mono font-bold text-brand-orange">Tier 02</span>
                 </div>
@@ -237,8 +305,8 @@ export const UseCases: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <div className="w-9 h-9 rounded-xl bg-surface-tier1 text-brand-orange flex items-center justify-center font-bold text-xs border border-brand-peach/70">
-                    <FolderGit2 className="w-4.5 h-4.5" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0] text-amber-700 border border-brand-yellow/35 flex items-center justify-center font-bold text-xs shadow-sm shadow-brand-yellow/10">
+                    <FolderKanban className="w-5 h-5 stroke-[2]" />
                   </div>
                   <span className="text-xs font-mono font-bold text-terracotta-muted">Tier 03</span>
                 </div>
@@ -268,8 +336,8 @@ export const UseCases: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <div className="w-9 h-9 rounded-xl bg-surface-tier1 text-brand-orange flex items-center justify-center font-bold text-xs border border-brand-peach/70">
-                    <Users className="w-4.5 h-4.5" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 flex items-center justify-center font-bold text-xs shadow-sm shadow-brand-orange/10">
+                    <Users className="w-5 h-5 stroke-[2]" />
                   </div>
                   <span className="text-xs font-mono font-bold text-terracotta-muted">Tier 04</span>
                 </div>
@@ -299,8 +367,8 @@ export const UseCases: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <div className="w-9 h-9 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center font-bold text-xs border border-brand-green/30">
-                    <Target className="w-4.5 h-4.5" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] text-brand-green border border-brand-green/30 flex items-center justify-center font-bold text-xs shadow-sm shadow-brand-green/10">
+                    <Target className="w-5 h-5 stroke-[2]" />
                   </div>
                   <span className="text-xs font-mono font-bold text-terracotta-muted">Tier 05</span>
                 </div>
@@ -486,7 +554,7 @@ export const UseCases: React.FC = () => {
         </div>
 
         {/* 3 Outcome Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {/* Outcome 1: Shared Progress */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
@@ -494,50 +562,56 @@ export const UseCases: React.FC = () => {
               isSectionCInView || shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }
             }
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3 shadow-warm-xs"
+            className="p-6 sm:p-7 rounded-3xl bg-white border border-brand-peach/80 flex flex-col justify-between space-y-5 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:shadow-warm-md hover:border-brand-orange/40 hover:-translate-y-1.5 transition-all duration-300 group"
           >
-            <div>
-              <div className="w-10 h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center font-bold mb-3">
-                <TrendingUp className="w-5 h-5" />
+            <div className="space-y-4">
+              <IllustratedCardBadge variant="progress" size="md" />
+              <div>
+                <h3 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso mb-1.5">
+                  Shared Progress
+                </h3>
+                <p className="text-sm sm:text-base text-terracotta leading-relaxed">
+                  All teams see live progress in real time without waiting for weekly status meetings.
+                </p>
               </div>
-              <h3 className="font-heading font-bold text-[18px] sm:text-lg text-espresso mb-1">
-                Shared Progress
-              </h3>
-              <p className="text-base text-terracotta leading-relaxed">
-                All teams see live progress in real time without waiting for weekly status meetings.
-              </p>
             </div>
 
-            <div className="pt-2.5 border-t border-brand-peach/40 flex items-center gap-1.5 text-sm font-heading font-semibold text-brand-orange">
-              <CheckCircle2 className="w-3.5 h-3.5" />
-              <span>Real-Time Visibility</span>
+            <div className="pt-3 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-orange">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 stroke-[2.2]" />
+                <span>Real-Time Visibility</span>
+              </span>
+              <span className="text-xs font-mono font-bold text-terracotta-muted">Automated</span>
             </div>
           </motion.div>
 
-            {/* Outcome 2: Clear Ownership */}
+          {/* Outcome 2: Clear Ownership */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={
               isSectionCInView || shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }
             }
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3 shadow-warm-xs"
+            className="p-6 sm:p-7 rounded-3xl bg-white border border-brand-peach/80 flex flex-col justify-between space-y-5 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:shadow-warm-md hover:border-brand-green/40 hover:-translate-y-1.5 transition-all duration-300 group"
           >
-            <div>
-              <div className="w-10 h-10 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center font-bold mb-3">
-                <Users className="w-5 h-5" />
+            <div className="space-y-4">
+              <IllustratedCardBadge variant="teams" size="md" />
+              <div>
+                <h3 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso mb-1.5">
+                  Clear Ownership
+                </h3>
+                <p className="text-sm sm:text-base text-terracotta leading-relaxed">
+                  Every project and deliverable has a designated owner so everyone knows who is responsible.
+                </p>
               </div>
-              <h3 className="font-heading font-bold text-[18px] sm:text-lg text-espresso mb-1">
-                Clear Ownership
-              </h3>
-              <p className="text-base text-terracotta leading-relaxed">
-                Every project and deliverable has a designated owner so everyone knows who is responsible.
-              </p>
             </div>
 
-            <div className="pt-2.5 border-t border-brand-peach/40 flex items-center gap-1.5 text-sm font-heading font-semibold text-brand-green">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Dedicated Pod Leads</span>
+            <div className="pt-3 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-green">
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 stroke-[2.2]" />
+                <span>Dedicated Pod Leads</span>
+              </span>
+              <span className="text-xs font-mono font-bold text-terracotta-muted">SLA Tracked</span>
             </div>
           </motion.div>
 
@@ -548,23 +622,26 @@ export const UseCases: React.FC = () => {
               isSectionCInView || shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }
             }
             transition={{ duration: 0.4, delay: 0.3 }}
-            className="p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3 shadow-warm-xs"
+            className="p-6 sm:p-7 rounded-3xl bg-white border border-brand-peach/80 flex flex-col justify-between space-y-5 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:shadow-warm-md hover:border-brand-yellow/40 hover:-translate-y-1.5 transition-all duration-300 group"
           >
-            <div>
-              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold mb-3 border border-amber-200">
-                <Eye className="w-5 h-5" />
+            <div className="space-y-4">
+              <IllustratedCardBadge variant="control" size="md" />
+              <div>
+                <h3 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso mb-1.5">
+                  Earlier Visibility into Delays
+                </h3>
+                <p className="text-sm sm:text-base text-terracotta leading-relaxed">
+                  Spot delays days earlier so downstream teams can adjust without last-minute surprises.
+                </p>
               </div>
-              <h3 className="font-heading font-bold text-[18px] sm:text-lg text-espresso mb-1">
-                Earlier Visibility into Delays
-              </h3>
-              <p className="text-base text-terracotta leading-relaxed">
-                Spot delays days earlier so downstream teams can adjust without last-minute surprises.
-              </p>
             </div>
 
-            <div className="pt-2.5 border-t border-brand-peach/40 flex items-center gap-1.5 text-sm font-heading font-semibold text-amber-700">
-              <Clock className="w-3.5 h-3.5" />
-              <span>Zero Surprise Bottlenecks</span>
+            <div className="pt-3 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-amber-700">
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-4 h-4" />
+                <span>Zero Surprise Bottlenecks</span>
+              </span>
+              <span className="text-xs font-mono font-bold text-terracotta-muted">Predictive</span>
             </div>
           </motion.div>
         </div>

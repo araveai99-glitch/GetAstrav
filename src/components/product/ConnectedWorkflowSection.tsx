@@ -2,16 +2,17 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, useInView, useAnimation, useReducedMotion, type Variants } from 'framer-motion';
 import {
   Building2,
-  FolderGit2,
+  FolderKanban,
   Target,
-  Flag,
-  CheckSquare,
+  Milestone,
+  ListChecks,
   CheckCircle2,
   TrendingUp,
   Sparkles,
   Info,
   ChevronRight,
 } from 'lucide-react';
+import { IllustratedCardBadge, type IllustratedBadgeVariant } from '../common/IllustratedCardBadge';
 
 interface SimpleWorkflowNode {
   id: string;
@@ -20,8 +21,11 @@ interface SimpleWorkflowNode {
   shortLabel: string;
   example: string;
   icon: React.ElementType;
+  illustrationVariant: IllustratedBadgeVariant;
   accent: string;
-  bg: string;
+  badgeBg: string;
+  containerBg: string;
+  borderColor: string;
 }
 
 const WORKFLOW_STEPS: SimpleWorkflowNode[] = [
@@ -32,8 +36,11 @@ const WORKFLOW_STEPS: SimpleWorkflowNode[] = [
     shortLabel: 'Company Vision',
     example: 'Acme Enterprise',
     icon: Building2,
+    illustrationVariant: 'org',
     accent: 'text-brand-orange',
-    bg: 'bg-brand-orange-light',
+    badgeBg: 'bg-brand-orange-light text-brand-orange border border-brand-orange/20',
+    containerBg: 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6]',
+    borderColor: 'border-brand-orange/25',
   },
   {
     id: 'projects',
@@ -41,9 +48,12 @@ const WORKFLOW_STEPS: SimpleWorkflowNode[] = [
     title: 'Projects',
     shortLabel: 'Team Initiatives',
     example: 'Product Pod',
-    icon: FolderGit2,
+    icon: FolderKanban,
+    illustrationVariant: 'projects',
     accent: 'text-brand-green',
-    bg: 'bg-brand-green-light',
+    badgeBg: 'bg-brand-green-light text-brand-green border border-brand-green/20',
+    containerBg: 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7]',
+    borderColor: 'border-brand-green/25',
   },
   {
     id: 'goals',
@@ -52,8 +62,11 @@ const WORKFLOW_STEPS: SimpleWorkflowNode[] = [
     shortLabel: 'Key Objectives',
     example: 'Launch Product Hub',
     icon: Target,
-    accent: 'text-brand-yellow',
-    bg: 'bg-amber-50',
+    illustrationVariant: 'goal',
+    accent: 'text-amber-700',
+    badgeBg: 'bg-amber-50 text-amber-800 border border-amber-200',
+    containerBg: 'bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0]',
+    borderColor: 'border-brand-yellow/35',
   },
   {
     id: 'milestones',
@@ -61,9 +74,12 @@ const WORKFLOW_STEPS: SimpleWorkflowNode[] = [
     title: 'Milestones',
     shortLabel: 'Major Checkpoints',
     example: 'Architecture Signoff',
-    icon: Flag,
+    icon: Milestone,
+    illustrationVariant: 'milestone',
     accent: 'text-brand-orange',
-    bg: 'bg-brand-orange-light',
+    badgeBg: 'bg-brand-orange-light text-brand-orange border border-brand-orange/20',
+    containerBg: 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6]',
+    borderColor: 'border-brand-orange/25',
   },
   {
     id: 'tasks',
@@ -71,9 +87,12 @@ const WORKFLOW_STEPS: SimpleWorkflowNode[] = [
     title: 'Tasks',
     shortLabel: 'Daily Action Items',
     example: 'Responsive Layout',
-    icon: CheckSquare,
+    icon: ListChecks,
+    illustrationVariant: 'tasks',
     accent: 'text-brand-green',
-    bg: 'bg-brand-green-light',
+    badgeBg: 'bg-brand-green-light text-brand-green border border-brand-green/20',
+    containerBg: 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7]',
+    borderColor: 'border-brand-green/25',
   },
 ];
 
@@ -425,7 +444,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
   return (
     <section
       id="connected-workflow"
-      className="relative pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto overflow-hidden"
+      className="relative pt-20 sm:pt-20 md:pt-24 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto overflow-hidden"
     >
       {/* Subtle Background Ambient Decorative Sheen */}
       <motion.div
@@ -480,7 +499,6 @@ export const ConnectedWorkflowSection: React.FC = () => {
           {/* 5 Connected Step Cards */}
           <div className="grid grid-cols-5 gap-3.5 relative z-10">
             {WORKFLOW_STEPS.map((step, index) => {
-              const Icon = step.icon;
               const isSelected = activeStepId === step.id;
               return (
                 <div key={step.id} className="relative group">
@@ -490,20 +508,18 @@ export const ConnectedWorkflowSection: React.FC = () => {
                     viewport={{ once: false, amount: 0.2 }}
                     transition={{ duration: 0.35, delay: index * 0.08 }}
                     onClick={() => setActiveStepId(step.id)}
-                    className={`p-4 rounded-2xl border transition-all duration-200 cursor-pointer flex flex-col justify-between min-h-[140px] ${
+                    className={`p-4 rounded-3xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[185px] ${
                       isSelected
-                        ? 'bg-white border-brand-orange shadow-warm-sm scale-[1.02] ring-2 ring-brand-orange/20'
-                        : 'bg-surface-ambient hover:bg-white border-brand-peach/60 hover:border-brand-orange/40 hover:-translate-y-0.5 hover:shadow-warm-2xs'
+                        ? 'bg-white border-brand-orange shadow-warm-md scale-[1.02] ring-2 ring-brand-orange/30'
+                        : 'bg-white hover:bg-surface-ambient border-brand-peach/80 hover:border-brand-orange/40 hover:-translate-y-1 shadow-warm-2xs hover:shadow-warm-md'
                     }`}
                   >
-                    <div className="space-y-2.5">
+                    <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className={`text-xs font-mono font-extrabold px-2 py-0.5 rounded ${step.bg} ${step.accent}`}>
+                        <span className={`w-7 h-7 rounded-full text-xs font-mono font-bold flex items-center justify-center ${step.badgeBg}`}>
                           0{step.step}
                         </span>
-                        <div className={`w-7 h-7 rounded-lg ${step.bg} ${step.accent} flex items-center justify-center font-bold transition-transform group-hover:scale-105`}>
-                          <Icon className="w-3.5 h-3.5" />
-                        </div>
+                        <IllustratedCardBadge variant={step.illustrationVariant} size="sm" />
                       </div>
                       <div>
                         <h3 className="font-heading font-extrabold text-sm sm:text-base text-espresso">
@@ -515,8 +531,8 @@ export const ConnectedWorkflowSection: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="pt-2 border-t border-brand-peach/40">
-                      <span className="text-xs font-mono text-terracotta truncate block">
+                    <div className="pt-2.5 border-t border-brand-peach/40">
+                      <span className="text-xs font-mono text-terracotta truncate block bg-surface-tier1 px-2.5 py-1 rounded-lg border border-brand-peach/50">
                         {step.example}
                       </span>
                     </div>
@@ -543,7 +559,6 @@ export const ConnectedWorkflowSection: React.FC = () => {
         {/* Mobile Vertical Flow with repeat-on-scroll */}
         <div className="block lg:hidden space-y-2.5">
           {WORKFLOW_STEPS.map((step, index) => {
-            const Icon = step.icon;
             const isSelected = activeStepId === step.id;
             return (
               <motion.div
@@ -553,32 +568,31 @@ export const ConnectedWorkflowSection: React.FC = () => {
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 onClick={() => setActiveStepId(step.id)}
-                className={`p-3.5 rounded-xl border transition-all cursor-pointer ${
+                className={`p-3.5 rounded-2xl border transition-all cursor-pointer ${
                   isSelected
-                    ? 'bg-white border-brand-orange shadow-warm-xs ring-1 ring-brand-orange/30'
-                    : 'bg-surface-ambient border-brand-peach/70 active:scale-[0.99]'
+                    ? 'bg-white border-brand-orange shadow-warm-md ring-2 ring-brand-orange/30'
+                    : 'bg-white border-brand-peach/80 hover:bg-surface-ambient active:scale-[0.99] shadow-warm-2xs'
                 }`}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-8 h-8 rounded-lg ${step.bg} ${step.accent} flex items-center justify-center shrink-0`}>
-                      <Icon className="w-4 h-4" />
-                    </div>
-                    <div>
+                <div className="flex items-center justify-between gap-3 min-w-0">
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
+                    <IllustratedCardBadge variant={step.illustrationVariant} size="sm" stepNumber={`0${step.step}`} />
+                    <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono font-bold text-brand-orange">
-                          0{step.step}
-                        </span>
-                        <h3 className="font-heading font-bold text-[17px] sm:text-base text-espresso">
+                        <h3 className="font-heading font-bold text-[15px] sm:text-base text-espresso truncate">
                           {step.title}
                         </h3>
                       </div>
-                      <p className="text-sm sm:text-[13px] text-terracotta-muted">{step.shortLabel}</p>
+                      <p className="text-xs sm:text-[13px] text-terracotta-muted truncate mt-0.5">
+                        {step.shortLabel}
+                      </p>
                     </div>
                   </div>
-                  <span className="text-[13px] sm:text-[13px] font-mono font-semibold text-terracotta">
-                    {step.example}
-                  </span>
+                  <div className="shrink-0 text-right pl-2">
+                    <span className="text-xs sm:text-[13px] font-mono font-semibold text-terracotta bg-surface-tier1 border border-brand-peach/60 px-2.5 py-1 rounded-lg shadow-warm-2xs inline-block whitespace-nowrap">
+                      {step.example}
+                    </span>
+                  </div>
                 </div>
               </motion.div>
             );
@@ -615,13 +629,13 @@ export const ConnectedWorkflowSection: React.FC = () => {
                   initial="hidden"
                   animate={controls}
                   variants={highlight1Variants}
-                  className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-brand-peach/70 shadow-warm-2xs"
+                  className="flex items-center gap-3 p-2.5 rounded-xl bg-white border border-brand-peach/70 shadow-warm-2xs"
                 >
-                  <div className="w-6 h-6 rounded-lg bg-brand-orange-light text-brand-orange flex items-center justify-center shrink-0">
-                    <Target className="w-3.5 h-3.5" />
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/25 text-brand-orange flex items-center justify-center shrink-0 shadow-sm">
+                    <Target className="w-4 h-4" strokeWidth={2.2} />
                   </div>
                   <span className="font-heading font-bold text-sm text-espresso">
-                    Clear Goals
+                    Clear Strategic Goals
                   </span>
                 </motion.div>
 
@@ -629,10 +643,10 @@ export const ConnectedWorkflowSection: React.FC = () => {
                   initial="hidden"
                   animate={controls}
                   variants={highlight2Variants}
-                  className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-brand-peach/70 shadow-warm-2xs"
+                  className="flex items-center gap-3 p-2.5 rounded-xl bg-white border border-brand-peach/70 shadow-warm-2xs"
                 >
-                  <div className="w-6 h-6 rounded-lg bg-brand-green-light text-brand-green flex items-center justify-center shrink-0">
-                    <TrendingUp className="w-3.5 h-3.5" />
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] border border-brand-green/25 text-brand-green flex items-center justify-center shrink-0 shadow-sm">
+                    <TrendingUp className="w-4 h-4" strokeWidth={2.2} />
                   </div>
                   <span className="font-heading font-bold text-sm text-espresso">
                     Measurable Progress
@@ -643,13 +657,13 @@ export const ConnectedWorkflowSection: React.FC = () => {
                   initial="hidden"
                   animate={controls}
                   variants={highlight3Variants}
-                  className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-brand-peach/70 shadow-warm-2xs"
+                  className="flex items-center gap-3 p-2.5 rounded-xl bg-white border border-brand-peach/70 shadow-warm-2xs"
                 >
-                  <div className="w-6 h-6 rounded-lg bg-amber-50 text-brand-yellow flex items-center justify-center shrink-0">
-                    <Sparkles className="w-3.5 h-3.5" />
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#fefbf0] to-[#fdeec0] border border-brand-yellow/35 text-amber-700 flex items-center justify-center shrink-0 shadow-sm">
+                    <Sparkles className="w-4 h-4" strokeWidth={2.2} />
                   </div>
                   <span className="font-heading font-bold text-sm text-espresso">
-                    Automatic Updates
+                    Automated Rollup Updates
                   </span>
                 </motion.div>
               </div>

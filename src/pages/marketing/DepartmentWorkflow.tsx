@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -46,13 +46,41 @@ export const DepartmentWorkflow: React.FC = () => {
     return DEPARTMENTS.filter((d) => d.id !== selectedDept.id);
   }, [selectedDept.id]);
 
-  // Scroll to top when department changes
+  const primaryFocusRef = useRef<HTMLElement>(null);
+  const isFirstRender = useRef(true);
+
+  // Smoothly bring selected department content into view on mobile
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    if (primaryFocusRef.current && window.innerWidth < 1024) {
+      const rect = primaryFocusRef.current.getBoundingClientRect();
+      const currentY = window.pageYOffset || document.documentElement.scrollTop;
+      const navbarHeight = 70;
+      const spacingBuffer = 12;
+      window.scrollTo({
+        top: Math.max(0, currentY + rect.top - navbarHeight - spacingBuffer),
+        behavior: 'smooth',
+      });
+    }
   }, [activeDeptId]);
 
   const handleSelectDepartment = (id: string) => {
-    navigate(`/department-workflow/${id}`);
+    if (id === activeDeptId) {
+      if (primaryFocusRef.current && window.innerWidth < 1024) {
+        const rect = primaryFocusRef.current.getBoundingClientRect();
+        const currentY = window.pageYOffset || document.documentElement.scrollTop;
+        window.scrollTo({
+          top: Math.max(0, currentY + rect.top - 70 - 12),
+          behavior: 'smooth',
+        });
+      }
+    } else {
+      navigate(`/department-workflow/${id}`);
+    }
   };
 
   // Helper to choose deliverable icon based on its exact text
@@ -205,11 +233,11 @@ export const DepartmentWorkflow: React.FC = () => {
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
                     <div
-                      className={`w-8 h-8 rounded-xl ${dept.iconBg} flex items-center justify-center shrink-0 ${
-                        isSelected ? 'ring-1 ring-brand-orange/30' : ''
+                      className={`w-9 h-9 rounded-xl ${dept.iconBg} border border-brand-peach/50 flex items-center justify-center shrink-0 shadow-2xs ${
+                        isSelected ? 'ring-2 ring-brand-orange/40 shadow-xs' : ''
                       }`}
                     >
-                      <Icon className={`w-4 h-4 ${dept.iconColor}`} />
+                      <Icon className={`w-4.5 h-4.5 ${dept.iconColor} stroke-[2]`} />
                     </div>
                     <div className="min-w-0">
                       <span className="font-heading font-extrabold text-sm min-[375px]:text-base text-espresso block truncate leading-tight">
@@ -233,7 +261,11 @@ export const DepartmentWorkflow: React.FC = () => {
         {/* ============================================================ */}
         {/* B. SELECTED DEPARTMENT — PRIMARY FOCUS                       */}
         {/* ============================================================ */}
-        <section aria-label={`${selectedDept.name} Primary Workflow Focus`} className="space-y-4">
+        <section
+          ref={primaryFocusRef}
+          aria-label={`${selectedDept.name} Primary Workflow Focus`}
+          className="space-y-4 scroll-mt-[84px]"
+        >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="px-2.5 py-1 rounded-full text-xs font-heading font-extrabold bg-brand-orange text-white shadow-warm-xs flex items-center gap-1.5">
@@ -294,7 +326,7 @@ export const DepartmentWorkflow: React.FC = () => {
             {/* Key Metrics Row (4 Cards) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {/* Metric 1: Execution Velocity */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/70 shadow-warm-2xs flex flex-col justify-between space-y-3">
+              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-0.5 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-terracotta-muted font-bold uppercase tracking-wider">
                     Execution Velocity
@@ -334,7 +366,7 @@ export const DepartmentWorkflow: React.FC = () => {
               </div>
 
               {/* Metric 2: Leadership */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/70 shadow-warm-2xs flex flex-col justify-between space-y-3">
+              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-0.5 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between space-y-3">
                 <span className="text-xs text-terracotta-muted font-bold uppercase tracking-wider">
                   Leadership
                 </span>
@@ -352,7 +384,7 @@ export const DepartmentWorkflow: React.FC = () => {
               </div>
 
               {/* Metric 3: Milestones */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/70 shadow-warm-2xs flex flex-col justify-between space-y-3">
+              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-0.5 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between space-y-3">
                 <span className="text-xs text-terracotta-muted font-bold uppercase tracking-wider">
                   Milestones
                 </span>
@@ -367,7 +399,7 @@ export const DepartmentWorkflow: React.FC = () => {
               </div>
 
               {/* Metric 4: Active Tasks */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/70 shadow-warm-2xs flex flex-col justify-between space-y-3">
+              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-0.5 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between space-y-3">
                 <span className="text-xs text-terracotta-muted font-bold uppercase tracking-wider">
                   Active Tasks
                 </span>
@@ -469,7 +501,7 @@ export const DepartmentWorkflow: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.15 }}
                   transition={{ duration: 0.35, delay: index * 0.05, ease: 'easeOut' }}
-                  className="bg-white rounded-2xl sm:rounded-3xl border border-brand-peach/80 hover:border-brand-orange/50 shadow-warm-sm hover:shadow-warm-md p-5 sm:p-6 lg:p-7 space-y-5 transition-all group"
+                  className="bg-white rounded-3xl border border-brand-peach/80 hover:border-brand-orange/50 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:shadow-warm-md hover:-translate-y-1 p-5 sm:p-6 lg:p-7 space-y-5 transition-all duration-300 group"
                 >
                   {/* Department Card Header */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">

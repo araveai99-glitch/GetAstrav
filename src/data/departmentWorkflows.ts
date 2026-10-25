@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Package,
+  FolderKanban,
   Code,
   Megaphone,
   BarChart3,
@@ -43,7 +43,7 @@ export const DEPARTMENTS: DepartmentWorkflowItem[] = [
     progressNum: 78,
     status: 'on_track',
     statusText: 'On Track',
-    icon: Package,
+    icon: FolderKanban,
     iconBg: 'bg-[#fceade]',
     iconColor: 'text-[#f15e1c]',
     barColor: 'bg-[#2e936f]',

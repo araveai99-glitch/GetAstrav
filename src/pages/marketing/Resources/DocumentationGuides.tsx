@@ -7,8 +7,8 @@ import {
   Target,
   ArrowRight,
   BookOpen,
-  FolderGit2,
-  CheckSquare,
+  FolderKanban,
+  ListChecks,
   Users,
   Sparkles,
   CheckCircle2,
@@ -18,6 +18,7 @@ import {
   Lightbulb,
 } from 'lucide-react';
 import { openDemoModal } from '../../../components/common/DemoModal';
+import { IllustratedCardBadge } from '../../../components/common/IllustratedCardBadge';
 
 export const DocumentationGuides: React.FC = () => {
   useEffect(() => {
@@ -86,6 +87,9 @@ export const DocumentationGuides: React.FC = () => {
       title: 'Getting Started',
       description: 'Step-by-step onboarding, account setup, and quick-start workspace templates.',
       icon: Compass,
+      containerBg: 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6]',
+      borderColor: 'border-brand-orange/25',
+      iconColor: 'text-brand-orange',
       link: '/product',
       linkText: 'Read Onboarding Guide',
       badgeColor: 'bg-brand-orange-light text-brand-orange border-brand-orange/20',
@@ -96,7 +100,10 @@ export const DocumentationGuides: React.FC = () => {
       tag: 'STRATEGY',
       title: 'Goals and Projects',
       description: 'How to set North Star objectives and link them to actionable project deliverables.',
-      icon: FolderGit2,
+      icon: FolderKanban,
+      containerBg: 'bg-gradient-to-br from-[#fefbf0] to-[#fdeec0]',
+      borderColor: 'border-brand-yellow/35',
+      iconColor: 'text-amber-700',
       link: '/features/goals-progress',
       linkText: 'Explore Goal Mapping',
       badgeColor: 'bg-[#fef9c3] text-[#b45309] border-amber-200',
@@ -107,7 +114,10 @@ export const DocumentationGuides: React.FC = () => {
       tag: 'EXECUTION',
       title: 'Tasks and Progress',
       description: 'Managing daily task queues, automated percentage rollups, and milestone verification.',
-      icon: CheckSquare,
+      icon: ListChecks,
+      containerBg: 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7]',
+      borderColor: 'border-brand-green/25',
+      iconColor: 'text-brand-green',
       link: '/features/task-management',
       linkText: 'Learn Rollup Tracking',
       badgeColor: 'bg-brand-green-light text-brand-green border-brand-green/20',
@@ -119,6 +129,9 @@ export const DocumentationGuides: React.FC = () => {
       title: 'Team Collaboration',
       description: 'Autonomous pods, transparent task ownership, and cross-department visibility.',
       icon: Users,
+      containerBg: 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6]',
+      borderColor: 'border-brand-orange/25',
+      iconColor: 'text-brand-orange',
       link: '/features/teams',
       linkText: 'View Team Framework',
       badgeColor: 'bg-brand-orange-light text-brand-orange border-brand-orange/20',
@@ -149,7 +162,7 @@ export const DocumentationGuides: React.FC = () => {
       title: 'Organize Tasks',
       summary: 'Decompose the goal into projects, milestones, and actionable tasks.',
       tip: 'Every task should have a single accountable owner and clear deliverable.',
-      icon: CheckSquare,
+      icon: ListChecks,
       link: '/features/task-management',
     },
     {
@@ -229,9 +242,9 @@ export const DocumentationGuides: React.FC = () => {
           {/* 3 Step Cards */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 relative z-10">
             {STARTING_STEPS.map((step, idx) => {
-              const Icon = step.icon;
               const isSelected = activeStep === idx;
               const delay = shouldReduceMotion ? 0 : 0.12 * idx;
+              const badgeVariant = idx === 0 ? 'docs' : idx === 1 ? 'teams' : 'progress';
 
               return (
                 <motion.div
@@ -244,29 +257,33 @@ export const DocumentationGuides: React.FC = () => {
                   }
                   transition={{ duration: 0.45, delay }}
                   onClick={() => setActiveStep(idx)}
-                  className={`cursor-pointer rounded-2xl p-6 border transition-all duration-300 flex flex-col justify-between group ${
+                  className={`cursor-pointer rounded-3xl p-6 sm:p-7 border transition-all duration-300 flex flex-col justify-between group ${
                     isSelected
                       ? 'bg-gradient-to-b from-[#fffbf7] to-white border-brand-orange shadow-warm-md ring-2 ring-brand-orange/20 scale-[1.01]'
-                      : 'bg-surface-ambient hover:bg-white border-brand-peach/70 hover:border-brand-orange/40 shadow-warm-2xs'
+                      : 'bg-white hover:bg-surface-ambient/50 border-brand-peach/80 hover:border-brand-orange/40 shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:-translate-y-1'
                   }`}
                 >
                   <div className="space-y-4">
-                    {/* Top Row: Number & Icon */}
+                    {/* Top Row: Illustrated Badge & Step Pill */}
                     <div className="flex items-center justify-between">
-                      <div className={`w-11 h-11 rounded-2xl flex items-center justify-center font-bold shadow-sm transition-transform group-hover:scale-105 ${step.iconBg}`}>
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="font-mono font-extrabold text-xs min-[375px]:text-sm text-terracotta-muted tracking-wider">
+                      <IllustratedCardBadge
+                        variant={badgeVariant}
+                        size="md"
+                        stepNumber={step.number}
+                      />
+                      <span className={`font-mono font-extrabold text-xs px-2.5 py-1 rounded-full ${
+                        isSelected ? 'bg-brand-orange text-white' : 'bg-surface-tier1 text-terracotta-muted border border-brand-peach/50'
+                      }`}>
                         STEP {step.number}
                       </span>
                     </div>
 
                     {/* Step Title & Explanation */}
                     <div>
-                      <h3 className="text-lg min-[375px]:text-xl sm:text-lg font-heading font-extrabold text-espresso group-hover:text-brand-orange transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-espresso group-hover:text-brand-orange transition-colors">
                         {step.title}
                       </h3>
-                      <p className="text-base text-terracotta leading-relaxed mt-1.5 font-normal">
+                      <p className="text-base text-terracotta leading-relaxed mt-2 font-normal">
                         {step.description}
                       </p>
                     </div>
@@ -281,7 +298,7 @@ export const DocumentationGuides: React.FC = () => {
                       <span>{step.linkText}</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </Link>
-                    <span className="text-xs font-mono text-terracotta-muted">
+                    <span className="text-xs font-mono font-bold text-terracotta-muted">
                       {idx === 0 ? 'Start here' : idx === 1 ? 'Configure' : 'Track'}
                     </span>
                   </div>
@@ -310,8 +327,15 @@ export const DocumentationGuides: React.FC = () => {
         {/* 4 Topic Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {GUIDE_TOPICS.map((topic, idx) => {
-            const Icon = topic.icon;
             const delay = shouldReduceMotion ? 0 : 0.08 * idx;
+            const badgeVariant =
+              topic.id === 'topic-getting-started'
+                ? 'docs'
+                : topic.id === 'topic-goals-projects'
+                ? 'projects'
+                : topic.id === 'topic-tasks-progress'
+                ? 'tasks'
+                : 'teams';
 
             return (
               <motion.div
@@ -323,9 +347,9 @@ export const DocumentationGuides: React.FC = () => {
                     : { opacity: 0, y: 16 }
                 }
                 transition={{ duration: 0.4, delay }}
-                className="bg-white rounded-2xl p-5 sm:p-6 border border-brand-peach/80 shadow-warm-2xs hover:shadow-warm-md hover:border-brand-orange/50 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-3xl p-5 sm:p-6 border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className="space-y-3.5">
+                <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className={`text-xs font-mono font-extrabold px-2.5 py-0.5 rounded-full border ${topic.badgeColor}`}>
                       {topic.tag}
@@ -336,12 +360,12 @@ export const DocumentationGuides: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="w-10 h-10 rounded-xl bg-surface-tier1 border border-brand-peach/60 flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-colors duration-200">
-                    <Icon className="w-5 h-5" />
+                  <div>
+                    <IllustratedCardBadge variant={badgeVariant} size="md" />
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso group-hover:text-brand-orange transition-colors">
+                    <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso group-hover:text-brand-orange transition-colors">
                       {topic.title}
                     </h3>
                     <p className="text-base text-terracotta leading-relaxed mt-1.5 font-normal">

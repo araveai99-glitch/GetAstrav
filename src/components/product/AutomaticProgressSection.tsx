@@ -4,7 +4,9 @@ import {
   CheckCircle2,
   Circle,
   Flag,
+  Milestone,
   Target,
+  ListChecks,
   Sparkles,
   RefreshCw,
   Info,
@@ -157,13 +159,18 @@ export const AutomaticProgressSection: React.FC = () => {
             className="lg:col-span-5 space-y-4 p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 shadow-warm-xs"
           >
             <div className="flex items-center justify-between pb-1">
-              <div>
-                <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
-                  ACTIVE TASK
-                </span>
-                <h4 className="font-heading font-bold text-[17px] sm:text-base text-espresso">
-                  Design & build homepage
-                </h4>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/25 text-brand-orange flex items-center justify-center shrink-0 shadow-sm">
+                  <ListChecks className="w-5 h-5" strokeWidth={2} />
+                </div>
+                <div>
+                  <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
+                    ACTIVE TASK
+                  </span>
+                  <h4 className="font-heading font-bold text-[17px] sm:text-base text-espresso">
+                    Design & build homepage
+                  </h4>
+                </div>
               </div>
               <motion.span
                 key={taskProgress}
@@ -239,12 +246,12 @@ export const AutomaticProgressSection: React.FC = () => {
             {/* Milestone Card */}
             <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3 relative group">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-amber-50 text-brand-yellow flex items-center justify-center font-bold">
-                    <Flag className="w-4 h-4" />
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0] border border-brand-yellow/35 text-amber-700 flex items-center justify-center shrink-0 shadow-sm shadow-brand-yellow/10">
+                    <Milestone className="w-5 h-5" strokeWidth={2} />
                   </div>
                   <div>
-                    <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
+                    <span className="text-xs font-mono font-bold text-amber-800 uppercase tracking-wider">
                       PROJECT MILESTONE
                     </span>
                     <h5 className="font-heading font-bold text-[17px] sm:text-base text-espresso">
@@ -280,9 +287,9 @@ export const AutomaticProgressSection: React.FC = () => {
             {/* Strategic Goal Card */}
             <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3 relative group">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center font-bold">
-                    <Target className="w-4 h-4" />
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] border border-brand-green/25 text-brand-green flex items-center justify-center shrink-0 shadow-sm shadow-brand-green/10">
+                    <Target className="w-5 h-5" strokeWidth={2} />
                   </div>
                   <div>
                     <span className="text-xs font-mono font-bold text-brand-green uppercase tracking-wider">

@@ -19,8 +19,10 @@ import {
   CheckSquare,
   Lock,
   Zap,
+  ListChecks,
 } from 'lucide-react';
 import { CTASection } from '../../../components/common/CTASection';
+import { IllustratedCardBadge } from '../../../components/common/IllustratedCardBadge';
 
 type TaskStatus = 'todo' | 'in_progress' | 'completed';
 
@@ -126,7 +128,7 @@ export const TaskManagement: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
+    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
       {/* 1. Page Header */}
       <div className="text-left w-full max-w-5xl space-y-2 mb-2 sm:mb-4">
         <motion.h1
@@ -303,16 +305,16 @@ export const TaskManagement: React.FC = () => {
                 initial={{ rotate: -15, scale: 0.9 }}
                 animate={{ rotate: 0, scale: 1 }}
                 transition={{ duration: 0.3 }}
-                className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border shadow-warm-xs ${
+                className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border transition-all ${
                   currentStage.id === 'completed'
-                    ? 'bg-brand-green text-white border-brand-green'
-                    : 'bg-white text-brand-orange border-brand-peach/70'
+                    ? 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] text-brand-green border-brand-green/30 shadow-sm shadow-brand-green/10'
+                    : 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border-brand-orange/30 shadow-sm shadow-brand-orange/10'
                 }`}
               >
                 {currentStage.id === 'completed' ? (
-                  <CheckCircle2 className="w-6 h-6" />
+                  <CheckCircle2 className="w-6 h-6 stroke-[2.2]" />
                 ) : (
-                  <Clock className="w-6 h-6" />
+                  <ListChecks className="w-6 h-6 stroke-[2]" />
                 )}
               </motion.div>
 
@@ -484,9 +486,7 @@ export const TaskManagement: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-orange-light text-brand-orange flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <BellRing className="w-6 h-6" />
-              </div>
+              <IllustratedCardBadge variant="control" size="md" />
               <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-3 py-1 rounded-full border border-brand-orange/20">
                 SLA Guardrail
               </span>
@@ -572,9 +572,7 @@ export const TaskManagement: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-green-light text-brand-green flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-6">
-                <TrendingUp className="w-6 h-6" />
-              </div>
+              <IllustratedCardBadge variant="progress" size="md" />
               <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-3 py-1 rounded-full border border-brand-green/20">
                 Mathematical Cascade
               </span>
