@@ -68,6 +68,7 @@ const HowItWorksPage = lazy(() => import('./pages/marketing/Resources').then(m =
 const KeyCapabilitiesPage = lazy(() => import('./pages/marketing/Resources').then(m => ({ default: m.KeyCapabilitiesPage })));
 const About = lazy(() => import('./pages/marketing/About').then(m => ({ default: m.About })));
 const ContactSales = lazy(() => import('./pages/marketing/ContactSales').then(m => ({ default: m.ContactSales })));
+const TrustSecurity = lazy(() => import('./pages/marketing/TrustSecurity').then(m => ({ default: m.TrustSecurity })));
 const DepartmentWorkflow = lazy(() => import('./pages/marketing/DepartmentWorkflow').then(m => ({ default: m.DepartmentWorkflow })));
 
 // Auth Pages (Code-split)
@@ -131,6 +132,9 @@ const MarketingLayout: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<ContactSales />} />
             <Route path="/contact-sales" element={<ContactSales />} />
+            <Route path="/trust" element={<TrustSecurity />} />
+            <Route path="/security" element={<TrustSecurity />} />
+            <Route path="/compliance" element={<TrustSecurity />} />
 
             {/* Department Workflows */}
             <Route path="/department-workflow/:deptId" element={<DepartmentWorkflow />} />

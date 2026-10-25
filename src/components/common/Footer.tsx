@@ -90,6 +90,7 @@ export const Footer: React.FC = () => {
             <h4 className="text-[13px] font-extrabold text-brand-orange uppercase tracking-wider">Company</h4>
             <ul className="space-y-2.5 text-[15px] sm:text-base text-terracotta font-medium">
               <li><Link to="/about" className="hover:text-brand-orange transition-colors">About Astrav</Link></li>
+              <li><Link to="/trust" className="hover:text-brand-orange transition-colors">Trust & Security</Link></li>
               <li><Link to="/contact" className="hover:text-brand-orange transition-colors">Contact Sales</Link></li>
               <li><button type="button" onClick={openDemoModal} className="hover:text-brand-orange transition-colors cursor-pointer text-left">Book a Demo</button></li>
             </ul>
@@ -101,8 +102,8 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-[15px] sm:text-base text-terracotta font-medium">
               <li><span className="cursor-pointer hover:text-brand-orange transition-colors">Privacy Policy</span></li>
               <li><span className="cursor-pointer hover:text-brand-orange transition-colors">Terms of Service</span></li>
-              <li><span className="cursor-pointer hover:text-brand-orange transition-colors">SOC2 Compliance</span></li>
-              <li><span className="cursor-pointer hover:text-brand-orange transition-colors">Security Architecture</span></li>
+              <li><Link to="/trust" className="hover:text-brand-orange transition-colors">SOC2 Compliance</Link></li>
+              <li><Link to="/trust" className="hover:text-brand-orange transition-colors">Security Architecture</Link></li>
             </ul>
           </div>
         </motion.div>

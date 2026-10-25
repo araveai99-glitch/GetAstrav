@@ -64,6 +64,7 @@ const mobileNavCategories: NavCategory[] = [
     name: 'Company',
     items: [
       { name: 'About Astrav', path: '/about' },
+      { name: 'Trust & Security', path: '/trust' },
       { name: 'Contact Sales', path: '/contact' },
     ],
   },
@@ -446,6 +447,13 @@ export const Navbar: React.FC = () => {
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     About Astrav
+                  </Link>
+                  <Link
+                    to="/trust"
+                    onClick={() => setOpenDropdown(null)}
+                    className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
+                  >
+                    Trust & Security
                   </Link>
                   <Link
                     to="/contact"
