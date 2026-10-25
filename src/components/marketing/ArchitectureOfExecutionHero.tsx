@@ -138,12 +138,13 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
               srcSet="/assets/golden_hour_glass_tech_hub_1440.webp"
             />
             <img
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1806 871'%3E%3C/svg%3E"
+              src="/assets/golden_hour_glass_tech_hub_1440.webp"
               alt="Astrav Executive Organization Command Center"
               width={1806}
               height={871}
               className="w-full h-full object-cover object-bottom block select-none pointer-events-none"
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
               decoding="async"
             />
           </picture>

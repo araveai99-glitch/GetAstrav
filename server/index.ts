@@ -7,11 +7,44 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.json());
+// Security: Disable Express fingerprinting
+app.disable('x-powered-by');
+
+// Security Headers Middleware
+app.use((_req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  if (process.env.NODE_ENV === 'production') {
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  }
+  next();
+});
+
+// Security: Configurable Scoped CORS
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',').map((s) => s.trim())
+  : ['http://localhost:3000', 'http://localhost:5173', 'https://getastrav.com', 'https://www.getastrav.com'];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.getastrav.com')) {
+        callback(null, true);
+      } else {
+        callback(new Error('CORS policy violation: Origin not allowed'));
+      }
+    },
+    credentials: true,
+  })
+);
+
+// Security: Payload size limits to protect against memory exhaustion / DoS
+app.use(express.json({ limit: '500kb' }));
 
 // Health Check
-app.get('/api/health', (req, res) => {
+app.get('/api/health', (_req, res) => {
   res.json({
     status: 'online',
     service: 'Astrav API Engine',
@@ -21,7 +54,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Organization Routes
-app.get('/api/organizations', (req, res) => {
+app.get('/api/organizations', (_req, res) => {
   res.json({ success: true, message: 'Organizations endpoint online' });
 });
 
@@ -29,6 +62,12 @@ app.get('/api/organizations', (req, res) => {
 app.post('/api/ai-insights', async (req, res) => {
   try {
     const { tasks } = req.body;
+
+    // Security: Input validation
+    if (tasks && (!Array.isArray(tasks) || tasks.length > 100)) {
+      return res.status(400).json({ error: 'Invalid input: tasks must be an array of at most 100 items' });
+    }
+
     const apiKey = process.env.GEMINI_API_KEY;
 
     // Server-side fallback / Gemini invocation
@@ -68,7 +107,8 @@ app.post('/api/ai-insights', async (req, res) => {
     const data = await response.json();
     res.json(data);
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    console.error('[Astrav Server Error - ai-insights]:', err);
+    res.status(500).json({ error: 'Internal server error while processing AI insights' });
   }
 });
 
@@ -76,6 +116,15 @@ app.post('/api/ai-insights', async (req, res) => {
 app.post('/api/ai-task-proposals', async (req, res) => {
   try {
     const { goalTitle, goalDescription } = req.body;
+
+    // Security: Input length bounds
+    if (goalTitle && (typeof goalTitle !== 'string' || goalTitle.length > 300)) {
+      return res.status(400).json({ error: 'Invalid goalTitle: must be string under 300 characters' });
+    }
+    if (goalDescription && (typeof goalDescription !== 'string' || goalDescription.length > 2000)) {
+      return res.status(400).json({ error: 'Invalid goalDescription: must be string under 2000 characters' });
+    }
+
     const apiKey = process.env.GEMINI_API_KEY;
 
     if (!apiKey) {
@@ -99,14 +148,24 @@ app.post('/api/ai-task-proposals', async (req, res) => {
 
     res.json({ proposals: [] });
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    console.error('[Astrav Server Error - ai-task-proposals]:', err);
+    res.status(500).json({ error: 'Internal server error while generating task proposals' });
   }
 });
 
 // Email Reminders Endpoint (Resend Server Side)
 app.post('/api/reminders/send', async (req, res) => {
   try {
-    const { toEmail, title, description } = req.body;
+    const { toEmail, title } = req.body;
+
+    // Security: Email validation
+    if (!toEmail || typeof toEmail !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(toEmail)) {
+      return res.status(400).json({ error: 'Invalid recipient email address' });
+    }
+    if (title && (typeof title !== 'string' || title.length > 200)) {
+      return res.status(400).json({ error: 'Invalid reminder title: maximum 200 characters' });
+    }
+
     const resendKey = process.env.RESEND_API_KEY;
 
     if (!resendKey) {
@@ -119,7 +178,8 @@ app.post('/api/reminders/send', async (req, res) => {
 
     res.json({ success: true, message: 'Email sent via Resend' });
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    console.error('[Astrav Server Error - reminders]:', err);
+    res.status(500).json({ error: 'Internal server error while sending reminder' });
   }
 });
 

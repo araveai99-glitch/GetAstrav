@@ -2,6 +2,21 @@ import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { FileText, Plus, Save, History, Edit3, Eye } from 'lucide-react';
 
+/**
+ * Sanitizes rich text HTML against XSS vectors including script injection,
+ * iframes, javascript: URI handlers, and inline event handlers.
+ */
+function sanitizeHtml(rawHtml: string): string {
+  if (!rawHtml) return '';
+  return rawHtml
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
+    .replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, '')
+    .replace(/<embed\b[^<]*(?:(?!<\/embed>)<[^<]*)*<\/embed>/gi, '')
+    .replace(/\s*on\w+\s*=\s*(?:["'][^"']*["']|[^\s>]+)/gi, '')
+    .replace(/href\s*=\s*["']\s*javascript:[^"']*["']/gi, 'href="#"');
+}
+
 export const DocumentationPanel: React.FC = () => {
   const { docs, projects, createDoc, updateDoc } = useApp();
   const [selectedDocId, setSelectedDocId] = useState<string>(docs[0]?.id || '');
@@ -122,7 +137,7 @@ export const DocumentationPanel: React.FC = () => {
               ) : (
                 <div
                   className="prose prose-sm max-w-none text-terracotta text-xs leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: currentDoc.content }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(currentDoc.content) }}
                 />
               )}
             </div>

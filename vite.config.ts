@@ -30,6 +30,18 @@ export default defineConfig({
             if (id.includes('three')) {
               return 'three-vendor';
             }
+            if (id.includes('react-dom') || id.includes('react-router-dom') || id.includes('/react/') || id.includes('scheduler')) {
+              return 'react-vendor';
+            }
+            if (id.includes('framer-motion')) {
+              return 'motion-vendor';
+            }
+            if (id.includes('lucide-react')) {
+              return 'icons-vendor';
+            }
+            if (id.includes('@supabase')) {
+              return 'supabase-vendor';
+            }
           }
         },
       },
