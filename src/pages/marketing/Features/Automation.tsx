@@ -139,19 +139,19 @@ export const Automation: React.FC = () => {
       {/* 1. Page Header */}
       <div className="text-left w-full max-w-5xl space-y-2 mb-2 sm:mb-4">
         <motion.h1
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.45, delay: 0.05 }}
+          viewport={{ once: false, amount: 0.05 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
           className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left lg:whitespace-nowrap"
         >
           Automated Reminders and <span className="text-brand-orange">Workflow Triggers.</span>
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 8 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.45, delay: 0.15 }}
+          viewport={{ once: false, amount: 0.05 }}
+          transition={{ duration: 0.4, delay: 0.12 }}
           className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left"
         >
           Watch how deadlines trigger proactive notifications and automatically update status—without managers chasing updates or scheduling status calls.
@@ -160,10 +160,10 @@ export const Automation: React.FC = () => {
 
       {/* 2. MAIN ATTRACTION: Live Animated Trigger-and-Action Workflow */}
       <motion.div
-        initial={{ opacity: 0, y: 18 }}
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        viewport={{ once: false, amount: 0.05 }}
+        transition={{ duration: 0.45, ease: 'easeOut' }}
         className="p-6 sm:p-8 lg:p-10 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-warm-md hover:shadow-warm-lg transition-shadow relative overflow-hidden"
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-brand-peach/50 relative z-10">
@@ -383,10 +383,10 @@ export const Automation: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
         {/* Card 1: Zero Status Chasing */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.45, delay: 0.05 }}
+          viewport={{ once: false, amount: 0.05 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
           className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
         >
           <div>
@@ -424,10 +424,10 @@ export const Automation: React.FC = () => {
 
         {/* Card 2: Proactive Risk Protection */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.45, delay: 0.12 }}
+          viewport={{ once: false, amount: 0.05 }}
+          transition={{ duration: 0.4, delay: 0.12 }}
           className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
         >
           <div>
@@ -489,10 +489,10 @@ export const Automation: React.FC = () => {
 
         {/* Card 3: Instant Cascade */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.45, delay: 0.19 }}
+          viewport={{ once: false, amount: 0.05 }}
+          transition={{ duration: 0.4, delay: 0.19 }}
           className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
         >
           <div>
