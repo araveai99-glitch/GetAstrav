@@ -138,16 +138,16 @@ export const Managers: React.FC = () => {
 
   // Section A: Turn Plans Into Teamwork
   const sectionARef = useRef<HTMLDivElement>(null);
-  const isSectionAInView = useInView(sectionARef, { once: false, amount: 0.2 });
+  const isSectionAInView = useInView(sectionARef, { once: false, amount: 0.05 });
 
   // Section B: Spot Delays Earlier
   const sectionBRef = useRef<HTMLDivElement>(null);
-  const isSectionBInView = useInView(sectionBRef, { once: false, amount: 0.2 });
+  const isSectionBInView = useInView(sectionBRef, { once: false, amount: 0.05 });
   const [selectedTaskId, setSelectedTaskId] = useState<string>('task-1');
 
   // Section C: Team's Progress, At a Glance
   const sectionCRef = useRef<HTMLDivElement>(null);
-  const isSectionCInView = useInView(sectionCRef, { once: false, amount: 0.2 });
+  const isSectionCInView = useInView(sectionCRef, { once: false, amount: 0.05 });
 
   const activeTask = SAMPLE_TASKS.find((t) => t.id === selectedTaskId) || SAMPLE_TASKS[0];
 
@@ -210,9 +210,9 @@ export const Managers: React.FC = () => {
                       : { opacity: 0, y: 14 }
                   }
                   transition={{ duration: 0.4, delay }}
-                  className="rounded-3xl p-5 sm:p-6 bg-white border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between space-y-4 group"
+                  className="rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 bg-white border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group"
                 >
-                  <div className="space-y-4">
+                  <div className="flex flex-col space-y-2.5 sm:space-y-3 lg:space-y-3.5">
                     <div className="flex items-center justify-between">
                       <span
                         className={`w-7 h-7 rounded-full text-xs font-mono font-bold flex items-center justify-center ${stage.stepBadgeClass}`}
@@ -226,12 +226,12 @@ export const Managers: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="pt-1 flex items-center justify-start">
+                    <div className="flex items-center justify-start">
                       <IllustratedCardBadge variant={stage.illustrationVariant} size="md" />
                     </div>
 
                     <div>
-                      <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-1">
+                      <h3 className="font-heading font-extrabold text-[17px] sm:text-lg text-espresso mb-1">
                         {stage.title}
                       </h3>
                       <p className="text-sm text-terracotta leading-relaxed">
@@ -240,7 +240,7 @@ export const Managers: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-2xl bg-surface-tier1 border border-brand-peach/60 shadow-warm-2xs flex items-center justify-between text-sm font-heading font-bold text-espresso">
+                  <div className="mt-3 sm:mt-4 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-surface-tier1 border border-brand-peach/60 shadow-warm-2xs flex items-center justify-between text-[13px] sm:text-sm font-heading font-bold text-espresso">
                     <span className="truncate pr-2">{stage.sampleCard}</span>
                     <CheckCircle2
                       className={`w-4 h-4 shrink-0 ${
