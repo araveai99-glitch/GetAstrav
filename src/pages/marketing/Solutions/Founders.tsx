@@ -36,7 +36,7 @@ const VISION_STEPS = [
     number: '02',
     label: 'Goals',
     icon: Target,
-    illustrationVariant: 'goal' as IllustratedBadgeVariant,
+    illustrationVariant: 'objectives' as IllustratedBadgeVariant,
     accent: 'text-amber-700',
     containerBg: 'bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0]',
     borderColor: 'border-brand-yellow/35',

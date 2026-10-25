@@ -12,7 +12,8 @@ export type IllustratedBadgeVariant =
   | 'analytics'
   | 'governance'
   | 'docs'
-  | 'automation';
+  | 'automation'
+  | 'objectives';
 
 interface IllustratedCardBadgeProps {
   variant: IllustratedBadgeVariant;
@@ -62,6 +63,60 @@ export const IllustratedCardBadge: React.FC<IllustratedCardBadgeProps> = ({
           </g>
           <defs>
             <filter id="shadow-goal" x="33" y="40" width="36" height="24" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <feDropShadow dx="0" dy="2" stdDeviation="1.5" floodColor="#271812" floodOpacity="0.08" />
+            </filter>
+          </defs>
+        </svg>
+      )}
+
+      {variant === 'objectives' && (
+        <svg viewBox="0 0 72 72" className="w-full h-full drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Ambient Warm Halo */}
+          <circle cx="34" cy="34" r="28" fill="#FEFBF0" />
+          <circle cx="34" cy="34" r="24" stroke="#FDEEC0" strokeWidth="1.8" strokeDasharray="3 3" />
+
+          {/* Quarterly / Milestone Target Axis Crosshairs */}
+          <line x1="34" y1="12" x2="34" y2="56" stroke="#FAB60A" strokeWidth="1.2" strokeDasharray="2 2" strokeOpacity="0.6" />
+          <line x1="12" y1="34" x2="56" y2="34" stroke="#FAB60A" strokeWidth="1.2" strokeDasharray="2 2" strokeOpacity="0.6" />
+
+          {/* Outer Milestone Target Ring */}
+          <circle cx="34" cy="34" r="19" fill="#FAB60A" fillOpacity="0.1" stroke="#FAB60A" strokeWidth="2.5" />
+
+          {/* Inner Goal Concentric Ring */}
+          <circle cx="34" cy="34" r="12" fill="#FFFFFF" stroke="#F15E1C" strokeWidth="2" />
+
+          {/* Bullseye Center Dot */}
+          <circle cx="34" cy="34" r="5" fill="#FAB60A" />
+          <circle cx="34" cy="34" r="2" fill="#F15E1C" />
+
+          {/* 4 Quarterly Milestone Markers on the Rings */}
+          {/* Top Marker (Q1) */}
+          <circle cx="34" cy="15" r="3.5" fill="#FFFFFF" stroke="#F15E1C" strokeWidth="1.5" />
+          <circle cx="34" cy="15" r="1.5" fill="#F15E1C" />
+
+          {/* Right Marker (Q2) */}
+          <circle cx="53" cy="34" r="3.5" fill="#FFFFFF" stroke="#FAB60A" strokeWidth="1.5" />
+          <circle cx="53" cy="34" r="1.5" fill="#FAB60A" />
+
+          {/* Left Marker (Q4) */}
+          <circle cx="15" cy="34" r="3.5" fill="#FFFFFF" stroke="#FAB60A" strokeWidth="1.5" />
+          <circle cx="15" cy="34" r="1.5" fill="#FAB60A" />
+
+          {/* Milestone Flag / Marker Pin at Top-Right */}
+          <path d="M45 23L49 19V27L45 25Z" fill="#F15E1C" />
+          <line x1="45" y1="19" x2="45" y2="29" stroke="#271812" strokeWidth="1.5" strokeLinecap="round" />
+
+          {/* Overlapping Floating Milestone Checklist Pill */}
+          <g filter="url(#shadow-obj)">
+            <rect x="34" y="42" width="32" height="19" rx="6" fill="#FFFFFF" stroke="#FAB60A" strokeWidth="1.2" />
+            {/* Checked Box */}
+            <rect x="38" y="46.5" width="8" height="8" rx="2" fill="#2E936F" />
+            <path d="M40 50.5L42 52.5L45 48.5" stroke="#FFFFFF" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            {/* Target lines */}
+            <path d="M49 48.5H61M49 53H57" stroke="#271812" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.6" />
+          </g>
+          <defs>
+            <filter id="shadow-obj" x="31" y="40" width="38" height="25" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
               <feDropShadow dx="0" dy="2" stdDeviation="1.5" floodColor="#271812" floodOpacity="0.08" />
             </filter>
           </defs>
