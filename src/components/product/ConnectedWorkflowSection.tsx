@@ -444,7 +444,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
   return (
     <section
       id="connected-workflow"
-      className="relative pt-20 sm:pt-20 md:pt-24 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto overflow-hidden"
+      className="relative pt-20 sm:pt-20 md:pt-24 pb-8 sm:pb-10 px-3.5 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto overflow-hidden w-full"
     >
       {/* Subtle Background Ambient Decorative Sheen */}
       <motion.div
@@ -467,7 +467,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.35, delay: 0.05 }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left lg:whitespace-nowrap"
+          className="text-2xl min-[360px]:text-[28px] min-[390px]:text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left break-words"
         >
           From Big Goals to <span className="text-brand-orange">Daily Work.</span>
         </motion.h1>
@@ -477,14 +477,14 @@ export const ConnectedWorkflowSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.35, delay: 0.12 }}
-          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-3xl text-left lg:whitespace-nowrap"
+          className="text-sm min-[375px]:text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-3xl text-left"
         >
           Connect your goals, projects, and everyday work.
         </motion.p>
       </div>
 
       {/* Main Diagram Card */}
-      <div className="rounded-3xl bg-white border border-brand-peach/80 p-5 sm:p-7 lg:p-9 shadow-warm-lg space-y-7">
+      <div className="rounded-3xl bg-white border border-brand-peach/80 p-3 min-[375px]:p-3.5 sm:p-7 lg:p-9 shadow-warm-lg space-y-5 sm:space-y-7 w-full max-w-full overflow-hidden">
         {/* Top 5-Step Connected Flow (Desktop) */}
         <div className="hidden lg:block relative py-2">
           {/* Subtle animated connector line behind step cards */}
@@ -557,7 +557,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
         </div>
 
         {/* Mobile Vertical Flow with repeat-on-scroll */}
-        <div className="block lg:hidden space-y-2.5">
+        <div className="block lg:hidden space-y-2.5 w-full">
           {WORKFLOW_STEPS.map((step, index) => {
             const isSelected = activeStepId === step.id;
             return (
@@ -568,28 +568,26 @@ export const ConnectedWorkflowSection: React.FC = () => {
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 onClick={() => setActiveStepId(step.id)}
-                className={`p-3.5 rounded-2xl border transition-all cursor-pointer ${
+                className={`p-2.5 min-[375px]:p-3 sm:p-3.5 rounded-2xl border transition-all cursor-pointer w-full max-w-full ${
                   isSelected
                     ? 'bg-white border-brand-orange shadow-warm-md ring-2 ring-brand-orange/30'
                     : 'bg-white border-brand-peach/80 hover:bg-surface-ambient active:scale-[0.99] shadow-warm-2xs'
                 }`}
               >
-                <div className="flex items-center justify-between gap-3 min-w-0">
-                  <div className="flex items-center gap-3 min-w-0 flex-1">
+                <div className="flex items-center justify-between gap-2 min-[375px]:gap-3 min-w-0 w-full">
+                  <div className="flex items-center gap-2 min-[375px]:gap-2.5 sm:gap-3 min-w-0 flex-1">
                     <IllustratedCardBadge variant={step.illustrationVariant} size="sm" stepNumber={`0${step.step}`} />
                     <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2">
-                        <h3 className="font-heading font-bold text-[15px] sm:text-base text-espresso truncate">
-                          {step.title}
-                        </h3>
-                      </div>
-                      <p className="text-xs sm:text-[13px] text-terracotta-muted truncate mt-0.5">
+                      <h3 className="font-heading font-bold text-sm min-[375px]:text-[15px] sm:text-base text-espresso leading-snug break-words">
+                        {step.title}
+                      </h3>
+                      <p className="text-[11px] min-[375px]:text-xs sm:text-[13px] text-terracotta-muted truncate mt-0.5">
                         {step.shortLabel}
                       </p>
                     </div>
                   </div>
-                  <div className="shrink-0 text-right pl-2">
-                    <span className="text-xs sm:text-[13px] font-mono font-semibold text-terracotta bg-surface-tier1 border border-brand-peach/60 px-2.5 py-1 rounded-lg shadow-warm-2xs inline-block whitespace-nowrap">
+                  <div className="shrink-0 max-w-[110px] min-[375px]:max-w-[130px] sm:max-w-[160px] text-right pl-1">
+                    <span className="text-[11px] min-[375px]:text-xs sm:text-[13px] font-mono font-semibold text-terracotta bg-surface-tier1 border border-brand-peach/60 px-2 py-0.5 min-[375px]:px-2.5 min-[375px]:py-1 rounded-lg shadow-warm-2xs inline-block leading-tight text-center sm:text-right break-words">
                       {step.example}
                     </span>
                   </div>
@@ -603,22 +601,22 @@ export const ConnectedWorkflowSection: React.FC = () => {
         {/* Fully coordinated sequence replaying every time the section enters viewport */}
         <div
           ref={goalsCardRef}
-          className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#fffdfa] via-white to-[#fff8f2] border border-brand-peach/80 p-6 sm:p-8 lg:p-9 shadow-warm-sm"
+          className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#fffdfa] via-white to-[#fff8f2] border border-brand-peach/80 p-3.5 min-[375px]:p-5 sm:p-8 lg:p-9 shadow-warm-sm w-full max-w-full overflow-hidden"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
             {/* LEFT COLUMN: Title, Description, and 3 Visual Highlights */}
             <motion.div
               initial="hidden"
               animate={controls}
               variants={leftColVariants}
-              className="lg:col-span-5 space-y-5"
+              className="lg:col-span-5 space-y-4 sm:space-y-5"
             >
-              <div className="space-y-3">
-                <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso tracking-tight leading-tight">
+              <div className="space-y-2 sm:space-y-3">
+                <h2 className="text-xl min-[360px]:text-2xl min-[375px]:text-[26px] sm:text-3xl font-heading font-extrabold text-espresso tracking-tight leading-tight">
                   Turn Goals Into Real Progress
                 </h2>
 
-                <p className="text-base sm:text-base text-terracotta leading-relaxed font-normal">
+                <p className="text-sm min-[375px]:text-base text-terracotta leading-relaxed font-normal">
                   Set clear goals, break them into smaller milestones, and see how every completed task moves your team closer to success.
                 </p>
               </div>
@@ -682,7 +680,7 @@ export const ConnectedWorkflowSection: React.FC = () => {
                 initial="hidden"
                 animate={controls}
                 variants={goalCardVariants}
-                className="p-5 rounded-2xl bg-white border border-brand-peach/90 shadow-warm-xs flex flex-col sm:flex-row items-center justify-between gap-5 relative z-10"
+                className="p-3.5 min-[375px]:p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/90 shadow-warm-xs flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-5 relative z-10 w-full max-w-full"
               >
                 <div className="space-y-2 text-center sm:text-left flex-1 min-w-0">
                   <div className="flex items-center justify-center sm:justify-start gap-2">

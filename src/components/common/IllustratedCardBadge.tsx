@@ -28,10 +28,10 @@ export const IllustratedCardBadge: React.FC<IllustratedCardBadgeProps> = ({
   className = '',
   stepNumber,
 }) => {
-  // Dimensions - enhanced for rich visual presence across all non-landing cards
+  // Dimensions - enhanced for rich visual presence while preserving mobile clearance
   const dim =
     size === 'sm'
-      ? 'w-14 h-14 sm:w-16 sm:h-16'
+      ? 'w-11 h-11 min-[375px]:w-12 min-[375px]:h-12 sm:w-16 sm:h-16'
       : size === 'lg'
       ? 'w-22 h-22 sm:w-26 sm:h-26'
       : 'w-18 h-18 sm:w-20 sm:h-20';

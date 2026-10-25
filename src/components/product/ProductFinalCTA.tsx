@@ -7,8 +7,8 @@ export const ProductFinalCTA: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="py-6 sm:py-8 md:py-10 px-4 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto">
-      <div className="rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-6 sm:p-8 md:p-10 border border-brand-peach/80 shadow-warm-lg relative overflow-hidden text-center">
+    <section className="py-6 sm:py-8 md:py-10 px-3.5 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto w-full">
+      <div className="rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-4 min-[375px]:p-6 sm:p-8 md:p-10 border border-brand-peach/80 shadow-warm-lg relative overflow-hidden text-center w-full max-w-full">
         {/* Soft Warm Ambient Sheen with Gentle Decorative Floating Movement */}
         <motion.div
           animate={
@@ -25,7 +25,7 @@ export const ProductFinalCTA: React.FC = () => {
           className="absolute top-0 right-12 w-[420px] h-[420px] bg-gradient-to-bl from-brand-orange-light via-brand-peach/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10"
         />
 
-        <div className="max-w-2xl mx-auto space-y-5 relative z-10">
+        <div className="max-w-2xl mx-auto space-y-4 sm:space-y-5 relative z-10">
           {/* Subtle Brand Icon Badge with Repeat-on-Scroll */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
@@ -42,7 +42,7 @@ export const ProductFinalCTA: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.35, delay: 0.08 }}
-            className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight lg:whitespace-nowrap"
+            className="text-2xl min-[360px]:text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight break-words"
           >
             Bring Your Goals and Teams <span className="text-brand-orange">Together.</span>
           </motion.h2>
@@ -52,7 +52,7 @@ export const ProductFinalCTA: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.35, delay: 0.14 }}
-            className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-2xl mx-auto lg:whitespace-nowrap"
+            className="text-sm min-[375px]:text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-2xl mx-auto"
           >
             Keep everyone aligned and see what moves your work forward.
           </motion.p>

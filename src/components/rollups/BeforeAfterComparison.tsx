@@ -47,7 +47,7 @@ export const BeforeAfterComparison: React.FC = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 0.35, delay: 0.1 }}
-          className="text-sm sm:text-base lg:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left lg:whitespace-nowrap"
+          className="text-sm sm:text-base lg:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left"
         >
           Stop spending time managing spreadsheets. Let your real work keep everyone in sync.
         </motion.p>
@@ -60,7 +60,7 @@ export const BeforeAfterComparison: React.FC = () => {
           initial={{ opacity: 0, x: -12 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -12 }}
           transition={{ duration: 0.4, delay: 0.12 }}
-          className="bg-surface-tier1/70 rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border-2 border-brand-peach/70 shadow-warm-sm flex flex-col justify-between min-h-[300px] sm:min-h-[400px]"
+          className="bg-surface-tier1/70 rounded-2xl sm:rounded-3xl p-4 min-[375px]:p-5 sm:p-8 lg:p-10 border-2 border-brand-peach/70 shadow-warm-sm flex flex-col justify-between min-h-[300px] sm:min-h-[400px] w-full max-w-full"
         >
           <div>
             <div className="flex items-center justify-end pb-4 mb-5 border-b border-brand-peach/40">
@@ -109,7 +109,7 @@ export const BeforeAfterComparison: React.FC = () => {
           initial={{ opacity: 0, x: 16 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 16 }}
           transition={{ duration: 0.45, delay: 0.25 }}
-          className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-brand-orange/50 shadow-warm-lg flex flex-col justify-between relative overflow-hidden group min-h-[360px] sm:min-h-[400px]"
+          className="bg-white rounded-2xl sm:rounded-3xl p-4 min-[375px]:p-6 sm:p-8 lg:p-10 border-2 border-brand-orange/50 shadow-warm-lg flex flex-col justify-between relative overflow-hidden group min-h-[360px] sm:min-h-[400px] w-full max-w-full"
         >
           {/* Subtle Ambient Sheen */}
           <div className="absolute top-0 right-0 w-56 h-56 bg-brand-orange-light/40 rounded-full blur-2xl pointer-events-none -z-10" />

@@ -96,7 +96,7 @@ export const RollupHeroSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-20 sm:pt-24 pb-3 sm:pb-5 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto overflow-hidden"
+      className="relative pt-20 sm:pt-24 pb-3 sm:pb-5 px-3.5 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto overflow-hidden w-full"
     >
       {/* Subtle Ambient Decorative Glow */}
       <motion.div
@@ -118,7 +118,7 @@ export const RollupHeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 0.35, delay: 0.05 }}
-          className="text-2xl min-[375px]:text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left lg:whitespace-nowrap"
+          className="text-2xl min-[375px]:text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left break-words"
         >
           Every Task Moves the Bigger Goal <span className="text-brand-orange">Forward.</span>
         </motion.h1>
@@ -127,7 +127,7 @@ export const RollupHeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 0.35, delay: 0.12 }}
-          className="text-sm sm:text-base lg:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left lg:whitespace-nowrap"
+          className="text-sm sm:text-base lg:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left"
         >
           Complete everyday work and watch project and goal progress update automatically.
         </motion.p>

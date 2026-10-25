@@ -91,7 +91,7 @@ export const InteractiveRollupDemo: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="pt-2 sm:pt-4 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto relative overflow-hidden"
+      className="pt-2 sm:pt-4 pb-6 sm:pb-8 px-3.5 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto relative overflow-hidden w-full"
     >
       {/* Background Soft Glow */}
       <motion.div
@@ -114,7 +114,7 @@ export const InteractiveRollupDemo: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.35, delay: 0.05 }}
-          className="text-2xl min-[375px]:text-[26px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
+          className="text-2xl min-[375px]:text-[26px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left break-words"
         >
           See Progress <span className="text-brand-orange">Add Up.</span>
         </motion.h2>
@@ -124,7 +124,7 @@ export const InteractiveRollupDemo: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.35, delay: 0.1 }}
-          className="text-sm sm:text-base lg:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left lg:whitespace-nowrap"
+          className="text-sm sm:text-base lg:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left"
         >
           Complete a task and watch the bigger picture change.
         </motion.p>
@@ -136,7 +136,7 @@ export const InteractiveRollupDemo: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.05 }}
         transition={{ duration: 0.45, delay: 0.12 }}
-        className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-7 lg:p-10 border-2 border-brand-peach/80 shadow-warm-xl w-full mx-auto relative overflow-hidden"
+        className="bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-7 lg:p-10 border-2 border-brand-peach/80 shadow-warm-xl w-full max-w-full mx-auto relative overflow-hidden"
       >
         {/* Sample Data Disclaimer & Control Top Bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-brand-peach/50">

@@ -61,7 +61,7 @@ export const AutomaticProgressSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-6 sm:py-8 md:py-10 px-4 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto bg-surface-ambient/50 rounded-3xl border border-brand-peach/40 my-3 sm:my-4 relative overflow-hidden text-left"
+      className="py-6 sm:py-8 md:py-10 px-3.5 sm:px-6 lg:px-10 xl:px-12 max-w-[1600px] mx-auto bg-surface-ambient/50 rounded-3xl border border-brand-peach/40 my-3 sm:my-4 relative overflow-hidden text-left w-full"
     >
       {/* Subtle Background Glow */}
       <motion.div
@@ -84,7 +84,7 @@ export const AutomaticProgressSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.35, delay: 0.05 }}
-          className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
+          className="text-2xl min-[360px]:text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left break-words"
         >
           See Progress as <span className="text-brand-orange">Work Gets Done.</span>
         </motion.h2>
@@ -94,21 +94,21 @@ export const AutomaticProgressSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.35, delay: 0.12 }}
-          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal text-left max-w-4xl lg:whitespace-nowrap"
+          className="text-sm min-[375px]:text-base sm:text-lg text-terracotta leading-relaxed font-normal text-left max-w-4xl"
         >
           Complete a task and watch overall progress update automatically.
         </motion.p>
       </div>
 
       {/* Main Interactive Rollup Card */}
-      <div className="rounded-3xl bg-white border border-brand-peach/80 p-5 sm:p-7 lg:p-9 shadow-warm-lg space-y-6 sm:space-y-7">
+      <div className="rounded-3xl bg-white border border-brand-peach/80 p-3 min-[375px]:p-3.5 sm:p-7 lg:p-9 shadow-warm-lg space-y-5 sm:space-y-7 w-full max-w-full overflow-hidden">
         {/* Simple 4-Step Rollup Flow Indicator with animated connector pulse */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.35 }}
-          className="flex flex-wrap items-center justify-between p-3.5 rounded-2xl bg-surface-ambient border border-brand-peach/60 text-[13px] sm:text-xs font-mono font-bold text-terracotta gap-3 relative overflow-hidden"
+          className="flex flex-wrap items-center justify-between p-2.5 min-[375px]:p-3.5 rounded-2xl bg-surface-ambient border border-brand-peach/60 text-xs font-mono font-bold text-terracotta gap-2 min-[375px]:gap-3 relative overflow-hidden w-full"
         >
           {/* Connecting Pulse Beam */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-orange/10 to-transparent pointer-events-none -z-0">
@@ -156,7 +156,7 @@ export const AutomaticProgressSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.4 }}
-            className="lg:col-span-5 space-y-4 p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 shadow-warm-xs"
+            className="lg:col-span-5 space-y-3.5 p-3 min-[375px]:p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 shadow-warm-xs w-full max-w-full"
           >
             <div className="flex items-center justify-between pb-1">
               <div className="flex items-center gap-3">
@@ -244,7 +244,7 @@ export const AutomaticProgressSection: React.FC = () => {
             className="lg:col-span-7 space-y-4"
           >
             {/* Milestone Card */}
-            <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3 relative group">
+            <div className="p-3.5 min-[375px]:p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3 relative group w-full max-w-full">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0] border border-brand-yellow/35 text-amber-700 flex items-center justify-center shrink-0 shadow-sm shadow-brand-yellow/10">
@@ -285,7 +285,7 @@ export const AutomaticProgressSection: React.FC = () => {
             </div>
 
             {/* Strategic Goal Card */}
-            <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3 relative group">
+            <div className="p-3.5 min-[375px]:p-4 sm:p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3 relative group w-full max-w-full">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] border border-brand-green/25 text-brand-green flex items-center justify-center shrink-0 shadow-sm shadow-brand-green/10">
