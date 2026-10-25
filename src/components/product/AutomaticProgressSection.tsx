@@ -86,7 +86,7 @@ export const AutomaticProgressSection: React.FC = () => {
           transition={{ duration: 0.35, delay: 0.05 }}
           className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
         >
-          See Progress as Work Gets Done.
+          See Progress as <span className="text-brand-orange">Work Gets Done.</span>
         </motion.h2>
 
         <motion.p

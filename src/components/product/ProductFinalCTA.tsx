@@ -44,7 +44,7 @@ export const ProductFinalCTA: React.FC = () => {
             transition={{ duration: 0.35, delay: 0.08 }}
             className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight lg:whitespace-nowrap"
           >
-            Bring Your Goals and Teams Together.
+            Bring Your Goals and Teams <span className="text-brand-orange">Together.</span>
           </motion.h2>
 
           <motion.p

@@ -41,7 +41,7 @@ export const BeforeAfterComparison: React.FC = () => {
           transition={{ duration: 0.35, delay: 0.05 }}
           className="text-2xl min-[375px]:text-[26px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight leading-tight text-left lg:whitespace-nowrap"
         >
-          Less Manual Tracking. More Clarity.
+          Less Manual Tracking. <span className="text-brand-orange">More Clarity.</span>
         </motion.h2>
 
         <motion.p
