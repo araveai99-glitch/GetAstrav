@@ -77,10 +77,10 @@ export const BeforeAfterComparison: React.FC = () => {
             <div className="space-y-4 sm:space-y-5">
               {withoutPoints.map((point, index) => (
                 <div key={index} className="flex items-start gap-3.5">
-                  <div className="w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
-                    <XCircle className="w-4 h-4" />
+                  <div className="w-8 h-8 rounded-xl bg-amber-100/80 border border-amber-200 text-amber-700 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                    <XCircle className="w-5 h-5" />
                   </div>
-                  <span className="text-base sm:text-lg font-medium text-terracotta leading-relaxed">
+                  <span className="text-base sm:text-lg font-medium text-terracotta leading-relaxed pt-0.5">
                     {point}
                   </span>
                 </div>
@@ -91,8 +91,10 @@ export const BeforeAfterComparison: React.FC = () => {
           {/* Bottom Visual Card */}
           <div className="mt-8 pt-5 border-t border-brand-peach/40">
             <div className="p-4 sm:p-5 rounded-2xl bg-white/80 border border-brand-peach/50 flex items-center justify-between text-xs sm:text-sm text-terracotta-muted">
-              <span className="flex items-center gap-2 font-medium">
-                <Clock className="w-4 h-4 text-amber-600" />
+              <span className="flex items-center gap-2.5 font-medium">
+                <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200/60 flex items-center justify-center text-amber-600 shrink-0">
+                  <Clock className="w-4.5 h-4.5" />
+                </div>
                 Weekly Status Reports
               </span>
               <span className="font-heading font-bold text-amber-800">
@@ -127,10 +129,10 @@ export const BeforeAfterComparison: React.FC = () => {
             <div className="space-y-4 sm:space-y-5">
               {withPoints.map((point, index) => (
                 <div key={index} className="flex items-start gap-3.5">
-                  <div className="w-6 h-6 rounded-full bg-brand-green-light text-brand-green flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4" />
+                  <div className="w-8 h-8 rounded-xl bg-brand-green-light border border-brand-green/30 text-brand-green flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                    <CheckCircle2 className="w-5 h-5 stroke-[2.2]" />
                   </div>
-                  <span className="text-base sm:text-lg font-heading font-bold text-espresso leading-relaxed">
+                  <span className="text-base sm:text-lg font-heading font-bold text-espresso leading-relaxed pt-0.5">
                     {point}
                   </span>
                 </div>
@@ -141,8 +143,10 @@ export const BeforeAfterComparison: React.FC = () => {
           {/* Bottom Visual Card */}
           <div className="mt-8 pt-5 border-t border-brand-peach/40">
             <div className="p-4 sm:p-5 rounded-2xl bg-brand-orange-light/50 border border-brand-orange/30 flex items-center justify-between text-xs sm:text-sm">
-              <span className="flex items-center gap-2 font-heading font-bold text-espresso">
-                <TrendingUp className="w-4 h-4 text-brand-orange" />
+              <span className="flex items-center gap-2.5 font-heading font-bold text-espresso">
+                <div className="w-8 h-8 rounded-xl bg-white border border-brand-orange/30 flex items-center justify-center text-brand-orange shrink-0">
+                  <TrendingUp className="w-4.5 h-4.5" />
+                </div>
                 Live Goal Alignment
               </span>
               <span className="font-heading font-extrabold text-brand-orange">

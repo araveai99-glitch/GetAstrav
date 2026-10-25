@@ -233,11 +233,11 @@ export const DepartmentWorkflow: React.FC = () => {
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
                     <div
-                      className={`w-9 h-9 rounded-xl ${dept.iconBg} border border-brand-peach/50 flex items-center justify-center shrink-0 shadow-2xs ${
+                      className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl ${dept.iconBg} border border-brand-peach/50 flex items-center justify-center shrink-0 shadow-2xs ${
                         isSelected ? 'ring-2 ring-brand-orange/40 shadow-xs' : ''
                       }`}
                     >
-                      <Icon className={`w-4.5 h-4.5 ${dept.iconColor} stroke-[2]`} />
+                      <Icon className={`w-5.5 h-5.5 sm:w-6 sm:h-6 ${dept.iconColor} stroke-[2]`} />
                     </div>
                     <div className="min-w-0">
                       <span className="font-heading font-extrabold text-sm min-[375px]:text-base text-espresso block truncate leading-tight">
@@ -507,9 +507,9 @@ export const DepartmentWorkflow: React.FC = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="flex items-center gap-3.5 min-w-0">
                       <div
-                        className={`w-12 h-12 rounded-2xl ${dept.iconBg} flex items-center justify-center shrink-0 shadow-warm-2xs border border-brand-peach/40`}
+                        className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${dept.iconBg} flex items-center justify-center shrink-0 shadow-warm-xs border border-brand-peach/40`}
                       >
-                        <Icon className={`w-6 h-6 ${dept.iconColor}`} />
+                        <Icon className={`w-7 h-7 sm:w-8 sm:h-8 ${dept.iconColor}`} />
                       </div>
                       <div className="min-w-0">
                         <div className="flex items-center gap-2">

@@ -244,8 +244,8 @@ export const Teams: React.FC = () => {
 
             {/* Live Incoming Stream Callout */}
             <div className="p-4 rounded-2xl bg-white border border-brand-orange/30 flex items-center gap-3.5 shadow-warm-2xs">
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/30 text-brand-orange flex items-center justify-center shrink-0 shadow-sm shadow-brand-orange/10">
-                <Zap className="w-5 h-5 stroke-[2] animate-bounce" />
+              <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/30 text-brand-orange flex items-center justify-center shrink-0 shadow-sm shadow-brand-orange/10">
+                <Zap className="w-6.5 h-6.5 stroke-[2] animate-bounce" />
               </div>
               <div className="min-w-0">
                 <span className="text-xs font-mono font-bold text-brand-orange uppercase block">
@@ -282,13 +282,13 @@ export const Teams: React.FC = () => {
                   >
                     <div className="flex items-center gap-4">
                       <div
-                        className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-all group-hover:scale-110 group-hover:rotate-3 ${
+                        className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all group-hover:scale-105 group-hover:rotate-2 ${
                           isSelected
-                            ? 'bg-gradient-to-br from-brand-orange to-[#d94e10] text-white shadow-sm shadow-brand-orange/25'
-                            : 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 shadow-sm shadow-brand-orange/10'
+                            ? 'bg-gradient-to-br from-brand-orange to-[#d94e10] text-white shadow-md shadow-brand-orange/25'
+                            : 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 shadow-xs shadow-brand-orange/10'
                         }`}
                       >
-                        <Icon className="w-6 h-6 stroke-[2]" />
+                        <Icon className="w-7 h-7 stroke-[2]" />
                       </div>
 
                       <div>

@@ -202,9 +202,9 @@ export const Founders: React.FC = () => {
 
           {/* Detail Callout for Active Step */}
           <div className="mt-4 p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-left">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-orange to-[#d94e10] text-white flex items-center justify-center shrink-0 shadow-sm shadow-brand-orange/20">
-                {React.createElement(VISION_STEPS[selectedStep].icon, { className: 'w-4.5 h-4.5', strokeWidth: 2 })}
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-orange to-[#d94e10] text-white flex items-center justify-center shrink-0 shadow-md shadow-brand-orange/25">
+                {React.createElement(VISION_STEPS[selectedStep].icon, { className: 'w-6 h-6', strokeWidth: 2 })}
               </div>
               <div>
                 <span className="text-xs font-mono font-bold text-brand-orange uppercase">
@@ -243,13 +243,16 @@ export const Founders: React.FC = () => {
         {/* 4 Telemetry Panels */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Card 1: Overall Goal Progress */}
-          <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
+          <div className="p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
-                <span className="flex items-center gap-1.5">
-                  <Target className="w-4 h-4 text-brand-orange" /> Goal Progress
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-2">
+                <span className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/30 text-brand-orange flex items-center justify-center shrink-0 shadow-2xs">
+                    <Target className="w-4.5 h-4.5" />
+                  </div>
+                  <span className="text-sm font-heading font-bold text-espresso">Goal Progress</span>
                 </span>
-                <span className="font-mono text-brand-orange font-bold">78%</span>
+                <span className="font-mono text-brand-orange font-bold text-sm">78%</span>
               </div>
               <div className="text-[20px] font-extrabold font-heading text-espresso">
                 Q3 Strategy
@@ -278,13 +281,16 @@ export const Founders: React.FC = () => {
           </div>
 
           {/* Card 2: Projects On Track */}
-          <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
+          <div className="p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
-                <span className="flex items-center gap-1.5">
-                  <Activity className="w-4 h-4 text-brand-green" /> Projects On Track
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-2">
+                <span className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] border border-brand-green/30 text-brand-green flex items-center justify-center shrink-0 shadow-2xs">
+                    <Activity className="w-4.5 h-4.5" />
+                  </div>
+                  <span className="text-sm font-heading font-bold text-espresso">Projects On Track</span>
                 </span>
-                <span className="font-mono text-brand-green font-bold">14 / 16</span>
+                <span className="font-mono text-brand-green font-bold text-sm">14 / 16</span>
               </div>
               <div className="text-[20px] font-extrabold font-heading text-espresso">
                 14 Healthy
@@ -313,13 +319,16 @@ export const Founders: React.FC = () => {
           </div>
 
           {/* Card 3: Work Needing Attention */}
-          <div className="p-4 rounded-2xl bg-[#fffbf7] border-2 border-brand-orange/60 shadow-warm-xs flex flex-col justify-between space-y-3">
+          <div className="p-4 sm:p-5 rounded-2xl bg-[#fffbf7] border-2 border-brand-orange/60 shadow-warm-xs flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-brand-orange mb-1">
-                <span className="flex items-center gap-1.5">
-                  <AlertTriangle className="w-4 h-4 text-brand-orange" /> Needs Attention
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-brand-orange mb-2">
+                <span className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/30 text-brand-orange flex items-center justify-center shrink-0 shadow-2xs">
+                    <AlertTriangle className="w-4.5 h-4.5" />
+                  </div>
+                  <span className="text-sm font-heading font-bold text-brand-orange">Needs Attention</span>
                 </span>
-                <span className="font-mono font-bold">1 Delay</span>
+                <span className="font-mono font-bold text-sm">1 Delay</span>
               </div>
               <div className="text-[18px] sm:text-base font-extrabold font-heading text-espresso leading-snug">
                 Security Sign-Off
@@ -335,13 +344,16 @@ export const Founders: React.FC = () => {
           </div>
 
           {/* Card 4: Upcoming Milestones */}
-          <div className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
+          <div className="p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-1">
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-4 h-4 text-brand-yellow" /> Next 14 Days
+              <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-2">
+                <span className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#fefbf0] to-[#fdeec0] border border-amber-300/40 text-amber-700 flex items-center justify-center shrink-0 shadow-2xs">
+                    <Calendar className="w-4.5 h-4.5" />
+                  </div>
+                  <span className="text-sm font-heading font-bold text-espresso">Next 14 Days</span>
                 </span>
-                <span className="font-mono font-bold text-espresso">3 Gates</span>
+                <span className="font-mono font-bold text-espresso text-sm">3 Gates</span>
               </div>
               <div className="text-[20px] font-extrabold font-heading text-espresso">
                 Upcoming Gates
@@ -395,7 +407,9 @@ export const Founders: React.FC = () => {
 
               <div className="space-y-2.5">
                 <div className="p-3 rounded-xl bg-white border border-red-100 flex items-center gap-3">
-                  <Clock className="w-4 h-4 text-red-500 shrink-0" />
+                  <div className="w-8 h-8 rounded-xl bg-red-50 border border-red-200/60 flex items-center justify-center shrink-0">
+                    <Clock className="w-4.5 h-4.5 text-red-500" />
+                  </div>
                   <div>
                     <h4 className="font-heading font-bold text-[16px] sm:text-sm text-espresso">
                       Manual follow-ups
@@ -407,7 +421,9 @@ export const Founders: React.FC = () => {
                 </div>
 
                 <div className="p-3 rounded-xl bg-white border border-red-100 flex items-center gap-3">
-                  <MessageSquareWarning className="w-4 h-4 text-red-500 shrink-0" />
+                  <div className="w-8 h-8 rounded-xl bg-red-50 border border-red-200/60 flex items-center justify-center shrink-0">
+                    <MessageSquareWarning className="w-4.5 h-4.5 text-red-500" />
+                  </div>
                   <div>
                     <h4 className="font-heading font-bold text-[16px] sm:text-sm text-espresso">
                       Scattered updates
@@ -419,7 +435,9 @@ export const Founders: React.FC = () => {
                 </div>
 
                 <div className="p-3 rounded-xl bg-white border border-red-100 flex items-center gap-3">
-                  <HelpCircle className="w-4 h-4 text-red-500 shrink-0" />
+                  <div className="w-8 h-8 rounded-xl bg-red-50 border border-red-200/60 flex items-center justify-center shrink-0">
+                    <HelpCircle className="w-4.5 h-4.5 text-red-500" />
+                  </div>
                   <div>
                     <h4 className="font-heading font-bold text-[16px] sm:text-sm text-espresso">
                       Unclear progress
@@ -453,7 +471,9 @@ export const Founders: React.FC = () => {
 
               <div className="space-y-2.5">
                 <div className="p-3 rounded-xl bg-white border border-brand-green/40 flex items-center gap-3">
-                  <Target className="w-4 h-4 text-brand-green shrink-0" />
+                  <div className="w-8 h-8 rounded-xl bg-brand-green/10 border border-brand-green/20 flex items-center justify-center shrink-0">
+                    <Target className="w-4.5 h-4.5 text-brand-green" />
+                  </div>
                   <div>
                     <h4 className="font-heading font-bold text-[16px] sm:text-sm text-espresso">
                       Connected goals
@@ -465,7 +485,9 @@ export const Founders: React.FC = () => {
                 </div>
 
                 <div className="p-3 rounded-xl bg-white border border-brand-green/40 flex items-center gap-3">
-                  <RefreshCw className="w-4 h-4 text-brand-green shrink-0" />
+                  <div className="w-8 h-8 rounded-xl bg-brand-green/10 border border-brand-green/20 flex items-center justify-center shrink-0">
+                    <RefreshCw className="w-4.5 h-4.5 text-brand-green" />
+                  </div>
                   <div>
                     <h4 className="font-heading font-bold text-[16px] sm:text-sm text-espresso">
                       Automatic progress updates
@@ -477,7 +499,9 @@ export const Founders: React.FC = () => {
                 </div>
 
                 <div className="p-3 rounded-xl bg-white border border-brand-green/40 flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-brand-green shrink-0" />
+                  <div className="w-8 h-8 rounded-xl bg-brand-green/10 border border-brand-green/20 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-4.5 h-4.5 text-brand-green" />
+                  </div>
                   <div>
                     <h4 className="font-heading font-bold text-[16px] sm:text-sm text-espresso">
                       Clear decisions

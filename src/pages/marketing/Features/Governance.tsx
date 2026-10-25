@@ -17,6 +17,7 @@ import {
   Check,
 } from 'lucide-react';
 import { CTASection } from '../../../components/common/CTASection';
+import { IllustratedCardBadge } from '../../../components/common/IllustratedCardBadge';
 
 interface RoleProfile {
   id: string;
@@ -172,10 +173,10 @@ export const Governance: React.FC = () => {
                 >
                   <div className="flex items-center gap-3.5">
                     <div
-                      className={`w-11 h-11 rounded-xl flex items-center justify-center font-heading font-bold text-sm transition-all group-hover:scale-110 group-hover:rotate-3 ${
+                      className={`w-13 h-13 rounded-2xl flex items-center justify-center font-heading font-extrabold text-base transition-all group-hover:scale-105 group-hover:rotate-2 shrink-0 ${
                         isSelected
-                          ? 'bg-gradient-to-br from-brand-orange to-[#d94e10] text-white shadow-sm shadow-brand-orange/25'
-                          : 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 shadow-sm shadow-brand-orange/10'
+                          ? 'bg-gradient-to-br from-brand-orange to-[#d94e10] text-white shadow-md shadow-brand-orange/30'
+                          : 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 shadow-xs shadow-brand-orange/10'
                       }`}
                     >
                       {role.avatarInitial}
@@ -214,7 +215,7 @@ export const Governance: React.FC = () => {
             <div>
               <div className="flex items-start sm:items-center justify-between gap-3 sm:gap-4 pb-4 mb-4 border-b border-brand-peach/50">
                 <div className="flex items-start sm:items-center gap-2.5 min-w-0 flex-1">
-                  <ShieldCheck className="w-5 h-5 text-brand-orange shrink-0 mt-0.5 sm:mt-0" />
+                  <ShieldCheck className="w-6 h-6 text-brand-orange shrink-0 mt-0.5 sm:mt-0" />
                   <h4 className="font-heading font-extrabold text-[16px] xs:text-[17px] sm:text-lg text-espresso leading-snug">
                     Available Actions for {activeRole.title}
                   </h4>
@@ -240,16 +241,16 @@ export const Governance: React.FC = () => {
                   >
                     <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
                       <div
-                        className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5 sm:mt-0 ${
+                        className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 mt-0.5 sm:mt-0 ${
                           perm.allowed
                             ? 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] text-brand-green border border-brand-green/30 shadow-xs'
                             : 'bg-gradient-to-br from-surface-tier1 to-surface-tier2 text-terracotta-muted border border-brand-peach/50'
                         }`}
                       >
                         {perm.allowed ? (
-                          <CheckCircle2 className="w-4 h-4 stroke-[2.2]" />
+                          <CheckCircle2 className="w-5 h-5 stroke-[2.2]" />
                         ) : (
-                          <Lock className="w-4 h-4 text-terracotta-muted stroke-[2]" />
+                          <Lock className="w-5 h-5 text-terracotta-muted stroke-[2]" />
                         )}
                       </div>
                       <div className="min-w-0 flex-1">
@@ -302,10 +303,8 @@ export const Governance: React.FC = () => {
           className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/30 text-brand-orange flex items-center justify-center shadow-sm shadow-brand-orange/10 transition-all group-hover:scale-110 group-hover:rotate-3">
-                <FileCheck2 className="w-6 h-6 stroke-[2]" />
-              </div>
+            <div className="flex items-center justify-between mb-5">
+              <IllustratedCardBadge variant="governance" size="md" />
               <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">
                 SOC2 Ready
               </span>
@@ -344,10 +343,8 @@ export const Governance: React.FC = () => {
           className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] border border-brand-green/30 text-brand-green flex items-center justify-center shadow-sm shadow-brand-green/10 transition-all group-hover:scale-110 group-hover:rotate-3">
-                <Key className="w-6 h-6 stroke-[2]" />
-              </div>
+            <div className="flex items-center justify-between mb-5">
+              <IllustratedCardBadge variant="control" size="md" />
               <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/20">
                 Safe Defaults
               </span>
@@ -383,10 +380,8 @@ export const Governance: React.FC = () => {
           className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0] border border-brand-yellow/35 text-amber-700 flex items-center justify-center shadow-sm shadow-brand-yellow/10 transition-all group-hover:scale-110 group-hover:rotate-3">
-                <Fingerprint className="w-6 h-6 stroke-[2]" />
-              </div>
+            <div className="flex items-center justify-between mb-5">
+              <IllustratedCardBadge variant="teams" size="md" />
               <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
                 1-Click Scope
               </span>

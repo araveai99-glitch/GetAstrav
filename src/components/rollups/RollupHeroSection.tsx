@@ -159,15 +159,21 @@ export const RollupHeroSection: React.FC = () => {
                 )}
 
                 <div>
-                  {/* Top row: step & badge */}
-                  <div className="flex items-center justify-between mb-2.5 sm:mb-4">
-                    <span className="text-[11px] sm:text-xs font-mono font-bold text-terracotta-muted/90 bg-surface-tier1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-brand-peach/50">
-                      STEP 0{item.step}
-                    </span>
+                  {/* Top row: step, prominent icon, & badge */}
+                  <div className="flex items-center justify-between mb-3.5 sm:mb-5">
+                    <div className="flex items-center gap-2.5 sm:gap-3">
+                      <div
+                        className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center shrink-0 border shadow-2xs ${item.badgeBg} ${item.badgeText}`}
+                      >
+                        <Icon className="w-5.5 h-5.5 sm:w-6 sm:h-6" strokeWidth={2} />
+                      </div>
+                      <span className="text-[11px] sm:text-xs font-mono font-bold text-terracotta-muted/90 bg-surface-tier1 px-2.5 py-1 rounded-full border border-brand-peach/50">
+                        STEP 0{item.step}
+                      </span>
+                    </div>
                     <span
-                      className={`inline-flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs font-heading font-extrabold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-lg ${item.badgeBg} ${item.badgeText}`}
+                      className={`inline-flex items-center font-heading font-extrabold text-[11px] sm:text-xs px-2.5 py-1 rounded-lg ${item.badgeBg} ${item.badgeText}`}
                     >
-                      <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                       {item.title}
                     </span>
                   </div>

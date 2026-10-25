@@ -185,13 +185,13 @@ export const Projects: React.FC = () => {
               >
                 <div className="flex items-center justify-between gap-1.5 min-[360px]:gap-2 sm:gap-3 mb-2.5 sm:mb-3 min-w-0">
                   <div
-                    className={`w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shrink-0 transition-all group-hover:scale-105 shadow-sm ${
+                    className={`w-10 h-10 min-[360px]:w-11 min-[360px]:h-11 sm:w-13 sm:h-13 rounded-2xl flex items-center justify-center shrink-0 transition-all group-hover:scale-105 shadow-sm ${
                       isActive
                         ? 'bg-brand-orange text-white shadow-warm-xs'
                         : `${comp.containerBg} ${comp.borderColor} border ${comp.accent}`
                     }`}
                   >
-                    <Icon className="w-4 h-4 min-[360px]:w-4.5 min-[360px]:h-4.5 sm:w-5 sm:h-5" strokeWidth={2} />
+                    <Icon className="w-5 h-5 min-[360px]:w-5.5 min-[360px]:h-5.5 sm:w-6.5 sm:h-6.5" strokeWidth={2} />
                   </div>
                   <span
                     className={`min-w-0 flex flex-col sm:inline-flex sm:flex-row items-center sm:items-baseline justify-center text-center px-1.5 min-[360px]:px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-lg sm:rounded-full border font-mono font-bold text-[9px] min-[360px]:text-[10px] min-[390px]:text-[10.5px] sm:text-xs leading-[1.15] sm:leading-tight tracking-tight sm:tracking-normal ${comp.badgeBg}`}
@@ -231,9 +231,9 @@ export const Projects: React.FC = () => {
                 </span>
               </div>
 
-              <div className="flex items-start gap-3.5 mb-3">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-orange to-[#d94e10] text-white flex items-center justify-center shrink-0 shadow-sm shadow-brand-orange/30">
-                  <FolderKanban className="w-6 h-6" strokeWidth={2} />
+              <div className="flex items-start gap-4 mb-3">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-brand-orange to-[#d94e10] text-white flex items-center justify-center shrink-0 shadow-md shadow-brand-orange/30">
+                  <FolderKanban className="w-7 h-7 sm:w-8 sm:h-8" strokeWidth={2} />
                 </div>
                 <div>
                   <h4 className="font-heading font-extrabold text-[20px] sm:text-xl text-espresso">
@@ -273,8 +273,10 @@ export const Projects: React.FC = () => {
           <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/70 flex flex-col justify-between space-y-5">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-brand-peach/50">
-                <div className="flex items-center gap-2.5">
-                  <activeCompartment.icon className={`w-5 h-5 ${activeCompartment.accent}`} />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-surface-ambient border border-brand-peach/60 flex items-center justify-center shrink-0 shadow-2xs">
+                    <activeCompartment.icon className={`w-5.5 h-5.5 ${activeCompartment.accent}`} />
+                  </div>
                   <h4 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso">
                     {activeCompartment.name} Connected Inside Container
                   </h4>

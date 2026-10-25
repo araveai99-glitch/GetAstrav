@@ -364,7 +364,7 @@ export const Managers: React.FC = () => {
             <div className="space-y-3">
               {/* Step 1: Tasks */}
               <div className="p-3 rounded-xl bg-white border border-brand-peach/60 flex items-start gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-surface-tier1 text-brand-orange flex items-center justify-center font-bold text-xs shrink-0 border border-brand-peach/70">
+                <div className="w-8 h-8 rounded-xl bg-surface-tier1 text-brand-orange flex items-center justify-center font-bold text-xs shrink-0 border border-brand-peach/70 shadow-2xs">
                   01
                 </div>
                 <div>
@@ -379,7 +379,7 @@ export const Managers: React.FC = () => {
 
               {/* Step 2: Progress */}
               <div className="p-3 rounded-xl bg-white border border-brand-peach/60 flex items-start gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-surface-tier1 text-brand-orange flex items-center justify-center font-bold text-xs shrink-0 border border-brand-peach/70">
+                <div className="w-8 h-8 rounded-xl bg-surface-tier1 text-brand-orange flex items-center justify-center font-bold text-xs shrink-0 border border-brand-peach/70 shadow-2xs">
                   02
                 </div>
                 <div className="w-full space-y-1">
@@ -414,7 +414,7 @@ export const Managers: React.FC = () => {
                 }`}
               >
                 <div
-                  className={`w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 ${
+                  className={`w-8 h-8 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 shadow-2xs ${
                     activeTask.status === 'Blocked'
                       ? 'bg-brand-orange text-white'
                       : 'bg-surface-tier1 text-brand-green border border-brand-peach/70'
@@ -438,7 +438,7 @@ export const Managers: React.FC = () => {
 
               {/* Step 4: Next Action */}
               <div className="p-3 rounded-xl bg-gradient-to-r from-white to-[#fffbf7] border-2 border-brand-green/60 flex items-start gap-2.5 shadow-warm-xs">
-                <div className="w-7 h-7 rounded-lg bg-brand-green text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm shadow-brand-green/30">
+                <div className="w-8 h-8 rounded-xl bg-brand-green text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm shadow-brand-green/30">
                   04
                 </div>
                 <div>
@@ -477,9 +477,9 @@ export const Managers: React.FC = () => {
           <div className="p-5 sm:p-6 rounded-3xl bg-white border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-green/40 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-3">
-                <span className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] text-brand-green border border-brand-green/30 flex items-center justify-center shrink-0 shadow-xs">
-                    <Activity className="w-4 h-4 stroke-[2]" />
+                <span className="flex items-center gap-2.5">
+                  <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] text-brand-green border border-brand-green/30 flex items-center justify-center shrink-0 shadow-xs">
+                    <Activity className="w-5.5 h-5.5 stroke-[2]" />
                   </div>
                   <span>Team Workload</span>
                 </span>
@@ -515,9 +515,9 @@ export const Managers: React.FC = () => {
           <div className="p-5 sm:p-6 rounded-3xl bg-white border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-3">
-                <span className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 flex items-center justify-center shrink-0 shadow-xs">
-                    <ListChecks className="w-4 h-4 stroke-[2]" />
+                <span className="flex items-center gap-2.5">
+                  <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 flex items-center justify-center shrink-0 shadow-xs">
+                    <ListChecks className="w-5.5 h-5.5 stroke-[2]" />
                   </div>
                   <span>Task Completion</span>
                 </span>
@@ -553,9 +553,9 @@ export const Managers: React.FC = () => {
           <div className="p-5 sm:p-6 rounded-3xl bg-white border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-yellow/40 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-3">
-                <span className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0] text-amber-700 border border-brand-yellow/35 flex items-center justify-center shrink-0 shadow-xs">
-                    <TrendingUp className="w-4 h-4 stroke-[2]" />
+                <span className="flex items-center gap-2.5">
+                  <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0] text-amber-700 border border-brand-yellow/35 flex items-center justify-center shrink-0 shadow-xs">
+                    <TrendingUp className="w-5.5 h-5.5 stroke-[2]" />
                   </div>
                   <span>Project Progress</span>
                 </span>
@@ -591,9 +591,9 @@ export const Managers: React.FC = () => {
           <div className="p-5 sm:p-6 rounded-3xl bg-white border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-3">
-                <span className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 flex items-center justify-center shrink-0 shadow-xs">
-                    <Calendar className="w-4 h-4 stroke-[2]" />
+                <span className="flex items-center gap-2.5">
+                  <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border border-brand-orange/30 flex items-center justify-center shrink-0 shadow-xs">
+                    <Calendar className="w-5.5 h-5.5 stroke-[2]" />
                   </div>
                   <span>Deadlines</span>
                 </span>

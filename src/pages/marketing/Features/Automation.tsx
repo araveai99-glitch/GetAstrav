@@ -251,18 +251,18 @@ export const Automation: React.FC = () => {
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div
-                      className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all group-hover:scale-110 group-hover:rotate-3 ${
+                      className={`w-13 h-13 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center transition-all group-hover:scale-105 group-hover:rotate-2 shrink-0 ${
                         isSelected
-                          ? 'bg-gradient-to-br from-brand-orange to-[#d94e10] text-white shadow-sm shadow-brand-orange/25'
+                          ? 'bg-gradient-to-br from-brand-orange to-[#d94e10] text-white shadow-md shadow-brand-orange/25'
                           : isPassed
                           ? 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] text-brand-green border border-brand-green/30 shadow-xs'
                           : 'bg-gradient-to-br from-surface-tier1 to-surface-tier2 text-terracotta-muted border border-brand-peach/50'
                       }`}
                     >
                       {isPassed && idx < currentStepIdx ? (
-                        <Check className="w-5 h-5 stroke-[2.5]" />
+                        <Check className="w-6.5 h-6.5 sm:w-7 sm:h-7 stroke-[2.5]" />
                       ) : (
-                        <Icon className="w-5 h-5 stroke-[2]" />
+                        <Icon className="w-6.5 h-6.5 sm:w-7 sm:h-7 stroke-[2]" />
                       )}
                     </div>
 

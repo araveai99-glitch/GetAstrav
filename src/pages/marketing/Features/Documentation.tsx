@@ -194,9 +194,9 @@ export const Documentation: React.FC = () => {
             <div>
               {/* Document Header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-brand-peach/50">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/30 flex items-center justify-center text-brand-orange shadow-sm shadow-brand-orange/10 shrink-0">
-                    <FileText className="w-5 h-5 stroke-[2]" />
+                <div className="flex items-center gap-3.5">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/30 flex items-center justify-center text-brand-orange shadow-sm shadow-brand-orange/10 shrink-0">
+                    <FileText className="w-7 h-7 stroke-[2]" />
                   </div>
                   <div>
                     <h4 className="font-heading font-extrabold text-[18px] sm:text-base text-espresso">

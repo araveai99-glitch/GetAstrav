@@ -252,7 +252,7 @@ export const TaskManagement: React.FC = () => {
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center font-heading font-extrabold text-sm transition-all group-hover:scale-110 ${
+                      className={`w-12 h-12 rounded-2xl flex items-center justify-center font-heading font-extrabold text-base transition-all group-hover:scale-105 shrink-0 ${
                         isSelected
                           ? 'bg-brand-orange text-white shadow-warm-xs'
                           : isPassed
@@ -261,7 +261,7 @@ export const TaskManagement: React.FC = () => {
                       }`}
                     >
                       {isPassed && idx < currentStageIdx ? (
-                        <Check className="w-5 h-5 stroke-[3]" />
+                        <Check className="w-6 h-6 stroke-[3]" />
                       ) : (
                         `0${idx + 1}`
                       )}
@@ -304,16 +304,16 @@ export const TaskManagement: React.FC = () => {
                 initial={{ rotate: -15, scale: 0.9 }}
                 animate={{ rotate: 0, scale: 1 }}
                 transition={{ duration: 0.3 }}
-                className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border transition-all ${
+                className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 border transition-all ${
                   currentStage.id === 'completed'
                     ? 'bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] text-brand-green border-brand-green/30 shadow-sm shadow-brand-green/10'
                     : 'bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] text-brand-orange border-brand-orange/30 shadow-sm shadow-brand-orange/10'
                 }`}
               >
                 {currentStage.id === 'completed' ? (
-                  <CheckCircle2 className="w-6 h-6 stroke-[2.2]" />
+                  <CheckCircle2 className="w-7 h-7 stroke-[2.2]" />
                 ) : (
-                  <ListChecks className="w-6 h-6 stroke-[2]" />
+                  <ListChecks className="w-7 h-7 stroke-[2]" />
                 )}
               </motion.div>
 

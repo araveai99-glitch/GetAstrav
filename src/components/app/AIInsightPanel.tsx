@@ -23,9 +23,9 @@ export const AIInsightPanel: React.FC = () => {
   return (
     <div className="bg-gradient-to-br from-white via-surface-ambient to-surface-tier1 rounded-2xl p-6 shadow-warm-md border border-brand-peach/80 space-y-4">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-r from-brand-orange to-brand-yellow text-white flex items-center justify-center shadow-glow-orange">
-            <Sparkles className="w-4 h-4" />
+        <div className="flex items-center gap-3">
+          <div className="w-11 h-11 rounded-2xl bg-gradient-to-r from-brand-orange to-brand-yellow text-white flex items-center justify-center shadow-glow-orange shrink-0">
+            <Sparkles className="w-5.5 h-5.5" />
           </div>
           <div>
             <h3 className="text-lg sm:text-base font-bold text-espresso">AI Productivity Insights</h3>
@@ -38,7 +38,7 @@ export const AIInsightPanel: React.FC = () => {
         <button
           onClick={loadInsights}
           disabled={isLoading}
-          className="p-2 sm:px-3 sm:py-2 rounded-xl bg-white border border-brand-peach text-terracotta-muted hover:text-brand-orange hover:bg-surface-tier1 transition-colors flex items-center gap-1.5 text-sm sm:text-xs font-semibold"
+          className="p-2 sm:px-3 sm:py-2 rounded-xl bg-white border border-brand-peach text-terracotta-muted hover:text-brand-orange hover:bg-surface-tier1 transition-colors flex items-center gap-1.5 text-sm sm:text-xs font-semibold cursor-pointer"
         >
           <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
           <span>Refresh</span>
@@ -62,8 +62,10 @@ export const AIInsightPanel: React.FC = () => {
                   key={idx}
                   className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-brand-peach/60 shadow-warm-sm text-sm sm:text-xs font-medium text-espresso"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-brand-green shrink-0 mt-0.5" />
-                  <span>{item}</span>
+                  <div className="w-6 h-6 rounded-lg bg-brand-green/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-brand-green" />
+                  </div>
+                  <span className="pt-0.5">{item}</span>
                 </div>
               ))}
             </div>
@@ -71,8 +73,10 @@ export const AIInsightPanel: React.FC = () => {
 
           {/* Risk Statement */}
           <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-300 text-sm sm:text-xs text-amber-900 font-medium flex items-start gap-2.5">
-            <AlertTriangle className="w-4 h-4 text-brand-yellow shrink-0 mt-0.5" />
-            <div>
+            <div className="w-6 h-6 rounded-lg bg-amber-500/20 flex items-center justify-center shrink-0 mt-0.5">
+              <AlertTriangle className="w-4 h-4 text-amber-700" />
+            </div>
+            <div className="pt-0.5">
               <span className="font-bold">Risk Signal: </span>
               {data.risk}
             </div>
