@@ -9,7 +9,6 @@ import {
   TrendingUp,
   AlertTriangle,
   Clock,
-  ArrowRight,
   Calendar,
   Activity,
   MessageSquareWarning,
@@ -92,16 +91,16 @@ export const Founders: React.FC = () => {
 
   // Section A: From Vision to Action
   const sectionARef = useRef<HTMLDivElement>(null);
-  const isSectionAInView = useInView(sectionARef, { once: false, amount: 0.2 });
+  const isSectionAInView = useInView(sectionARef, { once: false, amount: 0.05 });
   const [selectedStep, setSelectedStep] = useState(0);
 
   // Section B: Know Where Your Business Stands
   const sectionBRef = useRef<HTMLDivElement>(null);
-  const isSectionBInView = useInView(sectionBRef, { once: false, amount: 0.2 });
+  const isSectionBInView = useInView(sectionBRef, { once: false, amount: 0.05 });
 
   // Section C: Less Chasing. More Progress
   const sectionCRef = useRef<HTMLDivElement>(null);
-  const isSectionCInView = useInView(sectionCRef, { once: false, amount: 0.2 });
+  const isSectionCInView = useInView(sectionCRef, { once: false, amount: 0.05 });
 
   return (
     <div className="w-full max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-24 sm:pt-28 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12">
@@ -191,15 +190,10 @@ export const Founders: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-2.5 border-t border-brand-peach/40 flex items-center justify-between text-xs font-heading font-semibold text-terracotta-muted">
+                  <div className="mt-4 pt-2.5 border-t border-brand-peach/40 flex items-center text-xs font-heading font-semibold text-terracotta-muted">
                     <span className={isSelected ? 'text-brand-orange font-bold' : ''}>
                       {isSelected ? 'Active Step' : 'Click to inspect'}
                     </span>
-                    <ArrowRight
-                      className={`w-3.5 h-3.5 transition-transform ${
-                        isSelected ? 'text-brand-orange translate-x-1' : 'text-terracotta-muted'
-                      }`}
-                    />
                   </div>
                 </motion.div>
               );
@@ -335,9 +329,8 @@ export const Founders: React.FC = () => {
               </p>
             </div>
 
-            <div className="pt-2 border-t border-brand-peach/50 flex items-center justify-between text-sm font-heading font-bold text-brand-orange">
+            <div className="pt-2 border-t border-brand-peach/50 flex items-center text-sm font-heading font-bold text-brand-orange">
               <span>Unblock in 1 Click</span>
-              <ArrowRight className="w-4 h-4" />
             </div>
           </div>
 
