@@ -5,7 +5,6 @@ import {
   CheckSquare,
   CheckCircle2,
   AlertTriangle,
-  ArrowRight,
   TrendingUp,
   Activity,
   Calendar,

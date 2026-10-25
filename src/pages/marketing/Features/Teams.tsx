@@ -392,9 +392,8 @@ export const Teams: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-orange">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
             <span>Single Mission Pods</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
         </motion.div>
 
@@ -435,9 +434,8 @@ export const Teams: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-green">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
             <span>Zero Status Interruption</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
         </motion.div>
 
@@ -476,9 +474,8 @@ export const Teams: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-amber-700">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
             <span>Clear Pod Accountability</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
         </motion.div>
       </div>

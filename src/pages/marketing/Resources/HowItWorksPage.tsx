@@ -305,11 +305,10 @@ export const HowItWorksPage: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="pt-3 mt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm">
+                  <div className="pt-3 mt-3 border-t border-brand-peach/40 flex items-center text-xs min-[375px]:text-sm">
                     <span className={`font-mono font-bold ${isSelected ? 'text-brand-orange' : 'text-terracotta-muted'}`}>
                       {isSelected ? '● Active View' : 'Click to inspect'}
                     </span>
-                    <ArrowRight className="w-3.5 h-3.5 text-brand-orange group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </motion.div>
               );

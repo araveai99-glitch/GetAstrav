@@ -6,7 +6,6 @@ import {
   Milestone,
   ListChecks,
   FileText,
-  ArrowRight,
   Sparkles,
   Layers,
   ShieldCheck,
@@ -370,9 +369,8 @@ export const Projects: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-orange">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
             <span>Zero Context Scattering</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
         </motion.div>
 
@@ -439,9 +437,8 @@ export const Projects: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-green">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
             <span>Compartmentalized Security</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
         </motion.div>
 
@@ -483,9 +480,8 @@ export const Projects: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-amber-700">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
             <span>Automatic Upward Cascade</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
         </motion.div>
       </div>

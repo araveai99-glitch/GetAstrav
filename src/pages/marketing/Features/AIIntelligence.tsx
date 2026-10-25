@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Sparkles, BrainCircuit, Zap, ShieldAlert, Bot, ArrowRight, CheckCircle2, ShieldCheck, Check } from 'lucide-react';
+import { Sparkles, BrainCircuit, Zap, ShieldAlert, Bot, CheckCircle2, ShieldCheck, Check } from 'lucide-react';
 import { CTASection } from '../../../components/common/CTASection';
 import { IllustratedCardBadge } from '../../../components/common/IllustratedCardBadge';
 
@@ -64,9 +64,8 @@ export const AIIntelligence: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-orange">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
             <span>Instant Scaffolding</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
         </motion.div>
 
@@ -102,9 +101,8 @@ export const AIIntelligence: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-amber-700">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
             <span>Velocity Optimization</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
         </motion.div>
 
@@ -142,9 +140,8 @@ export const AIIntelligence: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-green">
+          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
             <span>Early Warning Radar</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
         </motion.div>
       </div>

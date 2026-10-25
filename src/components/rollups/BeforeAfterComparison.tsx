@@ -5,7 +5,6 @@ import {
   CheckCircle2,
   Clock,
   Sparkles,
-  ArrowRight,
   RefreshCw,
   AlertCircle,
   TrendingUp,
