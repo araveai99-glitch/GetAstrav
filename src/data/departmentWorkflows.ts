@@ -61,8 +61,8 @@ export const DEPARTMENTS: DepartmentWorkflowItem[] = [
     activeTasks: 14,
     milestones: '3/4 Milestones Completed',
     deliverables: [
-      'Product V2 Core Architecture (Done)',
-      'Design System Glassmorphism v4.8 (Done)',
+      'Product Core Architecture (Done)',
+      'Design System Glassmorphism (Done)',
       'Cross-departmental Rollup Engine (85% In Progress)',
       'Enterprise UX Accessibility Audit (Planned)',
     ],
@@ -92,7 +92,7 @@ export const DEPARTMENTS: DepartmentWorkflowItem[] = [
     activeTasks: 22,
     milestones: '4/6 Milestones Completed',
     deliverables: [
-      'Distributed Task Engine v2 (Done)',
+      'Distributed Task Engine (Done)',
       'Real-time WebSocket Push Synchronization (Done)',
       'Fix 2 API Latency Bottlenecks (Overdue - Reviewing)',
       'SOC2 Automated Compliance Controls (In Progress)',

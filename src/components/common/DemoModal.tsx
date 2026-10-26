@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { X, CheckCircle2, ArrowRight, Calendar, Building2, Mail, User, Users, Layers } from 'lucide-react';
 
 export const openDemoModal = () => {
@@ -7,6 +7,7 @@ export const openDemoModal = () => {
 };
 
 export const DemoModal: React.FC = () => {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -15,6 +16,12 @@ export const DemoModal: React.FC = () => {
     company: '',
     teamSize: '11-50',
   });
+
+  // Automatically close modal and release locks on route change
+  useEffect(() => {
+    setIsOpen(false);
+    setSubmitted(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleOpen = () => {

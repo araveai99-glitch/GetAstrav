@@ -27,7 +27,7 @@ export const OSMapInfographic: React.FC = () => {
             </div>
             <div>
               <h3 className="text-base sm:text-lg font-extrabold text-espresso">Astrav Master Operating Kernel</h3>
-              <span className="text-xs text-terracotta font-mono font-bold">UNIFIED GRAPH ARCHITECTURE V4.8</span>
+              <span className="text-xs text-terracotta font-mono font-bold">UNIFIED GRAPH ARCHITECTURE</span>
             </div>
           </div>
           <span className="px-3.5 py-1 rounded-full bg-mint-soft border border-brand-green/30 text-brand-green text-xs font-mono font-bold flex items-center gap-1.5">

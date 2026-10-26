@@ -45,7 +45,7 @@ export const ProjectPanel: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <input
               type="text"
-              placeholder="Project Title (e.g. Mobile App v2)"
+              placeholder="Project Title (e.g. Mobile App)"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="px-3 py-2 rounded-xl border border-brand-peach text-xs font-semibold text-espresso bg-white focus:outline-none focus:ring-2 focus:ring-brand-orange"

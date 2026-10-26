@@ -22,6 +22,13 @@ export const ScrollToTop: React.FC = () => {
   const isInitialMount = useRef(true);
 
   useEffect(() => {
+    // 1. Defensively clear any leftover body/html scroll locks from modals or drawers
+    if (typeof document !== 'undefined') {
+      if (document.body.style.overflow === 'hidden') {
+        document.body.style.overflow = '';
+      }
+    }
+
     if (isInitialMount.current) {
       isInitialMount.current = false;
       return;
@@ -40,18 +47,29 @@ export const ScrollToTop: React.FC = () => {
       }
     }
 
-    // If user is on the exact same pathname with no hash change, do not force scroll reset
+    // If user clicked link to the exact same page while scrolled down, smoothly scroll to top
     if (isSamePath && !search) {
-      return;
-    }
-
-    // Helper to perform strict, immediate top reset
-    const performScrollReset = () => {
-      if (window.scrollY !== 0) {
+      if (typeof window !== 'undefined' && window.scrollY > 0) {
         window.scrollTo({
           top: 0,
           left: 0,
-          behavior: 'instant' as ScrollBehavior,
+          behavior: 'smooth',
+        });
+      }
+      return;
+    }
+
+    // Helper to perform strict top reset without fighting html.scroll-smooth
+    const performScrollReset = () => {
+      if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+        const root = document.documentElement;
+        const prevBehavior = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+
+        window.scrollTo(0, 0);
+
+        requestAnimationFrame(() => {
+          root.style.scrollBehavior = prevBehavior;
         });
       }
     };
@@ -59,17 +77,17 @@ export const ScrollToTop: React.FC = () => {
     // 1. Immediate synchronous reset before paint
     performScrollReset();
 
-    // 2. Schedule follow-ups only if still scrolled
+    // 2. Schedule follow-ups to catch delayed render adjustments
     let rafId: number | null = null;
     let timerId: NodeJS.Timeout | null = null;
 
-    if (window.scrollY !== 0) {
+    if (typeof window !== 'undefined' && window.scrollY !== 0) {
       rafId = requestAnimationFrame(() => {
         performScrollReset();
       });
       timerId = setTimeout(() => {
         performScrollReset();
-      }, 60);
+      }, 50);
     }
 
     return () => {

@@ -76,8 +76,9 @@ export const Analytics: React.FC = () => {
 
           {/* Smooth Mode Switcher */}
           <div className="inline-flex p-1.5 rounded-2xl bg-surface-tier1 border border-brand-peach/70 shadow-warm-2xs self-start sm:self-auto">
-            <button
+            <motion.button
               type="button"
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
               onClick={() => setActiveView('leadership')}
               className={`px-4 py-2 rounded-xl text-sm font-heading font-bold transition-all cursor-pointer flex items-center gap-2 ${
                 activeView === 'leadership'
@@ -87,9 +88,10 @@ export const Analytics: React.FC = () => {
             >
               <Compass className="w-4 h-4" />
               <span>Leadership View</span>
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               type="button"
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
               onClick={() => setActiveView('execution')}
               className={`px-4 py-2 rounded-xl text-sm font-heading font-bold transition-all cursor-pointer flex items-center gap-2 ${
                 activeView === 'execution'
@@ -99,7 +101,7 @@ export const Analytics: React.FC = () => {
             >
               <Cpu className="w-4 h-4" />
               <span>Execution View</span>
-            </button>
+            </motion.button>
           </div>
         </div>
 
@@ -361,33 +363,34 @@ export const Analytics: React.FC = () => {
       </motion.div>
 
       {/* 3. Redesigned Premium Feature Cards with Micro-Widgets */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
         {/* Card 1: For Founders */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
           transition={{ duration: 0.4, delay: 0.08, ease: 'easeOut' }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="goal" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">
+              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-orange/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Macro Scope
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-2">
               For Founders & Executives
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Understand company health in 10 seconds. Spot lagging milestones and resource constraints without scheduling status calls.
             </p>
 
             {/* Micro Executive Radar Widget */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
-              <div className="flex items-center justify-between text-sm sm:text-xs font-mono font-bold">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
+              <div className="flex items-center justify-between text-xs sm:text-xs font-mono font-bold">
                 <span className="text-espresso">Company Health Pulse</span>
                 <span className="text-brand-green font-bold">94.8% Safe</span>
               </div>
@@ -398,7 +401,7 @@ export const Analytics: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-xs sm:text-sm font-heading font-semibold text-brand-orange">
             <span>Macro Strategic Clarity</span>
           </div>
         </motion.div>
@@ -408,27 +411,28 @@ export const Analytics: React.FC = () => {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
           transition={{ duration: 0.4, delay: 0.16, ease: 'easeOut' }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="analytics" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/20">
+              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-green/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Micro Telemetry
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-2">
               For Pod Leads & Engineers
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Track pull request turnaround, subtask burndown rates, and SLA timers. Optimize sprint flow with immediate operational telemetry.
             </p>
 
             {/* Micro Sprint Burndown Widget */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5">
-              <div className="flex items-center justify-between text-sm sm:text-xs font-mono">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5">
+              <div className="flex items-center justify-between text-xs sm:text-xs font-mono">
                 <span className="text-espresso font-bold">Sprint Burndown</span>
                 <span className="text-brand-green font-bold">18 Tasks/Day</span>
               </div>
@@ -442,7 +446,7 @@ export const Analytics: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-xs sm:text-sm font-heading font-semibold text-brand-green">
             <span>Operational Precision</span>
           </div>
         </motion.div>
@@ -452,26 +456,27 @@ export const Analytics: React.FC = () => {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
           transition={{ duration: 0.4, delay: 0.24, ease: 'easeOut' }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="progress" size="md" />
-              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 sm:px-3 py-1 rounded-full border border-amber-200 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Single Source
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-2">
               Single Underlying Data
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Both views originate from the same deterministic mathematical ground truth. No discrepancy between builder metrics and executive summaries.
             </p>
 
             {/* Micro Sync State */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-sm sm:text-xs font-mono">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs sm:text-xs font-mono">
               <span className="text-terracotta">Sync Latency:</span>
               <span className="text-brand-green font-bold flex items-center gap-1">
                 <Check className="w-3.5 h-3.5" /> 0ms (In-Memory)
@@ -479,7 +484,7 @@ export const Analytics: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-xs sm:text-sm font-heading font-semibold text-amber-700">
             <span>Deterministic Sync</span>
           </div>
         </motion.div>

@@ -30,7 +30,7 @@ export const InteractiveCanvas: React.FC = () => {
               <span className="text-xs font-mono text-terracotta-muted">ID: PRJ-7729-EXEC</span>
             </div>
             <h3 className="text-xl font-extrabold text-espresso mt-1">
-              Execution Kernel v4.8 Topology
+              Execution Kernel Topology
             </h3>
           </div>
 
@@ -109,7 +109,7 @@ export const InteractiveCanvas: React.FC = () => {
                 }`}
               >
                 <div className="flex items-center justify-between text-xs">
-                  <span>Execution Kernel v4.8</span>
+                  <span>Execution Kernel</span>
                   <span className="font-extrabold text-brand-orange">78%</span>
                 </div>
                 <div className="text-[10px] text-terracotta-muted mt-1 font-mono">

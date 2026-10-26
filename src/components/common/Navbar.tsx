@@ -79,9 +79,10 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Automatically close mobile menu on route change
+  // Automatically close mobile menu and dropdowns on route change
   useEffect(() => {
     setMobileMenuOpen(false);
+    setOpenDropdown(null);
   }, [location.pathname]);
 
   // When mobile drawer opens, auto-expand the category matching current path (if any)
@@ -105,10 +106,16 @@ export const Navbar: React.FC = () => {
     }));
   };
 
-  const handleContactSales = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setMobileMenuOpen(false);
-    navigate('/contact');
+  const handleNavCategoryClick = (defaultPath: string) => {
+    setOpenDropdown(null);
+    navigate(defaultPath);
+  };
+
+  const closeMobileMenu = () => {
+    // Small timeout ensures touch event on mobile dispatches navigation before unmounting drawer
+    setTimeout(() => {
+      setMobileMenuOpen(false);
+    }, 40);
   };
 
   useEffect(() => {
@@ -184,20 +191,29 @@ export const Navbar: React.FC = () => {
           {/* Product Dropdown */}
           <div className="relative">
             <button
-              onClick={() => toggleDropdown('product')}
+              onClick={() => handleNavCategoryClick('/product')}
               onMouseEnter={() => setOpenDropdown('product')}
               className={`${navItemClass} ${location.pathname.startsWith('/product') ? 'text-brand-orange' : ''}`}
               aria-expanded={openDropdown === 'product'}
             >
               <span>Product</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${openDropdown === 'product'
-                  ? 'rotate-180 text-brand-orange'
-                  : location.pathname.startsWith('/product')
-                    ? 'text-brand-orange'
-                    : 'text-terracotta-muted group-hover:text-brand-orange'
-                  }`}
-              />
+              <span
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleDropdown('product');
+                }}
+                className="p-0.5 rounded hover:bg-brand-orange-light/50 transition-colors"
+                title="Toggle Product menu"
+              >
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${openDropdown === 'product'
+                    ? 'rotate-180 text-brand-orange'
+                    : location.pathname.startsWith('/product')
+                      ? 'text-brand-orange'
+                      : 'text-terracotta-muted group-hover:text-brand-orange'
+                    }`}
+                />
+              </span>
               {/* High-contrast smooth growing underline */}
               <span
                 className={`absolute bottom-0 left-3 right-3 h-[2px] bg-brand-orange transition-transform duration-200 origin-center rounded-full ${location.pathname.startsWith('/product') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
@@ -245,16 +261,25 @@ export const Navbar: React.FC = () => {
           {/* Features Dropdown */}
           <div className="relative">
             <button
-              onClick={() => toggleDropdown('features')}
+              onClick={() => handleNavCategoryClick('/features/goals-progress')}
               onMouseEnter={() => setOpenDropdown('features')}
               className={navItemClass}
               aria-expanded={openDropdown === 'features'}
             >
               <span>Features</span>
-              <ChevronDown
-                className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${openDropdown === 'features' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
-                  }`}
-              />
+              <span
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleDropdown('features');
+                }}
+                className="p-0.5 rounded hover:bg-brand-orange-light/50 transition-colors"
+                title="Toggle Features menu"
+              >
+                <ChevronDown
+                  className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${openDropdown === 'features' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
+                    }`}
+                />
+              </span>
               <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-brand-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center rounded-full" />
             </button>
             {openDropdown === 'features' && (
@@ -320,16 +345,25 @@ export const Navbar: React.FC = () => {
           {/* Solutions Dropdown */}
           <div className="relative">
             <button
-              onClick={() => toggleDropdown('solutions')}
+              onClick={() => handleNavCategoryClick('/solutions/founders')}
               onMouseEnter={() => setOpenDropdown('solutions')}
               className={navItemClass}
               aria-expanded={openDropdown === 'solutions'}
             >
               <span>Solutions</span>
-              <ChevronDown
-                className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${openDropdown === 'solutions' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
-                  }`}
-              />
+              <span
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleDropdown('solutions');
+                }}
+                className="p-0.5 rounded hover:bg-brand-orange-light/50 transition-colors"
+                title="Toggle Solutions menu"
+              >
+                <ChevronDown
+                  className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${openDropdown === 'solutions' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
+                    }`}
+                />
+              </span>
               <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-brand-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center rounded-full" />
             </button>
             {openDropdown === 'solutions' && (
@@ -367,16 +401,25 @@ export const Navbar: React.FC = () => {
           {/* Resources */}
           <div className="relative">
             <button
-              onClick={() => toggleDropdown('resources')}
+              onClick={() => handleNavCategoryClick('/resources')}
               onMouseEnter={() => setOpenDropdown('resources')}
               className={navItemClass}
               aria-expanded={openDropdown === 'resources'}
             >
               <span>Resources</span>
-              <ChevronDown
-                className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${openDropdown === 'resources' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
-                  }`}
-              />
+              <span
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleDropdown('resources');
+                }}
+                className="p-0.5 rounded hover:bg-brand-orange-light/50 transition-colors"
+                title="Toggle Resources menu"
+              >
+                <ChevronDown
+                  className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${openDropdown === 'resources' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
+                    }`}
+                />
+              </span>
               <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-brand-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center rounded-full" />
             </button>
             {openDropdown === 'resources' && (
@@ -423,16 +466,25 @@ export const Navbar: React.FC = () => {
           {/* Company */}
           <div className="relative">
             <button
-              onClick={() => toggleDropdown('company')}
+              onClick={() => handleNavCategoryClick('/about')}
               onMouseEnter={() => setOpenDropdown('company')}
               className={navItemClass}
               aria-expanded={openDropdown === 'company'}
             >
               <span>Company</span>
-              <ChevronDown
-                className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${openDropdown === 'company' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
-                  }`}
-              />
+              <span
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleDropdown('company');
+                }}
+                className="p-0.5 rounded hover:bg-brand-orange-light/50 transition-colors"
+                title="Toggle Company menu"
+              >
+                <ChevronDown
+                  className={`w-4 h-4 text-terracotta-muted transition-transform duration-200 ${openDropdown === 'company' ? 'rotate-180 text-brand-orange' : 'group-hover:text-brand-orange'
+                    }`}
+                />
+              </span>
               <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-brand-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center rounded-full" />
             </button>
             {openDropdown === 'company' && (
@@ -514,7 +566,7 @@ export const Navbar: React.FC = () => {
               {/* Home Overview Link */}
               <Link
                 to="/"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={closeMobileMenu}
                 className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-heading font-bold transition-all ${location.pathname === '/'
                   ? 'bg-brand-orange-light text-brand-orange shadow-warm-2xs'
                   : 'bg-white border border-brand-peach/80 text-espresso hover:text-brand-orange hover:border-brand-orange/40'
@@ -601,13 +653,7 @@ export const Navbar: React.FC = () => {
                                   <Link
                                     key={item.path}
                                     to={item.path}
-                                    onClick={e => {
-                                      if (item.isAnchor) {
-                                        handleContactSales(e);
-                                      } else {
-                                        setMobileMenuOpen(false);
-                                      }
-                                    }}
+                                    onClick={closeMobileMenu}
                                     className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs sm:text-sm transition-all group ${
                                       isActive
                                         ? 'bg-brand-orange-light text-brand-orange font-bold shadow-warm-2xs'
@@ -636,7 +682,7 @@ export const Navbar: React.FC = () => {
               <div className="pt-2 border-t border-brand-peach/60 space-y-2">
                 <Link
                   to="/login"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={closeMobileMenu}
                   className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-white border border-brand-peach/80 text-sm font-heading font-bold text-espresso hover:text-brand-orange hover:border-brand-orange/40 transition-colors"
                 >
                   <span>Sign In</span>

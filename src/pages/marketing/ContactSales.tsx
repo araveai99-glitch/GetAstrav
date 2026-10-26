@@ -83,18 +83,9 @@ export const ContactSales: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-12 sm:space-y-16 selection:bg-brand-orange selection:text-white">
+    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-24 pb-8 sm:pb-12 flex flex-col space-y-12 sm:space-y-16 selection:bg-brand-orange selection:text-white">
       {/* Section 1: Compact Hero */}
-      <div className="text-left w-full max-w-5xl space-y-3 mb-2 sm:mb-4">
-        <div className="flex flex-wrap items-center gap-2.5">
-          <span className="px-3 py-1 rounded-full bg-brand-orange-light text-brand-orange text-xs font-mono font-bold border border-brand-orange/30 flex items-center gap-1.5 shadow-2xs">
-            <Clock className="w-3.5 h-3.5" /> Rapid Response SLA &lt; 2 Hours
-          </span>
-          <span className="px-3 py-1 rounded-full bg-white text-espresso text-xs font-mono font-bold border border-brand-peach/60 shadow-2xs flex items-center gap-1.5">
-            <ShieldCheck className="w-3.5 h-3.5 text-brand-green" /> SOC2-Aligned Walkthrough
-          </span>
-        </div>
-
+      <div className="text-left w-full max-w-5xl space-y-2.5 sm:space-y-3">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +108,7 @@ export const ContactSales: React.FC = () => {
       </div>
 
       {/* Section 2: Contact Form + Supporting Visual (2-Column Desktop Layout) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="!mt-6 sm:!mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Contact Form */}
         <motion.div
           initial={{ opacity: 0, x: -16 }}
@@ -279,9 +270,10 @@ export const ContactSales: React.FC = () => {
                     const Icon = item.icon;
                     const isSelected = formData.primaryFocus === item.id;
                     return (
-                      <button
+                      <motion.button
                         key={item.id}
                         type="button"
+                        whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
                         onClick={() => setFormData({ ...formData, primaryFocus: item.id })}
                         className={`flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border text-xs sm:text-sm font-heading font-semibold transition-all cursor-pointer ${
                           isSelected
@@ -291,7 +283,7 @@ export const ContactSales: React.FC = () => {
                       >
                         <Icon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-brand-orange' : 'text-terracotta-muted'}`} />
                         <span>{item.label}</span>
-                      </button>
+                      </motion.button>
                     );
                   })}
                 </div>
@@ -314,14 +306,15 @@ export const ContactSales: React.FC = () => {
               </div>
 
               {/* Submit Button */}
-              <button
+              <motion.button
                 type="submit"
                 disabled={isSubmitting}
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                 className="w-full btn-brand-primary py-3.5 text-base font-heading font-bold rounded-xl shadow-md shadow-brand-orange/25 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2 cursor-pointer select-none disabled:opacity-60"
               >
                 <span>{isSubmitting ? 'Sending Request...' : 'Send Message to Sales'}</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </motion.button>
             </form>
           )}
         </motion.div>
@@ -347,7 +340,10 @@ export const ContactSales: React.FC = () => {
             </div>
 
             <div className="space-y-3.5">
-              <div className="p-3.5 bg-white rounded-2xl border border-brand-peach/50 shadow-warm-2xs flex items-start gap-3">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-3.5 bg-white rounded-2xl border border-brand-peach/50 shadow-warm-2xs flex items-start gap-3 cursor-pointer transition-all hover:border-brand-peach hover:shadow-warm-xs"
+              >
                 <div className="w-9 h-9 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center shrink-0 mt-0.5">
                   <Layers className="w-5 h-5" />
                 </div>
@@ -359,9 +355,12 @@ export const ContactSales: React.FC = () => {
                     Live demo showing how your engineering, product, and leadership teams organize without context fragmentation.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="p-3.5 bg-white rounded-2xl border border-brand-peach/50 shadow-warm-2xs flex items-start gap-3">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-3.5 bg-white rounded-2xl border border-brand-peach/50 shadow-warm-2xs flex items-start gap-3 cursor-pointer transition-all hover:border-brand-peach hover:shadow-warm-xs"
+              >
                 <div className="w-9 h-9 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center shrink-0 mt-0.5">
                   <Zap className="w-5 h-5" />
                 </div>
@@ -373,9 +372,12 @@ export const ContactSales: React.FC = () => {
                     See how completed subtasks calculate status up to strategic objectives automatically, replacing manual reporting.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="p-3.5 bg-white rounded-2xl border border-brand-peach/50 shadow-warm-2xs flex items-start gap-3">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-3.5 bg-white rounded-2xl border border-brand-peach/50 shadow-warm-2xs flex items-start gap-3 cursor-pointer transition-all hover:border-brand-peach hover:shadow-warm-xs"
+              >
                 <div className="w-9 h-9 rounded-xl bg-amber-50 text-brand-yellow flex items-center justify-center shrink-0 mt-0.5">
                   <ShieldCheck className="w-5 h-5 text-brand-yellow" />
                 </div>
@@ -387,7 +389,7 @@ export const ContactSales: React.FC = () => {
                     Review role boundaries, row-level controls, audit logging, and single sign-on integration blueprints.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
 
@@ -397,7 +399,10 @@ export const ContactSales: React.FC = () => {
               <Globe2 className="w-4 h-4 text-brand-orange" /> Direct Communication Channels
             </h4>
             <div className="space-y-3 text-sm">
-              <div className="flex items-center justify-between p-3 rounded-xl bg-surface-tier1/60 border border-brand-peach/40">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="flex items-center justify-between p-3 rounded-xl bg-surface-tier1/60 border border-brand-peach/40 cursor-pointer hover:bg-surface-tier1 hover:border-brand-peach transition-all"
+              >
                 <span className="text-terracotta font-medium">Enterprise Inquiries</span>
                 <a
                   href="mailto:sales@getastrav.com"
@@ -405,8 +410,11 @@ export const ContactSales: React.FC = () => {
                 >
                   sales@getastrav.com
                 </a>
-              </div>
-              <div className="flex items-center justify-between p-3 rounded-xl bg-surface-tier1/60 border border-brand-peach/40">
+              </motion.div>
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="flex items-center justify-between p-3 rounded-xl bg-surface-tier1/60 border border-brand-peach/40 cursor-pointer hover:bg-surface-tier1 hover:border-brand-peach transition-all"
+              >
                 <span className="text-terracotta font-medium">Security & Compliance</span>
                 <a
                   href="mailto:security@getastrav.com"
@@ -414,13 +422,16 @@ export const ContactSales: React.FC = () => {
                 >
                   security@getastrav.com
                 </a>
-              </div>
-              <div className="flex items-center justify-between p-3 rounded-xl bg-surface-tier1/60 border border-brand-peach/40">
+              </motion.div>
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="flex items-center justify-between p-3 rounded-xl bg-surface-tier1/60 border border-brand-peach/40 cursor-pointer hover:bg-surface-tier1 hover:border-brand-peach transition-all"
+              >
                 <span className="text-terracotta font-medium">Guaranteed Response SLA</span>
                 <span className="font-heading font-bold text-xs text-brand-green flex items-center gap-1">
                   <Clock className="w-3.5 h-3.5" /> &lt; 2 business hours
                 </span>
-              </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
@@ -445,8 +456,9 @@ export const ContactSales: React.FC = () => {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.15 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
             transition={{ duration: 0.4, delay: 0.05 }}
-            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:border-brand-peach transition-all"
+            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:border-brand-peach transition-all cursor-pointer"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -473,8 +485,9 @@ export const ContactSales: React.FC = () => {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.15 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
             transition={{ duration: 0.4, delay: 0.12 }}
-            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:border-brand-peach transition-all"
+            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:border-brand-peach transition-all cursor-pointer"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -501,8 +514,9 @@ export const ContactSales: React.FC = () => {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.15 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
             transition={{ duration: 0.4, delay: 0.19 }}
-            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:border-brand-peach transition-all"
+            className="p-6 sm:p-7 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:border-brand-peach transition-all cursor-pointer"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -570,8 +584,9 @@ export const ContactSales: React.FC = () => {
                 key={idx}
                 className="bg-white rounded-2xl border border-brand-peach/70 shadow-warm-2xs overflow-hidden transition-all"
               >
-                <button
+                <motion.button
                   type="button"
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.99 }}
                   onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
                   className="w-full p-5 text-left flex items-start justify-between gap-3 cursor-pointer hover:bg-surface-tier1/40 transition-colors"
                 >
@@ -583,7 +598,7 @@ export const ContactSales: React.FC = () => {
                       isOpen ? 'rotate-180 text-brand-orange' : ''
                     }`}
                   />
-                </button>
+                </motion.button>
                 {isOpen && (
                   <div className="px-5 pb-5 pt-1 text-sm text-terracotta leading-relaxed border-t border-brand-peach/30 bg-surface-tier1/30">
                     {faq.answer}

@@ -206,7 +206,7 @@ export const Teams: React.FC = () => {
 
             <div>
               <h3 className="font-heading font-extrabold text-[22px] sm:text-2xl text-espresso">
-                Customer Experience Engine v3
+                Customer Experience Engine
               </h3>
               <p className="text-[15px] sm:text-sm text-terracotta-muted mt-1.5 leading-relaxed">
                 3 cross-functional pods contributing outputs to 1 synchronized milestone.
@@ -352,39 +352,40 @@ export const Teams: React.FC = () => {
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="teams" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">
+              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-orange/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Zero Handoffs
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Cross-Functional Velocity
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Designers, engineers, and product leads collaborate in the same pod container. Work advances from wireframe to PR with zero ticketing queues.
             </p>
 
             {/* Micro Specialist Allocation Widget */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2.5">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2 sm:space-y-2.5">
               <span className="text-xs font-mono font-bold text-terracotta-muted uppercase block">
                 Pod Composition
               </span>
               <div className="grid grid-cols-3 gap-1.5 text-center text-xs">
-                <div className="p-2 bg-white rounded-xl border border-brand-peach/40">
+                <div className="p-1.5 sm:p-2 bg-white rounded-xl border border-brand-peach/40">
                   <span className="font-bold text-brand-orange block">1 Design</span>
                   <span className="text-[11px] text-terracotta-muted">UI/Tokens</span>
                 </div>
-                <div className="p-2 bg-white rounded-xl border border-brand-peach/40">
+                <div className="p-1.5 sm:p-2 bg-white rounded-xl border border-brand-peach/40">
                   <span className="font-bold text-brand-green block">2 Frontend</span>
                   <span className="text-[11px] text-terracotta-muted">React/State</span>
                 </div>
-                <div className="p-2 bg-white rounded-xl border border-brand-peach/40">
+                <div className="p-1.5 sm:p-2 bg-white rounded-xl border border-brand-peach/40">
                   <span className="font-bold text-amber-700 block">2 Backend</span>
                   <span className="text-[11px] text-terracotta-muted">APIs/DB</span>
                 </div>
@@ -392,7 +393,7 @@ export const Teams: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
             <span>Single Mission Pods</span>
           </div>
         </motion.div>
@@ -402,39 +403,40 @@ export const Teams: React.FC = () => {
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
           transition={{ duration: 0.4, delay: 0.12 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="progress" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/20">
+              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-green/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Live Cascade
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Continuous Progress Streaming
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Outputs stream automatically into company initiatives. Founders review live run-rates without pinging builders or waiting for sprint demos.
             </p>
 
             {/* Micro Live Ticker Widget */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
-              <div className="flex items-center justify-between text-sm sm:text-xs font-mono font-bold">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
+              <div className="flex items-center justify-between text-xs sm:text-sm font-mono font-bold">
                 <span className="text-espresso">Live Feed Pulse</span>
                 <span className="text-brand-green flex items-center gap-1">
                   <span className="w-2 h-2 rounded-full bg-brand-green animate-ping" /> Active
                 </span>
               </div>
               <div className="p-2 bg-white rounded-xl border border-brand-peach/40 text-xs text-terracotta truncate">
-                ✓ Elena approved design token package v2.4
+                ✓ Elena approved design token package
               </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
             <span>Zero Status Interruption</span>
           </div>
         </motion.div>
@@ -444,27 +446,28 @@ export const Teams: React.FC = () => {
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
           transition={{ duration: 0.4, delay: 0.19 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="control" size="md" />
-              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 sm:px-3 py-1 rounded-full border border-amber-200 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Direct Ownership
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Autonomous Ownership
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Pod leads own their SLA commitments end-to-end. Cross-pod dependencies become instantly visible before launch timelines slip.
             </p>
 
             {/* Micro SLA Ownership Pill */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
-              <div className="flex items-center justify-between text-sm">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
+              <div className="flex items-center justify-between text-xs sm:text-sm">
                 <span className="font-bold text-espresso">Pod SLA Health</span>
                 <span className="font-mono text-amber-700 font-bold">100% On-Target</span>
               </div>
@@ -474,7 +477,7 @@ export const Teams: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
             <span>Clear Pod Accountability</span>
           </div>
         </motion.div>

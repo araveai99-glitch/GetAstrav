@@ -277,7 +277,7 @@ export const DepartmentWorkflow: React.FC = () => {
               </span>
             </div>
             <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
-              ID: {selectedDept.id.toUpperCase()}-EXEC-V2
+              ID: {selectedDept.id.toUpperCase()}-EXEC
             </span>
           </div>
 

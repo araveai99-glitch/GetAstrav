@@ -32,31 +32,22 @@ export const GoalsProgress: React.FC = () => {
       </motion.div>
 
       {/* 3 Symmetric Feature Pillars */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
         {/* Card 1 */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.08, ease: 'easeOut' }}
-          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
         >
-          <div className="space-y-3 sm:space-y-4">
-            {/* Top row: Label above illustration on mobile, beside on desktop */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 sm:gap-0">
-              {/* Small label (order-1 on mobile so it sits above illustration) */}
-              <div className="order-1 sm:order-2 flex justify-start sm:justify-end">
-                <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-3 py-1 rounded-full border border-brand-green/20 shrink-0 whitespace-nowrap">
-                  Deterministic
-                </span>
-              </div>
-
-              {/* Illustration (order-2 on mobile, centered & reduced) */}
-              <div className="order-2 sm:order-1 flex justify-center sm:justify-start py-1 sm:py-0">
-                <div className="w-14 h-14 min-[375px]:w-16 min-[375px]:h-16 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center">
-                  <IllustratedCardBadge variant="tasks" size="md" className="w-14 h-14 min-[375px]:w-16 min-[375px]:h-16 sm:w-20 sm:h-20" />
-                </div>
-              </div>
+          <div className="space-y-3.5 sm:space-y-4">
+            <div className="flex items-center justify-between gap-3 min-w-0">
+              <IllustratedCardBadge variant="tasks" size="md" />
+              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-green/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
+                Deterministic
+              </span>
             </div>
 
             <div>
@@ -69,13 +60,24 @@ export const GoalsProgress: React.FC = () => {
             </div>
 
             {/* Micro telemetry widget */}
-            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
-              <span className="text-terracotta">Calculated Rollup:</span>
-              <span className="text-brand-green font-bold">100% Granular Math</span>
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2 text-xs font-mono">
+              <div className="flex items-center justify-between">
+                <span className="text-terracotta">Calculated Rollup:</span>
+                <span className="text-brand-green font-bold">100% Granular Math</span>
+              </div>
+              <div className="w-full bg-brand-peach/40 rounded-full h-1.5 overflow-hidden">
+                <motion.div
+                  initial={{ width: '0%' }}
+                  whileInView={{ width: '100%' }}
+                  viewport={{ once: false }}
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: 'easeOut' }}
+                  className="bg-brand-green h-full rounded-full"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="mt-4 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
+          <div className="mt-4 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-xs sm:text-sm font-heading font-semibold text-brand-green">
             <span>Granular Precision</span>
           </div>
         </motion.div>
@@ -86,24 +88,15 @@ export const GoalsProgress: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.16, ease: 'easeOut' }}
-          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
         >
-          <div className="space-y-3 sm:space-y-4">
-            {/* Top row: Label above illustration on mobile, beside on desktop */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 sm:gap-0">
-              {/* Small label (order-1 on mobile so it sits above illustration) */}
-              <div className="order-1 sm:order-2 flex justify-start sm:justify-end">
-                <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-3 py-1 rounded-full border border-brand-orange/20 shrink-0 whitespace-nowrap">
-                  Cross-Pod
-                </span>
-              </div>
-
-              {/* Illustration (order-2 on mobile, centered & reduced) */}
-              <div className="order-2 sm:order-1 flex justify-center sm:justify-start py-1 sm:py-0">
-                <div className="w-14 h-14 min-[375px]:w-16 min-[375px]:h-16 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center">
-                  <IllustratedCardBadge variant="projects" size="md" className="w-14 h-14 min-[375px]:w-16 min-[375px]:h-16 sm:w-20 sm:h-20" />
-                </div>
-              </div>
+          <div className="space-y-3.5 sm:space-y-4">
+            <div className="flex items-center justify-between gap-3 min-w-0">
+              <IllustratedCardBadge variant="projects" size="md" />
+              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-orange/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
+                Cross-Pod
+              </span>
             </div>
 
             <div>
@@ -116,13 +109,24 @@ export const GoalsProgress: React.FC = () => {
             </div>
 
             {/* Micro telemetry widget */}
-            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
-              <span className="text-terracotta">Aggregated Milestones:</span>
-              <span className="text-brand-orange font-bold">Active SLA Cascade</span>
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2 text-xs font-mono">
+              <div className="flex items-center justify-between">
+                <span className="text-terracotta">Aggregated Milestones:</span>
+                <span className="text-brand-orange font-bold">Active SLA Cascade</span>
+              </div>
+              <div className="w-full bg-brand-peach/40 rounded-full h-1.5 overflow-hidden">
+                <motion.div
+                  initial={{ width: '0%' }}
+                  whileInView={{ width: '84%' }}
+                  viewport={{ once: false }}
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: 'easeOut' }}
+                  className="bg-brand-orange h-full rounded-full"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="mt-4 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
+          <div className="mt-4 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-xs sm:text-sm font-heading font-semibold text-brand-orange">
             <span>Cross-Department Sync</span>
           </div>
         </motion.div>
@@ -133,24 +137,15 @@ export const GoalsProgress: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.24, ease: 'easeOut' }}
-          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
         >
-          <div className="space-y-3 sm:space-y-4">
-            {/* Top row: Label above illustration on mobile, beside on desktop */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 sm:gap-0">
-              {/* Small label (order-1 on mobile so it sits above illustration) */}
-              <div className="order-1 sm:order-2 flex justify-start sm:justify-end">
-                <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-200 shrink-0 whitespace-nowrap">
-                  Executive RBAC
-                </span>
-              </div>
-
-              {/* Illustration (order-2 on mobile, centered & reduced) */}
-              <div className="order-2 sm:order-1 flex justify-center sm:justify-start py-1 sm:py-0">
-                <div className="w-14 h-14 min-[375px]:w-16 min-[375px]:h-16 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center">
-                  <IllustratedCardBadge variant="control" size="md" className="w-14 h-14 min-[375px]:w-16 min-[375px]:h-16 sm:w-20 sm:h-20" />
-                </div>
-              </div>
+          <div className="space-y-3.5 sm:space-y-4">
+            <div className="flex items-center justify-between gap-3 min-w-0">
+              <IllustratedCardBadge variant="control" size="md" />
+              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 sm:px-3 py-1 rounded-full border border-amber-200 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
+                Executive RBAC
+              </span>
             </div>
 
             <div>
@@ -165,11 +160,14 @@ export const GoalsProgress: React.FC = () => {
             {/* Micro telemetry widget */}
             <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
               <span className="text-terracotta">Override Governance:</span>
-              <span className="text-amber-800 font-bold">Immutable Audit Trail</span>
+              <span className="text-amber-800 font-bold flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" />
+                Immutable Audit Trail
+              </span>
             </div>
           </div>
 
-          <div className="mt-4 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
+          <div className="mt-4 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-xs sm:text-sm font-heading font-semibold text-amber-700">
             <span>Enterprise RBAC</span>
           </div>
         </motion.div>
@@ -213,7 +211,8 @@ export const GoalsProgress: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.35, delay: 0.12, ease: 'easeOut' }}
-            className="p-4 sm:p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2.5 sm:space-y-3"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+            className="p-4 sm:p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2.5 sm:space-y-3 cursor-pointer hover:bg-surface-tier1 hover:border-brand-peach transition-all"
           >
             <div className="flex items-center justify-between">
               <span className="w-7 h-7 rounded-full bg-[#edf7f3] text-brand-green border border-brand-green/30 font-mono font-bold text-xs flex items-center justify-center shrink-0">
@@ -236,7 +235,8 @@ export const GoalsProgress: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.35, delay: 0.18, ease: 'easeOut' }}
-            className="p-4 sm:p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2.5 sm:space-y-3"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+            className="p-4 sm:p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2.5 sm:space-y-3 cursor-pointer hover:bg-surface-tier1 hover:border-brand-peach transition-all"
           >
             <div className="flex items-center justify-between">
               <span className="w-7 h-7 rounded-full bg-[#fff4ed] text-brand-orange border border-brand-orange/30 font-mono font-bold text-xs flex items-center justify-center shrink-0">
@@ -259,7 +259,8 @@ export const GoalsProgress: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.35, delay: 0.24, ease: 'easeOut' }}
-            className="p-4 sm:p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2.5 sm:space-y-3"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+            className="p-4 sm:p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2.5 sm:space-y-3 cursor-pointer hover:bg-surface-tier1 hover:border-brand-peach transition-all"
           >
             <div className="flex items-center justify-between">
               <span className="w-7 h-7 rounded-full bg-[#fefbf0] text-amber-800 border border-amber-200 font-mono font-bold text-xs flex items-center justify-center shrink-0">

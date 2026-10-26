@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   ShieldCheck,
@@ -12,7 +12,6 @@ import {
   Eye,
   Users,
   Check,
-  FileText,
   Database,
   Sparkles,
   Layers,
@@ -22,6 +21,7 @@ import {
 import { IllustratedCardBadge } from '../../components/common/IllustratedCardBadge';
 
 export const TrustSecurity: React.FC = () => {
+  const shouldReduceMotion = useReducedMotion();
   const [activeCategory, setActiveCategory] = useState<'protection' | 'access' | 'audit' | 'infra'>('protection');
 
   useEffect(() => {
@@ -30,21 +30,9 @@ export const TrustSecurity: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-20 md:pt-24 pb-12 sm:pb-16 flex flex-col space-y-12 sm:space-y-16 selection:bg-brand-orange selection:text-white">
+    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-24 pb-12 sm:pb-16 flex flex-col space-y-12 sm:space-y-16 selection:bg-brand-orange selection:text-white">
       {/* Section 1: Hero */}
-      <div className="text-left w-full max-w-5xl space-y-3 mb-2 sm:mb-4">
-        <div className="flex flex-wrap items-center gap-2.5">
-          <span className="px-3 py-1 rounded-full bg-brand-green-light text-brand-green text-xs font-mono font-bold border border-brand-green/30 flex items-center gap-1.5 shadow-2xs">
-            <ShieldCheck className="w-3.5 h-3.5" /> SOC2 Type II Aligned Architecture
-          </span>
-          <span className="px-3 py-1 rounded-full bg-white text-espresso text-xs font-mono font-bold border border-brand-peach/60 shadow-2xs flex items-center gap-1.5">
-            <Lock className="w-3.5 h-3.5 text-brand-orange" /> Zero-Trust Data Isolation
-          </span>
-          <span className="px-3 py-1 rounded-full bg-surface-tier1 text-terracotta text-xs font-mono font-semibold border border-brand-peach/40">
-            99.99% Guaranteed Availability
-          </span>
-        </div>
-
+      <div className="text-left w-full max-w-5xl space-y-2.5 sm:space-y-3">
         <motion.h1
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,30 +53,22 @@ export const TrustSecurity: React.FC = () => {
           Astrav is built from the ground up for high-growth tech organizations and security-conscious leadership. We ensure mathematical precision in your execution without compromising your data boundaries.
         </motion.p>
 
-        <div className="pt-2 flex flex-wrap items-center gap-3">
-          <Link
-            to="/contact"
-            className="btn-brand-primary px-6 py-3 rounded-xl text-sm font-heading font-bold shadow-md shadow-brand-orange/25 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center gap-2 cursor-pointer"
-          >
-            <span>Request Security Review</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-          <a
-            href="mailto:security@getastrav.com"
-            className="btn-brand-secondary px-5 py-3 rounded-xl text-sm font-heading font-bold flex items-center gap-2 cursor-pointer hover:bg-surface-tier1 transition-all"
-          >
-            <FileText className="w-4 h-4 text-terracotta" />
-            <span>Contact Security Team</span>
-          </a>
+        <div className="pt-1.5 sm:pt-2 flex items-center">
+          <motion.div whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}>
+            <Link
+              to="/contact"
+              className="btn-brand-primary px-6 py-3 rounded-xl text-sm font-heading font-bold shadow-md shadow-brand-orange/25 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center gap-2 cursor-pointer"
+            >
+              <span>Request Security Review</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
         </div>
       </div>
 
       {/* Section 2: Four Core Security Pillars */}
-      <div className="space-y-6">
-        <div className="text-left w-full max-w-5xl space-y-1.5">
-          <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
-            FOUNDATIONAL SAFEGUARDS
-          </span>
+      <div className="!mt-8 sm:!mt-10 lg:!mt-12 space-y-4 sm:space-y-5">
+        <div className="text-left w-full max-w-5xl space-y-1.5 sm:space-y-2">
           <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-espresso tracking-tight text-left">
             Four Pillars of Enterprise Protection.
           </h2>
@@ -97,26 +77,27 @@ export const TrustSecurity: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.1 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
             transition={{ duration: 0.4, delay: 0.05 }}
-            className="p-6 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:shadow-warm-md hover:border-brand-peach transition-all"
+            className="p-4.5 min-[375px]:p-5 sm:p-6 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:shadow-warm-md hover:border-brand-peach transition-all min-w-0 cursor-pointer"
           >
             <div>
-              <div className="mb-4">
+              <div className="mb-3.5 sm:mb-4">
                 <IllustratedCardBadge variant="control" size="md" />
               </div>
-              <h3 className="font-heading font-extrabold text-lg sm:text-xl text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2">
                 Deterministic Pod Isolation
               </h3>
               <p className="text-sm text-terracotta leading-relaxed">
                 Workspaces maintain strict container boundaries. Project artifacts and subtasks remain strictly segregated, preventing cross-pod data leakage.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-brand-orange flex items-center gap-1.5">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-brand-orange flex items-center gap-1.5">
               <Check className="w-3.5 h-3.5" /> Scoped Tenant Sandboxes
             </div>
           </motion.div>
@@ -125,21 +106,22 @@ export const TrustSecurity: React.FC = () => {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.1 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
             transition={{ duration: 0.4, delay: 0.12 }}
-            className="p-6 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:shadow-warm-md hover:border-brand-peach transition-all"
+            className="p-4.5 min-[375px]:p-5 sm:p-6 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:shadow-warm-md hover:border-brand-peach transition-all min-w-0 cursor-pointer"
           >
             <div>
-              <div className="mb-4">
+              <div className="mb-3.5 sm:mb-4">
                 <IllustratedCardBadge variant="teams" size="md" />
               </div>
-              <h3 className="font-heading font-extrabold text-lg sm:text-xl text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2">
                 Row-Level RBAC Controls
               </h3>
               <p className="text-sm text-terracotta leading-relaxed">
                 Database-level query enforcement guarantees that team members, external contractors, and executives only access data granted by their active roles.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-brand-green flex items-center gap-1.5">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-brand-green flex items-center gap-1.5">
               <Check className="w-3.5 h-3.5" /> Database-Level Query Guard
             </div>
           </motion.div>
@@ -148,21 +130,22 @@ export const TrustSecurity: React.FC = () => {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.1 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
             transition={{ duration: 0.4, delay: 0.19 }}
-            className="p-6 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:shadow-warm-md hover:border-brand-peach transition-all"
+            className="p-4.5 min-[375px]:p-5 sm:p-6 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:shadow-warm-md hover:border-brand-peach transition-all min-w-0 cursor-pointer"
           >
             <div>
-              <div className="mb-4">
+              <div className="mb-3.5 sm:mb-4">
                 <IllustratedCardBadge variant="progress" size="md" />
               </div>
-              <h3 className="font-heading font-extrabold text-lg sm:text-xl text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2">
                 Immutable Audit Logging
               </h3>
               <p className="text-sm text-terracotta leading-relaxed">
                 Every milestone change, authorization event, and rollup recalculation generates a tamper-evident audit record complete with actor timestamps.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-amber-700 flex items-center gap-1.5">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-amber-700 flex items-center gap-1.5">
               <Check className="w-3.5 h-3.5" /> Cryptographic Timestamps
             </div>
           </motion.div>
@@ -171,21 +154,22 @@ export const TrustSecurity: React.FC = () => {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.1 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
             transition={{ duration: 0.4, delay: 0.26 }}
-            className="p-6 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:shadow-warm-md hover:border-brand-peach transition-all"
+            className="p-4.5 min-[375px]:p-5 sm:p-6 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm flex flex-col justify-between hover:shadow-warm-md hover:border-brand-peach transition-all min-w-0 cursor-pointer"
           >
             <div>
-              <div className="mb-4">
+              <div className="mb-3.5 sm:mb-4">
                 <IllustratedCardBadge variant="governance" size="md" />
               </div>
-              <h3 className="font-heading font-extrabold text-lg sm:text-xl text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2">
                 Continuous Encryption & SLA
               </h3>
               <p className="text-sm text-terracotta leading-relaxed">
                 All data is encrypted in transit via TLS 1.3 and at rest with AES-256. Multi-zone automated replication guarantees high-availability uptime.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-brand-orange flex items-center gap-1.5">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-brand-peach/40 text-xs font-mono font-bold text-brand-orange flex items-center gap-1.5">
               <Check className="w-3.5 h-3.5" /> 99.99% Availability Guarantee
             </div>
           </motion.div>
@@ -193,11 +177,8 @@ export const TrustSecurity: React.FC = () => {
       </div>
 
       {/* Section 3: Interactive Security Architecture Matrix */}
-      <div className="space-y-6">
-        <div className="text-left w-full max-w-5xl space-y-1.5">
-          <span className="text-xs font-mono font-bold text-brand-green uppercase tracking-wider">
-            TECHNICAL SPECIFICATIONS
-          </span>
+      <div className="!mt-8 sm:!mt-10 lg:!mt-12 space-y-4 sm:space-y-5">
+        <div className="text-left w-full max-w-5xl space-y-1 sm:space-y-1.5">
           <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-espresso tracking-tight text-left">
             Enterprise Security Architecture Matrix.
           </h2>
@@ -207,7 +188,7 @@ export const TrustSecurity: React.FC = () => {
         </div>
 
         {/* Tab Controls */}
-        <div className="flex flex-wrap gap-2 pb-2">
+        <div className="flex flex-wrap gap-2 pb-1 sm:pb-1.5">
           {[
             { id: 'protection', label: 'Data Protection & Encryption', icon: Lock },
             { id: 'access', label: 'Identity & Access Management', icon: Key },
@@ -217,9 +198,10 @@ export const TrustSecurity: React.FC = () => {
             const Icon = tab.icon;
             const isSelected = activeCategory === tab.id;
             return (
-              <button
+              <motion.button
                 key={tab.id}
                 type="button"
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
                 onClick={() => setActiveCategory(tab.id as any)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-xs sm:text-sm font-heading font-semibold transition-all cursor-pointer ${
                   isSelected
@@ -229,13 +211,13 @@ export const TrustSecurity: React.FC = () => {
               >
                 <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-terracotta'}`} />
                 <span>{tab.label}</span>
-              </button>
+              </motion.button>
             );
           })}
         </div>
 
         {/* Tab Content Cards */}
-        <div className="bg-white rounded-3xl border border-brand-peach/80 p-6 sm:p-8 lg:p-10 shadow-warm-md">
+        <div className="bg-white rounded-3xl border border-brand-peach/80 p-5 sm:p-7 lg:p-8 shadow-warm-md">
           {activeCategory === 'protection' && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -243,7 +225,10 @@ export const TrustSecurity: React.FC = () => {
               transition={{ duration: 0.3 }}
               className="grid grid-cols-1 md:grid-cols-3 gap-6"
             >
-              <div className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5 cursor-pointer transition-all hover:bg-surface-tier1 hover:border-brand-peach/80"
+              >
                 <div className="w-10 h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center font-bold">
                   <Lock className="w-5 h-5" />
                 </div>
@@ -252,9 +237,12 @@ export const TrustSecurity: React.FC = () => {
                   All customer databases, object attachments, and backup repositories are encrypted at rest using industry-standard AES-256 keys.
                 </p>
                 <div className="pt-2 text-xs font-mono font-semibold text-brand-orange">Encrypted at rest</div>
-              </div>
+              </motion.div>
 
-              <div className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5 cursor-pointer transition-all hover:bg-surface-tier1 hover:border-brand-peach/80"
+              >
                 <div className="w-10 h-10 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center font-bold">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
@@ -263,9 +251,12 @@ export const TrustSecurity: React.FC = () => {
                   All traffic between user browsers, API pods, and external integrations is enforced through strict TLS 1.3 encryption protocols.
                 </p>
                 <div className="pt-2 text-xs font-mono font-semibold text-brand-green">Encrypted in transit</div>
-              </div>
+              </motion.div>
 
-              <div className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5 cursor-pointer transition-all hover:bg-surface-tier1 hover:border-brand-peach/80"
+              >
                 <div className="w-10 h-10 rounded-xl bg-amber-50 text-brand-yellow flex items-center justify-center font-bold">
                   <Database className="w-5 h-5 text-brand-yellow" />
                 </div>
@@ -274,7 +265,7 @@ export const TrustSecurity: React.FC = () => {
                   Your organizational strategy, metrics, and team pods are strictly your intellectual property. We never train public AI models on customer data.
                 </p>
                 <div className="pt-2 text-xs font-mono font-semibold text-amber-700">Strict customer ownership</div>
-              </div>
+              </motion.div>
             </motion.div>
           )}
 
@@ -285,7 +276,10 @@ export const TrustSecurity: React.FC = () => {
               transition={{ duration: 0.3 }}
               className="grid grid-cols-1 md:grid-cols-3 gap-6"
             >
-              <div className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5 cursor-pointer transition-all hover:bg-surface-tier1 hover:border-brand-peach/80"
+              >
                 <div className="w-10 h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center font-bold">
                   <Key className="w-5 h-5" />
                 </div>
@@ -294,9 +288,12 @@ export const TrustSecurity: React.FC = () => {
                   Connect your existing identity providers including Okta, Azure Active Directory, Google Workspace, and OneLogin with zero friction.
                 </p>
                 <div className="pt-2 text-xs font-mono font-semibold text-brand-orange">Okta & Azure AD Ready</div>
-              </div>
+              </motion.div>
 
-              <div className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5 cursor-pointer transition-all hover:bg-surface-tier1 hover:border-brand-peach/80"
+              >
                 <div className="w-10 h-10 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center font-bold">
                   <Users className="w-5 h-5" />
                 </div>
@@ -305,9 +302,12 @@ export const TrustSecurity: React.FC = () => {
                   Automatically synchronize team onboarding and departures directly from your HR directory, revoking access keys instantaneously.
                 </p>
                 <div className="pt-2 text-xs font-mono font-semibold text-brand-green">Instant offboarding</div>
-              </div>
+              </motion.div>
 
-              <div className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5 cursor-pointer transition-all hover:bg-surface-tier1 hover:border-brand-peach/80"
+              >
                 <div className="w-10 h-10 rounded-xl bg-amber-50 text-brand-yellow flex items-center justify-center font-bold">
                   <ShieldCheck className="w-5 h-5 text-brand-yellow" />
                 </div>
@@ -316,7 +316,7 @@ export const TrustSecurity: React.FC = () => {
                   Enforce hardware security keys (WebAuthn / FIDO2) or authenticator apps for all workspace members with granular policy exemptions.
                 </p>
                 <div className="pt-2 text-xs font-mono font-semibold text-amber-700">FIDO2 & TOTP</div>
-              </div>
+              </motion.div>
             </motion.div>
           )}
 
@@ -327,7 +327,10 @@ export const TrustSecurity: React.FC = () => {
               transition={{ duration: 0.3 }}
               className="grid grid-cols-1 md:grid-cols-3 gap-6"
             >
-              <div className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5 cursor-pointer transition-all hover:bg-surface-tier1 hover:border-brand-peach/80"
+              >
                 <div className="w-10 h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center font-bold">
                   <FileCheck2 className="w-5 h-5" />
                 </div>
@@ -336,9 +339,12 @@ export const TrustSecurity: React.FC = () => {
                   Every user interaction, milestone recalculation, and permission escalation creates a permanent, searchable event log.
                 </p>
                 <div className="pt-2 text-xs font-mono font-semibold text-brand-orange">Full audit trace</div>
-              </div>
+              </motion.div>
 
-              <div className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5 cursor-pointer transition-all hover:bg-surface-tier1 hover:border-brand-peach/80"
+              >
                 <div className="w-10 h-10 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center font-bold">
                   <Eye className="w-5 h-5" />
                 </div>
@@ -347,9 +353,12 @@ export const TrustSecurity: React.FC = () => {
                   Stream workspace audit logs directly to Datadog, Splunk, or AWS S3 for continuous compliance analysis and external reporting.
                 </p>
                 <div className="pt-2 text-xs font-mono font-semibold text-brand-green">Webhook & S3 streams</div>
-              </div>
+              </motion.div>
 
-              <div className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5 cursor-pointer transition-all hover:bg-surface-tier1 hover:border-brand-peach/80"
+              >
                 <div className="w-10 h-10 rounded-xl bg-amber-50 text-brand-yellow flex items-center justify-center font-bold">
                   <CheckCircle2 className="w-5 h-5 text-brand-yellow" />
                 </div>
@@ -358,7 +367,7 @@ export const TrustSecurity: React.FC = () => {
                   Regular independent third-party penetration tests and automated continuous compliance monitoring across cloud infrastructure.
                 </p>
                 <div className="pt-2 text-xs font-mono font-semibold text-amber-700">Third-party audited</div>
-              </div>
+              </motion.div>
             </motion.div>
           )}
 
@@ -369,7 +378,10 @@ export const TrustSecurity: React.FC = () => {
               transition={{ duration: 0.3 }}
               className="grid grid-cols-1 md:grid-cols-3 gap-6"
             >
-              <div className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5 cursor-pointer transition-all hover:bg-surface-tier1 hover:border-brand-peach/80"
+              >
                 <div className="w-10 h-10 rounded-xl bg-brand-orange-light text-brand-orange flex items-center justify-center font-bold">
                   <Server className="w-5 h-5" />
                 </div>
@@ -378,9 +390,12 @@ export const TrustSecurity: React.FC = () => {
                   Our distributed cloud architecture features automated failover and multi-availability-zone redundancy to guarantee enterprise uptime.
                 </p>
                 <div className="pt-2 text-xs font-mono font-semibold text-brand-orange">SLA contract backed</div>
-              </div>
+              </motion.div>
 
-              <div className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5 cursor-pointer transition-all hover:bg-surface-tier1 hover:border-brand-peach/80"
+              >
                 <div className="w-10 h-10 rounded-xl bg-brand-green-light text-brand-green flex items-center justify-center font-bold">
                   <Globe2 className="w-5 h-5" />
                 </div>
@@ -389,9 +404,12 @@ export const TrustSecurity: React.FC = () => {
                   Enterprise accounts can elect to pin their data storage to US, EU (Frankfurt), or APAC regions to comply with localized regulations.
                 </p>
                 <div className="pt-2 text-xs font-mono font-semibold text-brand-green">GDPR & US data residency</div>
-              </div>
+              </motion.div>
 
-              <div className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5">
+              <motion.div
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                className="p-5 rounded-2xl bg-surface-tier1/50 border border-brand-peach/50 space-y-2.5 cursor-pointer transition-all hover:bg-surface-tier1 hover:border-brand-peach/80"
+              >
                 <div className="w-10 h-10 rounded-xl bg-amber-50 text-brand-yellow flex items-center justify-center font-bold">
                   <Sparkles className="w-5 h-5 text-brand-yellow" />
                 </div>
@@ -400,18 +418,15 @@ export const TrustSecurity: React.FC = () => {
                   Continuous WAL replication enables point-in-time database restoration within minutes, protecting against accidental deletions.
                 </p>
                 <div className="pt-2 text-xs font-mono font-semibold text-amber-700">RPO &lt; 5 mins</div>
-              </div>
+              </motion.div>
             </motion.div>
           )}
         </div>
       </div>
 
       {/* Section 4: Role-Based Access Control Breakdown */}
-      <div className="space-y-6">
-        <div className="text-left w-full max-w-5xl space-y-1.5">
-          <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
-            ORGANIZATIONAL GOVERNANCE
-          </span>
+      <div className="!mt-8 sm:!mt-10 lg:!mt-12 space-y-4 sm:space-y-5">
+        <div className="text-left w-full max-w-5xl space-y-1 sm:space-y-1.5">
           <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-espresso tracking-tight text-left">
             Role-Based Access Control (RBAC) Matrix.
           </h2>
@@ -421,7 +436,14 @@ export const TrustSecurity: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.1 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            transition={{ duration: 0.35, delay: 0.04 }}
+            className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3 cursor-pointer hover:border-brand-peach hover:shadow-warm-sm transition-all"
+          >
             <div className="flex items-center justify-between">
               <span className="font-heading font-extrabold text-base text-espresso">Organization Owner</span>
               <span className="px-2 py-0.5 rounded-full bg-brand-orange-light text-brand-orange text-xs font-mono font-bold">
@@ -439,9 +461,16 @@ export const TrustSecurity: React.FC = () => {
                 <Check className="w-3.5 h-3.5" /> Security policies & logs
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.1 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            transition={{ duration: 0.35, delay: 0.1 }}
+            className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3 cursor-pointer hover:border-brand-peach hover:shadow-warm-sm transition-all"
+          >
             <div className="flex items-center justify-between">
               <span className="font-heading font-extrabold text-base text-espresso">Executive Observer</span>
               <span className="px-2 py-0.5 rounded-full bg-surface-tier1 text-espresso text-xs font-mono font-bold">
@@ -459,9 +488,16 @@ export const TrustSecurity: React.FC = () => {
                 <Check className="w-3.5 h-3.5" /> Executive KPI dashboard
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.1 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            transition={{ duration: 0.35, delay: 0.16 }}
+            className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3 cursor-pointer hover:border-brand-peach hover:shadow-warm-sm transition-all"
+          >
             <div className="flex items-center justify-between">
               <span className="font-heading font-extrabold text-base text-espresso">Pod Lead</span>
               <span className="px-2 py-0.5 rounded-full bg-brand-green-light text-brand-green text-xs font-mono font-bold">
@@ -479,9 +515,16 @@ export const TrustSecurity: React.FC = () => {
                 <Check className="w-3.5 h-3.5" /> Milestone calculations
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.1 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            transition={{ duration: 0.35, delay: 0.22 }}
+            className="p-5 rounded-2xl bg-white border border-brand-peach/80 shadow-warm-xs space-y-3 cursor-pointer hover:border-brand-peach hover:shadow-warm-sm transition-all"
+          >
             <div className="flex items-center justify-between">
               <span className="font-heading font-extrabold text-base text-espresso">External Partner</span>
               <span className="px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 text-xs font-mono font-bold">
@@ -499,7 +542,7 @@ export const TrustSecurity: React.FC = () => {
                 <Check className="w-3.5 h-3.5" /> Zero strategic exposure
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -509,38 +552,30 @@ export const TrustSecurity: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.15 }}
         transition={{ duration: 0.45 }}
-        className="bg-espresso text-white rounded-3xl p-8 sm:p-10 lg:p-12 relative overflow-hidden shadow-warm-lg"
+        className="!mt-8 sm:!mt-10 lg:!mt-12 rounded-3xl bg-gradient-to-r from-[#fffbf7] via-[#fff5ee] to-[#fef2e8] p-6 sm:p-8 lg:p-10 border-2 border-brand-peach/80 shadow-warm-lg relative overflow-hidden"
       >
-        <div className="relative z-10 max-w-3xl space-y-4">
-          <span className="px-3 py-1 rounded-full bg-white/10 text-brand-orange text-xs font-mono font-bold border border-white/20 inline-flex items-center gap-1.5">
-            <ShieldCheck className="w-3.5 h-3.5" /> Security Questionnaire & Whitepaper
-          </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold tracking-tight text-white">
-            Have Custom Security or Compliance Requirements?
+        <div className="relative z-10 max-w-3xl space-y-3 sm:space-y-4 text-left">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold tracking-tight text-espresso">
+            Have Custom Security or <span className="text-brand-orange">Compliance Requirements?</span>
           </h2>
-          <p className="text-base sm:text-lg text-white/80 leading-relaxed">
+          <p className="text-base sm:text-lg text-terracotta leading-relaxed font-normal">
             Our enterprise solutions team is prepared to complete vendor security questionnaires, supply our SOC2 alignment package, and execute custom enterprise data processing agreements (DPAs).
           </p>
-          <div className="pt-2 flex flex-wrap items-center gap-4">
-            <Link
-              to="/contact"
-              className="btn-brand-primary px-6 py-3 rounded-xl text-sm font-heading font-bold shadow-md shadow-brand-orange/40 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center gap-2 cursor-pointer"
-            >
-              <span>Contact Security Solutions</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href="mailto:security@getastrav.com"
-              className="px-5 py-3 rounded-xl text-sm font-heading font-bold text-white border border-white/30 hover:bg-white/10 transition-all flex items-center gap-2 cursor-pointer"
-            >
-              <FileText className="w-4 h-4 text-brand-orange" />
-              <span>security@getastrav.com</span>
-            </a>
+          <div className="pt-1.5 sm:pt-2 flex items-center">
+            <motion.div whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}>
+              <Link
+                to="/contact"
+                className="btn-brand-primary px-6 py-3 rounded-xl text-sm font-heading font-bold shadow-md shadow-brand-orange/30 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <span>Contact Security Solutions</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
           </div>
         </div>
 
-        {/* Subtle decorative background glow */}
-        <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-brand-orange/20 to-transparent pointer-events-none" />
+        {/* Soft atmospheric background glow */}
+        <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-gradient-to-bl from-brand-orange-light/40 via-brand-peach/20 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
       </motion.div>
     </div>
   );

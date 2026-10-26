@@ -196,9 +196,10 @@ export const UseCases: React.FC = () => {
                 const DeptIcon = dept.icon;
 
                 return (
-                  <button
+                  <motion.button
                     key={dept.id}
                     type="button"
+                    whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
                     onClick={() => handleSelectDepartment(dept.id)}
                     className={`inline-flex items-center justify-center gap-1.5 px-2.5 min-[375px]:px-3.5 py-2 rounded-xl text-xs min-[375px]:text-sm font-heading font-bold transition-all cursor-pointer select-none w-full sm:w-auto whitespace-nowrap ${
                       isSelected
@@ -208,7 +209,7 @@ export const UseCases: React.FC = () => {
                   >
                     <DeptIcon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-white' : 'text-brand-orange'}`} />
                     <span>{dept.name}</span>
-                  </button>
+                  </motion.button>
                 );
               })}
             </div>
@@ -237,7 +238,8 @@ export const UseCases: React.FC = () => {
                 isSectionAInView || shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }
               }
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 shadow-warm-xs flex flex-col justify-between"
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+              className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 shadow-warm-xs flex flex-col justify-between cursor-pointer hover:border-brand-peach hover:shadow-warm-sm transition-all"
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -270,7 +272,8 @@ export const UseCases: React.FC = () => {
                 isSectionAInView || shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }
               }
               transition={{ duration: 0.4, delay: 0.18 }}
-              className="p-4 rounded-2xl bg-white border-2 border-brand-orange shadow-warm-xs flex flex-col justify-between scroll-mt-[180px]"
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+              className="p-4 rounded-2xl bg-white border-2 border-brand-orange shadow-warm-xs flex flex-col justify-between scroll-mt-[180px] cursor-pointer hover:shadow-warm-sm transition-all"
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -301,7 +304,8 @@ export const UseCases: React.FC = () => {
                 isSectionAInView || shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }
               }
               transition={{ duration: 0.4, delay: 0.26 }}
-              className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 shadow-warm-xs flex flex-col justify-between"
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+              className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 shadow-warm-xs flex flex-col justify-between cursor-pointer hover:border-brand-peach hover:shadow-warm-sm transition-all"
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -332,7 +336,8 @@ export const UseCases: React.FC = () => {
                 isSectionAInView || shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }
               }
               transition={{ duration: 0.4, delay: 0.34 }}
-              className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 shadow-warm-xs flex flex-col justify-between"
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+              className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 shadow-warm-xs flex flex-col justify-between cursor-pointer hover:border-brand-peach hover:shadow-warm-sm transition-all"
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -363,7 +368,8 @@ export const UseCases: React.FC = () => {
                 isSectionAInView || shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }
               }
               transition={{ duration: 0.4, delay: 0.42 }}
-              className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 shadow-warm-xs flex flex-col justify-between"
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+              className="p-4 rounded-2xl bg-surface-ambient border border-brand-peach/80 shadow-warm-xs flex flex-col justify-between cursor-pointer hover:border-brand-peach hover:shadow-warm-sm transition-all"
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -562,12 +568,13 @@ export const UseCases: React.FC = () => {
               isSectionCInView || shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }
             }
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="p-6 sm:p-7 rounded-3xl bg-white border border-brand-peach/80 flex flex-col justify-between space-y-5 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:shadow-warm-md hover:border-brand-orange/40 hover:-translate-y-1.5 transition-all duration-300 group"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-4.5 min-[375px]:p-5 sm:p-7 rounded-3xl bg-white border border-brand-peach/80 flex flex-col justify-between space-y-4 sm:space-y-5 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:shadow-warm-md hover:border-brand-orange/40 hover:-translate-y-1.5 transition-all duration-300 group min-w-0 cursor-pointer"
           >
-            <div className="space-y-4">
+            <div className="space-y-3.5 sm:space-y-4">
               <IllustratedCardBadge variant="progress" size="md" />
               <div>
-                <h3 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso mb-1.5">
+                <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5">
                   Shared Progress
                 </h3>
                 <p className="text-sm sm:text-base text-terracotta leading-relaxed">
@@ -576,7 +583,7 @@ export const UseCases: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-orange">
+            <div className="pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs sm:text-sm font-heading font-semibold text-brand-orange">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 stroke-[2.2]" />
                 <span>Real-Time Visibility</span>
@@ -592,12 +599,13 @@ export const UseCases: React.FC = () => {
               isSectionCInView || shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }
             }
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="p-6 sm:p-7 rounded-3xl bg-white border border-brand-peach/80 flex flex-col justify-between space-y-5 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:shadow-warm-md hover:border-brand-green/40 hover:-translate-y-1.5 transition-all duration-300 group"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-4.5 min-[375px]:p-5 sm:p-7 rounded-3xl bg-white border border-brand-peach/80 flex flex-col justify-between space-y-4 sm:space-y-5 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:shadow-warm-md hover:border-brand-green/40 hover:-translate-y-1.5 transition-all duration-300 group min-w-0 cursor-pointer"
           >
-            <div className="space-y-4">
+            <div className="space-y-3.5 sm:space-y-4">
               <IllustratedCardBadge variant="teams" size="md" />
               <div>
-                <h3 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso mb-1.5">
+                <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5">
                   Clear Ownership
                 </h3>
                 <p className="text-sm sm:text-base text-terracotta leading-relaxed">
@@ -606,7 +614,7 @@ export const UseCases: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-brand-green">
+            <div className="pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs sm:text-sm font-heading font-semibold text-brand-green">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 stroke-[2.2]" />
                 <span>Dedicated Pod Leads</span>
@@ -622,12 +630,13 @@ export const UseCases: React.FC = () => {
               isSectionCInView || shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }
             }
             transition={{ duration: 0.4, delay: 0.3 }}
-            className="p-6 sm:p-7 rounded-3xl bg-white border border-brand-peach/80 flex flex-col justify-between space-y-5 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:shadow-warm-md hover:border-brand-yellow/40 hover:-translate-y-1.5 transition-all duration-300 group"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-4.5 min-[375px]:p-5 sm:p-7 rounded-3xl bg-white border border-brand-peach/80 flex flex-col justify-between space-y-4 sm:space-y-5 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:shadow-warm-md hover:border-brand-yellow/40 hover:-translate-y-1.5 transition-all duration-300 group min-w-0 cursor-pointer"
           >
-            <div className="space-y-4">
+            <div className="space-y-3.5 sm:space-y-4">
               <IllustratedCardBadge variant="control" size="md" />
               <div>
-                <h3 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso mb-1.5">
+                <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5">
                   Earlier Visibility into Delays
                 </h3>
                 <p className="text-sm sm:text-base text-terracotta leading-relaxed">
@@ -636,7 +645,7 @@ export const UseCases: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-brand-peach/40 flex items-center justify-between text-sm font-heading font-semibold text-amber-700">
+            <div className="pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs sm:text-sm font-heading font-semibold text-amber-700">
               <span className="flex items-center gap-1.5">
                 <Clock className="w-4 h-4" />
                 <span>Zero Surprise Bottlenecks</span>

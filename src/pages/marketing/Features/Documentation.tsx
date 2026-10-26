@@ -38,7 +38,7 @@ const LINKED_TASKS: LinkedTask[] = [
     taskTag: 'TASK-104',
     pod: 'Backend Pod',
     assignee: 'Priya Sharma',
-    docTitle: 'PRD: Billing & Stripe Integration v2.1',
+    docTitle: 'PRD: Billing & Stripe Integration',
     docSection: 'Section 4.3 — Webhook Deduplication Architecture',
     decisionRationale:
       'Stripe delivers events at-least-once. To prevent duplicate customer charges, the webhook handler stores event IDs in Redis with a 72-hour TTL before database transaction commit.',
@@ -70,7 +70,7 @@ const LINKED_TASKS: LinkedTask[] = [
     taskTag: 'TASK-106',
     pod: 'Frontend Pod',
     assignee: 'Marcus Vance',
-    docTitle: 'Design Spec: Mobile Navigation System v3',
+    docTitle: 'Design Spec: Mobile Navigation System',
     docSection: 'Section 3.2 — Velocity-Based Swipe Thresholds',
     decisionRationale:
       'Users navigating with one hand on mobile devices require physics-based spring dampening when dragging down bottom sheets to prevent accidental dismissals.',
@@ -154,9 +154,10 @@ export const Documentation: React.FC = () => {
               const isSelected = selectedTaskId === task.id;
 
               return (
-                <button
+                <motion.button
                   key={task.id}
                   type="button"
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                   onClick={() => setSelectedTaskId(task.id)}
                   className={`w-full text-left p-4 sm:p-5 rounded-2xl border-2 transition-all cursor-pointer select-none flex flex-col justify-between group ${
                     isSelected
@@ -184,7 +185,7 @@ export const Documentation: React.FC = () => {
                       <CheckCircle2 className="w-3.5 h-3.5" /> Spec Linked
                     </span>
                   </div>
-                </button>
+                </motion.button>
               );
             })}
           </div>
@@ -275,25 +276,26 @@ export const Documentation: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="docs" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">
+              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-orange/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 In-Flow Context
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Context in the Flow of Work
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Builders never ask "why are we doing this?". Technical constraints and business rationale are accessible directly inside the deliverable card.
             </p>
 
             {/* Micro PRD Excerpt Widget */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5 text-xs font-mono">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5 text-xs font-mono">
               <span className="text-terracotta-muted text-[11px] uppercase block font-bold">
                 Linked Spec Pill
               </span>
@@ -303,7 +305,7 @@ export const Documentation: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
             <span>Zero Handoff Confusion</span>
           </div>
         </motion.div>
@@ -314,33 +316,34 @@ export const Documentation: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.12 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="projects" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/20">
+              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-green/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Bidirectional
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Living Documentation
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               When product requirements change, affected tasks update automatically. No stale specifications buried in abandoned Google Docs.
             </p>
 
-            {/* Micro Live Version Badge Widget */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
-              <span className="text-terracotta">Spec Version:</span>
+            {/* Micro Live Spec Status Badge Widget */}
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
+              <span className="text-terracotta">Spec Status:</span>
               <span className="text-brand-green font-bold flex items-center gap-1">
-                <CheckCircle2 className="w-3.5 h-3.5" /> v2.4 (Live Synced)
+                <CheckCircle2 className="w-3.5 h-3.5" /> Live Synced
               </span>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
             <span>Always Synchronized</span>
           </div>
         </motion.div>
@@ -351,31 +354,43 @@ export const Documentation: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.19 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="teams" size="md" />
-              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 sm:px-3 py-1 rounded-full border border-amber-200 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 3x Faster Ramp
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Accelerated Onboarding
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               New team members ramp up 3x faster by inspecting past deliverables alongside their architectural decision records and acceptance checklists.
             </p>
 
             {/* Micro Ramp Metric Widget */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
-              <span className="text-terracotta">Time to First PR:</span>
-              <span className="text-amber-700 font-bold">2.4 Days (vs 9 Avg)</span>
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2 text-xs font-mono">
+              <div className="flex items-center justify-between">
+                <span className="text-terracotta">Time to First PR:</span>
+                <span className="text-amber-700 font-bold">2.4 Days (vs 9 Avg)</span>
+              </div>
+              <div className="w-full bg-brand-peach/40 rounded-full h-1.5 overflow-hidden">
+                <motion.div
+                  initial={{ width: '0%' }}
+                  whileInView={{ width: '27%' }}
+                  viewport={{ once: false }}
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: 'easeOut' }}
+                  className="bg-amber-600 h-full rounded-full"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
             <span>Frictionless Knowledge Transfer</span>
           </div>
         </motion.div>

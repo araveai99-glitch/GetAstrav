@@ -234,9 +234,10 @@ export const Automation: React.FC = () => {
               const Icon = step.icon;
 
               return (
-                <button
+                <motion.button
                   key={step.id}
                   type="button"
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                   onClick={() => {
                     setIsAutoPlaying(false);
                     setCurrentStepIdx(idx);
@@ -284,7 +285,7 @@ export const Automation: React.FC = () => {
                       {step.status}
                     </p>
                   </div>
-                </button>
+                </motion.button>
               );
             })}
           </div>
@@ -386,36 +387,43 @@ export const Automation: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="automation" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">
+              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-orange/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Proactive
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Zero Status Chasing
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Eliminate daily standup status pings. The system automatically prompts assignees before deadlines and alerts leads only when true action is needed.
             </p>
 
             {/* Micro Trigger Threshold Widget */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5 text-xs font-mono">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5 text-xs font-mono">
               <div className="flex justify-between text-espresso font-bold">
                 <span>Default Trigger Window:</span>
                 <span className="text-brand-orange">4h Before SLA</span>
               </div>
               <div className="w-full h-2 rounded-full bg-white border border-brand-peach/40 overflow-hidden">
-                <div className="w-4/5 h-full bg-brand-orange rounded-full" />
+                <motion.div
+                  initial={{ width: '0%' }}
+                  whileInView={{ width: '80%' }}
+                  viewport={{ once: false }}
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: 'easeOut' }}
+                  className="h-full bg-brand-orange rounded-full"
+                />
               </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
             <span>Less Friction, More Flow</span>
           </div>
         </motion.div>
@@ -426,30 +434,32 @@ export const Automation: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.12 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="control" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/20">
+              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-green/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Early Warning
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Proactive Risk Protection
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Never be surprised by a missed launch date. Triggers fire early enough for pod members to reassign subtasks or ask for executive unblocking.
             </p>
 
             {/* Micro Multi-Channel Routing Selector */}
             <div className="p-3 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
-              <div className="flex items-center justify-between text-sm sm:text-xs">
+              <div className="flex items-center justify-between text-xs sm:text-sm">
                 <span className="font-bold text-espresso">Dispatch Route:</span>
                 <div className="flex gap-1">
-                  <button
+                  <motion.button
                     type="button"
+                    whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
                     onClick={() => setNotificationChannel('slack')}
                     className={`px-2 py-0.5 rounded-md text-xs font-bold cursor-pointer transition-all ${
                       notificationChannel === 'slack'
@@ -458,9 +468,10 @@ export const Automation: React.FC = () => {
                     }`}
                   >
                     Slack
-                  </button>
-                  <button
+                  </motion.button>
+                  <motion.button
                     type="button"
+                    whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
                     onClick={() => setNotificationChannel('in_app')}
                     className={`px-2 py-0.5 rounded-md text-xs font-bold cursor-pointer transition-all ${
                       notificationChannel === 'in_app'
@@ -469,17 +480,17 @@ export const Automation: React.FC = () => {
                     }`}
                   >
                     In-App
-                  </button>
+                  </motion.button>
                 </div>
               </div>
               <div className="p-2 bg-white rounded-lg border border-brand-peach/40 text-xs font-mono text-espresso flex items-center gap-1.5">
-                <Send className="w-3.5 h-3.5 text-brand-green" />
-                <span>Deep-link to task checklist</span>
+                <Send className="w-3.5 h-3.5 text-brand-green shrink-0" />
+                <span className="truncate">Deep-link to task checklist</span>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
             <span>Early Warning Architecture</span>
           </div>
         </motion.div>
@@ -490,33 +501,45 @@ export const Automation: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.19 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="progress" size="md" />
-              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 sm:px-3 py-1 rounded-full border border-amber-200 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Auto Sync
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Instant Upward Cascade
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Once an automated reminder leads to task completion, the parent milestone updates immediately. Leadership sees progress without delay.
             </p>
 
             {/* Micro Recalculation Metric */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-sm sm:text-xs font-mono">
-              <span className="text-terracotta">Milestone Auto-Recalc:</span>
-              <span className="text-brand-green font-bold flex items-center gap-1">
-                <CheckCircle2 className="w-3.5 h-3.5" /> +15% Instantly
-              </span>
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2 text-xs sm:text-sm font-mono">
+              <div className="flex items-center justify-between">
+                <span className="text-terracotta">Milestone Auto-Recalc:</span>
+                <span className="text-brand-green font-bold flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5" /> +15% Instantly
+                </span>
+              </div>
+              <div className="w-full bg-brand-peach/40 rounded-full h-1.5 overflow-hidden">
+                <motion.div
+                  initial={{ width: '0%' }}
+                  whileInView={{ width: '85%' }}
+                  viewport={{ once: false }}
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: 'easeOut' }}
+                  className="bg-brand-green h-full rounded-full"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
             <span>Real-Time Milestone Health</span>
           </div>
         </motion.div>

@@ -3,7 +3,7 @@ import { MotionWrapper } from '../common/MotionWrapper';
 import { FolderGit2, FileText, Link2, History, CheckSquare, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export const ProjectKnowledgeInfographic: React.FC = () => {
-  const [activeVersion, setActiveVersion] = useState<'v3.4' | 'v3.3' | 'v3.2'>('v3.4');
+  const [activeRevision, setActiveRevision] = useState<'Current' | 'Previous' | 'Draft'>('Current');
 
   return (
     <div className="w-full bg-white p-6 sm:p-8 lg:p-10 rounded-3xl border border-brand-peach/80 shadow-architectural space-y-8">
@@ -83,23 +83,23 @@ export const ProjectKnowledgeInfographic: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-[16px] sm:text-base font-extrabold text-espresso">Architecture Specification</h3>
-                    <span className="text-xs text-terracotta font-mono">SPEC: spec_payment_v2.md</span>
+                    <span className="text-xs text-terracotta font-mono">SPEC: spec_payment.md</span>
                   </div>
                 </div>
 
-                {/* Version History Selector Pills */}
+                {/* Revision History Selector Pills */}
                 <div className="flex items-center gap-1">
-                  {(['v3.4', 'v3.3', 'v3.2'] as const).map((ver) => (
+                  {(['Current', 'Previous', 'Draft'] as const).map((rev) => (
                     <button
-                      key={ver}
-                      onClick={() => setActiveVersion(ver)}
+                      key={rev}
+                      onClick={() => setActiveRevision(rev)}
                       className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
-                        activeVersion === ver
+                        activeRevision === rev
                           ? 'bg-brand-orange text-white shadow-glow-orange'
                           : 'bg-ivory text-espresso hover:bg-surface-tier1 border border-brand-peach'
                       }`}
                     >
-                      {ver}
+                      {rev}
                     </button>
                   ))}
                 </div>
@@ -108,15 +108,15 @@ export const ProjectKnowledgeInfographic: React.FC = () => {
               {/* Doc Preview Panel */}
               <div className="p-4 rounded-xl bg-ivory border border-brand-peach/60 space-y-2">
                 <div className="text-sm font-mono text-espresso font-extrabold flex items-center justify-between">
-                  <span># Payment Engine Spec ({activeVersion})</span>
+                  <span># Payment Engine Spec</span>
                   <span className="text-xs text-brand-green font-mono font-bold flex items-center gap-1">
                     <CheckCircle2 className="w-3 h-3" /> Signed off by VP Ops
                   </span>
                 </div>
                 <p className="text-sm sm:text-xs text-terracotta leading-relaxed font-normal">
-                  {activeVersion === 'v3.4' && 'All transaction events require sub-50ms idempotency lookup using Redis key locks with zero-downtime failover.'}
-                  {activeVersion === 'v3.3' && 'Added PKCE OAuth token refresh handler for enterprise single sign-on.'}
-                  {activeVersion === 'v3.2' && 'Initial draft for Stripe webhook payload signature verification.'}
+                  {activeRevision === 'Current' && 'All transaction events require sub-50ms idempotency lookup using Redis key locks with zero-downtime failover.'}
+                  {activeRevision === 'Previous' && 'Added PKCE OAuth token refresh handler for enterprise single sign-on.'}
+                  {activeRevision === 'Draft' && 'Initial draft for Stripe webhook payload signature verification.'}
                 </p>
               </div>
             </div>

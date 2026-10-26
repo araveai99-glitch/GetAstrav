@@ -43,7 +43,7 @@ export const HeroArchitecturalStructure: React.FC = () => {
       badgeColor: 'bg-brand-yellow/20 text-espresso border-brand-yellow/40',
       borderColor: 'border-brand-peach hover:border-brand-orange',
       bgGlow: 'bg-white',
-      detail: 'Linked Architecture Doc: spec_payment_v2.md (Version v3.4 History).',
+      detail: 'Linked Architecture Doc: spec_payment.md (Architecture History).',
     },
     {
       id: 4,

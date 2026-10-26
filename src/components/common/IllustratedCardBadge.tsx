@@ -28,19 +28,19 @@ export const IllustratedCardBadge: React.FC<IllustratedCardBadgeProps> = ({
   className = '',
   stepNumber,
 }) => {
-  // Dimensions - enhanced for rich visual presence while preserving mobile clearance
+  // Dimensions - balanced responsive sizes (48-64px on mobile, 80px on desktop)
   const dim =
     size === 'sm'
       ? 'w-11 h-11 min-[375px]:w-12 min-[375px]:h-12 sm:w-16 sm:h-16'
       : size === 'lg'
-      ? 'w-22 h-22 sm:w-26 sm:h-26'
-      : 'w-18 h-18 sm:w-20 sm:h-20';
+      ? 'w-20 h-20 sm:w-24 sm:h-24'
+      : 'w-14 h-14 min-[375px]:w-16 min-[375px]:h-16 sm:w-20 sm:h-20';
 
   return (
-    <div className={`relative shrink-0 flex items-center justify-center ${dim} ${className}`}>
+    <div className={`relative shrink-0 flex items-center justify-center transition-transform duration-300 ease-out group-hover:scale-105 group-active:scale-95 ${dim} ${className}`}>
       {/* Optional Step Pill if not already rendered elsewhere */}
       {stepNumber && (
-        <span className="absolute -top-1 -left-1 z-20 w-5.5 h-5.5 sm:w-6 sm:h-6 rounded-full bg-white border border-brand-peach/80 text-[10px] sm:text-[11px] font-mono font-bold text-brand-orange shadow-warm-2xs flex items-center justify-center">
+        <span className="absolute -top-1 -left-1 z-20 w-5 h-5 min-[375px]:w-6 min-[375px]:h-6 rounded-full bg-white border border-brand-peach/80 text-[10px] sm:text-[11px] font-mono font-bold text-brand-orange shadow-warm-2xs flex items-center justify-center">
           {stepNumber}
         </span>
       )}

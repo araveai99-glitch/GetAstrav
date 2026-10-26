@@ -600,7 +600,7 @@ export const Managers: React.FC = () => {
                 <span className="font-mono font-bold text-brand-orange text-xs bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">In 3 Days</span>
               </div>
               <div className="text-[22px] font-extrabold font-heading text-espresso">
-                Release v2.4
+                Product Release
               </div>
               <p className="text-sm text-terracotta-muted mt-1 leading-relaxed">
                 Scheduled for Friday deployment

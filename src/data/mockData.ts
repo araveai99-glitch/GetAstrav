@@ -101,7 +101,7 @@ export const mockTeams: Team[] = [
 ];
 
 export const mockProjects: Project[] = [
-  { id: 'proj-01', org_id: 'org-01', department_id: 'dept-01', title: 'Astrav Execution Kernel v4.8', description: 'Real-time mathematical rollup engine & edge caching proxy', department_name: 'Engineering & Infrastructure', assigned_team_ids: ['team-01', 'team-02'], computed_progress: 78.4, created_at: '2026-01-15T00:00:00Z' },
+  { id: 'proj-01', org_id: 'org-01', department_id: 'dept-01', title: 'Astrav Execution Kernel', description: 'Real-time mathematical rollup engine & edge caching proxy', department_name: 'Engineering & Infrastructure', assigned_team_ids: ['team-01', 'team-02'], computed_progress: 78.4, created_at: '2026-01-15T00:00:00Z' },
   { id: 'proj-02', org_id: 'org-01', department_id: 'dept-01', title: 'SOC2 Type II Evidence Vault', description: 'Row-level security audit logger and zero-owner protections', department_name: 'Engineering & Infrastructure', assigned_team_ids: ['team-01'], computed_progress: 54.0, created_at: '2026-02-01T00:00:00Z' },
   { id: 'proj-03', org_id: 'org-01', department_id: 'dept-02', title: 'Gemini 2.5 AI Goal Decomposition', description: 'Autonomous task proposal engine for founder OKRs', department_name: 'Product Strategy & AI', assigned_team_ids: ['team-03'], computed_progress: 88.0, created_at: '2026-02-10T00:00:00Z' },
 ];
@@ -147,7 +147,7 @@ export const mockActivityLog: ActivityItem[] = [
     metadata: {
       title: 'Marketing campaign launched',
       department: 'Marketing',
-      highlight: 'Q3 Product V2 multi-channel campaign went live',
+      highlight: 'Q3 multi-channel campaign went live',
       relativeTime: '2 min ago',
     },
     created_at: '2026-10-21T07:43:00Z',
@@ -245,7 +245,7 @@ export const mockActivityLog: ActivityItem[] = [
 ];
 
 export const mockProjectDocs: ProjectDoc[] = [
-  { id: 'doc-01', project_id: 'proj-01', title: 'Execution Kernel Architecture & Edge Proxy Spec', content: '<h1>Astrav Execution Kernel v4.8</h1><p>This document details the high-performance mathematical progress rollup pipeline. Calculated metrics cascade automatically from leaf subtasks up to organizational executive dashboards.</p><h2>Edge Cache Invalidation</h2><p>Cache invalidation runs on <code>sub-50ms</code> telemetry triggers.</p>', created_at: '2026-01-16T00:00:00Z', updated_at: '2026-10-02T15:00:00Z' },
+  { id: 'doc-01', project_id: 'proj-01', title: 'Execution Kernel Architecture & Edge Proxy Spec', content: '<h1>Astrav Execution Kernel</h1><p>This document details the high-performance mathematical progress rollup pipeline. Calculated metrics cascade automatically from leaf subtasks up to organizational executive dashboards.</p><h2>Edge Cache Invalidation</h2><p>Cache invalidation runs on <code>sub-50ms</code> telemetry triggers.</p>', created_at: '2026-01-16T00:00:00Z', updated_at: '2026-10-02T15:00:00Z' },
   { id: 'doc-02', project_id: 'proj-02', title: 'SOC2 Type II Evidence Vault & RLS Specifications', content: '<h1>SOC2 Compliance Blueprint</h1><p>Every mutation is logged with SHA-256 immutable snapshots in <code>project_doc_edits</code> and <code>activity_log</code>.</p>', created_at: '2026-02-02T00:00:00Z', updated_at: '2026-10-04T12:00:00Z' },
 ];
 

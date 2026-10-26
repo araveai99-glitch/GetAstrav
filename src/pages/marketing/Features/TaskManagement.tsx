@@ -235,9 +235,10 @@ export const TaskManagement: React.FC = () => {
               const isPassed = currentStageIdx >= idx;
 
               return (
-                <button
+                <motion.button
                   key={stage.id}
                   type="button"
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                   onClick={() => {
                     setIsAutoPlaying(false);
                     setCurrentStageIdx(idx);
@@ -288,7 +289,7 @@ export const TaskManagement: React.FC = () => {
                       {stage.sublabel}
                     </p>
                   </div>
-                </button>
+                </motion.button>
               );
             })}
           </div>
@@ -320,7 +321,7 @@ export const TaskManagement: React.FC = () => {
               <div>
                 <div className="flex flex-wrap items-center gap-2">
                   <h4 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso">
-                    Ship Interactive Dashboard v2.4
+                    Ship Interactive Dashboard
                   </h4>
                   <span className="text-xs font-mono px-2 py-0.5 rounded-md bg-white border border-brand-peach/50 text-terracotta-muted">
                     TASK-0419
@@ -361,10 +362,10 @@ export const TaskManagement: React.FC = () => {
 
           {/* Smooth Dynamic Progress Fill */}
           <div className="space-y-2">
-            <div className="flex items-center justify-between gap-3 text-sm sm:text-base font-heading font-bold">
-              <div className="flex items-center gap-2 min-w-0">
+            <div className="flex flex-col min-[375px]:flex-row min-[375px]:items-center justify-between gap-1 min-[375px]:gap-3 text-sm sm:text-base font-heading font-bold">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 min-w-0">
                 <span className="text-espresso">Deliverable Progress</span>
-                <span className="text-[13px] font-normal text-terracotta-muted">
+                <span className="text-xs sm:text-[13px] font-normal text-terracotta-muted">
                   (Mathematical Weight Rollup)
                 </span>
               </div>
@@ -474,77 +475,81 @@ export const TaskManagement: React.FC = () => {
       </motion.div>
 
       {/* 3. Redesigned Premium Feature Cards (Interactive Micro-Widgets & Dynamic Hovers) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
         {/* Card 1: Interactive SLA Safety Net */}
         <motion.div
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="p-6 sm:p-8 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="control" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-3 py-1 rounded-full border border-brand-orange/20">
+              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-orange/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 SLA Guardrail
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Automated Deadline Warnings
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-6">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-6">
               When work velocity dips below the scheduled completion trajectory, Astrav alerts the pod lead hours before any deadline slips.
             </p>
 
             {/* Interactive SLA Threshold Filter Preview */}
-            <div className="p-4 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-3">
-              <div className="flex items-center justify-between text-[13px] font-mono font-bold">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2.5 sm:space-y-3">
+              <div className="flex items-center justify-between text-xs sm:text-[13px] font-mono font-bold">
                 <span className="text-espresso">Simulate Health Window</span>
                 <span className="text-brand-orange">Interactive Trigger</span>
               </div>
 
-              <div className="grid grid-cols-3 gap-2 text-center text-[13px]">
-                <button
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-2 text-center text-xs sm:text-[13px]">
+                <motion.button
                   type="button"
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
                   onClick={() => setSlaFilter('safe')}
-                  className={`p-2 rounded-xl font-bold border transition-all cursor-pointer ${
+                  className={`p-1.5 sm:p-2 rounded-xl font-bold border transition-all cursor-pointer ${
                     slaFilter === 'safe'
                       ? 'bg-brand-green text-white border-brand-green shadow-xs'
                       : 'bg-white text-brand-green border-brand-green/30 hover:bg-brand-green-light'
                   }`}
                 >
                   Safe (&gt;24h)
-                </button>
-                <button
+                </motion.button>
+                <motion.button
                   type="button"
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
                   onClick={() => setSlaFilter('alert')}
-                  className={`p-2 rounded-xl font-bold border transition-all cursor-pointer ${
+                  className={`p-1.5 sm:p-2 rounded-xl font-bold border transition-all cursor-pointer ${
                     slaFilter === 'alert'
                       ? 'bg-amber-500 text-white border-amber-500 shadow-xs'
                       : 'bg-white text-amber-800 border-amber-200 hover:bg-amber-50'
                   }`}
                 >
                   Alert (4h)
-                </button>
-                <button
+                </motion.button>
+                <motion.button
                   type="button"
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
                   onClick={() => setSlaFilter('critical')}
-                  className={`p-2 rounded-xl font-bold border transition-all cursor-pointer ${
+                  className={`p-1.5 sm:p-2 rounded-xl font-bold border transition-all cursor-pointer ${
                     slaFilter === 'critical'
                       ? 'bg-red-500 text-white border-red-500 shadow-xs'
                       : 'bg-white text-red-700 border-red-200 hover:bg-red-50'
                   }`}
                 >
                   Breach (0h)
-                </button>
+                </motion.button>
               </div>
 
               {/* Status callout reacting to the button click */}
-              <div className="p-2.5 rounded-xl bg-white border border-brand-peach/40 text-xs font-mono flex items-center justify-between">
-                <span className="text-terracotta-muted">Action Dispatched:</span>
-                <span className="font-bold text-espresso">
+              <div className="p-2.5 rounded-xl bg-white border border-brand-peach/40 text-xs font-mono flex items-center justify-between gap-2">
+                <span className="text-terracotta-muted shrink-0">Action Dispatched:</span>
+                <span className="font-bold text-espresso truncate text-right">
                   {slaFilter === 'safe'
                     ? 'Monitoring normally'
                     : slaFilter === 'alert'
@@ -555,7 +560,7 @@ export const TaskManagement: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
             <span>Zero Missed Deliverables</span>
           </div>
         </motion.div>
@@ -565,43 +570,53 @@ export const TaskManagement: React.FC = () => {
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
           transition={{ duration: 0.4, delay: 0.12 }}
-          className="p-6 sm:p-8 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="progress" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-3 py-1 rounded-full border border-brand-green/20">
+              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-green/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Mathematical Cascade
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Direct Progress Rollup
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-6">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-6">
               Every completed subtask contributes exact mathematical weight to parent milestones. Leaders see ground truth without manual status requests.
             </p>
 
             {/* Micro Rollup Visualizer */}
-            <div className="p-4 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-3">
-              <div className="flex items-center justify-between text-sm">
-                <span className="font-heading font-bold text-espresso">Parent Milestone: Release v2.4</span>
-                <span className="font-mono font-bold text-brand-green">+25% Contribution</span>
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2.5 sm:space-y-3">
+              <div className="flex items-center justify-between gap-2 text-xs sm:text-sm">
+                <span className="font-heading font-bold text-espresso truncate">Parent Milestone: Product Release</span>
+                <span className="font-mono font-bold text-brand-green shrink-0">+25% Contribution</span>
               </div>
 
               <div className="w-full h-3 rounded-full bg-white border border-brand-peach/40 p-0.5 overflow-hidden">
-                <div className="w-[82%] h-full bg-gradient-to-r from-brand-orange to-brand-green rounded-full" />
+                <motion.div
+                  initial={{ width: '0%' }}
+                  whileInView={{ width: '82%' }}
+                  viewport={{ once: false }}
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: 'easeOut', delay: 0.2 }}
+                  className="h-full bg-gradient-to-r from-brand-orange to-brand-green rounded-full"
+                />
               </div>
 
               <div className="flex items-center justify-between text-xs font-mono text-terracotta-muted">
                 <span>Milestone Health: 82%</span>
-                <span className="text-brand-green font-bold">On Schedule</span>
+                <span className="text-brand-green font-bold flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" />
+                  On Schedule
+                </span>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
             <span>100% Deterministic Math</span>
           </div>
         </motion.div>

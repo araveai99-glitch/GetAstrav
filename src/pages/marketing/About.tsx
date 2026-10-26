@@ -19,7 +19,6 @@ import {
   Check,
   Building2,
   Users,
-  Compass,
   Cpu,
 } from 'lucide-react';
 import { openDemoModal } from '../../components/common/DemoModal';
@@ -101,18 +100,9 @@ export const About: React.FC = () => {
   const activeRelation = STEP_RELATIONS[activeRelationIndex];
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-12 sm:space-y-16 selection:bg-brand-orange selection:text-white">
+    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-24 pb-8 sm:pb-12 flex flex-col space-y-12 sm:space-y-16 selection:bg-brand-orange selection:text-white">
       {/* Section 1: Hero */}
-      <div className="text-left w-full max-w-5xl space-y-3 mb-2 sm:mb-4">
-        <div className="flex flex-wrap items-center gap-2.5">
-          <span className="px-3 py-1 rounded-full bg-brand-orange-light text-brand-orange text-xs font-mono font-bold border border-brand-orange/30 flex items-center gap-1.5 shadow-2xs">
-            <Compass className="w-3.5 h-3.5" /> Company Mission & Operating System
-          </span>
-          <span className="px-3 py-1 rounded-full bg-white text-espresso text-xs font-mono font-bold border border-brand-peach/60 shadow-2xs">
-            Founded 2026
-          </span>
-        </div>
-
+      <div className="text-left w-full max-w-5xl space-y-2.5 sm:space-y-3">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -140,7 +130,7 @@ export const About: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.05 }}
         transition={{ duration: 0.45, ease: 'easeOut' }}
-        className="p-6 sm:p-8 lg:p-10 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-warm-md relative overflow-hidden"
+        className="!mt-6 sm:!mt-8 p-6 sm:p-8 lg:p-10 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-warm-md relative overflow-hidden"
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 mb-8 border-b border-brand-peach/50">
           <div>
@@ -156,18 +146,21 @@ export const About: React.FC = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {/* Card 1: Goals */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-surface-ambient/50 border border-brand-peach/80 hover:bg-white shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-1 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
+          <motion.div
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-4.5 min-[375px]:p-5 sm:p-6 rounded-2xl bg-surface-ambient/50 border border-brand-peach/80 hover:bg-white shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-1 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
+          >
+            <div className="space-y-3.5 sm:space-y-4">
+              <div className="flex items-center justify-between gap-3 min-w-0">
                 <IllustratedCardBadge variant="goal" size="md" stepNumber="01" />
-                <span className="text-xs font-mono font-bold text-terracotta-muted px-2.5 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50">
+                <span className="text-xs font-mono font-bold text-terracotta-muted px-2.5 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                   STRATEGY
                 </span>
               </div>
               <div>
-                <h3 className="font-heading font-extrabold text-lg sm:text-xl text-espresso mb-1.5 group-hover:text-brand-orange transition-colors">
+                <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 group-hover:text-brand-orange transition-colors">
                   Company Goals
                 </h3>
                 <p className="text-sm sm:text-base text-terracotta leading-relaxed">
@@ -175,23 +168,26 @@ export const About: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs font-mono text-terracotta-muted">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs font-mono text-terracotta-muted">
               <span>Cascade Weight</span>
               <span className="font-bold text-brand-orange">Top Level</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 2: Project Containers */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-surface-ambient/50 border border-brand-peach/80 hover:bg-white shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-1 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between group">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
+          <motion.div
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-4.5 min-[375px]:p-5 sm:p-6 rounded-2xl bg-surface-ambient/50 border border-brand-peach/80 hover:bg-white shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-1 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
+          >
+            <div className="space-y-3.5 sm:space-y-4">
+              <div className="flex items-center justify-between gap-3 min-w-0">
                 <IllustratedCardBadge variant="projects" size="md" stepNumber="02" />
-                <span className="text-xs font-mono font-bold text-terracotta-muted px-2.5 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50">
+                <span className="text-xs font-mono font-bold text-terracotta-muted px-2.5 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                   CONTAINER
                 </span>
               </div>
               <div>
-                <h3 className="font-heading font-extrabold text-lg sm:text-xl text-espresso mb-1.5 group-hover:text-amber-800 transition-colors">
+                <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 group-hover:text-amber-800 transition-colors">
                   Project Containers
                 </h3>
                 <p className="text-sm sm:text-base text-terracotta leading-relaxed">
@@ -199,23 +195,26 @@ export const About: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs font-mono text-terracotta-muted">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs font-mono text-terracotta-muted">
               <span>Scoped Assets</span>
               <span className="font-bold text-amber-700">All-in-One</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 3: Autonomous Pods */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-surface-ambient/50 border border-brand-peach/80 hover:bg-white shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-1 hover:border-brand-green/40 transition-all duration-300 flex flex-col justify-between group">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
+          <motion.div
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-4.5 min-[375px]:p-5 sm:p-6 rounded-2xl bg-surface-ambient/50 border border-brand-peach/80 hover:bg-white shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-1 hover:border-brand-green/40 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
+          >
+            <div className="space-y-3.5 sm:space-y-4">
+              <div className="flex items-center justify-between gap-3 min-w-0">
                 <IllustratedCardBadge variant="teams" size="md" stepNumber="03" />
-                <span className="text-xs font-mono font-bold text-terracotta-muted px-2.5 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50">
+                <span className="text-xs font-mono font-bold text-terracotta-muted px-2.5 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                   EXECUTION
                 </span>
               </div>
               <div>
-                <h3 className="font-heading font-extrabold text-lg sm:text-xl text-espresso mb-1.5 group-hover:text-brand-green transition-colors">
+                <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 group-hover:text-brand-green transition-colors">
                   Autonomous Pods
                 </h3>
                 <p className="text-sm sm:text-base text-terracotta leading-relaxed">
@@ -223,23 +222,26 @@ export const About: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs font-mono text-terracotta-muted">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs font-mono text-terracotta-muted">
               <span>Handoff Latency</span>
               <span className="font-bold text-brand-green">Zero Friction</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 4: Live Rollups */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-surface-ambient/50 border border-brand-peach/80 hover:bg-white shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-1 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
+          <motion.div
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-4.5 min-[375px]:p-5 sm:p-6 rounded-2xl bg-surface-ambient/50 border border-brand-peach/80 hover:bg-white shadow-[0_4px_16px_-4px_rgba(241,94,28,0.06)] hover:shadow-warm-md hover:-translate-y-1 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
+          >
+            <div className="space-y-3.5 sm:space-y-4">
+              <div className="flex items-center justify-between gap-3 min-w-0">
                 <IllustratedCardBadge variant="progress" size="md" stepNumber="04" />
-                <span className="text-xs font-mono font-bold text-terracotta-muted px-2.5 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50">
+                <span className="text-xs font-mono font-bold text-terracotta-muted px-2.5 py-0.5 rounded-full bg-surface-tier1 border border-brand-peach/50 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                   FEEDBACK
                 </span>
               </div>
               <div>
-                <h3 className="font-heading font-extrabold text-lg sm:text-xl text-espresso mb-1.5 group-hover:text-brand-orange transition-colors">
+                <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 group-hover:text-brand-orange transition-colors">
                   Live Rollups
                 </h3>
                 <p className="text-sm sm:text-base text-terracotta leading-relaxed">
@@ -247,19 +249,16 @@ export const About: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs font-mono text-terracotta-muted">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs font-mono text-terracotta-muted">
               <span>Status Calculation</span>
               <span className="font-bold text-brand-orange">100% Automated</span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
       {/* Section 2: The Problem We Solve */}
-      <div className="space-y-6">
-        <div className="text-left w-full max-w-5xl space-y-2">
-          <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-3 py-1 rounded-full border border-brand-orange/30">
-            WHY ASTRAV EXISTS
-          </span>
+      <div className="!mt-8 sm:!mt-10 lg:!mt-12 space-y-4 sm:space-y-5">
+        <div className="text-left w-full max-w-5xl space-y-1.5 sm:space-y-2">
           <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight text-left">
             The Problem <span className="text-brand-orange">We Solve.</span>
           </h2>
@@ -275,7 +274,8 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.4, delay: 0.05 }}
-            className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-amber-400/50 transition-all duration-300 flex flex-col justify-between group"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-amber-400/50 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
           >
             <div>
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#fefbf0] via-[#fef6dc] to-[#fdeec0] border border-brand-yellow/40 text-amber-700 flex items-center justify-center mb-5 shadow-xs transition-transform group-hover:scale-105 group-hover:rotate-2">
@@ -303,7 +303,8 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.4, delay: 0.12 }}
-            className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/50 transition-all duration-300 flex flex-col justify-between group"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/50 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
           >
             <div>
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#fff4ed] to-[#ffe5d6] border border-brand-orange/30 text-brand-orange flex items-center justify-center mb-5 shadow-xs transition-transform group-hover:scale-105 group-hover:rotate-2">
@@ -331,7 +332,8 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.4, delay: 0.19 }}
-            className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-green/50 transition-all duration-300 flex flex-col justify-between group"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-green/50 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
           >
             <div>
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#edf7f3] to-[#daf1e7] border border-brand-green/30 text-brand-green flex items-center justify-center mb-5 shadow-xs transition-transform group-hover:scale-105 group-hover:rotate-2">
@@ -361,15 +363,10 @@ export const About: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.05 }}
         transition={{ duration: 0.45, ease: 'easeOut' }}
-        className="p-6 sm:p-8 lg:p-10 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-warm-md space-y-7"
+        className="!mt-8 sm:!mt-10 lg:!mt-12 p-5 sm:p-7 lg:p-8 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-warm-md space-y-5 sm:space-y-6"
       >
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-brand-peach/50">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 sm:pb-5 border-b border-brand-peach/50">
           <div>
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/30">
-                INTERACTIVE DEMONSTRATION
-              </span>
-            </div>
             <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
               The Alignment Hierarchy: Vision to Execution
             </h2>
@@ -390,9 +387,10 @@ export const About: React.FC = () => {
             const badgeVariant = rel.id === 'goals' ? 'goal' : rel.id === 'projects' ? 'projects' : rel.id === 'tasks' ? 'tasks' : 'progress';
 
             return (
-              <button
+              <motion.button
                 key={rel.id}
                 type="button"
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                 onClick={() => setActiveRelationIndex(idx)}
                 className={`p-5 rounded-2xl border-2 text-left transition-all duration-300 cursor-pointer select-none flex flex-col justify-between group ${
                   isActive
@@ -414,7 +412,7 @@ export const About: React.FC = () => {
                     {rel.subtitle}
                   </p>
                 </div>
-              </button>
+              </motion.button>
             );
           })}
         </div>
@@ -449,11 +447,8 @@ export const About: React.FC = () => {
       </motion.div>
 
       {/* Section 4: Operating Architecture (How Modern Companies Execute with Astrav) */}
-      <div className="space-y-6">
-        <div className="text-left w-full max-w-5xl space-y-2">
-          <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-3 py-1 rounded-full border border-brand-green/30">
-            BUILT FOR SCALE
-          </span>
+      <div className="!mt-8 sm:!mt-10 lg:!mt-12 space-y-4 sm:space-y-5">
+        <div className="text-left w-full max-w-5xl space-y-1.5 sm:space-y-2">
           <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl lg:text-4xl font-heading font-extrabold text-espresso tracking-tight text-left">
             Built for Engineering & Executive <span className="text-brand-orange">Harmony.</span>
           </h2>
@@ -469,7 +464,8 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.4, delay: 0.05 }}
-            className="p-6 sm:p-8 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-6 sm:p-8 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
           >
             <div>
               <div className="mb-5">
@@ -493,7 +489,8 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.4, delay: 0.12 }}
-            className="p-6 sm:p-8 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-green/40 transition-all duration-300 flex flex-col justify-between group"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-6 sm:p-8 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-green/40 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
           >
             <div>
               <div className="mb-5">
@@ -517,7 +514,8 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.4, delay: 0.19 }}
-            className="p-6 sm:p-8 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-yellow/40 transition-all duration-300 flex flex-col justify-between group"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-6 sm:p-8 bg-white rounded-3xl border-2 border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-yellow/40 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
           >
             <div>
               <div className="mb-5">
@@ -551,20 +549,23 @@ export const About: React.FC = () => {
               Connect high-level strategy to daily team execution and experience clear, mathematical progress without status meetings.
             </p>
             <div className="pt-2 flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
-              <button
+              <motion.button
                 type="button"
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
                 onClick={openDemoModal}
                 className="btn-brand-primary px-8 py-3.5 text-base font-heading font-bold shadow-md shadow-brand-orange/30 hover:-translate-y-0.5 active:translate-y-0 transition-all inline-flex items-center gap-2.5 cursor-pointer"
               >
                 <span>Book an Executive Demo</span>
                 <ArrowRight className="w-4.5 h-4.5" />
-              </button>
-              <Link
-                to="/contact"
-                className="btn-brand-secondary px-7 py-3.5 text-base font-heading font-bold shadow-warm-xs hover:-translate-y-0.5 active:translate-y-0 transition-all inline-flex items-center gap-2"
-              >
-                <span>Contact Enterprise Team</span>
-              </Link>
+              </motion.button>
+              <motion.div whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}>
+                <Link
+                  to="/contact"
+                  className="btn-brand-secondary px-7 py-3.5 text-base font-heading font-bold shadow-warm-xs hover:-translate-y-0.5 active:translate-y-0 transition-all inline-flex items-center gap-2"
+                >
+                  <span>Contact Enterprise Team</span>
+                </Link>
+              </motion.div>
             </div>
             <div className="pt-4 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-mono text-terracotta-muted">
               <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-brand-green" /> SOC2 Type II Aligned</span>

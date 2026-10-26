@@ -170,7 +170,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
         </div>
 
         {/* 4 Balanced Cards with Unique Animated Visuals */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 items-stretch w-full">
           {/* CARD 1: Goal Planning */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
@@ -180,28 +180,29 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 : { opacity: 0, y: 28 }
             }
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="w-full bg-white rounded-3xl p-4.5 min-[375px]:p-5 sm:p-7 border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
           >
             <div>
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
                 <IllustratedCardBadge variant="goal" size="md" stepNumber="01" />
-                <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-1 rounded-full border border-brand-orange/30">
+                <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-orange/30 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                   PILLAR 01
                 </span>
               </div>
 
-              <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-espresso mb-1">
+              <h3 className="font-heading font-extrabold text-[19px] sm:text-2xl text-espresso mb-1">
                 Goal Planning
               </h3>
-              <p className="text-base font-semibold text-brand-orange mb-3">
+              <p className="text-sm sm:text-base font-semibold text-brand-orange mb-2 sm:mb-3">
                 Set clear goals and turn them into manageable work.
               </p>
-              <p className="text-base text-terracotta leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-6">
                 Break complex quarterly strategies into actionable milestones with clear ownership and measurable deliverables.
               </p>
 
               {/* Unique Visual 1: Goal Hierarchy & Decomposition */}
-              <div className="bg-surface-ambient rounded-2xl p-4 border border-brand-peach/60 space-y-2.5">
+              <div className="bg-surface-ambient rounded-2xl p-3 sm:p-4 border border-brand-peach/60 space-y-2.5">
                 <div className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider mb-1 flex items-center justify-between">
                   <span>Goal Decomposition</span>
                   <span className="text-brand-orange font-semibold">Active</span>
@@ -215,33 +216,33 @@ export const KeyCapabilitiesPage: React.FC = () => {
                       : {}
                   }
                   transition={{ duration: 2.5, repeat: Infinity }}
-                  className="p-3 bg-white rounded-xl border border-brand-orange/40 shadow-xs flex items-center justify-between"
+                  className="p-2.5 sm:p-3 bg-white rounded-xl border border-brand-orange/40 shadow-xs flex items-center justify-between"
                 >
-                  <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-brand-orange" />
-                    <span className="text-sm font-heading font-bold text-espresso">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-2.5 h-2.5 rounded-full bg-brand-orange shrink-0" />
+                    <span className="text-xs min-[375px]:text-sm font-heading font-bold text-espresso truncate">
                       Q3 North Star: Enterprise Expansion
                     </span>
                   </div>
-                  <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2 py-0.5 rounded-md">
+                  <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2 py-0.5 rounded-md shrink-0 ml-2">
                     Top Goal
                   </span>
                 </motion.div>
 
                 {/* Animated Connector Stems */}
-                <div className="relative pl-5 space-y-2 border-l-2 border-dashed border-brand-orange/40 ml-3 py-1">
+                <div className="relative pl-4 sm:pl-5 space-y-2 border-l-2 border-dashed border-brand-orange/40 ml-2.5 sm:ml-3 py-1">
                   <motion.div
                     initial={{ opacity: 0, x: -8 }}
                     animate={
                       isSectionAInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }
                     }
                     transition={{ duration: 0.4, delay: 0.25 }}
-                    className="p-2.5 bg-white rounded-lg border border-brand-peach/60 text-xs min-[375px]:text-sm flex items-center justify-between"
+                    className="p-2 sm:p-2.5 bg-white rounded-lg border border-brand-peach/60 text-xs min-[375px]:text-sm flex items-center justify-between gap-2"
                   >
                     <span className="text-espresso font-medium truncate">
-                      Deliverable A: Rollup Computation Engine
+                      Deliverable A: Rollup Engine
                     </span>
-                    <span className="text-xs font-mono text-brand-green font-bold bg-brand-green-light px-1.5 py-0.5 rounded">
+                    <span className="text-xs font-mono text-brand-green font-bold bg-brand-green-light px-1.5 py-0.5 rounded shrink-0">
                       On Track
                     </span>
                   </motion.div>
@@ -252,12 +253,12 @@ export const KeyCapabilitiesPage: React.FC = () => {
                       isSectionAInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }
                     }
                     transition={{ duration: 0.4, delay: 0.4 }}
-                    className="p-2.5 bg-white rounded-lg border border-brand-peach/60 text-xs min-[375px]:text-sm flex items-center justify-between"
+                    className="p-2 sm:p-2.5 bg-white rounded-lg border border-brand-peach/60 text-xs min-[375px]:text-sm flex items-center justify-between gap-2"
                   >
                     <span className="text-espresso font-medium truncate">
                       Deliverable B: SOC2 Security Audit
                     </span>
-                    <span className="text-xs font-mono text-amber-700 font-bold bg-amber-50 px-1.5 py-0.5 rounded">
+                    <span className="text-xs font-mono text-amber-700 font-bold bg-amber-50 px-1.5 py-0.5 rounded shrink-0">
                       Review
                     </span>
                   </motion.div>
@@ -265,7 +266,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm text-terracotta">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm text-terracotta">
               <span>Clarity across all tiers</span>
               <span className="font-bold text-brand-orange">Deterministic</span>
             </div>
@@ -280,84 +281,86 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 : { opacity: 0, y: 28 }
             }
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="w-full bg-white rounded-3xl p-4.5 min-[375px]:p-5 sm:p-7 border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
           >
             <div>
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
                 <IllustratedCardBadge variant="projects" size="md" stepNumber="02" />
-                <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-1 rounded-full border border-brand-green/30">
+                <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-green/30 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                   PILLAR 02
                 </span>
               </div>
 
-              <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-espresso mb-1">
+              <h3 className="font-heading font-extrabold text-[19px] sm:text-2xl text-espresso mb-1">
                 Connected Work
               </h3>
-              <p className="text-base font-semibold text-brand-green mb-3">
+              <p className="text-sm sm:text-base font-semibold text-brand-green mb-2 sm:mb-3">
                 Keep projects, milestones, and tasks linked together.
               </p>
-              <p className="text-base text-terracotta leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-6">
                 Prevent work from becoming isolated. When every daily task is linked to a project and goal, momentum stays continuous.
               </p>
 
               {/* Unique Visual 2: Connected Chain of 3 Linked Elements */}
-              <div className="bg-surface-ambient rounded-2xl p-4 border border-brand-peach/60 space-y-3">
+              <div className="bg-surface-ambient rounded-2xl p-3 sm:p-4 border border-brand-peach/60 space-y-3">
                 <div className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider mb-1 flex items-center justify-between">
                   <span>Linked Execution Chain</span>
                   <span className="text-brand-green font-semibold">100% Linked</span>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 text-center relative">
+                <div className="grid grid-cols-3 gap-1.5 sm:gap-2 text-center relative">
                   {/* Connector line behind */}
                   <div className="absolute top-1/2 left-4 right-4 h-0.5 bg-brand-green/30 -translate-y-1/2 z-0" />
 
                   {/* Node 1: Goal */}
-                  <div className="relative z-10 bg-white p-2.5 rounded-xl border border-brand-green/40 shadow-xs flex flex-col items-center">
-                    <span className="text-xs font-mono font-bold text-brand-green uppercase">Goal</span>
-                    <span className="text-sm font-bold text-espresso mt-0.5">Scale Q3</span>
-                    <div className="w-2 h-2 rounded-full bg-brand-green mt-1.5" />
+                  <div className="relative z-10 bg-white p-2 min-[375px]:p-2.5 rounded-xl border border-brand-green/40 shadow-xs flex flex-col items-center">
+                    <span className="text-[11px] sm:text-xs font-mono font-bold text-brand-green uppercase">Goal</span>
+                    <span className="text-xs min-[375px]:text-sm font-bold text-espresso mt-0.5 truncate">Scale Q3</span>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-brand-green mt-1.5" />
                   </div>
 
                   {/* Node 2: Milestone */}
-                  <div className="relative z-10 bg-white p-2.5 rounded-xl border border-brand-green/40 shadow-xs flex flex-col items-center">
-                    <span className="text-xs font-mono font-bold text-brand-green uppercase">Milestone</span>
-                    <span className="text-sm font-bold text-espresso mt-0.5">Engine v2</span>
-                    <div className="w-2 h-2 rounded-full bg-brand-green mt-1.5" />
+                  <div className="relative z-10 bg-white p-2 min-[375px]:p-2.5 rounded-xl border border-brand-green/40 shadow-xs flex flex-col items-center">
+                    <span className="text-[11px] sm:text-xs font-mono font-bold text-brand-green uppercase">Milestone</span>
+                    <span className="text-xs min-[375px]:text-sm font-bold text-espresso mt-0.5 truncate">Core Engine</span>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-brand-green mt-1.5" />
                   </div>
 
                   {/* Node 3: Daily Task */}
-                  <div className="relative z-10 bg-white p-2.5 rounded-xl border border-brand-green/40 shadow-xs flex flex-col items-center">
-                    <span className="text-xs font-mono font-bold text-brand-green uppercase">Task</span>
-                    <span className="text-sm font-bold text-espresso mt-0.5">API Tests</span>
-                    <div className="w-2 h-2 rounded-full bg-brand-green mt-1.5" />
+                  <div className="relative z-10 bg-white p-2 min-[375px]:p-2.5 rounded-xl border border-brand-green/40 shadow-xs flex flex-col items-center">
+                    <span className="text-[11px] sm:text-xs font-mono font-bold text-brand-green uppercase">Task</span>
+                    <span className="text-xs min-[375px]:text-sm font-bold text-espresso mt-0.5 truncate">API Tests</span>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-brand-green mt-1.5" />
                   </div>
                 </div>
 
                 {/* Animated Signal Traveling along connection */}
-                <div className="w-full bg-white rounded-lg p-2.5 border border-brand-peach/60 flex items-center justify-between text-xs min-[375px]:text-sm">
-                  <div className="flex items-center gap-2">
+                <div className="w-full bg-white rounded-lg p-2 sm:p-2.5 border border-brand-peach/60 flex items-center justify-between text-xs min-[375px]:text-sm gap-2">
+                  <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
                     <motion.div
                       animate={
                         isSectionAInView && !shouldReduceMotion
-                          ? { x: [0, 8, 0] }
+                          ? { x: [0, 6, 0] }
                           : {}
                       }
                       transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                      className="shrink-0"
                     >
                       <Zap className="w-3.5 h-3.5 text-brand-green" />
                     </motion.div>
-                    <span className="text-terracotta text-xs min-[375px]:text-sm">
-                      Task update triggers instant parent milestone refresh
+                    <span className="text-terracotta text-xs min-[375px]:text-sm truncate">
+                      Task update triggers parent refresh
                     </span>
                   </div>
-                  <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-1.5 py-0.5 rounded">
+                  <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-1.5 py-0.5 rounded shrink-0">
                     Live
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm text-terracotta">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm text-terracotta">
               <span>No orphaned tasks</span>
               <span className="font-bold text-brand-green">Always Linked</span>
             </div>
@@ -372,34 +375,35 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 : { opacity: 0, y: 28 }
             }
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="w-full bg-white rounded-3xl p-4.5 min-[375px]:p-5 sm:p-7 border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
           >
             <div>
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
                 <IllustratedCardBadge variant="progress" size="md" stepNumber="03" />
-                <span className="text-xs font-mono font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
+                <span className="text-xs font-mono font-bold text-amber-700 bg-amber-50 px-2.5 sm:px-3 py-1 rounded-full border border-amber-200 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                   PILLAR 03
                 </span>
               </div>
 
-              <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-espresso mb-1">
+              <h3 className="font-heading font-extrabold text-[19px] sm:text-2xl text-espresso mb-1">
                 Automatic Progress
               </h3>
-              <p className="text-base font-semibold text-amber-600 mb-3">
+              <p className="text-sm sm:text-base font-semibold text-amber-600 mb-2 sm:mb-3">
                 See overall progress update as work gets completed.
               </p>
-              <p className="text-base text-terracotta leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-6">
                 Never ask "What is our status?" again. Click tasks below to test live automatic progress calculation.
               </p>
 
               {/* Unique Visual 3: Live Interactive Progress Rollup Widget */}
-              <div className="bg-surface-ambient rounded-2xl p-4 border border-brand-peach/60 space-y-3">
+              <div className="bg-surface-ambient rounded-2xl p-3 sm:p-4 border border-brand-peach/60 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider">
                     Interactive Progress Rollup
                   </span>
                   <div className="flex items-center gap-1.5">
-                    <span className="text-base font-heading font-extrabold text-espresso">
+                    <span className="text-sm sm:text-base font-heading font-extrabold text-espresso">
                       {calculatedProgress}%
                     </span>
                     <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-1.5 py-0.5 rounded">
@@ -409,7 +413,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 </div>
 
                 {/* Animated Progress Bar */}
-                <div className="h-3 w-full bg-brand-peach/40 rounded-full overflow-hidden p-0.5">
+                <div className="h-2.5 sm:h-3 w-full bg-brand-peach/40 rounded-full overflow-hidden p-0.5">
                   <motion.div
                     className="h-full rounded-full bg-gradient-to-r from-amber-400 via-brand-orange to-brand-green"
                     initial={{ width: 0 }}
@@ -421,18 +425,23 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 {/* Interactive Task Checkboxes */}
                 <div className="space-y-1.5 pt-1">
                   {autoTasks.map((t) => (
-                    <button
+                    <motion.button
                       key={t.id}
-                      onClick={() => toggleAutoTask(t.id)}
-                      className={`w-full text-left p-2 rounded-lg border text-sm flex items-center justify-between transition-colors ${
+                      type="button"
+                      whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleAutoTask(t.id);
+                      }}
+                      className={`w-full text-left p-2 rounded-lg border text-xs sm:text-sm flex items-center justify-between transition-colors cursor-pointer ${
                         t.done
                           ? 'bg-brand-green-light/40 border-brand-green/30 text-espresso'
                           : 'bg-white border-brand-peach/60 text-terracotta hover:border-brand-orange/40'
                       }`}
                     >
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 min-w-0">
                         <div
-                          className={`w-4 h-4 rounded flex items-center justify-center transition-colors ${
+                          className={`w-4 h-4 rounded flex items-center justify-center transition-colors shrink-0 ${
                             t.done
                               ? 'bg-brand-green text-white'
                               : 'border border-terracotta-muted'
@@ -440,20 +449,20 @@ export const KeyCapabilitiesPage: React.FC = () => {
                         >
                           {t.done && <Check className="w-3 h-3 stroke-[3]" />}
                         </div>
-                        <span className={t.done ? 'line-through text-terracotta-muted' : 'font-medium'}>
+                        <span className={`truncate ${t.done ? 'line-through text-terracotta-muted' : 'font-medium'}`}>
                           {t.name}
                         </span>
                       </div>
-                      <span className="text-xs font-mono text-terracotta-muted">
+                      <span className="text-xs font-mono text-terracotta-muted shrink-0 ml-2">
                         +{t.weight}%
                       </span>
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm text-terracotta">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm text-terracotta">
               <span>Click tasks to test live math</span>
               <span className="font-bold text-amber-600">Zero Manual Math</span>
             </div>
@@ -468,49 +477,50 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 : { opacity: 0, y: 28 }
             }
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="w-full bg-white rounded-3xl p-6 sm:p-7 border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="w-full bg-white rounded-3xl p-4.5 min-[375px]:p-5 sm:p-7 border border-brand-peach/80 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between group min-w-0 cursor-pointer"
           >
             <div>
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
                 <IllustratedCardBadge variant="teams" size="md" stepNumber="04" />
-                <span className="text-xs font-mono font-bold text-espresso bg-surface-tier1 px-2.5 py-1 rounded-full border border-brand-peach/50">
+                <span className="text-xs font-mono font-bold text-espresso bg-surface-tier1 px-2.5 sm:px-3 py-1 rounded-full border border-brand-peach/50 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                   PILLAR 04
                 </span>
               </div>
 
-              <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-espresso mb-1">
+              <h3 className="font-heading font-extrabold text-[19px] sm:text-2xl text-espresso mb-1">
                 Team Visibility
               </h3>
-              <p className="text-base font-semibold text-brand-orange mb-3">
+              <p className="text-sm sm:text-base font-semibold text-brand-orange mb-2 sm:mb-3">
                 Understand what is moving forward and what needs attention.
               </p>
-              <p className="text-base text-terracotta leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-6">
                 Empower managers and individual contributors with a real-time view into task velocity, roadblocks, and workload distribution.
               </p>
 
               {/* Unique Visual 4: Team Pulse Matrix */}
-              <div className="bg-surface-ambient rounded-2xl p-4 border border-brand-peach/60 space-y-2.5">
+              <div className="bg-surface-ambient rounded-2xl p-3 sm:p-4 border border-brand-peach/60 space-y-2.5">
                 <div className="text-xs font-mono font-bold text-terracotta-muted uppercase tracking-wider mb-1 flex items-center justify-between">
                   <span>Department Pulse Radar</span>
                   <span className="text-brand-green font-semibold">Updated 1m ago</span>
                 </div>
 
                 {/* Team Pod 1 */}
-                <div className="p-2.5 bg-white rounded-xl border border-brand-peach/60 flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-brand-green-light text-brand-green font-mono font-bold text-xs flex items-center justify-center">
+                <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-brand-peach/60 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-7 h-7 rounded-lg bg-brand-green-light text-brand-green font-mono font-bold text-xs flex items-center justify-center shrink-0">
                       ENG
                     </div>
-                    <div>
-                      <div className="text-sm font-heading font-bold text-espresso">
+                    <div className="min-w-0">
+                      <div className="text-xs sm:text-sm font-heading font-bold text-espresso truncate">
                         Core Engineering Pod
                       </div>
-                      <div className="text-xs text-terracotta-muted">
+                      <div className="text-[11px] sm:text-xs text-terracotta-muted truncate">
                         14 active tasks · 0 roadblocks
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 shrink-0">
                     <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
                     <span className="text-xs font-mono font-bold text-brand-green">
                       92% Done
@@ -519,21 +529,21 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 </div>
 
                 {/* Team Pod 2 */}
-                <div className="p-2.5 bg-white rounded-xl border border-brand-peach/60 flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-brand-orange-light text-brand-orange font-mono font-bold text-xs flex items-center justify-center">
+                <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-brand-peach/60 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-7 h-7 rounded-lg bg-brand-orange-light text-brand-orange font-mono font-bold text-xs flex items-center justify-center shrink-0">
                       DES
                     </div>
-                    <div>
-                      <div className="text-sm font-heading font-bold text-espresso">
+                    <div className="min-w-0">
+                      <div className="text-xs sm:text-sm font-heading font-bold text-espresso truncate">
                         Product & Design Pod
                       </div>
-                      <div className="text-xs text-terracotta-muted">
-                        8 active tasks · 1 review pending
+                      <div className="text-[11px] sm:text-xs text-terracotta-muted truncate">
+                        8 active tasks · 1 review
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 shrink-0">
                     <span className="w-2 h-2 rounded-full bg-amber-500" />
                     <span className="text-xs font-mono font-bold text-amber-700">
                       78% Done
@@ -543,7 +553,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm text-terracotta">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-brand-peach/40 flex items-center justify-between text-xs min-[375px]:text-sm text-terracotta">
               <span>Cross-department sync</span>
               <span className="font-bold text-brand-orange">Always In View</span>
             </div>
@@ -613,9 +623,11 @@ export const KeyCapabilitiesPage: React.FC = () => {
                 {/* 4 Connected Capability Nodes Positioned Around Astrav */}
                 {/* Node 1: Goal Planning (Top-Left) */}
                 <div className="absolute top-1 left-1 min-[360px]:top-2 min-[360px]:left-2 sm:top-6 sm:left-6 z-30 w-[calc(50%-8px)] min-[360px]:w-[calc(50%-10px)] sm:w-auto sm:max-w-[210px]">
-                  <button
+                  <motion.button
+                    type="button"
+                    whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
                     onClick={() => setSelectedCapability('planning')}
-                    className={`w-full p-2 min-[360px]:p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between min-h-[64px] min-[360px]:min-h-[68px] sm:min-h-0 ${
+                    className={`w-full p-2 min-[360px]:p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between min-h-[64px] min-[360px]:min-h-[68px] sm:min-h-0 cursor-pointer ${
                       selectedCapability === 'planning'
                         ? 'bg-brand-orange-light border-brand-orange shadow-warm-md scale-[1.01] sm:scale-105'
                         : 'bg-white border-brand-peach/80 hover:border-brand-orange/40 hover:bg-surface-tier1 shadow-xs'
@@ -632,14 +644,16 @@ export const KeyCapabilitiesPage: React.FC = () => {
                     <span className="text-[10px] min-[360px]:text-[10.5px] sm:text-xs font-mono text-terracotta block leading-tight">
                       Strategic alignment
                     </span>
-                  </button>
+                  </motion.button>
                 </div>
 
                 {/* Node 2: Connected Work (Top-Right) */}
                 <div className="absolute top-1 right-1 min-[360px]:top-2 min-[360px]:right-2 sm:top-6 sm:right-6 z-30 w-[calc(50%-8px)] min-[360px]:w-[calc(50%-10px)] sm:w-auto sm:max-w-[210px]">
-                  <button
+                  <motion.button
+                    type="button"
+                    whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
                     onClick={() => setSelectedCapability('connected')}
-                    className={`w-full p-2 min-[360px]:p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between min-h-[64px] min-[360px]:min-h-[68px] sm:min-h-0 ${
+                    className={`w-full p-2 min-[360px]:p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between min-h-[64px] min-[360px]:min-h-[68px] sm:min-h-0 cursor-pointer ${
                       selectedCapability === 'connected'
                         ? 'bg-brand-green-light border-brand-green shadow-warm-md scale-[1.01] sm:scale-105'
                         : 'bg-white border-brand-peach/80 hover:border-brand-green/40 hover:bg-surface-tier1 shadow-xs'
@@ -656,14 +670,16 @@ export const KeyCapabilitiesPage: React.FC = () => {
                     <span className="text-[10px] min-[360px]:text-[10.5px] sm:text-xs font-mono text-terracotta block leading-tight">
                       Linked execution
                     </span>
-                  </button>
+                  </motion.button>
                 </div>
 
                 {/* Node 3: Automatic Progress (Bottom-Left) */}
                 <div className="absolute bottom-1 left-1 min-[360px]:bottom-2 min-[360px]:left-2 sm:bottom-6 sm:left-6 z-30 w-[calc(50%-8px)] min-[360px]:w-[calc(50%-10px)] sm:w-auto sm:max-w-[210px]">
-                  <button
+                  <motion.button
+                    type="button"
+                    whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
                     onClick={() => setSelectedCapability('rollups')}
-                    className={`w-full p-2 min-[360px]:p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between min-h-[64px] min-[360px]:min-h-[68px] sm:min-h-0 ${
+                    className={`w-full p-2 min-[360px]:p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between min-h-[64px] min-[360px]:min-h-[68px] sm:min-h-0 cursor-pointer ${
                       selectedCapability === 'rollups'
                         ? 'bg-amber-50 border-amber-400 shadow-warm-md scale-[1.01] sm:scale-105'
                         : 'bg-white border-brand-peach/80 hover:border-amber-400/40 hover:bg-surface-tier1 shadow-xs'
@@ -680,14 +696,16 @@ export const KeyCapabilitiesPage: React.FC = () => {
                     <span className="text-[10px] min-[360px]:text-[10.5px] sm:text-xs font-mono text-terracotta block leading-tight">
                       Real-time rollups
                     </span>
-                  </button>
+                  </motion.button>
                 </div>
 
                 {/* Node 4: Team Visibility (Bottom-Right) */}
                 <div className="absolute bottom-1 right-1 min-[360px]:bottom-2 min-[360px]:right-2 sm:bottom-6 sm:right-6 z-30 w-[calc(50%-8px)] min-[360px]:w-[calc(50%-10px)] sm:w-auto sm:max-w-[210px]">
-                  <button
+                  <motion.button
+                    type="button"
+                    whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
                     onClick={() => setSelectedCapability('visibility')}
-                    className={`w-full p-2 min-[360px]:p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between min-h-[64px] min-[360px]:min-h-[68px] sm:min-h-0 ${
+                    className={`w-full p-2 min-[360px]:p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between min-h-[64px] min-[360px]:min-h-[68px] sm:min-h-0 cursor-pointer ${
                       selectedCapability === 'visibility'
                         ? 'bg-brand-orange-light border-brand-orange shadow-warm-md scale-[1.01] sm:scale-105'
                         : 'bg-white border-brand-peach/80 hover:border-brand-orange/40 hover:bg-surface-tier1 shadow-xs'
@@ -704,7 +722,7 @@ export const KeyCapabilitiesPage: React.FC = () => {
                     <span className="text-[10px] min-[360px]:text-[10.5px] sm:text-xs font-mono text-terracotta block leading-tight">
                       Shared momentum
                     </span>
-                  </button>
+                  </motion.button>
                 </div>
 
                 {/* SVG Connecting Spoke Lines */}
@@ -858,30 +876,36 @@ export const KeyCapabilitiesPage: React.FC = () => {
 
           {/* View Toggle on Mobile/Tablet */}
           <div className="inline-flex sm:hidden p-1 bg-white rounded-xl border border-brand-peach mt-2.5">
-            <button
+            <motion.button
+              type="button"
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
               onClick={() => setActiveTab('both')}
-              className={`px-3 py-1 rounded-lg text-xs font-bold ${
+              className={`px-3 py-1 rounded-lg text-xs font-bold cursor-pointer transition-all ${
                 activeTab === 'both' ? 'bg-brand-orange text-white' : 'text-terracotta'
               }`}
             >
               Both
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+              type="button"
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
               onClick={() => setActiveTab('before')}
-              className={`px-3 py-1 rounded-lg text-xs font-bold ${
+              className={`px-3 py-1 rounded-lg text-xs font-bold cursor-pointer transition-all ${
                 activeTab === 'before' ? 'bg-brand-orange text-white' : 'text-terracotta'
               }`}
             >
               Before
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+              type="button"
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
               onClick={() => setActiveTab('after')}
-              className={`px-3 py-1 rounded-lg text-xs font-bold ${
+              className={`px-3 py-1 rounded-lg text-xs font-bold cursor-pointer transition-all ${
                 activeTab === 'after' ? 'bg-brand-orange text-white' : 'text-terracotta'
               }`}
             >
               With Astrav
-            </button>
+            </motion.button>
           </div>
         </div>
 
@@ -1105,3 +1129,6 @@ export const KeyCapabilitiesPage: React.FC = () => {
     </div>
   );
 };
+
+export default KeyCapabilitiesPage;
+

@@ -161,9 +161,10 @@ export const Governance: React.FC = () => {
               const isSelected = selectedRoleId === role.id;
 
               return (
-                <button
+                <motion.button
                   key={role.id}
                   type="button"
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                   onClick={() => setSelectedRoleId(role.id)}
                   className={`w-full text-left p-4 sm:p-5 rounded-2xl border-2 transition-all cursor-pointer select-none flex items-center justify-between group ${
                     isSelected
@@ -197,7 +198,7 @@ export const Governance: React.FC = () => {
                   >
                     {role.badge}
                   </span>
-                </button>
+                </motion.button>
               );
             })}
 
@@ -300,28 +301,31 @@ export const Governance: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-5">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="governance" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">
+              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-orange/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 SOC2 Ready
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Full Audit Transparency
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Every role change, deliverable signoff, and target override is recorded with actor ID and timestamp.
             </p>
 
             {/* Micro Audit Log Ticker */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5 font-mono text-xs">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5 font-mono text-xs">
               <div className="flex justify-between text-terracotta-muted">
                 <span>Recent Event</span>
-                <span className="text-brand-green">Verified</span>
+                <span className="text-brand-green font-bold flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" /> Verified
+                </span>
               </div>
               <div className="p-2 bg-white rounded-xl border border-brand-peach/40 text-espresso truncate">
                 14:22:18 Alex M. granted Pod Lead to Marcus V.
@@ -329,7 +333,7 @@ export const Governance: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
             <span>Immutable Audit Trail</span>
           </div>
         </motion.div>
@@ -340,25 +344,26 @@ export const Governance: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.12 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-5">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="control" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/20">
+              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-green/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Safe Defaults
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Least-Privilege by Default
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               New team members are assigned strictly to their active pod. They never see sensitive executive billing, equity, or unrelated strategic targets.
             </p>
 
             {/* Micro Default Scope Status */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-sm sm:text-xs font-mono">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs sm:text-sm font-mono">
               <span className="text-terracotta">Executive Target Access:</span>
               <span className="text-brand-orange font-bold flex items-center gap-1">
                 <Lock className="w-3.5 h-3.5" /> Protected
@@ -366,7 +371,7 @@ export const Governance: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
             <span>Zero Accidental Exposure</span>
           </div>
         </motion.div>
@@ -377,33 +382,45 @@ export const Governance: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.19 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-5">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="teams" size="md" />
-              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 sm:px-3 py-1 rounded-full border border-amber-200 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 1-Click Scope
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Fast Contractor Scoping
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Bring external design agencies or contract engineers into specific project containers in seconds with granular read/write rights.
             </p>
 
             {/* Micro Scoping Widget */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-sm sm:text-xs font-mono">
-              <span className="text-terracotta">Contractor Timebox:</span>
-              <span className="text-brand-green font-bold flex items-center gap-1">
-                <Check className="w-3.5 h-3.5" /> 30-Day Auto-Revoke
-              </span>
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2 text-xs sm:text-sm font-mono">
+              <div className="flex items-center justify-between">
+                <span className="text-terracotta">Contractor Timebox:</span>
+                <span className="text-brand-green font-bold flex items-center gap-1">
+                  <Check className="w-3.5 h-3.5" /> 30-Day Auto-Revoke
+                </span>
+              </div>
+              <div className="w-full bg-brand-peach/40 rounded-full h-1.5 overflow-hidden">
+                <motion.div
+                  initial={{ width: '0%' }}
+                  whileInView={{ width: '70%' }}
+                  viewport={{ once: false }}
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: 'easeOut' }}
+                  className="bg-brand-green h-full rounded-full"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
             <span>Frictionless Onboarding</span>
           </div>
         </motion.div>

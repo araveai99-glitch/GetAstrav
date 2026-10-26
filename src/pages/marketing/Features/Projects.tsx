@@ -99,7 +99,7 @@ const COMPARTMENTS: Compartment[] = [
     wireColor: '#6366f1',
     summary: 'Embed PRDs, architectural decision records, and acceptance criteria right alongside everyday work.',
     items: [
-      { title: 'PRD: Execution Kernel v4.2', meta: 'Updated 2h ago • 8 Sections', tag: 'Spec', status: 'Live' },
+      { title: 'PRD: Execution Kernel', meta: 'Updated 2h ago • 8 Sections', tag: 'Spec', status: 'Live' },
       { title: 'API Contract: Event Stream', meta: 'Accepted by Backend Pod', tag: 'Schema', status: 'Locked' },
     ],
   },
@@ -338,40 +338,41 @@ export const Projects: React.FC = () => {
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="projects" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full border border-brand-orange/20">
+              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-orange/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Unified Assets
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Single Source of Truth
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Every project asset lives inside one container. No more lost Figma links, outdated Notion docs, or isolated Jira tickets.
             </p>
 
             {/* Micro Unified Asset Counter */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
               <div className="flex items-center justify-between text-xs font-mono font-bold">
                 <span className="text-espresso">Assets in Container</span>
                 <span className="text-brand-orange">4 Modules Synced</span>
               </div>
               <div className="grid grid-cols-4 gap-1 text-center text-xs font-mono">
-                <div className="p-1.5 bg-white rounded-lg border border-brand-peach/40">Goals</div>
-                <div className="p-1.5 bg-white rounded-lg border border-brand-peach/40">Milestones</div>
-                <div className="p-1.5 bg-white rounded-lg border border-brand-peach/40">Tasks</div>
-                <div className="p-1.5 bg-white rounded-lg border border-brand-peach/40">Docs</div>
+                <div className="p-1 sm:p-1.5 bg-white rounded-lg border border-brand-peach/40">Goals</div>
+                <div className="p-1 sm:p-1.5 bg-white rounded-lg border border-brand-peach/40">Milestones</div>
+                <div className="p-1 sm:p-1.5 bg-white rounded-lg border border-brand-peach/40">Tasks</div>
+                <div className="p-1 sm:p-1.5 bg-white rounded-lg border border-brand-peach/40">Docs</div>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
             <span>Zero Context Scattering</span>
           </div>
         </motion.div>
@@ -381,27 +382,28 @@ export const Projects: React.FC = () => {
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
           transition={{ duration: 0.4, delay: 0.12 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="governance" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 py-0.5 rounded-full border border-brand-green/20">
+              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-2.5 sm:px-3 py-1 rounded-full border border-brand-green/20 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Scoped RBAC
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Scoped Permissions
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               Grant contractors or partner pods access to a single container without exposing company-wide objectives or other project secrets.
             </p>
 
             {/* Micro Scoped Access Toggle */}
             <div className="p-3 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-2">
-              <div className="flex items-center justify-between text-sm sm:text-xs">
+              <div className="flex items-center justify-between text-xs sm:text-sm">
                 <span className="font-bold text-espresso">Access Scope:</span>
                 <div className="flex gap-1">
                   <button
@@ -429,8 +431,8 @@ export const Projects: React.FC = () => {
                 </div>
               </div>
               <div className="p-2 bg-white rounded-lg border border-brand-peach/40 text-xs font-mono text-espresso flex items-center gap-1.5">
-                <Lock className="w-3.5 h-3.5 text-brand-green" />
-                <span>
+                <Lock className="w-3.5 h-3.5 text-brand-green shrink-0" />
+                <span className="truncate">
                   {contractorScope === 'internal'
                     ? 'Full container read/write'
                     : 'Restricted: Single container only'}
@@ -439,7 +441,7 @@ export const Projects: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
             <span>Compartmentalized Security</span>
           </div>
         </motion.div>
@@ -449,32 +451,39 @@ export const Projects: React.FC = () => {
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
           transition={{ duration: 0.4, delay: 0.19 }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-4.5 min-[375px]:p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-amber-400/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4 min-w-0">
               <IllustratedCardBadge variant="progress" size="md" />
-              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 sm:px-3 py-1 rounded-full border border-amber-200 shrink-0 max-w-[65%] truncate sm:max-w-none sm:whitespace-nowrap">
                 Auto Cascade
               </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-[18px] sm:text-lg text-espresso mb-2">
+            <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
               Holistic Progress Rollup
             </h3>
-            <p className="text-base text-terracotta leading-relaxed mb-5">
+            <p className="text-sm sm:text-base text-terracotta leading-relaxed mb-4 sm:mb-5">
               When subtasks inside a container are completed, the container's progress score recalculates instantly, cascading to the overarching OKR.
             </p>
 
             {/* Micro Cascade Visualizer */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5 text-sm sm:text-xs">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 space-y-1.5 text-xs sm:text-sm">
               <div className="flex justify-between font-mono">
                 <span className="text-terracotta">Container Progress</span>
                 <span className="font-bold text-amber-700">88%</span>
               </div>
               <div className="w-full h-2 rounded-full bg-white border border-brand-peach/40 overflow-hidden">
-                <div className="w-[88%] h-full bg-amber-500 rounded-full" />
+                <motion.div
+                  initial={{ width: '0%' }}
+                  whileInView={{ width: '88%' }}
+                  viewport={{ once: false }}
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: 'easeOut', delay: 0.2 }}
+                  className="h-full bg-amber-500 rounded-full"
+                />
               </div>
               <span className="text-xs text-terracotta-muted block text-right font-mono">
                 → Cascades +8.8% to Company OKR
@@ -482,7 +491,7 @@ export const Projects: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
+          <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
             <span>Automatic Upward Cascade</span>
           </div>
         </motion.div>

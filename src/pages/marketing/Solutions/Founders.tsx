@@ -121,7 +121,7 @@ export const Founders: React.FC = () => {
       {/* ==================================================================== */}
       <section
         ref={sectionARef}
-        className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative overflow-hidden space-y-6"
+        className="w-full p-4.5 min-[375px]:p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm relative overflow-hidden space-y-6"
       >
         <div className="max-w-2xl space-y-1 text-left">
           <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
@@ -162,8 +162,9 @@ export const Founders: React.FC = () => {
                       : { opacity: 0, y: 14 }
                   }
                   transition={{ duration: 0.4, delay }}
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                   onClick={() => setSelectedStep(idx)}
-                  className={`cursor-pointer rounded-3xl p-5 border transition-all duration-300 flex flex-col justify-between group ${
+                  className={`cursor-pointer rounded-2xl min-[375px]:rounded-3xl p-4 min-[375px]:p-5 border transition-all duration-300 flex flex-col justify-between group min-w-0 ${
                     isSelected
                       ? 'bg-white border-brand-orange shadow-warm-md scale-[1.02] ring-2 ring-brand-orange/30'
                       : 'bg-white hover:bg-surface-ambient border-brand-peach/80 hover:border-brand-orange/50 shadow-[0_4px_20px_-4px_rgba(241,94,28,0.06),0_2px_6px_-2px_rgba(39,24,18,0.04)] hover:-translate-y-1 hover:shadow-warm-md'
@@ -229,7 +230,7 @@ export const Founders: React.FC = () => {
       {/* ==================================================================== */}
       <section
         ref={sectionBRef}
-        className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-6"
+        className="w-full p-4.5 min-[375px]:p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-6"
       >
         <div className="max-w-2xl space-y-1 text-left">
           <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
@@ -243,7 +244,10 @@ export const Founders: React.FC = () => {
         {/* 4 Telemetry Panels */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Card 1: Overall Goal Progress */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
+          <motion.div
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3 cursor-pointer hover:border-brand-peach hover:shadow-warm-xs transition-all"
+          >
             <div>
               <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-2">
                 <span className="flex items-center gap-2">
@@ -278,10 +282,13 @@ export const Founders: React.FC = () => {
                 <span>+6% this week</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 2: Projects On Track */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
+          <motion.div
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3 cursor-pointer hover:border-brand-peach hover:shadow-warm-xs transition-all"
+          >
             <div>
               <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-2">
                 <span className="flex items-center gap-2">
@@ -316,10 +323,13 @@ export const Founders: React.FC = () => {
                 <span>2 In Review</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 3: Work Needing Attention */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-[#fffbf7] border-2 border-brand-orange/60 shadow-warm-xs flex flex-col justify-between space-y-3">
+          <motion.div
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-4 sm:p-5 rounded-2xl bg-[#fffbf7] border-2 border-brand-orange/60 shadow-warm-xs flex flex-col justify-between space-y-3 cursor-pointer hover:border-brand-orange transition-all"
+          >
             <div>
               <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-brand-orange mb-2">
                 <span className="flex items-center gap-2">
@@ -328,7 +338,10 @@ export const Founders: React.FC = () => {
                   </div>
                   <span className="text-sm font-heading font-bold text-brand-orange">Needs Attention</span>
                 </span>
-                <span className="font-mono font-bold text-sm">1 Delay</span>
+                <span className="font-mono font-bold text-sm flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
+                  1 Delay
+                </span>
               </div>
               <div className="text-[18px] sm:text-base font-extrabold font-heading text-espresso leading-snug">
                 Security Sign-Off
@@ -341,10 +354,13 @@ export const Founders: React.FC = () => {
             <div className="pt-2 border-t border-brand-peach/50 flex items-center text-sm font-heading font-bold text-brand-orange">
               <span>Unblock in 1 Click</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 4: Upcoming Milestones */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3">
+          <motion.div
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-4 sm:p-5 rounded-2xl bg-surface-ambient border border-brand-peach/80 flex flex-col justify-between space-y-3 cursor-pointer hover:border-brand-peach hover:shadow-warm-xs transition-all"
+          >
             <div>
               <div className="flex items-center justify-between text-sm sm:text-xs font-heading font-bold text-terracotta mb-2">
                 <span className="flex items-center gap-2">
@@ -359,14 +375,14 @@ export const Founders: React.FC = () => {
                 Upcoming Gates
               </div>
               <p className="text-sm sm:text-xs text-terracotta-muted mt-0.5">
-                Beta Rollout, SOC2 Audit, Billing v2
+                Beta Rollout, SOC2 Audit, Billing System
               </p>
             </div>
 
             <div className="text-xs font-mono text-brand-green font-semibold">
               ✓ All requirements assigned
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <div className="text-left text-xs font-mono text-terracotta-muted">
@@ -379,7 +395,7 @@ export const Founders: React.FC = () => {
       {/* ==================================================================== */}
       <section
         ref={sectionCRef}
-        className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-6"
+        className="w-full p-4.5 min-[375px]:p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-sm space-y-6"
       >
         <div className="max-w-2xl space-y-1 text-left">
           <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-heading font-extrabold text-espresso">
@@ -398,7 +414,8 @@ export const Founders: React.FC = () => {
               isSectionCInView || shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -14 }
             }
             transition={{ duration: 0.45 }}
-            className="p-5 rounded-2xl bg-[#fff7f5] border border-red-200/80 flex flex-col justify-between space-y-4"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-5 rounded-2xl bg-[#fff7f5] border border-red-200/80 flex flex-col justify-between space-y-4 cursor-pointer hover:border-red-300 transition-all"
           >
             <div className="space-y-3">
               <span className="text-xs font-mono font-bold text-red-600 uppercase">
@@ -462,7 +479,8 @@ export const Founders: React.FC = () => {
               isSectionCInView || shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 14 }
             }
             transition={{ duration: 0.45, delay: 0.1 }}
-            className="p-5 rounded-2xl bg-gradient-to-b from-[#f9fffb] to-[#f0fbf5] border-2 border-brand-green/70 shadow-warm-xs flex flex-col justify-between space-y-4"
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            className="p-5 rounded-2xl bg-gradient-to-b from-[#f9fffb] to-[#f0fbf5] border-2 border-brand-green/70 shadow-warm-xs flex flex-col justify-between space-y-4 cursor-pointer hover:border-brand-green transition-all"
           >
             <div className="space-y-3">
               <span className="text-xs font-mono font-bold text-brand-green uppercase">
