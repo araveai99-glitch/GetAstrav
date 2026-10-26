@@ -31,40 +31,42 @@ export const AIIntelligence: React.FC = () => {
       </motion.div>
 
       {/* 3 Symmetric Intelligence Pillars */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
         {/* Card 1 */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.08, ease: 'easeOut' }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-orange/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
         >
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <IllustratedCardBadge variant="goal" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-3 py-1 rounded-full border border-brand-orange/20">
+          <div className="space-y-3.5 sm:space-y-4">
+            <div className="flex items-center justify-between gap-3">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center">
+                <IllustratedCardBadge variant="goal" size="md" className="w-16 h-16 sm:w-20 sm:h-20" />
+              </div>
+              <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-3 py-1 rounded-full border border-brand-orange/20 shrink-0 whitespace-nowrap">
                 AI Decomposition
               </span>
             </div>
 
             <div>
-              <h3 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
                 Goal-to-Task Proposals
               </h3>
-              <p className="text-base text-terracotta leading-relaxed">
+              <p className="text-sm sm:text-base text-terracotta leading-relaxed">
                 Input any quarterly objective or OKR. Astrav’s AI analyzes historical velocity and pod skill sets to generate 2 to 4 structured actionable deliverables with estimated completion dates.
               </p>
             </div>
 
             {/* Contextual preview widget */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
               <span className="text-terracotta">Generated Output:</span>
               <span className="text-brand-orange font-bold">3 Milestones • 12 Tasks</span>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
+          <div className="mt-4 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-orange">
             <span>Instant Scaffolding</span>
           </div>
         </motion.div>
@@ -75,33 +77,35 @@ export const AIIntelligence: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.16, ease: 'easeOut' }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-yellow/50 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-yellow/50 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
         >
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <IllustratedCardBadge variant="automation" size="md" />
-              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+          <div className="space-y-3.5 sm:space-y-4">
+            <div className="flex items-center justify-between gap-3">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center">
+                <IllustratedCardBadge variant="automation" size="md" className="w-16 h-16 sm:w-20 sm:h-20" />
+              </div>
+              <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-200 shrink-0 whitespace-nowrap">
                 Daily Focus
               </span>
             </div>
 
             <div>
-              <h3 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
                 Daily Focus Recommendations
               </h3>
-              <p className="text-base text-terracotta leading-relaxed">
+              <p className="text-sm sm:text-base text-terracotta leading-relaxed">
                 Every morning, the AI scans active task queues, blocked items, and approaching milestones to generate prioritized "Today Focus" cards for leaders and team members.
               </p>
             </div>
 
             {/* Contextual preview widget */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
               <span className="text-terracotta">Morning Priority:</span>
               <span className="text-amber-800 font-bold">Top 3 Unblocked Actions</span>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
+          <div className="mt-4 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-amber-700">
             <span>Velocity Optimization</span>
           </div>
         </motion.div>
@@ -112,27 +116,29 @@ export const AIIntelligence: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.05 }}
           transition={{ duration: 0.4, delay: 0.24, ease: 'easeOut' }}
-          className="p-6 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          className="p-5 sm:p-7 bg-white rounded-3xl border-2 border-brand-peach/80 hover:border-brand-green/40 hover:shadow-warm-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
         >
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <IllustratedCardBadge variant="control" size="md" />
-              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-3 py-1 rounded-full border border-brand-green/20">
+          <div className="space-y-3.5 sm:space-y-4">
+            <div className="flex items-center justify-between gap-3">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center">
+                <IllustratedCardBadge variant="control" size="md" className="w-16 h-16 sm:w-20 sm:h-20" />
+              </div>
+              <span className="text-xs font-mono font-bold text-brand-green bg-brand-green-light px-3 py-1 rounded-full border border-brand-green/20 shrink-0 whitespace-nowrap">
                 Radar Guard
               </span>
             </div>
 
             <div>
-              <h3 className="font-heading font-extrabold text-[19px] sm:text-xl text-espresso mb-2">
+              <h3 className="font-heading font-extrabold text-[18px] sm:text-xl text-espresso mb-1.5 sm:mb-2 leading-snug">
                 Bottleneck & Risk Detection
               </h3>
-              <p className="text-base text-terracotta leading-relaxed">
+              <p className="text-sm sm:text-base text-terracotta leading-relaxed">
                 Identify stalled reviews, SLA breaches, and dependency locks before they cascade into project delays. Get early alerts with concrete corrective suggestions.
               </p>
             </div>
 
             {/* Contextual preview widget */}
-            <div className="p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/50 flex items-center justify-between text-xs font-mono">
               <span className="text-terracotta">Critical Dependency SLA:</span>
               <span className="text-brand-green font-bold flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5" /> 0 Risk Locks
@@ -140,7 +146,7 @@ export const AIIntelligence: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
+          <div className="mt-4 sm:mt-6 pt-3.5 sm:pt-4 border-t border-brand-peach/40 flex items-center text-sm font-heading font-semibold text-brand-green">
             <span>Early Warning Radar</span>
           </div>
         </motion.div>
@@ -152,9 +158,9 @@ export const AIIntelligence: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.05 }}
         transition={{ duration: 0.45, delay: 0.1, ease: 'easeOut' }}
-        className="p-6 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-md"
+        className="p-5 sm:p-8 bg-white rounded-3xl border border-brand-peach/80 shadow-warm-md"
       >
-        <div className="max-w-3xl mb-6 space-y-1">
+        <div className="max-w-3xl mb-5 sm:mb-6 space-y-1">
           <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
             HUMAN-IN-THE-LOOP CONTROL
           </span>
@@ -166,19 +172,23 @@ export const AIIntelligence: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.35, delay: 0.12, ease: 'easeOut' }}
-            className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-3"
+            className="p-4.5 sm:p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2.5 sm:space-y-3"
           >
-            <div className="w-7 h-7 rounded-full bg-[#fff4ed] text-brand-orange border border-brand-orange/30 font-mono font-bold text-xs flex items-center justify-center">
+            <div className="w-7 h-7 sm:w-7 sm:h-7 rounded-full bg-[#fff4ed] text-brand-orange border border-brand-orange/30 font-mono font-bold text-[13px] sm:text-xs flex items-center justify-center shrink-0">
               1
             </div>
-            <h4 className="font-heading font-extrabold text-[16px] sm:text-sm text-espresso">Target Ingestion</h4>
-            <p className="text-[13px] sm:text-xs text-terracotta leading-relaxed">Input company goal statement and target completion quarter.</p>
+            <h4 className="font-heading font-extrabold text-[17.5px] sm:text-sm text-espresso leading-snug">
+              Target Ingestion
+            </h4>
+            <p className="text-[14.5px] sm:text-xs text-terracotta leading-[1.5] sm:leading-relaxed">
+              Input company goal statement and target completion quarter.
+            </p>
           </motion.div>
 
           <motion.div
@@ -186,13 +196,17 @@ export const AIIntelligence: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.35, delay: 0.18, ease: 'easeOut' }}
-            className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-3"
+            className="p-4.5 sm:p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2.5 sm:space-y-3"
           >
-            <div className="w-7 h-7 rounded-full bg-[#fefbf0] text-amber-800 border border-amber-200 font-mono font-bold text-xs flex items-center justify-center">
+            <div className="w-7 h-7 sm:w-7 sm:h-7 rounded-full bg-[#fefbf0] text-amber-800 border border-amber-200 font-mono font-bold text-[13px] sm:text-xs flex items-center justify-center shrink-0">
               2
             </div>
-            <h4 className="font-heading font-extrabold text-[16px] sm:text-sm text-espresso">Contextual Analysis</h4>
-            <p className="text-[13px] sm:text-xs text-terracotta leading-relaxed">AI references active department pods, team workloads, and SLAs.</p>
+            <h4 className="font-heading font-extrabold text-[17.5px] sm:text-sm text-espresso leading-snug">
+              Contextual Analysis
+            </h4>
+            <p className="text-[14.5px] sm:text-xs text-terracotta leading-[1.5] sm:leading-relaxed">
+              AI references active department pods, team workloads, and SLAs.
+            </p>
           </motion.div>
 
           <motion.div
@@ -200,13 +214,17 @@ export const AIIntelligence: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.35, delay: 0.24, ease: 'easeOut' }}
-            className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-3"
+            className="p-4.5 sm:p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2.5 sm:space-y-3"
           >
-            <div className="w-7 h-7 rounded-full bg-[#edf7f3] text-brand-green border border-brand-green/30 font-mono font-bold text-xs flex items-center justify-center">
+            <div className="w-7 h-7 sm:w-7 sm:h-7 rounded-full bg-[#edf7f3] text-brand-green border border-brand-green/30 font-mono font-bold text-[13px] sm:text-xs flex items-center justify-center shrink-0">
               3
             </div>
-            <h4 className="font-heading font-extrabold text-[16px] sm:text-sm text-espresso">Interactive Review</h4>
-            <p className="text-[13px] sm:text-xs text-terracotta leading-relaxed">Modify title, weight, and assignees with 1-click proposal adjustments.</p>
+            <h4 className="font-heading font-extrabold text-[17.5px] sm:text-sm text-espresso leading-snug">
+              Interactive Review
+            </h4>
+            <p className="text-[14.5px] sm:text-xs text-terracotta leading-[1.5] sm:leading-relaxed">
+              Modify title, weight, and assignees with 1-click proposal adjustments.
+            </p>
           </motion.div>
 
           <motion.div
@@ -214,13 +232,17 @@ export const AIIntelligence: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.35, delay: 0.3, ease: 'easeOut' }}
-            className="p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-3"
+            className="p-4.5 sm:p-5 rounded-2xl bg-surface-tier1/70 border border-brand-peach/60 space-y-2.5 sm:space-y-3"
           >
-            <div className="w-7 h-7 rounded-full bg-white text-espresso border border-brand-peach/80 font-mono font-bold text-xs flex items-center justify-center">
+            <div className="w-7 h-7 sm:w-7 sm:h-7 rounded-full bg-white text-espresso border border-brand-peach/80 font-mono font-bold text-[13px] sm:text-xs flex items-center justify-center shrink-0">
               4
             </div>
-            <h4 className="font-heading font-extrabold text-[16px] sm:text-sm text-espresso">Live Rollup Commit</h4>
-            <p className="text-[13px] sm:text-xs text-terracotta leading-relaxed">Accepted items attach automatically to the organizational progress tree.</p>
+            <h4 className="font-heading font-extrabold text-[17.5px] sm:text-sm text-espresso leading-snug">
+              Live Rollup Commit
+            </h4>
+            <p className="text-[14.5px] sm:text-xs text-terracotta leading-[1.5] sm:leading-relaxed">
+              Accepted items attach automatically to the organizational progress tree.
+            </p>
           </motion.div>
         </div>
       </motion.div>
