@@ -479,7 +479,7 @@ export const DepartmentWorkflow: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-brand-peach/60 pb-3">
             <div>
               <h2 className="text-[26px] min-[375px]:text-[28px] sm:text-3xl font-extrabold text-[#271812] font-heading tracking-tight">
-                Other Department Workflows ({remainingDepts.length})
+                Other Department Workflows
               </h2>
               <p className="text-sm sm:text-base text-[#5a4138]">
                 Select any department below to bring it to primary focus or inspect deliverables.
