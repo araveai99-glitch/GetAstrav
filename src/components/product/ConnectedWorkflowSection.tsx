@@ -460,27 +460,63 @@ export const ConnectedWorkflowSection: React.FC = () => {
         className="absolute top-16 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-gradient-to-br from-brand-peach/30 via-brand-orange-light/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10"
       />
 
-      {/* Section Header with repeat-on-scroll entrance */}
-      <div className="text-left w-full max-w-5xl space-y-2 sm:space-y-2.5 mb-6 sm:mb-8">
-        <motion.h1
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.35, delay: 0.05 }}
-          className="text-2xl min-[360px]:text-[28px] min-[390px]:text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left break-words"
-        >
-          From Big Goals to <span className="text-brand-orange">Daily Work.</span>
-        </motion.h1>
+      {/* Section Hero Area: Balanced 45:55 layout on desktop, stacked on mobile */}
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-10 xl:gap-12 mb-6 sm:mb-8 lg:mb-10 w-full">
+        {/* Left Column: Heading and Subtitle (45% on desktop) */}
+        <div className="w-full lg:w-[45%] text-left space-y-2.5 sm:space-y-3 shrink-0">
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.4, delay: 0.05, ease: 'easeOut' }}
+            className="text-2xl min-[360px]:text-[28px] min-[390px]:text-3xl sm:text-4xl lg:text-[38px] xl:text-[44px] 2xl:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left"
+          >
+            From Big Goals to <span className="text-brand-orange whitespace-nowrap">Daily Work.</span>
+          </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.4, delay: 0.12, ease: 'easeOut' }}
+            className="text-sm min-[375px]:text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-lg text-left"
+          >
+            Connect your goals, projects, and everyday work.
+          </motion.p>
+        </div>
+
+        {/* Right Column: Astrav Command Center Supporting Visual (55% on desktop) */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.35, delay: 0.12 }}
-          className="text-sm min-[375px]:text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-3xl text-left"
+          transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
+          className="w-full lg:w-[55%] flex items-center justify-center lg:justify-end"
         >
-          Connect your goals, projects, and everyday work.
-        </motion.p>
+          <picture className="block w-full max-w-[800px]">
+            {/* Desktop and Tablet: landscape Command Center composition */}
+            <source
+              media="(min-width: 640px)"
+              srcSet="/assets/astrav_command_center_hero.webp"
+              type="image/webp"
+            />
+            {/* Mobile: responsive mobile visual */}
+            <source
+              srcSet="/assets/astrav_command_center_mobile.webp"
+              type="image/webp"
+            />
+            <img
+              src="/assets/astrav_command_center_hero.png"
+              alt="Astrav Command Center - Executive Overview, Goals, Projects, Milestones, and Automated Progress Rollups"
+              width={1252}
+              height={682}
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+              className="w-full h-auto object-contain select-none transition-transform duration-300 hover:scale-[1.01]"
+            />
+          </picture>
+        </motion.div>
       </div>
 
       {/* Main Diagram Card */}
