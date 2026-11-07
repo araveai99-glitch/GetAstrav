@@ -96,7 +96,7 @@ export const RollupHeroSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-16 sm:pt-20 lg:pt-20 pb-6 sm:pb-8 lg:pb-10 px-4 sm:px-6 lg:px-[60px] max-w-[1720px] 2xl:max-w-[1840px] mx-auto overflow-hidden w-full"
+      className="relative pt-28 sm:pt-32 lg:pt-20 pb-6 sm:pb-8 lg:pb-10 px-4 sm:px-6 lg:px-[60px] max-w-[1720px] 2xl:max-w-[1840px] mx-auto overflow-hidden w-full"
     >
       {/* Subtle Ambient Decorative Glow */}
       <motion.div
@@ -159,7 +159,7 @@ export const RollupHeroSection: React.FC = () => {
               src="/assets/astrav_automated_rollup_hero.png"
               alt="Astrav Automated Progress Rollups - Live progress monitoring across tasks, projects, and goals"
               width={1920}
-              height={1152}
+              height={1223}
               fetchPriority="high"
               loading="eager"
               decoding="async"
