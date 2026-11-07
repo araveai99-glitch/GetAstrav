@@ -13,7 +13,7 @@ export const AIIntelligence: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto px-4 sm:px-6 lg:px-[60px] pt-16 sm:pt-20 lg:pt-20 pb-8 sm:pb-12 flex flex-col space-y-8 sm:space-y-10 selection:bg-brand-orange selection:text-white">
+    <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto px-4 sm:px-6 lg:px-[60px] pt-28 sm:pt-32 lg:pt-20 pb-8 sm:pb-12 flex flex-col space-y-8 sm:space-y-10 selection:bg-brand-orange selection:text-white">
       {/* Section Hero Area: Balanced 42:58 layout on desktop, stacked on mobile */}
       <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-8 xl:gap-12 mb-4 sm:mb-6 lg:mb-8 w-full">
         {/* Left Column: Heading and Supporting Text (42% on desktop) */}
@@ -64,7 +64,7 @@ export const AIIntelligence: React.FC = () => {
               src="/assets/astrav_ai_goal_decomposition_desktop.png"
               alt="Astrav AI Goal Decomposition - Turn a big goal into a clear, executable plan with AI in modern team collaboration"
               width={1920}
-              height={1093}
+              height={1229}
               fetchPriority="high"
               loading="eager"
               decoding="async"
