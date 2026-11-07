@@ -96,7 +96,7 @@ export const RollupHeroSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-28 sm:pt-32 lg:pt-20 pb-6 sm:pb-8 lg:pb-10 px-4 sm:px-6 lg:px-[60px] max-w-[1720px] 2xl:max-w-[1840px] mx-auto overflow-hidden w-full"
+      className="relative pt-[86px] sm:pt-[92px] lg:pt-20 pb-6 sm:pb-8 lg:pb-10 px-4 sm:px-6 lg:px-[60px] max-w-[1720px] 2xl:max-w-[1840px] mx-auto overflow-hidden w-full"
     >
       {/* Subtle Ambient Decorative Glow */}
       <motion.div
@@ -163,7 +163,7 @@ export const RollupHeroSection: React.FC = () => {
               fetchPriority="high"
               loading="eager"
               decoding="async"
-              className="w-full h-auto object-contain select-none transition-transform duration-300 hover:scale-[1.01]"
+              className="w-full h-auto object-contain select-none"
             />
           </picture>
         </motion.div>
