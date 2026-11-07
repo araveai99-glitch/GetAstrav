@@ -64,7 +64,7 @@ export const AIIntelligence: React.FC = () => {
               src="/assets/astrav_ai_goal_decomposition_desktop.png"
               alt="Astrav AI Goal Decomposition - Turn a big goal into a clear, executable plan with AI in modern team collaboration"
               width={1920}
-              height={1229}
+              height={1281}
               fetchPriority="high"
               loading="eager"
               decoding="async"
