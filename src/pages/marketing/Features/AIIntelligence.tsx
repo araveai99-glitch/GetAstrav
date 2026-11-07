@@ -13,22 +13,66 @@ export const AIIntelligence: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-24 pb-8 sm:pb-12 flex flex-col space-y-8 sm:space-y-10 selection:bg-brand-orange selection:text-white">
-      {/* Page Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.05 }}
-        transition={{ duration: 0.35, delay: 0.05 }}
-        className="text-left w-full max-w-none space-y-2 sm:space-y-2.5"
-      >
-        <h1 className="brand-h1 text-espresso tracking-tight text-left lg:whitespace-nowrap">
-          AI Co-Pilot for <span className="text-brand-orange">Goal Decomposition</span>
-        </h1>
-        <p className="brand-subtitle text-terracotta text-base sm:text-lg font-normal text-left max-w-none">
-          Decompose high-level strategic objectives into concrete task proposals with realistic timelines, suggested owners, and automated dependency mapping.
-        </p>
-      </motion.div>
+    <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto px-4 sm:px-6 lg:px-[60px] pt-16 sm:pt-20 lg:pt-20 pb-8 sm:pb-12 flex flex-col space-y-8 sm:space-y-10 selection:bg-brand-orange selection:text-white">
+      {/* Section Hero Area: Balanced 42:58 layout on desktop, stacked on mobile */}
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-8 xl:gap-12 mb-4 sm:mb-6 lg:mb-8 w-full">
+        {/* Left Column: Heading and Supporting Text (42% on desktop) */}
+        <div className="w-full lg:w-[42%] text-left space-y-3 sm:space-y-4 shrink-0">
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.4, delay: 0.05, ease: 'easeOut' }}
+            className="text-3xl min-[360px]:text-[34px] min-[390px]:text-4xl sm:text-5xl lg:text-[46px] xl:text-[54px] 2xl:text-6xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left"
+          >
+            AI Goal <br className="hidden sm:inline" />
+            <span className="text-brand-orange whitespace-nowrap">Decomposition</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.4, delay: 0.12, ease: 'easeOut' }}
+            className="text-base min-[375px]:text-lg sm:text-xl text-terracotta leading-relaxed font-normal max-w-lg text-left"
+          >
+            Turn a big goal into a clear, executable plan with AI.
+          </motion.p>
+        </div>
+
+        {/* Right Column: High-Quality Meeting Room Supporting Visual (58% on desktop) */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
+          className="w-full lg:w-[58%] flex items-center justify-center lg:justify-end"
+        >
+          <picture className="block w-full max-w-[540px] sm:max-w-[620px] lg:max-w-[960px] 2xl:max-w-[1040px] rounded-2xl sm:rounded-3xl lg:rounded-none overflow-hidden lg:overflow-visible">
+            {/* Desktop and Tablet: landscape meeting room visual with natural feathering */}
+            <source
+              media="(min-width: 640px)"
+              srcSet="/assets/astrav_ai_goal_decomposition_desktop.webp"
+              type="image/webp"
+            />
+            {/* Mobile: dedicated high-clarity mobile visual with rounded corners */}
+            <source
+              srcSet="/assets/astrav_ai_goal_decomposition_mobile.webp"
+              type="image/webp"
+            />
+            <img
+              src="/assets/astrav_ai_goal_decomposition_desktop.png"
+              alt="Astrav AI Goal Decomposition - Turn a big goal into a clear, executable plan with AI in modern team collaboration"
+              width={1920}
+              height={1093}
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+              className="w-full h-auto object-contain select-none transition-transform duration-300 hover:scale-[1.01]"
+            />
+          </picture>
+        </motion.div>
+      </div>
 
       {/* 3 Symmetric Intelligence Pillars */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">

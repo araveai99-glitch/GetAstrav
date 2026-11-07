@@ -96,7 +96,7 @@ export const RollupHeroSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-20 sm:pt-24 pb-3 sm:pb-5 px-3.5 sm:px-6 lg:px-8 xl:px-10 max-w-[1720px] mx-auto overflow-hidden w-full"
+      className="relative pt-16 sm:pt-20 lg:pt-20 pb-6 sm:pb-8 lg:pb-10 px-4 sm:px-6 lg:px-[60px] max-w-[1720px] 2xl:max-w-[1840px] mx-auto overflow-hidden w-full"
     >
       {/* Subtle Ambient Decorative Glow */}
       <motion.div
@@ -112,16 +112,73 @@ export const RollupHeroSection: React.FC = () => {
         className="absolute top-12 left-1/2 -translate-x-1/2 w-[700px] h-[360px] bg-gradient-to-br from-brand-peach/30 via-brand-orange-light/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10"
       />
 
-      {/* Header Container */}
-      <div className="text-left w-full max-w-5xl 2xl:max-w-6xl space-y-1 sm:space-y-2 mb-4 sm:mb-6">
-        <motion.h1
+      {/* Main Hero Area: Balanced 42:58 layout on desktop, stacked on mobile */}
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-8 xl:gap-12 mb-8 sm:mb-12 lg:mb-16 w-full">
+        {/* Left Column: Heading and Supporting Text (42% on desktop) */}
+        <div className="w-full lg:w-[42%] text-left space-y-3 sm:space-y-4 shrink-0">
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+            transition={{ duration: 0.4, delay: 0.05, ease: 'easeOut' }}
+            className="text-3xl min-[360px]:text-[34px] min-[390px]:text-4xl sm:text-5xl lg:text-[46px] xl:text-[54px] 2xl:text-6xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left"
+          >
+            Automated <br className="hidden sm:inline" />
+            <span className="text-brand-orange whitespace-nowrap">Progress Rollups</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+            transition={{ duration: 0.4, delay: 0.12, ease: 'easeOut' }}
+            className="text-base min-[375px]:text-lg sm:text-xl text-terracotta leading-relaxed font-normal max-w-lg text-left"
+          >
+            Turn daily task updates into real progress, automatically.
+          </motion.p>
+        </div>
+
+        {/* Right Column: Live Progress Monitoring Supporting Visual (58% on desktop) */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
+          className="w-full lg:w-[58%] flex items-center justify-center lg:justify-end"
+        >
+          <picture className="block w-full max-w-[540px] sm:max-w-[620px] lg:max-w-[960px] 2xl:max-w-[1040px] rounded-2xl sm:rounded-3xl lg:rounded-none overflow-hidden lg:overflow-visible">
+            {/* Desktop & Tablet: landscape composition with natural edge blending */}
+            <source
+              media="(min-width: 640px)"
+              srcSet="/assets/astrav_automated_rollup_hero.webp"
+              type="image/webp"
+            />
+            {/* Mobile: dedicated high-clarity mobile visual with rounded corners */}
+            <source
+              srcSet="/assets/astrav_automated_rollup_mobile.webp"
+              type="image/webp"
+            />
+            <img
+              src="/assets/astrav_automated_rollup_hero.png"
+              alt="Astrav Automated Progress Rollups - Live progress monitoring across tasks, projects, and goals"
+              width={1920}
+              height={1152}
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+              className="w-full h-auto object-contain select-none transition-transform duration-300 hover:scale-[1.01]"
+            />
+          </picture>
+        </motion.div>
+      </div>
+
+      {/* Section Divider & Step Flow Header */}
+      <div className="text-left w-full max-w-5xl 2xl:max-w-6xl space-y-1 sm:space-y-2 mb-4 sm:mb-6 pt-6 sm:pt-8 border-t border-brand-peach/60">
+        <motion.h2
           initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 0.35, delay: 0.05 }}
           className="text-2xl min-[375px]:text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left break-words"
         >
           Every Task Moves the Bigger Goal <span className="text-brand-orange">Forward.</span>
-        </motion.h1>
+        </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 10 }}
