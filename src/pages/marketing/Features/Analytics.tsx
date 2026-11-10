@@ -44,7 +44,7 @@ export const Analytics: React.FC = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
-            className="text-[26px] min-[360px]:text-[27px] min-[390px]:text-[29px] min-[430px]:text-[32px] sm:text-[44px] lg:text-[36px] xl:text-[42px] 2xl:text-[48px] font-extrabold text-espresso tracking-tight font-heading leading-[1.15] text-left"
+            className="w-full max-w-full box-border text-[28px] min-[375px]:text-[29px] min-[390px]:text-[30px] min-[430px]:text-[32px] sm:text-[44px] lg:text-[36px] xl:text-[42px] 2xl:text-[48px] font-extrabold text-espresso tracking-tight font-heading leading-[1.12] sm:leading-[1.15] text-left"
           >
             <span className="block whitespace-nowrap text-espresso">
               Dual-Mode Analytics for
