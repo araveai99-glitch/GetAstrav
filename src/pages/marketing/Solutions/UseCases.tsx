@@ -142,17 +142,64 @@ export const UseCases: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-24 sm:pt-28 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12">
+    <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto px-4 sm:px-6 lg:px-[60px] pt-[88px] sm:pt-24 lg:pt-20 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12">
       {/* ==================================================================== */}
-      {/* DIRECT OPENING (PROPER NAVBAR CLEARANCE, NO HERO BANNER, NO BADGES) */}
+      {/* HERO SECTION: Balanced two-column layout on desktop, stacked on mobile */}
       {/* ==================================================================== */}
-      <div className="max-w-5xl space-y-3">
-        <h1 className="text-3xl min-[390px]:text-[32px] sm:text-4xl lg:text-[42px] xl:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight lg:whitespace-nowrap">
-          Bring Every Department <span className="text-brand-orange">Into Alignment.</span>
-        </h1>
-        <p className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-3xl">
-          Connect departments, projects, and business goals in one clear view. Break down team silos so everyone moves toward the same company milestones.
-        </p>
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-8 xl:gap-12 mb-2 sm:mb-4 lg:mb-6 w-full">
+        {/* Left Column: Heading and Supporting Text */}
+        <div className="w-full lg:w-[46%] xl:w-[44%] 2xl:w-[42%] text-left space-y-3 sm:space-y-4 shrink-0">
+          <motion.h1
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
+            className="text-3xl min-[360px]:text-[32px] min-[390px]:text-[36px] min-[430px]:text-[40px] sm:text-5xl lg:text-[42px] xl:text-[48px] 2xl:text-[54px] font-extrabold text-espresso tracking-tight font-heading leading-[1.14] text-left"
+          >
+            Bring Every Department <br className="hidden sm:inline" />
+            <span className="text-brand-orange whitespace-nowrap">Into Alignment.</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.12, ease: 'easeOut' }}
+            className="text-base min-[375px]:text-lg sm:text-xl text-terracotta leading-relaxed font-normal max-w-lg text-left"
+          >
+            Connect departments, projects, and business goals in one clear view. Break down team silos so everyone moves toward the same company milestones.
+          </motion.p>
+        </div>
+
+        {/* Right Column: Prominent Enterprise Command Center Supporting Visual */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+          className="w-full lg:w-[54%] xl:w-[56%] 2xl:w-[58%] flex items-center justify-center lg:justify-end"
+        >
+          <picture className="block w-full max-w-[540px] sm:max-w-[620px] lg:max-w-[960px] 2xl:max-w-[1040px] overflow-hidden lg:overflow-visible">
+            {/* Desktop and Tablet: landscape enterprise use cases visual with natural feathering */}
+            <source
+              media="(min-width: 640px)"
+              srcSet="/assets/astrav_enterprise_use_cases_hero.webp"
+              type="image/webp"
+            />
+            {/* Mobile: dedicated high-clarity mobile visual with natural edge blending */}
+            <source
+              srcSet="/assets/astrav_enterprise_use_cases_mobile.webp"
+              type="image/webp"
+            />
+            <img
+              src="/assets/astrav_enterprise_use_cases_hero.png"
+              alt="Astrav for Enterprise - Unified command hub connecting portfolio visibility, operations, collaboration, governance, decision intelligence, performance, and resource management"
+              width={1024}
+              height={576}
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+              className="w-full h-auto object-contain select-none"
+            />
+          </picture>
+        </motion.div>
       </div>
 
       {/* ==================================================================== */}
