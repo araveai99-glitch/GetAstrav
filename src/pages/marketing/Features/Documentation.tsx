@@ -95,27 +95,64 @@ export const Documentation: React.FC = () => {
     LINKED_TASKS.find((t) => t.id === selectedTaskId) || LINKED_TASKS[0];
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
-      {/* 1. Page Header */}
-      <div className="text-left w-full max-w-5xl space-y-2 mb-2 sm:mb-4">
-        <motion.h1
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.05 }}
-          transition={{ duration: 0.4, delay: 0.05 }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left lg:whitespace-nowrap"
+    <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto px-4 sm:px-6 lg:px-[60px] pt-[88px] sm:pt-24 lg:pt-20 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
+      {/* ==================================================================== */}
+      {/* HERO SECTION: Balanced two-column split layout on desktop, stacked on mobile */}
+      {/* ==================================================================== */}
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-8 xl:gap-12 mb-2 sm:mb-4 lg:mb-6 w-full">
+        {/* Left Column: Heading and Supporting Text */}
+        <div className="w-full lg:w-[46%] xl:w-[44%] 2xl:w-[42%] text-left space-y-3 sm:space-y-4 shrink-0">
+          <motion.h1
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
+            className="text-3xl min-[360px]:text-[32px] min-[390px]:text-[36px] min-[430px]:text-[40px] sm:text-5xl lg:text-[42px] xl:text-[48px] 2xl:text-[54px] font-extrabold text-espresso tracking-tight font-heading leading-[1.14] text-left"
+          >
+            Connect Specifications <br className="hidden sm:inline" />
+            <span className="text-brand-orange whitespace-nowrap">Directly to Live Work.</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.12, ease: 'easeOut' }}
+            className="text-base min-[375px]:text-lg sm:text-xl text-terracotta leading-relaxed font-normal max-w-lg text-left"
+          >
+            Never build without context. When team members select any task, the exact PRD requirements, architectural rationale, and acceptance criteria appear right beside it.
+          </motion.p>
+        </div>
+
+        {/* Right Column: Prominent Project Knowledge & Specs Supporting Visual */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+          className="w-full lg:w-[54%] xl:w-[56%] 2xl:w-[58%] flex items-center justify-center lg:justify-end"
         >
-          Connect Specifications <span className="text-brand-orange">Directly to Live Work.</span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.05 }}
-          transition={{ duration: 0.4, delay: 0.12 }}
-          className="text-base sm:text-lg text-terracotta leading-relaxed font-normal max-w-4xl text-left"
-        >
-          Never build without context. When team members select any task, the exact PRD requirements, architectural rationale, and acceptance criteria appear right beside it.
-        </motion.p>
+          <picture className="block w-full max-w-[540px] sm:max-w-[620px] lg:max-w-[960px] 2xl:max-w-[1040px] overflow-hidden lg:overflow-visible">
+            {/* Desktop and Tablet: landscape visual with natural feathering */}
+            <source
+              media="(min-width: 640px)"
+              srcSet="/assets/astrav_project_knowledge_specs_hero.webp"
+              type="image/webp"
+            />
+            {/* Mobile: dedicated high-clarity mobile visual with natural edge blending */}
+            <source
+              srcSet="/assets/astrav_project_knowledge_specs_mobile.webp"
+              type="image/webp"
+            />
+            <img
+              src="/assets/astrav_project_knowledge_specs_hero.png"
+              alt="Astrav Project Knowledge and Specs - Centralized documentation hub with PRD, UI specs, API docs, architecture specs, and live alignment"
+              width={1024}
+              height={576}
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+              className="w-full h-auto object-contain select-none"
+            />
+          </picture>
+        </motion.div>
       </div>
 
       {/* 2. MAIN ATTRACTION: Interactive Task-to-Spec Knowledge Bridge */}
