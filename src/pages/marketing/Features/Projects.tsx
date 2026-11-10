@@ -130,14 +130,17 @@ export const Projects: React.FC = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
-            className="text-[24px] min-[390px]:text-[27px] min-[430px]:text-[30px] sm:text-[38px] lg:text-[32px] xl:text-[38px] 2xl:text-[44px] font-extrabold text-espresso tracking-tight font-heading leading-[1.15] text-left"
+            className="w-full max-w-full box-border text-[30px] min-[390px]:text-[32px] min-[430px]:text-[34px] sm:text-[38px] lg:text-[32px] xl:text-[38px] 2xl:text-[44px] font-extrabold text-espresso tracking-tight font-heading leading-[1.12] sm:leading-[1.15] text-left"
           >
-            <span className="block whitespace-nowrap text-espresso">
-              All Project Assets in
+            <span className="text-espresso">
+              All Project Assets
             </span>
-            <span className="block whitespace-nowrap text-brand-orange">
-              One Dedicated Workspace
-            </span>
+            <br className="sm:hidden" />
+            <span className="text-espresso"> in</span>
+            <br className="hidden sm:inline" />
+            <span className="text-brand-orange"> One Dedicated</span>
+            <br className="sm:hidden" />
+            <span className="text-brand-orange"> Workspace</span>
           </motion.h1>
 
           <motion.p
