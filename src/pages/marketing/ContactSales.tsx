@@ -83,32 +83,122 @@ export const ContactSales: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-20 sm:pt-24 pb-8 sm:pb-12 flex flex-col space-y-12 sm:space-y-16 selection:bg-brand-orange selection:text-white">
-      {/* Section 1: Compact Hero */}
-      <div className="text-left w-full max-w-5xl space-y-2.5 sm:space-y-3">
-        <motion.h1
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.05 }}
-          transition={{ duration: 0.4, delay: 0.05 }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left"
-        >
-          Let's Find the Right Setup <span className="text-brand-orange">for Your Team.</span>
-        </motion.h1>
+    <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto px-4 sm:px-6 lg:px-[60px] pt-[88px] sm:pt-24 lg:pt-20 pb-8 sm:pb-12 flex flex-col space-y-10 sm:space-y-12 selection:bg-brand-orange selection:text-white">
+      {/* ==================================================================== */}
+      {/* HERO SECTION: Balanced two-column split layout on desktop, stacked on mobile */}
+      {/* ==================================================================== */}
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-8 xl:gap-12 mb-2 sm:mb-4 lg:mb-6 w-full">
+        {/* Left Column: Heading, Supporting Text, Key Benefits, and CTA */}
+        <div className="w-full lg:w-[46%] xl:w-[44%] 2xl:w-[42%] text-left space-y-3 sm:space-y-4 shrink-0">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
+          >
+            <span className="text-xs font-mono font-bold text-brand-orange bg-brand-orange-light px-3 py-1 rounded-full border border-brand-orange/30 inline-block mb-2">
+              Contact Sales
+            </span>
+            <h1 className="text-3xl min-[360px]:text-[32px] min-[390px]:text-[36px] min-[430px]:text-[40px] sm:text-5xl lg:text-[42px] xl:text-[48px] 2xl:text-[54px] font-extrabold text-espresso tracking-tight font-heading leading-[1.14] text-left">
+              Let's Find the Right Setup <br className="hidden sm:inline" />
+              <span className="text-brand-orange whitespace-nowrap">for Your Team.</span>
+            </h1>
+          </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.05 }}
-          transition={{ duration: 0.4, delay: 0.12 }}
-          className="text-base sm:text-lg lg:text-xl text-terracotta leading-relaxed font-normal max-w-4xl text-left"
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.12, ease: 'easeOut' }}
+            className="text-base min-[375px]:text-lg sm:text-xl text-terracotta leading-relaxed font-normal max-w-lg text-left"
+          >
+            Tell us what your organization needs. We'll show you how Astrav maps your strategy to daily execution with zero guesswork.
+          </motion.p>
+
+          {/* Three Key Benefits */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.18, ease: 'easeOut' }}
+            className="space-y-2.5 pt-1 sm:pt-2"
+          >
+            <div className="flex items-center gap-2.5 text-sm sm:text-base font-heading font-medium text-espresso">
+              <div className="w-7 h-7 rounded-lg bg-brand-orange-light text-brand-orange flex items-center justify-center shrink-0">
+                <Calendar className="w-4 h-4" />
+              </div>
+              <span>Book a Live Demo</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-sm sm:text-base font-heading font-medium text-espresso">
+              <div className="w-7 h-7 rounded-lg bg-brand-orange-light text-brand-orange flex items-center justify-center shrink-0">
+                <Users className="w-4 h-4" />
+              </div>
+              <span>Talk to Our Experts</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-sm sm:text-base font-heading font-medium text-espresso">
+              <div className="w-7 h-7 rounded-lg bg-brand-orange-light text-brand-orange flex items-center justify-center shrink-0">
+                <Zap className="w-4 h-4" />
+              </div>
+              <span>Get a Solution Tailored to You</span>
+            </div>
+          </motion.div>
+
+          {/* Prominent Orange CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.22, ease: 'easeOut' }}
+            className="pt-2 sm:pt-3"
+          >
+            <motion.button
+              type="button"
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
+              onClick={() => {
+                const formEl = document.getElementById('contact-form');
+                if (formEl) {
+                  formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="btn-brand-primary px-7 py-3.5 rounded-xl text-base font-heading font-bold shadow-md shadow-brand-orange/25 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center gap-2 cursor-pointer select-none"
+            >
+              <span>Contact Sales Now</span>
+              <ArrowRight className="w-4 h-4" />
+            </motion.button>
+          </motion.div>
+        </div>
+
+        {/* Right Column: Prominent Contact Sales Supporting Visual */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+          className="w-full lg:w-[54%] xl:w-[56%] 2xl:w-[58%] flex items-center justify-center lg:justify-end"
         >
-          Tell us what your organization needs. We'll show you how Astrav maps your strategy to daily execution with zero guesswork.
-        </motion.p>
+          <picture className="block w-full max-w-[540px] sm:max-w-[620px] lg:max-w-[960px] 2xl:max-w-[1040px] overflow-hidden lg:overflow-visible">
+            {/* Desktop and Tablet: landscape visual with natural feathering */}
+            <source
+              media="(min-width: 640px)"
+              srcSet="/assets/astrav_contact_sales_hero.webp"
+              type="image/webp"
+            />
+            {/* Mobile: dedicated high-clarity mobile visual with natural edge blending */}
+            <source
+              srcSet="/assets/astrav_contact_sales_mobile.webp"
+              type="image/webp"
+            />
+            <img
+              src="/assets/astrav_contact_sales_hero.png"
+              alt="Contact Sales - Astrav executive conference room with dashboard preview on laptop, illuminated brand wall, and personalized live demo station"
+              width={1024}
+              height={576}
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+              className="w-full h-auto object-contain select-none"
+            />
+          </picture>
+        </motion.div>
       </div>
 
       {/* Section 2: Contact Form + Supporting Visual (2-Column Desktop Layout) */}
-      <div className="!mt-6 sm:!mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div id="contact-form" className="!mt-6 sm:!mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Contact Form */}
         <motion.div
           initial={{ opacity: 0, x: -16 }}
