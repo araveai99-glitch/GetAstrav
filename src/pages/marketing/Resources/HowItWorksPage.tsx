@@ -181,20 +181,22 @@ export const HowItWorksPage: React.FC = () => {
     <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto px-4 sm:px-6 lg:px-[60px] pt-[88px] sm:pt-24 lg:pt-20 pb-12 sm:pb-16 flex flex-col space-y-10 sm:space-y-14 selection:bg-brand-orange selection:text-white">
       
       {/* ==================================================================== */}
-      {/* HERO SECTION: Balanced 42:58 two-column layout on desktop, stacked on mobile */}
+      {/* HERO SECTION: Balanced two-column layout on desktop, stacked on mobile */}
       {/* ==================================================================== */}
       <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-8 xl:gap-12 mb-2 sm:mb-4 lg:mb-6 w-full">
-        {/* Left Column: Heading and Supporting Text (42% on desktop) */}
-        <div className="w-full lg:w-[42%] text-left space-y-3 sm:space-y-4 shrink-0">
+        {/* Left Column: Heading and Supporting Text */}
+        <div className="w-full lg:w-[46%] xl:w-[44%] 2xl:w-[42%] text-left space-y-3 sm:space-y-4 shrink-0">
           <motion.h1
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.4, delay: 0.05, ease: 'easeOut' }}
-            className="text-3xl min-[360px]:text-[34px] min-[390px]:text-4xl sm:text-5xl lg:text-[46px] xl:text-[54px] 2xl:text-6xl font-extrabold text-espresso tracking-tight font-heading leading-tight text-left"
+            className="text-[25px] min-[360px]:text-[27px] min-[390px]:text-[30px] min-[430px]:text-[33px] sm:text-[42px] lg:text-[38px] xl:text-[46px] 2xl:text-[54px] font-extrabold text-espresso tracking-tight font-heading leading-[1.16] text-left"
           >
-            From Your First Goal to <br className="hidden sm:inline" />
-            <span className="text-brand-orange whitespace-nowrap">Visible Progress.</span>
+            <span className="block whitespace-nowrap">From Your First Goal</span>
+            <span className="block whitespace-nowrap">
+              to <span className="text-brand-orange">Visible Progress.</span>
+            </span>
           </motion.h1>
 
           <motion.p
@@ -208,13 +210,13 @@ export const HowItWorksPage: React.FC = () => {
           </motion.p>
         </div>
 
-        {/* Right Column: Prominent 3D Workflow Journey Supporting Visual (58% on desktop) */}
+        {/* Right Column: Prominent 3D Workflow Journey Supporting Visual */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
-          className="w-full lg:w-[58%] flex items-center justify-center lg:justify-end"
+          className="w-full lg:w-[54%] xl:w-[56%] 2xl:w-[58%] flex items-center justify-center lg:justify-end"
         >
           <picture className="block w-full max-w-[540px] sm:max-w-[620px] lg:max-w-[960px] 2xl:max-w-[1040px] rounded-2xl sm:rounded-3xl lg:rounded-none overflow-hidden lg:overflow-visible">
             {/* Desktop and Tablet: landscape 3D workflow visual with natural feathering */}
