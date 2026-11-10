@@ -39,12 +39,12 @@ export const Analytics: React.FC = () => {
       {/* ==================================================================== */}
       <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-8 xl:gap-12 mb-2 sm:mb-4 lg:mb-6 w-full">
         {/* Left Column: Heading and Supporting Text */}
-        <div className="w-full lg:w-[46%] xl:w-[44%] 2xl:w-[42%] text-left space-y-3 sm:space-y-4 shrink-0">
+        <div className="w-full lg:w-[50%] xl:w-[48%] 2xl:w-[46%] text-left space-y-3 sm:space-y-4 shrink-0">
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
-            className="text-[26px] min-[360px]:text-[27px] min-[390px]:text-[29px] min-[430px]:text-[32px] sm:text-5xl lg:text-[42px] xl:text-[48px] 2xl:text-[54px] font-extrabold text-espresso tracking-tight font-heading leading-[1.16] text-left"
+            className="text-[26px] min-[360px]:text-[27px] min-[390px]:text-[29px] min-[430px]:text-[32px] sm:text-[44px] lg:text-[36px] xl:text-[42px] 2xl:text-[48px] font-extrabold text-espresso tracking-tight font-heading leading-[1.15] text-left"
           >
             <span className="block whitespace-nowrap text-espresso">
               Dual-Mode Analytics for
@@ -69,7 +69,7 @@ export const Analytics: React.FC = () => {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
-          className="w-full lg:w-[54%] xl:w-[56%] 2xl:w-[58%] flex items-center justify-center lg:justify-end"
+          className="w-full lg:w-[50%] xl:w-[52%] 2xl:w-[54%] flex items-center justify-center lg:justify-end"
         >
           <picture className="block w-full max-w-[540px] sm:max-w-[620px] lg:max-w-[960px] 2xl:max-w-[1040px] overflow-hidden lg:overflow-visible">
             {/* Desktop and Tablet: landscape dual mode analytics visual with natural feathering */}
