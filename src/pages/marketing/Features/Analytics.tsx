@@ -44,10 +44,14 @@ export const Analytics: React.FC = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
-            className="text-3xl min-[360px]:text-[32px] min-[390px]:text-[36px] min-[430px]:text-[40px] sm:text-5xl lg:text-[42px] xl:text-[48px] 2xl:text-[54px] font-extrabold text-espresso tracking-tight font-heading leading-[1.14] text-left"
+            className="text-[26px] min-[360px]:text-[27px] min-[390px]:text-[29px] min-[430px]:text-[32px] sm:text-5xl lg:text-[42px] xl:text-[48px] 2xl:text-[54px] font-extrabold text-espresso tracking-tight font-heading leading-[1.16] text-left"
           >
-            Dual-Mode Analytics for <br className="hidden sm:inline" />
-            <span className="text-brand-orange whitespace-nowrap">Leaders and Builders.</span>
+            <span className="block whitespace-nowrap text-espresso">
+              Dual-Mode Analytics for
+            </span>
+            <span className="block whitespace-nowrap text-brand-orange">
+              Leaders and Builders.
+            </span>
           </motion.h1>
 
           <motion.p
