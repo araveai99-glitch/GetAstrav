@@ -134,25 +134,63 @@ export const KeyCapabilitiesPage: React.FC = () => {
 
   return (
     <div className="w-full min-h-screen bg-surface-ambient text-espresso flex flex-col">
-      {/* 1. HERO SECTION */}
-      <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1520px] 2xl:max-w-[1600px] mx-auto w-full text-left">
-        <motion.h1
-          initial={{ opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[42px] xl:text-5xl 2xl:text-[56px] text-espresso tracking-tight w-full max-w-none text-left leading-[1.12] lg:whitespace-nowrap"
-        >
-          Everything You Need to Keep <span className="text-brand-orange">Work Moving.</span>
-        </motion.h1>
+      {/* 1. HERO SECTION: Two-column layout on desktop, stacked on mobile */}
+      <section className="relative pt-[88px] sm:pt-24 lg:pt-20 pb-4 sm:pb-6 lg:pb-8 px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1520px] 2xl:max-w-[1600px] mx-auto w-full text-left">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-8 xl:gap-12 w-full">
+          {/* Left Column: Heading and Supporting Text */}
+          <div className="w-full lg:w-[46%] xl:w-[44%] 2xl:w-[42%] text-left space-y-3 sm:space-y-4 shrink-0">
+            <motion.h1
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
+              className="font-heading font-extrabold text-3xl min-[360px]:text-[32px] min-[390px]:text-[36px] min-[430px]:text-[40px] sm:text-5xl lg:text-[42px] xl:text-[48px] 2xl:text-[54px] text-espresso tracking-tight text-left leading-[1.14]"
+            >
+              Everything You Need to Keep{' '}
+              <span className="text-brand-orange whitespace-nowrap">Work Moving.</span>
+            </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-terracotta text-base sm:text-lg lg:text-xl max-w-2xl text-left mt-2.5 sm:mt-3.5 font-normal leading-relaxed"
-        >
-          Bring goals, projects, tasks, and progress together in one clear workspace.
-        </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.12, ease: 'easeOut' }}
+              className="text-terracotta text-base min-[375px]:text-lg sm:text-xl max-w-lg text-left font-normal leading-relaxed"
+            >
+              Bring goals, projects, tasks, and progress together in one clear workspace.
+            </motion.p>
+          </div>
+
+          {/* Right Column: Prominent 3D Command Hub Supporting Visual */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+            className="w-full lg:w-[54%] xl:w-[56%] 2xl:w-[58%] flex items-center justify-center lg:justify-end"
+          >
+            <picture className="block w-full max-w-[540px] sm:max-w-[620px] lg:max-w-[960px] 2xl:max-w-[1040px] overflow-hidden lg:overflow-visible">
+              {/* Desktop and Tablet: landscape 3D command hub visual with natural feathering */}
+              <source
+                media="(min-width: 640px)"
+                srcSet="/assets/astrav_key_capabilities_hero.webp"
+                type="image/webp"
+              />
+              {/* Mobile: dedicated high-clarity mobile visual with natural edge blending */}
+              <source
+                srcSet="/assets/astrav_key_capabilities_mobile.webp"
+                type="image/webp"
+              />
+              <img
+                src="/assets/astrav_key_capabilities_hero.png"
+                alt="Astrav Key Capabilities - 3D Command Hub centralizing goals, projects, tasks, timelines, team visibility, and progress rollups"
+                width={1920}
+                height={1080}
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+                className="w-full h-auto object-contain select-none"
+              />
+            </picture>
+          </motion.div>
+        </div>
       </section>
 
       {/* 2. SECTION A: FOUR CORE CAPABILITIES */}
