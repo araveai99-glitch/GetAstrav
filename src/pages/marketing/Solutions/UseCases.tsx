@@ -146,17 +146,21 @@ export const UseCases: React.FC = () => {
       {/* ==================================================================== */}
       {/* HERO SECTION: Balanced two-column layout on desktop, stacked on mobile */}
       {/* ==================================================================== */}
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-8 xl:gap-12 mb-2 sm:mb-4 lg:mb-6 w-full">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-10 xl:gap-12 mb-2 sm:mb-4 lg:mb-6 w-full">
         {/* Left Column: Heading and Supporting Text */}
-        <div className="w-full lg:w-[46%] xl:w-[44%] 2xl:w-[42%] text-left space-y-3 sm:space-y-4 shrink-0">
+        <div className="w-full lg:w-[50%] xl:w-[48%] 2xl:w-[46%] text-left space-y-3 sm:space-y-4 shrink-0">
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
-            className="text-3xl min-[360px]:text-[32px] min-[390px]:text-[36px] min-[430px]:text-[40px] sm:text-5xl lg:text-[42px] xl:text-[48px] 2xl:text-[54px] font-extrabold text-espresso tracking-tight font-heading leading-[1.14] text-left"
+            className="w-full max-w-full box-border text-[27px] min-[375px]:text-[28px] min-[390px]:text-[30px] min-[430px]:text-[33px] sm:text-[44px] lg:text-[36px] xl:text-[42px] 2xl:text-[48px] font-extrabold text-espresso tracking-tight font-heading leading-[1.12] sm:leading-[1.15] text-left"
           >
-            Bring Every Department <br className="hidden sm:inline" />
-            <span className="text-brand-orange whitespace-nowrap">Into Alignment.</span>
+            <span className="block whitespace-nowrap text-espresso">
+              Bring Every Department
+            </span>
+            <span className="block whitespace-nowrap text-brand-orange">
+              Into Alignment.
+            </span>
           </motion.h1>
 
           <motion.p
@@ -174,7 +178,7 @@ export const UseCases: React.FC = () => {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
-          className="w-full lg:w-[54%] xl:w-[56%] 2xl:w-[58%] flex items-center justify-center lg:justify-end"
+          className="w-full lg:w-[50%] xl:w-[52%] 2xl:w-[54%] flex items-center justify-center lg:justify-end"
         >
           <picture className="block w-full max-w-[540px] sm:max-w-[620px] lg:max-w-[960px] 2xl:max-w-[1040px] overflow-hidden lg:overflow-visible">
             {/* Desktop and Tablet: landscape enterprise use cases visual with natural feathering */}
