@@ -141,14 +141,14 @@ export const Footer: React.FC = () => {
               <picture>
                 <source
                   type="image/webp"
-                  srcSet="/assets/arav-logo-sm.webp 112w, /assets/arav-logo.webp 160w"
+                  srcSet="/assets/arav-logo-sm.webp 58w, /assets/arav-logo.webp 160w"
                   sizes="58px"
                 />
                 <img
                   src="/assets/arav-logo-sm.webp"
                   alt="Arav Innovations Ribbon Logo"
-                  width={112}
-                  height={116}
+                  width={58}
+                  height={60}
                   loading="lazy"
                   decoding="async"
                   className="h-12 sm:h-14 md:h-14 lg:h-[58px] w-auto object-contain drop-shadow-sm shrink-0 group-hover:scale-105 transition-transform"

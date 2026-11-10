@@ -7,3 +7,4 @@ export const openDemoModal = () => {
     window.dispatchEvent(new CustomEvent('open-demo-modal'));
   }
 };
+
