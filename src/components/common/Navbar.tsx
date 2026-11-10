@@ -31,7 +31,6 @@ const mobileNavCategories: NavCategory[] = [
     id: 'features',
     name: 'Features',
     items: [
-      { name: 'Goals & Progress', path: '/features/goals-progress' },
       { name: 'Task Execution & SLA', path: '/features/task-management' },
       { name: 'Teams & Pods', path: '/features/teams' },
       { name: 'Project Containers', path: '/features/projects' },
@@ -261,7 +260,7 @@ export const Navbar: React.FC = () => {
           {/* Features Dropdown */}
           <div className="relative">
             <button
-              onClick={() => handleNavCategoryClick('/features/goals-progress')}
+              onClick={() => handleNavCategoryClick('/features/task-management')}
               onMouseEnter={() => setOpenDropdown('features')}
               className={navItemClass}
               aria-expanded={openDropdown === 'features'}

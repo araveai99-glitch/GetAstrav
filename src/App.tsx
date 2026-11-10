@@ -111,7 +111,7 @@ const MarketingLayout: React.FC = () => {
               <Route path="/product/automated-progress-rollups" element={<AutomatedProgressRollups />} />
 
               {/* Features */}
-              <Route path="/features" element={<Navigate to="/features/goals-progress" replace />} />
+              <Route path="/features" element={<Navigate to="/features/task-management" replace />} />
               <Route path="/features/goals-progress" element={<GoalsProgress />} />
               <Route path="/features/ai" element={<AIIntelligence />} />
               <Route path="/features/task-management" element={<TaskManagement />} />
