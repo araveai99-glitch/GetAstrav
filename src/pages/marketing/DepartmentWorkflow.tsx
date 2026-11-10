@@ -56,26 +56,32 @@ export const DepartmentWorkflow: React.FC = () => {
       return;
     }
 
-    if (primaryFocusRef.current && window.innerWidth < 1024) {
-      const rect = primaryFocusRef.current.getBoundingClientRect();
-      const currentY = window.pageYOffset || document.documentElement.scrollTop;
-      const navbarHeight = 70;
-      const spacingBuffer = 12;
-      window.scrollTo({
-        top: Math.max(0, currentY + rect.top - navbarHeight - spacingBuffer),
-        behavior: 'smooth',
+    if (window.innerWidth < 1024) {
+      window.requestAnimationFrame(() => {
+        if (!primaryFocusRef.current) return;
+        const rect = primaryFocusRef.current.getBoundingClientRect();
+        const currentY = window.pageYOffset || document.documentElement.scrollTop;
+        const navbarHeight = 70;
+        const spacingBuffer = 12;
+        window.scrollTo({
+          top: Math.max(0, currentY + rect.top - navbarHeight - spacingBuffer),
+          behavior: 'smooth',
+        });
       });
     }
   }, [activeDeptId]);
 
   const handleSelectDepartment = (id: string) => {
     if (id === activeDeptId) {
-      if (primaryFocusRef.current && window.innerWidth < 1024) {
-        const rect = primaryFocusRef.current.getBoundingClientRect();
-        const currentY = window.pageYOffset || document.documentElement.scrollTop;
-        window.scrollTo({
-          top: Math.max(0, currentY + rect.top - 70 - 12),
-          behavior: 'smooth',
+      if (window.innerWidth < 1024) {
+        window.requestAnimationFrame(() => {
+          if (!primaryFocusRef.current) return;
+          const rect = primaryFocusRef.current.getBoundingClientRect();
+          const currentY = window.pageYOffset || document.documentElement.scrollTop;
+          window.scrollTo({
+            top: Math.max(0, currentY + rect.top - 70 - 12),
+            behavior: 'smooth',
+          });
         });
       }
     } else {

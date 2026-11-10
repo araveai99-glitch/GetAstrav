@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { X, CheckCircle2, ArrowRight, Calendar, Building2, Mail, User, Users, Layers } from 'lucide-react';
+import { openDemoModal } from '../../lib/demoModalEvents';
 
-export const openDemoModal = () => {
-  window.dispatchEvent(new CustomEvent('open-demo-modal'));
-};
+export { openDemoModal };
 
 export const DemoModal: React.FC = () => {
   const location = useLocation();

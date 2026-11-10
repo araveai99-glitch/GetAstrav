@@ -446,4 +446,14 @@
   will-change: transform, width;
 }
 
+/* =========================================================
+ * CORE WEB VITALS: Off-Screen Rendering Containment
+ * Skips styling & layout for below-the-fold content until scrolled near
+ * ========================================================= */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}
+
+
 

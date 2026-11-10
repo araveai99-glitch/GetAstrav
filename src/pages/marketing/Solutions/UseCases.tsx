@@ -98,25 +98,28 @@ export const UseCases: React.FC = () => {
     if (window.innerWidth >= 1024) return;
     if (!selectedDeptCardRef.current) return;
 
-    const cardRect = selectedDeptCardRef.current.getBoundingClientRect();
-    const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+    window.requestAnimationFrame(() => {
+      if (!selectedDeptCardRef.current) return;
+      const cardRect = selectedDeptCardRef.current.getBoundingClientRect();
+      const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-    // Fixed mobile navbar height is 70px
-    const navbarHeight = 70;
+      // Fixed mobile navbar height is 70px
+      const navbarHeight = 70;
 
-    // Measure the sticky department switcher container
-    const switcherEl = document.getElementById('dept-switcher-container');
-    const switcherHeight = switcherEl ? switcherEl.offsetHeight : 0;
+      // Measure the sticky department switcher container
+      const switcherEl = document.getElementById('dept-switcher-container');
+      const switcherHeight = switcherEl ? switcherEl.offsetHeight : 0;
 
-    // Controlled buffer (10px) so the card breathes comfortably below the sticky bar
-    const spacingBuffer = 10;
-    const totalTopOffset = navbarHeight + switcherHeight + spacingBuffer;
+      // Controlled buffer (10px) so the card breathes comfortably below the sticky bar
+      const spacingBuffer = 10;
+      const totalTopOffset = navbarHeight + switcherHeight + spacingBuffer;
 
-    const targetY = currentScrollY + cardRect.top - totalTopOffset;
+      const targetY = currentScrollY + cardRect.top - totalTopOffset;
 
-    window.scrollTo({
-      top: Math.max(0, targetY),
-      behavior: shouldReduceMotion ? 'auto' : 'smooth',
+      window.scrollTo({
+        top: Math.max(0, targetY),
+        behavior: shouldReduceMotion ? 'auto' : 'smooth',
+      });
     });
   }, [shouldReduceMotion]);
 

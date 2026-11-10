@@ -173,9 +173,10 @@ export const HowItWorksSection: React.FC = () => {
                     {/* Progress Bar */}
                     <div className="w-full h-2 rounded-full bg-brand-peach/40 mt-3 sm:mt-2.5 overflow-hidden">
                       <motion.div
-                        className="h-full rounded-full bg-gradient-to-r from-brand-green to-emerald-400"
-                        initial={{ width: '0%' }}
-                        whileInView={{ width: '72%' }}
+                        className="h-full rounded-full bg-gradient-to-r from-brand-green to-emerald-400 origin-left"
+                        style={{ width: '72%' }}
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
                       />
@@ -248,9 +249,10 @@ export const HowItWorksSection: React.FC = () => {
                         </div>
                         <div className="w-full h-1.5 rounded-full bg-brand-peach/30 my-1.5 overflow-hidden">
                           <motion.div
-                            className={`h-full rounded-full ${dept.color}`}
-                            initial={{ width: '0%' }}
-                            whileInView={{ width: dept.width }}
+                            className={`h-full rounded-full origin-left ${dept.color}`}
+                            style={{ width: dept.width }}
+                            initial={{ scaleX: 0 }}
+                            whileInView={{ scaleX: 1 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{ duration: 0.7, delay: 0.25 + idx * 0.05, ease: 'easeOut' }}
                           />

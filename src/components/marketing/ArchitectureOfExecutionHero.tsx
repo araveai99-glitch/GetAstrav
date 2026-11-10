@@ -298,9 +298,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                     </span>
                     <div className="w-full h-1 xl:h-1.5 bg-gray-100 rounded-full overflow-hidden">
                       <motion.div
-                        className={`h-full ${dept.barColor} rounded-full`}
-                        initial={{ width: '0%' }}
-                        whileInView={{ width: dept.progress }}
+                        className={`h-full ${dept.barColor} rounded-full origin-left`}
+                        style={{ width: dept.progress }}
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{
                           duration: 0.75,
@@ -369,9 +370,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
             {/* Full width Progress Bar */}
             <div className="w-full h-1.5 xl:h-2 bg-gray-100 rounded-full overflow-hidden mt-0.5">
               <motion.div
-                className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full"
-                initial={{ width: '0%' }}
-                whileInView={{ width: '72%' }}
+                className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full origin-left"
+                style={{ width: '72%' }}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.8, delay: 0.45, ease: 'easeOut' }}
               />
@@ -746,9 +748,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
                   <div className="flex items-center justify-between gap-1 w-full">
                     <div className="flex-1 h-1 min-[375px]:h-1.5 bg-gray-100 rounded-full overflow-hidden">
                       <motion.div
-                        className={`h-full ${dept.barColor} rounded-full`}
-                        initial={{ width: '0%' }}
-                        whileInView={{ width: dept.progress }}
+                        className={`h-full ${dept.barColor} rounded-full origin-left`}
+                        style={{ width: dept.progress }}
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{
                           duration: 0.75,
@@ -814,9 +817,10 @@ export const ArchitectureOfExecutionHero: React.FC = () => {
 
             <div className="w-full h-1 min-[375px]:h-1.5 bg-gray-100 rounded-full overflow-hidden mt-0.5">
               <motion.div
-                className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full"
-                initial={{ width: '0%' }}
-                whileInView={{ width: '72%' }}
+                className="h-full bg-gradient-to-r from-[#2e936f] to-[#34d399] rounded-full origin-left"
+                style={{ width: '72%' }}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.8, delay: 0.45, ease: 'easeOut' }}
               />

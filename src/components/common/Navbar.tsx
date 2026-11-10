@@ -118,12 +118,19 @@ export const Navbar: React.FC = () => {
   };
 
   useEffect(() => {
-    let lastScrolled = window.scrollY > 20;
+    let ticking = false;
+    let lastScrolled = false;
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 20;
-      if (isScrolled !== lastScrolled) {
-        lastScrolled = isScrolled;
-        setScrolled(isScrolled);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isScrolled = window.scrollY > 20;
+          if (isScrolled !== lastScrolled) {
+            lastScrolled = isScrolled;
+            setScrolled(isScrolled);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });

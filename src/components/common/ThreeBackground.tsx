@@ -24,6 +24,11 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
       return;
     }
 
+    // Skip heavy WebGL canvas initialization on mobile screens (< 768px) to eliminate frame drops & reduce TBT
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return;
+    }
+
     const container = mountRef.current;
     if (!container) return;
 

@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AppProvider } from './context/AppContext';
 import { lazyWithRetry } from './lib/lazyWithRetry';
 import { RouteErrorBoundary } from './components/common/RouteErrorBoundary';
 import { RouteLoadingBar } from './components/common/RouteLoadingBar';
@@ -41,11 +40,13 @@ const DeferredThreeBackground: React.FC<{ intensity?: 'hero' | 'standard' | 'sub
   return <Comp {...props} />;
 };
 
-// Marketing Layout Header/Footer & Modals
+// Marketing Layout Header & Navigation
 import { Navbar } from './components/common/Navbar';
-import { Footer } from './components/common/Footer';
-import { DemoModal } from './components/common/DemoModal';
 import { ScrollToTop } from './components/common/ScrollToTop';
+
+// Deferred below-the-fold common marketing components (code-split)
+const Footer = lazyWithRetry(() => import('./components/common/Footer').then(m => ({ default: m.Footer })));
+const DemoModal = lazyWithRetry(() => import('./components/common/DemoModal').then(m => ({ default: m.DemoModal })));
 
 // Marketing Critical Landing Page (eagerly imported for instant render)
 import { Home } from './pages/marketing/Home';
@@ -161,52 +162,52 @@ const MarketingLayout: React.FC = () => {
           </Suspense>
         </RouteErrorBoundary>
       </main>
-      <Footer />
-      <DemoModal />
+      <Suspense fallback={null}>
+        <Footer />
+        <DemoModal />
+      </Suspense>
     </div>
   );
 };
 
 export function App() {
   return (
-    <AppProvider>
-      <Router>
-        <ScrollToTop />
-        <RouteErrorBoundary>
-          <Suspense fallback={<RouteLoadingBar />}>
-            <Routes>
-              {/* Auth Routes */}
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/forgot-password" element={<ForgotPassword />} />
-              <Route path="/reset-password" element={<ResetPassword />} />
+    <Router>
+      <ScrollToTop />
+      <RouteErrorBoundary>
+        <Suspense fallback={<RouteLoadingBar />}>
+          <Routes>
+            {/* Auth Routes */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
 
-              {/* App Console Routes */}
-              <Route path="/app" element={<AppLayout />}>
-                <Route index element={<Navigate to="/app/dashboard" replace />} />
-                <Route path="dashboard" element={<DashboardPage />} />
-                <Route path="organizations" element={<OrganizationsPage />} />
-                <Route path="departments" element={<DepartmentsPage />} />
-                <Route path="teams" element={<TeamsPage />} />
-                <Route path="projects" element={<ProjectsPage />} />
-                <Route path="goals" element={<GoalsPage />} />
-                <Route path="milestones" element={<MilestonesPage />} />
-                <Route path="tasks" element={<TasksPage />} />
-                <Route path="analytics" element={<AnalyticsPage />} />
-                <Route path="documents" element={<DocumentsPage />} />
-                <Route path="reminders" element={<RemindersPage />} />
-                <Route path="settings" element={<SettingsPage />} />
-                <Route path="members" element={<MembersPage />} />
-                <Route path="activity" element={<ActivityPage />} />
-              </Route>
+            {/* App Console Routes (Wrapped in AppProvider) */}
+            <Route path="/app" element={<AppLayout />}>
+              <Route index element={<Navigate to="/app/dashboard" replace />} />
+              <Route path="dashboard" element={<DashboardPage />} />
+              <Route path="organizations" element={<OrganizationsPage />} />
+              <Route path="departments" element={<DepartmentsPage />} />
+              <Route path="teams" element={<TeamsPage />} />
+              <Route path="projects" element={<ProjectsPage />} />
+              <Route path="goals" element={<GoalsPage />} />
+              <Route path="milestones" element={<MilestonesPage />} />
+              <Route path="tasks" element={<TasksPage />} />
+              <Route path="analytics" element={<AnalyticsPage />} />
+              <Route path="documents" element={<DocumentsPage />} />
+              <Route path="reminders" element={<RemindersPage />} />
+              <Route path="settings" element={<SettingsPage />} />
+              <Route path="members" element={<MembersPage />} />
+              <Route path="activity" element={<ActivityPage />} />
+            </Route>
 
-              {/* Marketing Routes */}
-              <Route path="/*" element={<MarketingLayout />} />
-            </Routes>
-          </Suspense>
-        </RouteErrorBoundary>
-      </Router>
-    </AppProvider>
+            {/* Marketing Routes */}
+            <Route path="/*" element={<MarketingLayout />} />
+          </Routes>
+        </Suspense>
+      </RouteErrorBoundary>
+    </Router>
   );
 }
 
