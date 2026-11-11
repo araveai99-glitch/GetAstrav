@@ -176,8 +176,8 @@ export const TaskManagement: React.FC = () => {
             <img
               src="/assets/astrav_task_execution_sla_hero.png"
               alt="Astrav Task Execution & SLA - Visual task lifecycle tracking from pending to completion with real-time SLA monitor gauge and automated execution"
-              width={1024}
-              height={576}
+              width={1920}
+              height={1080}
               fetchPriority="high"
               loading="eager"
               decoding="async"
