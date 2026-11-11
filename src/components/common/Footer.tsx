@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Layers, ShieldCheck, ArrowUpRight } from 'lucide-react';
 import { openDemoModal } from './DemoModal';
+import { preloadRoute } from '../../lib/routePreloader';
 
 export const Footer: React.FC = () => {
   return (

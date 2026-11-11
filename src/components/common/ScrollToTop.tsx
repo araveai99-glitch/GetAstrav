@@ -67,6 +67,10 @@ export const ScrollToTop: React.FC = () => {
         root.style.scrollBehavior = 'auto';
 
         window.scrollTo(0, 0);
+        root.scrollTop = 0;
+        if (document.body) {
+          document.body.scrollTop = 0;
+        }
 
         requestAnimationFrame(() => {
           root.style.scrollBehavior = prevBehavior;
@@ -77,22 +81,15 @@ export const ScrollToTop: React.FC = () => {
     // 1. Immediate synchronous reset before paint
     performScrollReset();
 
-    // 2. Schedule follow-ups to catch delayed render adjustments
-    let rafId: number | null = null;
-    let timerId: NodeJS.Timeout | null = null;
-
-    if (typeof window !== 'undefined' && window.scrollY !== 0) {
-      rafId = requestAnimationFrame(() => {
-        performScrollReset();
-      });
-      timerId = setTimeout(() => {
-        performScrollReset();
-      }, 50);
-    }
+    // 2. Schedule follow-ups to catch delayed render adjustments and component mount
+    const rafId = requestAnimationFrame(performScrollReset);
+    const timer1 = setTimeout(performScrollReset, 40);
+    const timer2 = setTimeout(performScrollReset, 150);
 
     return () => {
-      if (rafId !== null) cancelAnimationFrame(rafId);
-      if (timerId !== null) clearTimeout(timerId);
+      cancelAnimationFrame(rafId);
+      clearTimeout(timer1);
+      clearTimeout(timer2);
     };
   }, [pathname, search, hash, navType]);
 

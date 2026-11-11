@@ -1,8 +1,15 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import React, { Suspense, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { lazyWithRetry } from './lib/lazyWithRetry';
 import { RouteErrorBoundary } from './components/common/RouteErrorBoundary';
 import { RouteLoadingBar } from './components/common/RouteLoadingBar';
+import { RouteTransitionFallback } from './components/common/RouteTransitionFallback';
+import {
+  loadRoute,
+  preloadRoute,
+  initIdleRoutePreloading,
+  setupGlobalLinkPreloader,
+} from './lib/routePreloader';
 
 // Background 3D Canvas (deferred to user interaction or idle timer so Three.js does not compete with initial paint or LCP)
 const DeferredThreeBackground: React.FC<{ intensity?: 'hero' | 'standard' | 'subtle'; className?: string }> = (props) => {
@@ -44,42 +51,42 @@ const DeferredThreeBackground: React.FC<{ intensity?: 'hero' | 'standard' | 'sub
 import { Navbar } from './components/common/Navbar';
 import { ScrollToTop } from './components/common/ScrollToTop';
 
-// Deferred below-the-fold common marketing components (code-split)
-const Footer = lazyWithRetry(() => import('./components/common/Footer').then(m => ({ default: m.Footer })));
-const DemoModal = lazyWithRetry(() => import('./components/common/DemoModal').then(m => ({ default: m.DemoModal })));
+// Deferred below-the-fold common marketing components (code-split with preloader cache)
+const Footer = lazyWithRetry(() => loadRoute('__footer').then(m => ({ default: m.Footer })));
+const DemoModal = lazyWithRetry(() => loadRoute('__demoModal').then(m => ({ default: m.DemoModal })));
 
 // Marketing Critical Landing Page (eagerly imported for instant render)
 import { Home } from './pages/marketing/Home';
 
-// Marketing Subpages (Code-split route-level dynamic imports with auto-retry)
-const Product = lazyWithRetry(() => import('./pages/marketing/Product').then(m => ({ default: m.Product })));
-const AutomatedProgressRollups = lazyWithRetry(() => import('./pages/marketing/AutomatedProgressRollups').then(m => ({ default: m.AutomatedProgressRollups })));
-const GoalsProgress = lazyWithRetry(() => import('./pages/marketing/Features/GoalsProgress').then(m => ({ default: m.GoalsProgress })));
-const AIIntelligence = lazyWithRetry(() => import('./pages/marketing/Features/AIIntelligence').then(m => ({ default: m.AIIntelligence })));
-const TaskManagement = lazyWithRetry(() => import('./pages/marketing/Features/TaskManagement').then(m => ({ default: m.TaskManagement })));
-const Teams = lazyWithRetry(() => import('./pages/marketing/Features/Teams').then(m => ({ default: m.Teams })));
-const Projects = lazyWithRetry(() => import('./pages/marketing/Features/Projects').then(m => ({ default: m.Projects })));
-const Analytics = lazyWithRetry(() => import('./pages/marketing/Features/Analytics').then(m => ({ default: m.Analytics })));
-const Governance = lazyWithRetry(() => import('./pages/marketing/Features/Governance').then(m => ({ default: m.Governance })));
-const Documentation = lazyWithRetry(() => import('./pages/marketing/Features/Documentation').then(m => ({ default: m.Documentation })));
-const Automation = lazyWithRetry(() => import('./pages/marketing/Features/Automation').then(m => ({ default: m.Automation })));
+// Marketing Subpages (Code-split route-level dynamic imports with auto-retry & instant preloading)
+const Product = lazyWithRetry(() => loadRoute('/product').then(m => ({ default: m.Product })));
+const AutomatedProgressRollups = lazyWithRetry(() => loadRoute('/product/automated-progress-rollups').then(m => ({ default: m.AutomatedProgressRollups })));
+const GoalsProgress = lazyWithRetry(() => loadRoute('/features/goals-progress').then(m => ({ default: m.GoalsProgress })));
+const AIIntelligence = lazyWithRetry(() => loadRoute('/features/ai').then(m => ({ default: m.AIIntelligence })));
+const TaskManagement = lazyWithRetry(() => loadRoute('/features/task-management').then(m => ({ default: m.TaskManagement })));
+const Teams = lazyWithRetry(() => loadRoute('/features/teams').then(m => ({ default: m.Teams })));
+const Projects = lazyWithRetry(() => loadRoute('/features/projects').then(m => ({ default: m.Projects })));
+const Analytics = lazyWithRetry(() => loadRoute('/features/analytics').then(m => ({ default: m.Analytics })));
+const Governance = lazyWithRetry(() => loadRoute('/features/governance').then(m => ({ default: m.Governance })));
+const Documentation = lazyWithRetry(() => loadRoute('/features/documentation').then(m => ({ default: m.Documentation })));
+const Automation = lazyWithRetry(() => loadRoute('/features/automation').then(m => ({ default: m.Automation })));
 
-const UseCases = lazyWithRetry(() => import('./pages/marketing/Solutions/UseCases').then(m => ({ default: m.UseCases })));
-const Founders = lazyWithRetry(() => import('./pages/marketing/Solutions/Founders').then(m => ({ default: m.Founders })));
-const Managers = lazyWithRetry(() => import('./pages/marketing/Solutions/Managers').then(m => ({ default: m.Managers })));
-const Resources = lazyWithRetry(() => import('./pages/marketing/Resources').then(m => ({ default: m.Resources })));
-const HowItWorksPage = lazyWithRetry(() => import('./pages/marketing/Resources/HowItWorksPage').then(m => ({ default: m.default || m.HowItWorksPage })));
-const KeyCapabilitiesPage = lazyWithRetry(() => import('./pages/marketing/Resources/KeyCapabilitiesPage').then(m => ({ default: m.default || m.KeyCapabilitiesPage })));
-const About = lazyWithRetry(() => import('./pages/marketing/About').then(m => ({ default: m.About })));
-const ContactSales = lazyWithRetry(() => import('./pages/marketing/ContactSales').then(m => ({ default: m.ContactSales })));
-const TrustSecurity = lazyWithRetry(() => import('./pages/marketing/TrustSecurity').then(m => ({ default: m.TrustSecurity })));
-const DepartmentWorkflow = lazyWithRetry(() => import('./pages/marketing/DepartmentWorkflow').then(m => ({ default: m.DepartmentWorkflow })));
+const UseCases = lazyWithRetry(() => loadRoute('/solutions/use-cases').then(m => ({ default: m.UseCases })));
+const Founders = lazyWithRetry(() => loadRoute('/solutions/founders').then(m => ({ default: m.Founders })));
+const Managers = lazyWithRetry(() => loadRoute('/solutions/managers').then(m => ({ default: m.Managers })));
+const Resources = lazyWithRetry(() => loadRoute('/resources').then(m => ({ default: m.Resources })));
+const HowItWorksPage = lazyWithRetry(() => loadRoute('/how-it-works').then(m => ({ default: m.default || m.HowItWorksPage })));
+const KeyCapabilitiesPage = lazyWithRetry(() => loadRoute('/key-capabilities').then(m => ({ default: m.default || m.KeyCapabilitiesPage })));
+const About = lazyWithRetry(() => loadRoute('/about').then(m => ({ default: m.About })));
+const ContactSales = lazyWithRetry(() => loadRoute('/contact').then(m => ({ default: m.ContactSales })));
+const TrustSecurity = lazyWithRetry(() => loadRoute('/trust').then(m => ({ default: m.TrustSecurity })));
+const DepartmentWorkflow = lazyWithRetry(() => loadRoute('/department-workflow').then(m => ({ default: m.DepartmentWorkflow })));
 
-// Auth Pages (Code-split with auto-retry)
-const Login = lazyWithRetry(() => import('./pages/auth/Login').then(m => ({ default: m.Login })));
-const Signup = lazyWithRetry(() => import('./pages/auth/Signup').then(m => ({ default: m.Signup })));
-const ForgotPassword = lazyWithRetry(() => import('./pages/auth/ForgotPassword').then(m => ({ default: m.ForgotPassword })));
-const ResetPassword = lazyWithRetry(() => import('./pages/auth/ResetPassword').then(m => ({ default: m.ResetPassword })));
+// Auth Pages (Code-split with auto-retry & instant preloading)
+const Login = lazyWithRetry(() => loadRoute('/login').then(m => ({ default: m.Login })));
+const Signup = lazyWithRetry(() => loadRoute('/signup').then(m => ({ default: m.Signup })));
+const ForgotPassword = lazyWithRetry(() => loadRoute('/forgot-password').then(m => ({ default: m.ForgotPassword })));
+const ResetPassword = lazyWithRetry(() => loadRoute('/reset-password').then(m => ({ default: m.ResetPassword })));
 
 // Application Console Layout & Pages (Code-split with auto-retry)
 const AppLayout = lazyWithRetry(() => import('./components/app/AppLayout').then(m => ({ default: m.AppLayout })));
@@ -99,14 +106,19 @@ const MembersPage = lazyWithRetry(() => import('./pages/app/MembersPage').then(m
 const ActivityPage = lazyWithRetry(() => import('./pages/app/ActivityPage').then(m => ({ default: m.ActivityPage })));
 
 const MarketingLayout: React.FC = () => {
+  const location = useLocation();
+
   return (
     <div className="min-h-screen bg-surface-ambient flex flex-col font-sans selection:bg-brand-orange selection:text-white relative">
       <DeferredThreeBackground intensity="hero" />
       <Navbar />
-      <main className="flex-1 relative z-10">
+      <main
+        id="main-content"
+        className="flex-1 min-h-[calc(100vh-70px)] sm:min-h-[calc(100vh-80px)] relative z-10 flex flex-col"
+      >
         <RouteErrorBoundary>
-          <Suspense fallback={<RouteLoadingBar />}>
-            <Routes>
+          <Suspense fallback={<RouteTransitionFallback />}>
+            <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
               <Route path="/product" element={<Product />} />
               <Route path="/product/automated-progress-rollups" element={<AutomatedProgressRollups />} />
@@ -171,11 +183,17 @@ const MarketingLayout: React.FC = () => {
 };
 
 export function App() {
+  useEffect(() => {
+    initIdleRoutePreloading();
+    const cleanupLinkPreloader = setupGlobalLinkPreloader();
+    return cleanupLinkPreloader;
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />
       <RouteErrorBoundary>
-        <Suspense fallback={<RouteLoadingBar />}>
+        <Suspense fallback={<RouteTransitionFallback />}>
           <Routes>
             {/* Auth Routes */}
             <Route path="/login" element={<Login />} />

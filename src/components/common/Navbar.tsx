@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Layers, ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { openDemoModal } from './DemoModal';
+import { preloadRoute } from '../../lib/routePreloader';
 
 interface NavItem {
   name: string;
@@ -99,15 +100,53 @@ export const Navbar: React.FC = () => {
   }, [mobileMenuOpen]);
 
   const toggleCategory = (categoryId: string) => {
+    const willExpand = !expandedCategories[categoryId];
     setExpandedCategories(prev => ({
       ...prev,
-      [categoryId]: !prev[categoryId],
+      [categoryId]: willExpand,
     }));
+    if (willExpand) {
+      const cat = mobileNavCategories.find(c => c.id === categoryId);
+      if (cat) {
+        cat.items.forEach(it => preloadRoute(it.path));
+      }
+    }
   };
 
   const handleNavCategoryClick = (defaultPath: string) => {
     setOpenDropdown(null);
+    preloadRoute(defaultPath);
     navigate(defaultPath);
+  };
+
+  const handleOpenDropdown = (name: string, defaultPath?: string) => {
+    setOpenDropdown(name);
+    if (defaultPath) preloadRoute(defaultPath);
+    if (name === 'product') {
+      preloadRoute('/product');
+      preloadRoute('/product/automated-progress-rollups');
+      preloadRoute('/features/ai');
+    } else if (name === 'features') {
+      preloadRoute('/features/task-management');
+      preloadRoute('/features/teams');
+      preloadRoute('/features/projects');
+      preloadRoute('/features/analytics');
+      preloadRoute('/features/governance');
+      preloadRoute('/features/documentation');
+      preloadRoute('/features/automation');
+    } else if (name === 'solutions') {
+      preloadRoute('/solutions/founders');
+      preloadRoute('/solutions/managers');
+      preloadRoute('/solutions/use-cases');
+    } else if (name === 'resources') {
+      preloadRoute('/resources');
+      preloadRoute('/how-it-works');
+      preloadRoute('/key-capabilities');
+    } else if (name === 'company') {
+      preloadRoute('/about');
+      preloadRoute('/trust');
+      preloadRoute('/contact');
+    }
   };
 
   const closeMobileMenu = () => {
@@ -198,7 +237,7 @@ export const Navbar: React.FC = () => {
           <div className="relative">
             <button
               onClick={() => handleNavCategoryClick('/product')}
-              onMouseEnter={() => setOpenDropdown('product')}
+              onMouseEnter={() => handleOpenDropdown('product', '/product')}
               className={`${navItemClass} ${location.pathname.startsWith('/product') ? 'text-brand-orange' : ''}`}
               aria-expanded={openDropdown === 'product'}
             >
@@ -235,6 +274,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/product"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/product')}
                     className={`px-4 py-2.5 rounded-xl text-sm font-heading font-bold transition-colors ${location.pathname === '/product'
                       ? 'bg-brand-orange-light text-brand-orange'
                       : 'text-espresso hover:bg-brand-orange-light hover:text-brand-orange'
@@ -245,6 +285,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/product/automated-progress-rollups"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/product/automated-progress-rollups')}
                     className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${location.pathname === '/product/automated-progress-rollups'
                       ? 'bg-brand-orange-light text-brand-orange font-bold'
                       : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
@@ -255,6 +296,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/features/ai"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/features/ai')}
                     className="px-4 py-2.5 rounded-xl text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange transition-colors"
                   >
                     AI Goal Decomposition
@@ -268,7 +310,7 @@ export const Navbar: React.FC = () => {
           <div className="relative">
             <button
               onClick={() => handleNavCategoryClick('/features/task-management')}
-              onMouseEnter={() => setOpenDropdown('features')}
+              onMouseEnter={() => handleOpenDropdown('features', '/features/task-management')}
               className={navItemClass}
               aria-expanded={openDropdown === 'features'}
             >
@@ -297,6 +339,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/features/task-management"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/features/task-management')}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     Task Execution & SLA
@@ -304,6 +347,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/features/teams"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/features/teams')}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     Teams & Pods
@@ -311,6 +355,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/features/projects"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/features/projects')}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     Project Containers
@@ -318,6 +363,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/features/analytics"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/features/analytics')}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     Dual-Mode Analytics
@@ -325,6 +371,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/features/governance"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/features/governance')}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     Governance & RBAC
@@ -332,6 +379,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/features/documentation"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/features/documentation')}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     Project Knowledge Specs
@@ -339,6 +387,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/features/automation"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/features/automation')}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     Automation & Reminders
@@ -352,7 +401,7 @@ export const Navbar: React.FC = () => {
           <div className="relative">
             <button
               onClick={() => handleNavCategoryClick('/solutions/founders')}
-              onMouseEnter={() => setOpenDropdown('solutions')}
+              onMouseEnter={() => handleOpenDropdown('solutions', '/solutions/founders')}
               className={navItemClass}
               aria-expanded={openDropdown === 'solutions'}
             >
@@ -381,6 +430,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/solutions/founders"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/solutions/founders')}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     For Founders
@@ -388,6 +438,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/solutions/managers"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/solutions/managers')}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     For Managers
@@ -395,6 +446,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/solutions/use-cases"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/solutions/use-cases')}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     Enterprise Use Cases
@@ -408,7 +460,7 @@ export const Navbar: React.FC = () => {
           <div className="relative">
             <button
               onClick={() => handleNavCategoryClick('/resources')}
-              onMouseEnter={() => setOpenDropdown('resources')}
+              onMouseEnter={() => handleOpenDropdown('resources', '/resources')}
               className={navItemClass}
               aria-expanded={openDropdown === 'resources'}
             >
@@ -437,6 +489,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/resources"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/resources')}
                     className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${location.pathname === '/resources'
                       ? 'bg-brand-orange-light text-brand-orange font-bold'
                       : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
@@ -447,6 +500,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/how-it-works"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/how-it-works')}
                     className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${location.pathname === '/how-it-works'
                       ? 'bg-brand-orange-light text-brand-orange font-bold'
                       : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
@@ -457,6 +511,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/key-capabilities"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/key-capabilities')}
                     className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${location.pathname === '/key-capabilities'
                       ? 'bg-brand-orange-light text-brand-orange font-bold'
                       : 'text-terracotta hover:bg-brand-orange-light hover:text-brand-orange'
@@ -473,7 +528,7 @@ export const Navbar: React.FC = () => {
           <div className="relative">
             <button
               onClick={() => handleNavCategoryClick('/about')}
-              onMouseEnter={() => setOpenDropdown('company')}
+              onMouseEnter={() => handleOpenDropdown('company', '/about')}
               className={navItemClass}
               aria-expanded={openDropdown === 'company'}
             >
@@ -502,6 +557,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/about"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/about')}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     About Astrav
@@ -509,6 +565,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/trust"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/trust')}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     Trust & Security
@@ -516,6 +573,7 @@ export const Navbar: React.FC = () => {
                   <Link
                     to="/contact"
                     onClick={() => setOpenDropdown(null)}
+                    onMouseEnter={() => preloadRoute('/contact')}
                     className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-terracotta hover:bg-brand-orange-light hover:text-brand-orange"
                   >
                     Contact Sales
@@ -572,6 +630,8 @@ export const Navbar: React.FC = () => {
               {/* Home Overview Link */}
               <Link
                 to="/"
+                onMouseEnter={() => preloadRoute('/')}
+                onTouchStart={() => preloadRoute('/')}
                 onClick={closeMobileMenu}
                 className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-heading font-bold transition-all ${location.pathname === '/'
                   ? 'bg-brand-orange-light text-brand-orange shadow-warm-2xs'
@@ -659,6 +719,8 @@ export const Navbar: React.FC = () => {
                                   <Link
                                     key={item.path}
                                     to={item.path}
+                                    onMouseEnter={() => preloadRoute(item.path)}
+                                    onTouchStart={() => preloadRoute(item.path)}
                                     onClick={closeMobileMenu}
                                     className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs sm:text-sm transition-all group ${
                                       isActive
@@ -688,6 +750,8 @@ export const Navbar: React.FC = () => {
               <div className="pt-2 border-t border-brand-peach/60 space-y-2">
                 <Link
                   to="/login"
+                  onMouseEnter={() => preloadRoute('/login')}
+                  onTouchStart={() => preloadRoute('/login')}
                   onClick={closeMobileMenu}
                   className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-white border border-brand-peach/80 text-sm font-heading font-bold text-espresso hover:text-brand-orange hover:border-brand-orange/40 transition-colors"
                 >
