@@ -148,8 +148,8 @@ export const Documentation: React.FC = () => {
             <img
               src="/assets/astrav_project_knowledge_specs_hero.png"
               alt="Astrav Project Knowledge and Specs - Centralized documentation hub with PRD, UI specs, API docs, architecture specs, and live alignment"
-              width={1024}
-              height={576}
+              width={1920}
+              height={1080}
               fetchPriority="high"
               loading="eager"
               decoding="async"
