@@ -198,8 +198,8 @@ export const UseCases: React.FC = () => {
             <img
               src="/assets/astrav_enterprise_use_cases_hero.png"
               alt="Astrav for Enterprise - Unified command hub connecting portfolio visibility, operations, collaboration, governance, decision intelligence, performance, and resource management"
-              width={1024}
-              height={576}
+              width={1920}
+              height={1080}
               fetchPriority="high"
               loading="eager"
               decoding="async"
