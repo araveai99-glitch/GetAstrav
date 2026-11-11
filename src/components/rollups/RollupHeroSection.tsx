@@ -147,12 +147,12 @@ export const RollupHeroSection: React.FC = () => {
             {/* Desktop & Tablet: landscape composition with natural edge blending */}
             <source
               media="(min-width: 640px)"
-              srcSet="/assets/astrav_automated_rollup_hero.webp"
+              srcSet="/assets/astrav_automated_rollup_hero.webp 1x, /assets/astrav_automated_rollup_hero.webp 2x"
               type="image/webp"
             />
-            {/* Mobile: dedicated high-clarity mobile visual with rounded corners */}
+            {/* Mobile: dedicated high-clarity retina mobile visual with rounded corners */}
             <source
-              srcSet="/assets/astrav_automated_rollup_mobile.webp"
+              srcSet="/assets/astrav_automated_rollup_mobile.webp 1x, /assets/astrav_automated_rollup_mobile.webp 2x"
               type="image/webp"
             />
             <img

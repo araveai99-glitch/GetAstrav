@@ -206,3 +206,4 @@ export function setupGlobalLinkPreloader(): () => void {
     document.removeEventListener('focusin', handleInteraction);
   };
 }
+

@@ -497,12 +497,12 @@ export const ConnectedWorkflowSection: React.FC = () => {
             {/* Desktop and Tablet: landscape Command Center composition */}
             <source
               media="(min-width: 640px)"
-              srcSet="/assets/astrav_command_center_hero.webp"
+              srcSet="/assets/astrav_command_center_hero.webp 1x, /assets/astrav_command_center_hero.webp 2x"
               type="image/webp"
             />
-            {/* Mobile: responsive mobile visual */}
+            {/* Mobile: responsive high-clarity retina mobile visual */}
             <source
-              srcSet="/assets/astrav_command_center_mobile.webp"
+              srcSet="/assets/astrav_command_center_mobile.webp 1x, /assets/astrav_command_center_mobile.webp 2x"
               type="image/webp"
             />
             <img
