@@ -152,8 +152,8 @@ export const Founders: React.FC = () => {
             <img
               src="/assets/astrav_founders_hero.png"
               alt="Astrav for Founders - Centralized Command Center monitoring employee performance, project progress, urgent tasks, and company goals"
-              width={1024}
-              height={576}
+              width={1920}
+              height={1080}
               fetchPriority="high"
               loading="eager"
               decoding="async"
