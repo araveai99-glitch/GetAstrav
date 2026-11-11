@@ -187,8 +187,8 @@ export const Automation: React.FC = () => {
             <img
               src="/assets/astrav_automation_reminders_hero.png"
               alt="Astrav Automation & Reminders - Central automation cube with automated rules, reminder cards, calendar, and real-time smartphone alerts"
-              width={1024}
-              height={576}
+              width={1920}
+              height={1080}
               fetchPriority="high"
               loading="eager"
               decoding="async"
