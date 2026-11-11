@@ -169,8 +169,8 @@ export const Teams: React.FC = () => {
             <img
               src="/assets/astrav_teams_pods_hero.png"
               alt="Astrav Teams & Pods - Centralized coordination hub connecting Product Pod, Tech Pod, and Ops Pod with autonomous execution and shared outcomes"
-              width={1024}
-              height={576}
+              width={1920}
+              height={1080}
               fetchPriority="high"
               loading="eager"
               decoding="async"
