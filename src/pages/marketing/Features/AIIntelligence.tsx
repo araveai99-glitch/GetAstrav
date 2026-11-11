@@ -52,12 +52,12 @@ export const AIIntelligence: React.FC = () => {
             {/* Desktop and Tablet: landscape meeting room visual with natural feathering */}
             <source
               media="(min-width: 640px)"
-              srcSet="/assets/astrav_ai_goal_decomposition_desktop.webp"
+              srcSet="/assets/astrav_ai_goal_decomposition_desktop.webp 1x, /assets/astrav_ai_goal_decomposition_desktop.webp 2x"
               type="image/webp"
             />
-            {/* Mobile: dedicated high-clarity mobile visual with rounded corners */}
+            {/* Mobile: dedicated high-clarity retina mobile visual with rounded corners */}
             <source
-              srcSet="/assets/astrav_ai_goal_decomposition_mobile.webp"
+              srcSet="/assets/astrav_ai_goal_decomposition_mobile.webp 1x, /assets/astrav_ai_goal_decomposition_mobile.webp 2x"
               type="image/webp"
             />
             <img
