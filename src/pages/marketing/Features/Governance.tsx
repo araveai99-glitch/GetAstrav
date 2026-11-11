@@ -155,8 +155,8 @@ export const Governance: React.FC = () => {
             <img
               src="/assets/astrav_governance_rbac_hero.png"
               alt="Astrav Governance & RBAC - Central security shield with role-based permissions matrix for Admin, Manager, Contributor, and Viewer with compliance controls"
-              width={1024}
-              height={576}
+              width={1920}
+              height={1080}
               fetchPriority="high"
               loading="eager"
               decoding="async"
