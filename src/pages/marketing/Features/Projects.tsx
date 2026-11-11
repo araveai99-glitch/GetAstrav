@@ -175,8 +175,8 @@ export const Projects: React.FC = () => {
             <img
               src="/assets/astrav_project_containers_hero.png"
               alt="Astrav Project Containers - Unified glass workspace containing project folders, tasks, goals, files, team members, progress, timeline, and delivery tracking"
-              width={1024}
-              height={576}
+              width={1920}
+              height={1080}
               fetchPriority="high"
               loading="eager"
               decoding="async"
