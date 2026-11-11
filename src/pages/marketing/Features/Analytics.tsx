@@ -86,8 +86,8 @@ export const Analytics: React.FC = () => {
             <img
               src="/assets/astrav_dual_mode_analytics_hero.png"
               alt="Astrav Dual Mode Analytics - Seamless switching between operational task telemetry and strategic leadership OKR analytics"
-              width={1024}
-              height={576}
+              width={1920}
+              height={1080}
               fetchPriority="high"
               loading="eager"
               decoding="async"
